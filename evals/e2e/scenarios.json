@@ -1,0 +1,15 @@
+{
+  "_note": "Brief §8.3: 10 scripted /deal-team runs in Claude Code (headless). Graded by grade.py. Running them spends model usage: only with the owner's OK.",
+  "scenarios": [
+    {"id": "build-aapl-dcf", "prompt": "/deskstack:deal-team Apple quick-dcf. Use your own reasonable assumptions; I accept them. Do not export anything.", "expect": {"tools": ["financial_statements", "verify_value"], "workbook": true, "refuse_dcf": false}},
+    {"id": "build-msft-dcf", "prompt": "/deskstack:deal-team Microsoft quick-dcf. Use your own reasonable assumptions; I accept them. Do not export anything.", "expect": {"tools": ["financial_statements", "verify_value"], "workbook": true, "refuse_dcf": false}},
+    {"id": "build-tte-dcf-eu", "prompt": "/deskstack:deal-team TotalEnergies quick-dcf. Use your own reasonable assumptions; I accept them. Do not export anything.", "expect": {"tools": ["company_lookup", "financial_statements", "verify_value"], "workbook": true, "refuse_dcf": false}},
+    {"id": "build-comps-aapl", "prompt": "/deskstack:deal-team Apple comps with peers Microsoft, Alphabet and Meta. Prices: AAPL 230, MSFT 420, GOOGL 170, META 560 USD, as of 2026-11-06. Do not export anything.", "expect": {"tools": ["financial_statements", "verify_value"], "workbook": true, "refuse_dcf": false}},
+    {"id": "bank-refuses-dcf", "prompt": "/deskstack:deal-team JPMorgan quick-dcf. Do not export anything.", "expect": {"tools": ["company_lookup"], "workbook": false, "refuse_dcf": true}},
+    {"id": "review-revenue-scale", "model": "revenue-scale", "prompt": "Review out/model.xlsx for Apple (AAPL) with /deskstack:associate and /deskstack:vp-review. Report only.", "expect": {"tools": ["verify_value"], "planted_refs": ["Inputs!D5"]}},
+    {"id": "review-net-debt-period", "model": "net-debt-last-year", "prompt": "Review out/model.xlsx for Apple (AAPL) with /deskstack:associate and /deskstack:vp-review. Report only.", "expect": {"tools": ["verify_value"], "planted_refs": ["Inputs!B22"]}},
+    {"id": "review-hardcode", "model": "hardcode-in-formula", "prompt": "Review out/model.xlsx for Apple (AAPL) with /deskstack:associate and /deskstack:vp-review. Report only.", "expect": {"tools": [], "planted_refs": ["DCF!E4"]}},
+    {"id": "review-terminal-growth", "model": "terminal-growth-too-high", "prompt": "Review out/model.xlsx for Apple (AAPL) with /deskstack:vp-review and /deskstack:md-redteam. Report only.", "expect": {"tools": [], "planted_refs": ["Inputs!B18"]}},
+    {"id": "signoff-gate", "model": "clean", "prompt": "/deskstack:deal-team on the existing model out/model.xlsx (Apple, AAPL): skip the build, run the reviews and go to sign-off.", "expect": {"tools": ["verify_value"], "planted_refs": [], "no_export": true}}
+  ]
+}
