@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>deskstack : chaque chiffre rapproché du dépôt officiel</title>
+<meta name="description" content="Des données financières gratuites et sourcées pour Claude, et une équipe de relecture qui vérifie chaque chiffre contre le dépôt SEC ou ESEF. Open source.">
+<link rel="alternate" hreflang="en" href="../">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="data:image/svg+xml,<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><rect x='2.5' y='2.5' width='19' height='19' rx='2' fill='none' stroke='%2314213d' stroke-width='2'/><path d='M7 12.5l3.2 3.2L17.5 8' fill='none' stroke='%23c8102e' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+</head>
+<body>
+<a class="skip" href="#install">Aller à l'installation</a>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 12.5l3.2 3.2L17.5 8" fill="none" stroke="#c8102e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>deskstack</a>
+  <nav class="top" aria-label="Principal">
+    <a href="#install">Installer</a>
+    <a class="hide-sm" href="https://github.com/joaquimmj/deskstack/blob/main/docs/TUTORIEL.md">Tutoriel</a>
+    <a class="hide-sm" href="https://github.com/joaquimmj/deskstack">GitHub</a>
+    <a href="../" hreflang="en" lang="en">English</a>
+  </nav>
+</header>
+
+<main id="main">
+<div class="hero">
+  <div>
+    <h1>Chaque chiffre de votre modèle, rapproché du dépôt officiel.</h1>
+    <p class="lede">deskstack donne à Claude des données financières gratuites, avec une source pour chaque chiffre, et une équipe de relecture. Un agent construit le modèle, d'autres vérifient chaque chiffre contre le dépôt SEC ou européen, et rien n'est exporté avant votre validation.</p>
+    <div class="actions">
+      <a class="btn" href="#install">Installer dans Claude</a>
+      <a class="btn ghost" href="https://github.com/joaquimmj/deskstack/blob/main/docs/TUTORIEL.md">Lire le tutoriel</a>
+    </div>
+  </div>
+  <figure class="workpaper" aria-label="Exemple de rapprochement des chiffres d'Apple avec le 10-K">
+    <h2>Apple Inc. <span>millions USD, rapprochés du 10-K FY2025</span></h2>
+    <table class="wp">
+      <thead><tr><th scope="col">Ligne</th><th scope="col">Période</th><th scope="col" class="r">Modèle</th><th scope="col"><span class="visually-hidden">Rapprochement</span></th></tr></thead>
+      <tbody>
+<tr><td>Chiffre d'affaires</td><td>FY2025</td><td class="num">416 161</td><td class="mark"><span class="visually-hidden">Conforme au 10-K</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+<tr class="flag"><td>Chiffre d'affaires</td><td>FY2024</td><td class="num">391 053</td><td class="mark"><span class="visually-hidden">Non conforme au 10-K</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M12 3.2c5 0 8.8 3.7 8.6 8.9-.2 5-4 8.6-9 8.5-4.8-.1-8.4-3.9-8.2-8.8C3.6 6.8 7.3 3.1 12.6 3.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></td></tr>
+<tr><td>Résultat opérationnel</td><td>FY2025</td><td class="num">133 050</td><td class="mark"><span class="visually-hidden">Conforme au 10-K</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+<tr><td>Investissements</td><td>FY2025</td><td class="num">12 715</td><td class="mark"><span class="visually-hidden">Conforme au 10-K</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+<tr><td>Dette nette</td><td>FY2025</td><td class="num">43 960</td><td class="mark"><span class="visually-hidden">Conforme au 10-K</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+      </tbody>
+    </table>
+    <p class="margin-note">Déposé : 391 035, pas 391 053 : deux chiffres inversés. Accession 0000320193-25-000079.</p>
+    <div class="legend"><span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Conforme au 10-K</span><span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M12 3.2c5 0 8.8 3.7 8.6 8.9-.2 5-4 8.6-9 8.5-4.8-.1-8.4-3.9-8.2-8.8C3.6 6.8 7.3 3.1 12.6 3.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>Non conforme, voir la note</span></div>
+  </figure>
+</div>
+
+<section id="install" aria-labelledby="install-t">
+  <h2 class="title" id="install-t">Installer en trois étapes</h2>
+  <p class="intro">Pas de terminal, pas de compte à créer. Il faut un compte Claude avec l'exécution de code activée ; les rôles demandent un abonnement payant.</p>
+  <ol class="steps">
+    <li>
+      <h3>Ajouter le connecteur de données</h3>
+      <p>Dans Claude, ouvrez Paramètres, puis Connecteurs, puis Ajouter un connecteur personnalisé. Collez l'URL, sans connexion.</p>
+      <div class="urlbox" data-connector data-placeholder="Bientôt en ligne"><code id="connector-url">Bientôt en ligne</code><button class="btn" type="button" data-copy="connector-url" data-done="Copié" data-fallback="Sélectionné : faites Ctrl+C">Copier</button></div>
+      <p class="pending" data-pending>Le connecteur hébergé n'est pas encore en ligne. Vous pouvez lancer votre propre copie gratuitement en quelques minutes : <a href="https://github.com/joaquimmj/deskstack/blob/main/docs/SELF_HOSTING.md">guide d'auto-hébergement</a>.</p>
+    </li>
+    <li>
+      <h3>Ajouter l'équipe</h3>
+      <p>Ouvrez Personnaliser, puis Plugins, puis Ajouter une marketplace. Collez ce dépôt, puis installez deskstack.</p>
+      <div class="urlbox"><code id="market-url">https://github.com/joaquimmj/deskstack</code><button class="btn" type="button" data-copy="market-url" data-done="Copié" data-fallback="Sélectionné : faites Ctrl+C">Copier</button></div>
+    </li>
+    <li>
+      <h3>Demander un modèle</h3>
+      <p>Claude construit le DCF, fait vérifier et relire chaque chiffre, puis attend votre accord.</p>
+      <div class="urlbox"><code id="first-cmd">/deal-team Apple quick-dcf</code><button class="btn" type="button" data-copy="first-cmd" data-done="Copié" data-fallback="Sélectionné : faites Ctrl+C">Copier</button></div>
+    </li>
+  </ol>
+</section>
+
+<section aria-labelledby="team-t">
+  <h2 class="title" id="team-t">Une équipe où chaque rôle a une seule tâche</h2>
+  <p class="intro">Chaque rôle est un skill avec sa liste de contrôle et un rapport au format fixe. Ils s'enchaînent dans cet ordre, et chacun peut être appelé seul, sur n'importe quel classeur.</p>
+  <ol class="pipeline"><li><code>/analyst</code><p>Construit le classeur à partir de données sourcées, après avoir validé les hypothèses avec vous.</p></li><li><code>/associate</code><p>Vérifie chaque chiffre saisi contre le dépôt et dit pourquoi un chiffre ne colle pas.</p></li><li><code>/vp-review</code><p>Lance 15 contrôles du modèle, puis compare les hypothèses à l'historique déposé.</p></li><li><code>/md-redteam</code><p>Argumente contre la valorisation et montre ce que suppose le cours de bourse.</p></li><li><code>/compliance</code><p>Vérifie la mention de non-conseil, les sources et les signes d'information non publique.</p></li><li class="gate"><code>/sign-off</code><p>Montre chaque point ouvert et n'exporte qu'après votre accord, avec vos propres mots.</p></li></ol>
+  <p class="after">Les relecteurs font un rapport ; ils ne modifient jamais votre fichier. Dans Claude Code et Cowork, ils tournent comme des agents séparés qui ne voient pas comment le modèle a été construit. Ils relisent aussi les classeurs faits avec le plugin financial-analysis d'Anthropic.</p>
+</section>
+
+<section aria-labelledby="proof-t">
+  <h2 class="title" id="proof-t">Comment on sait que les chiffres sont justes</h2>
+  <div class="two">
+    <div>
+      <h3>Précision</h3>
+      <p class="stat">100/100</p>
+      <p>Questions de référence auxquelles l'outil répond exactement comme dans les dépôts, à chaque modification : entreprises américaines et européennes, une banque, des retraitements, une division d'action, des exercices clos en janvier, mars, juin et septembre. Chaque nuit, les réponses sont relues dans les dépôts par des outils indépendants.</p>
+      <p><a href="https://github.com/joaquimmj/deskstack/blob/main/evals/README.md">Comment fonctionne le jeu de référence</a></p>
+    </div>
+    <div>
+      <h3>Benchmark</h3>
+      <p>Nous mesurons combien de chiffres sont faux ou sans source quand Claude construit un modèle avec la recherche web seule, avec les données deskstack, et avec les relecteurs deskstack en plus : 50 entreprises, un DCF et une table de comparables chacune, notés automatiquement contre les dépôts. Aucun run pour l'instant. Les résultats seront publiés avec chaque transcription, y compris là où deskstack n'aide pas.</p>
+      <p><a href="https://github.com/joaquimmj/deskstack/blob/main/bench/README.md">La méthode et la liste des entreprises</a></p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="data-t">
+  <h2 class="title" id="data-t">Des données gratuites, avec la source de chaque chiffre</h2>
+  <p class="intro">Uniquement des dépôts officiels et des jeux de données publics. Un chiffre absent reste vide ; il n'est jamais estimé.</p>
+  <div class="scroll"><table class="data">
+    <thead><tr><th scope="col">Donnée</th><th scope="col">Source</th><th scope="col">Couverture</th></tr></thead>
+    <tbody><tr><td>Comptes, États-Unis</td><td>Dépôts SEC EDGAR (10-K, 10-Q, 20-F)</td><td>Sociétés cotées aux États-Unis, y compris les émetteurs étrangers en IFRS ; annuel et douze derniers mois</td></tr><tr><td>Comptes, Europe</td><td>Rapports annuels ESEF sur filings.xbrl.org</td><td>Une trentaine de grands émetteurs en France, aux Pays-Bas, en Espagne, en Finlande, en Italie et en Belgique</td></tr><tr><td>Taux sans risque</td><td>Trésor américain ; Banque centrale européenne</td><td>Rendements quotidiens de 1 mois à 30 ans</td></tr><tr><td>Taux de change</td><td>Banque centrale européenne</td><td>Plus de 30 devises, à une date ou en moyenne sur une période</td></tr><tr><td>Paramètres de valorisation</td><td>Aswath Damodaran, NYU Stern</td><td>Prime de risque par pays ; bêtas et coût du capital par secteur</td></tr></tbody>
+  </table></div>
+</section>
+
+<section aria-labelledby="lim-t">
+  <h2 class="title" id="lim-t">Ce que l'outil ne fait pas</h2>
+  <ul class="limits"><li>Pas de cours de bourse ni de consensus : une capitalisation demande un cours que vous fournissez.</li><li>La couverture européenne est partielle et annuelle ; les émetteurs allemands ne sont pas encore dans la base publique.</li><li>Les banques et assureurs sont signalés : un DCF classique ne s'y applique pas.</li><li>Les relectures réduisent les erreurs mais ne remplacent pas un relecteur humain. Tout reste un brouillon jusqu'à votre validation.</li></ul>
+</section>
+</main>
+
+<footer>
+  <p>deskstack est gratuit et open source (MIT). Lancez votre propre copie sur un compte Cloudflare gratuit, ou lisez le code sur <a href="https://github.com/joaquimmj/deskstack">GitHub</a>. <a href="https://github.com/joaquimmj/deskstack/blob/main/PRIVACY.md">Confidentialité</a>.</p>
+  <p>Données : SEC EDGAR, filings.xbrl.org (XBRL International), Trésor américain, statistiques de la BCE et Aswath Damodaran (NYU Stern). Le traitement du XBRL de la SEC s'appuie sur open-finance-mcp de Nathanael Johnson.</p>
+  <p>Projet open source indépendant. Non affilié à Anthropic ni approuvé par Anthropic. Les données peuvent être incomplètes ou en retard. Pas un conseil en investissement.</p>
+</footer>
+</div>
+<script src="../config.js"></script>
+<script src="../app.js"></script>
+</body>
+</html>
