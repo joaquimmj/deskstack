@@ -5,7 +5,9 @@
 One agent builds the model, others check every number against the official filings, and nothing ships without your sign-off.
 
 - **Data layer** (`server/`, working today): a free, hosted, keyless connector serving cited financials. Sources: SEC EDGAR, EU ESEF reports, U.S. Treasury, the ECB and Damodaran.
-- **Review layer** (`plugins/`, `checker/`, in progress): role skills (analyst → associate → VP → MD → compliance → sign-off), a deterministic workbook checker, and a public benchmark of how many numbers are wrong with and without deskstack.
+- **Review layer** (`plugins/`, `checker/`, in progress): a Claude plugin with role skills, a deterministic workbook checker, and a public benchmark of how many numbers are wrong with and without deskstack.
+  - Working now: `/analyst` builds a cited DCF or comps workbook, `/associate` ties every number to the filings, `/vp-review` checks the model.
+  - Next: MD red team, compliance and sign-off.
 
 > Status: private beta. The data layer works: US SEC financials, about 30 large European issuers (ESEF/IFRS), computed ratios, risk-free rates, ECB exchange rates and Damodaran valuation inputs. The review layer is being built.
 
@@ -22,6 +24,12 @@ See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 2. Paste the connector URL (beta: `https://deskstack.<account>.workers.dev/mcp`), with no sign-in.
 3. Ask: *"Pull Apple's last 5 years of financials with sources."*
 
+## Plugin (review layer)
+
+In Claude, open **Customize → Plugins → Add marketplace** and paste this repository's URL, then install **deskstack**.
+In Claude Code (2.1.275+): `/plugin install deskstack --marketplace joaquimmj/deskstack`. On older versions run `/plugin marketplace add joaquimmj/deskstack` first, then `/plugin install deskstack@deskstack`.
+Roles and skills: [plugins/deskstack/README.md](plugins/deskstack/README.md).
+
 ## Tools
 
 | Tool | What it returns |
@@ -29,6 +37,7 @@ See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 | `company_lookup` | Name, ticker, CIK or LEI → canonical record: ticker or LEI, region (US/EU), reporting standard, currency, fiscal year end |
 | `financial_statements` | Standardized income statement, cash flow and balance sheet from SEC XBRL (US) or ESEF annual reports (EU, by LEI): annual years plus LTM (SEC), with computed EBITDA, FCF, total and net debt. Every value carries its concept and filing, and a `sources` list gives each filing's URL |
 | `key_metrics` | Growth, CAGR, margins, FCF conversion, ROE, ROA, ROIC, net debt / EBITDA, interest coverage. Each value is computed and shows its formula |
+| `verify_value` | Ties out up to 50 numbers from a model to the filings: match / mismatch / not found / ambiguous, with the filed value, the source, and hints for wrong scale, sign, period, line item or currency |
 | `risk_free_rate` | Tenor-matched government yield for a WACC: US Treasury par yield curve, ECB euro area par yields (AAA or all issuers), latest or on a date |
 | `fx_rate` | ECB reference rates for 30+ currencies: latest, on a date (balance sheet) or a period average (income statement) |
 | `valuation_inputs` | Damodaran: equity risk premium and country risk premium by country; beta, unlevered beta, cost of equity, debt and capital by industry (US, Europe, Global) |

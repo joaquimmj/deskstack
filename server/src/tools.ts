@@ -310,7 +310,7 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
               value: z.number().finite().describe("The number as written in the model"),
               scale: z.enum(["units", "thousands", "millions", "billions"]).optional().describe("Scale of `value` (default units)"),
               currency: z.string().length(3).optional().describe("ISO currency of the value, if stated"),
-              tolerance: z.number().min(0).max(0.1).optional().describe("Relative tolerance (default 0.005 = 0.5%)"),
+              tolerance: z.number().min(0).max(0.1).optional().describe("Relative tolerance, e.g. 0.01 = 1%. Default: rounding-aware (half a unit of the last digit written)"),
               ref: z.string().max(60).optional().describe("Where the number is, e.g. 'Inputs!C7' (echoed back)"),
             }),
           )
