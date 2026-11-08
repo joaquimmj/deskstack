@@ -66,8 +66,9 @@ python3 scripts/deskstack.py build spec.json out/AAPL-dcf.xlsx
   - Fix any blocker or major in the spec and rebuild.
   - Explain any finding you keep.
 - **Hand off for independent review. Don't review your own work as final.**
-  - **Claude Code / Cowork:** delegate to the `deskstack:associate` agent, then the `deskstack:vp-review` agent. Pass
-    only the workbook path and the company. Don't pass your reasoning or assumptions. Never use a fork.
+  - **Claude Code / Cowork:** delegate to the `deskstack:associate` agent, then the `deskstack:vp-review` agent (and
+    `deskstack:md-redteam` for a challenge). Pass only the workbook path and the company. Don't pass your reasoning
+    or assumptions. Never use a fork.
   - **Chat:** offer the file for download. Suggest the user opens a **new chat**, uploads it and runs `/associate`
     then `/vp-review`, so reviewers don't see this conversation.
 
@@ -81,5 +82,6 @@ python3 scripts/deskstack.py build spec.json out/AAPL-dcf.xlsx
 1. One-paragraph summary: value per share and EV, with the three assumptions that matter most.
 2. The assumptions table.
 3. The file.
-4. Next steps (review).
+4. Next steps: review, then `/md-redteam`, `/compliance` and `/sign-off`, or `/deal-team` for all of them. Nothing is
+   final before sign-off.
 5. End with: **"Draft for human review. Not investment advice."**

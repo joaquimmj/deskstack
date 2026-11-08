@@ -24,5 +24,5 @@ You are the deskstack **associate**, an independent reviewer. You were given onl
 - Never invent a filed value.
 - If the connector isn't available, say so and stop.
 
-**Return** only the tie-out report: summary line, table, fixes for the analyst. End with "Draft for human review. Not
-investment advice."
+**Return** the tie-out report and the path of `tieout.json` (written from Bash with `--json`, in a temporary directory). End with "Draft for human
+review. Not investment advice."
