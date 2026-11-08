@@ -155,6 +155,36 @@ def _cover(b: _Book, title: str, spec: dict, what: str) -> None:
 
 # ---- DCF ---------------------------------------------------------------------------------
 
+from .model import LAYOUT_SHEET  # noqa: E402
+
+
+def dcf_math(rev0: float, growth: list[float], a: dict, mid: bool, net_debt: float, shares: float) -> dict:
+    """The DCF the workbook's formulas compute, in Python: per-year rows and the valuation.
+
+    `a` holds ebit_margin, tax_rate, da_pct_revenue, capex_pct_revenue, wacc, terminal_growth (decimals).
+    Used to cache the formula results and by `sensitivity` (which re-runs it with shocked inputs).
+    """
+    rows = {k: [] for k in ("revenue", "ebit", "tax", "nopat", "da", "capex", "fcf", "df", "pv")}
+    rev = rev0
+    for j, gr in enumerate(growth):
+        rev = rev * (1 + gr)
+        ebit = rev * a["ebit_margin"]
+        tax = ebit * a["tax_rate"]
+        da, cx = rev * a["da_pct_revenue"], rev * a["capex_pct_revenue"]
+        fcf = ebit - tax + da - cx
+        df = 1 / (1 + a["wacc"]) ** ((j + 1) - (0.5 if mid else 0))
+        for k, v in zip(rows, (rev, ebit, tax, ebit - tax, da, cx, fcf, df, fcf * df)):
+            rows[k].append(v)
+    n = len(growth)
+    w, g = a["wacc"], a["terminal_growth"]
+    tv = rows["fcf"][-1] * (1 + g) / (w - g)
+    pv_tv = tv / (1 + w) ** n
+    sum_pv = sum(rows["pv"])
+    ev = pv_tv + sum_pv
+    eq = ev - net_debt
+    return {**rows, "tv": tv, "pv_tv": pv_tv, "sum_pv": sum_pv, "ev": ev, "equity": eq,
+            "per_share": eq / shares, "tv_share": pv_tv / ev if ev else None}
+
 def build_dcf(spec: dict, out: str | Path, tamper=None) -> Path:
     """`tamper(book)` runs just before saving; tests use it to plant errors."""
     for k in ("company", "ticker", "currency", "scale", "history", "assumptions", "bridge"):
@@ -284,34 +314,19 @@ def build_dcf(spec: dict, out: str | Path, tamper=None) -> Path:
     ebit0 = lines["operating_income"]["values"][-1]
     if ebit0 is not None:
         b.f(d, "B5", f"=Inputs!{last_col}{hist_row['operating_income']}", float(ebit0), num, link=True)
-    rev, fcfs, dfs = rev0, [], []
+    m = dcf_math(rev0, g, av, mid, nd, sh)
     for j, c in enumerate(cols):
         prev = "B" if j == 0 else cols[j - 1]
-        rev = rev * (1 + g[j])
-        ebit = rev * av["ebit_margin"]
-        tax = ebit * av["tax_rate"]
-        nopat = ebit - tax
-        da = rev * av["da_pct_revenue"]
-        cx = rev * av["capex_pct_revenue"]
-        fcf = nopat + da - cx
-        t = (j + 1) - (0.5 if mid else 0)
-        df = 1 / (1 + av["wacc"]) ** t
-        fcfs.append(fcf)
-        dfs.append(df)
-        b.f(d, f"{c}4", f"={prev}4*(1+Inputs!{L(2 + j)}{rg})", rev, num)
-        b.f(d, f"{c}5", f"={c}4*Inputs!$B${arow['ebit_margin']}", ebit, num)
-        b.f(d, f"{c}6", f"={c}5*Inputs!$B${arow['tax_rate']}", tax, num)
-        b.f(d, f"{c}7", f"={c}5-{c}6", nopat, num)
-        b.f(d, f"{c}8", f"={c}4*Inputs!$B${arow['da_pct_revenue']}", da, num)
-        b.f(d, f"{c}9", f"={c}4*Inputs!$B${arow['capex_pct_revenue']}", cx, num)
-        b.f(d, f"{c}10", f"={c}7+{c}8-{c}9", fcf, num)
-        b.f(d, f"{c}11", f"=1/(1+{W})^({c}3-0.5)" if mid else f"=1/(1+{W})^{c}3", df, "0.0000")
-        b.f(d, f"{c}12", f"={c}10*{c}11", fcf * df, num)
-    tv = fcfs[-1] * (1 + av["terminal_growth"]) / (av["wacc"] - av["terminal_growth"])
-    pv_tv = tv / (1 + av["wacc"]) ** n
-    sum_pv = sum(x * y for x, y in zip(fcfs, dfs))
-    ev = pv_tv + sum_pv
-    eq = ev - nd
+        b.f(d, f"{c}4", f"={prev}4*(1+Inputs!{L(2 + j)}{rg})", m["revenue"][j], num)
+        b.f(d, f"{c}5", f"={c}4*Inputs!$B${arow['ebit_margin']}", m["ebit"][j], num)
+        b.f(d, f"{c}6", f"={c}5*Inputs!$B${arow['tax_rate']}", m["tax"][j], num)
+        b.f(d, f"{c}7", f"={c}5-{c}6", m["nopat"][j], num)
+        b.f(d, f"{c}8", f"={c}4*Inputs!$B${arow['da_pct_revenue']}", m["da"][j], num)
+        b.f(d, f"{c}9", f"={c}4*Inputs!$B${arow['capex_pct_revenue']}", m["capex"][j], num)
+        b.f(d, f"{c}10", f"={c}7+{c}8-{c}9", m["fcf"][j], num)
+        b.f(d, f"{c}11", f"=1/(1+{W})^({c}3-0.5)" if mid else f"=1/(1+{W})^{c}3", m["df"][j], "0.0000")
+        b.f(d, f"{c}12", f"={c}10*{c}11", m["pv"][j], num)
+    tv, pv_tv, sum_pv, ev, eq = m["tv"], m["pv_tv"], m["sum_pv"], m["ev"], m["equity"]
     G = f"Inputs!B{arow['terminal_growth']}"
     rows = [
         ("Terminal value", f"={lastc}10*(1+{G})/(Inputs!B{arow['wacc']}-{G})", tv, num),
@@ -335,6 +350,27 @@ def build_dcf(spec: dict, out: str | Path, tamper=None) -> Path:
     b.sheet(d).column_dimensions["A"].width = 30
     for c in ["B"] + cols:
         b.sheet(d).column_dimensions[c].width = 14
+    layout = {
+        "version": 1, "kind": "dcf", "company": spec["company"], "ticker": spec["ticker"], "currency": cur, "scale": scale,
+        "inputs": {
+            "revenue0": f"Inputs!{last_col}{hist_row['revenue']}",
+            "revenue_growth": [f"Inputs!{L(2 + j)}{rg}" for j in range(n)],
+            **{k: f"Inputs!B{arow[k]}" for k in single},
+            "mid_year": f"Inputs!B{rm}",
+            "net_debt": f"Inputs!B{rb + 1}",
+            "diluted_shares": f"Inputs!B{rb + 2}",
+        },
+        "outputs": {"enterprise_value": "DCF!B17", "equity_value": "DCF!B19", "value_per_share": "DCF!B21"},
+    }
+    # The row label each input sits on, so a moved or deleted row is detected instead of read as the wrong number.
+    layout["labels"] = {
+        "revenue0": "Revenue", "revenue_growth": "Revenue growth", **{k: names[k] for k in single},
+        "mid_year": "Mid-year convention", "net_debt": "Net debt", "diluted_shares": f"Diluted shares ({scale})",
+    }
+    ws = b.sheet(LAYOUT_SHEET)
+    ws["A1"] = "deskstack layout (read by the review scripts; do not edit)"
+    ws["A2"] = json.dumps(layout)
+    ws.sheet_state = "hidden"
     if tamper:
         tamper(b)
     return b.save(out)

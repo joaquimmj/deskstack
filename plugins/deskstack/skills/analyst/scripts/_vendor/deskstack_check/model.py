@@ -81,16 +81,20 @@ def _color(cell: Cell) -> str | None:
     return None
 
 
-def load(path: str) -> Workbook:
+LAYOUT_SHEET = "_deskstack"  # hidden sheet written by build.py for the review scripts; not part of the model
+
+
+def load(path: str, include_layout: bool = False) -> Workbook:
     wf = load_workbook(path, data_only=False)
     wv = load_workbook(path, data_only=True)
-    wb = Workbook(path=path, sheet_order=list(wf.sheetnames))
+    names = [n for n in wf.sheetnames if include_layout or n != LAYOUT_SHEET]
+    wb = Workbook(path=path, sheet_order=names)
     try:
         wb.iterate = bool(wf.calculation.iterate)
     except Exception:  # noqa: BLE001
         wb.iterate = False
     wb.external_links = len(getattr(wf, "_external_links", []) or [])
-    for name in wf.sheetnames:
+    for name in names:
         sf, sv = wf[name], wv[name]
         cells: dict[str, CellInfo] = {}
         for row in sf.iter_rows():
@@ -114,6 +118,14 @@ def load(path: str) -> Workbook:
                 )
         wb.cells[name] = cells
     return wb
+
+
+def file_sha256(path: str) -> str:
+    """Identifies the exact file a report was made from (reports carry it; sign-off compares it)."""
+    import hashlib
+    from pathlib import Path
+
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
 def strip_strings(formula: str) -> str:
