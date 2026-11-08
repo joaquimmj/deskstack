@@ -12,6 +12,8 @@ export interface GoldenQuestion {
     | { kind: "has_ltm" }
     | { kind: "period_end"; period: string };
   expected: number | string | boolean | null;
+  /** True when the answer only holds on the recorded fixtures (e.g. "has an LTM period" until the next 10-Q). */
+  fixture_only?: boolean;
   unit: string | null;
   source: Record<string, unknown>;
 }
@@ -33,7 +35,7 @@ function at(obj: any, path: string): unknown {
 
 /** The answer in a tool output. Throws when the output doesn't have the shape the question expects, so a renamed
  * field or a missing group is a miss, never a silent "null". */
-export function read(q: GoldenQuestion, out: any): unknown {
+export function read(q: GoldenQuestion, out: any, strictCitations = true): unknown {
   const r = q.read;
   if (r.kind === "path") {
     const v = at(out, r.path);
@@ -51,8 +53,10 @@ export function read(q: GoldenQuestion, out: any): unknown {
   if (!(r.key in group)) throw new Error(`no ${r.key} in ${r.group}`);
   const cell = group[r.key];
   if (cell == null) return null;
-  // The answer must cite the filing that reports it (the latest annual filing for that period).
-  if (r.accession && cell.accession && cell.accession !== r.accession && !(cell.accessions ?? []).includes(r.accession)) {
+  // On recorded fixtures the answer must cite the filing that reports it (the latest annual filing for that period).
+  // Live, a later annual filing can report the same period again (next year's 10-K): citing it is right, as long as
+  // the value is the same, which the caller checks.
+  if (strictCitations && r.accession && cell.accession && cell.accession !== r.accession && !(cell.accessions ?? []).includes(r.accession)) {
     throw new Error(`${r.key} cites ${cell.accession}, not ${r.accession}`);
   }
   return cell.value;
@@ -79,10 +83,11 @@ async function withRetry(fn: () => ReturnType<Caller>): ReturnType<Caller> {
   return fn();
 }
 
-export async function runGolden(questions: GoldenQuestion[], call: Caller): Promise<GoldenResult[]> {
+export async function runGolden(questions: GoldenQuestion[], call: Caller, opts: { live?: boolean } = {}): Promise<GoldenResult[]> {
   const cache = new Map<string, Promise<{ isError: boolean; text: string; json: any }>>();
   const results: GoldenResult[] = [];
   for (const q of questions) {
+    if (opts.live && q.fixture_only) continue;
     const key = JSON.stringify(q.call);
     if (!cache.has(key)) cache.set(key, withRetry(() => call(q.call.tool, q.call.args)));
     const base = { id: q.id, expected: q.expected, tags: q.tags };
@@ -92,7 +97,7 @@ export async function runGolden(questions: GoldenQuestion[], call: Caller): Prom
         results.push({ ...base, pass: false, got: null, error: r.text.slice(0, 300) });
         continue;
       }
-      const got = read(q, r.json);
+      const got = read(q, r.json, !opts.live);
       results.push({ ...base, pass: same(q.expected, got, q.unit), got });
     } catch (e) {
       results.push({ ...base, pass: false, got: null, error: String((e as Error).message ?? e) });
