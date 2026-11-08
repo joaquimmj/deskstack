@@ -77,15 +77,13 @@ npx tsx scripts/golden.ts --url https://<worker>.workers.dev/mcp     # live; wri
 SEC_USER_AGENT="deskstack-ci you@example.com" python3 evals/differential/differential.py --live evals/results/golden-live.json
 ```
 
-## Status (2026-11-08)
+## Status (2026-11-09)
 
 | Check | Result |
 |---|---|
-| Recorded golden set | 100/100 |
-| Live script against a local `wrangler dev` (fixture snapshot; Treasury and ECB fetched live) | 100/100 |
-| ESEF differential, Arelle on the published reports (live, filings.xbrl.org) | 11/11 agree |
+| Recorded golden set (every push) | 100/100 |
+| Live golden set, deployed connector (nightly) | 99/99 (1 fixture-only question skipped) |
+| Differential, SEC: edgartools on each 10-K or 20-F XBRL instance, with its own search for later filings | 72/72 agree |
+| Differential, ESEF: Arelle on the published report packages | 11/11 agree |
 
-**Not run yet:**
-- **SEC differential:** needs `SEC_USER_AGENT`, a contact email the SEC requires.
-- **Nightly live golden set:** needs `vars.DESKSTACK_URL`, set once the connector is deployed.
-- **Nightly differential:** checks ESEF only until `SEC_USER_AGENT` is set (the job log says so).
+The nightly workflow (`.github/workflows/evals.yml`) runs all of this and publishes the badge.
