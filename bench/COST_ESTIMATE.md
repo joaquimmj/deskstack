@@ -1,8 +1,7 @@
 # deskstack-bench: API cost estimate
 
-Status: **nothing spent yet.** 2026-11-08: Joaquim approved the pilot (step 1 below: Sonnet 5.5, hard cap $20;
-auto-reload is off on the account). The main run (step 2) needs its own approval once the pilot has measured the real cost.
-Budget available: $100 of Claude API credits.
+Status: **nothing spent yet.** 2026-11-08: the owner approved the pilot (step 1 below: Sonnet 5.5, hard cap $20). The main
+run (step 2) needs its own approval once the pilot has measured the real cost. Budget available: $100 of Claude API credits.
 
 ## What one full run is
 
@@ -77,6 +76,6 @@ plan leaves it out.
 
 ## Who does what
 
-- Joaquim sets the API key himself, in his own shell (`ANTHROPIC_API_KEY`). It is never pasted in chat or committed.
+- The owner sets the API key in their own shell (`ANTHROPIC_API_KEY`). It is never pasted in chat or committed.
 - Every run's raw output, token usage and dollar cost lands in `bench/results/` (brief §8.2: reproducible, honest
   reporting).

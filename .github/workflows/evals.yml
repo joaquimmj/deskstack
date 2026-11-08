@@ -5,8 +5,8 @@
 #
 # Needs (set by the repo owner; never commit them):
 #   vars.DESKSTACK_URL      the deployed connector, e.g. https://deskstack.<account>.workers.dev/mcp
-#   secrets.SEC_USER_AGENT  "<app name> <contact email>" (SEC fair-access policy). Without it the SEC half can't run,
-#                           and the differential job fails rather than pass with nothing checked.
+#   secrets.SEC_USER_AGENT  "<app name> <contact email>" (SEC fair-access policy). Without it only the ESEF half runs
+#                           (and the job log says so); with it, both halves run and a skipped half fails the job.
 # The recorded-fixture golden set runs on every push (ci.yml → npm test).
 
 name: Evals (nightly)
@@ -84,7 +84,9 @@ jobs:
         run: |
           live=""
           if [ -f evals/results/golden-live.json ]; then live="--live evals/results/golden-live.json"; fi
-          python evals/differential/differential.py $live
+          only=""
+          if [ -z "$SEC_USER_AGENT" ]; then only="--only esef"; echo "::notice::SEC_USER_AGENT is not set: checking ESEF only"; fi
+          python evals/differential/differential.py $live $only
       - uses: actions/upload-artifact@v4
         if: always()
         with:

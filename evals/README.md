@@ -84,5 +84,4 @@ SEC_USER_AGENT="deskstack-ci you@example.com" python3 evals/differential/differe
 **Not run yet:**
 - **SEC differential:** needs `SEC_USER_AGENT`, a contact email the SEC requires.
 - **Nightly live golden set:** needs `vars.DESKSTACK_URL`, set once the connector is deployed.
-- **Nightly differential:** fails until `SEC_USER_AGENT` is set; that is deliberate, so it never passes with nothing
-  checked.
+- **Nightly differential:** checks ESEF only until `SEC_USER_AGENT` is set (the job log says so).
