@@ -7,7 +7,7 @@ conventions, standard model sanity checks). It never grades a person.
 
 from __future__ import annotations
 
-from .model import load
+from .model import file_sha256, load
 from .rules import RULE_INFO, SEVERITY_ORDER, STRUCTURAL, VALUE_BASED, Finding
 
 __version__ = "0.2.0"
@@ -35,7 +35,9 @@ def check(path: str) -> dict:
     findings.sort(key=lambda f: (SEVERITY_ORDER[f.severity], f.rule, f.ref))
     counts = {s: sum(1 for f in findings if f.severity == s) for s in SEVERITY_ORDER}
     return {
+        "report": "review",
         "file": path,
+        "model_sha256": file_sha256(path),
         "checker": f"deskstack_check {__version__}",
         "counts": counts,
         "findings": [f.__dict__ for f in findings],

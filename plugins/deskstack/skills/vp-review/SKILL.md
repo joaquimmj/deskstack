@@ -21,6 +21,7 @@ The script lives in this skill's folder: `${CLAUDE_SKILL_DIR}/scripts/deskstack.
 
 ```bash
 python3 scripts/deskstack.py check model.xlsx
+python3 scripts/deskstack.py check model.xlsx --json > review.json   # for /sign-off (add --audit audit.md in companion mode)
 ```
 
 It reports rule findings DS001–DS015 in the `audit-xls` table format plus `Rule` and `Found by` columns:
@@ -80,4 +81,5 @@ by about X%". Compute that from the model's own numbers and show the arithmetic.
 2. **The checker table** (step 1).
 3. **The judgment table:** `| # | Sheet | Cell/Range | Severity | Category | Issue | Suggested Fix |`.
 4. **Fixes for the analyst,** most severe first.
-5. End with: "Draft for human review. Not investment advice."
+5. **The path of `review.json`.** It covers the checker findings only; list your judgment findings in the report.
+6. End with: "Draft for human review. Not investment advice."

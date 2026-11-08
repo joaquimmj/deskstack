@@ -54,7 +54,7 @@ def test_skill_frontmatter(skill):
 
 
 def test_agents_are_read_only_reviewers():
-    for name in ("associate", "vp-review"):
+    for name in ("associate", "vp-review", "md-redteam"):
         fm = frontmatter(PLUGIN / "agents" / f"{name}.md")
         assert fm["name"] == name and fm["description"]
         assert {"Write", "Edit"} <= {t.strip() for t in fm["disallowedTools"].split(",")}
@@ -72,7 +72,7 @@ def test_vendored_copies_are_current():
     assert r.returncode == 0, r.stdout + r.stderr
 
 
-@pytest.mark.parametrize("skill", ["analyst", "associate", "vp-review"])
+@pytest.mark.parametrize("skill", ["analyst", "associate", "vp-review", "md-redteam", "compliance", "sign-off"])
 def test_launcher_runs_without_any_installed_package(tmp_path, skill):
     """-I -S: no user site, no site-packages. Only the vendored copy can provide openpyxl."""
     model = build_demo("hardcode-in-formula", tmp_path)
