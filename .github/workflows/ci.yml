@@ -26,3 +26,14 @@ jobs:
       # Offline snapshot from fixtures, then check the Worker bundles (no deploy).
       - run: npx tsx scripts/build-snapshot.ts --fixtures test/fixtures/sec
       - run: npx wrangler deploy --dry-run --outdir dist
+
+  checker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install openpyxl==3.1.5 et_xmlfile==2.0.0 pytest==8.3.3
+      # Includes: golden.json is current, vendored plugin copies are current, the e2e grader and the differential logic.
+      - run: python -m pytest -q checker/tests
