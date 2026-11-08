@@ -1,6 +1,7 @@
 # deskstack-bench: API cost estimate
 
-Status: **estimate only, nothing spent.** No paid run starts before Joaquim approves a budget (brief §8.2).
+Status: **nothing spent yet.** 2026-11-08: Joaquim approved the pilot (step 1 below: Sonnet 5.5, hard cap $20;
+auto-reload is off on the account). The main run (step 2) needs its own approval once the pilot has measured the real cost.
 Budget available: $100 of Claude API credits.
 
 ## What one full run is
