@@ -9,6 +9,7 @@ import { ConfigError, ToolError, UpstreamError } from "./errors";
 import { countryPremium, DAMODARAN_PAGE, industryInputs, industryNames } from "./damodaran";
 import type { Fx } from "./fx";
 import { keyMetrics } from "./metrics";
+import { summarize, verifyItems } from "./verify";
 import {
   companyBlock,
   euCompanyBlock,
@@ -283,6 +284,65 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
           warnings,
           sources: r.kind === "eu" ? euSourcesFor(r.rec, cited) : sourcesFor(r.rec, cited),
           data_as_of: r.rec.built_at,
+          disclaimer: DISCLAIMER,
+        });
+      }),
+  );
+
+  server.registerTool(
+    "verify_value",
+    {
+      title: "Tie out numbers to the filings",
+      description:
+        "Check numbers from a model, memo or deck against the filed figures (SEC XBRL or EU ESEF). Pass the company " +
+        "and up to 50 items, each with a line item (e.g. 'revenue', 'net income', 'EBIT', 'capex', 'total debt'), a " +
+        "period ('FY2024', 'LTM', 'latest' or an end date), the value and its scale (units, thousands, millions, " +
+        "billions). Each item comes back as match / mismatch / not_found / ambiguous with the filed value, the " +
+        "difference, the source, and hints for common errors: wrong scale, flipped sign, wrong currency, a figure " +
+        "from another period, or a different line item. Use it to tie out every hardcoded input before sharing work.",
+      inputSchema: z.object({
+        company: z.string().min(1).max(24).describe("Ticker, CIK, or LEI (EU issuers), as for financial_statements"),
+        items: z
+          .array(
+            z.object({
+              metric: z.string().min(1).max(60).describe("Line item, e.g. 'revenue', 'net income', 'capex'"),
+              period: z.string().min(2).max(20).describe("'FY2024', 'LTM', 'latest' or a period end 'YYYY-MM-DD'"),
+              value: z.number().finite().describe("The number as written in the model"),
+              scale: z.enum(["units", "thousands", "millions", "billions"]).optional().describe("Scale of `value` (default units)"),
+              currency: z.string().length(3).optional().describe("ISO currency of the value, if stated"),
+              tolerance: z.number().min(0).max(0.1).optional().describe("Relative tolerance (default 0.005 = 0.5%)"),
+              ref: z.string().max(60).optional().describe("Where the number is, e.g. 'Inputs!C7' (echoed back)"),
+            }),
+          )
+          .min(1)
+          .max(50),
+      }),
+      annotations: READ_ONLY,
+    },
+    async ({ company, items }) =>
+      guarded(async () => {
+        const r = await resolveRecord(company);
+        const std = r.rec.financials!;
+        const results = verifyItems(std, items);
+        const cited = new Set(results.flatMap((x) => x.accessions));
+        const counts = summarize(results);
+        const name = std.entity_name ?? r.rec.name;
+        return ok({
+          summary:
+            `${name}: ${counts.match} of ${counts.total} value(s) match the filings` +
+            (counts.mismatch ? `, ${counts.mismatch} mismatch` : "") +
+            (counts.not_found ? `, ${counts.not_found} not found` : "") +
+            (counts.ambiguous ? `, ${counts.ambiguous} ambiguous` : "") +
+            ". Read each item's hints before changing a number.",
+          company: r.kind === "eu" ? euCompanyBlock(r.rec) : companyBlock(r.rec),
+          currency: std.currency,
+          counts,
+          results,
+          sources: r.kind === "eu" ? euSourcesFor(r.rec, cited) : sourcesFor(r.rec, cited),
+          note:
+            `Computed lines (EBITDA, free cash flow, total debt, net debt) are checked against ${PRODUCT_NAME}'s own formula ` +
+            "from the filed inputs, shown in the hints. A match means the number agrees with the filing; it does not " +
+            "validate assumptions or forecasts.",
           disclaimer: DISCLAIMER,
         });
       }),

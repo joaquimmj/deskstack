@@ -88,7 +88,7 @@ describe("tools (live SEC path)", () => {
     for (const mode of ["auto", "legacy"] as const) {
       const client = await connect(baseEnv(), mode);
       const { tools } = await client.listTools();
-      expect(new Set(tools.map((t) => t.name))).toEqual(new Set(["company_lookup", "financial_statements", "key_metrics", "risk_free_rate", "fx_rate", "valuation_inputs", "data_status"]));
+      expect(new Set(tools.map((t) => t.name))).toEqual(new Set(["company_lookup", "financial_statements", "key_metrics", "verify_value", "risk_free_rate", "fx_rate", "valuation_inputs", "data_status"]));
       expect(tools.every((t) => t.annotations?.readOnlyHint)).toBe(true);
       await client.close();
     }
@@ -195,6 +195,32 @@ describe("M2 tools", () => {
     const eur = await call(baseEnv(), "risk_free_rate", { region: "EUR" });
     expect(eur.json.tenor).toBe("10Y");
     expect(eur.json.sources[0].license_note).toMatch(/ECB statistics/);
+  });
+});
+
+describe("verify_value", () => {
+  it("ties out a batch from a model, with hints and sources, from the snapshot", async () => {
+    const r = await call(baseEnv({ ASSETS: fixtureAssets(["AAPL"]) }), "verify_value", {
+      company: "AAPL",
+      items: [
+        { metric: "revenue", period: "FY2024", value: 391.035, scale: "billions", ref: "Inputs!C5" },
+        { metric: "revenue", period: "FY2024", value: 391035, scale: "thousands", ref: "Inputs!C6" },
+      ],
+    });
+    expect(r.isError).toBe(false);
+    expect(r.json.counts).toMatchObject({ total: 2, match: 1, mismatch: 1 });
+    expect(r.json.results[1].hints[0]).toMatch(/in millions/);
+    expect(r.json.sources[0].url).toMatch(/^https:\/\/www\.sec\.gov\/Archives\//);
+    expect(calls).toEqual([]);
+  });
+
+  it("works for EU issuers by LEI", async () => {
+    const r = await call(baseEnv({ ASSETS: fixtureAssets(["AAPL"]) }), "verify_value", {
+      company: TTE.lei,
+      items: [{ metric: "net income", period: "FY2024", value: 15758, scale: "millions" }],
+    });
+    expect(r.json.results[0].status).toBe("match");
+    expect(r.json.sources[0].form).toBe("ESEF annual report");
   });
 });
 
