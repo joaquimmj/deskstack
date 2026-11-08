@@ -35,6 +35,26 @@ class Finding:
 
 SEVERITY_ORDER = {"blocker": 0, "major": 1, "minor": 2, "info": 3}
 
+# Category and suggested fix per rule, for the audit-xls-compatible report.
+RULE_INFO = {
+    "DS000": ("Coverage", "Re-run after the noted fix (e.g. open and save the file in Excel)."),
+    "DS001": ("Hardcode", "Move the number to a labeled, blue, cited input cell and reference it."),
+    "DS002": ("Formula consistency", "Make the cell follow its row's formula, or label why it differs."),
+    "DS003": ("Formatting", "Blue font for typed inputs, black for formulas, green for links to other sheets."),
+    "DS004": ("Sourcing", "Add a Sources row citing the filing (accession) or the person who gave the number."),
+    "DS005": ("External link", "Paste the linked values as cited inputs or bring the source sheet into the workbook."),
+    "DS006": ("Error value", "Fix the broken reference or guard the division."),
+    "DS007": ("Circularity", "Break the loop, or document why it exists and keep iterative calculation on."),
+    "DS008": ("Balance sheet", "Find the plug: compare each period's asset and liability movements."),
+    "DS009": ("Cash tie-out", "Link balance-sheet cash to the cash-flow ending cash."),
+    "DS010": ("Terminal value", "Extend the forecast or test the terminal assumptions; show sensitivities."),
+    "DS011": ("WACC vs growth", "Check both inputs; terminal growth should sit well below WACC."),
+    "DS012": ("Terminal growth", "Use a long-run growth at or below nominal GDP, or justify it."),
+    "DS013": ("Units", "Convert between thousands and millions explicitly, or use one unit everywhere."),
+    "DS014": ("Sign convention", "Use one sign for capex and D&A across all periods."),
+    "DS015": ("Discount timing", "Make the discount periods match the stated mid-year or end-of-year convention."),
+}
+
 # Numbers that are fine inside formulas: 0/1/-1, percentages base, periods per year, days.
 ALLOWED_LITERALS = {0.0, 1.0, -1.0, 2.0, 100.0, 12.0, 4.0, 365.0, 360.0, 1000.0, 1000000.0, 0.5}
 NUMBER_IN_FORMULA = re.compile(r"(?<![A-Za-z0-9_.$!:\]])(\d+(?:\.\d+)?)(?![A-Za-z0-9_(!:\[])")
@@ -279,12 +299,20 @@ def r_dcf_sanity(wb: Workbook) -> list[Finding]:
 UNIT_RE = re.compile(r"\b(in |\()?(thousands|millions|billions|\$?k\b|\$?m{1,2}\b|\$?bn?\b)", re.I)
 
 
+UNIT_WORDS = [
+    (re.compile(r"\b(in |\()?(thousands)\b|\(0{3}s?\)|\bin 0{3}s?\b|\b0{3}s\b|[$€£]\s?k\b|\b(?:usd|eur|gbp)\s?k\b", re.I), "thousands"),
+    (re.compile(r"\b(in |\()?(millions)\b|(?:US)?[$€£]\s?mm?\b|\b(?:usd|eur|gbp|chf)\s?mm?\b|\(mm?\)|\bin mm?\b", re.I), "millions"),
+    (re.compile(r"\b(in |\()?(billions)\b|(?:US)?[$€£]\s?bn?\b|\b(?:usd|eur|gbp|chf)\s?bn\b|\(bn\)|\bin bn\b", re.I), "billions"),
+]
+
+
 def _sheet_unit(wb: Workbook, sheet: str) -> str | None:
+    """The unit a sheet declares near its top: "(USD in millions)", "$mm", "EUR m", "(000s)", "€bn"..."""
     for c in list(wb.cells[sheet].values())[:60]:
         if isinstance(c.constant, str):
-            m = re.search(r"\b(in |\()?(thousands|millions|billions)\b", c.constant, re.I)
-            if m:
-                return m.group(2).lower()
+            for pat, unit in UNIT_WORDS:
+                if pat.search(c.constant):
+                    return unit
     return None
 
 

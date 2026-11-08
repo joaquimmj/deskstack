@@ -7,12 +7,12 @@ into the sheet XML as <v>, the way Excel does when it saves.
 
 from __future__ import annotations
 
-import re
-import zipfile
 from pathlib import Path
 
 from openpyxl import Workbook
 from openpyxl.styles import Font
+
+from deskstack_check.xlsxio import inject_values
 
 BLUE = Font(color="FF0000FF")
 BLACK = Font(color="FF000000")
@@ -44,38 +44,8 @@ class Model:
     def save(self, path: Path, cache: bool = True) -> Path:
         self.wb.save(path)
         if cache:
-            _inject_values(path, self.cached, self.wb.sheetnames)
+            inject_values(path, self.cached, self.wb.sheetnames)
         return path
-
-
-def _inject_values(path: Path, cached: dict[tuple[str, str], object], sheets: list[str]) -> None:
-    tmp = path.with_suffix(".tmp.xlsx")
-    with zipfile.ZipFile(path) as zin, zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zout:
-        for item in zin.infolist():
-            data = zin.read(item.filename)
-            m = re.match(r"xl/worksheets/sheet(\d+)\.xml$", item.filename)
-            if m:
-                name = sheets[int(m.group(1)) - 1]
-                xml = data.decode("utf-8")
-                for (s, coord), v in cached.items():
-                    if s != name:
-                        continue
-                    if isinstance(v, str):  # an error result such as #DIV/0!
-                        val = f'<v>{v}</v>'
-                        xml = re.sub(rf'<c r="{coord}"([^>]*)>(<f>.*?</f>)(<v>.*?</v>|<v\s*/>)?</c>',
-                                     lambda mm: f'<c r="{coord}"{_t(mm.group(1), "e")}>{mm.group(2)}{val}</c>', xml)
-                    else:
-                        val = f"<v>{'1' if v is True else '0' if v is False else repr(float(v))}</v>"
-                        xml = re.sub(rf'<c r="{coord}"([^>]*)>(<f>.*?</f>)(<v>.*?</v>|<v\s*/>)?</c>',
-                                     lambda mm: f'<c r="{coord}"{mm.group(1)}>{mm.group(2)}{val}</c>', xml)
-                data = xml.encode("utf-8")
-            zout.writestr(item, data)
-    tmp.replace(path)
-
-
-def _t(attrs: str, t: str) -> str:
-    attrs = re.sub(r'\st="[^"]*"', "", attrs)
-    return f'{attrs} t="{t}"'
 
 
 def clean_dcf() -> Model:
