@@ -1,95 +1,115 @@
 # deskstack
 
-**Your AI deal team inside Claude: built, tied out to the filings, reviewed, red-teamed. Free data. US + Europe.**
+**Your AI deal team inside Claude. One agent builds the model, others check every number against the filings, and
+nothing ships without your sign-off. Free data, US and Europe.**
 
-One agent builds the model, others check every number against the official filings, and nothing ships without your sign-off.
+[![golden set](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/joaquimmj/deskstack/main/site/badges/golden.json)](evals/README.md)
+· [Website](https://joaquimmj.github.io/deskstack/) · [Tutorial](docs/TUTORIAL.md) · [Tutoriel (FR)](docs/TUTORIEL.md)
 
-- **Data layer** (`server/`, working today): a free, hosted, keyless connector serving cited financials. Sources: SEC EDGAR, EU ESEF reports, U.S. Treasury, the ECB and Damodaran.
-- **Review layer** (`plugins/`, `checker/`, in progress): a Claude plugin with role skills, a deterministic workbook checker, and a public benchmark of how many numbers are wrong with and without deskstack.
-  - Working now:
-    - `/analyst` builds a cited DCF or comps workbook;
-    - `/associate` ties every number to the filings;
-    - `/vp-review` checks the model;
-    - `/md-redteam` challenges it;
-    - `/compliance` checks hygiene;
-    - `/sign-off` exports only after your approval;
-    - `/deal-team` runs the whole sequence.
+> **Public beta.** The hosted connector isn't online yet. Until it is, you can self-host it in a few minutes on a
+> free Cloudflare account ([docs/SELF_HOSTING.md](docs/SELF_HOSTING.md)). Everything else below works today.
 
-> Status: public beta. The hosted connector isn't online yet: until it is, self-host it in a few minutes ([docs/SELF_HOSTING.md](docs/SELF_HOSTING.md)). The data layer works: US SEC financials, about 30 large European issuers (ESEF/IFRS), computed ratios, risk-free rates, ECB exchange rates and Damodaran valuation inputs. The review layer is being built.
+## Benchmark
 
-## Data layer built on open-finance-mcp
+How many numbers in an AI-built model are wrong or unsourced, with and without deskstack. The test covers 50
+companies, a DCF and a comps table each, and three setups: web search only, deskstack data, and deskstack plus its
+reviewers. Scoring is automatic, against the filings. The runner, the frozen company set and the method are in
+[bench/](bench/README.md).
 
-The hard part, turning messy SEC XBRL into correct, cited numbers, was first solved by
-[open-finance-mcp](https://github.com/nathanaelhub/open-finance-mcp) by **Nathanael Johnson** (MIT).
-deskstack ports its rules to TypeScript for a hosted Cloudflare Worker and runs parity tests on its fixtures.
-See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+**Results are pending.** No benchmark has been run yet; the chart goes here once it has.
 
 ## Install in 30 seconds
 
-1. In Claude, open **Settings → Connectors → Add custom connector**.
-2. Paste the connector URL (beta: `https://deskstack.<account>.workers.dev/mcp`), with no sign-in.
-3. Ask: *"Pull Apple's last 5 years of financials with sources."*
+1. **Data:** in Claude, open **Settings → Connectors → Add custom connector** and paste the connector URL, with no
+   sign-in. The URL will be published here once the connector is online; until then, use your own
+   ([self-hosting](docs/SELF_HOSTING.md)).
+2. **Roles:** open **Customize → Plugins → Add marketplace**, paste `https://github.com/joaquimmj/deskstack`, then
+   install **deskstack**. In Claude Code: `/plugin install deskstack --marketplace joaquimmj/deskstack` (2.1.275+).
+3. **Try it:** `/deal-team Apple quick-dcf`.
 
-## Plugin (review layer)
+The tutorial walks through a first reviewed DCF in about 10 minutes: [English](docs/TUTORIAL.md) ·
+[français](docs/TUTORIEL.md).
 
-In Claude, open **Customize → Plugins → Add marketplace** and paste this repository's URL, then install **deskstack**.
-In Claude Code (2.1.275+): `/plugin install deskstack --marketplace joaquimmj/deskstack`. On older versions run `/plugin marketplace add joaquimmj/deskstack` first, then `/plugin install deskstack@deskstack`.
-Roles and skills: [plugins/deskstack/README.md](plugins/deskstack/README.md).
+## The roles
 
-## Tools
+| Command | Role | What it does |
+|---|---|---|
+| `/analyst` | Builder | Pulls cited data, agrees the assumptions with you, builds the workbook (blue inputs, a Sources sheet, a disclaimer) |
+| `/associate` | Tie-out | Checks every typed number against the filing with `verify_value`, and flags wrong scale, sign, period, line item or currency |
+| `/vp-review` | Model review | Runs 15 deterministic checks (hardcodes, broken rows, balance sheet, terminal value…), then compares the assumptions with filed history |
+| `/md-redteam` | Challenge | Sensitivities, the assumptions the market price implies, the top five objections |
+| `/compliance` | Hygiene | Disclaimer, citations, dated user inputs, no sign of non-public information, no buy/sell language |
+| `/sign-off` | Human gate | One page of every check. A signed copy is exported only after you approve in your own words |
+| `/deal-team` | Orchestrator | Runs the whole sequence |
 
-| Tool | What it returns |
-|---|---|
-| `company_lookup` | Name, ticker, CIK or LEI → canonical record: ticker or LEI, region (US/EU), reporting standard, currency, fiscal year end |
-| `financial_statements` | Standardized income statement, cash flow and balance sheet from SEC XBRL (US) or ESEF annual reports (EU, by LEI): annual years plus LTM (SEC), with computed EBITDA, FCF, total and net debt. Every value carries its concept and filing, and a `sources` list gives each filing's URL |
-| `key_metrics` | Growth, CAGR, margins, FCF conversion, ROE, ROA, ROIC, net debt / EBITDA, interest coverage. Each value is computed and shows its formula |
-| `verify_value` | Ties out up to 50 numbers from a model to the filings: match / mismatch / not found / ambiguous, with the filed value, the source, and hints for wrong scale, sign, period, line item or currency |
-| `risk_free_rate` | Tenor-matched government yield for a WACC: US Treasury par yield curve, ECB euro area par yields (AAA or all issuers), latest or on a date |
-| `fx_rate` | ECB reference rates for 30+ currencies: latest, on a date (balance sheet) or a period average (income statement) |
-| `valuation_inputs` | Damodaran: equity risk premium and country risk premium by country; beta, unlevered beta, cost of equity, debt and capital by industry (US, Europe, Global) |
-| `data_status` | Coverage, data freshness, limits, self-hosting link, disclaimer |
+Reviewers report; they never edit. In Claude Code and Cowork, they run as separate agents that don't see the
+builder's reasoning. Details: [docs/ROLES.md](docs/ROLES.md).
+
+**Companion mode.** The reviewers also work on models built by Anthropic's `financial-analysis` plugin, and merge its
+`audit-xls` findings.
+
+## Data sources and coverage
+
+| Data | Source | Coverage |
+|---|---|---|
+| Financial statements (US) | SEC EDGAR XBRL (10-K, 10-Q, 20-F) | US-listed companies, including IFRS foreign filers; annual years plus LTM |
+| Financial statements (EU) | ESEF annual reports via [filings.xbrl.org](https://filings.xbrl.org) | About 30 large issuers in France, the Netherlands, Spain, Finland, Italy and Belgium; annual |
+| Risk-free rates | U.S. Treasury par yield curve; ECB euro area par yields | Daily, 1 month to 30 years |
+| Exchange rates | ECB reference rates | 30+ currencies, latest, on a date or as a period average |
+| Valuation inputs | Aswath Damodaran's public datasets (NYU Stern) | ERP and country risk by country; betas and cost of capital by industry |
+
+Every value carries its source: filing, accession or report, period. The 8 tools are documented in
+[docs/TOOLS.md](docs/TOOLS.md). Terms and attribution for each source are in [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md).
 
 ## Accuracy
 
-The golden set holds 100 questions with known answers from the filings. It covers US and EU issuers, IFRS 20-F
-filers, a bank, restatements, a stock split, 52/53-week years, and fiscal years ending in January, March, June and
-September.
-
-- **Every push:** the set runs through the real tools on recorded data, and every question must pass (today: 100%).
-- **Nightly, once configured:** the same set runs against the live connector, and each answer is re-read from the
-  filing itself with independent parsers: edgartools for SEC, Arelle for ESEF.
-
-See [evals/README.md](evals/README.md).
-
-## How it stays free
-
-- **Cloudflare Workers Free plan.** There's a global daily cap with a friendly message and a per-IP rate limit.
-- **No live parsing of large filings.** A nightly GitHub Action builds a per-company snapshot from SEC bulk data and ships it as static assets, which are free.
-- **Self-host in a few minutes** with your own free account: [docs/SELF_HOSTING.md](docs/SELF_HOSTING.md).
-
-## Data sources
-
-SEC EDGAR (public domain), ESEF annual reports via [filings.xbrl.org](https://filings.xbrl.org) (XBRL International), U.S. Treasury, the ECB Data Portal (Source: ECB statistics), and Aswath Damodaran's public datasets (NYU Stern), with attribution. Terms, limits and attribution for every source are in [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md).
+- **The golden set:** 100 questions with known answers from the filings. It covers:
+  - US and EU issuers, and IFRS 20-F filers;
+  - a bank;
+  - restatements and a stock split;
+  - 52/53-week years, and fiscal years ending in January, March, June and September.
+- **Every push:** every question must pass through the real tools on recorded data. Today: 100%.
+- **Nightly:** an independent re-read of each answer from the filing itself, with edgartools for SEC and Arelle for
+  ESEF. Details: [evals/README.md](evals/README.md).
 
 ## Limitations
 
-- No share prices. Market cap = SEC shares outstanding × a price you give.
+- No share prices: a market cap needs a price you give.
 - No consensus estimates.
-- Europe: about 30 large issuers so far (France, Netherlands, Spain, Finland, Italy, Belgium), annual figures only. No German issuers: their reports aren't in the public ESEF repository. Lines an issuer tags only with its own concepts come back `null`.
-- IFRS 20-F filers have no LTM, because SEC has no XBRL for 6-K interims.
+- European coverage is partial and annual only. There are no German issuers, because their reports aren't in the
+  public ESEF repository.
+- IFRS 20-F filers have no LTM.
 - Banks and insurers are flagged; EBITDA and EV metrics don't apply to them.
+- **Reviewers reduce errors but don't replace a human reviewer.** Everything is a draft until you sign it off.
 
-## Development
+## How it stays free
+
+- **Free hosting:** the server runs on Cloudflare Workers' Free plan, with a daily cap and a per-IP limit.
+- **Static snapshot:** SEC data comes from a nightly snapshot served as static files.
+- **Self-hosting:** your own copy takes a few minutes and costs nothing ([docs/SELF_HOSTING.md](docs/SELF_HOSTING.md)).
+- **Privacy:** the server stores no user data and logs no prompts ([PRIVACY.md](PRIVACY.md)).
+
+## Contributing
+
+You can add a data source, a checker rule, a role, golden questions or benchmark companies. See
+[CONTRIBUTING.md](CONTRIBUTING.md).
 
 ```bash
-cd server && npm ci
-npm test
-npx tsx scripts/build-snapshot.ts --fixtures test/fixtures/sec   # offline dev snapshot
-npm run dev
-npx tsx scripts/smoke.ts                                         # call every tool on the local server
+cd server && npm ci && npm test           # data server (TypeScript, Cloudflare Worker)
+python3 -m pytest checker/tests           # checker and plugin scripts (Python, openpyxl)
 ```
+
+## Credits
+
+- **SEC XBRL standardization:** first solved by [open-finance-mcp](https://github.com/nathanaelhub/open-finance-mcp)
+  by Nathanael Johnson (MIT). deskstack ports it to TypeScript with parity tests.
+- **Bundled code:** openpyxl and et_xmlfile (MIT), vendored in the plugin.
+- **Third-party data:** SEC EDGAR, XBRL International's filings.xbrl.org, U.S. Treasury, ECB statistics, and Aswath
+  Damodaran (NYU Stern).
+
+See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ---
 
-Independent open-source project. Not affiliated with or endorsed by Anthropic.
-Data may be incomplete or delayed; verify against the cited filing. Not investment advice.
+Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed;
+verify against the cited filing. Not investment advice. MIT license.
