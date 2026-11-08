@@ -5,9 +5,16 @@ Deterministic checks for financial models in `.xlsx`, used by the `/vp-review` s
 checked. It reports findings and never grades a person.
 
 ```bash
-python -m deskstack_check model.xlsx          # markdown report
-python -m deskstack_check model.xlsx --json   # machine-readable
+python -m deskstack_check model.xlsx                     # model check, markdown (audit-xls table + Rule, Found by)
+python -m deskstack_check model.xlsx --json              # machine-readable
+python -m deskstack_check check model.xlsx --audit a.md  # merge an audit-xls findings table (companion mode)
+python -m deskstack_check extract model.xlsx             # typed numbers + draft verify_value batches (JSON)
+python -m deskstack_check tieout model.xlsx results.json # tie-out report from verify_value results
+python -m deskstack_check build spec.json out.xlsx       # build a cited DCF or comps workbook
 ```
+
+The plugin's skills run vendored copies of this package (`python3 plugins/sync_vendor.py` refreshes them; a test
+fails when they are stale).
 
 | Rule | Severity | Check |
 |---|---|---|
@@ -30,5 +37,9 @@ python -m deskstack_check model.xlsx --json   # machine-readable
 Value-based rules (DS008–DS015) read the results Excel cached when it last saved the file. A file
 written by a script and never opened in Excel has none, and the report says so (DS000, info).
 
-Tests: `python -m pytest tests`. Each rule fires on a planted error in a synthetic model, and the clean
-model raises nothing.
+Tests: `python -m pytest tests`.
+- Each rule fires on a planted error in a synthetic model, and the clean model raises nothing.
+- 11 Apple demo DCFs (`tests/demo_models.py`) each plant one error.
+  - Model errors must be caught by the checker.
+  - Data errors must be caught by the tie-out: `server/test/demo.test.ts` runs their extracted batches through
+    `verify_value`.

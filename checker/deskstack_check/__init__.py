@@ -8,9 +8,9 @@ conventions, standard model sanity checks). It never grades a person.
 from __future__ import annotations
 
 from .model import load
-from .rules import SEVERITY_ORDER, STRUCTURAL, VALUE_BASED, Finding
+from .rules import RULE_INFO, SEVERITY_ORDER, STRUCTURAL, VALUE_BASED, Finding
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __all__ = ["check", "Finding", "__version__"]
 
 
@@ -42,17 +42,30 @@ def check(path: str) -> dict:
     }
 
 
-def to_markdown(report: dict) -> str:
-    c = report["counts"]
+AUDIT_SEVERITY = {"blocker": "Critical", "major": "Warning", "minor": "Info", "info": "Info"}
+
+
+def to_markdown(report: dict, merged: list[dict] | None = None) -> str:
+    """The audit-xls table (# | Sheet | Cell/Range | Severity | Category | Issue | Suggested Fix) plus Rule and Found by.
+
+    Severity shows ours and the audit-xls equivalent (blocker = Critical, major = Warning, minor/info = Info).
+    """
+    rows = merged if merged is not None else report["findings"]
+    c = {s: sum(1 for f in rows if f["severity"] == s) for s in SEVERITY_ORDER}
+    overall = "Major Issues" if c["blocker"] else ("Minor Issues" if c["major"] or c["minor"] else "Clean")
     lines = [
         f"## Model check: {report['file']}",
-        f"{c['blocker']} blocker, {c['major']} major, {c['minor']} minor ({report['checker']}).",
+        f"Overall: {overall} — {c['blocker']} blocker, {c['major']} major, {c['minor']} minor, {c['info']} info ({report['checker']}).",
         "",
-        "| Severity | Rule | Cell | Finding |",
-        "|---|---|---|---|",
+        "| # | Sheet | Cell/Range | Severity | Category | Issue | Suggested Fix | Rule | Found by |",
+        "|---|---|---|---|---|---|---|---|---|",
     ]
-    for f in report["findings"]:
-        lines.append(f"| {f['severity']} | {f['rule']} | `{f['ref']}` | {f['message']} |")
-    if not report["findings"]:
-        lines.append("| - | - | - | No findings. |")
+    for i, f in enumerate(rows, start=1):
+        sheet, _, cell = f["ref"].partition("!")
+        cat, fix = RULE_INFO.get(f["rule"], (f.get("category", ""), f.get("fix", "")))
+        sev = f"{f['severity']} ({AUDIT_SEVERITY[f['severity']]})"
+        msg = f["message"].replace("|", "/")
+        lines.append(f"| {i} | {sheet} | `{cell}` | {sev} | {cat} | {msg} | {fix} | {f['rule']} | {f.get('found_by', 'deskstack')} |")
+    if not rows:
+        lines.append("| - | - | - | - | - | No findings. | - | - | - |")
     return "\n".join(lines)
