@@ -12,8 +12,8 @@
   "workers_dev": true,
   "observability": { "enabled": true },
   "vars": {
-    // SEC fair-access policy: "<app name> <contact email>". Set your own before deploying.
-    "SEC_USER_AGENT": "",
+    // SEC_USER_AGENT ("<app name> <contact email>", SEC fair-access policy) is a secret, never committed:
+    //   printf '%s' "myapp me@example.com" | npx wrangler secret put SEC_USER_AGENT
     "DAILY_CAP": "90000",
     "PER_IP_PER_MINUTE": "60"
   }

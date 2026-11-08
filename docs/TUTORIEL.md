@@ -12,9 +12,8 @@ Vous allez construire un DCF rapide d'Apple à partir de ses comptes déposés, 
 ## 1. Ajouter le connecteur de données (1 minute)
 
 1. **Ouvrez le formulaire :** dans Claude, allez dans **Paramètres → Connecteurs → Ajouter un connecteur personnalisé**.
-2. **Remplissez-le :** nommez-le `deskstack` et collez l'URL du connecteur indiquée dans le
-   [README](../README.md#install-in-30-seconds). Aucune connexion n'est demandée. Si l'URL publique n'est pas encore
-   en ligne, utilisez votre propre copie ([auto-hébergement](SELF_HOSTING.md)).
+2. **Remplissez-le :** nommez-le `deskstack` et collez `https://deskstack.deskstack-server.workers.dev/mcp`. Aucune connexion n'est demandée. Vous pouvez
+   aussi lancer votre propre copie ([auto-hébergement](SELF_HOSTING.md)).
 3. **Vérifiez que ça marche :** demandez *« Avec deskstack, quel a été le chiffre d'affaires d'Apple sur l'exercice
    2025 ? Cite le dépôt. »* La réponse doit citer le 10-K et son numéro d'accession.
 

@@ -9,8 +9,9 @@ npm ci
 npx wrangler login
 ```
 
-1. **Set your SEC contact.** SEC's fair-access policy requires a User-Agent naming you. In `wrangler.jsonc`, set
-   `"SEC_USER_AGENT": "<your app name> <your email>"`.
+1. **Set your SEC contact.** SEC's fair-access policy requires a User-Agent naming you. Store it as a Worker secret
+   (it never goes in the repo): `printf '%s' "<your app name> <your email>" | npx wrangler secret put SEC_USER_AGENT`.
+   Run this after the first deploy (step 3), or let Wrangler create the Worker when you run it.
 2. **Build the snapshot.** This is optional but recommended: without it, every request fetches SEC live, which is slower and can hit the free plan's CPU limit on large filers.
    - A few companies: `SEC_USER_AGENT="..." npm run snapshot -- --tickers AAPL,MSFT,NVDA`
    - All of them: `SEC_USER_AGENT="..." npm run snapshot -- --bulk` (downloads 2–3 GB)

@@ -33,6 +33,10 @@ What the differential checks:
 from the right period end, and cite the filing that reports it. A renamed field or a missing group is a miss, never
 a silent `null`.
 
+**Live runs.** A later annual filing that reports the same period, such as next year's 10-K, may be cited instead,
+as long as the value is the same. Questions marked `fixture_only` (like "Apple has an LTM period", true only while a
+10-Q follows the last 10-K) are skipped.
+
 **How independent is it?** Not fully. The concepts are picked by hand from the face statements and usually match
 deskstack's first choice. "Latest annual filing wins" is deskstack's policy too. The independence comes from the
 differential, which doesn't share either.
