@@ -15,7 +15,7 @@ One agent builds the model, others check every number against the official filin
     - `/sign-off` exports only after your approval;
     - `/deal-team` runs the whole sequence.
 
-> Status: private beta. The data layer works: US SEC financials, about 30 large European issuers (ESEF/IFRS), computed ratios, risk-free rates, ECB exchange rates and Damodaran valuation inputs. The review layer is being built.
+> Status: public beta. The hosted connector isn't online yet: until it is, self-host it in a few minutes ([docs/SELF_HOSTING.md](docs/SELF_HOSTING.md)). The data layer works: US SEC financials, about 30 large European issuers (ESEF/IFRS), computed ratios, risk-free rates, ECB exchange rates and Damodaran valuation inputs. The review layer is being built.
 
 ## Data layer built on open-finance-mcp
 
