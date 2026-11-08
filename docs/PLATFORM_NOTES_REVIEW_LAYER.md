@@ -181,6 +181,21 @@ Review and QC skills in the repo (data, not docs) [S22]:
 8. **Connector.** Declare `{"type":"http","url":…}` in `.mcp.json`. Users must still add and connect it in chat and Cowork; Free accounts get one custom connector [S8][S19]. Skills should name tools in prose ("the deskstack connector's `financial_statements` tool"), not with hard-coded `mcp__…` prefixes [S15][S17].
 9. **Manifests.** Use a kebab-case `name` without "claude" or "anthropic" [S7]. Add a README of 40+ words and a license [S15]. Keep `marketplace.json` `name`, `owner` and `plugins[{name, source:"./plugins/deskstack"}]` with entry name equal to manifest name [S16].
 
+## Verified locally (2026-11-08, M5)
+
+- `claude plugin validate --strict .` (marketplace) and `claude plugin validate --strict plugins/deskstack` pass on
+  Claude Code 2.1.317.
+- The only plugin-directory warning is a missing icon. That matters only when submitting to the directory, and the
+  logo is a launch item.
+- Each script-running skill runs its vendored copy with `python -I -S`: no user site and no site-packages, so no
+  installed openpyxl. That is the worst case for a claude.ai sandbox with egress off. Tests in
+  `checker/tests/test_plugin_structure.py`.
+- **Not yet tested on a live surface.** The connector isn't deployed yet, and running Claude Code headless would
+  spend the owner's usage. This includes:
+  - an install via "Add marketplace" in chat or Cowork;
+  - the plugin agents' isolation;
+  - skill script execution in claude.ai.
+
 ## Open questions / unverified
 
 - Whether openpyxl is preinstalled in the claude.ai and Cowork sandboxes. Python version there.

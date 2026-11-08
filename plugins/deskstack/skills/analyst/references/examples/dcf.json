@@ -1,0 +1,31 @@
+{
+  "kind": "dcf",
+  "company": "Apple Inc.",
+  "ticker": "AAPL",
+  "currency": "USD",
+  "scale": "millions",
+  "history": {
+    "periods": ["FY2023", "FY2024", "FY2025"],
+    "lines": {
+      "revenue": {"values": [383285, 391035, 416161], "source": "SEC 10-K FY2025, accession 0000320193-25-000079, us-gaap Revenues (deskstack financial_statements)"},
+      "operating_income": {"values": [114301, 123216, 133050], "source": "SEC 10-K FY2025, accession 0000320193-25-000079, us-gaap OperatingIncomeLoss (deskstack financial_statements)"},
+      "d_and_a": {"values": [11519, 11445, 11698], "source": "SEC 10-K FY2025, accession 0000320193-25-000079, us-gaap DepreciationDepletionAndAmortization (deskstack financial_statements)"},
+      "capex": {"values": [10959, 9447, 12715], "source": "SEC 10-K FY2025, accession 0000320193-25-000079, us-gaap PaymentsToAcquirePropertyPlantAndEquipment (deskstack financial_statements)"}
+    }
+  },
+  "assumptions": {
+    "projection_labels": ["FY2026E", "FY2027E", "FY2028E", "FY2029E", "FY2030E"],
+    "revenue_growth": {"values": [0.06, 0.055, 0.05, 0.045, 0.04], "source": "Analyst assumption: fades from FY2025 growth of 6.4% toward long-run growth"},
+    "ebit_margin": {"value": 0.31, "source": "Analyst assumption: near the FY2023-FY2025 average of 31.1%"},
+    "tax_rate": {"value": 0.16, "source": "Analyst assumption: near Apple's recent effective tax rate"},
+    "da_pct_revenue": {"value": 0.028, "source": "Analyst assumption: FY2025 D&A / revenue = 2.8%"},
+    "capex_pct_revenue": {"value": 0.03, "source": "Analyst assumption: FY2025 capex / revenue = 3.1%"},
+    "wacc": {"value": 0.09, "source": "Analyst assumption: risk-free (deskstack risk_free_rate, 10y) + beta x ERP (deskstack valuation_inputs)"},
+    "terminal_growth": {"value": 0.025, "source": "Analyst assumption: below long-run nominal GDP"},
+    "mid_year": false
+  },
+  "bridge": {
+    "net_debt": {"value": 43960, "period": "FY2025", "source": "Computed by deskstack: total debt - cash - short-term investments, SEC 10-K FY2025, accession 0000320193-25-000079"},
+    "diluted_shares": {"value": 15004.697, "period": "FY2025", "source": "SEC 10-K FY2025, accession 0000320193-25-000079, us-gaap WeightedAverageNumberOfDilutedSharesOutstanding"}
+  }
+}
