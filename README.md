@@ -49,6 +49,18 @@ Roles and skills: [plugins/deskstack/README.md](plugins/deskstack/README.md).
 | `valuation_inputs` | Damodaran: equity risk premium and country risk premium by country; beta, unlevered beta, cost of equity, debt and capital by industry (US, Europe, Global) |
 | `data_status` | Coverage, data freshness, limits, self-hosting link, disclaimer |
 
+## Accuracy
+
+The golden set holds 100 questions with known answers from the filings. It covers US and EU issuers, IFRS 20-F
+filers, a bank, restatements, a stock split, 52/53-week years, and fiscal years ending in January, March, June and
+September.
+
+- **Every push:** the set runs through the real tools on recorded data, and every question must pass (today: 100%).
+- **Nightly, once configured:** the same set runs against the live connector, and each answer is re-read from the
+  filing itself with independent parsers: edgartools for SEC, Arelle for ESEF.
+
+See [evals/README.md](evals/README.md).
+
 ## How it stays free
 
 - **Cloudflare Workers Free plan.** There's a global daily cap with a friendly message and a per-IP rate limit.
