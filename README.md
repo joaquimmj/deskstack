@@ -6,8 +6,14 @@ One agent builds the model, others check every number against the official filin
 
 - **Data layer** (`server/`, working today): a free, hosted, keyless connector serving cited financials. Sources: SEC EDGAR, EU ESEF reports, U.S. Treasury, the ECB and Damodaran.
 - **Review layer** (`plugins/`, `checker/`, in progress): a Claude plugin with role skills, a deterministic workbook checker, and a public benchmark of how many numbers are wrong with and without deskstack.
-  - Working now: `/analyst` builds a cited DCF or comps workbook, `/associate` ties every number to the filings, `/vp-review` checks the model.
-  - Next: MD red team, compliance and sign-off.
+  - Working now:
+    - `/analyst` builds a cited DCF or comps workbook;
+    - `/associate` ties every number to the filings;
+    - `/vp-review` checks the model;
+    - `/md-redteam` challenges it;
+    - `/compliance` checks hygiene;
+    - `/sign-off` exports only after your approval;
+    - `/deal-team` runs the whole sequence.
 
 > Status: private beta. The data layer works: US SEC financials, about 30 large European issuers (ESEF/IFRS), computed ratios, risk-free rates, ECB exchange rates and Damodaran valuation inputs. The review layer is being built.
 
