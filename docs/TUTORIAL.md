@@ -11,8 +11,8 @@ reviewed and challenged, and sign it off. No terminal needed.
 ## 1. Add the data connector (1 minute)
 
 1. **Open the dialog:** in Claude, go to **Settings → Connectors → Add custom connector**.
-2. **Fill it in:** name it `deskstack` and paste the connector URL from the [README](../README.md#install-in-30-seconds).
-   No sign-in is needed. If the public URL isn't online yet, use your own copy ([self-hosting](SELF_HOSTING.md)).
+2. **Fill it in:** name it `deskstack` and paste `https://deskstack.deskstack-server.workers.dev/mcp`. No sign-in is needed. You can also run your own copy
+   ([self-hosting](SELF_HOSTING.md)).
 3. **Check it works:** ask *"Using deskstack, what was Apple's revenue in FY2025? Cite the filing."* The answer
    should name the 10-K and its accession number.
 

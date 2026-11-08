@@ -31,7 +31,8 @@ const results = await runGolden(golden.questions, async (tool, args) => {
   const r = await client.callTool({ name: tool, arguments: args });
   const text = (r.content as Array<{ type: string; text: string }>)[0]?.text ?? "";
   return { isError: !!r.isError, text, json: r.isError ? null : JSON.parse(text) };
-});
+}, { live: true });
+const skipped = golden.questions.filter((q) => q.fixture_only).map((q) => q.id);
 await client.close();
 
 const s = score(results);
@@ -40,6 +41,6 @@ mkdirSync(outDir, { recursive: true });
 mkdirSync(dirname(badgePath), { recursive: true });
 writeFileSync(join(outDir, "golden-live.json"), JSON.stringify({ url, ran_at: new Date().toISOString(), ...s, results }, null, 1) + "\n");
 writeFileSync(badgePath, JSON.stringify(b) + "\n");
-console.log(`golden (live): ${b.message}`);
+console.log(`golden (live): ${b.message}${skipped.length ? ` (${skipped.length} fixture-only question(s) skipped: ${skipped.join(", ")})` : ""}`);
 for (const r of results.filter((x) => !x.pass)) console.log(`  miss ${r.id}: expected ${JSON.stringify(r.expected)}, got ${JSON.stringify(r.got)}${r.error ? ` (${r.error})` : ""}`);
 process.exit(s.accuracy >= 0.95 ? 0 : 1);
