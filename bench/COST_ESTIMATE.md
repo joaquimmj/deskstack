@@ -66,7 +66,9 @@ reach.** Haiku 5.5 fits easily, but "a small model makes mistakes" is a weak hea
 
    The pilot's 5 companies count toward the 50. The company list is frozen before the pilot.
 3. **Cost levers in the runner:**
-   - turn caps of 20 for A/B and 12 per reviewer;
+   - a cap of 30 requests and $1.50 per run;
+   - a deterministic review in arm C (verify_value and the checker, no reviewer model), cheaper than the reviewer runs
+     assumed above;
    - effort `medium` on Sonnet 5.5;
    - a frozen system prompt and tool list so the cache prefix never breaks;
    - no retries of a whole run; a failed run is reported as failed.
