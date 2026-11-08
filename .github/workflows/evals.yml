@@ -65,7 +65,7 @@ jobs:
   differential:
     needs: golden
     if: ${{ always() }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # Python 3.9 (the pinned environment) isn't built for newer runners
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
