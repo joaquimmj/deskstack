@@ -313,12 +313,27 @@ function annualPeriods(ctx: Ctx): Period[] {
   if (periods.size === 0) throw new NoAnnualFacts("no annual revenue or net-income facts");
 
   const out: Period[] = [];
+  const trusted: Array<{ fy: number; end: string }> = [];
+  const pending: Array<{ start: string; end: string }> = [];
   for (const [key, facts] of periods) {
     const [start, end] = key.split("|") as [string, string];
     const first = earliestFiled(facts);
     // Only trust fy when the first filing is the period's own 10-K (filed within ~6 months).
     const gap = first.filed ? daysBetween(end, first.filed) : -1;
-    const fy = first.fy && gap >= 0 && gap <= 190 ? first.fy : Number(end.slice(0, 4));
+    if (first.fy && gap >= 0 && gap <= 190) {
+      trusted.push({ fy: first.fy, end });
+      out.push({ label: `FY${first.fy}`, start, end });
+    } else pending.push({ start, end });
+  }
+  // A period only seen as a comparative (e.g. the oldest year in the first report) has no fy of its own. Count back
+  // from the nearest period whose fy is known: for a retailer whose FY2024 ends 31 Jan 2025, the year before is FY2023
+  // even though it ends in 2024. With no known fy at all, fall back to the end year.
+  for (const { start, end } of pending) {
+    let fy = Number(end.slice(0, 4));
+    if (trusted.length) {
+      const near = trusted.reduce((a, b) => (Math.abs(daysBetween(end, a.end)) <= Math.abs(daysBetween(end, b.end)) ? a : b));
+      fy = near.fy - Math.round(daysBetween(end, near.end) / 365.25);
+    }
     out.push({ label: `FY${fy}`, start, end });
   }
   // Stable sort by end date, like Python's list.sort.

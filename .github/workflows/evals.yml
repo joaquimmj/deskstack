@@ -1,0 +1,93 @@
+# Nightly data evals (brief §8.1).
+#   golden:       the golden set against the live connector; publishes the accuracy badge.
+#   differential: re-reads every golden answer from the filing itself (edgartools for SEC, Arelle for ESEF). It needs
+#                 no connector, so it runs even before deploy; the live comparison is added when golden ran.
+#
+# Needs (set by the repo owner; never commit them):
+#   vars.DESKSTACK_URL      the deployed connector, e.g. https://deskstack.<account>.workers.dev/mcp
+#   secrets.SEC_USER_AGENT  "<app name> <contact email>" (SEC fair-access policy). Without it the SEC half can't run,
+#                           and the differential job fails rather than pass with nothing checked.
+# The recorded-fixture golden set runs on every push (ci.yml → npm test).
+
+name: Evals (nightly)
+on:
+  schedule:
+    - cron: "30 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  golden:
+    if: ${{ vars.DESKSTACK_URL != '' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to commit the badge
+    defaults:
+      run:
+        working-directory: server
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+      - run: npm ci
+      - name: Golden set against the live connector
+        id: golden
+        continue-on-error: true
+        run: npx tsx scripts/golden.ts --url "${{ vars.DESKSTACK_URL }}"
+      - name: Mark the badge as failing if the run crashed
+        if: steps.golden.outcome == 'failure' && hashFiles('evals/results/golden-live.json') == ''
+        run: echo '{"schemaVersion":1,"label":"golden set","message":"run failed","color":"red"}' > ../site/badges/golden.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: golden-live
+          path: evals/results/golden-live.json
+          if-no-files-found: ignore
+      - name: Publish the badge (site/badges/golden.json)
+        run: |
+          cd ..
+          if [ -n "$(git status --porcelain site/badges)" ]; then
+            git config user.name "deskstack-evals"
+            git config user.email "deskstack-evals@users.noreply.github.com"
+            git add site/badges/golden.json
+            git commit -m "evals: golden set badge ($(date -u +%F))"
+            git pull --rebase --autostash && git push || echo "::warning::could not push the badge (protected branch?)"
+          fi
+      - name: Fail if accuracy is below 95%
+        if: steps.golden.outcome == 'failure'
+        run: exit 1
+
+  differential:
+    needs: golden
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r evals/differential/requirements.txt
+      - uses: actions/download-artifact@v4
+        if: needs.golden.result != 'skipped'
+        continue-on-error: true
+        with:
+          name: golden-live
+          path: evals/results
+      - name: Re-read every golden answer from the filing
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: |
+          live=""
+          if [ -f evals/results/golden-live.json ]; then live="--live evals/results/golden-live.json"; fi
+          python evals/differential/differential.py $live
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: differential
+          path: evals/results/differential.json
+          if-no-files-found: ignore

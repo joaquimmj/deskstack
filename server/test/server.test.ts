@@ -6,20 +6,14 @@ import { Client, StreamableHTTPClientTransport } from "@modelcontextprotocol/cli
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import type { Env } from "../src/config";
 import { resetCounter } from "../src/guard";
 import worker from "../src/index";
 import { resetMemos } from "../src/repo";
-import { pad } from "../src/sec/edgar";
-import { buildCompanyRecord } from "../src/sec/record";
-import { syntheticDamodaran } from "./damodaran-fixture";
-import { TTE, tteRecord } from "./esef-fixture";
-import { facts, load, secFetch, submissions, tickerToCik } from "./helpers";
-
-const UA = "deskstack-tests test@example.com";
+import { TTE } from "./esef-fixture";
+import { secFetch } from "./helpers";
+import { baseEnv, call, connect, ctx, fixtureAssets } from "./mcp-harness";
 
 let calls: string[] = [];
-const ctx = { waitUntil: (_p: Promise<unknown>) => {}, passThroughOnException: () => {} } as unknown as ExecutionContext;
 
 beforeEach(() => {
   calls = [];
@@ -33,55 +27,6 @@ afterEach(() => {
   vi.useRealTimers();
   vi.unstubAllGlobals();
 });
-
-const baseEnv = (over: Partial<Env> = {}): Env => ({ SEC_USER_AGENT: UA, ...over });
-
-async function connect(env: Env, mode: "auto" | "legacy" = "auto", headers: Record<string, string> = {}) {
-  const transport = new StreamableHTTPClientTransport(new URL("https://ft.test/mcp"), {
-    fetch: (url, init) => {
-      const req = new Request(url, init);
-      for (const [k, v] of Object.entries(headers)) req.headers.set(k, v);
-      return worker.fetch(req, env, ctx);
-    },
-  });
-  const client = new Client({ name: "test", version: "1.0.0" }, { versionNegotiation: { mode } });
-  await client.connect(transport);
-  return client;
-}
-
-async function call(env: Env, tool: string, args: Record<string, unknown> = {}) {
-  const client = await connect(env);
-  try {
-    const r = await client.callTool({ name: tool, arguments: args });
-    const text = (r.content as Array<{ type: string; text: string }>)[0]!.text;
-    return { isError: !!r.isError, text, json: r.isError ? null : JSON.parse(text) };
-  } finally {
-    await client.close();
-  }
-}
-
-/** Static-assets stand-in built from fixtures, like the nightly snapshot. */
-function fixtureAssets(tickers: string[]) {
-  const t2c = tickerToCik();
-  const files = new Map<string, unknown>();
-  const t = load<{ fields: string[]; data: unknown[][] }>("company_tickers_exchange.json");
-  files.set("/v1/companies.json", t);
-  files.set("/v1/damodaran.json", syntheticDamodaran());
-  files.set("/v1/eu/companies.json", { fields: ["lei", "name", "country", "currency", "fiscal_year_end"], data: [[TTE.lei, TTE.name, "FR", "USD", "1231"]] });
-  files.set("/v1/eu/manifest.json", { built_at: "2026-11-08T04:00:00Z" });
-  files.set(`/v1/eu/co/${TTE.lei}.json`, tteRecord());
-  files.set("/v1/manifest.json", { schema: 1, built_at: "2026-11-08T03:00:00Z", companies: t.data.length, records: tickers.length, source: "fixtures" });
-  for (const tk of tickers) {
-    const cik = t2c.get(tk)!;
-    files.set(`/v1/co/${pad(cik)}.json`, buildCompanyRecord(facts(tk), submissions(tk), cik, "2026-11-08T03:00:00Z", "snapshot"));
-  }
-  return {
-    fetch: async (input: Request | string) => {
-      const path = new URL(typeof input === "string" ? input : input.url).pathname;
-      return files.has(path) ? Response.json(files.get(path)) : new Response("nope", { status: 404 });
-    },
-  };
-}
 
 describe("tools (live SEC path)", () => {
   it("lists read-only tools, for modern and legacy clients", async () => {
