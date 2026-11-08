@@ -7,6 +7,7 @@ each formula's value pass it here; it is written into the sheet XML as <v>.
 
 from __future__ import annotations
 
+import datetime as _dt
 import re
 import zipfile
 from pathlib import Path
@@ -42,6 +43,12 @@ def _set(xml: str, coord: str, v: object) -> str:
         return re.sub(pat, lambda m: f'<c r="{coord}"{_t(m.group(1), "str")}>{m.group(2)}<v>{esc}</v></c>', xml)
     if isinstance(v, bool):
         return re.sub(pat, lambda m: f'<c r="{coord}"{_t(m.group(1), "b")}>{m.group(2)}<v>{int(v)}</v></c>', xml)
+    if isinstance(v, (_dt.date, _dt.time, _dt.timedelta)):  # dates are serial numbers in the file
+        from openpyxl.utils.datetime import to_excel
+
+        v = to_excel(v)
+    if not isinstance(v, (int, float)):
+        return xml  # unknown type: leave the cell without a cached value rather than corrupt it
     val = repr(float(v))
     return re.sub(pat, lambda m: f'<c r="{coord}"{m.group(1)}>{m.group(2)}<v>{val}</v></c>', xml)
 

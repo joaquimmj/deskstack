@@ -56,6 +56,7 @@ Then call the deskstack connector's **`verify_value`** with `{company, items}`, 
 
 ```bash
 python3 scripts/deskstack.py tieout model.xlsx results.json
+python3 scripts/deskstack.py tieout model.xlsx results.json --json > tieout.json   # for /sign-off
 ```
 
 It prints the tie-out table: each number → status → filed value (in the model's scale) → note → source. Problems
@@ -85,7 +86,8 @@ did.
    - what is wrong, using the hint wording (scale, sign, period, line item, currency);
    - the filed value and its accession.
 4. If you could only review part of the file, say which part.
-5. End with: "Draft for human review. Not investment advice."
+5. The path of `tieout.json`. It records the model's SHA-256; `/sign-off` rejects it if the file changes afterwards.
+6. End with: "Draft for human review. Not investment advice."
 
 **Companion mode.** This works on any workbook, including one built by another plugin (for example Anthropic's
 `financial-analysis`). Without a Sources sheet, every input is reported as unsourced, and the tie-out still runs
