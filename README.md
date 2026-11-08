@@ -6,8 +6,7 @@ nothing ships without your sign-off. Free data, US and Europe.**
 [![golden set](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/joaquimmj/deskstack/main/site/badges/golden.json)](evals/README.md)
 · [Website](https://joaquimmj.github.io/deskstack/) · [Tutorial](docs/TUTORIAL.md) · [Tutoriel (FR)](docs/TUTORIEL.md)
 
-> **Public beta.** The hosted connector isn't online yet. Until it is, you can self-host it in a few minutes on a
-> free Cloudflare account ([docs/SELF_HOSTING.md](docs/SELF_HOSTING.md)). Everything else below works today.
+> **Public beta.** The hosted connector is online at `https://deskstack.deskstack-server.workers.dev/mcp`. Feedback and issues are welcome.
 
 ## Benchmark
 
@@ -20,9 +19,8 @@ reviewers. Scoring is automatic, against the filings. The runner, the frozen com
 
 ## Install in 30 seconds
 
-1. **Data:** in Claude, open **Settings → Connectors → Add custom connector** and paste the connector URL, with no
-   sign-in. The URL will be published here once the connector is online; until then, use your own
-   ([self-hosting](docs/SELF_HOSTING.md)).
+1. **Data:** in Claude, open **Settings → Connectors → Add custom connector** and paste
+   `https://deskstack.deskstack-server.workers.dev/mcp`, with no sign-in. You can also run your own copy ([self-hosting](docs/SELF_HOSTING.md)).
 2. **Roles:** open **Customize → Plugins → Add marketplace**, paste `https://github.com/joaquimmj/deskstack`, then
    install **deskstack**. In Claude Code: `/plugin install deskstack --marketplace joaquimmj/deskstack` (2.1.275+).
 3. **Try it:** `/deal-team Apple quick-dcf`.

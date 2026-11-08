@@ -132,6 +132,10 @@ BEHAVIOR = [
 ]
 
 
+# Behavior that holds on the recorded fixtures but changes with new filings (skipped by the live run).
+FIXTURE_ONLY = {"aapl-has-ltm"}  # true only while a 10-Q follows the last 10-K
+
+
 def _days(a: str, b: str) -> int:
     return (dt.date.fromisoformat(b) - dt.date.fromisoformat(a)).days
 
@@ -247,7 +251,7 @@ def build() -> dict:
                    "read": {"kind": "path", "path": "rate"}, "expected": a["value"], "unit": a["unit"], "source": a["source"]})
     for qid, q, call, read, expected, tags in BEHAVIOR:
         qs.append({"id": qid, "question": q, "tags": tags, "call": call, "read": read, "expected": expected, "unit": None,
-                   "source": {"type": "behavior"}})
+                   "source": {"type": "behavior"}, **({"fixture_only": True} if qid in FIXTURE_ONLY else {})})
     ids = [q["id"] for q in qs]
     assert len(ids) == len(set(ids)), "duplicate ids"
     return {

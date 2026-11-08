@@ -11,8 +11,8 @@ the user's language, briefly, with one concrete example from their own model whe
 
 ## Setup (no terminal needed)
 
-1. **Connector (data).** In Claude: **Settings → Connectors → Add custom connector**. Paste the deskstack connector URL
-   given in the project README, with no sign-in. Free accounts can add one custom connector.
+1. **Connector (data).** In Claude: **Settings → Connectors → Add custom connector**. Paste `https://deskstack.deskstack-server.workers.dev/mcp`,
+   with no sign-in. Free accounts can add one custom connector.
 2. **Plugin (roles).** **Customize → Plugins → Add marketplace**, then paste the GitHub repository URL. Install
    **deskstack**.
 3. **Try it:** "/analyst Apple quick DCF", then "/associate" and "/vp-review" on the file it produces.

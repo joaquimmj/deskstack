@@ -14,8 +14,8 @@ Reviewers report; nothing changes without your OK.
 
 ## Install
 
-1. **Connector (data).** In Claude, open **Settings → Connectors → Add custom connector**. Paste the deskstack URL from
-   the [main README](../../README.md), with no sign-in.
+1. **Connector (data).** In Claude, open **Settings → Connectors → Add custom connector**. Paste
+   `https://deskstack.deskstack-server.workers.dev/mcp`, with no sign-in. In Claude Code the plugin declares the connector itself (`.mcp.json`).
 2. **Plugin.** Open **Customize → Plugins → Add marketplace**, paste this repository's GitHub URL, then install
    **deskstack**.
 
@@ -53,5 +53,5 @@ conversation.
 **Companion mode:** `/associate` and `/vp-review` also review workbooks built by other plugins, such as Anthropic's
 `financial-analysis`, and merge an `audit-xls` findings table with their own.
 
-Independent open-source project. Not affiliated with or endorsed by Anthropic. Outputs are drafts for human review,
+Privacy: [PRIVACY.md](../../PRIVACY.md). Independent open-source project. Not affiliated with or endorsed by Anthropic. Outputs are drafts for human review,
 not investment advice. License: MIT.
