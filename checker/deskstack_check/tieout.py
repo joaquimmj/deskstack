@@ -17,7 +17,7 @@ from __future__ import annotations
 import datetime as _dt
 import re
 
-from .model import Workbook, label_of, load
+from .model import Workbook, file_sha256, label_of, load
 from .rules import _looks_like_model_number, _sheet_unit
 
 # Labels that name a filed line item -> verify_value metric. Keep in sync with server/src/verify.ts ALIASES
@@ -325,7 +325,7 @@ def report(path: str, results) -> dict:
     for r in rows:
         counts[r["status"]] = counts.get(r["status"], 0) + 1
     counts["unsourced"] = sum(1 for r in rows if "unsourced" in r["flags"])
-    return {"file": path, "counts": counts, "rows": rows}
+    return {"report": "tieout", "file": path, "model_sha256": file_sha256(path), "counts": counts, "rows": rows}
 
 
 def _row(e: dict, v: dict | None) -> dict:

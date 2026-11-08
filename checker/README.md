@@ -11,6 +11,10 @@ python -m deskstack_check check model.xlsx --audit a.md  # merge an audit-xls fi
 python -m deskstack_check extract model.xlsx             # typed numbers + draft verify_value batches (JSON)
 python -m deskstack_check tieout model.xlsx results.json # tie-out report from verify_value results
 python -m deskstack_check build spec.json out.xlsx       # build a cited DCF or comps workbook
+python -m deskstack_check sensitivity model.xlsx --price 230   # tornado, WACC x g grid, implied inputs (/md-redteam)
+python -m deskstack_check compliance model.xlsx --memo memo.md # pass/fail hygiene list (/compliance)
+python -m deskstack_check signoff model.xlsx --tieout t.json --review r.json --compliance c.json   # summary, exit 3
+python -m deskstack_check signoff ... --approve "I approve" --by NAME --out final.xlsx            # signed copy
 ```
 
 The plugin's skills run vendored copies of this package (`python3 plugins/sync_vendor.py` refreshes them; a test
