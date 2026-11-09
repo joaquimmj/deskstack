@@ -26,6 +26,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+[id] { scroll-margin-top: 76px; } /* anchors land below the sticky bar */
 body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
 a { color: var(--input); text-underline-offset: 3px; }
 ::selection { background: color-mix(in srgb, var(--input) 22%, transparent); }
@@ -144,6 +145,10 @@ h3 { font-size: 19px; margin: 0 0 8px; }
 .lanes li.you code { color: var(--ok); }
 .lanes p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted); }
 .lanes li:not(:last-child)::after { content: ""; position: absolute; right: -6px; top: 22px; width: 10px; height: 10px; background: var(--sheet); border-top: 1px solid var(--grid); border-right: 1px solid var(--grid); transform: rotate(45deg); z-index: 1; }
+
+/* Demo recording. */
+.demo { margin: 0; }
+.demo img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--grid); }
 
 /* Benchmark table with inline bars. */
 .bench { margin: 0 0 40px; background: var(--sheet); border: 1px solid var(--grid); border-radius: 12px; padding: 8px 20px 18px; }
