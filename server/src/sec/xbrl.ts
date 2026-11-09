@@ -106,6 +106,9 @@ export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
     "PurchaseOfPropertyPlantAndEquipment",
     // Broader (includes intangibles); the concept name is reported with the value.
     "PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets",
+    // Last: an issuer's own concept for purchases of PP&E and intangibles (TotalEnergies, Airbus, VINCI, AB InBev,
+    // Stellantis), kept by esef/extract.ts under this key; the cell shows the real concept and a note.
+    "PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssetsExtension",
   ],
   diluted_shares: ["AdjustedWeightedAverageShares"],
   // Basic EPS last: some filers (Inditex) tag no diluted figure; adjustRow notes it on the cell.
@@ -156,6 +159,8 @@ export interface RawFact {
   fy?: number | null;
   fp?: string | null;
   frame?: string;
+  /** ESEF only: the issuer's own (extension) concept behind a synthetic standard key. */
+  src?: string;
 }
 
 /** `facts.<taxonomy>`: concept -> { units: { unit: rows } }. */
@@ -176,6 +181,7 @@ export interface Fact {
   accession: string;
   filed: string;
   fy: number | null;
+  src?: string;
 }
 
 export interface Cell {
@@ -272,6 +278,7 @@ function getFacts(ns: Namespace, concept: string, unit: string): Fact[] {
       accession: r.accn,
       filed: r.filed ?? "",
       fy: r.fy ?? null,
+      ...(r.src ? { src: r.src } : {}),
     });
   }
   return out;
@@ -380,7 +387,12 @@ function pick(ctx: Ctx, metric: string, concepts: string[], match: (f: Fact) => 
 
 function cell(ctx: Ctx, f: Fact | null): Cell | null {
   if (!f) return null;
-  return { value: f.value, concept: `${ctx.tx.prefix}:${f.concept}`, accession: f.accession };
+  const c: Cell = { value: f.value, concept: `${ctx.tx.prefix}:${f.concept}`, accession: f.accession };
+  if (f.src) {
+    c.concept = f.src;
+    c.note = `the issuer's own concept ${f.src}, used because no standard IFRS concept for this line is tagged`;
+  }
+  return c;
 }
 
 function durationValue(ctx: Ctx, metric: string, start: string, end: string, forms: Set<string>): Fact | null {
