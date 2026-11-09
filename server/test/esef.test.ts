@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { extractFiling, fiscalYear, oimUnit } from "../src/esef/extract";
-import { EXT_CAPEX_KEY } from "../src/sec/xbrl";
+import { extractFiling, fiscalYear, oimUnit, toCompanyFacts } from "../src/esef/extract";
+import { EXT_CAPEX_KEY, standardize } from "../src/sec/xbrl";
 import { buildEuRecord } from "../src/esef/record";
 import { esefFixture, ITX, meta, tteRecord } from "./esef-fixture";
 
@@ -120,6 +120,46 @@ describe("ESEF extraction (xBRL-JSON)", () => {
       { concept: "abc:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssets", value: "100" },
       { concept: "abc:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssets", value: "-120" },
     ])).toEqual([]);
+  });
+
+  it("issuers' own concepts for EBIT and D&A fill those lines only when no standard concept is tagged (Airbus, Sanofi, Schneider)", () => {
+    const p = "2025-01-01T00:00:00/2026-01-01T00:00:00";
+    const values = (facts: Array<{ concept: string; value: string; unit?: string }>) => {
+      const data = extractFiling(doc([{ concept: "ifrs-full:Revenue", value: "70000" }, ...facts].map((f) => ({ ...f, period: p }))), "Z-ESEF-FR-0");
+      const m = { fxo_id: "Z-ESEF-FR-0", processed: "2026-03-01", published: null, country: "FR", viewer_url: null, report_url: null, package_url: null };
+      const period = standardize(toCompanyFacts("Z", [{ meta: m, data }]), 1, false).periods[0]!;
+      const v: Record<string, { value: number; note?: string; formula?: string } | null | undefined> = { ...period.values };
+      v.ebitda = period.derived.ebitda;
+      return v;
+    };
+    // Airbus: EBIT is "profit before financial result and income taxes".
+    const airbus = values([{ concept: "airbus:ProfitLossBeforeFinancialResultAndIncomeTaxes", value: "6082" }]);
+    expect(airbus.operating_income).toMatchObject({ value: 6082, concept: "airbus:ProfitLossBeforeFinancialResultAndIncomeTaxes" });
+    expect(airbus.operating_income!.note).toMatch(/issuer's own concept/);
+    // A standard concept wins.
+    expect(values([
+      { concept: "ifrs-full:ProfitLossFromOperatingActivities", value: "6000" },
+      { concept: "airbus:ProfitLossBeforeFinancialResultAndIncomeTaxes", value: "6082" },
+    ]).operating_income!.value).toBe(6000);
+    // Sanofi: "amortissements et dépréciations" includes impairment, and says so; EBITDA's formula too.
+    const sanofi = values([
+      { concept: "ifrs-full:ProfitLossFromOperatingActivities", value: "9000" },
+      { concept: "sny:AjustementsPourAmortissementsEtDepreciationsDesImmobilisationsCorporellesDroitsDutilisationEtImmobilisationsIncorporelles", value: "5678" },
+    ]);
+    expect(sanofi.d_and_a).toMatchObject({ value: 5678 });
+    expect(sanofi.d_and_a!.note).toMatch(/includes impairment/);
+    expect(sanofi.ebitda).toEqual({ value: 9000 + 5678, formula: "operating_income + d_and_a (includes impairment)" });
+    // Schneider: PP&E depreciation and intangible amortization as two own concepts are added, with the formula.
+    const schneider = values([
+      { concept: "schneiderelectric:AdjustmentsForDepreciationOfPropertyPlantAndEquipment", value: "871" },
+      { concept: "schneiderelectric:AdjustmentsForDepreciationOfIntangibleAssetsOtherThanGoodwill", value: "781" },
+      { concept: "schneiderelectric:DepreciationOfInvestmentsInAssociatesAndJointVentures", value: "388" },
+    ]);
+    expect(schneider.d_and_a).toMatchObject({ value: 1652 });
+    expect(schneider.d_and_a!.formula).toMatch(/depreciation of PP&E \+ amortization of intangible assets/);
+    expect(Object.keys(schneider).filter((k) => /_ext$/.test(k))).toEqual([]); // inputs, not metrics
+    // One of the two alone is not D&A.
+    expect(values([{ concept: "schneiderelectric:AdjustmentsForDepreciationOfPropertyPlantAndEquipment", value: "871" }]).d_and_a).toBeNull();
   });
 
   it("keeps only undimensioned numeric ifrs-full facts, deduplicated; counts extensions", () => {

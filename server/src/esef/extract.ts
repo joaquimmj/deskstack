@@ -7,7 +7,7 @@
 // Pure functions: used by the snapshot build (scripts/build-esef.ts) and tests.
 
 import { shiftDays } from "../dates";
-import { EXT_CAPEX_KEY, IFRS_DURATION_CONCEPTS, type CompanyFacts, type Namespace, type RawFact } from "../sec/xbrl";
+import { EXT_KEYS, IFRS_DURATION_CONCEPTS, type CompanyFacts, type Namespace, type RawFact } from "../sec/xbrl";
 
 /** One undimensioned numeric ifrs-full fact, compact for the build cache. */
 export interface EsefRow {
@@ -74,6 +74,18 @@ const days = (s: string, e: string) => Math.round((Date.parse(`${e}T00:00:00Z`) 
 // property", "and other non-current assets", "classified as investing activities". Nothing else may follow.
 // French: "acquisitions d'immobilisations corporelles et incorporelles" (L'Oréal), in either order.
 const EXT_CAPEX = /^(?:(purchases?of|investmentsin|acquisitionsof)(propertyplantandequipment(and)?(purchaseof)?intangibleassets|intangibleassets(and)?propertyplantandequipment)(otherthangoodwill)?((and)?investmentproperty)?((and)?othernoncurrentassets)?(classifiedasinvestingactivities)?|acquisitionsd(es)?immobilisations(corporellesetincorporelles|incorporellesetcorporelles))$/i;
+// Issuers' own concepts kept for a line, each under its key in EXT_KEYS (sec/xbrl.ts), where the standardizer uses
+// it last, after every standard concept. Whole names only; abs: an outflow or expense stored positive.
+const EXTENSIONS: Array<{ re: RegExp; key: string; abs: boolean }> = [
+  { re: EXT_CAPEX, key: EXT_KEYS.capex, abs: true },
+  // Airbus: "profit before financial result and income taxes" is its EBIT.
+  { re: /^profitloss(before|from)financial(result|income)and(income)?tax(es)?$/i, key: EXT_KEYS.operating_income, abs: false },
+  // Sanofi: D&A and impairment of PP&E, right-of-use assets and intangibles (cash-flow adjustment).
+  { re: /^(ajustementspour)?amortissementsetdepreciationsdesimmobilisationscorporelles(droitsdutilisation)?etimmobilisationsincorporelles$/i, key: EXT_KEYS.d_and_a, abs: true },
+  // Schneider: depreciation of PP&E and amortization of intangibles as two concepts, added by the standardizer.
+  { re: /^(adjustmentsfor)?depreciationofpropertyplantandequipment(andrightofuseassets)?$/i, key: EXT_KEYS.depreciation, abs: true },
+  { re: /^(adjustmentsfor)?(depreciation|amortisation|amortization)ofintangibleassets(otherthangoodwill)?$/i, key: EXT_KEYS.amortization, abs: true },
+];
 // A well-formed QName: the issuer's concept is published as-is, so nothing else gets through.
 const QNAME = /^[A-Za-z_][\w.-]{0,63}:[A-Za-z_][\w.-]{0,200}$/;
 
@@ -81,7 +93,7 @@ const QNAME = /^[A-Za-z_][\w.-]{0,63}:[A-Za-z_][\w.-]{0,200}$/;
 export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: string): ExtractedFiling {
   const seen = new Set<string>();
   const rows: EsefRow[] = [];
-  const extCapex = new Map<string, Map<string, EsefRow | null>>();
+  const ext = new Map<string, Map<string, EsefRow | null>>();
   let extension = 0;
   for (const f of Object.values(doc.facts ?? {})) {
     const dims = f.dimensions ?? {};
@@ -91,14 +103,18 @@ export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: s
     if (raw === null || raw.trim() === "" || !Number.isFinite(Number(raw))) continue;
     let c: string;
     let x: string | undefined;
+    let absolute = false;
     if (concept.startsWith("ifrs-full:")) {
       c = concept.slice("ifrs-full:".length);
     } else {
       extension++;
-      // Issuers that tag capex only with their own concept (purchases of PP&E and intangible assets).
-      if (!QNAME.test(concept) || !EXT_CAPEX.test(concept.split(":").pop() ?? "")) continue;
-      c = EXT_CAPEX_KEY;
+      // Issuers that tag a line only with their own concept (EXTENSIONS).
+      const local = concept.split(":").pop() ?? "";
+      const own = QNAME.test(concept) ? EXTENSIONS.find((e) => e.re.test(local)) : undefined;
+      if (!own) continue;
+      c = own.key;
       x = concept;
+      absolute = own.abs;
     }
     const unit = oimUnit(dims.unit);
     const period = dims.period;
@@ -108,12 +124,12 @@ export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: s
       ? { c, u: unit, s: oimStart(a!), e: oimEnd(b), v: Number(raw) }
       : { c, u: unit, s: null, e: oimEnd(a!), v: Number(raw) };
     if (x) {
-      // A purchase is an outflow: stored positive like the standard capex concepts, whatever the issuer's sign.
+      // A purchase or an expense: stored positive like the standard concepts, whatever the issuer's sign.
       row.x = x;
-      row.v = Math.abs(row.v);
-      const k = `${row.u}|${row.s}|${row.e}`;
-      if (!extCapex.has(k)) extCapex.set(k, new Map());
-      const byConcept = extCapex.get(k)!;
+      if (absolute) row.v = Math.abs(row.v);
+      const k = `${row.c}|${row.u}|${row.s}|${row.e}`;
+      if (!ext.has(k)) ext.set(k, new Map());
+      const byConcept = ext.get(k)!;
       const prev = byConcept.get(x);
       // The same concept twice with different values is a conflict: null drops the period below.
       byConcept.set(x, prev === undefined || (prev && prev.v === row.v) ? row : null);
@@ -124,8 +140,8 @@ export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: s
     seen.add(key);
     rows.push(row);
   }
-  // One issuer concept per period, with one value, is a capex line; anything else is ambiguous and dropped.
-  for (const byConcept of extCapex.values()) {
+  // One issuer concept per line and period, with one value, is used; anything else is ambiguous and dropped.
+  for (const byConcept of ext.values()) {
     const [only] = byConcept.values();
     if (byConcept.size === 1 && only) rows.push(only);
   }
