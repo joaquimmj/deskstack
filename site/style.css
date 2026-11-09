@@ -76,13 +76,15 @@ code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-si
 .c.ok { color: var(--ink); }
 .c.ok .tick { color: var(--ok); width: 12px; height: 12px; }
 .c.bad { color: var(--bad); font-weight: 700; box-shadow: inset 0 0 0 2px var(--bad); background: color-mix(in srgb, var(--bad) 7%, transparent); }
+/* Excel's comment marker: a red triangle in the cell's top-right corner. */
+.c.bad::after { content: ""; position: absolute; top: 0; right: 0; border-style: solid; border-width: 0 9px 9px 0; border-color: transparent var(--bad) transparent transparent; }
 .c.f { justify-content: flex-start; color: var(--muted); font-style: italic; font-size: 13px; }
 .cursor { width: 0; height: 0; z-index: 2; }
 .cursor::before { content: ""; position: absolute; left: -2px; top: -2px; width: 14px; height: 14px; background: var(--who); clip-path: polygon(0 0, 100% 45%, 45% 55%, 35% 100%); }
 .cursor span { position: absolute; left: 12px; top: 10px; background: var(--who); color: #fff; font-size: 12px; font-weight: 600; padding: 2px 7px; border-radius: 4px; white-space: nowrap; }
 .c-analyst { --who: var(--input); margin-left: calc((100% - var(--rh)) / 12 - 18px); margin-top: 26px; }
 .c-associate { --who: var(--ok); margin-left: calc((100% - var(--rh)) / 12 - 6px); margin-top: 30px; }
-.comment { z-index: 3; width: min(340px, calc((100% - var(--rh)) * 5 / 12)); margin: 4px 0 0 8px; background: var(--sheet); border: 1px solid var(--grid); border-left: 3px solid var(--bad); border-radius: 8px; padding: 8px 12px; font-size: 13px; line-height: 1.45; box-shadow: 0 6px 18px rgba(14, 26, 43, 0.12); }
+.comment { z-index: 3; width: min(340px, calc((100% - var(--rh)) * 5 / 12)); margin: 4px 0 0 8px; background: var(--sheet); border: 1px solid var(--grid); border-radius: 4px; padding: 8px 12px; font-size: 13px; line-height: 1.45; box-shadow: 0 6px 18px rgba(14, 26, 43, 0.12); }
 .comment b { color: var(--ok); margin-right: 4px; }
 
 /* The selected range B4:K8 holds the headline; the lede sits on rows 9-11 below it. */
