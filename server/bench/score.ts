@@ -73,11 +73,12 @@ export function normPeriod(p: unknown): string | null {
 }
 
 const words = (s: string) => new Set(s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").split(/[^a-z0-9]+/).filter((w) => w.length >= 2 && !STOP.has(w)));
+// Asides the model adds are not part of the name: "(Inditex)", "[target]", "- target".
+const nameWords = (written: string) => words(written.replace(/\([^)]*\)|\[[^\]]*\]|\s[-–—]\s*target\b.*$/gi, " "));
 /** The name a model wrote matches an official name when every distinctive word of it is in the official one: "LVMH"
  *  is LVMH Moet Hennessy Louis Vuitton, but "Coca-Cola Europacific Partners" is not The Coca-Cola Company. */
 export function sameName(written: string, official: string): boolean {
-  // Asides the model adds are not part of the name: "(Inditex)", "[target]", "- target".
-  const W = words(written.replace(/\([^)]*\)|\[[^\]]*\]|\s[-–—]\s*target\b.*$/gi, " ")), O = words(official);
+  const W = nameWords(written), O = words(official);
   if (W.size === 0) return false;
   for (const w of W) if (!O.has(w)) return false;
   return true;
@@ -173,23 +174,30 @@ async function callWithRetry(c: Connector, name: string, args: Record<string, un
   return r;
 }
 
-/** A peer's id: company_lookup by name (and ticker), accepted only when the hit's name matches the peer's name. */
-async function resolvePeer(c: Connector, name: string, written: string, cache: Map<string, string | null>, o: Opts): Promise<string | null> {
+/** A peer's id from company_lookup (by name, then ticker). Only hits whose name matches the peer's count; among them the
+ *  one with the ticker the model wrote wins, then one with exactly the same name, then a single longer name containing
+ *  it ("LVMH"). Two or more longer names and nothing better is ambiguous: "Coca-Cola Co" must not become Coca-Cola
+ *  Consolidated (comps run, 2026-11-09). */
+export async function resolvePeer(c: Connector, name: string, written: string, cache: Map<string, string | null>, o: Opts): Promise<string | null> {
   const key = `${name}|${written}`;
   if (cache.has(key)) return cache.get(key)!;
-  let id: string | null = null;
   const local = written.replace(/[.:][A-Z]{1,4}$/i, "");
   const queries = [name, /^\d+$/.test(local) ? null : local].filter((q): q is string => !!q && q.length > 1);
-  outer: for (const q of queries) {
+  const byTicker: string[] = [], exact: string[] = [], longer = new Set<string>();
+  const mine = nameWords(name);
+  for (const q of queries) {
     const r = await callWithRetry(c, "company_lookup", { query: q, limit: 5 }, o);
     if (r.isError) continue;
     for (const hit of (JSON.parse(r.text).results ?? []) as Array<{ name?: string; lei?: string; ticker?: string | null; cik?: number }>) {
-      if (hit.name && name && sameName(name, hit.name)) {
-        id = hit.lei ?? hit.ticker ?? (hit.cik ? String(hit.cik) : null);
-        if (id) break outer;
-      }
+      const id = hit.lei ?? hit.ticker ?? (hit.cik ? String(hit.cik) : null);
+      if (!id || !hit.name || !name || !sameName(name, hit.name)) continue;
+      const theirs = words(hit.name);
+      if (local && hit.ticker && hit.ticker.replace(/[.:][A-Z]{1,4}$/i, "").toUpperCase() === local.toUpperCase()) byTicker.push(id);
+      else if (theirs.size === mine.size) exact.push(id); // sameName holds, so the same words
+      else longer.add(id);
     }
   }
+  const id = byTicker[0] ?? exact[0] ?? (longer.size === 1 ? [...longer][0]! : null);
   cache.set(key, id);
   return id;
 }
