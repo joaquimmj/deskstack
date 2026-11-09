@@ -17,6 +17,13 @@ describe("wrangler.jsonc cost guards", () => {
     expect([10, 60]).toContain(rl.simple.period);
   });
 
+  it("binds the shared per-IP counter (a SQLite Durable Object, the only kind on Workers Free)", () => {
+    const b = (config.durable_objects?.bindings ?? []).find((d: { name: string }) => d.name === "IP_COUNTER");
+    expect(b?.class_name).toBe("IpCounter");
+    const created = (config.migrations ?? []).flatMap((m: { new_sqlite_classes?: string[] }) => m.new_sqlite_classes ?? []);
+    expect(created).toContain("IpCounter");
+  });
+
   it("binds the D1 daily counter and sets a cap below the free plan's 100k requests/day", () => {
     const db = (config.d1_databases ?? []).find((d: { binding: string }) => d.binding === "USAGE");
     expect(db?.database_id).toMatch(/^[0-9a-f-]{36}$/);

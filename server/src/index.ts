@@ -5,6 +5,7 @@
 import { createMcpHandler, originValidationResponse } from "@modelcontextprotocol/server";
 import { DISCLAIMER, PRODUCT_NAME, REPO_URL, VERSION, type Env } from "./config";
 import { allowDaily, allowIp, CAPACITY_MESSAGE, RATE_MESSAGE } from "./guard";
+export { IpCounter } from "./limiter"; // the Durable Object class bound as IP_COUNTER
 import { Fx } from "./fx";
 import { cachedFetchText, Rates } from "./rates";
 import { Repo } from "./repo";

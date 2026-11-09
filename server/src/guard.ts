@@ -30,7 +30,7 @@ function isolateLimit(ip: string, perMinute: number, now: number): boolean {
 }
 
 /**
- * Both limits must allow: this isolate's own window and Cloudflare's rate-limit binding. The binding is approximate
+ * This isolate's own window, then the shared counter (exact), else Cloudflare's rate-limit binding. The binding is approximate
  * (counters are per location and eventually consistent: a live burst got 512 of 515 calls through in 70 s), so the
  * isolate window bounds a burst that one isolate serves. Neither is exact across isolates; the daily cap is the hard
  * limit.
@@ -39,6 +39,17 @@ export async function allowIp(env: Env, ip: string, now = Date.now()): Promise<b
   const perMinute = Number(env.PER_IP_PER_MINUTE) || DEFAULT_PER_IP_PER_MINUTE;
   const local = isolateLimit(ip, perMinute, now);
   if (!local) return false;
+  // The shared counter (src/limiter.ts) is exact across isolates and locations; when it answers, it decides.
+  if (env.IP_COUNTER) {
+    try {
+      const stub = env.IP_COUNTER.get(env.IP_COUNTER.idFromName("global"));
+      const r = await stub.fetch(`https://counter/hit?ip=${encodeURIComponent(ip)}&n=${perMinute}`);
+      if (r.status === 200) return true;
+      if (r.status === 429) return false;
+    } catch {
+      // over a free-plan limit or unavailable: fall back to Cloudflare's limiter below
+    }
+  }
   if (env.IP_LIMITER) {
     try {
       return (await env.IP_LIMITER.limit({ key: ip })).success;
