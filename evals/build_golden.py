@@ -38,13 +38,15 @@ GROUP = {
     "diluted_eps": "income_statement", "pretax_income": "income_statement", "gross_profit": "income_statement",
     "operating_cash_flow": "cash_flow", "capex": "cash_flow", "d_and_a": "cash_flow",
     "total_assets": "balance_sheet", "cash": "balance_sheet", "total_equity": "balance_sheet",
+    "short_term_investments": "balance_sheet",
 }
-INSTANT = {"total_assets", "cash", "total_equity"}
+INSTANT = {"total_assets", "cash", "total_equity", "short_term_investments"}
 LABEL = {
     "revenue": "revenue", "operating_income": "operating income", "net_income": "net income", "diluted_eps": "diluted EPS",
     "pretax_income": "pre-tax income", "gross_profit": "gross profit", "operating_cash_flow": "operating cash flow",
     "capex": "capital expenditures", "d_and_a": "depreciation and amortization", "total_assets": "total assets",
     "cash": "cash and cash equivalents", "total_equity": "total equity",
+    "short_term_investments": "short-term investments",
 }
 
 # (ticker, period label, period end, [(metric, concept)], tags)
@@ -94,7 +96,8 @@ ESEF = [
     ("529900S21EQ1BO4ESM68", "TotalEnergies", "FY2024", "529900S21EQ1BO4ESM68-2025-12-31-ESEF-FR-0", "2024-01-01", "2024-12-31",
      [("revenue", "RevenueFromContractsWithCustomers"), ("net_income", "ProfitLossAttributableToOwnersOfParent")], ["eu", "esef", "usd-reporter", "comparative"]),
     ("549300TTCXZOGZM2EY83", "Inditex", "FY2025", "549300TTCXZOGZM2EY83-2026-01-31-ESEF-ES-0", "2025-02-01", "2026-01-31",
-     [("revenue", "Revenue"), ("net_income", "ProfitLossAttributableToOwnersOfParent"), ("total_assets", "Assets")], ["eu", "esef", "january-fye", "ifrs16"]),
+     [("revenue", "Revenue"), ("net_income", "ProfitLossAttributableToOwnersOfParent"), ("total_assets", "Assets"),
+      ("short_term_investments", "ShorttermDepositsNotClassifiedAsCashEquivalents")], ["eu", "esef", "january-fye", "ifrs16"]),
     ("549300TTCXZOGZM2EY83", "Inditex", "FY2024", "549300TTCXZOGZM2EY83-2026-01-31-ESEF-ES-0", "2024-02-01", "2025-01-31",
      [("revenue", "Revenue"), ("net_income", "ProfitLossAttributableToOwnersOfParent")], ["eu", "esef", "january-fye", "comparative"]),
     # Only reported as the comparative in the FY2024 report: its label must be counted back (FY2023), not taken from

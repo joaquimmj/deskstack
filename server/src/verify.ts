@@ -45,6 +45,8 @@ export interface VerifyResult {
   relative_difference: number | null;
   concept: string | null;
   computed: boolean;
+  /** The filed figure's own caveat (a segment total, a figure including impairment, basic EPS...), when it has one. */
+  note?: string;
   accessions: string[];
   /** How far off the claimed value may be and still match, in units, and why. */
   allowance: { units: number; basis: string };
@@ -239,6 +241,10 @@ export function verifyItems(std: Standardized, items: VerifyItem[]): VerifyResul
     base.computed = !base.concept;
     base.accessions = "accessions" in cell && cell.accessions ? cell.accessions : "accession" in cell && cell.accession ? [cell.accession] : [];
     if (base.computed && "formula" in cell) base.hints.push(`Computed value: ${cell.formula}.`);
+    if ("note" in cell && cell.note) {
+      base.note = cell.note;
+      base.hints.push(`About this figure: ${cell.note}.`);
+    }
 
     const allow = allowanceFor(it, scale, filed);
     base.allowance = allow;
