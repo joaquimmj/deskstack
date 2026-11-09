@@ -78,11 +78,15 @@ describe("verify_value: planted errors are caught, with the right hint", () => {
     expect(r.hints.join(" ")).toMatch(/matches operating_income/);
   });
 
-  it("a typo (transposed digits) is a plain mismatch with the difference", () => {
+  it("transposed digits are a mismatch with a transposition hint", () => {
     const r = one(aapl, { metric: "revenue", period: "FY2024", value: 390.135, scale: "billions" });
     expect(r.status).toBe("mismatch");
     expect(r.difference).toBeCloseTo(390.135e9 - REV24, -3);
-    expect(r.hints).toEqual([]);
+    expect(r.hints).toEqual(["Typo: two adjacent digits look swapped (filed 391.035, written 390.135)."]);
+    // The hero's example, in millions.
+    expect(one(aapl, { metric: "revenue", period: "FY2024", value: 391_053, scale: "millions" }).hints[0]).toMatch(/^Typo: .*filed 391,035, written 391,053/);
+    // A different number with no swap gets no typo hint.
+    expect(one(aapl, { metric: "revenue", period: "FY2024", value: 391_530, scale: "millions" }).hints).toEqual([]);
   });
 
   it("rounding-aware: 391 and 391.04 (billions) are fair roundings of 391.035; 391.05 is not", () => {

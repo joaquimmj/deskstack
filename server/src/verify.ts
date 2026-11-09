@@ -259,6 +259,8 @@ export function verifyItems(std: Standardized, items: VerifyItem[]): VerifyResul
         base.hints.push(`Scale: the value matches if it is in ${name}, not ${scale} (filed ${fmt(filed)} = ${fmt(filed / f)} ${name}).`);
       }
     }
+    const typo = transposition(it.value, filed / SCALE[scale]);
+    if (typo) base.hints.push(typo);
     if (within(-claimedUnits, filed, allow.units)) base.hints.push("Sign: the value has the opposite sign of the filed figure (capex and D&A are reported as positive outflows).");
     for (const other of std.periods) {
       if (other === col) continue;
@@ -272,6 +274,21 @@ export function verifyItems(std: Standardized, items: VerifyItem[]): VerifyResul
     }
     return base;
   });
+}
+
+/**
+ * "391,053" written for a filed 391,035: two adjacent digits swapped, the classic keying error (the difference is a
+ * multiple of 9). Compared at the written value's own precision.
+ */
+export function transposition(written: number, filedInScale: number): string | null {
+  const dec = Math.min((String(Math.abs(written)).split(".")[1] ?? "").length, 6);
+  const show = (v: number) => v.toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+  const a = Math.abs(written).toFixed(dec).replace(".", "");
+  const b = Math.abs(filedInScale).toFixed(dec).replace(".", "");
+  if (a.length !== b.length || Math.sign(written) !== Math.sign(filedInScale)) return null;
+  const diff = [...a].flatMap((ch, i) => (ch !== b[i] ? [i] : []));
+  if (diff.length !== 2 || diff[1] !== diff[0]! + 1 || a[diff[0]!] !== b[diff[1]!] || a[diff[1]!] !== b[diff[0]!]) return null;
+  return `Typo: two adjacent digits look swapped (filed ${show(filedInScale)}, written ${show(written)}).`;
 }
 
 export function summarize(results: VerifyResult[]) {

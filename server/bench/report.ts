@@ -108,7 +108,7 @@ export function toMarkdown(s: ReturnType<typeof summarize>, meta: Record<string,
     "- Not verifiable = the filing doesn't report the line for that period, the period is ambiguous, or the company couldn't be resolved (e.g. a peer outside coverage). Reported, not counted as wrong.",
     "- Scoring uses deskstack's verify_value as the oracle; arms B and C read the same data, so their tie-out is partly by construction. The comparison that matters is A against B and C. The nightly differential test (evals/differential) checks verify_value itself against the filings with independent parsers.",
     "- Arm C sees the associate's tie-out before fixing, by design (it is B plus the review layer).",
-    "- EBITDA and net debt are compared with deskstack's definitions (operating income + D&A; total debt excluding leases - cash - short-term investments), which every arm is given in the prompt. Why wrong splits the remaining mismatches by the hint verify_value gave (scale, sign, currency, period, line item, other).",
+    "- EBITDA and net debt are compared with deskstack's definitions (operating income + D&A; total debt excluding leases - cash - short-term investments), which every arm is given in the prompt. Why wrong splits the remaining mismatches by the hint verify_value gave (scale, sign, currency, period, line item, typo, other).",
     "- Pairs exclude company-tasks where any arm crashed or hit the budget; crashed runs are counted per arm.",
   );
   return lines.join("\n");
