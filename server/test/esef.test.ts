@@ -158,6 +158,19 @@ describe("ESEF extraction (xBRL-JSON)", () => {
     expect(schneider.d_and_a).toMatchObject({ value: 1652 });
     expect(schneider.d_and_a!.formula).toMatch(/depreciation of PP&E \+ amortization of intangible assets/);
     expect(Object.keys(schneider).filter((k) => /_ext$/.test(k))).toEqual([]); // inputs, not metrics
+    // Review: right-of-use depreciation tagged on its own would be missing from the sum, so no sum.
+    expect(values([
+      { concept: "x:DepreciationOfPropertyPlantAndEquipment", value: "90" },
+      { concept: "x:AmortisationOfIntangibleAssets", value: "60" },
+      { concept: "ifrs-full:DepreciationRightofuseAssets", value: "40" },
+    ]).d_and_a).toBeNull();
+    // Review: EBIT is profit *before* financial result; "from" would be something else.
+    expect(values([{ concept: "x:ProfitLossFromFinancialResultAndIncomeTaxes", value: "6082" }]).operating_income).toBeNull();
+    // Review: +X and -X for the same own concept is a conflict, not one value.
+    expect(values([
+      { concept: "airbus:ProfitLossBeforeFinancialResultAndIncomeTaxes", value: "6082" },
+      { concept: "airbus:ProfitLossBeforeFinancialResultAndIncomeTaxes", value: "-6082" },
+    ]).operating_income).toBeNull();
     // One of the two alone is not D&A.
     expect(values([{ concept: "schneiderelectric:AdjustmentsForDepreciationOfPropertyPlantAndEquipment", value: "871" }]).d_and_a).toBeNull();
   });

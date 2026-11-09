@@ -3,7 +3,7 @@
 // Same fixtures, same expected values; deliberate changes are marked "CHANGE".
 
 import { describe, expect, it } from "vitest";
-import { ifrsTotalDebt, NoAnnualFacts, sharesOutstanding, standardize, totalDebt, type RawFact } from "../src/sec/xbrl";
+import { EXT_KEYS, ifrsTotalDebt, NoAnnualFacts, sharesOutstanding, standardize, totalDebt, type RawFact } from "../src/sec/xbrl";
 import { companyfacts, fact, facts } from "./helpers";
 
 const col = (r: ReturnType<typeof standardize>, label: string) => {
@@ -238,6 +238,35 @@ describe("real filings", () => {
       AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss: { units: { USD: y(13_847e6) } },
     } } } as never, 5, false).periods[0]!;
     expect(p.derived.ebitda).toEqual({ value: 33_847e6, formula: "operating_income + d_and_a (includes impairment)" });
+  });
+
+  it("an issuer's two own D&A parts are added only from one filing, and never in the LTM column (review, PR #14)", () => {
+    const own = (v: number, accn: string, filed: string, src: string, start = "2024-01-01", end = "2024-12-31", form = "ESEF") =>
+      ({ ...fact(v, start, end, accn, filed, form, 2024), src });
+    const ifrs = (ns: Record<string, RawFact[]>) => ({ cik: 0, entityName: "X", facts: { "ifrs-full": Object.fromEntries(
+      Object.entries(ns).map(([k, v]) => [k, { units: { EUR: v } }])) } }) as never;
+    // FY2024 report: 100 + 50. FY2025 report restates 2024 depreciation to 80 but doesn't tag 2024 amortization.
+    const mixed = standardize(ifrs({
+      Revenue: [fact(1000, "2024-01-01", "2024-12-31", "r24", "2025-03-01", "ESEF", 2024)],
+      [EXT_KEYS.depreciation]: [own(100, "r24", "2025-03-01", "x:DepreciationOfPropertyPlantAndEquipment"), own(80, "r25", "2026-03-01", "x:DepreciationOfPropertyPlantAndEquipment")],
+      [EXT_KEYS.amortization]: [own(50, "r24", "2025-03-01", "x:AmortisationOfIntangibleAssets")],
+    }), 5, false).periods[0]!.values;
+    expect(mixed.d_and_a).toBeNull(); // 130 is in neither filing
+    // With a half-year report: the annual column adds the parts, the LTM column doesn't (its D&A could be defined
+    // differently from the annual one).
+    const fy = (k: string, v: number) => own(v, "r24", "2025-03-01", k);
+    const hy = (k: string, v: number, y: number) => own(v, "h25", "2025-09-01", k, `${y}-01-01`, `${y}-06-30`, "ESEF-HY");
+    const D = "x:DepreciationOfPropertyPlantAndEquipment", A = "x:AmortisationOfIntangibleAssets";
+    const withHy = standardize(ifrs({
+      Revenue: [fact(1000, "2024-01-01", "2024-12-31", "r24", "2025-03-01", "ESEF", 2024),
+        fact(520, "2025-01-01", "2025-06-30", "h25", "2025-09-01", "ESEF-HY", 2025), fact(480, "2024-01-01", "2024-06-30", "h25", "2025-09-01", "ESEF-HY", 2025)],
+      [EXT_KEYS.depreciation]: [fy(D, 100), hy(D, 55, 2025), hy(D, 45, 2024)],
+      [EXT_KEYS.amortization]: [fy(A, 50), hy(A, 30, 2025), hy(A, 25, 2024)],
+    }), 5, true);
+    expect(withHy.periods.find((p) => p.label === "FY2024")!.values.d_and_a!.value).toBe(150);
+    const ltm = withHy.periods.find((p) => /LTM/.test(p.label));
+    expect(ltm, "an LTM column").toBeDefined();
+    expect(ltm!.values.d_and_a).toBeNull();
   });
 
   it("Verizon-style capex says which line it is (review)", () => {

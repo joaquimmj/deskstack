@@ -79,7 +79,7 @@ const EXT_CAPEX = /^(?:(purchases?of|investmentsin|acquisitionsof)(propertyplant
 const EXTENSIONS: Array<{ re: RegExp; key: string; abs: boolean }> = [
   { re: EXT_CAPEX, key: EXT_KEYS.capex, abs: true },
   // Airbus: "profit before financial result and income taxes" is its EBIT.
-  { re: /^profitloss(before|from)financial(result|income)and(income)?tax(es)?$/i, key: EXT_KEYS.operating_income, abs: false },
+  { re: /^profitlossbeforefinancial(result|income)and(income)?tax(es)?$/i, key: EXT_KEYS.operating_income, abs: false },
   // Sanofi: D&A and impairment of PP&E, right-of-use assets and intangibles (cash-flow adjustment).
   { re: /^(ajustementspour)?amortissementsetdepreciationsdesimmobilisationscorporelles(droitsdutilisation)?etimmobilisationsincorporelles$/i, key: EXT_KEYS.d_and_a, abs: true },
   // Schneider: depreciation of PP&E and amortization of intangibles as two concepts, added by the standardizer.
@@ -93,7 +93,7 @@ const QNAME = /^[A-Za-z_][\w.-]{0,63}:[A-Za-z_][\w.-]{0,200}$/;
 export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: string): ExtractedFiling {
   const seen = new Set<string>();
   const rows: EsefRow[] = [];
-  const ext = new Map<string, Map<string, EsefRow | null>>();
+  const ext = new Map<string, Map<string, (EsefRow & { raw: number }) | null>>();
   let extension = 0;
   for (const f of Object.values(doc.facts ?? {})) {
     const dims = f.dimensions ?? {};
@@ -126,13 +126,14 @@ export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: s
     if (x) {
       // A purchase or an expense: stored positive like the standard concepts, whatever the issuer's sign.
       row.x = x;
-      if (absolute) row.v = Math.abs(row.v);
       const k = `${row.c}|${row.u}|${row.s}|${row.e}`;
       if (!ext.has(k)) ext.set(k, new Map());
       const byConcept = ext.get(k)!;
       const prev = byConcept.get(x);
-      // The same concept twice with different values is a conflict: null drops the period below.
-      byConcept.set(x, prev === undefined || (prev && prev.v === row.v) ? row : null);
+      const raw = row.v;
+      if (absolute) row.v = Math.abs(row.v);
+      // The same concept twice with different values (signs included) is a conflict: null drops the period below.
+      byConcept.set(x, prev === undefined || (prev && prev.raw === raw) ? { ...row, raw } : null);
       continue;
     }
     const key = `${row.c}|${row.u}|${row.s}|${row.e}`;
@@ -143,7 +144,10 @@ export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: s
   // One issuer concept per line and period, with one value, is used; anything else is ambiguous and dropped.
   for (const byConcept of ext.values()) {
     const [only] = byConcept.values();
-    if (byConcept.size === 1 && only) rows.push(only);
+    if (byConcept.size === 1 && only) {
+      const { raw: _raw, ...row } = only;
+      rows.push(row);
+    }
   }
 
   // Classify by the facts: the longest revenue/profit period that ends at the report's last date.
