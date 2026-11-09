@@ -27,8 +27,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check the pages are built from the current content
         run: |
+          python3 site/src/copy.py
           python3 site/src/build.py
-          git diff --exit-code site/index.html site/fr/index.html
+          git diff --exit-code site/src/content.json site/index.html site/fr/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

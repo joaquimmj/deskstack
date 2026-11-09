@@ -5,148 +5,193 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{title_text}}</title>
 <meta name="description" content="{{desc_attr}}">
+<meta name="theme-color" content="#f6f7f8">
 <link rel="alternate" hreflang="{{other_lang}}" href="{{other_href}}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{prefix}}style.css">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{prefix}}style.css?v={{ver}}">
 <link rel="icon" href="{{favicon}}">
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 <a class="skip" href="#install">{{skip}}</a>
 <header class="bar">
   <div class="wrap bar-in">
-    <a class="brand" href="{{home}}">{{logo}}deskstack</a>
-    <nav aria-label="{{nav}}">
-      <a class="hide-sm" href="#proof">{{n_proof}}</a>
-      <a class="hide-sm" href="#team">{{n_team}}</a>
-      <a class="hide-sm" href="{{gh}}">GitHub</a>
-      <a href="{{other_href}}" hreflang="{{other_lang}}" lang="{{other_lang}}">{{other_name}}</a>
-      <a class="btn sm" href="#install">{{n_install}}</a>
+    <a class="brand" href="{{home}}">{{logo}}<span>deskstack</span></a>
+    <nav class="links" aria-label="{{nav}}">
+      <a href="#how">{{n_how}}</a>
+      <a href="#bench">{{n_bench}}</a>
+      <a href="#data">{{n_data}}</a>
+      <a href="#faq">{{n_faq}}</a>
     </nav>
+    <div class="bar-end">
+      <a class="gh" href="{{gh}}" aria-label="GitHub">{{gh_icon}}<span>GitHub</span></a>
+      <a class="lang" href="{{other_href}}" hreflang="{{other_lang}}" lang="{{other_lang}}">{{other_name}}</a>
+      <a class="btn go sm" href="#install">{{n_install}}</a>
+    </div>
   </div>
 </header>
 
 <main id="main">
-<!-- The hero is a workbook: the headline is the selected range, the associate ties out the history to the 10-K. -->
-<section class="sheet-hero" aria-labelledby="hero-t">
-  <div class="fx" aria-hidden="true">
-    <span class="ref">B4:K8</span><span class="fxl">fx</span>
-    <code>=DESKSTACK.TIEOUT(Inputs!D3, "AAPL 10-K FY2025")</code>
-    <span class="fx-ok">{{tick}}416,161 · 0000320193-25-000079</span>
-  </div>
-  <div class="sheet">
-    <div class="grid" aria-hidden="true">
-      <div class="cols">{{col_heads}}</div>
-      <div class="rows">{{row_heads}}</div>
-      <div class="cells">{{hero_cells}}
-        <div class="cursor c-associate" style="--x:3;--y:2"></div>
-        <div class="comment" style="--x:5;--y:2"><b>{{who_associate}}</b> {{note}}</div>
-        <div class="cursor c-analyst" style="--x:11;--y:3"><span>{{who_analyst}}</span></div>
-      </div>
-    </div>
-    <div class="selection"><h1 id="hero-t">{{h1}}</h1></div>
-    <div class="below">
-      <p class="lede">{{lede}}</p>
-      <div class="actions">
-        <a class="btn" href="#install">{{cta}}</a>
-        <a class="btn ghost" href="#proof">{{cta2}}</a>
-      </div>
+<!-- Hero: a workbook. The headline is the selected range; the associate ties the history to the 10-K. -->
+<section class="hero" aria-labelledby="hero-t">
+  <div class="sheet" aria-hidden="true">
+    <div class="cols">{{col_heads}}</div>
+    <div class="rows">{{row_heads}}</div>
+    <div class="cells">{{hero_cells}}
+      <div class="cursor c-associate" style="--x:3;--y:2"><span>{{c_associate}}</span></div>
+      <div class="comment" style="--x:5;--y:2">{{note}}</div>
+      <div class="cursor c-you" style="--x:11;--y:3"><span>{{c_you}}</span></div>
     </div>
   </div>
-  <p class="legend" aria-hidden="true"><span class="k-in">123</span>{{leg_in}}<span class="k-ok">123</span>{{leg_ok}}<span class="k-bad">123</span>{{leg_bad}}</p>
+  <div class="hero-in">
+    <div class="fx" aria-hidden="true">
+      <span class="ref">B4:K8</span><span class="fxl">fx</span>
+      <code>=DESKSTACK.TIEOUT(Inputs!D3, "AAPL 10-K FY2025")</code>
+      <span class="avatars"><i class="a1">A</i><i class="a2">Y</i></span>
+    </div>
+    <div class="selection"><h1 id="hero-t">{{h1a}}<br><em>{{h1b}}</em></h1><i class="handle"></i></div>
+    <p class="lede"><b>{{lede_b}}</b> {{lede}}</p>
+    <div class="actions">
+      <a class="btn go" href="#install">{{cta}} {{arrow}}</a>
+      <a class="btn ghost" href="#bench">{{cta2}}</a>
+    </div>
+  </div>
 </section>
 
-<section id="proof" class="band" aria-labelledby="proof-t">
+<section class="proof" aria-label="{{n_bench}}">
   <div class="wrap">
-    <h2 class="visually-hidden" id="proof-t">{{p_t}}</h2>
     <ul class="stats">{{stats}}</ul>
-    <p class="fine">{{stats_note}} <a href="{{gh}}/blob/main/{{analysis}}">{{stats_link}}</a></p>
+    <p class="fine">{{stats_note}}</p>
   </div>
 </section>
 
-<div class="wrap">
-<section id="team" aria-labelledby="team-t">
-  <h2 class="title" id="team-t">{{t_t}}</h2>
-  <p class="intro">{{t_intro}}</p>
-  <ol class="lanes" aria-label="{{t_t}}">{{lanes}}</ol>
-  <p class="after">{{t_after}}</p>
-</section>
-
-<section aria-labelledby="demo-t">
-  <h2 class="title" id="demo-t">{{demo_t}}</h2>
-  <p class="intro">{{demo_p}}</p>
-  <figure class="demo">
-    <img src="{{prefix}}media/demo.gif" width="1080" height="608" loading="lazy" alt="{{demo_alt}}">
-  </figure>
-</section>
-
-<section aria-labelledby="bench-t">
-  <h2 class="title" id="bench-t">{{b_t}}</h2>
-  <p class="intro">{{b_intro}}</p>
-  <figure class="bench">
-    {{bench_tables}}
-    <figcaption>{{b_caveat}}</figcaption>
-  </figure>
-  <div class="two">
-    <div>
-      <h3>{{acc_t}}</h3>
-      <p>{{acc_p}}</p>
-      <p><a href="{{gh}}/blob/main/evals/README.md">{{acc_link}}</a></p>
-    </div>
-    <div>
-      <h3>{{cp_t}}</h3>
-      <p>{{cp_p}}</p>
+<section id="how" class="block" aria-labelledby="sc-t">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="sc-t">{{sc_t1}} <span>{{sc_t2}}</span></h2>
+    <p class="sub reveal">{{sc_p}}</p>
+    <div class="showcase reveal">
+      <div class="tablist" role="tablist" aria-label="{{sc_t1}}">{{tabs}}</div>
+      <div class="stage">{{panels}}</div>
     </div>
   </div>
 </section>
 
-<section id="install" aria-labelledby="install-t">
-  <h2 class="title" id="install-t">{{i_t}}</h2>
-  <p class="intro">{{i_intro}}</p>
-  <ol class="steps">
-    <li>
-      <h3>{{s1}}</h3>
-      <p>{{s1p}}</p>
-      <div class="urlbox" data-connector data-placeholder="{{placeholder}}"><code id="connector-url">{{placeholder}}</code><button class="btn" type="button" data-copy="connector-url" data-done="{{copied}}" data-fallback="{{selected}}">{{copy}}</button></div>
-      <p class="pending" data-pending hidden>{{pending}}</p>
-    </li>
-    <li>
-      <h3>{{s2}}</h3>
-      <p>{{s2p}}</p>
-      <div class="urlbox"><code id="market-url">{{gh}}</code><button class="btn" type="button" data-copy="market-url" data-done="{{copied}}" data-fallback="{{selected}}">{{copy}}</button></div>
-    </li>
-    <li>
-      <h3>{{s3}}</h3>
-      <p>{{s3p}}</p>
-      <div class="urlbox"><code id="first-cmd">/deal-team Apple quick-dcf</code><button class="btn" type="button" data-copy="first-cmd" data-done="{{copied}}" data-fallback="{{selected}}">{{copy}}</button></div>
-    </li>
-  </ol>
+<section class="block white" aria-labelledby="ln-t">
+  <div class="wrap">
+    <div class="lanes-card reveal">
+      <h2 class="h3" id="ln-t">{{ln_t1}} <span>{{ln_t2}}</span></h2>
+      <div class="lanes" aria-hidden="true">
+        <div class="lane-names"><span class="who-a">{{ln_agents}}</span><span class="who-y">{{ln_you}}</span></div>
+        <ol class="track">{{lane_steps}}</ol>
+      </div>
+      <p class="sub">{{ln_p}}</p>
+    </div>
+  </div>
 </section>
 
-<section aria-labelledby="data-t">
-  <h2 class="title" id="data-t">{{d_t}}</h2>
-  <p class="intro">{{d_intro}}</p>
-  <div class="scroll"><table class="data">
-    <thead><tr><th scope="col">{{d_h1}}</th><th scope="col">{{d_h2}}</th><th scope="col">{{d_h3}}</th></tr></thead>
-    <tbody>{{data_rows}}</tbody>
-  </table></div>
+<section class="night" aria-labelledby="dk-t">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2 class="h2 reveal" id="dk-t">{{dk_t1}} <span>{{dk_t2}}</span></h2>
+    <p class="sub reveal">{{dk_p}}</p>
+    <ol class="stepper reveal">{{dk_steps}}</ol>
+    <div class="night-grid">
+      <article class="ncard reveal">
+        <h3>{{dk_card1_t}}</h3>
+        <p>{{dk_card1_p}}</p>
+        <div class="json" aria-hidden="true"><pre>{{verify_json}}</pre></div>
+        <ul class="hints">{{dk_hints}}</ul>
+      </article>
+      <article class="ncard reveal">
+        <h3>{{dk_card2_t}}</h3>
+        <p>{{dk_card2_p}}</p>
+        <figure class="demo"><img src="{{prefix}}media/demo.gif" width="1080" height="608" loading="lazy" alt="{{demo_alt}}"></figure>
+      </article>
+    </div>
+  </div>
 </section>
 
-<section aria-labelledby="lim-t">
-  <h2 class="title" id="lim-t">{{l_t}}</h2>
-  <ul class="limits">{{limit_items}}</ul>
+<section id="bench" class="block" aria-labelledby="bench-t">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="bench-t">{{b_t1}} <span>{{b_t2}}</span></h2>
+    <p class="sub reveal">{{b_p}}</p>
+    <div class="bench reveal">{{bench_tables}}</div>
+    <div class="cards3">{{b_cards}}</div>
+  </div>
 </section>
-</div>
+
+<section id="data" class="block white" aria-labelledby="data-t">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="data-t">{{d_t1}} <span>{{d_t2}}</span></h2>
+    <p class="sub reveal">{{d_p}}</p>
+    <div class="sources">{{data_cards}}</div>
+    <div class="accuracy reveal">
+      <div><h3>{{acc_t}}</h3><p>{{acc_p}}</p></div>
+      <div class="acc-badge" aria-hidden="true"><b>99/99</b><span>golden</span><b>83/83</b><span>re-read</span></div>
+      <a class="btn ghost sm" href="{{gh}}/blob/main/evals/README.md">{{acc_link}} {{arrow}}</a>
+    </div>
+  </div>
+</section>
+
+<section id="install" class="block" aria-labelledby="install-t">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="install-t">{{i_t1}} <span>{{i_t2}}</span></h2>
+    <p class="sub reveal">{{i_p}}</p>
+    <ol class="steps">
+      <li class="reveal">
+        <h3>{{s1}}</h3>
+        <p>{{s1p}}</p>
+        <div class="urlbox" data-connector data-placeholder="{{placeholder}}"><code id="connector-url">{{placeholder}}</code><button class="btn ink sm" type="button" data-copy="connector-url" data-done="{{copied}}" data-fallback="{{selected}}">{{copy}}</button></div>
+        <p class="pending" data-pending hidden>{{pending}}</p>
+      </li>
+      <li class="reveal">
+        <h3>{{s2}}</h3>
+        <p>{{s2p}}</p>
+        <div class="urlbox"><code id="market-url">{{gh}}</code><button class="btn ink sm" type="button" data-copy="market-url" data-done="{{copied}}" data-fallback="{{selected}}">{{copy}}</button></div>
+      </li>
+      <li class="reveal">
+        <h3>{{s3}}</h3>
+        <p>{{s3p}}</p>
+        <div class="urlbox"><code id="first-cmd">/deal-team Apple quick-dcf</code><button class="btn ink sm" type="button" data-copy="first-cmd" data-done="{{copied}}" data-fallback="{{selected}}">{{copy}}</button></div>
+      </li>
+    </ol>
+    <p class="tut"><a href="{{gh}}/blob/main/{{tut_path}}">{{tut}} {{arrow}}</a></p>
+  </div>
+</section>
+
+<section id="faq" class="block faq-block" aria-labelledby="faq-t">
+  <div class="wrap faq-wrap">
+    <h2 class="h2" id="faq-t">{{q_t1}}<br><span>{{q_t2}}</span></h2>
+    <div class="faq">{{faq}}</div>
+  </div>
+</section>
+
+<section class="end" aria-labelledby="end-t">
+  <div class="sheet faint" aria-hidden="true"><div class="cols">{{col_heads}}</div><div class="cells"></div></div>
+  <div class="wrap">
+    <h2 class="h2" id="end-t">{{end_t1}}<br><span>{{end_t2}}</span></h2>
+    <div class="actions">
+      <a class="btn go" href="#install">{{cta}} {{arrow}}</a>
+      <a class="btn ghost" href="{{gh}}">GitHub</a>
+    </div>
+  </div>
+</section>
 </main>
 
-<footer>
+<footer class="foot">
   <div class="wrap">
-    <p>{{f1}}</p>
-    <p>{{f2}}</p>
-    <p>{{f3}}</p>
+    <div class="foot-top">
+      <a class="brand" href="{{home}}">{{logo}}<span>deskstack</span></a>
+      <nav aria-label="{{f_product}}"><h3>{{f_product}}</h3>{{f_col1}}</nav>
+      <nav aria-label="{{f_docs}}"><h3>{{f_docs}}</h3>{{f_col2}}</nav>
+      <nav aria-label="{{f_project}}"><h3>{{f_project}}</h3>{{f_col3}}</nav>
+    </div>
+    <p class="credit">{{f_credit}}</p>
+    <p class="credit">{{f_disc}}</p>
   </div>
 </footer>
-<script src="{{prefix}}config.js"></script>
-<script src="{{prefix}}app.js"></script>
+<script src="{{prefix}}config.js?v={{ver}}"></script>
+<script src="{{prefix}}app.js?v={{ver}}"></script>
 </body>
 </html>
