@@ -1,0 +1,999 @@
+{
+ "company": "META",
+ "task": "dcf",
+ "arm": "C",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Meta Platforms, Inc.",
+   "ticker": "META",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       134902,
+       164501,
+       200966
+      ],
+      "source": "financial_statements META, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K accession 0001628280-26-003942"
+     },
+     "operating_income": {
+      "values": [
+       46751,
+       69380,
+       83276
+      ],
+      "source": "financial_statements META, us-gaap:OperatingIncomeLoss, accession 0001628280-26-003942"
+     },
+     "d_and_a": {
+      "values": [
+       11178,
+       15498,
+       18616
+      ],
+      "source": "financial_statements META, us-gaap:DepreciationDepletionAndAmortization, accession 0001628280-26-003942"
+     },
+     "capex": {
+      "values": [
+       27045,
+       37256,
+       69691
+      ],
+      "source": "financial_statements META, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0001628280-26-003942"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.18,
+      0.15,
+      0.12,
+      0.1,
+      0.08
+     ],
+     "source": "Assumption: decelerating from FY2025 growth of 22.2% (200,966/164,501) as the base gets larger; fading toward terminal growth."
+    },
+    "ebit_margin": {
+     "value": 0.4,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: slightly below FY2025 margin of 41.4% (83,276/200,966) to reflect rising depreciation from heavy AI capex."
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: normalized rate below the 21% US statutory rate. Computed FY2023 rate was 17.6% (pretax 47,428, net income 39,098) and FY2024 was 11.7% (pretax 70,663, net income 62,360). The FY2025 computed rate of 29.6% (pretax 85,932, net income 60,458) is an outlier. I did not verify its cause in the filing, so I did not use it. Reviewer should check the 10-K tax note."
+    },
+    "da_pct_revenue": {
+     "value": 0.1,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 was 9.3% (18,616/200,966) and FY2024 was 9.4%; raised to 10% as the FY2025 capex step-up depreciates."
+    },
+    "capex_pct_revenue": {
+     "value": 0.27,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 was 34.7% (69,691/200,966) and FY2024 was 22.6%; assume intensity eases from the FY2025 peak but stays well above the FY2024 level."
+    },
+    "wacc": {
+     "value": 0.105,
+     "period": "current",
+     "source": "Assumption anchored on Damodaran US Software (Internet) cost of capital of 10.66% (dataset 2026-01-05). Cross-check: risk-free rate 4.86% (US Treasury 10Y, 2026-11-06) and US ERP 4.46% (Damodaran, 2026-02-16). I rounded down because Meta is a large, cash-rich company with low leverage."
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "period": "terminal",
+     "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal GDP growth."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": -22848,
+     "period": "FY2025",
+     "source": "financial_statements META derived net_debt = total debt 58,744 - cash 35,873 - marketable securities 45,719, accession 0001628280-26-003942 (excludes leases)"
+    },
+    "diluted_shares": {
+     "value": 2574,
+     "period": "FY2025",
+     "source": "financial_statements META, us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 2,574,000,000 shares = 2,574 million, accession 0001628280-26-003942"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Meta Platforms, Inc.",
+   "ticker": "META",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       134902,
+       164501,
+       200966
+      ],
+      "source": "financial_statements META, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K accession 0001628280-26-003942"
+     },
+     "operating_income": {
+      "values": [
+       46751,
+       69380,
+       83276
+      ],
+      "source": "financial_statements META, us-gaap:OperatingIncomeLoss, accession 0001628280-26-003942"
+     },
+     "d_and_a": {
+      "values": [
+       11178,
+       15498,
+       18616
+      ],
+      "source": "financial_statements META, us-gaap:DepreciationDepletionAndAmortization, accession 0001628280-26-003942"
+     },
+     "capex": {
+      "values": [
+       27045,
+       37256,
+       69691
+      ],
+      "source": "financial_statements META, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0001628280-26-003942"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.18,
+      0.15,
+      0.12,
+      0.1,
+      0.08
+     ],
+     "source": "Assumption: decelerating from FY2025 growth of 22.2% (200,966/164,501) as the base gets larger; fading toward terminal growth."
+    },
+    "ebit_margin": {
+     "value": 0.4,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: slightly below FY2025 margin of 41.4% (83,276/200,966) to reflect rising depreciation from heavy AI capex."
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: normalized rate below the 21% US statutory rate, reflecting Meta's historically lower effective rate; the FY2025 rate (about 30%, from pretax 85,932 and net income 60,458) looks inflated by a one-off tax charge, so I excluded it."
+    },
+    "da_pct_revenue": {
+     "value": 0.1,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 was 9.3% (18,616/200,966) and FY2024 was 9.4%; raised to 10% as the FY2025 capex step-up depreciates."
+    },
+    "capex_pct_revenue": {
+     "value": 0.27,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 was 34.7% (69,691/200,966) and FY2024 was 22.6%; assume intensity eases from the FY2025 peak but stays well above the FY2024 level."
+    },
+    "wacc": {
+     "value": 0.105,
+     "period": "current",
+     "source": "Assumption anchored on Damodaran US Software (Internet) cost of capital of 10.66% (dataset 2026-01-05). Cross-check: risk-free rate 4.86% (US Treasury 10Y, 2026-11-06) and US ERP 4.46% (Damodaran, 2026-02-16). I rounded down because Meta is a large, cash-rich company with low leverage."
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "period": "terminal",
+     "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal GDP growth."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": -22848,
+     "period": "FY2025",
+     "source": "financial_statements META derived net_debt = total debt 58,744 - cash 35,873 - marketable securities 45,719, accession 0001628280-26-003942 (excludes leases)"
+    },
+    "diluted_shares": {
+     "value": 2574,
+     "period": "FY2025",
+     "source": "financial_statements META, us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 2,574,000,000 shares = 2,574 million, accession 0001628280-26-003942"
+    }
+   }
+  },
+  "submit_attempts": 3,
+  "requests": 5,
+  "usage": {
+   "input_tokens": 14,
+   "output_tokens": 5781,
+   "cache_creation_input_tokens": 18331,
+   "cache_read_input_tokens": 52308,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.11412710000000001,
+  "seconds": 35.802,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 2,
+   "submit_model": 3
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure. After you submit, independent reviewers will check the model and you will get one chance to fix it.\n\nBuild a quick unlevered DCF for Meta Platforms, Inc. (identifier: META).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7238,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7238,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 219,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.020293,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_018brPktbUZqhcDJQzACKwLm",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "META",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01Aro3b7ct6C9wpYwhzGXiPs",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US",
+       "tenor": "10Y"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01QS2xuLFW6LHukKbHMWh8Wn",
+      "name": "valuation_inputs",
+      "input": {
+       "country": "United States"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_018brPktbUZqhcDJQzACKwLm",
+      "content": "{\"summary\":\"Meta Platforms, Inc. (META), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 201.0B USD, net income 60.5B USD. 3 period(s), 3 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Meta Platforms, Inc.\",\"ticker\":\"META\",\"cik\":1326801,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"7370\",\"sic_description\":\"Services-Computer Programming, Data Processing, Etc.\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"start\":\"2023-01-01\",\"end\":\"2023-12-31\",\"income_statement\":{\"revenue\":{\"value\":134902000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0001628280-26-003942\"},\"gross_profit\":null,\"operating_income\":{\"value\":46751000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001628280-26-003942\"},\"interest_expense\":{\"value\":446000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0001326801-24-000012\"},\"pretax_income\":{\"value\":47428000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001628280-26-003942\"},\"net_income\":{\"value\":39098000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001628280-26-003942\"},\"diluted_shares\":{\"value\":2629000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001628280-26-003942\"},\"diluted_eps\":{\"value\":14.87,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001628280-26-003942\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":71113000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001628280-26-003942\"},\"capex\":{\"value\":27045000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001628280-26-003942\"},\"d_and_a\":{\"value\":11178000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001628280-26-003942\"},\"amortization_intangibles\":{\"value\":161000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001628280-26-003942\"}},\"balance_sheet\":{\"cash\":{\"value\":41862000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001628280-26-003942\"},\"short_term_investments\":{\"value\":23541000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0001326801-25-000017\"},\"total_assets\":{\"value\":229623000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001326801-25-000017\"},\"total_equity\":{\"value\":153168000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001628280-26-003942\"},\"ltd_noncurrent\":{\"value\":18385000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001326801-25-000017\"},\"ltd_total\":{\"value\":18385000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001326801-25-000017\"},\"debt_current\":null,\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":57929000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":44068000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":18385000000,\"formula\":\"ltd_noncurrent\"},\"net_debt\":{\"value\":-47018000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2024-01-01\",\"end\":\"2024-12-31\",\"income_statement\":{\"revenue\":{\"value\":164501000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0001628280-26-003942\"},\"gross_profit\":null,\"operating_income\":{\"value\":69380000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001628280-26-003942\"},\"interest_expense\":{\"value\":715000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0001628280-26-003942\"},\"pretax_income\":{\"value\":70663000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001628280-26-003942\"},\"net_income\":{\"value\":62360000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001628280-26-003942\"},\"diluted_shares\":{\"value\":2614000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001628280-26-003942\"},\"diluted_eps\":{\"value\":23.86,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001628280-26-003942\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":91328000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001628280-26-003942\"},\"capex\":{\"value\":37256000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001628280-26-003942\"},\"d_and_a\":{\"value\":15498000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001628280-26-003942\"},\"amortization_intangibles\":{\"value\":211000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001628280-26-003942\"}},\"balance_sheet\":{\"cash\":{\"value\":43889000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001628280-26-003942\"},\"short_term_investments\":{\"value\":33926000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0001628280-26-003942\"},\"total_assets\":{\"value\":276054000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001628280-26-003942\"},\"total_equity\":{\"value\":182637000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001628280-26-003942\"},\"ltd_noncurrent\":{\"value\":28826000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001628280-26-003942\"},\"ltd_total\":{\"value\":28826000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001628280-26-003942\"},\"debt_current\":null,\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":84878000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":54072000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":28826000000,\"formula\":\"ltd_noncurrent\"},\"net_debt\":{\"value\":-48989000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":200966000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0001628280-26-003942\"},\"gross_profit\":null,\"operating_income\":{\"value\":83276000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001628280-26-003942\"},\"interest_expense\":{\"value\":1165000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0001628280-26-003942\"},\"pretax_income\":{\"value\":85932000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001628280-26-003942\"},\"net_income\":{\"value\":60458000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001628280-26-003942\"},\"diluted_shares\":{\"value\":2574000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001628280-26-003942\"},\"diluted_eps\":{\"value\":23.49,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001628280-26-003942\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":115800000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001628280-26-003942\"},\"capex\":{\"value\":69691000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001628280-26-003942\"},\"d_and_a\":{\"value\":18616000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001628280-26-003942\"},\"amortization_intangibles\":{\"value\":615000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001628280-26-003942\"}},\"balance_sheet\":{\"cash\":{\"value\":35873000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001628280-26-003942\"},\"short_term_investments\":{\"value\":45719000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0001628280-26-003942\"},\"total_assets\":{\"value\":366021000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001628280-26-003942\"},\"total_equity\":{\"value\":217243000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001628280-26-003942\"},\"ltd_noncurrent\":{\"value\":58744000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001628280-26-003942\"},\"ltd_total\":{\"value\":58744000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001628280-26-003942\"},\"debt_current\":null,\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":0,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001628280-26-003942\"}},\"derived\":{\"ebitda\":{\"value\":101892000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":46109000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":58744000000,\"formula\":\"ltd_noncurrent + ltd_due_12m\"},\"net_debt\":{\"value\":-22848000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-10-22 (period 2026-09-30) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1326801/000132680124000012/0001326801-24-000012-index.htm\",\"accession_or_id\":\"0001326801-24-000012\",\"form\":\"10-K\",\"period\":null,\"as_of\":\"2024-02-02\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1326801/000132680125000017/0001326801-25-000017-index.htm\",\"accession_or_id\":\"0001326801-25-000017\",\"form\":\"10-K\",\"period\":\"2024-12-31\",\"as_of\":\"2025-01-30\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/0001628280-26-003942-index.htm\",\"accession_or_id\":\"0001628280-26-003942\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-01-29\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":null}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01Aro3b7ct6C9wpYwhzGXiPs",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01QS2xuLFW6LHukKbHMWh8Wn",
+      "content": "{\"summary\":\"Country risk data for \\\"United States\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"country\":[{\"country\":\"United States\",\"region\":\"North America\",\"moodys_rating\":\"Aa1\",\"default_spread\":0.002333679169992019,\"equity_risk_premium\":0.0446,\"country_risk_premium\":0.002333679169992019,\"basis\":\"Moody's sovereign rating\",\"match\":\"exact\",\"mature_market_erp\":0.0423,\"source\":{\"name\":\"Aswath Damodaran, Country Default Spreads and Risk Premiums\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx\",\"accession_or_id\":\"ctryprem/United States\",\"period\":\"2026-02-16\",\"as_of\":\"2026-02-16\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 6402,
+     "cache_read_input_tokens": 7238,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 6402,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 170,
+     "output_tokens_details": {
+      "thinking_tokens": 111
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0191566,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS0gYKEAgTGAI4AUIIdGhpbmtpbmcSDG+3zpPfoD0q3Vtc6RoMtz6kx0iIwPyK6Hv2IjBP0Z4Ij+/2lFDoNXQ4zkHgb+Erm0Y5vz7UyxqXE/TT6PaKTHTmuM2u+qajVLt3tGMq7wW8uy9wCEoRg5JWJTZpFxuFX5b8WkqWWwO0oRa9/pk/yXBMacBTV5K860gEcdIEo4SOTU5hZ1DOG9zwYstohU81368yA1pv4BNNuyArmb3CFfWQfvP5rCjfq/nkk8+dPNdeyf7McZp7d0zKEQVcBhkhAoUfjQtzdDaRYd9pscgdsyMJUE9uN7bE3uSgPHMNK0OS9gldZsUNzEygyjBmkn0WDs8W7zvCa67U/5LkrKNfWNGvJ0VI16fR20W++deO6+8XZRb9hG4i44iOD7Fs0nBDSaqMxpw122kxjNWKRIRZq7xan6btj2n+Owv/txWR0YxjUl3FNEFRMmkWZ3cwZazaDnU4oe7HXvMtg4XAzdpgwOFmxThwR8jr7RtQZXAm931Ru1EE1o6aCnC/ex2kGLmQVNneAla5p30q/iRNchCkwYd3S/8oF+3CUfCnH5PjKD2sahkrez9PZu4mO5hjd0klbpxrJjbVT/sD7KJnQnZOJy4uWucx9OQuJWL+6pZbfIP9M0gUKeQNEJeQKM6naUbrSdPJXU+V/CBG0Um2iP2zHtoj6topMRwGy5EHHstarpUM5Anip1hcd+qCUX7XgCD5VlwRCb6NouQFAZUJAVkL3gHZE/vJhJ2AYBu00apggz+9PwLfbfb9C1MjZ8AiMq2jnFOo7mGJpcW5hYHslrS+KayoEwLKSmLz/B1IkoxjK9yhcjRPHh4U5p+9dpY6D7hQKLSWobh167Y03yXqzGH0nRY/GQtyPrvYyewpuOVpZO1UXD4hcr3XxDC/le7B+eJeso0FshhcJxxQF7+ZPihBBSQ2EriRxo/O6LBCCwtKABihZ/TP+TKIcXNTL1grXlmV+pQxkdfq67V+GGk5WuCfedgTBfOgsmf8fJYA6zF0E7jKftrLMbcQt+KdLjgyqdZ5eCtrubNofutICb701mB7wQ2TJktmI26o2h1Awz5lcopE8KIQPrgvZipHzetiWTELJ4U+D5F10Lc8hP0i+DvNGAE="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01KxA5xWXZ1zpUqGrDc9jSpi",
+      "name": "valuation_inputs",
+      "input": {
+       "industry": "Software (Internet)"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01KxA5xWXZ1zpUqGrDc9jSpi",
+      "content": "{\"summary\":\"US industry data for \\\"Software (Internet)\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"industry\":[{\"region\":\"US\",\"industry\":\"Software (Internet)\",\"firms\":29,\"beta\":1.6886761161660595,\"de_ratio\":0.12298911343132386,\"effective_tax_rate\":0.03054366211647507,\"unlevered_beta\":1.5460643073174678,\"cash_to_firm_value\":0.027953523483810944,\"unlevered_beta_cash_corrected\":1.5905250877083126,\"cost_of_equity\":0.11481495478100626,\"equity_weight\":0.8904805826162221,\"cost_of_debt_pretax\":0.052913,\"after_tax_cost_of_debt\":0.039684750000000005,\"debt_weight\":0.1095194173837779,\"cost_of_capital\":0.10658673852546652,\"match\":\"exact\",\"sources\":[{\"name\":\"Aswath Damodaran, Betas by Sector (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls\",\"accession_or_id\":\"betas/US/Software (Internet)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"},{\"name\":\"Aswath Damodaran, Cost of Capital by Industry (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/wacc.xls\",\"accession_or_id\":\"wacc/US/Software (Internet)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}],\"note\":\"cost_of_equity and cost_of_capital are Damodaran's US$ estimates using his own risk-free rate (0.0395) and ERP (0.0446) at the update date. For a current WACC, prefer unlevered_beta_cash_corrected, relevered at the company's D/E, with today's risk_free_rate.\"}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 3,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 1096,
+     "cache_read_input_tokens": 13640,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 1096,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1910,
+     "output_tokens_details": {
+      "thinking_tokens": 456
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.024572,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS/AsKEAgTGAI4AUIIdGhpbmtpbmcSDGi+IfI5o0tRpD1DixoMy6RDM0mZ/N8n3VmAIjDFaZtnUXpok6sycUhdwVJ0ma9YEhBva9aChd/DVJFRXn/xLy1XqMOZYko4fNywLRwqmQtol+1LRnri+Ia/UQKMkYkk9FvFyCpD4qbQ9BN1KnyO8ZishLLBUYI+/LKIcIbvyd1TA8O72pOYtBXLtck8qWMHVk6W9FluB5FDSXJB7F14Gfnq1pY4fE9A7xidR1Mutg8ehgCYAMrZpyzd5AbyYCPdIoWkc7C9RiGjh2nvY/z/uC4rRWvEgjiXwTB8NmPHovac94gsrM2VjP1sRnB8rJbpw3wncoQa8Gr0KvGMrOAORUfCGxj+H31ihauqAjq2WaHiWkfm/b0TQsLYEl160ejIwpxfYaW1C7tu5cuf/qEC18uhr7wYJoIylHIF2jschRml5wKNLPdfbdOISiWZv4vOOj6RmlSyo8baDwqwbNzIbaXe4jUmy9YsVWz6sHkhkyLFmiwfb3/IyMlK3ruQ/cwoUJZJAoXqj6Xnhv+mmeUPFFd4JVm3PPIWOmTkSlSh4lENaJODAqknIEyNp89awsVyXfjMWKFLBIxb7M5QHP3A5mAJIny1DxU4hVPWEtHgbxQLcCarXxRJgs5QtAdWPSnP1yO7i5P63PMAUf0yEZ7hREtpsbyf+Y50Anv4B2tBpTp2BpjPv4pvqmso8PJe54CPfcWkRkl6z+/5d4UbG8QDvkNzRn9FrCVBkNX3hq+WM5gtc6IEKNwRwpHD5yR9+n1vbZ8ZiT9cBSk7CjnjtB+Z0iA6/sW20VTXvjTqnCLRGErycuqApgbNxIQwVWIiojsqyuXNoUqtRs99ZjO5fLTyLSQjDY3+kAsjin+/SlhgAzMwHzYYmtCJ716F6/eJFjTu/o911rhNF/5GIOlhzmCCgQdqlgxIt0AN66gtNvZMcCOlVlDFlMRTgeERJ4c9RrZ0lYjvInqNU9wF8jT+XaYuCKuG0q2/Z/wz6M0DIBMT1hjYB2VuAomvrpzIOGOdqugaUyntLtsFFqYBiJAJ+OcvPQNRKlyduwrteX9W5VSbVesq2iT+kU2DxF+pUe4f1dyIRdFIuMEVHUHzAsRgsO+6Eb2eDtBJyN7bkmPEas3iLfpB6iYauKWbZfWOAufYWvrL3y8nghvyzXqPaJg1AhxGtJEBJFyWfJg/T0udovQS1NoeEjweOzTzjBH5dOKpC3XWcrGaE5DanLx6FvuGdHZWsC7x1ZdzOjs4A16l0S8f+RMKgXnaxMb5IORSkMV8gVTs5quCeO5otc3BvnHVZYthe8xFD9cV5IW/AWTNpe0t0BjPst/wR8WnCNsumNX3I0Ik9phauI0y3d+kGdnqPLRY77pJZQETfV/FG4kszAMafldQ74EhyhTgE8BGzW1E1yFIk5FT6+tCzqoplySuDyXU/RzAMIuUIz4DOziiUWIhmDO9vNFF3vy7jGorBT3rCgHPiJmhAPc6Sn36MpgHMFVeAvaWel49wlCHo79dxnfe7sXc5cj3qTpMI0qBlV7PTEWUk2sMGo3YN9DsM5ml20PyElEqAqIJ8ZDXOzeZiQYg0PV4BI/76cWykeF0fFDSR7mkaLAFiWw5HDof5USv2X+LocJe/Vih8g6wQm6m6ggqU9rkFm2O42jR3E4n3//YePU+6k0ZMjWtBBrEmmKbxoEwPDRWkZnzAtc+3lMoHWkS9Ysm+zVLRBa6r7/0uV3m8jSkq/FEcUil0MsajFcuzTtrTNq2Yl2dRItNGYKmiwFs9Nb5CqKvtHgXLAb95IfCZQwyvKI+W3GBzkxXEv0iOZr6T+2iWdATHR65nuJWnrqbfN5vjAbtaui/hZ60Ac+iXiwm50+32EOoyJ7wpN9EmzudVnUb9IRzvyqJOFglJulNu54ziRKN1afsUoZRaDzFlt1MHeM6v/w9xp7pQkIx75PLioN6Y6ugV0zRsI9lX6bfoxTWJrTzDL7C0VvUHCw9NSzRRv7NnekTFC12TmmJYr4C4MCaZui6cVSUthgB"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_013D297PR1wjtriBPQxEw8pT",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Meta Platforms, Inc.",
+       "ticker": "META",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           134902,
+           164501,
+           200966
+          ],
+          "source": "financial_statements META, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K accession 0001628280-26-003942"
+         },
+         "operating_income": {
+          "values": [
+           46751,
+           69380,
+           83276
+          ],
+          "source": "financial_statements META, us-gaap:OperatingIncomeLoss, accession 0001628280-26-003942"
+         },
+         "d_and_a": {
+          "values": [
+           11178,
+           15498,
+           18616
+          ],
+          "source": "financial_statements META, us-gaap:DepreciationDepletionAndAmortization, accession 0001628280-26-003942"
+         },
+         "capex": {
+          "values": [
+           27045,
+           37256,
+           69691
+          ],
+          "source": "financial_statements META, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0001628280-26-003942"
+         }
+        }
+       },
+       "assumptions": "{\"projection_labels\":[\"FY2026\",\"FY2027\",\"FY2028\",\"FY2029\",\"FY2030\"],\"revenue_growth\":{\"values\":[0.18,0.15,0.12,0.10,0.08],\"source\":\"Assumption: decelerating from FY2025 growth of 22.2% (200,966/164,501) as the base gets larger; fading toward terminal growth.\"},\"ebit_margin\":{\"value\":0.40,\"period\":\"FY2026-FY2030\",\"source\":\"Assumption: slightly below FY2025 margin of 41.4% (83,276/200,966) to reflect rising depreciation from heavy AI capex.\"},\"tax_rate\":{\"value\":0.17,\"period\":\"FY2026-FY2030\",\"source\":\"Assumption: normalized rate below the 21% US statutory rate, reflecting Meta's historically lower effective rate; the FY2025 rate (about 30%, from pretax 85,932 and net income 60,458) looks inflated by a one-off tax charge, so I excluded it.\"},\"da_pct_revenue\":{\"value\":0.10,\"period\":\"FY2026-FY2030\",\"source\":\"Assumption: FY2025 was 9.3% (18,616/200,966) and FY2024 was 9.4%; raised to 10% as the FY2025 capex step-up depreciates.\"},\"capex_pct_revenue\":{\"value\":0.27,\"period\":\"FY2026-FY2030\",\"source\":\"Assumption: FY2025 was 34.7% (69,691/200,966) and FY2024 was 22.6%; assume intensity eases from the FY2025 peak but stays well above the FY2024 level.\"},\"wacc\":{\"value\":0.105,\"period\":\"current\",\"source\":\"Assumption anchored on Damodaran US Software (Internet) cost of capital of 10.66% (dataset 2026-01-05). Cross-check: risk-free rate 4.86% (US Treasury 10Y, 2026-11-06) and US ERP 4.46% (Damodaran, 2026-02-16). I rounded down because Meta is a large, cash-rich company with low leverage.\"},\"terminal_growth\":{\"value\":0.03,\"period\":\"terminal\",\"source\":\"Assumption: below the 4.86% risk-free rate and near long-run nominal GDP growth.\"},\"mid_year\":true},\"bridge\">{\"net_debt\":{\"value\":-22848,\"period\":\"FY2025\",\"source\":\"financial_statements META derived net_debt = total debt 58,744 - cash 35,873 - marketable securities 45,719, accession 0001628280-26-003942 (excludes leases)\"},\"diluted_shares\":{\"value\":2574,\"period\":\"FY2025\",\"source\":\"financial_statements META, us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 2,574,000,000 shares = 2,574 million, accession 0001628280-26-003942\"}}"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_013D297PR1wjtriBPQxEw8pT",
+      "content": "Not accepted: Missing 'bridge' in the DCF spec.",
+      "is_error": true
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 4,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 1958,
+     "cache_read_input_tokens": 14736,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 1958,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1498,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0228262,
+    "content": [
+     {
+      "type": "text",
+      "text": "Typo in the key; resubmitting."
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01Y8GJxgQcVBazmukMcUEpct",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Meta Platforms, Inc.",
+       "ticker": "META",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           134902,
+           164501,
+           200966
+          ],
+          "source": "financial_statements META, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K accession 0001628280-26-003942"
+         },
+         "operating_income": {
+          "values": [
+           46751,
+           69380,
+           83276
+          ],
+          "source": "financial_statements META, us-gaap:OperatingIncomeLoss, accession 0001628280-26-003942"
+         },
+         "d_and_a": {
+          "values": [
+           11178,
+           15498,
+           18616
+          ],
+          "source": "financial_statements META, us-gaap:DepreciationDepletionAndAmortization, accession 0001628280-26-003942"
+         },
+         "capex": {
+          "values": [
+           27045,
+           37256,
+           69691
+          ],
+          "source": "financial_statements META, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0001628280-26-003942"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.18,
+          0.15,
+          0.12,
+          0.1,
+          0.08
+         ],
+         "source": "Assumption: decelerating from FY2025 growth of 22.2% (200,966/164,501) as the base gets larger; fading toward terminal growth."
+        },
+        "ebit_margin": {
+         "value": 0.4,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: slightly below FY2025 margin of 41.4% (83,276/200,966) to reflect rising depreciation from heavy AI capex."
+        },
+        "tax_rate": {
+         "value": 0.17,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: normalized rate below the 21% US statutory rate, reflecting Meta's historically lower effective rate; the FY2025 rate (about 30%, from pretax 85,932 and net income 60,458) looks inflated by a one-off tax charge, so I excluded it."
+        },
+        "da_pct_revenue": {
+         "value": 0.1,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: FY2025 was 9.3% (18,616/200,966) and FY2024 was 9.4%; raised to 10% as the FY2025 capex step-up depreciates."
+        },
+        "capex_pct_revenue": {
+         "value": 0.27,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: FY2025 was 34.7% (69,691/200,966) and FY2024 was 22.6%; assume intensity eases from the FY2025 peak but stays well above the FY2024 level."
+        },
+        "wacc": {
+         "value": 0.105,
+         "period": "current",
+         "source": "Assumption anchored on Damodaran US Software (Internet) cost of capital of 10.66% (dataset 2026-01-05). Cross-check: risk-free rate 4.86% (US Treasury 10Y, 2026-11-06) and US ERP 4.46% (Damodaran, 2026-02-16). I rounded down because Meta is a large, cash-rich company with low leverage."
+        },
+        "terminal_growth": {
+         "value": 0.03,
+         "period": "terminal",
+         "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal GDP growth."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": -22848,
+         "period": "FY2025",
+         "source": "financial_statements META derived net_debt = total debt 58,744 - cash 35,873 - marketable securities 45,719, accession 0001628280-26-003942 (excludes leases)"
+        },
+        "diluted_shares": {
+         "value": 2574,
+         "period": "FY2025",
+         "source": "financial_statements META, us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 2,574,000,000 shares = 2,574 million, accession 0001628280-26-003942"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01Y8GJxgQcVBazmukMcUEpct",
+      "content": "accepted"
+     },
+     {
+      "type": "text",
+      "text": "Independent review of your model:\n\nAssociate (tie-out with verify_value): 14 of 14 filed figures match the filings.\n\nVP review (deterministic checker): 0 blocker, 0 major.\n\nFix what is wrong (check each figure against its filing), then call submit_model again with the full corrected model."
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 5,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 1637,
+     "cache_read_input_tokens": 16694,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 1637,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1984,
+     "output_tokens_details": {
+      "thinking_tokens": 405
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0272793,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS1woKEAgTGAI4AUIIdGhpbmtpbmcSDGZd2W85FpRqBOR3JxoMNjMOWn46QvY8U+t7IjCrbwge+hJ1ww7oEXaggTwe8as/sPhZ2a+3+kM9nmssKStIZVHAYymJ9ksBm4Xkz9Uq9AnqORHjBSqCDrR8foF2gEQvgnsqfjuTc3t4yfBBhQHB40K+XVePTBM5Pyj9CGSzVvdB2+PT7rC2MwYKsP02XrxusJvtW7sF412gBHJzcIUg2WYSdzXYmkPGbGW9H7TJnkn5pAZLqC/M7WS00B/li0wQoDqY/GMxxj9/22jjIS6C3tXmNXIp/ojm1E7W4TP6AZQmfGq1lEmF4rIkLhKTuYcNAuHGZeBKBa2kDdJG8cW7Vjx8ukRENnaItQCPuug3sTRP7sbJAN0/5chmqQWz50zPMK9/VqzQz3CuD7cVvQGGg+sgV191aqLYo68iSH1FVyQzBuWDqONlUSIDeEUprqdcI2pzRg8vrUMC+IM0PKOou0rw+/qaw4O8mAT14fT65Meo8FQWv+kUyknEWrqEFdgdjRV2m6/8ZK6EBwySCuBQ21dDeL0z7o/+bQmL+mKN88003P95REsoTLyM6zZDM2hgCAsNVGUIBx7bmBOvqCeI56fVX/bVs33xiWz48pd82QIDtNWeqB/oBgz/yL+yG7ImGKxWfqdfh4CPmbbUh28PckKSZXvv4pFWScarReLPgxL1EWC0PzKztQsw7t9x/Arb5vKnLk8pvWLM+aAm8MqI2Pr63vVBn0CabM0VONmCWse4NuDKAOwQORey5efl0A9YHBvR82XX0MN5zkRkqM+eSN2IgwCejaxhzpdABK/Gv534rcJ2SeKx9z2kyOUMQcrIeS23b3WWftlttM8oZSngoLV6aSqMkivUDmx+Ij0TBWjb52DsMC4IlwUtFqfh6hxBszdpte84gDOMRt6dlFnEQCT4Eu/eKtc2N96iC9xWk3J1rjR67WLACOtZQsqvplIjMT+46tzzDcISsTb6tfljfQPeeXqjwV8O5FLBKQrpzdXczlO+7fjO/JdnxQzsJuN5DNGaTJkiYWi8iio+i1UJwYK6h7HBSmuGH9zdrhjJ2lAM1LJPu0GdetYBuUvduHw7/h5Y3R1AkMOkukGHLEsZ7L9VP1NeNSY9u3ggTPZM3Q5TEKRP/YPPAVgsH/TEg6Caqnu00n7JtjStyCFTppuVaBMQ0CPlcx0JX3EgdgMvmaj9y2qZ9B4ODbvquc8RzG3x3xRE18HYsxlVvVX+P4J2shQtn8FIXYYRf4FoxgiXrdCAJTjzYATi4FaTR3hFaMQPAP1UAj2aAimlrulyc3gl8SF3hLT0R34yyKQJkSk8+8b7cdRaQ8qTTPEnCPcQnzDxwOyI5lFsjFYJXKrw9HDA6WwgS2Yd11ZnQ2LOR8RkD+PUtgntPHPOnqyQVcAR9mKdocI+vj0QFWF1xF4BFKQUON5WsekyXWf46JzGK257OpDaypytjchXrxf5Z/7yIhxf25AW/QffuLz4ZZujrajHmnpusrfBVos1q4CojFT0VPv4hnT8oMI9IcAMieuACvOqnmoNXjomf8DSQ0OjP2+l20gOb0L/roF/ZmOXlVPn3ALyrl/SfBsh1XmT1Ry6qcWLQwo1abWMleS2nff+qwj9K3i535pYTO2ZtZTKly3/0PqoTmFGR07kqJg+3tNcpnPQXxYC1ivprySENLybt7vJwFmOVV0dQ7GrZsiSHhRS0BaH2RownqSUiZUN1+9Acczi2VkWnD/YNpiyzV6N/iGy2PgmH9duU40D5xRqzE2RVUABwr0MSOIgt6lrK1VbOFXbg9tobBgB"
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS4QgKEQgTGAI4AUIJbmFycmF0aW9uEgwL0aKOtXj+MdwnUpAaDCqBqnkwIcjtQdIU9SIwzhUiI3b/H2ikfPgIBNL02hkQTAs4hZugrf65caOtHtOiPb4UZ7plwH6QL1WyqE+eKv0HNJrDim0CgvV0xUGo6lboB02dx1Ns3+YgTKMTblbY9dUlnPINb7R4jWhm+JLjOh1lgX70MbkkcFs7H+kfJp7VLYWqyWO5s2Lcj1d/u3Ctde9BS9A6O+GkcAEsJSDp/W2uOFuGuR/demoemzd/FGin2/0uKAz5Lai35S9gUHXiyWM4h2RQSQ1tFFfi6n6I8Rw/WhjU19qkdfrW0Wk+dj4QjBFgbOhypfr657klH9OfU7mC2cU6sg1YYb/tWyb/EiRQ7fvtbK/Z3FMBq7wsQi2ijcFbzPie206Tv6WsM8yvj1Hrz75htDC47fTvoQ242mZ9Thc+aUmsP79Se/xOBbgHPp8P4q5lHRg/tDlV3MyazEnieTL45raHo3l7xTuRePXXRrk9M3B/a9AWUs41Qt0Bd7/f69x0yMPg6Jbpfs5h+Gf3J5XKidCFGXcAM70Bh2rXG5p07hf8IJo+pv2vYgGYkaRqHNI71y/pSnoi4q6SZsk8BJfDEo7GF/Eq1OhCT/KARtJ6YyfruWl/MfF2YCyVHTBnqsqRV97KMZV+hx3E01Ilm1phEz10S2srjyaaMdnMKxAUWlI/+gvKWi6DaRTTF5EJ9Rh6N1exDc8tJAaCDAXpDM9BvpwTMrCetSf2lF9AzRuOnpJa3aXIOiQFgzA6yniyaPmyomT1yCKKe2PzwpHIEaIQymbPip2VJgPuIC/m2/WPeW6yEQcGfdxoUtQUzfhe6PfSnUILQZVUHh67zR/JUqqRYZ2Cl0o/tgCPay3wZZgatr3IFNB1tWZfXgixOzvbxK6luOKLp4G+JOpGNyXWtonmSMtRnusRXRNciK1qZ4NR71RUvIW4nbKWQmqEOrXU+AVV3POyttFVsE8nn5day63yVVZjhs8Sg/RqNZW8o2soxkeHZyOWO/uJ6DDgnJd+8j7VIYHpXnXBhjWTbtNmgvUbjwjcpKXeMheU50Wx7+fBzuRc3bcbBzmiskMF91O8VJjVn8LU+utkA/WQ5XBGhL0Cjanhw8kXMlzwwmwSy7wc98ZhLRSxQSA2zc49lD5QNzHaeyFUzex4DECv1/ClAg88p0WzzMHXvK7tMPuVB63jwwZuBddNCqfDP1HbODkOZBSMqkXIiTJbEijip3ukBiyZu7j8uIQiOpCsvuZ8zcU81Sg1PbtEAsQkVeQyJpTkDeZXj0UgkhvFDdwEvaqplgUThLUQAmiyUgECxGawWf32ByitM2KxBmzX4eCsZ7vgUXsEhpLslyY4+LOmTIDKLIK24UNZcbrtNQM2aP0FjtjPRTBhGd8JDiTFXicN5RHUoCBjQznWWtA0UbR436IWB8642K8Is4q7p1VgMFBD34kfnXr4l2Ic/u2dfhgB"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01LyRF8sJyKiR1eq7t4dA2vE",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Meta Platforms, Inc.",
+       "ticker": "META",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           134902,
+           164501,
+           200966
+          ],
+          "source": "financial_statements META, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K accession 0001628280-26-003942"
+         },
+         "operating_income": {
+          "values": [
+           46751,
+           69380,
+           83276
+          ],
+          "source": "financial_statements META, us-gaap:OperatingIncomeLoss, accession 0001628280-26-003942"
+         },
+         "d_and_a": {
+          "values": [
+           11178,
+           15498,
+           18616
+          ],
+          "source": "financial_statements META, us-gaap:DepreciationDepletionAndAmortization, accession 0001628280-26-003942"
+         },
+         "capex": {
+          "values": [
+           27045,
+           37256,
+           69691
+          ],
+          "source": "financial_statements META, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0001628280-26-003942"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.18,
+          0.15,
+          0.12,
+          0.1,
+          0.08
+         ],
+         "source": "Assumption: decelerating from FY2025 growth of 22.2% (200,966/164,501) as the base gets larger; fading toward terminal growth."
+        },
+        "ebit_margin": {
+         "value": 0.4,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: slightly below FY2025 margin of 41.4% (83,276/200,966) to reflect rising depreciation from heavy AI capex."
+        },
+        "tax_rate": {
+         "value": 0.17,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: normalized rate below the 21% US statutory rate. Computed FY2023 rate was 17.6% (pretax 47,428, net income 39,098) and FY2024 was 11.7% (pretax 70,663, net income 62,360). The FY2025 computed rate of 29.6% (pretax 85,932, net income 60,458) is an outlier. I did not verify its cause in the filing, so I did not use it. Reviewer should check the 10-K tax note."
+        },
+        "da_pct_revenue": {
+         "value": 0.1,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: FY2025 was 9.3% (18,616/200,966) and FY2024 was 9.4%; raised to 10% as the FY2025 capex step-up depreciates."
+        },
+        "capex_pct_revenue": {
+         "value": 0.27,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: FY2025 was 34.7% (69,691/200,966) and FY2024 was 22.6%; assume intensity eases from the FY2025 peak but stays well above the FY2024 level."
+        },
+        "wacc": {
+         "value": 0.105,
+         "period": "current",
+         "source": "Assumption anchored on Damodaran US Software (Internet) cost of capital of 10.66% (dataset 2026-01-05). Cross-check: risk-free rate 4.86% (US Treasury 10Y, 2026-11-06) and US ERP 4.46% (Damodaran, 2026-02-16). I rounded down because Meta is a large, cash-rich company with low leverage."
+        },
+        "terminal_growth": {
+         "value": 0.03,
+         "period": "terminal",
+         "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal GDP growth."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": -22848,
+         "period": "FY2025",
+         "source": "financial_statements META derived net_debt = total debt 58,744 - cash 35,873 - marketable securities 45,719, accession 0001628280-26-003942 (excludes leases)"
+        },
+        "diluted_shares": {
+         "value": 2574,
+         "period": "FY2025",
+         "source": "financial_statements META, us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 2,574,000,000 shares = 2,574 million, accession 0001628280-26-003942"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ],
+  "review": "Associate (tie-out with verify_value): 14 of 14 filed figures match the filings.\n\nVP review (deterministic checker): 0 blocker, 0 major.\n\nFix what is wrong (check each figure against its filing), then call submit_model again with the full corrected model."
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 14,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "META",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 134902,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 134902000000,
+    "resolved": "META"
+   },
+   {
+    "company": "META",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 164501,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 164501000000,
+    "resolved": "META"
+   },
+   {
+    "company": "META",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 200966,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 200966000000,
+    "resolved": "META"
+   },
+   {
+    "company": "META",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 46751,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 46751000000,
+    "resolved": "META"
+   },
+   {
+    "company": "META",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 69380,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 69380000000,
+    "resolved": "META"
+   },
+   {
+    "company": "META",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 83276,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 83276000000,
+    "resolved": "META"
+   },
+   {
+    "company": "META",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 11178,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 11178000000,
+    "resolved": "META"
+   },
+   {
+    "company": "META",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 15498,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 15498000000,
+    "resolved": "META"
+   },
+   {
+    "company": "META",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 18616,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 18616000000,
+    "resolved": "META"
+   },
+   {
+    "company": "META",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 27045,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 27045000000,
+    "resolved": "META"
+   },
+   {
+    "company": "META",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 37256,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 37256000000,
+    "resolved": "META"
+   },
+   {
+    "company": "META",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 69691,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 69691000000,
+    "resolved": "META"
+   },
+   {
+    "company": "META",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": -22848,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": -22848000000,
+    "resolved": "META"
+   },
+   {
+    "company": "META",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 2574,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2574000000,
+    "resolved": "META"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

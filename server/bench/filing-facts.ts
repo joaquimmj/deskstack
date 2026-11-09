@@ -26,15 +26,37 @@ export function tolerance(value: number, scale: number): number {
   return 0.5 * 10 ** -decimals * scale;
 }
 
-/** A filing line (or two added together) equal to `value` within `tol`, compared in absolute value. */
-export function findInFiling(value: number, tol: number, facts: Fact[]): string | null {
+/**
+ * Lines that can stand for each metric, by concept name. A filing has hundreds of lines, so without this, some pair
+ * adds up to almost any value by chance (the main run found "deferred tax assets + changes in ownership interests"
+ * passing for capex). Shares get single lines only.
+ */
+export const FAMILY: Record<string, RegExp> = {
+  revenue: /revenue|sales|chiffredaffaires|ingresos/i,
+  operating_income: /operat|ebit|exploitation|beforeincometax|beforetax|interestexpense|financecost|financialexpense/i,
+  d_and_a: /depreciat|amorti/i,
+  capex: /propertyplant|productiveasset|capitalexpend|expenditure|intangibleasset|equipmentonlease|leasedtoothers|netcapital/i,
+  net_income: /netincome|profitloss|attributable/i,
+  diluted_shares: /shares/i,
+};
+const SINGLE_ONLY = new Set(["diluted_shares"]);
+
+/**
+ * A filing line (or two added together) equal to `value` within `tol`, compared in absolute value. With a metric,
+ * only lines of its family count; a metric with no family gets nothing.
+ */
+export function findInFiling(value: number, tol: number, facts: Fact[], metric?: string): string | null {
   const v = Math.abs(value);
+  const family = metric === undefined ? null : FAMILY[metric];
+  if (metric !== undefined && !family) return null;
   const seen = new Map<number, string>();
   for (const f of facts) {
     const a = Math.abs(f.value);
+    if (family && !family.test(f.concept.split(":").pop() ?? "")) continue;
     if (a > 0 && !seen.has(a)) seen.set(a, f.concept);
   }
   for (const [a, c] of seen) if (Math.abs(a - v) <= tol) return c;
+  if (metric !== undefined && SINGLE_ONLY.has(metric)) return null;
   const s = [...seen.entries()].sort((x, y) => x[0] - y[0]);
   for (let i = 0, j = s.length - 1; i < j; ) {
     const sum = s[i]![0] + s[j]![0];

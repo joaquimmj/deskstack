@@ -1,0 +1,953 @@
+{
+ "company": "NKE",
+ "task": "dcf",
+ "arm": "C",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "NIKE, Inc.",
+   "ticker": "NKE",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       51362,
+       46309,
+       46398
+      ],
+      "source": "deskstack financial_statements, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K accession 0000320187-26-000088"
+     },
+     "operating_income": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found: operating_income is null in deskstack/XBRL data for all three years; not filled from memory"
+     },
+     "d_and_a": {
+      "values": [
+       796,
+       775,
+       747
+      ],
+      "source": "deskstack financial_statements, us-gaap:DepreciationDepletionAndAmortization, accession 0000320187-26-000088"
+     },
+     "capex": {
+      "values": [
+       812,
+       430,
+       684
+      ],
+      "source": "deskstack financial_statements, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000320187-26-000088"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.02,
+      0.04,
+      0.05,
+      0.05,
+      0.04
+     ],
+     "source": "Assumption: revenue flat FY2025-26 (+0.2%, key_metrics); modest recovery to mid-single-digit growth, fading toward terminal"
+    },
+    "ebit_margin": {
+     "value": 0.1,
+     "source": "Assumption: EBIT not reported in data; FY2026 pretax income 3,900/revenue 46,398 = 8.4% used as proxy (accession 0000320187-26-000088); assume partial margin recovery to 10%, below FY2024 pretax proxy of 13.0%"
+    },
+    "tax_rate": {
+     "value": 0.2,
+     "source": "FY2026 effective tax proxy 20.3% (key_metrics, (pretax-net income)/pretax)"
+    },
+    "da_pct_revenue": {
+     "value": 0.016,
+     "source": "FY2026 D&A 747 / revenue 46,398 = 1.61% (accession 0000320187-26-000088)"
+    },
+    "capex_pct_revenue": {
+     "value": 0.015,
+     "source": "FY2026 capex 684 / revenue 46,398 = 1.47%; 3-yr range 0.9-1.6% (key_metrics)"
+    },
+    "wacc": {
+     "value": 0.091,
+     "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 1.09 (Damodaran Shoe unlevered cash-corrected 1.0002, D/E 0.119, tax 21%) x ERP 4.46% (Damodaran US) = Ke 9.7%; Kd after-tax 3.97% (Damodaran Shoe); weights 89.3%/10.7% (Damodaran Shoe) -> ~9.1%"
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: below long-run nominal GDP and below the 10Y Treasury yield of 4.86%"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 379,
+     "period": "FY2026",
+     "source": "deskstack derived net_debt = total debt 7,942 (LTD noncurrent 5,942 + current 2,000) - cash 7,563; no short-term investments reported; accession 0000320187-26-000088"
+    },
+    "diluted_shares": {
+     "value": 1481,
+     "period": "FY2026",
+     "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 1,481,000,000 shares = 1,481 millions, accession 0000320187-26-000088"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "NIKE, Inc.",
+   "ticker": "NKE",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       51362,
+       46309,
+       46398
+      ],
+      "source": "deskstack financial_statements, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K accession 0000320187-26-000088"
+     },
+     "operating_income": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found: operating_income is null in deskstack/XBRL data for all three years; not filled from memory"
+     },
+     "d_and_a": {
+      "values": [
+       796,
+       775,
+       747
+      ],
+      "source": "deskstack financial_statements, us-gaap:DepreciationDepletionAndAmortization, accession 0000320187-26-000088"
+     },
+     "capex": {
+      "values": [
+       812,
+       430,
+       684
+      ],
+      "source": "deskstack financial_statements, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000320187-26-000088"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.02,
+      0.04,
+      0.05,
+      0.05,
+      0.04
+     ],
+     "source": "Assumption: revenue flat FY2025-26 (+0.2%, key_metrics); modest recovery to mid-single-digit growth, fading toward terminal"
+    },
+    "ebit_margin": {
+     "value": 0.1,
+     "source": "Assumption: EBIT not reported in data; FY2026 pretax income 3,900/revenue 46,398 = 8.4% used as proxy (accession 0000320187-26-000088); assume partial margin recovery to 10%, below FY2024 pretax proxy of 13.0%"
+    },
+    "tax_rate": {
+     "value": 0.2,
+     "source": "FY2026 effective tax proxy 20.3% (key_metrics, (pretax-net income)/pretax)"
+    },
+    "da_pct_revenue": {
+     "value": 0.016,
+     "source": "FY2026 D&A 747 / revenue 46,398 = 1.61% (accession 0000320187-26-000088)"
+    },
+    "capex_pct_revenue": {
+     "value": 0.015,
+     "source": "FY2026 capex 684 / revenue 46,398 = 1.47%; 3-yr range 0.9-1.6% (key_metrics)"
+    },
+    "wacc": {
+     "value": 0.091,
+     "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 1.09 (Damodaran Shoe unlevered cash-corrected 1.0002, D/E 0.119, tax 21%) x ERP 4.46% (Damodaran US) = Ke 9.7%; Kd after-tax 3.97% (Damodaran Shoe); weights 89.3%/10.7% (Damodaran Shoe) -> ~9.1%"
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: below long-run nominal GDP and below the 10Y Treasury yield of 4.86%"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 379,
+     "period": "FY2026",
+     "source": "deskstack derived net_debt = total debt 7,942 (LTD noncurrent 5,942 + current 2,000) - cash 7,563; no short-term investments reported; accession 0000320187-26-000088"
+    },
+    "diluted_shares": {
+     "value": 1481,
+     "period": "FY2026",
+     "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 1,481,000,000 shares = 1,481 millions, accession 0000320187-26-000088"
+    }
+   }
+  },
+  "submit_attempts": 2,
+  "requests": 6,
+  "usage": {
+   "input_tokens": 18,
+   "output_tokens": 4288,
+   "cache_creation_input_tokens": 21007,
+   "cache_read_input_tokens": 77281,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.1108897,
+  "seconds": 35.47,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 2,
+   "key_metrics": 1,
+   "verify_value": 1,
+   "submit_model": 2
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure. After you submit, independent reviewers will check the model and you will get one chance to fix it.\n\nBuild a quick unlevered DCF for NIKE, Inc. (identifier: NKE).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7237,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7237,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 196,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0200605,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_019YCfwuRSohs4R2jwKu2osR",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "NKE",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_014HmaNEuuNmUNCcMgP1RDrP",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01BZ4PqSTUrkpgj3ZxpSJdcP",
+      "name": "valuation_inputs",
+      "input": {
+       "country": "United States"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_019YCfwuRSohs4R2jwKu2osR",
+      "content": "{\"summary\":\"NIKE, Inc. (NKE), US-GAAP, USD. FY2026 (ended 2026-05-31): revenue 46.4B USD, net income 3.1B USD. 3 period(s), 3 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"NIKE, Inc.\",\"ticker\":\"NKE\",\"cik\":320187,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"0531\",\"sic\":\"3021\",\"sic_description\":\"Rubber & Plastics Footwear\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2023-06-01\",\"end\":\"2024-05-31\",\"income_statement\":{\"revenue\":{\"value\":51362000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000320187-26-000088\"},\"gross_profit\":{\"value\":22887000000,\"concept\":\"us-gaap:GrossProfit\",\"accession\":\"0000320187-26-000088\"},\"operating_income\":null,\"interest_expense\":null,\"pretax_income\":{\"value\":6700000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000320187-26-000088\"},\"net_income\":{\"value\":5700000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000320187-26-000088\"},\"diluted_shares\":{\"value\":1529700000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000320187-26-000088\"},\"diluted_eps\":{\"value\":3.73,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000320187-26-000088\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":7429000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000320187-26-000088\"},\"capex\":{\"value\":812000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000320187-26-000088\"},\"d_and_a\":{\"value\":796000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000320187-26-000088\"}},\"balance_sheet\":{\"cash\":{\"value\":9860000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000320187-25-000047\"},\"short_term_investments\":null,\"total_assets\":{\"value\":38110000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000320187-25-000047\"},\"total_equity\":{\"value\":14430000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000320187-26-000088\"},\"ltd_noncurrent\":{\"value\":7903000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000320187-25-000047\"},\"ltd_total\":{\"value\":8903000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000320187-25-000047\"},\"debt_current\":null,\"ltd_current\":{\"value\":1000000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000320187-25-000047\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":6000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000320187-25-000047\"},\"ltd_due_12m\":{\"value\":1000000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000320187-24-000044\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":6617000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":8909000000,\"formula\":\"ltd_noncurrent + ltd_current + short_term_borrowings\"},\"net_debt\":{\"value\":-951000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2024-06-01\",\"end\":\"2025-05-31\",\"income_statement\":{\"revenue\":{\"value\":46309000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000320187-26-000088\"},\"gross_profit\":{\"value\":19790000000,\"concept\":\"us-gaap:GrossProfit\",\"accession\":\"0000320187-26-000088\"},\"operating_income\":null,\"interest_expense\":null,\"pretax_income\":{\"value\":3885000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000320187-26-000088\"},\"net_income\":{\"value\":3219000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000320187-26-000088\"},\"diluted_shares\":{\"value\":1487600000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000320187-26-000088\"},\"diluted_eps\":{\"value\":2.16,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000320187-26-000088\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":3698000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000320187-26-000088\"},\"capex\":{\"value\":430000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000320187-26-000088\"},\"d_and_a\":{\"value\":775000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000320187-26-000088\"}},\"balance_sheet\":{\"cash\":{\"value\":7464000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000320187-26-000088\"},\"short_term_investments\":null,\"total_assets\":{\"value\":36579000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000320187-26-000088\"},\"total_equity\":{\"value\":13213000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000320187-26-000088\"},\"ltd_noncurrent\":{\"value\":7961000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000320187-26-000088\"},\"ltd_total\":{\"value\":7961000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000320187-26-000088\"},\"debt_current\":null,\"ltd_current\":{\"value\":0,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000320187-26-000088\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":5000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000320187-25-000047\"},\"ltd_due_12m\":{\"value\":0,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000320187-25-000047\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":3268000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":7966000000,\"formula\":\"ltd_noncurrent + ltd_current + short_term_borrowings\"},\"net_debt\":{\"value\":502000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2026\",\"type\":\"annual\",\"start\":\"2025-06-01\",\"end\":\"2026-05-31\",\"income_statement\":{\"revenue\":{\"value\":46398000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000320187-26-000088\"},\"gross_profit\":{\"value\":19911000000,\"concept\":\"us-gaap:GrossProfit\",\"accession\":\"0000320187-26-000088\"},\"operating_income\":null,\"interest_expense\":null,\"pretax_income\":{\"value\":3900000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000320187-26-000088\"},\"net_income\":{\"value\":3108000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000320187-26-000088\"},\"diluted_shares\":{\"value\":1481000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000320187-26-000088\"},\"diluted_eps\":{\"value\":2.1,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000320187-26-000088\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":2868000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000320187-26-000088\"},\"capex\":{\"value\":684000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000320187-26-000088\"},\"d_and_a\":{\"value\":747000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000320187-26-000088\"}},\"balance_sheet\":{\"cash\":{\"value\":7563000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000320187-26-000088\"},\"short_term_investments\":null,\"total_assets\":{\"value\":38410000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000320187-26-000088\"},\"total_equity\":{\"value\":14865000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000320187-26-000088\"},\"ltd_noncurrent\":{\"value\":5942000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000320187-26-000088\"},\"ltd_total\":{\"value\":7942000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000320187-26-000088\"},\"debt_current\":null,\"ltd_current\":{\"value\":2000000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000320187-26-000088\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":2000000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000320187-26-000088\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":2184000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":7942000000,\"formula\":\"ltd_noncurrent + ltd_current\"},\"net_debt\":{\"value\":379000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-10-02 (period 2026-08-31) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/320187/000032018724000044/0000320187-24-000044-index.htm\",\"accession_or_id\":\"0000320187-24-000044\",\"form\":\"10-K\",\"period\":\"2024-05-31\",\"as_of\":\"2024-07-25\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/0000320187-25-000047-index.htm\",\"accession_or_id\":\"0000320187-25-000047\",\"form\":\"10-K\",\"period\":\"2025-05-31\",\"as_of\":\"2025-07-17\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/320187/000032018726000088/0000320187-26-000088-index.htm\",\"accession_or_id\":\"0000320187-26-000088\",\"form\":\"10-K\",\"period\":\"2026-05-31\",\"as_of\":\"2026-07-15\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":855351589,\"as_of\":\"2015-07-17\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000320187-15-000113\",\"url\":\"https://www.sec.gov/Archives/edgar/data/320187/000032018715000113/0000320187-15-000113-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_014HmaNEuuNmUNCcMgP1RDrP",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01BZ4PqSTUrkpgj3ZxpSJdcP",
+      "content": "{\"summary\":\"Country risk data for \\\"United States\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"country\":[{\"country\":\"United States\",\"region\":\"North America\",\"moodys_rating\":\"Aa1\",\"default_spread\":0.002333679169992019,\"equity_risk_premium\":0.0446,\"country_risk_premium\":0.002333679169992019,\"basis\":\"Moody's sovereign rating\",\"match\":\"exact\",\"mature_market_erp\":0.0423,\"source\":{\"name\":\"Aswath Damodaran, Country Default Spreads and Risk Premiums\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx\",\"accession_or_id\":\"ctryprem/United States\",\"period\":\"2026-02-16\",\"as_of\":\"2026-02-16\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 6320,
+     "cache_read_input_tokens": 7237,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 6320,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 202,
+     "output_tokens_details": {
+      "thinking_tokens": 50
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0192714,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS7wUKEAgTGAI4AUIIdGhpbmtpbmcSDCBKyA8ohrlG/1hHThoMdai5qvNNxfRICaceIjC6IbWmSnp6oXiHaqtUSjZGS9LXu1FQykNdh+fl96q7c9OyKrkFpJYoHpJo0GOGDnsqjAXFdrBuDBqfnH4fKvuMmcLu1KUj3c5aM6tb7OhfOB0njtQJvWqviOL5FYbkiVtDctvEAf+WVyUOlhUwkFCGfV6+Z4hAzNGRRMwgKa9BQ+yb8AScaJZYmGxrM5ZiTwJDoM3riUyjMIX/kslOYovoep/OXMpF4IkMiq25oF5lNcz4rvKgXJn0ii6+A/2Pz9U3itIue2er6g2n14KyBW94+7svRX1XBD6T2hD7x8sl2DMdUvPiwQzG77Yye9F3aTiVobTujk61mJxtB9ysX1iU9ulhwvfHGnsmgFibZn2E8lVw42JsI2IwQ46qAnAyY6kzE2+1MGrVEUW73bU3O7y8+y1xZMxOcFyWzW8S/Sil9Eb4uCGmH0QZvf/ADh76cF8AfMcgl3WJ285B/KI6zm9+tMPcz8S6qPvVdyPuNT4V662sCslBZARF4LnXagbrtXLpFfVkJiNRuqJgS8LB8cZehKn3OGSN/lV7pIXarlEaOv0LX6+MzUL3DTiuVUQDC9etunLQEpJQvxLjw5fSqgGl6AhV4p0NDzI7T55rXkAK9dOTR4ee0YhTjcedM2P18+hPAXVtm6cDGmEhQvrpYd6tu2zAe2HJMwbFkxeQMoYPg3dI886foLm3mzlHtqxby9Kiw5/Nbd848GpjNdVfBMs/lVo0II2wYE9ied7G3Iz6JDNr7fPcLlJGGlnaK6d5P0zy0RvYpVOdMja7CyFPie3uKyB/TRVztDw8xFqOgtxt07M4iRIncBMnE8XHnJ+hxRk/xDCo1UUXfocStgsdt62H8qfBKG7XJZ/fw+qGTgOP8B4WeGhUnofMZDgJPr7wdBuVjfiGrAaZ5oTSf1pQ2Bpv26H+4X5A+L80+LVzcMywGAE="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01FBdu79zKGfTmMuUNACLAFb",
+      "name": "key_metrics",
+      "input": {
+       "ticker": "NKE",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01TzVgUKfA3BXwYKvgLCUyp3",
+      "name": "valuation_inputs",
+      "input": {
+       "industry": "Shoe"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01FBdu79zKGfTmMuUNACLAFb",
+      "content": "{\"summary\":\"NIKE, Inc. (NKE): 3 period(s) of ratios computed by deskstack from reported figures. Each shows its formula; inputs are in financial_statements.\",\"company\":{\"name\":\"NIKE, Inc.\",\"ticker\":\"NKE\",\"cik\":320187,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"0531\",\"sic\":\"3021\",\"sic_description\":\"Rubber & Plastics Footwear\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Ratios are decimals (0.25 = 25%). net_debt_to_ebitda and interest_coverage are multiples (x).\",\"computed\":true,\"revenue_cagr\":{\"value\":-0.049551330590384524,\"formula\":\"(revenue(FY2026) / revenue(FY2024))^(1/2) - 1\"},\"periods\":[{\"label\":\"FY2024\",\"type\":\"annual\",\"end\":\"2024-05-31\",\"metrics\":{\"revenue_growth\":{\"value\":0.0028310912392370824,\"formula\":\"revenue / revenue(FY2023) - 1\"},\"net_income_growth\":{\"value\":0.12426035502958577,\"formula\":\"net_income / net_income(FY2023) - 1\"},\"gross_margin\":{\"value\":0.445601806783225,\"formula\":\"gross_profit / revenue\"},\"operating_margin\":null,\"net_margin\":{\"value\":0.11097698687745804,\"formula\":\"net_income / revenue\"},\"fcf_margin\":{\"value\":0.12883065301195437,\"formula\":\"free_cash_flow / revenue\"},\"capex_to_revenue\":{\"value\":0.01580935321833262,\"formula\":\"capex / revenue\"},\"fcf_conversion\":{\"value\":1.1608771929824562,\"formula\":\"free_cash_flow / net_income\"},\"roe\":{\"value\":0.4009284659210804,\"formula\":\"net_income / average(total_equity at 2024-05-31, total_equity at 2023-05-31)\"},\"roa\":{\"value\":0.15071191549556456,\"formula\":\"net_income / average(total_assets at 2024-05-31, total_assets at 2023-05-31)\"},\"ebitda_margin\":null,\"net_debt_to_ebitda\":null,\"interest_coverage\":null,\"effective_tax_rate_proxy\":{\"value\":0.14925373134328357,\"formula\":\"(pretax_income - net_income) / pretax_income\",\"note\":\"approximation: also absorbs minority interests and discontinued operations\"},\"roic\":null}},{\"label\":\"FY2025\",\"type\":\"annual\",\"end\":\"2025-05-31\",\"metrics\":{\"revenue_growth\":{\"value\":-0.09838012538452556,\"formula\":\"revenue / revenue(FY2024) - 1\"},\"net_income_growth\":{\"value\":-0.4352631578947368,\"formula\":\"net_income / net_income(FY2024) - 1\"},\"gross_margin\":{\"value\":0.42734673605562634,\"formula\":\"gross_profit / revenue\"},\"operating_margin\":null,\"net_margin\":{\"value\":0.06951132609212032,\"formula\":\"net_income / revenue\"},\"fcf_margin\":{\"value\":0.07056943574683107,\"formula\":\"free_cash_flow / revenue\"},\"capex_to_revenue\":{\"value\":0.009285452071951457,\"formula\":\"capex / revenue\"},\"fcf_conversion\":{\"value\":1.0152221186703945,\"formula\":\"free_cash_flow / net_income\"},\"roe\":{\"value\":0.23289802119885686,\"formula\":\"net_income / average(total_equity at 2025-05-31, total_equity at 2024-05-31)\"},\"roa\":{\"value\":0.08619743201810173,\"formula\":\"net_income / average(total_assets at 2025-05-31, total_assets at 2024-05-31)\"},\"ebitda_margin\":null,\"net_debt_to_ebitda\":null,\"interest_coverage\":null,\"effective_tax_rate_proxy\":{\"value\":0.17142857142857143,\"formula\":\"(pretax_income - net_income) / pretax_income\",\"note\":\"approximation: also absorbs minority interests and discontinued operations\"},\"roic\":null}},{\"label\":\"FY2026\",\"type\":\"annual\",\"end\":\"2026-05-31\",\"metrics\":{\"revenue_growth\":{\"value\":0.0019218726381480256,\"formula\":\"revenue / revenue(FY2025) - 1\"},\"net_income_growth\":{\"value\":-0.03448275862068961,\"formula\":\"net_income / net_income(FY2025) - 1\"},\"gross_margin\":{\"value\":0.42913487650329757,\"formula\":\"gross_profit / revenue\"},\"operating_margin\":null,\"net_margin\":{\"value\":0.06698564593301436,\"formula\":\"net_income / revenue\"},\"fcf_margin\":{\"value\":0.047070994439415495,\"formula\":\"free_cash_flow / revenue\"},\"capex_to_revenue\":{\"value\":0.014742014742014743,\"formula\":\"capex / revenue\"},\"fcf_conversion\":{\"value\":0.7027027027027027,\"formula\":\"free_cash_flow / net_income\"},\"roe\":{\"value\":0.2213832894080775,\"formula\":\"net_income / average(total_equity at 2026-05-31, total_equity at 2025-05-31)\"},\"roa\":{\"value\":0.08289215751643575,\"formula\":\"net_income / average(total_assets at 2026-05-31, total_assets at 2025-05-31)\"},\"ebitda_margin\":null,\"net_debt_to_ebitda\":null,\"interest_coverage\":null,\"effective_tax_rate_proxy\":{\"value\":0.20307692307692307,\"formula\":\"(pretax_income - net_income) / pretax_income\",\"note\":\"approximation: also absorbs minority interests and discontinued operations\"},\"roic\":null}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-10-02 (period 2026-08-31) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/320187/000032018723000039/0000320187-23-000039-index.htm\",\"accession_or_id\":\"0000320187-23-000039\",\"form\":\"10-K\",\"period\":\"2023-05-31\",\"as_of\":\"2023-07-20\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/320187/000032018724000044/0000320187-24-000044-index.htm\",\"accession_or_id\":\"0000320187-24-000044\",\"form\":\"10-K\",\"period\":\"2024-05-31\",\"as_of\":\"2024-07-25\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/0000320187-25-000047-index.htm\",\"accession_or_id\":\"0000320187-25-000047\",\"form\":\"10-K\",\"period\":\"2025-05-31\",\"as_of\":\"2025-07-17\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/320187/000032018726000088/0000320187-26-000088-index.htm\",\"accession_or_id\":\"0000320187-26-000088\",\"form\":\"10-K\",\"period\":\"2026-05-31\",\"as_of\":\"2026-07-15\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01TzVgUKfA3BXwYKvgLCUyp3",
+      "content": "{\"summary\":\"US industry data for \\\"Shoe\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"industry\":[{\"region\":\"US\",\"industry\":\"Shoe\",\"firms\":11,\"beta\":1.0173183278612625,\"de_ratio\":0.11944728476926639,\"effective_tax_rate\":0.11861173771031724,\"unlevered_beta\":0.9336746513867349,\"cash_to_firm_value\":0.0664997484206909,\"unlevered_beta_cash_corrected\":1.0001868235248257,\"cost_of_equity\":0.08487239742261231,\"equity_weight\":0.8932979816071588,\"cost_of_debt_pretax\":0.052913,\"after_tax_cost_of_debt\":0.039684750000000005,\"debt_weight\":0.10670201839284121,\"cost_of_capital\":0.0800507842361955,\"match\":\"exact\",\"sources\":[{\"name\":\"Aswath Damodaran, Betas by Sector (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls\",\"accession_or_id\":\"betas/US/Shoe\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"},{\"name\":\"Aswath Damodaran, Cost of Capital by Industry (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/wacc.xls\",\"accession_or_id\":\"wacc/US/Shoe\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}],\"note\":\"cost_of_equity and cost_of_capital are Damodaran's US$ estimates using his own risk-free rate (0.0395) and ERP (0.0446) at the update date. For a current WACC, prefer unlevered_beta_cash_corrected, relevered at the company's D/E, with today's risk_free_rate.\"}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 3,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 3884,
+     "cache_read_input_tokens": 13557,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 3884,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 170,
+     "output_tokens_details": {
+      "thinking_tokens": 31
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0141254,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSlgYKEAgTGAI4AUIIdGhpbmtpbmcSDOPoxFbzAFtWV9mWFRoM8FuYxOxydMVP32vYIjDwLmjiTMjLw11cXfUnG0BdqxSI2wJmZlnM/NZWRUQZJoEd6mdXTLev1pUsLuz3q+wqswWIyw54pJfVyZntqQudsxRZY8hrcOjf2Hq5VsbAVK+Mcqp6A3J0a7K+zRi01mOQRm+iQ29x+k6tbyhdwMTIiiDwUARFQlt/bee1P4rSJP2TIr5fQBy1piENrL4vjdIukrceHcTBbrDLNmXgYqZV8xLmWK0dq8991W8y0X4AJ7fJ9S7Am38x8Rudu27fEug8DAIAFScurGqBu4QGqTag/Bz+BtSoTHfmFF6jg6aJ/cjmtoMBpl2ieT8h1laMY4zdxbgf5W/QH9DnNAvAYyC/V0xqBIhZUFUgbQ4m7Xla3t4zq8iHd461SsreUlkbbWzpHTvdhcMRxlyKSrFR5rVlBJf8vcF7Y6kS7o68OKAF0CIx+OS6VTNrQ6L/NFvzBx+6hoDe1KVx9097Db4kvestUOw9Ftz9wxkKGEECdcKBhV0m+XBQmZC/c9cBDJIpvM21Wqt4gB4td4ai2wrYdxbr/yD6YqgIC+h2U9cHMuo821BtJYZipnrRu2c2UJl0uQS1O4jm6T4oo6rb62nK+qKczZtGZQq7tUrqXv98kahQzk3hUBbTF+s6K8leXSpUDeG6NHXwShOCd0SRsZ6P84bRFHEYURh8udpGgRIweGquxfqBhtlxpT+kIU9eoG8bWbCTr6oL+eprMxEdmexk4AhXkTNV1QNXW/SWDMmsP/Q/tSnLTbksmch/OLfODt0w0kEsk5GOFFaYb/ueZ/4k6FkykiKfEUuaLnIx3NqDku8RK5Ca7A8j/zZu9pdedjBAVemVWHhhskl8z8HH+Xf/ZYNIFxUml7sWhejziK06KgJKj+WjZyRAUBzWcI0BCkMMJVRukKwIA74tQ4wjhSDuYkNwOv1chX3dkuiUTPFSa2ab8NSuZ6S+TF0Y8eTndQrMmTUwcazzBfijYgFHh85h8DezdbMpvZpwGAE="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01KrdfAQKkpQegsEYEmQPbta",
+      "name": "verify_value",
+      "input": {
+       "company": "NKE",
+       "items": [
+        {
+         "metric": "operating income",
+         "period": "FY2026",
+         "value": 0
+        },
+        {
+         "metric": "operating income",
+         "period": "FY2025",
+         "value": 0
+        },
+        {
+         "metric": "operating income",
+         "period": "FY2024",
+         "value": 0
+        }
+       ]
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01KrdfAQKkpQegsEYEmQPbta",
+      "content": "{\"summary\":\"NIKE, Inc.: 0 of 3 value(s) match the filings, 3 not found. Read each item's hints before changing a number.\",\"company\":{\"name\":\"NIKE, Inc.\",\"ticker\":\"NKE\",\"cik\":320187,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"0531\",\"sic\":\"3021\",\"sic_description\":\"Rubber & Plastics Footwear\",\"financial_company\":false,\"foreign_private_issuer\":false},\"currency\":\"USD\",\"counts\":{\"total\":3,\"match\":0,\"mismatch\":0,\"not_found\":3,\"ambiguous\":0},\"results\":[{\"ref\":null,\"metric\":\"operating income\",\"resolved_metric\":\"operating_income\",\"period\":\"FY2026\",\"resolved_period\":\"FY2026 (ended 2026-05-31)\",\"status\":\"not_found\",\"claimed\":0,\"claimed_units\":0,\"filed\":null,\"difference\":null,\"relative_difference\":null,\"concept\":null,\"computed\":false,\"accessions\":[],\"allowance\":{\"units\":0,\"basis\":\"\"},\"hints\":[\"operating_income is not reported for FY2026 (null in the filing data). Do not use a figure from memory.\"]},{\"ref\":null,\"metric\":\"operating income\",\"resolved_metric\":\"operating_income\",\"period\":\"FY2025\",\"resolved_period\":\"FY2025 (ended 2025-05-31)\",\"status\":\"not_found\",\"claimed\":0,\"claimed_units\":0,\"filed\":null,\"difference\":null,\"relative_difference\":null,\"concept\":null,\"computed\":false,\"accessions\":[],\"allowance\":{\"units\":0,\"basis\":\"\"},\"hints\":[\"operating_income is not reported for FY2025 (null in the filing data). Do not use a figure from memory.\"]},{\"ref\":null,\"metric\":\"operating income\",\"resolved_metric\":\"operating_income\",\"period\":\"FY2024\",\"resolved_period\":\"FY2024 (ended 2024-05-31)\",\"status\":\"not_found\",\"claimed\":0,\"claimed_units\":0,\"filed\":null,\"difference\":null,\"relative_difference\":null,\"concept\":null,\"computed\":false,\"accessions\":[],\"allowance\":{\"units\":0,\"basis\":\"\"},\"hints\":[\"operating_income is not reported for FY2024 (null in the filing data). Do not use a figure from memory.\"]}],\"sources\":[],\"note\":\"Computed lines (EBITDA, free cash flow, total debt, net debt) are checked against deskstack's own formula from the filed inputs, shown in the hints. A match means the number agrees with the filing; it does not validate assumptions or forecasts.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 4,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 1117,
+     "cache_read_input_tokens": 17441,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 1117,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1784,
+     "output_tokens_details": {
+      "thinking_tokens": 388
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.024124700000000002,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSpgsKEAgTGAI4AUIIdGhpbmtpbmcSDEPtVJOJpipEysUexxoMcLDfHROVCoASSuPBIjA7CHtpmzgAqOAJ8LDgb68u3HdinnElflnY3X82Cpd4TApi7EpSfW68mc1rkvfE/eYqwwrijoaweQd0craChOZ43WSGEN49AJ/jkxPxNuK587x9w+kAkcpWO5uMb7OVAlcFzVnqw6/C7VOdcE1XXDtY5+jx4U494Ki0f9eBTrY0vau2UIZH05PlXMuU+9cIIV4QRhbUyWBG9HMD46Wqz9GTXCUtPFyIaR+PgtpWwE/JNpq8EkSP5L8D3B8tU4chXu4Esw+vo/JIMM3H8pp7Il8fro8/HffS9fGSo3Uc2UjXCVCkvgEZg4PrHRLpbwir7XQW7mLaOitYx7KIKgRKDp3771cIkoueiSpoOHRaQsMYT8rgxG0WE5OymzpBJrfOcYSo7BezZsm6ENFcmrmUoDet8g8XtdlrWyR6btVlL+KlKtOWYlh4LX6qdhNcWXMEHtbhGdM2dORcNBYs7bih7a7h2xK4BLiBk8YR0M9c7S/b+OCMpDgC2DQrV/xTq7cZb58eSCwAQzkJZBzQLzR2vd0P/3KkDj2R7BQG9OkjbO7uFx1dNV4kBClobBa/uflxZa7dB/QicBhDMunbvmzhqkDalesth1liPKGsM+fnd9w19fRAWfPFsrA3WbSlhxcVKPahPs50fN/B/rzL4lNSyRqvyMak8ctkbmA8npV5QA0QOBxmnvfhGsb35zURsO0hdpuLSh47evgG9pPBPz+Ws8nGhAlEWRviblYAWHK4oZCa/eNb1bziRIPThLeyCVtRJknmkdr97RV8MnL1HVw8D51RX71AKCTrdBmaBBdsKCqv9YWcrfVmsS4TXMMDqrLkUhHpWmvciAKrIVKO668CrouyKMgRUkCZbMYmX+iH646yMRSFS2YmHLwsvHChSss7ZCxmyjR4vReaKziCzAZcc0yAMhQMhGitwKgSDpKNjIJvfVWp7Prjbc7arwFCWry9CzoFk6/jQ87oEr4XMzEjlAC3r5FS09hk9B/e/+TSVt6ov2OJSlFP0Q8afZbDzPgfKc2mIV+WR78sGSaIZ2LKZaI0nGvH7KnbfOsaJGb1E6bQl+GjXfXeK+wZo3iOwtBxkJOKDnYfJjvukoDa+DvQM3OJIojexOCmHE+Pi6fuSgynDnVwuSTQ0LZEeWd7s8tt94fBsRpEmEKy4lcxmZMhtauvZS3GPezznOITq642pL0SxIgNm4Dg+38kU+eBRdpLFUfDXPUom8dNUgTxyW3Okp1BR5n43f8xygT7yQds7KfTsLxLZBSWKHdKof+JK3FsffMJGDAID/2UCGHFl4U9TeNPEYdYgvJwVcbfNbtLO2A94VtHhTak08qLHN5ZZM3Z8qcHgcpqDE3MzUyIehDRuRFmamlniibx4AdyCC8AqhfZY9j5bljk7MCJJjmw+VDGxwYZWxWCDmVb23zoQAfKQigpDVl9J1T7M8XHPkl5G6887u86caiqa9o/SL4PbKKGBIqITUsrqR2dnBm9bhUHVIhmmV0o9PLeV0VrdQbCkIXJBHQai1+Nqh9yYaEcvAI5e5hPl+OLMr7feHTf1OrmD7j5Z9Sd6JRkQZq1VmGsd3WJE1DxyjDxE2uqYnN7qSvgfj7LawoE1tTjFsWsx72/N/c3TgJMOBo/KSmf5ilXRQPHduYJuq+90jUIp62Pk0vgchVVDJekG7zJ1JHcj9/DSDBG2diiU6KpW2lNvxZj96IuMaVrQ7TRIjddgvnXK5lq60HtAE4kYgyhi//SIXF6xkIG0kzovYz6ep9Mqa6btzBWTK07kfIAOU32vuFrlaHZod2zt1vkYR8cgXuMseLkRf6qXSGprB+zvqqa6gq6QHc+Xucf8hSGj2lBMBc27rSYoUamWMtTtbAYAQ=="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_011X4v6CHVf2MfWVsLoHPuuM",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "NIKE, Inc.",
+       "ticker": "NKE",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2024",
+         "FY2025",
+         "FY2026"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           51362,
+           46309,
+           46398
+          ],
+          "source": "deskstack financial_statements, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K accession 0000320187-26-000088"
+         },
+         "operating_income": {
+          "values": [
+           null,
+           null,
+           null
+          ],
+          "source": "not found: operating_income is null in deskstack/XBRL data for all three years; not filled from memory"
+         },
+         "d_and_a": {
+          "values": [
+           796,
+           775,
+           747
+          ],
+          "source": "deskstack financial_statements, us-gaap:DepreciationDepletionAndAmortization, accession 0000320187-26-000088"
+         },
+         "capex": {
+          "values": [
+           812,
+           430,
+           684
+          ],
+          "source": "deskstack financial_statements, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000320187-26-000088"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030",
+         "FY2031"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.02,
+          0.04,
+          0.05,
+          0.05,
+          0.04
+         ],
+         "source": "Assumption: revenue flat FY2025-26 (+0.2%, key_metrics); modest recovery to mid-single-digit growth, fading toward terminal"
+        },
+        "ebit_margin": {
+         "value": 0.1,
+         "source": "Assumption: EBIT not reported in data; FY2026 pretax income 3,900/revenue 46,398 = 8.4% used as proxy (accession 0000320187-26-000088); assume partial margin recovery to 10%, below FY2024 pretax proxy of 13.0%"
+        },
+        "tax_rate": {
+         "value": 0.2,
+         "source": "FY2026 effective tax proxy 20.3% (key_metrics, (pretax-net income)/pretax)"
+        },
+        "da_pct_revenue": {
+         "value": 0.016,
+         "source": "FY2026 D&A 747 / revenue 46,398 = 1.61% (accession 0000320187-26-000088)"
+        },
+        "capex_pct_revenue": {
+         "value": 0.015,
+         "source": "FY2026 capex 684 / revenue 46,398 = 1.47%; 3-yr range 0.9-1.6% (key_metrics)"
+        },
+        "wacc": {
+         "value": 0.091,
+         "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 1.09 (Damodaran Shoe unlevered cash-corrected 1.0002, D/E 0.119, tax 21%) x ERP 4.46% (Damodaran US) = Ke 9.7%; Kd after-tax 3.97% (Damodaran Shoe); weights 89.3%/10.7% (Damodaran Shoe) -> ~9.1%"
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "source": "Assumption: below long-run nominal GDP and below the 10Y Treasury yield of 4.86%"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 379,
+         "period": "FY2026",
+         "source": "deskstack derived net_debt = total debt 7,942 (LTD noncurrent 5,942 + current 2,000) - cash 7,563; no short-term investments reported; accession 0000320187-26-000088"
+        },
+        "diluted_shares": {
+         "value": 1481,
+         "period": "FY2026",
+         "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 1,481,000,000 shares = 1,481 millions, accession 0000320187-26-000088"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_011X4v6CHVf2MfWVsLoHPuuM",
+      "content": "accepted"
+     },
+     {
+      "type": "text",
+      "text": "Independent review of your model:\n\nAssociate (tie-out with verify_value): 11 of 11 filed figures match the filings.\n\nVP review (deterministic checker): 0 blocker, 0 major.\n\nFix what is wrong (check each figure against its filing), then call submit_model again with the full corrected model."
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 5,
+    "stop_reason": "end_turn",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 1930,
+     "cache_read_input_tokens": 18558,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 1930,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 502,
+     "output_tokens_details": {
+      "thinking_tokens": 97
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0135646,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS3gcKEAgTGAI4AUIIdGhpbmtpbmcSDJQyEaR9blH1jG8xJxoMBRpu37D230gvgETgIjDoErMiXMRs5RfDHogWx8w+Ba2z17nqhAoExpVV2zqx/AjhJtAyrFxkZmYBo4zYVj0q+wa/SANUJ9jpEolCZTr+8xZ12qm5DZ/29RuxnIjxbJ0djt9pqwIDRj2nMQTfUS9LC2BRftS/GaYXD0bSHo1S3+MILwFrNQPJJ4lcKOMQNEOTywxFHbhzZsbLH72J8J9vqMmeCFLDVPN+zdsibJAPs4yDW8XErPgo6w4x3mWB+qLBOfB31xWZzsZFJsOm9JtQuRhinvImiNPhajnE1BDZ6L3vfPYB3BqNmfsKgxrsyGN66yiNyc5HDU6d9yCZ/bW5h18XluzXhgZTWg15ISmKOi20ref3q5bczN+ch5uXESn6trD/EgbUTSRee5NhU+JtSa5eF3fbfa+z2Gis+EMUhEONosoq3YyOV9+Qhs1eKCpoBz1p0Js1Bmg+Uup5n7d5xOVxQNcRIOycixIMFsfB2l9aAteqXNYBeyeqTo3mAxtY1UcC16hEA+PZ1Ckq8ARP8wfTBMzdK/HuegkeXkQe1layP3EcB3B399A5IAh3upWGU2rXSDXOCMyU5FExXoSpIiZmWO1zdvGBljKqVbHCAiH8i1oJ8fqmy7wcn9ZYqtaYk0nkuxHZaCVe3hzzRR7vhwM1aY9fwBvLxT+DuWh4OFd962LkS3/lDqM+4n8pEXMo46Xwa2o72g1F3GjS58gPEiVOtu1PD2IhI9XuBRVOlbLMK3teaeIyBtQai2f6chd/zKuMdzKrUUONP5XzdPAQSu2SWRZrXptuj9GK8KHZUIvW+IqqjVz9q7DT6JiF66EH22S8FfBU6HjvlURbGM0W9QKbRdHsPQQhVEfB353RbR2v0rO7JriuevfN3R1Q8l7Dteoo7xs9ppbONiU+PD7v9/Zuq4rgkZsSHfFXEgImvpi4flYBWeLzvajfjDmoIa1FiReJRLbd5M7u+6p1Tvwoi84HJ2s2kX+qAvD6T3TLof9p+pJaLJSNhA4Ubg9t4+sMWZZYyBD086/y2+tXMBs+K1A33oMRuwOhxXgfExPQCVCqqZMzxU0SyltpoeCCGa1Skkk6N9PeDRwtz+iXheg+jJPorV8Lpms15NXUc1slhVjgXa7eSzwzm6PcVqtuztGZFqmU8dcf0nXjakRCOC0VCjSCVDQAa1XvrthP3qkmuD0p9FK6dXZ5aSh7hkz1YGqtDd6A1u40Fo4gq4KvrxWvnmPhlRGRhgmJwQ8Rcml+0lZFi7Qh5BoS27efG8AYAQ=="
+     },
+     {
+      "type": "text",
+      "text": "I didn't change the model or resubmit it. The associate's tie-out matched all 11 filed figures, and the VP check found no blocker or major issues, so I have no error to fix.\n\nTwo things in the submitted model are weaker than the rest, and a reviewer should look at them:\n\n- **EBIT history is missing.** The data tools return operating income as null for FY2024–FY2026. `verify_value` also returned \"not found\" for all three years. I left those three values null and did not fill them from memory. To fix this, someone needs to read operating income from the 10-K income statement (accession 0000320187-26-000088).\n- **The 10% EBIT margin rests on a proxy.** I used pretax margin as the proxy. FY2026 pretax income was 3,900 on revenue of 46,398, which is 8.4%. The 10% is my assumption of a partial recovery from that level. It should be re-based once actual EBIT is available.\n\nThe WACC of 9.1% also depends on Damodaran's industry D/E of 0.119 rather than NIKE's own capital structure. The tools give no share price, so I couldn't calculate NIKE's market D/E.\n\nIf you can give me the EBIT figures, or want me to adjust any assumption, I'll resubmit."
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": "Call submit_model now with the complete model."
+   },
+   {
+    "role": "assistant",
+    "request": 6,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 519,
+     "cache_read_input_tokens": 20488,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 519,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1434,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0197431,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01FHnEz5yYNX8H9qmamhfhBY",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "NIKE, Inc.",
+       "ticker": "NKE",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2024",
+         "FY2025",
+         "FY2026"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           51362,
+           46309,
+           46398
+          ],
+          "source": "deskstack financial_statements, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K accession 0000320187-26-000088"
+         },
+         "operating_income": {
+          "values": [
+           null,
+           null,
+           null
+          ],
+          "source": "not found: operating_income is null in deskstack/XBRL data for all three years; not filled from memory"
+         },
+         "d_and_a": {
+          "values": [
+           796,
+           775,
+           747
+          ],
+          "source": "deskstack financial_statements, us-gaap:DepreciationDepletionAndAmortization, accession 0000320187-26-000088"
+         },
+         "capex": {
+          "values": [
+           812,
+           430,
+           684
+          ],
+          "source": "deskstack financial_statements, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000320187-26-000088"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030",
+         "FY2031"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.02,
+          0.04,
+          0.05,
+          0.05,
+          0.04
+         ],
+         "source": "Assumption: revenue flat FY2025-26 (+0.2%, key_metrics); modest recovery to mid-single-digit growth, fading toward terminal"
+        },
+        "ebit_margin": {
+         "value": 0.1,
+         "source": "Assumption: EBIT not reported in data; FY2026 pretax income 3,900/revenue 46,398 = 8.4% used as proxy (accession 0000320187-26-000088); assume partial margin recovery to 10%, below FY2024 pretax proxy of 13.0%"
+        },
+        "tax_rate": {
+         "value": 0.2,
+         "source": "FY2026 effective tax proxy 20.3% (key_metrics, (pretax-net income)/pretax)"
+        },
+        "da_pct_revenue": {
+         "value": 0.016,
+         "source": "FY2026 D&A 747 / revenue 46,398 = 1.61% (accession 0000320187-26-000088)"
+        },
+        "capex_pct_revenue": {
+         "value": 0.015,
+         "source": "FY2026 capex 684 / revenue 46,398 = 1.47%; 3-yr range 0.9-1.6% (key_metrics)"
+        },
+        "wacc": {
+         "value": 0.091,
+         "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 1.09 (Damodaran Shoe unlevered cash-corrected 1.0002, D/E 0.119, tax 21%) x ERP 4.46% (Damodaran US) = Ke 9.7%; Kd after-tax 3.97% (Damodaran Shoe); weights 89.3%/10.7% (Damodaran Shoe) -> ~9.1%"
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "source": "Assumption: below long-run nominal GDP and below the 10Y Treasury yield of 4.86%"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 379,
+         "period": "FY2026",
+         "source": "deskstack derived net_debt = total debt 7,942 (LTD noncurrent 5,942 + current 2,000) - cash 7,563; no short-term investments reported; accession 0000320187-26-000088"
+        },
+        "diluted_shares": {
+         "value": 1481,
+         "period": "FY2026",
+         "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 1,481,000,000 shares = 1,481 millions, accession 0000320187-26-000088"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ],
+  "review": "Associate (tie-out with verify_value): 11 of 11 filed figures match the filings.\n\nVP review (deterministic checker): 0 blocker, 0 major.\n\nFix what is wrong (check each figure against its filing), then call submit_model again with the full corrected model."
+ },
+ "score": {
+  "valid": true,
+  "filed": 11,
+  "match": 11,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 22,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "NKE",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 51362,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 51362000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 46309,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 46309000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "revenue",
+    "period": "FY2026",
+    "value": 46398,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 46398000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 796,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 796000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 775,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 775000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "d_and_a",
+    "period": "FY2026",
+    "value": 747,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 747000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 812,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 812000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 430,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 430000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "capex",
+    "period": "FY2026",
+    "value": 684,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 684000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "net_debt",
+    "period": "FY2026",
+    "value": 379,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 379000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "diluted_shares",
+    "period": "FY2026",
+    "value": 1481,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1481000000,
+    "resolved": "NKE"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

@@ -1,0 +1,105 @@
+{
+ "kind": "dcf",
+ "company": "Caterpillar Inc.",
+ "ticker": "CAT",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     67060,
+     64809,
+     67589
+    ],
+    "source": "CAT FY2025 10-K (cat-20251231.htm) MD&A: total sales and revenues $67.589B/64.809B/67.060B"
+   },
+   "operating_income": {
+    "values": [
+     12966,
+     13072,
+     11151
+    ],
+    "source": "CAT FY2025 10-K MD&A: operating profit $11.151B 2025, $13.072B 2024, $12.966B 2023"
+   },
+   "d_and_a": {
+    "values": [
+     2144,
+     2153,
+     2262
+    ],
+    "source": "Cash flow statement: FY2025 4Q earnings release (8-K ex99.1, 2026-01-29) 2,262/2,153; FY2024 10-K Financial_Report 2,144 for 2023"
+   },
+   "capex": {
+    "values": [
+     3092,
+     3215,
+     4286
+    ],
+    "source": "Cash flow: capex excl. leased equipment (1,597/1,988/2,821) + expenditures for equipment leased to others (1,495/1,227/1,465); FY2025 10-K and 4Q25 release"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.06,
+    0.06,
+    0.05,
+    0.04,
+    0.035
+   ],
+   "source": "Analyst assumption: FY2025 grew 4%; rebound from tariff/volume headwinds and power/data-center demand tapering to near-nominal GDP growth. Not company guidance."
+  },
+  "ebit_margin": {
+   "value": 0.175,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 margin 16.5% (11,151/67,589), FY2024 20.2%, FY2023 19.3%; mid-cycle blend with modest recovery."
+  },
+  "tax_rate": {
+   "value": 0.22,
+   "source": "Assumption: approx. US statutory 21% plus state/foreign; not taken from a filing's effective rate."
+  },
+  "da_pct_revenue": {
+   "value": 0.033,
+   "source": "FY2025 D&A 2,262 / revenue 67,589 = 3.35%; held flat."
+  },
+  "capex_pct_revenue": {
+   "value": 0.058,
+   "source": "FY2025 capex incl. leased equipment 4,286/67,589 = 6.3%; FY2023-24 about 4.8%; assume 5.8% in between."
+  },
+  "wacc": {
+   "value": 0.09,
+   "source": "Assumption: beta ~1.0-1.1, risk-free ~4.2%, ERP ~5%, with debt weight including Cat Financial; ~9% rounded. Not computed from provider data."
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "source": "Assumption: long-run nominal GDP/inflation, below WACC."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 33350,
+   "period": "FY2025",
+   "source": "4Q25 release balance sheet 12/31/2025: short-term borrowings 5,514 + LT debt due within one year (35+7,085) + LT debt due after one year 30,696 = 43,330, less cash 9,980. Consolidated incl. Financial Products debt; no short-term investments found. Reviewer may prefer ME&T-only."
+  },
+  "diluted_shares": {
+   "value": 472.3,
+   "period": "FY2025",
+   "source": "4Q25 earnings release: weighted-average diluted shares, twelve months 2025, 472.3 million"
+  }
+ }
+}

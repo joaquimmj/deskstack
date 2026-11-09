@@ -1,0 +1,723 @@
+{
+ "company": "GE",
+ "task": "dcf",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "GE Aerospace",
+   "ticker": "GE",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       35348,
+       38702,
+       45855
+      ],
+      "source": "GE 10-K FY2025, accession 0000040545-26-000008, us-gaap:Revenues"
+     },
+     "operating_income": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found: operating income is not reported in the XBRL data from deskstack (null) for FY2023-FY2025; not filled from memory"
+     },
+     "d_and_a": {
+      "values": [
+       797,
+       834,
+       863
+      ],
+      "source": "GE 10-K accession 0000040545-26-000008, us-gaap:DepreciationAmortizationAndAccretionNet"
+     },
+     "capex": {
+      "values": [
+       862,
+       1032,
+       1273
+      ],
+      "source": "GE 10-K accession 0000040545-26-000008, us-gaap:PaymentsToAcquireProductiveAssets"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.12,
+      0.1,
+      0.08,
+      0.07,
+      0.06
+     ],
+     "source": "Assumption: decelerating from FY2025 growth of 18.5% (45,855/38,702) toward mid-single digits as commercial aero aftermarket cycle matures; no guidance sourced."
+    },
+    "ebit_margin": {
+     "value": 0.2,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: EBIT not reported in data (not found). Proxy anchored on FY2025 pretax margin of 21.8% (pretax income 10,000 / revenue 45,855, accession 0000040545-26-000008), haircut for interest/other income. Reviewer should replace with filed segment/operating profit."
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: between Damodaran US Aerospace/Defense effective tax 11.6% (2026-01-05) and the 21% statutory rate."
+    },
+    "da_pct_revenue": {
+     "value": 0.019,
+     "period": "FY2026-FY2030",
+     "source": "FY2025 D&A 863 / revenue 45,855 = 1.88%, held flat."
+    },
+    "capex_pct_revenue": {
+     "value": 0.028,
+     "period": "FY2026-FY2030",
+     "source": "FY2025 capex 1,273 / revenue 45,855 = 2.78%, held flat."
+    },
+    "wacc": {
+     "value": 0.085,
+     "period": "current",
+     "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 0.98 (Damodaran Aerospace/Defense cash-corrected unlevered 0.869, D/E 0.156, tax 21%) x ERP 4.46% (Damodaran US, 2026-02-16) = CoE 9.2%; after-tax cost of debt ~4.2% (Damodaran pre-tax 5.29%); weights 86.5/13.5 (Damodaran industry) => ~8.5%."
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "period": "terminal",
+     "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal GDP growth."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 8102,
+     "period": "FY2025",
+     "source": "deskstack derived net_debt = total debt 20,494 (ltd_noncurrent 18,808 + debt_current 1,686) - cash 12,392 (incl. restricted); accession 0000040545-26-000008"
+    },
+    "diluted_shares": {
+     "value": 1068,
+     "period": "FY2025",
+     "source": "Weighted avg diluted shares 1,068,000,000 (us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding), accession 0000040545-26-000008, in millions"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "GE Aerospace",
+   "ticker": "GE",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       35348,
+       38702,
+       45855
+      ],
+      "source": "GE 10-K FY2025, accession 0000040545-26-000008, us-gaap:Revenues"
+     },
+     "operating_income": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found: operating income is not reported in the XBRL data from deskstack (null) for FY2023-FY2025; not filled from memory"
+     },
+     "d_and_a": {
+      "values": [
+       797,
+       834,
+       863
+      ],
+      "source": "GE 10-K accession 0000040545-26-000008, us-gaap:DepreciationAmortizationAndAccretionNet"
+     },
+     "capex": {
+      "values": [
+       862,
+       1032,
+       1273
+      ],
+      "source": "GE 10-K accession 0000040545-26-000008, us-gaap:PaymentsToAcquireProductiveAssets"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.12,
+      0.1,
+      0.08,
+      0.07,
+      0.06
+     ],
+     "source": "Assumption: decelerating from FY2025 growth of 18.5% (45,855/38,702) toward mid-single digits as commercial aero aftermarket cycle matures; no guidance sourced."
+    },
+    "ebit_margin": {
+     "value": 0.2,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: EBIT not reported in data (not found). Proxy anchored on FY2025 pretax margin of 21.8% (pretax income 10,000 / revenue 45,855, accession 0000040545-26-000008), haircut for interest/other income. Reviewer should replace with filed segment/operating profit."
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: between Damodaran US Aerospace/Defense effective tax 11.6% (2026-01-05) and the 21% statutory rate."
+    },
+    "da_pct_revenue": {
+     "value": 0.019,
+     "period": "FY2026-FY2030",
+     "source": "FY2025 D&A 863 / revenue 45,855 = 1.88%, held flat."
+    },
+    "capex_pct_revenue": {
+     "value": 0.028,
+     "period": "FY2026-FY2030",
+     "source": "FY2025 capex 1,273 / revenue 45,855 = 2.78%, held flat."
+    },
+    "wacc": {
+     "value": 0.085,
+     "period": "current",
+     "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 0.98 (Damodaran Aerospace/Defense cash-corrected unlevered 0.869, D/E 0.156, tax 21%) x ERP 4.46% (Damodaran US, 2026-02-16) = CoE 9.2%; after-tax cost of debt ~4.2% (Damodaran pre-tax 5.29%); weights 86.5/13.5 (Damodaran industry) => ~8.5%."
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "period": "terminal",
+     "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal GDP growth."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 8102,
+     "period": "FY2025",
+     "source": "deskstack derived net_debt = total debt 20,494 (ltd_noncurrent 18,808 + debt_current 1,686) - cash 12,392 (incl. restricted); accession 0000040545-26-000008"
+    },
+    "diluted_shares": {
+     "value": 1068,
+     "period": "FY2025",
+     "source": "Weighted avg diluted shares 1,068,000,000 (us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding), accession 0000040545-26-000008, in millions"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 3,
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 2352,
+   "cache_creation_input_tokens": 15426,
+   "cache_read_input_tokens": 20779,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.0662568,
+  "seconds": 16.896,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 2,
+   "verify_value": 1,
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a quick unlevered DCF for GE Aerospace (identifier: GE).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7207,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7207,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 195,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0199755,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01SBQCbP7cZn7YT73weHXVpo",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "GE",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01HBaTHji5bX5Pnvqr9T6UGd",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01N2Tn37nJvk5rvYnsXn2QfJ",
+      "name": "valuation_inputs",
+      "input": {
+       "country": "United States"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01SBQCbP7cZn7YT73weHXVpo",
+      "content": "{\"summary\":\"GENERAL ELECTRIC COMPANY (GE), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 45.9B USD, net income 8.7B USD. 3 period(s), 3 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"GENERAL ELECTRIC COMPANY\",\"ticker\":\"GE\",\"cik\":40545,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"3600\",\"sic_description\":\"Electronic & Other Electrical Equipment (No Computer Equip)\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"start\":\"2023-01-01\",\"end\":\"2023-12-31\",\"income_statement\":{\"revenue\":{\"value\":35348000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000040545-26-000008\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":null,\"pretax_income\":{\"value\":10441000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000040545-26-000008\"},\"net_income\":{\"value\":9482000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000040545-26-000008\"},\"diluted_shares\":{\"value\":1099000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000040545-26-000008\"},\"diluted_eps\":{\"value\":8.36,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000040545-26-000008\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":5189000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000040545-26-000008\"},\"capex\":{\"value\":862000000,\"concept\":\"us-gaap:PaymentsToAcquireProductiveAssets\",\"accession\":\"0000040545-26-000008\"},\"d_and_a\":{\"value\":797000000,\"concept\":\"us-gaap:DepreciationAmortizationAndAccretionNet\",\"accession\":\"0000040545-26-000008\"},\"amortization_intangibles\":{\"value\":382000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000040545-26-000008\"}},\"balance_sheet\":{\"cash\":{\"value\":15204000000,\"concept\":\"us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents\",\"accession\":\"0000040545-25-000015\"},\"short_term_investments\":null,\"total_assets\":{\"value\":173300000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000040545-25-000015\"},\"total_equity\":{\"value\":27403000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000040545-25-000015\"},\"ltd_noncurrent\":{\"value\":19417000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000040545-25-000015\"},\"ltd_total\":{\"value\":20862000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000040545-24-000027\"},\"debt_current\":{\"value\":1108000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000040545-25-000015\"},\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":1151000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000040545-24-000027\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":4327000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":20525000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":5321000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2024-01-01\",\"end\":\"2024-12-31\",\"income_statement\":{\"revenue\":{\"value\":38702000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000040545-26-000008\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":null,\"pretax_income\":{\"value\":7620000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000040545-26-000008\"},\"net_income\":{\"value\":6556000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000040545-26-000008\"},\"diluted_shares\":{\"value\":1094000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000040545-26-000008\"},\"diluted_eps\":{\"value\":5.99,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000040545-26-000008\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":4710000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000040545-26-000008\"},\"capex\":{\"value\":1032000000,\"concept\":\"us-gaap:PaymentsToAcquireProductiveAssets\",\"accession\":\"0000040545-26-000008\"},\"d_and_a\":{\"value\":834000000,\"concept\":\"us-gaap:DepreciationAmortizationAndAccretionNet\",\"accession\":\"0000040545-26-000008\"},\"amortization_intangibles\":{\"value\":350000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000040545-26-000008\"}},\"balance_sheet\":{\"cash\":{\"value\":13619000000,\"concept\":\"us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents\",\"accession\":\"0000040545-26-000008\"},\"short_term_investments\":null,\"total_assets\":{\"value\":123140000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000040545-26-000008\"},\"total_equity\":{\"value\":19342000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000040545-26-000008\"},\"ltd_noncurrent\":{\"value\":17234000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000040545-26-000008\"},\"ltd_total\":{\"value\":19273000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000040545-25-000015\"},\"debt_current\":{\"value\":2039000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000040545-26-000008\"},\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":0,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000040545-26-000008\"},\"ltd_due_12m\":{\"value\":2039000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000040545-25-000015\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":3678000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":19273000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":5654000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":45855000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000040545-26-000008\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":null,\"pretax_income\":{\"value\":10000000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000040545-26-000008\"},\"net_income\":{\"value\":8704000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000040545-26-000008\"},\"diluted_shares\":{\"value\":1068000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000040545-26-000008\"},\"diluted_eps\":{\"value\":8.14,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000040545-26-000008\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":8537000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000040545-26-000008\"},\"capex\":{\"value\":1273000000,\"concept\":\"us-gaap:PaymentsToAcquireProductiveAssets\",\"accession\":\"0000040545-26-000008\"},\"d_and_a\":{\"value\":863000000,\"concept\":\"us-gaap:DepreciationAmortizationAndAccretionNet\",\"accession\":\"0000040545-26-000008\"},\"amortization_intangibles\":{\"value\":357000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000040545-26-000008\"}},\"balance_sheet\":{\"cash\":{\"value\":12392000000,\"concept\":\"us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents\",\"accession\":\"0000040545-26-000008\"},\"short_term_investments\":null,\"total_assets\":{\"value\":130169000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000040545-26-000008\"},\"total_equity\":{\"value\":18677000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000040545-26-000008\"},\"ltd_noncurrent\":{\"value\":18808000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000040545-26-000008\"},\"ltd_total\":{\"value\":20469000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000040545-26-000008\"},\"debt_current\":{\"value\":1686000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000040545-26-000008\"},\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":25000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000040545-26-000008\"},\"ltd_due_12m\":{\"value\":1661000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000040545-26-000008\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":7264000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":20494000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":8102000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-10-20 (period 2026-09-30) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/40545/000004054524000027/0000040545-24-000027-index.htm\",\"accession_or_id\":\"0000040545-24-000027\",\"form\":\"10-K\",\"period\":\"2023-12-31\",\"as_of\":\"2024-02-02\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/40545/000004054525000015/0000040545-25-000015-index.htm\",\"accession_or_id\":\"0000040545-25-000015\",\"form\":\"10-K\",\"period\":\"2024-12-31\",\"as_of\":\"2025-02-03\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/40545/000004054526000008/0000040545-26-000008-index.htm\",\"accession_or_id\":\"0000040545-26-000008\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-01-29\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":1033351921,\"as_of\":\"2026-09-30\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000040545-26-000064\",\"url\":\"https://www.sec.gov/Archives/edgar/data/40545/000004054526000064/0000040545-26-000064-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01HBaTHji5bX5Pnvqr9T6UGd",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01N2Tn37nJvk5rvYnsXn2QfJ",
+      "content": "{\"summary\":\"Country risk data for \\\"United States\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"country\":[{\"country\":\"United States\",\"region\":\"North America\",\"moodys_rating\":\"Aa1\",\"default_spread\":0.002333679169992019,\"equity_risk_premium\":0.0446,\"country_risk_premium\":0.002333679169992019,\"basis\":\"Moody's sovereign rating\",\"match\":\"exact\",\"mature_market_erp\":0.0423,\"source\":{\"name\":\"Aswath Damodaran, Country Default Spreads and Risk Premiums\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx\",\"accession_or_id\":\"ctryprem/United States\",\"period\":\"2026-02-16\",\"as_of\":\"2026-02-16\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 6365,
+     "cache_read_input_tokens": 7207,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 6365,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 241,
+     "output_tokens_details": {
+      "thinking_tokens": 85
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0197679,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS3QYKEAgTGAI4AUIIdGhpbmtpbmcSDNllRud9tsvNlFoxyhoMVgjJE+xnNVvmzjijIjAc3s6smMhFbdpOw1zEs7DKj2t+5/8NjjCyLAAFB07Bs7BksquNtxzwY4krTpb0F9Eq+gVBRNHKvVUTTD4XM/C9ns63rxsPVn/0qmEz5xUED8na7Jkm1GUp4nv8bieFE2ke0n0vnoLHPzM+bxrYRcW0e+dFhzJPqx99wvHHqyZIgVpNH2tn7Qhcg+4VFIc8ThivJNDJKhvYAeneU66sK8hqiq69Dl3KJUz+umyn3FyM6e8u8aTR+q08EsNlZQkbUPffGTOrsFSkl/Q/vhAoSnFJ4VB9/I1TGNRZ8tlzAvw7hV0yDRem0hN2r0XNdSWKntfh6dIr+WDEh5AfqhHPc3kMAU2/6r91HcKHXkMdkiEcHU/nTweWLeoEKEzJ56TSbySXmnqu4AWsTNKwb0QwWE8cw1UcRMExJh3Sx0QTf++VNOK56J3EL5DCIPCfjUgLRYtmmHiBdSTrBgd0MnRWdvoBX/yAIXbSyk1lWHMO0kRDIDrTL+pvRxYc0BNGW63GD0Xp6SV72u5Wuu5Fzo9KJoAsciS1PMIDU3jZnIxjDbACtboAodUKBZ0+YJ5ITKsoyQdkF9lsVJhqr0DyJjHgS1PodqiQF91wctJxXsXnUGoGHf664jTIxgpXhX28abkR0hwqsXhDu9pLGz57fND79n1qAKTJmpc2bb4dvTJYH2a374J77IC35VLMfeWQpgtUEEy7PQGnuIfQQQAGHEY0ahPTGzn2myegQ41qdZJojUwVHTKUuwTPspFWQqdFIUhsH2XbmjF9wavpwdZmBk7twHGpS5RThADSYYRIqx7T3sD6oQiZpk+3E1QlieNOpnYdYdXQtdA7UJgLhK5IFobBKfgJSldyaI2rLHwGN2v0SQB28zew+jQdzuQES/jInRXYPtoSXtbpvfqJlq/VtN/t45PG2fseVLBTeL4drrWa1aXb5rQmjEpnPuMrHRqctBI4MRMAYgY7orgFPhl7tAHIbu1YsQ1XR+mt6h+aAfD9Vv+R36zLFhZcMheHlSQxJpzc248VEM/t5zJWgZ8Bw3U3pb+yblKkViYq+saqKI64i+hkWhgz0XW9iaZcT/6DuVwYAQ=="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_017rdoU3Gt4nrpV7WywREaCp",
+      "name": "verify_value",
+      "input": {
+       "company": "GE",
+       "items": [
+        {
+         "metric": "operating income",
+         "period": "FY2025",
+         "value": 1,
+         "scale": "billions"
+        }
+       ]
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01ABF35fAxhzmXEVUAGCY8rP",
+      "name": "valuation_inputs",
+      "input": {
+       "industry": "Aerospace"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_017rdoU3Gt4nrpV7WywREaCp",
+      "content": "{\"summary\":\"GENERAL ELECTRIC COMPANY: 0 of 1 value(s) match the filings, 1 not found. Read each item's hints before changing a number.\",\"company\":{\"name\":\"GENERAL ELECTRIC COMPANY\",\"ticker\":\"GE\",\"cik\":40545,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"3600\",\"sic_description\":\"Electronic & Other Electrical Equipment (No Computer Equip)\",\"financial_company\":false,\"foreign_private_issuer\":false},\"currency\":\"USD\",\"counts\":{\"total\":1,\"match\":0,\"mismatch\":0,\"not_found\":1,\"ambiguous\":0},\"results\":[{\"ref\":null,\"metric\":\"operating income\",\"resolved_metric\":\"operating_income\",\"period\":\"FY2025\",\"resolved_period\":\"FY2025 (ended 2025-12-31)\",\"status\":\"not_found\",\"claimed\":1,\"claimed_units\":1000000000,\"filed\":null,\"difference\":null,\"relative_difference\":null,\"concept\":null,\"computed\":false,\"accessions\":[],\"allowance\":{\"units\":0,\"basis\":\"\"},\"hints\":[\"operating_income is not reported for FY2025 (null in the filing data). Do not use a figure from memory.\"]}],\"sources\":[],\"note\":\"Computed lines (EBITDA, free cash flow, total debt, net debt) are checked against deskstack's own formula from the filed inputs, shown in the hints. A match means the number agrees with the filing; it does not validate assumptions or forecasts.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01ABF35fAxhzmXEVUAGCY8rP",
+      "content": "{\"summary\":\"US industry data for \\\"Aerospace\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"industry\":[{\"region\":\"US\",\"industry\":\"Aerospace/Defense\",\"firms\":79,\"beta\":0.945491480030761,\"de_ratio\":0.1556259774178424,\"effective_tax_rate\":0.1157525444051738,\"unlevered_beta\":0.846668742124111,\"cash_to_firm_value\":0.026120466599857,\"unlevered_beta_cash_corrected\":0.8693772823914925,\"cost_of_equity\":0.08166892000937194,\"equity_weight\":0.865331880332444,\"cost_of_debt_pretax\":0.052913,\"after_tax_cost_of_debt\":0.039684750000000005,\"debt_weight\":0.13466811966755599,\"cost_of_capital\":0.07601499077840683,\"match\":\"partial\",\"sources\":[{\"name\":\"Aswath Damodaran, Betas by Sector (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls\",\"accession_or_id\":\"betas/US/Aerospace/Defense\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"},{\"name\":\"Aswath Damodaran, Cost of Capital by Industry (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/wacc.xls\",\"accession_or_id\":\"wacc/US/Aerospace/Defense\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}],\"note\":\"cost_of_equity and cost_of_capital are Damodaran's US$ estimates using his own risk-free rate (0.0395) and ERP (0.0446) at the update date. For a current WACC, prefer unlevered_beta_cash_corrected, relevered at the company's D/E, with today's risk_free_rate.\"}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[\"Partial name match: confirm the country/industry shown is the one the user means before using its figures.\"],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 3,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 1854,
+     "cache_read_input_tokens": 13572,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 1854,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1916,
+     "output_tokens_details": {
+      "thinking_tokens": 453
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.026513400000000003,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "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"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01PbUAmfjfk2J8zw4FyAnyWQ",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "GE Aerospace",
+       "ticker": "GE",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           35348,
+           38702,
+           45855
+          ],
+          "source": "GE 10-K FY2025, accession 0000040545-26-000008, us-gaap:Revenues"
+         },
+         "operating_income": {
+          "values": [
+           null,
+           null,
+           null
+          ],
+          "source": "not found: operating income is not reported in the XBRL data from deskstack (null) for FY2023-FY2025; not filled from memory"
+         },
+         "d_and_a": {
+          "values": [
+           797,
+           834,
+           863
+          ],
+          "source": "GE 10-K accession 0000040545-26-000008, us-gaap:DepreciationAmortizationAndAccretionNet"
+         },
+         "capex": {
+          "values": [
+           862,
+           1032,
+           1273
+          ],
+          "source": "GE 10-K accession 0000040545-26-000008, us-gaap:PaymentsToAcquireProductiveAssets"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.12,
+          0.1,
+          0.08,
+          0.07,
+          0.06
+         ],
+         "source": "Assumption: decelerating from FY2025 growth of 18.5% (45,855/38,702) toward mid-single digits as commercial aero aftermarket cycle matures; no guidance sourced."
+        },
+        "ebit_margin": {
+         "value": 0.2,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: EBIT not reported in data (not found). Proxy anchored on FY2025 pretax margin of 21.8% (pretax income 10,000 / revenue 45,855, accession 0000040545-26-000008), haircut for interest/other income. Reviewer should replace with filed segment/operating profit."
+        },
+        "tax_rate": {
+         "value": 0.17,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: between Damodaran US Aerospace/Defense effective tax 11.6% (2026-01-05) and the 21% statutory rate."
+        },
+        "da_pct_revenue": {
+         "value": 0.019,
+         "period": "FY2026-FY2030",
+         "source": "FY2025 D&A 863 / revenue 45,855 = 1.88%, held flat."
+        },
+        "capex_pct_revenue": {
+         "value": 0.028,
+         "period": "FY2026-FY2030",
+         "source": "FY2025 capex 1,273 / revenue 45,855 = 2.78%, held flat."
+        },
+        "wacc": {
+         "value": 0.085,
+         "period": "current",
+         "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 0.98 (Damodaran Aerospace/Defense cash-corrected unlevered 0.869, D/E 0.156, tax 21%) x ERP 4.46% (Damodaran US, 2026-02-16) = CoE 9.2%; after-tax cost of debt ~4.2% (Damodaran pre-tax 5.29%); weights 86.5/13.5 (Damodaran industry) => ~8.5%."
+        },
+        "terminal_growth": {
+         "value": 0.03,
+         "period": "terminal",
+         "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal GDP growth."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 8102,
+         "period": "FY2025",
+         "source": "deskstack derived net_debt = total debt 20,494 (ltd_noncurrent 18,808 + debt_current 1,686) - cash 12,392 (incl. restricted); accession 0000040545-26-000008"
+        },
+        "diluted_shares": {
+         "value": 1068,
+         "period": "FY2025",
+         "source": "Weighted avg diluted shares 1,068,000,000 (us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding), accession 0000040545-26-000008, in millions"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 11,
+  "match": 11,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 22,
+  "unsourced": 1,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "GE",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 35348,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 35348000000,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 38702,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 38702000000,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 45855,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 45855000000,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 797,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 797000000,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 834,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 834000000,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 863,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 863000000,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 862,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 862000000,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 1032,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1032000000,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 1273,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1273000000,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 8102,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 8102000000,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 1068,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1068000000,
+    "resolved": "GE"
+   }
+  ],
+  "unsourced_refs": [
+   "assumptions.ebit_margin"
+  ],
+  "errors": []
+ }
+}

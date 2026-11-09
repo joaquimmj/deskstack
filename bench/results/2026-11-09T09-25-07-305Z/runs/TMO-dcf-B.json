@@ -1,0 +1,694 @@
+{
+ "company": "TMO",
+ "task": "dcf",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Thermo Fisher Scientific Inc.",
+   "ticker": "TMO",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       42857,
+       42879,
+       44556
+      ],
+      "source": "10-K FY2025 acc. 0000097745-26-000018, RevenueFromContractWithCustomerExcludingAssessedTax"
+     },
+     "operating_income": {
+      "values": [
+       6859,
+       7337,
+       7746
+      ],
+      "source": "10-K FY2025 acc. 0000097745-26-000018, OperatingIncomeLoss"
+     },
+     "d_and_a": {
+      "values": [
+       3406,
+       3108,
+       2780
+      ],
+      "source": "financial_statements: Depreciation (1068/1156/1050) + AmortizationOfIntangibleAssets (2338/1952/1730), acc. 0000097745-26-000018"
+     },
+     "capex": {
+      "values": [
+       1479,
+       1400,
+       1525
+      ],
+      "source": "PaymentsToAcquirePropertyPlantAndEquipment, acc. 0000097745-26-000018"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.04,
+      0.05,
+      0.05,
+      0.05,
+      0.045
+     ],
+     "source": "Assumption: FY2025 growth was 3.9%, FY2024 0.1%; modest recovery to mid-single-digit life-science/diagnostics market growth, fading in the final year"
+    },
+    "ebit_margin": {
+     "value": 0.18,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 GAAP EBIT margin 17.4% (7746/44556), FY2024 17.1%; slight improvement from productivity and falling amortization"
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: approximate 17% effective rate; analyst estimate, not taken from a filing (verify in the 10-K tax note)"
+    },
+    "da_pct_revenue": {
+     "value": 0.062,
+     "period": "FY2026-FY2030",
+     "source": "FY2025 D&A 2780/44556 = 6.2% (depreciation + intangible amortization), held flat"
+    },
+    "capex_pct_revenue": {
+     "value": 0.034,
+     "period": "FY2026-FY2030",
+     "source": "FY2025 capex 1525/44556 = 3.4%; 3-year range 3.3-3.5%"
+    },
+    "wacc": {
+     "value": 0.083,
+     "period": "current",
+     "source": "Assumption: CAPM cost of equity = Rf 4.86% (US Treasury 10Y, 2026-11-06) + beta ~0.95 (assumed, not looked up) x ERP 4.46% (Damodaran US, 2026-02-16) = ~9.1%; pre-tax cost of debt ~5.3% (assumed, interest 1419 / debt 39385 is about 3.6%) after tax ~4.4%; assumed 85/15 equity/debt weights (no share price available) gives ~8.3%"
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "period": "terminal",
+     "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal US GDP growth"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 29280,
+     "period": "FY2025",
+     "source": "financial_statements derived net_debt: total debt 39385 (ltd_noncurrent 35852 + debt_current 3533) - cash 9852 - short-term investments 253; acc. 0000097745-26-000018"
+    },
+    "diluted_shares": {
+     "value": 378,
+     "period": "FY2025",
+     "source": "WeightedAverageNumberOfDilutedSharesOutstanding 378,000,000 shares = 378 million, acc. 0000097745-26-000018"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Thermo Fisher Scientific Inc.",
+   "ticker": "TMO",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       42857,
+       42879,
+       44556
+      ],
+      "source": "10-K FY2025 acc. 0000097745-26-000018, RevenueFromContractWithCustomerExcludingAssessedTax"
+     },
+     "operating_income": {
+      "values": [
+       6859,
+       7337,
+       7746
+      ],
+      "source": "10-K FY2025 acc. 0000097745-26-000018, OperatingIncomeLoss"
+     },
+     "d_and_a": {
+      "values": [
+       3406,
+       3108,
+       2780
+      ],
+      "source": "financial_statements: Depreciation (1068/1156/1050) + AmortizationOfIntangibleAssets (2338/1952/1730), acc. 0000097745-26-000018"
+     },
+     "capex": {
+      "values": [
+       1479,
+       1400,
+       1525
+      ],
+      "source": "PaymentsToAcquirePropertyPlantAndEquipment, acc. 0000097745-26-000018"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.04,
+      0.05,
+      0.05,
+      0.05,
+      0.045
+     ],
+     "source": "Assumption: FY2025 growth was 3.9%, FY2024 0.1%; modest recovery to mid-single-digit life-science/diagnostics market growth, fading in the final year"
+    },
+    "ebit_margin": {
+     "value": 0.18,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 GAAP EBIT margin 17.4% (7746/44556), FY2024 17.1%; slight improvement from productivity and falling amortization"
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: approximate 17% effective rate; analyst estimate, not taken from a filing (verify in the 10-K tax note)"
+    },
+    "da_pct_revenue": {
+     "value": 0.062,
+     "period": "FY2026-FY2030",
+     "source": "FY2025 D&A 2780/44556 = 6.2% (depreciation + intangible amortization), held flat"
+    },
+    "capex_pct_revenue": {
+     "value": 0.034,
+     "period": "FY2026-FY2030",
+     "source": "FY2025 capex 1525/44556 = 3.4%; 3-year range 3.3-3.5%"
+    },
+    "wacc": {
+     "value": 0.083,
+     "period": "current",
+     "source": "Assumption: CAPM cost of equity = Rf 4.86% (US Treasury 10Y, 2026-11-06) + beta ~0.95 (assumed, not looked up) x ERP 4.46% (Damodaran US, 2026-02-16) = ~9.1%; pre-tax cost of debt ~5.3% (assumed, interest 1419 / debt 39385 is about 3.6%) after tax ~4.4%; assumed 85/15 equity/debt weights (no share price available) gives ~8.3%"
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "period": "terminal",
+     "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal US GDP growth"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 29280,
+     "period": "FY2025",
+     "source": "financial_statements derived net_debt: total debt 39385 (ltd_noncurrent 35852 + debt_current 3533) - cash 9852 - short-term investments 253; acc. 0000097745-26-000018"
+    },
+    "diluted_shares": {
+     "value": 378,
+     "period": "FY2025",
+     "source": "WeightedAverageNumberOfDilutedSharesOutstanding 378,000,000 shares = 378 million, acc. 0000097745-26-000018"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 2,
+  "usage": {
+   "input_tokens": 6,
+   "output_tokens": 1983,
+   "cache_creation_input_tokens": 14043,
+   "cache_read_input_tokens": 7217,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.0563929,
+  "seconds": 13.444,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 1,
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a quick unlevered DCF for Thermo Fisher Scientific Inc. (identifier: TMO).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7217,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7217,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 196,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0200105,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01MKPGDo2tFYdWAkG7oMmQGx",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "TMO",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01LgJ9jFzNCp9tL5vQAcGFqs",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01NavbVVzGyhZpSVGF5LG7d7",
+      "name": "valuation_inputs",
+      "input": {
+       "country": "United States"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01MKPGDo2tFYdWAkG7oMmQGx",
+      "content": "{\"summary\":\"THERMO FISHER SCIENTIFIC INC. (TMO), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 44.6B USD, net income 6.7B USD. 3 period(s), 3 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"THERMO FISHER SCIENTIFIC INC.\",\"ticker\":\"TMO\",\"cik\":97745,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"3829\",\"sic_description\":\"Measuring & Controlling Devices, NEC\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"start\":\"2023-01-01\",\"end\":\"2023-12-31\",\"income_statement\":{\"revenue\":{\"value\":42857000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000097745-26-000018\"},\"gross_profit\":null,\"operating_income\":{\"value\":6859000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000097745-26-000018\"},\"interest_expense\":{\"value\":1375000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0000097745-24-000007\"},\"pretax_income\":{\"value\":6298000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments\",\"accession\":\"0000097745-26-000018\"},\"net_income\":{\"value\":5995000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000097745-26-000018\"},\"diluted_shares\":{\"value\":388000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000097745-26-000018\"},\"diluted_eps\":{\"value\":15.45,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000097745-26-000018\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":8406000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000097745-26-000018\"},\"capex\":{\"value\":1479000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000097745-26-000018\"},\"d_and_a\":{\"value\":1068000000,\"concept\":\"us-gaap:Depreciation\",\"accession\":\"0000097745-26-000018\"},\"amortization_intangibles\":{\"value\":2338000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000097745-26-000018\"}},\"balance_sheet\":{\"cash\":{\"value\":8077000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000097745-25-000010\"},\"short_term_investments\":{\"value\":3000000,\"concept\":\"us-gaap:ShortTermInvestments\",\"accession\":\"0000097745-25-000010\"},\"total_assets\":{\"value\":98726000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000097745-26-000018\"},\"total_equity\":{\"value\":46735000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000097745-25-000010\"},\"ltd_noncurrent\":{\"value\":31308000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000097745-25-000010\"},\"ltd_total\":{\"value\":34727000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000097745-25-000010\"},\"debt_current\":{\"value\":3609000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000097745-25-000010\"},\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":3604000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000097745-24-000007\"}},\"derived\":{\"ebitda\":{\"value\":10265000000,\"formula\":\"operating_income + d_and_a (depreciation only) + amortization_intangibles\"},\"free_cash_flow\":{\"value\":6927000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":34917000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":26837000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2024-01-01\",\"end\":\"2024-12-31\",\"income_statement\":{\"revenue\":{\"value\":42879000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000097745-26-000018\"},\"gross_profit\":null,\"operating_income\":{\"value\":7337000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000097745-26-000018\"},\"interest_expense\":{\"value\":1390000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000097745-26-000018\"},\"pretax_income\":{\"value\":7037000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments\",\"accession\":\"0000097745-26-000018\"},\"net_income\":{\"value\":6335000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000097745-26-000018\"},\"diluted_shares\":{\"value\":383000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000097745-26-000018\"},\"diluted_eps\":{\"value\":16.53,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000097745-26-000018\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":8667000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000097745-26-000018\"},\"capex\":{\"value\":1400000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000097745-26-000018\"},\"d_and_a\":{\"value\":1156000000,\"concept\":\"us-gaap:Depreciation\",\"accession\":\"0000097745-26-000018\"},\"amortization_intangibles\":{\"value\":1952000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000097745-26-000018\"}},\"balance_sheet\":{\"cash\":{\"value\":4009000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000097745-26-000018\"},\"short_term_investments\":{\"value\":1561000000,\"concept\":\"us-gaap:ShortTermInvestments\",\"accession\":\"0000097745-26-000018\"},\"total_assets\":{\"value\":97321000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000097745-26-000018\"},\"total_equity\":{\"value\":49584000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000097745-26-000018\"},\"ltd_noncurrent\":{\"value\":29061000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000097745-26-000018\"},\"ltd_total\":{\"value\":31072000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000097745-26-000018\"},\"debt_current\":{\"value\":2214000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000097745-26-000018\"},\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":2202000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000097745-25-000010\"}},\"derived\":{\"ebitda\":{\"value\":10445000000,\"formula\":\"operating_income + d_and_a (depreciation only) + amortization_intangibles\"},\"free_cash_flow\":{\"value\":7267000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":31275000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":25705000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":44556000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000097745-26-000018\"},\"gross_profit\":null,\"operating_income\":{\"value\":7746000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000097745-26-000018\"},\"interest_expense\":{\"value\":1419000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000097745-26-000018\"},\"pretax_income\":{\"value\":7308000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments\",\"accession\":\"0000097745-26-000018\"},\"net_income\":{\"value\":6704000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000097745-26-000018\"},\"diluted_shares\":{\"value\":378000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000097745-26-000018\"},\"diluted_eps\":{\"value\":17.74,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000097745-26-000018\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":7818000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000097745-26-000018\"},\"capex\":{\"value\":1525000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000097745-26-000018\"},\"d_and_a\":{\"value\":1050000000,\"concept\":\"us-gaap:Depreciation\",\"accession\":\"0000097745-26-000018\"},\"amortization_intangibles\":{\"value\":1730000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000097745-26-000018\"}},\"balance_sheet\":{\"cash\":{\"value\":9852000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000097745-26-000018\"},\"short_term_investments\":{\"value\":253000000,\"concept\":\"us-gaap:ShortTermInvestments\",\"accession\":\"0000097745-26-000018\"},\"total_assets\":{\"value\":110343000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000097745-26-000018\"},\"total_equity\":{\"value\":53407000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000097745-26-000018\"},\"ltd_noncurrent\":{\"value\":35852000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000097745-26-000018\"},\"ltd_total\":{\"value\":39172000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000097745-26-000018\"},\"debt_current\":{\"value\":3533000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000097745-26-000018\"},\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":3528000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000097745-26-000018\"}},\"derived\":{\"ebitda\":{\"value\":10526000000,\"formula\":\"operating_income + d_and_a (depreciation only) + amortization_intangibles\"},\"free_cash_flow\":{\"value\":6293000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":39385000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":29280000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-10-30 (period 2026-09-26) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/97745/000009774524000007/0000097745-24-000007-index.htm\",\"accession_or_id\":\"0000097745-24-000007\",\"form\":\"10-K\",\"period\":\"2023-12-31\",\"as_of\":\"2024-02-22\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/97745/000009774525000010/0000097745-25-000010-index.htm\",\"accession_or_id\":\"0000097745-25-000010\",\"form\":\"10-K\",\"period\":\"2024-12-31\",\"as_of\":\"2025-02-20\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/97745/000009774526000018/0000097745-26-000018-index.htm\",\"accession_or_id\":\"0000097745-26-000018\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-26\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":370515868,\"as_of\":\"2026-09-26\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000097745-26-000179\",\"url\":\"https://www.sec.gov/Archives/edgar/data/97745/000009774526000179/0000097745-26-000179-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01LgJ9jFzNCp9tL5vQAcGFqs",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01NavbVVzGyhZpSVGF5LG7d7",
+      "content": "{\"summary\":\"Country risk data for \\\"United States\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"country\":[{\"country\":\"United States\",\"region\":\"North America\",\"moodys_rating\":\"Aa1\",\"default_spread\":0.002333679169992019,\"equity_risk_premium\":0.0446,\"country_risk_premium\":0.002333679169992019,\"basis\":\"Moody's sovereign rating\",\"match\":\"exact\",\"mature_market_erp\":0.0423,\"source\":{\"name\":\"Aswath Damodaran, Country Default Spreads and Risk Premiums\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx\",\"accession_or_id\":\"ctryprem/United States\",\"period\":\"2026-02-16\",\"as_of\":\"2026-02-16\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 6826,
+     "cache_read_input_tokens": 7217,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 6826,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1787,
+     "output_tokens_details": {
+      "thinking_tokens": 357
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0363824,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSgAoKEAgTGAI4AUIIdGhpbmtpbmcSDPBUqre0FBt1C06G5xoMFoSqTjPu4Q8/m1AhIjBl0wQi9+EO+3fyq78gpktZJ+y9uwyQtYqeSWMe+nKZ3XldfiRGhSjgUv150Y+BL7kqnQnYOwAQ0cd/gslzQN1/a9YbqxI/9MbiuWNZyTtd04mAGCsjzapzoJBAGcPyHpAxc7bhPGnLMmo0WiGiMJLdm0VFk0dHs/5PyjHj1EjGMCP6MjLqS5lYnjuUac3J54Wdb+tALRdcoUtWZv4nPcdvImMpXmPnvN9SRER6CbnVNcVlpwLWKX23hQxaHe+ihurD5Tee4ENOM7EsDcoACYT8bYoQ5+gpCXNJ3G92fxNbG99VLj3OgUm9I+ZMfaZWDBJT7xvbsfZDb1/T9irYj1j6RZX8Omgh/PPRrdi6URWdK9UPx2JO9u3ZY2h5tOAaIwIZ3GQtsVwJox6D6yD3QAdnj1vVpgGeRJWkELqmlIprfVoCM4CtoRsx02QbS98cRFhlEsqeSF7F2ZCgSU9PB0yakYHjJERaISGNFD3QRrGiPSJLGuBsk1XTTxnd9E9ACYpYUwusdq8j506shxZNLNHZYrkkB/+HJWAEr2DYH+BWHyHCjyfzMMIOM5LsCJJfD8aLfoIn4dk3ex0/DmC+6a7qREUra+hOX6SI10AUeCYeMpJvTC8uBzoloEO4/xrdkVMtQN12lp2W08NJYf8JLjSHbF8d4JTzwFpDaxTU/ZpvYNaZ7NxYv9MIP7AhfjM6HBdWwtJ1R72mWi8t7eU6hKNcQkj1HZSeysZUAxoaTbTYNdIY6zivjlIdJWQ0omfIbgRC5fuafzc98jlAS/498k1w8RclISjRA/zX5gfrj7KxfxoPMI1NT3KjZPslyb/yLf7D4em7HOOY2X9TU6VbXQitF47bukfC5N2gwTlln8GID/MhwSDszzLvL6047GU11OR+kWdMVzBYX2W69/oXtU7Itib3F/X3rInuQhWf7aRc4TjAhZqoWWeyTkiG2y1fLOQSn56+h/Y7SXl6LHKmyC8B8JR60AeKOKCEgC8IAogln9LJ4N6KUYZWGdUfU3AOcddhGbbgAoxLpju3zM1ED6545zdPY+UqQKNsBhhqiJ2Z9pohu1LuzPkZXTfz8KNsTgPbkdwVV/hTxXn7f3RA3yIdLAfIBtMmntVnFF3GAplURY3xtUrWv9xkFcDmH9gTZPqDMml2EQKgIA1f8KXGypDVOWHzTFFdaCGCAsMZCXiACOZu9bAHdiGqnpWm2qihCd2E+/3nZEVQF8iLn+S94/H/+Oyn74JNG2HiviuGmIqCxSntq4CK02IbivavwudhERfWq9/7AgAWpUpL3sBVYXWp1qHXyMRobptPfOlx7n3HytaRRim/aiNZNuPVoP2nULxhed1uMNQgdQ9gSRhewGlrNXtBpZ4kGBixaUa4eY/5p+rhcW+6W4G0hI0ko9byt38D8/PqyizZ0qd2c3/5RyCk6o/EPOzLY0OTvuAzEOeoBwFOAQ+sC4kjUb2DRlulLPquFvAfUqTZosafgURohdn5B2OlYm14GrX0JvH6V5QEOgso3vWbZn/u3RItMK/Q3Lnga49GnkO1eH1G08knh6dhmXYTkgoU38sjWYJkj/0bpjzH1gZNGbXqKfCymrWH+LbRsCxijg7aC05JFiJkSnpyxyUVZkpPTRYJ7b9IzP+KEhgB"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_0194r6EYGrdXjpTn4QSXrtLG",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Thermo Fisher Scientific Inc.",
+       "ticker": "TMO",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           42857,
+           42879,
+           44556
+          ],
+          "source": "10-K FY2025 acc. 0000097745-26-000018, RevenueFromContractWithCustomerExcludingAssessedTax"
+         },
+         "operating_income": {
+          "values": [
+           6859,
+           7337,
+           7746
+          ],
+          "source": "10-K FY2025 acc. 0000097745-26-000018, OperatingIncomeLoss"
+         },
+         "d_and_a": {
+          "values": [
+           3406,
+           3108,
+           2780
+          ],
+          "source": "financial_statements: Depreciation (1068/1156/1050) + AmortizationOfIntangibleAssets (2338/1952/1730), acc. 0000097745-26-000018"
+         },
+         "capex": {
+          "values": [
+           1479,
+           1400,
+           1525
+          ],
+          "source": "PaymentsToAcquirePropertyPlantAndEquipment, acc. 0000097745-26-000018"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.04,
+          0.05,
+          0.05,
+          0.05,
+          0.045
+         ],
+         "source": "Assumption: FY2025 growth was 3.9%, FY2024 0.1%; modest recovery to mid-single-digit life-science/diagnostics market growth, fading in the final year"
+        },
+        "ebit_margin": {
+         "value": 0.18,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: FY2025 GAAP EBIT margin 17.4% (7746/44556), FY2024 17.1%; slight improvement from productivity and falling amortization"
+        },
+        "tax_rate": {
+         "value": 0.17,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: approximate 17% effective rate; analyst estimate, not taken from a filing (verify in the 10-K tax note)"
+        },
+        "da_pct_revenue": {
+         "value": 0.062,
+         "period": "FY2026-FY2030",
+         "source": "FY2025 D&A 2780/44556 = 6.2% (depreciation + intangible amortization), held flat"
+        },
+        "capex_pct_revenue": {
+         "value": 0.034,
+         "period": "FY2026-FY2030",
+         "source": "FY2025 capex 1525/44556 = 3.4%; 3-year range 3.3-3.5%"
+        },
+        "wacc": {
+         "value": 0.083,
+         "period": "current",
+         "source": "Assumption: CAPM cost of equity = Rf 4.86% (US Treasury 10Y, 2026-11-06) + beta ~0.95 (assumed, not looked up) x ERP 4.46% (Damodaran US, 2026-02-16) = ~9.1%; pre-tax cost of debt ~5.3% (assumed, interest 1419 / debt 39385 is about 3.6%) after tax ~4.4%; assumed 85/15 equity/debt weights (no share price available) gives ~8.3%"
+        },
+        "terminal_growth": {
+         "value": 0.03,
+         "period": "terminal",
+         "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal US GDP growth"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 29280,
+         "period": "FY2025",
+         "source": "financial_statements derived net_debt: total debt 39385 (ltd_noncurrent 35852 + debt_current 3533) - cash 9852 - short-term investments 253; acc. 0000097745-26-000018"
+        },
+        "diluted_shares": {
+         "value": 378,
+         "period": "FY2025",
+         "source": "WeightedAverageNumberOfDilutedSharesOutstanding 378,000,000 shares = 378 million, acc. 0000097745-26-000018"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 11,
+  "mismatch": 0,
+  "other_line": 3,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "TMO",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 42857,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 42857000000,
+    "resolved": "TMO"
+   },
+   {
+    "company": "TMO",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 42879,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 42879000000,
+    "resolved": "TMO"
+   },
+   {
+    "company": "TMO",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 44556,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 44556000000,
+    "resolved": "TMO"
+   },
+   {
+    "company": "TMO",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 6859,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 6859000000,
+    "resolved": "TMO"
+   },
+   {
+    "company": "TMO",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 7337,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 7337000000,
+    "resolved": "TMO"
+   },
+   {
+    "company": "TMO",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 7746,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 7746000000,
+    "resolved": "TMO"
+   },
+   {
+    "company": "TMO",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 3406,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:PaymentsForProceedsFromOtherInvestingActivities + us-gaap:OtherLiabilitiesCurrent in the same filing"
+    ],
+    "filed_value": 1068000000,
+    "resolved": "TMO",
+    "other_line": "us-gaap:PaymentsForProceedsFromOtherInvestingActivities + us-gaap:OtherLiabilitiesCurrent"
+   },
+   {
+    "company": "TMO",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 3108,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:WeightedAverageNumberOfSharesOutstandingBasic + us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour in the same filing"
+    ],
+    "filed_value": 1156000000,
+    "resolved": "TMO",
+    "other_line": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic + us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour"
+   },
+   {
+    "company": "TMO",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 2780,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:RestructuringReserve + us-gaap:ContractWithCustomerLiabilityCurrent in the same filing"
+    ],
+    "filed_value": 1050000000,
+    "resolved": "TMO",
+    "other_line": "us-gaap:RestructuringReserve + us-gaap:ContractWithCustomerLiabilityCurrent"
+   },
+   {
+    "company": "TMO",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 1479,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1479000000,
+    "resolved": "TMO"
+   },
+   {
+    "company": "TMO",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 1400,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1400000000,
+    "resolved": "TMO"
+   },
+   {
+    "company": "TMO",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 1525,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1525000000,
+    "resolved": "TMO"
+   },
+   {
+    "company": "TMO",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 29280,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 29280000000,
+    "resolved": "TMO"
+   },
+   {
+    "company": "TMO",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 378,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 378000000,
+    "resolved": "TMO"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

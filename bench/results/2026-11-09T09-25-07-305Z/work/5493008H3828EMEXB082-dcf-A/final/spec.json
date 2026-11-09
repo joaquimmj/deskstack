@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "Anheuser-Busch InBev SA/NV",
+ "ticker": "5493008H3828EMEXB082",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     null,
+     59768,
+     59320
+    ],
+    "source": "FY2024/FY2025: AB InBev FY25 results release (BusinessWire 12 Feb 2026; SEC 6-K 0001193125-26-049841). FY2023: not found."
+   },
+   "operating_income": {
+    "values": [
+     null,
+     15487,
+     15405
+    ],
+    "source": "Reported profit from operations FY2024 15,487 / FY2025 15,405 (FY25 results release). FY2023 not found."
+   },
+   "d_and_a": {
+    "values": [
+     null,
+     5544,
+     5652
+    ],
+    "source": "Reported EBITDA less profit from operations (FY25: 21,057-15,405; FY24: 21,031-15,487), incl. impairment; 6-K 0001193125-26-049841. FY2023 not found."
+   },
+   "capex": {
+    "values": [
+     null,
+     3656,
+     3863
+    ],
+    "source": "Gross acquisition of PP&E and intangibles, cash flow statement, 6-K 0001193125-26-049841. FY2023 not found."
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.03,
+    0.035,
+    0.035,
+    0.03,
+    0.03
+   ],
+   "source": "Assumption: FY25 revenue fell ~0.7% reported while organic growth was ~2%; assume low-single-digit pricing/mix-led growth fading to 3%."
+  },
+  "ebit_margin": {
+   "value": 0.265,
+   "source": "Assumption: FY25 reported margin 26.0%, normalized 26.7%; hold ~26.5%."
+  },
+  "tax_rate": {
+   "value": 0.27,
+   "source": "Company guidance normalized ETR 26%-28% (6-K); midpoint."
+  },
+  "da_pct_revenue": {
+   "value": 0.093,
+   "source": "Assumption: FY25 D&A/revenue 9.5%; slight decline as net capex is optimised."
+  },
+  "capex_pct_revenue": {
+   "value": 0.063,
+   "source": "Company guidance net capex USD 3.5-4.0bn for FY26 (~6.3% of revenue at midpoint); FY25 gross 6.5%."
+  },
+  "wacc": {
+   "value": 0.08,
+   "source": "Assumption: staples brewer, beta ~0.85, rf ~4.3%, ERP ~5%, pre-tax cost of debt ~4% (company guidance), ~25% debt weight."
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "source": "Assumption: long-run inflation-like growth for mature beer category."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 60900,
+   "period": "FY2025",
+   "source": "Company-reported net debt USD 60.9bn at 31 Dec 2025 (FY25 results release). CAVEAT: company definition includes lease liabilities; split not found, so may overstate vs exclude-leases convention."
+  },
+  "diluted_shares": {
+   "value": 2016,
+   "period": "FY2025",
+   "source": "Yahoo Finance (ABI.BR) diluted average shares ~2,016m FY2025; column alignment uncertain, not verified against 6-K."
+  }
+ }
+}

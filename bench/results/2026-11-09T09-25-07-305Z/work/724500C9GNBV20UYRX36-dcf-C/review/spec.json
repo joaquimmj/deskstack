@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "Koninklijke Ahold Delhaize N.V.",
+ "ticker": "724500C9GNBV20UYRX36",
+ "currency": "EUR",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     88734,
+     89356,
+     92352
+    ],
+    "source": "ESEF ifrs-full:Revenue, reports 724500C9GNBV20UYRX36-2024-12-29-ESEF-NL-0 (FY2023) and -2025-12-28-ESEF-NL-0 (FY2024, FY2025)"
+   },
+   "operating_income": {
+    "values": [
+     2846,
+     2784,
+     3542
+    ],
+    "source": "ESEF ifrs-full:ProfitLossFromOperatingActivities, same reports"
+   },
+   "d_and_a": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: D&A is null in deskstack ESEF data for all three years; not filled from memory"
+   },
+   "capex": {
+    "values": [
+     2434,
+     2299,
+     2564
+    ],
+    "source": "ESEF ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities, same reports"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.03,
+    0.028,
+    0.025,
+    0.023,
+    0.02
+   ],
+   "source": "Assumption: FY2025 growth was 3.4% (92,352 vs 89,356), FY2024 0.7%; mature grocer, fades toward terminal growth of 2%"
+  },
+  "ebit_margin": {
+   "value": 0.038,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 margin 3.84% (3,542/92,352); FY2023-24 were 3.2%/3.1%; held ~flat at 3.8% as FY2025 may include one-offs (not verified)"
+  },
+  "tax_rate": {
+   "value": 0.25,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: Dutch statutory rate ~25.8%; Damodaran Europe grocery effective tax 23.5%; 25% chosen"
+  },
+  "da_pct_revenue": {
+   "value": 0.027,
+   "period": "FY2026-FY2030",
+   "source": "Assumption, not from filings (D&A not found in data): set slightly below capex % revenue (2.8%) as a mature retailer; reviewer should replace with cash-flow-statement D&A"
+  },
+  "capex_pct_revenue": {
+   "value": 0.028,
+   "period": "FY2026-FY2030",
+   "source": "FY2025 capex 2,564/92,352 = 2.78%; FY2024 2.57%; FY2023 2.74% (ESEF)"
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "period": "terminal",
+   "source": "Assumption: long-run euro-area inflation/nominal growth, below 10Y EUR AAA yield of 3.27% (ECB, 2026-11-05)"
+  },
+  "wacc": {
+   "value": 0.065,
+   "period": "all",
+   "source": "CAPM: rf 3.266% (ECB 10Y AAA, 2026-11-05) + relevered beta 1.05 (Damodaran Europe Grocery unlevered cash-corrected 0.75, D/E 0.53, tax 25%) x ERP 4.23% (Damodaran Netherlands) = CoE ~7.7%; after-tax Kd ~4.1% (Damodaran Europe grocery pre-tax 5.5%); weights 65/35 -> ~6.5%"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 972,
+   "period": "FY2025",
+   "source": "deskstack derived net_debt = borrowings_noncurrent 4,577 - cash 3,605 (ESEF 724500C9GNBV20UYRX36-2025-12-28-ESEF-NL-0); caveat: current borrowings not reported in data, lease liabilities excluded, so debt may be understated"
+  },
+  "diluted_shares": {
+   "value": 905.6,
+   "period": "FY2025",
+   "source": "Derived, not directly reported in data: net income attributable 2,264m / diluted EPS EUR 2.50 (ESEF), approximate; millions of shares"
+  }
+ }
+}

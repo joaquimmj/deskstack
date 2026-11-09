@@ -5,9 +5,9 @@ Total API cost: $6.68.
 
 | Arm | Models (valid) | Filed figures checked | Wrong vs filing | Why wrong | Other line of the filing | Other definition (EBITDA, net debt) | Not verifiable | Typed numbers unsourced | Checker blockers / model | Avg cost | Avg tokens | Avg time | Runs errored |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| A: web search only | 6 (6) | 67 | 0.0% (0) | - | 6 | 7 | 13 | 7.2% (10/139) | 0.00 | $0.38 | 362,633 | 99 s | 0 |
-| B: deskstack data | 8 (8) | 130 | 0.0% (0) | - | 0 | 0 | 1 | 12.2% (24/196) | 0.00 | $0.13 | 109,634 | 32 s | 0 |
-| C: deskstack + associate + VP review + fix | 10 (10) | 163 | 0.0% (0) | - | 0 | 0 | 2 | 14.2% (35/246) | 0.00 | $0.16 | 141,509 | 47 s | 0 |
+| A: web search only | 6 (6) | 67 | 0.0% (0) | - | 6 | 6 | 13 | 7.2% (10/139) | 0.00 | $0.38 | 362,633 | 99 s | 0 |
+| B: deskstack data | 8 (8) | 130 | 0.0% (0) | - | 0 | 8 | 1 | 12.2% (24/196) | 0.00 | $0.13 | 109,634 | 32 s | 0 |
+| C: deskstack + associate + VP review + fix | 10 (10) | 163 | 0.0% (0) | - | 0 | 10 | 2 | 14.2% (35/246) | 0.00 | $0.16 | 141,509 | 47 s | 0 |
 
 How to read it:
 - Wrong vs filing = reported lines (revenue, operating income, D&A, capex, net income, shares) that differ from the filing and from every other line of it, over all filed figures checked.

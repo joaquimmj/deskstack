@@ -1,0 +1,215 @@
+{
+ "company": "GE",
+ "task": "dcf",
+ "arm": "A",
+ "score": {
+  "valid": true,
+  "filed": 12,
+  "match": 4,
+  "mismatch": 3,
+  "other_line": 3,
+  "definition": 0,
+  "not_found": 2,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {
+   "other": 3
+  },
+  "typed": 23,
+  "unsourced": 11,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "GE",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 35100,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 38702000000,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 42300,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 45855000000,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 7300,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "not_found",
+    "hints": [
+     "operating_income is not reported for FY2024 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 9100,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "not_found",
+    "hints": [
+     "operating_income is not reported for FY2025 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 1179,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:AmortizationOfIntangibleAssets + us-gaap:DepreciationAmortizationAndAccretionNet in the same filing"
+    ],
+    "filed_value": 797000000,
+    "resolved": "GE",
+    "other_line": "us-gaap:AmortizationOfIntangibleAssets + us-gaap:DepreciationAmortizationAndAccretionNet"
+   },
+   {
+    "company": "GE",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 1184,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:AmortizationOfIntangibleAssets + us-gaap:DepreciationAmortizationAndAccretionNet in the same filing"
+    ],
+    "filed_value": 834000000,
+    "resolved": "GE",
+    "other_line": "us-gaap:AmortizationOfIntangibleAssets + us-gaap:DepreciationAmortizationAndAccretionNet"
+   },
+   {
+    "company": "GE",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 1220,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:AmortizationOfIntangibleAssets + us-gaap:DepreciationAmortizationAndAccretionNet in the same filing"
+    ],
+    "filed_value": 863000000,
+    "resolved": "GE",
+    "other_line": "us-gaap:AmortizationOfIntangibleAssets + us-gaap:DepreciationAmortizationAndAccretionNet"
+   },
+   {
+    "company": "GE",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 862,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 862000000,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 1032,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1032000000,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 1273,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1273000000,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 8100,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 8102000000,
+    "resolved": "GE"
+   },
+   {
+    "company": "GE",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 1078,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 1068000000,
+    "resolved": "GE"
+   }
+  ],
+  "unsourced_refs": [
+   "history.revenue[FY2024]",
+   "history.revenue[FY2025]",
+   "history.operating_income[FY2024]",
+   "history.operating_income[FY2025]",
+   "bridge.net_debt",
+   "bridge.diluted_shares",
+   "assumptions.revenue_growth[0]",
+   "assumptions.revenue_growth[1]",
+   "assumptions.revenue_growth[2]",
+   "assumptions.revenue_growth[3]",
+   "assumptions.revenue_growth[4]"
+  ],
+  "errors": []
+ }
+}

@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "Costco Wholesale Corporation",
+ "ticker": "COST",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     242290,
+     254453,
+     275235
+    ],
+    "source": "Costco 10-K FY2025 (acc. 0000909832-25-000101) income statement, total revenue"
+   },
+   "operating_income": {
+    "values": [
+     8114,
+     9285,
+     10383
+    ],
+    "source": "Costco 10-K FY2025 (0000909832-25-000101) operating income"
+   },
+   "d_and_a": {
+    "values": [
+     2077,
+     2237,
+     2426
+    ],
+    "source": "Costco 10-K FY2025 cash flow statement, depreciation and amortization"
+   },
+   "capex": {
+    "values": [
+     4323,
+     4710,
+     5498
+    ],
+    "source": "Costco 10-K FY2025 cash flow, additions to property and equipment"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.08,
+    0.075,
+    0.07,
+    0.065,
+    0.06
+   ],
+   "source": "Assumption: FY2025 growth was 8.2% and FY2024 5.0%; fading from ~8% to 6% on comps plus ~25-30 net new warehouses/yr, law of large numbers."
+  },
+  "ebit_margin": {
+   "value": 0.038,
+   "source": "Assumption: held near FY2025 actual 3.77% (10,383/275,235); FY2023 3.35%, FY2024 3.65%, so modest stability with no further expansion.",
+   "period": "FY2026-FY2030"
+  },
+  "tax_rate": {
+   "value": 0.255,
+   "source": "Assumption: approx. normalized effective rate (US federal 21% plus state/foreign, net of credits); not verified against the 10-K tax note - reviewer to confirm.",
+   "period": "FY2026-FY2030"
+  },
+  "da_pct_revenue": {
+   "value": 0.0088,
+   "source": "FY2025 actual 2,426/275,235 = 0.88%, held flat.",
+   "period": "FY2026-FY2030"
+  },
+  "capex_pct_revenue": {
+   "value": 0.021,
+   "source": "Company guidance in FY2025 10-K of $6.0-6.5bn capex for FY2026 (~2.1% of ~$297bn revenue); FY2025 actual 2.0%.",
+   "period": "FY2026-FY2030"
+  },
+  "wacc": {
+   "value": 0.075,
+   "source": "Assumption: CAPM with ~4.3% risk-free, beta ~0.9-1.0, ERP ~5%, negligible debt weight gives ~7-8%; 7.5% chosen. Not sourced from a data provider.",
+   "period": "FY2026-FY2030"
+  },
+  "terminal_growth": {
+   "value": 0.03,
+   "source": "Assumption: approx. long-run nominal GDP/inflation, below WACC; rationale judgment-based.",
+   "period": "terminal"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": -9496,
+   "source": "Costco 10-K FY2025 (0000909832-25-000101): total debt 5,788 (current portion 75 + long-term excl. current 5,713; leases excluded) minus cash 14,161 minus short-term investments 1,123 (Q4 FY2025 press release, 8-K 0000909832-25-000093). Negative = net cash.",
+   "period": "FY2025 (Aug 31, 2025)"
+  },
+  "diluted_shares": {
+   "value": 444.803,
+   "source": "Costco 10-K FY2025 weighted average diluted shares 444,803 thousand, converted to millions.",
+   "period": "FY2025"
+  }
+ }
+}

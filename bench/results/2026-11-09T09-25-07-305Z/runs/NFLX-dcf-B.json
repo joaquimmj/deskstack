@@ -1,0 +1,685 @@
+{
+ "company": "NFLX",
+ "task": "dcf",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Netflix, Inc.",
+   "ticker": "NFLX",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       33723.297,
+       39000.966,
+       45183.036
+      ],
+      "source": "financial_statements NFLX, us-gaap:Revenues, 10-K acc. 0001065280-26-000034"
+     },
+     "operating_income": {
+      "values": [
+       6954.003,
+       10417.614,
+       13326.603
+      ],
+      "source": "us-gaap:OperatingIncomeLoss, 10-K acc. 0001065280-26-000034"
+     },
+     "d_and_a": {
+      "values": [
+       356.947,
+       328.914,
+       333.389
+      ],
+      "source": "us-gaap:DepreciationDepletionAndAmortization, 10-K acc. 0001065280-26-000034"
+     },
+     "capex": {
+      "values": [
+       348.552,
+       439.538,
+       688.22
+      ],
+      "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, 10-K acc. 0001065280-26-000034"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.13,
+      0.12,
+      0.1,
+      0.09,
+      0.08
+     ],
+     "source": "Assumption: FY2025 growth was 15.9% (45,183 vs 39,001); fade from 13% to 8% as scale grows and subscriber growth matures."
+    },
+    "ebit_margin": {
+     "value": 0.31,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 margin 29.5% (13,327/45,183), up from 26.7% in FY2024 and 20.6% in FY2023; modest operating leverage to 31% held flat."
+    },
+    "tax_rate": {
+     "value": 0.16,
+     "period": "FY2026-FY2030",
+     "source": "Derived from FY2025 filings: pretax 12,722.6M, net income 10,981.2M gives about 13.7% effective rate; assume 16% as moderate normalization upward. Assumption."
+    },
+    "da_pct_revenue": {
+     "value": 0.008,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 D&A 333.4/45,183 = 0.74%; slightly higher as capex grows. Note: content amortization is excluded from D&A and treated as operating cost in EBIT."
+    },
+    "capex_pct_revenue": {
+     "value": 0.015,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 capex 688.2/45,183 = 1.52%; FY2024 1.13%; hold at 1.5%."
+    },
+    "wacc": {
+     "value": 0.095,
+     "period": "current",
+     "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + assumed beta 1.1 (my assumption, not looked up from Damodaran industry data) x ERP 4.46% (Damodaran US, 2026-02-16) = 9.8% cost of equity; debt about 14.5B is small versus equity, so debt weight is low and the after-tax cost of debt is lower; blended WACC about 9.5%."
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "period": "terminal",
+     "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal US GDP growth."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 5400.477,
+     "period": "FY2025",
+     "source": "financial_statements derived net_debt = (LTD noncurrent 13,463.971 + short-term borrowings 998.865) - cash 9,033.681 - ST investments 28.678; 10-K acc. 0001065280-26-000034"
+    },
+    "diluted_shares": {
+     "value": 4343.863,
+     "period": "FY2025",
+     "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding, 10-K acc. 0001065280-26-000034 (millions of shares)"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Netflix, Inc.",
+   "ticker": "NFLX",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       33723.297,
+       39000.966,
+       45183.036
+      ],
+      "source": "financial_statements NFLX, us-gaap:Revenues, 10-K acc. 0001065280-26-000034"
+     },
+     "operating_income": {
+      "values": [
+       6954.003,
+       10417.614,
+       13326.603
+      ],
+      "source": "us-gaap:OperatingIncomeLoss, 10-K acc. 0001065280-26-000034"
+     },
+     "d_and_a": {
+      "values": [
+       356.947,
+       328.914,
+       333.389
+      ],
+      "source": "us-gaap:DepreciationDepletionAndAmortization, 10-K acc. 0001065280-26-000034"
+     },
+     "capex": {
+      "values": [
+       348.552,
+       439.538,
+       688.22
+      ],
+      "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, 10-K acc. 0001065280-26-000034"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.13,
+      0.12,
+      0.1,
+      0.09,
+      0.08
+     ],
+     "source": "Assumption: FY2025 growth was 15.9% (45,183 vs 39,001); fade from 13% to 8% as scale grows and subscriber growth matures."
+    },
+    "ebit_margin": {
+     "value": 0.31,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 margin 29.5% (13,327/45,183), up from 26.7% in FY2024 and 20.6% in FY2023; modest operating leverage to 31% held flat."
+    },
+    "tax_rate": {
+     "value": 0.16,
+     "period": "FY2026-FY2030",
+     "source": "Derived from FY2025 filings: pretax 12,722.6M, net income 10,981.2M gives about 13.7% effective rate; assume 16% as moderate normalization upward. Assumption."
+    },
+    "da_pct_revenue": {
+     "value": 0.008,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 D&A 333.4/45,183 = 0.74%; slightly higher as capex grows. Note: content amortization is excluded from D&A and treated as operating cost in EBIT."
+    },
+    "capex_pct_revenue": {
+     "value": 0.015,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 capex 688.2/45,183 = 1.52%; FY2024 1.13%; hold at 1.5%."
+    },
+    "wacc": {
+     "value": 0.095,
+     "period": "current",
+     "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + assumed beta 1.1 (my assumption, not looked up from Damodaran industry data) x ERP 4.46% (Damodaran US, 2026-02-16) = 9.8% cost of equity; debt about 14.5B is small versus equity, so debt weight is low and the after-tax cost of debt is lower; blended WACC about 9.5%."
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "period": "terminal",
+     "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal US GDP growth."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 5400.477,
+     "period": "FY2025",
+     "source": "financial_statements derived net_debt = (LTD noncurrent 13,463.971 + short-term borrowings 998.865) - cash 9,033.681 - ST investments 28.678; 10-K acc. 0001065280-26-000034"
+    },
+    "diluted_shares": {
+     "value": 4343.863,
+     "period": "FY2025",
+     "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding, 10-K acc. 0001065280-26-000034 (millions of shares)"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 2,
+  "usage": {
+   "input_tokens": 6,
+   "output_tokens": 1870,
+   "cache_creation_input_tokens": 13395,
+   "cache_read_input_tokens": 7211,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.0536417,
+  "seconds": 13.145,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 1,
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a quick unlevered DCF for Netflix, Inc. (identifier: NFLX).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7211,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7211,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 197,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0200055,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01QB4u5nGCNpnxGHKac8qJPw",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "NFLX",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01BbfQTxva3Aos6JxwZEN3k8",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01CzytTo9XFvHD7hYEDpGoHY",
+      "name": "valuation_inputs",
+      "input": {
+       "country": "United States"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01QB4u5nGCNpnxGHKac8qJPw",
+      "content": "{\"summary\":\"Netflix, Inc. (NFLX), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 45.2B USD, net income 11.0B USD. 3 period(s), 3 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Netflix, Inc.\",\"ticker\":\"NFLX\",\"cik\":1065280,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"7841\",\"sic_description\":\"Services-Video Tape Rental\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"start\":\"2023-01-01\",\"end\":\"2023-12-31\",\"income_statement\":{\"revenue\":{\"value\":33723297000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0001065280-26-000034\"},\"gross_profit\":null,\"operating_income\":{\"value\":6954003000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001065280-26-000034\"},\"interest_expense\":{\"value\":699826000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0001065280-24-000030\"},\"pretax_income\":{\"value\":6205405000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001065280-26-000034\"},\"net_income\":{\"value\":5407990000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001065280-26-000034\"},\"diluted_shares\":{\"value\":4494966000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001065280-26-000034\"},\"diluted_eps\":{\"value\":1.2,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001065280-26-000034\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":7274301000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001065280-26-000034\"},\"capex\":{\"value\":348552000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001065280-26-000034\"},\"d_and_a\":{\"value\":356947000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001065280-26-000034\"}},\"balance_sheet\":{\"cash\":{\"value\":7116913000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001065280-25-000044\"},\"short_term_investments\":{\"value\":20973000,\"concept\":\"us-gaap:ShortTermInvestments\",\"accession\":\"0001065280-25-000044\"},\"total_assets\":{\"value\":48731992000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001065280-25-000044\"},\"total_equity\":{\"value\":20588313000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001065280-26-000034\"},\"ltd_noncurrent\":{\"value\":14143417000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001065280-25-000044\"},\"ltd_total\":null,\"debt_current\":null,\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":399844000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0001065280-25-000044\"},\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":7310950000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":6925749000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":14543261000,\"formula\":\"ltd_noncurrent + short_term_borrowings\"},\"net_debt\":{\"value\":7405375000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2024-01-01\",\"end\":\"2024-12-31\",\"income_statement\":{\"revenue\":{\"value\":39000966000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0001065280-26-000034\"},\"gross_profit\":null,\"operating_income\":{\"value\":10417614000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001065280-26-000034\"},\"interest_expense\":{\"value\":718733000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0001065280-26-000034\"},\"pretax_income\":{\"value\":9965657000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001065280-26-000034\"},\"net_income\":{\"value\":8711631000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001065280-26-000034\"},\"diluted_shares\":{\"value\":4392608000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001065280-26-000034\"},\"diluted_eps\":{\"value\":1.98,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001065280-26-000034\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":7361364000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001065280-26-000034\"},\"capex\":{\"value\":439538000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001065280-26-000034\"},\"d_and_a\":{\"value\":328914000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001065280-26-000034\"}},\"balance_sheet\":{\"cash\":{\"value\":7804733000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001065280-26-000034\"},\"short_term_investments\":{\"value\":1779006000,\"concept\":\"us-gaap:ShortTermInvestments\",\"accession\":\"0001065280-26-000034\"},\"total_assets\":{\"value\":53630374000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001065280-26-000034\"},\"total_equity\":{\"value\":24743567000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001065280-26-000034\"},\"ltd_noncurrent\":{\"value\":13798351000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001065280-26-000034\"},\"ltd_total\":null,\"debt_current\":null,\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":1784453000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0001065280-26-000034\"},\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":10746528000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":6921826000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":15582804000,\"formula\":\"ltd_noncurrent + short_term_borrowings\"},\"net_debt\":{\"value\":5999065000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":45183036000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0001065280-26-000034\"},\"gross_profit\":null,\"operating_income\":{\"value\":13326603000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001065280-26-000034\"},\"interest_expense\":{\"value\":776510000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0001065280-26-000034\"},\"pretax_income\":{\"value\":12722552000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001065280-26-000034\"},\"net_income\":{\"value\":10981201000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001065280-26-000034\"},\"diluted_shares\":{\"value\":4343863000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001065280-26-000034\"},\"diluted_eps\":{\"value\":2.53,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001065280-26-000034\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":10149273000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001065280-26-000034\"},\"capex\":{\"value\":688220000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001065280-26-000034\"},\"d_and_a\":{\"value\":333389000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001065280-26-000034\"}},\"balance_sheet\":{\"cash\":{\"value\":9033681000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001065280-26-000034\"},\"short_term_investments\":{\"value\":28678000,\"concept\":\"us-gaap:ShortTermInvestments\",\"accession\":\"0001065280-26-000034\"},\"total_assets\":{\"value\":55596993000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001065280-26-000034\"},\"total_equity\":{\"value\":26615488000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001065280-26-000034\"},\"ltd_noncurrent\":{\"value\":13463971000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001065280-26-000034\"},\"ltd_total\":null,\"debt_current\":null,\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":998865000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0001065280-26-000034\"},\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":13659992000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":9461053000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":14462836000,\"formula\":\"ltd_noncurrent + short_term_borrowings\"},\"net_debt\":{\"value\":5400477000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-10-21 (period 2026-09-30) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1065280/000106528024000030/0001065280-24-000030-index.htm\",\"accession_or_id\":\"0001065280-24-000030\",\"form\":\"10-K\",\"period\":\"2023-12-31\",\"as_of\":\"2024-01-26\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1065280/000106528025000044/0001065280-25-000044-index.htm\",\"accession_or_id\":\"0001065280-25-000044\",\"form\":\"10-K\",\"period\":\"2024-12-31\",\"as_of\":\"2025-01-27\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1065280/000106528026000034/0001065280-26-000034-index.htm\",\"accession_or_id\":\"0001065280-26-000034\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-01-23\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":4106325903,\"as_of\":\"2026-09-30\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0001065280-26-000291\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1065280/000106528026000291/0001065280-26-000291-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01BbfQTxva3Aos6JxwZEN3k8",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01CzytTo9XFvHD7hYEDpGoHY",
+      "content": "{\"summary\":\"Country risk data for \\\"United States\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"country\":[{\"country\":\"United States\",\"region\":\"North America\",\"moodys_rating\":\"Aa1\",\"default_spread\":0.002333679169992019,\"equity_risk_premium\":0.0446,\"country_risk_premium\":0.002333679169992019,\"basis\":\"Moody's sovereign rating\",\"match\":\"exact\",\"mature_market_erp\":0.0423,\"source\":{\"name\":\"Aswath Damodaran, Country Default Spreads and Risk Premiums\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx\",\"accession_or_id\":\"ctryprem/United States\",\"period\":\"2026-02-16\",\"as_of\":\"2026-02-16\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 6184,
+     "cache_read_input_tokens": 7211,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 6184,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1673,
+     "output_tokens_details": {
+      "thinking_tokens": 195
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0336362,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS1gcKEAgTGAI4AUIIdGhpbmtpbmcSDHGIscu4ZEYIkRTt2xoMmI3iod7tmr4iJEa5IjCfhoJH2VN9hGCJgL43RIBn1wlGZ7l+CZQI9BlfmmYI/LWQ+07WIiJaVlh8HwRdjIcq8waPlYaCzBdjp6/V8PJE7TsJaLIbbhf6hLjnL4P+DqGfqRtaWpPoZEqoIgs3WSkXa3Z1qteowo+pz8zo4bKnpHOgQMzacDhsT1C8WHu8x3csbBZTmW829Ngtyh4D5m1VKQ0pz+vNJVtbjfs6PObu0hSZohmo7TqXUw2kzXz21Izm6bszyNpELoHqhgv0dw/7E+hBMlPlNYoZGFyN/MXwkoamuN/OR3IK7nwe/Z2/vsFI1VP87LPk2VLwA9Fg7TD1KOu11SC5FIEI4DBH/ln9oiXbD7nyQdss0nmVkAsUGBIlTwGqI03EGfo40t86DA0ldpt0+TysZSyt8qe9Lc/0kErv10d7NVGimokSTF6dhgIYoAcsnp6xe8nviKa+0aAgwB4jSdv1BRbvvgUOjPTzttIIAeFD8A2sBrqto+6tv7vZWdG0S+S4mZ9sLimvKSBro9oj/kNW8FwSYkTK3vPI7AJpPek3fCafBA6zkTCOf0HHPZY9KPwddE//Z/hIycKcD3XtQcO2uiKA9zVhBdiacUge2IJ/KflTDmdwmADf+zVm4nO4AKX0KQaaxPJ4kKqWvsM9w7dWIzg126cgLJj+T8E44mwCxYszVj+2mZdFZAjUqYpt+2LxZ4c8fAoO556J8IzmYhSXS1WES4gz5z78eJL0sZiS3ohb9ZpAqqYR/XzUrnicN702NbRvth42tUu8A7QYqVMNfO8GcYiKwxnzf5VS90zjpegcR7ShTNlC13bocepxvxDMrAeVHT94NvHIgj/0vVPdNTCJ2CarseG+HJrJ6UMyKIb8Ryakw6rbPZn4fFkjajkI09287sU1el+wzUhw7+ypdP5mINQOstxt/djkPT1KgwPAmUw0m4wUC24JnJjo8L8+q5yjV8adzDgnIJQ+rrylh0vv+pxqK+o5XemZMigYKaLR01bG0z1lHheSk7FE+NUTbhWGD7bYsxmr6z8iT6lTeWgm3PgEZo+xEN8cVfqPkPX9yrZTQMISAp38mJQjbB1edt8hYopVtLeb8NmV2pFkKggNP5mADlkvQ0pnkBc+pIH6/4IzK2gWhqJ8TkEQ+UNE5SVdDLOmpp9vbdJl49qM0UC9qXcw+B4lBkze3cC9JcMTlbeJz76ca3czj4Lila5u6vePj55tlWt9U6MVf9WkccTqzUDkIf2oUvkxHiRYGAE="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01XQ8PzNjUVGQSYETE98e4i8",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Netflix, Inc.",
+       "ticker": "NFLX",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           33723.297,
+           39000.966,
+           45183.036
+          ],
+          "source": "financial_statements NFLX, us-gaap:Revenues, 10-K acc. 0001065280-26-000034"
+         },
+         "operating_income": {
+          "values": [
+           6954.003,
+           10417.614,
+           13326.603
+          ],
+          "source": "us-gaap:OperatingIncomeLoss, 10-K acc. 0001065280-26-000034"
+         },
+         "d_and_a": {
+          "values": [
+           356.947,
+           328.914,
+           333.389
+          ],
+          "source": "us-gaap:DepreciationDepletionAndAmortization, 10-K acc. 0001065280-26-000034"
+         },
+         "capex": {
+          "values": [
+           348.552,
+           439.538,
+           688.22
+          ],
+          "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, 10-K acc. 0001065280-26-000034"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.13,
+          0.12,
+          0.1,
+          0.09,
+          0.08
+         ],
+         "source": "Assumption: FY2025 growth was 15.9% (45,183 vs 39,001); fade from 13% to 8% as scale grows and subscriber growth matures."
+        },
+        "ebit_margin": {
+         "value": 0.31,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: FY2025 margin 29.5% (13,327/45,183), up from 26.7% in FY2024 and 20.6% in FY2023; modest operating leverage to 31% held flat."
+        },
+        "tax_rate": {
+         "value": 0.16,
+         "period": "FY2026-FY2030",
+         "source": "Derived from FY2025 filings: pretax 12,722.6M, net income 10,981.2M gives about 13.7% effective rate; assume 16% as moderate normalization upward. Assumption."
+        },
+        "da_pct_revenue": {
+         "value": 0.008,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: FY2025 D&A 333.4/45,183 = 0.74%; slightly higher as capex grows. Note: content amortization is excluded from D&A and treated as operating cost in EBIT."
+        },
+        "capex_pct_revenue": {
+         "value": 0.015,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: FY2025 capex 688.2/45,183 = 1.52%; FY2024 1.13%; hold at 1.5%."
+        },
+        "wacc": {
+         "value": 0.095,
+         "period": "current",
+         "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + assumed beta 1.1 (my assumption, not looked up from Damodaran industry data) x ERP 4.46% (Damodaran US, 2026-02-16) = 9.8% cost of equity; debt about 14.5B is small versus equity, so debt weight is low and the after-tax cost of debt is lower; blended WACC about 9.5%."
+        },
+        "terminal_growth": {
+         "value": 0.03,
+         "period": "terminal",
+         "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal US GDP growth."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 5400.477,
+         "period": "FY2025",
+         "source": "financial_statements derived net_debt = (LTD noncurrent 13,463.971 + short-term borrowings 998.865) - cash 9,033.681 - ST investments 28.678; 10-K acc. 0001065280-26-000034"
+        },
+        "diluted_shares": {
+         "value": 4343.863,
+         "period": "FY2025",
+         "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding, 10-K acc. 0001065280-26-000034 (millions of shares)"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 14,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "NFLX",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 33723.297,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 33723297000,
+    "resolved": "NFLX"
+   },
+   {
+    "company": "NFLX",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 39000.966,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 39000966000,
+    "resolved": "NFLX"
+   },
+   {
+    "company": "NFLX",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 45183.036,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 45183036000,
+    "resolved": "NFLX"
+   },
+   {
+    "company": "NFLX",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 6954.003,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 6954003000,
+    "resolved": "NFLX"
+   },
+   {
+    "company": "NFLX",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 10417.614,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 10417614000,
+    "resolved": "NFLX"
+   },
+   {
+    "company": "NFLX",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 13326.603,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 13326603000,
+    "resolved": "NFLX"
+   },
+   {
+    "company": "NFLX",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 356.947,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 356947000,
+    "resolved": "NFLX"
+   },
+   {
+    "company": "NFLX",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 328.914,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 328914000,
+    "resolved": "NFLX"
+   },
+   {
+    "company": "NFLX",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 333.389,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 333389000,
+    "resolved": "NFLX"
+   },
+   {
+    "company": "NFLX",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 348.552,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 348552000,
+    "resolved": "NFLX"
+   },
+   {
+    "company": "NFLX",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 439.538,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 439538000,
+    "resolved": "NFLX"
+   },
+   {
+    "company": "NFLX",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 688.22,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 688220000,
+    "resolved": "NFLX"
+   },
+   {
+    "company": "NFLX",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 5400.477,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 5400477000,
+    "resolved": "NFLX"
+   },
+   {
+    "company": "NFLX",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 4343.863,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4343863000,
+    "resolved": "NFLX"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

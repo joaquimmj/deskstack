@@ -65,7 +65,8 @@ Scoring (`server/bench/score.ts`, `filing-facts.ts`):
 `rescored/` holds the same 30 submissions scored again (no API calls). Arm A: **0 wrong** of 67 filed figures;
 6 other lines (TotalEnergies revenue matched `tot:RevenueFromContractsWithCustomersExcludingExciseTax`; Caterpillar
 capex matched `us-gaap:SegmentExpenditureAdditionToLongLivedAssets`, capex including leased equipment) and 7 other
-definitions (net debt and EBITDA). Arms B and C: 0 wrong, as before.
+definitions (net debt and EBITDA). Arms B and C: 0 wrong, as before. (Re-scored after the data fixes, B and C show
+other definitions too: their submissions used deskstack's net debt from before the fixes.)
 
 On this pilot, Claude with web search alone got every reported line it submitted right. Where it fell short was
 finishing (6 of 10 models), cost (2-3x) and time (2-3x), not accuracy.

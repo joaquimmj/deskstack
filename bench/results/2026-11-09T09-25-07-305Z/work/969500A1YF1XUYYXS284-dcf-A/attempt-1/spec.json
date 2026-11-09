@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "Schneider Electric SE",
+ "ticker": "969500A1YF1XUYYXS284",
+ "currency": "EUR",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     35902,
+     38153,
+     40152
+    ],
+    "source": "Schneider FY2025 results release (marketscreener/se.com) for FY2024-25; stockanalysis.com income statement for FY2023"
+   },
+   "operating_income": {
+    "values": [
+     5930,
+     6449,
+     6690
+    ],
+    "source": "Reported operating income (EBITA less purchase-accounting amortization). FY2024 = EBITA 6,855 - 406 (FY2025 release). FY2023 ~5.93bn (Yahoo Finance 'Operating income as reported', rounded) and FY2025 ~6.69bn (Wikipedia, rounded) - rounded, reviewer should verify vs filings"
+   },
+   "d_and_a": {
+    "values": [
+     1460,
+     1538,
+     1652
+    ],
+    "source": "stockanalysis.com cash flow statement (D&A incl. PPE depreciation + intangibles amortization; FY2023/24 match SE accounts 743+717, 822+716)"
+   },
+   "capex": {
+    "values": [
+     1365,
+     1419,
+     1543
+    ],
+    "source": "Gross purchases of PPE + intangibles: FY2023 914+451, FY2024 950+469 (SE FY2024 accounts); FY2025 1,072 (stockanalysis) + 471 (stockanalysis)"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.08,
+    0.075,
+    0.07,
+    0.065,
+    0.06
+   ],
+   "source": "Assumption: FY2025 organic growth +8.9% (reported +5.2%); company target 7-10% organic; fade toward 6% as base grows and data-center cycle matures"
+  },
+  "ebit_margin": {
+   "value": 0.17,
+   "source": "Assumption: FY2025 reported EBIT margin ~16.7% (6,690/40,152), adj. EBITA margin 17.8%; modest expansion consistent with company +50-80bps annual adj. EBITA target, held conservative"
+  },
+  "tax_rate": {
+   "value": 0.25,
+   "source": "Assumption: FY2025 effective rate ~25% (income tax 1,455 / pretax 5,806, stockanalysis)"
+  },
+  "da_pct_revenue": {
+   "value": 0.041,
+   "source": "FY2025 D&A 1,652 / revenue 40,152 = 4.1%"
+  },
+  "capex_pct_revenue": {
+   "value": 0.038,
+   "source": "FY2025 gross capex 1,543 / revenue 40,152 = 3.8%"
+  },
+  "wacc": {
+   "value": 0.075,
+   "source": "Assumption: Rf ~3%, ERP ~5%, beta ~0.9-1.0, modest leverage; ~7.5% typical for large-cap EU industrials"
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "source": "Assumption: long-run nominal growth, ~eurozone inflation plus modest real growth; below WACC"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 13721,
+   "period": "FY2025",
+   "source": "Schneider FY2025 results release: net debt at Dec 31, 2025 EUR 13,721m (company definition; stockanalysis shows 15,275 incl. leases)"
+  },
+  "diluted_shares": {
+   "value": 571,
+   "period": "FY2025",
+   "source": "stockanalysis.com income statement, diluted shares FY2025 571m (rounded; Yahoo shows differing figure - verify vs filing)"
+  }
+ }
+}

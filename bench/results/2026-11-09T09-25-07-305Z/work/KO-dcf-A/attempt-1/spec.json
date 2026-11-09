@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "The Coca-Cola Company",
+ "ticker": "KO",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     45754,
+     47061,
+     47941
+    ],
+    "source": "KO 10-K FY2023 (acc. 0000021344-24-000009); FY2025 results release 2/10/26 and 10-K 0001628280-26-010047"
+   },
+   "operating_income": {
+    "values": [
+     11311,
+     9992,
+     13762
+    ],
+    "source": "KO 10-K FY2023/FY2024 (0000021344-25-000011) income statements; FY2025 results release 2/10/26 / 10-K 0001628280-26-010047"
+   },
+   "d_and_a": {
+    "values": [
+     1128,
+     1075,
+     1050
+    ],
+    "source": "KO 10-K FY2025 (0001628280-26-010047) cash flow statement"
+   },
+   "capex": {
+    "values": [
+     1852,
+     2064,
+     2112
+    ],
+    "source": "KO 10-K purchases of property, plant and equipment: FY2024 and FY2025 10-Ks"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.045,
+    0.045,
+    0.04,
+    0.04,
+    0.035
+   ],
+   "source": "Assumption: FY2025 growth 1.9% reported (organic higher, FX/refranchising drag); mid-single-digit organic pricing/mix growth fading toward long-term nominal growth. Analyst judgement, not company guidance."
+  },
+  "ebit_margin": {
+   "value": 0.3,
+   "period": "FY2026-30",
+   "source": "Assumption: FY2025 reported margin 28.7% (13,762/47,941) incl. 1,261 other operating charges; FY2023 24.7%, FY2024 21.2% (large charges). 30% assumes charges normalise, approx. comparable margin level."
+  },
+  "tax_rate": {
+   "value": 0.2,
+   "period": "FY2026-30",
+   "source": "Assumption: KO effective tax rate typically ~18-21%; 20% used. Not taken from a specific filing figure."
+  },
+  "da_pct_revenue": {
+   "value": 0.022,
+   "period": "FY2026-30",
+   "source": "FY2025 D&A 1,050/47,941 = 2.2%; held flat"
+  },
+  "capex_pct_revenue": {
+   "value": 0.044,
+   "period": "FY2026-30",
+   "source": "FY2025 capex 2,112/47,941 = 4.4%; FY2024 4.4%; held flat"
+  },
+  "wacc": {
+   "value": 0.07,
+   "period": "FY2026-30",
+   "source": "Assumption: low-beta (~0.6) staple, rf ~4.2%, ERP ~5%, modest leverage and cost of debt ~4.5-5% pre-tax gives ~6.5-7.5%; 7.0% used."
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "period": "terminal",
+   "source": "Assumption: roughly long-run inflation/nominal GDP, below risk-free rate"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 31620,
+   "period": "FY2025 (Dec 31, 2025)",
+   "source": "KO FY2025 balance sheet (Q4 release 2/10/26 / ARS): loans and notes payable 1,551 + current maturities of LTD 1,822 + LTD 42,119 = 45,492, less cash 10,270 and short-term investments 3,602 (13,872). Marketable securities (1,934) excluded per convention."
+  },
+  "diluted_shares": {
+   "value": 4313,
+   "period": "FY2025",
+   "source": "KO Q4/FY2025 earnings release 2/10/26: average shares outstanding assuming dilution, full year 2025 = 4,313 million"
+  }
+ }
+}

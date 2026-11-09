@@ -1,0 +1,1258 @@
+{
+ "company": "WMT",
+ "task": "dcf",
+ "arm": "A",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Walmart Inc.",
+   "ticker": "WMT",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       648125,
+       680985,
+       713163
+      ],
+      "source": "Walmart 10-K FY2026 (FYE 1/31/2026), acc. 0000104169-26-000055, total revenues"
+     },
+     "operating_income": {
+      "values": [
+       27012,
+       29348,
+       29825
+      ],
+      "source": "Walmart 10-K FY2026, acc. 0000104169-26-000055, consolidated results of operations"
+     },
+     "d_and_a": {
+      "values": [
+       11900,
+       12973,
+       14203
+      ],
+      "source": "10-K FY2026 acc. 0000104169-26-000055: cash flow statement D&A FY2026 14,203, FY2025 12,973; FY2024 given only as $11.9bn in PP&E note (rounded)"
+     },
+     "capex": {
+      "values": [
+       20606,
+       23783,
+       26642
+      ],
+      "source": "10-K FY2026 acc. 0000104169-26-000055, cash flow statement, payments for property and equipment"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.04,
+      0.04,
+      0.038,
+      0.035,
+      0.035
+     ],
+     "source": "Assumption: FY27 company guidance net sales cc +3.5% to +4.5% (Q4 FY26 earnings release); FY24-26 reported growth 6.0%/5.1%/4.7%; fade toward ~3.5% as base grows"
+    },
+    "ebit_margin": {
+     "value": 0.043,
+     "source": "Assumption: FY26 4.2%, FY25 4.4%, FY24 4.2% (10-K); FY27 guidance of adj. op income +6-8% vs sales +3.5-4.5% implies modest expansion; hold 4.3% flat"
+    },
+    "tax_rate": {
+     "value": 0.245,
+     "source": "Assumption: effective rate 23.4% FY25, 25.5% FY24 (10-K FY2025); mid-point ~24.5%"
+    },
+    "da_pct_revenue": {
+     "value": 0.02,
+     "source": "Assumption: FY26 D&A/revenue 14,203/713,163 = 1.99%"
+    },
+    "capex_pct_revenue": {
+     "value": 0.037,
+     "source": "Assumption: FY26 capex/revenue 3.74%, FY25 3.49%; elevated investment in automation/supply chain, slight moderation"
+    },
+    "wacc": {
+     "value": 0.075,
+     "source": "Assumption: low-beta mega-cap retailer (beta ~0.6-0.7), rf ~4.2%, ERP ~5% => cost of equity ~7.5-8%, low debt weight at ~4.5% after-tax cost; ~7.5%. Not from a data provider"
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: roughly long-run nominal GDP/inflation, below WACC"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 34035,
+     "source": "10-K FY2026 acc. 0000104169-26-000055 balance sheet 1/31/2026: short-term borrowings 6,596 + LTD due within one year 3,542 + LTD 34,624 = 44,762, less cash 10,727; leases excluded; no short-term investments reported"
+    },
+    "diluted_shares": {
+     "value": 8022,
+     "source": "10-K FY2026 EPS note: weighted-average diluted shares FY2026, 8,022 million"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Walmart Inc.",
+   "ticker": "WMT",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       648125,
+       680985,
+       713163
+      ],
+      "source": "Walmart 10-K FY2026 (FYE 1/31/2026), acc. 0000104169-26-000055, total revenues"
+     },
+     "operating_income": {
+      "values": [
+       27012,
+       29348,
+       29825
+      ],
+      "source": "Walmart 10-K FY2026, acc. 0000104169-26-000055, consolidated results of operations"
+     },
+     "d_and_a": {
+      "values": [
+       11900,
+       12973,
+       14203
+      ],
+      "source": "10-K FY2026 acc. 0000104169-26-000055: cash flow statement D&A FY2026 14,203, FY2025 12,973; FY2024 given only as $11.9bn in PP&E note (rounded)"
+     },
+     "capex": {
+      "values": [
+       20606,
+       23783,
+       26642
+      ],
+      "source": "10-K FY2026 acc. 0000104169-26-000055, cash flow statement, payments for property and equipment"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.04,
+      0.04,
+      0.038,
+      0.035,
+      0.035
+     ],
+     "source": "Assumption: FY27 company guidance net sales cc +3.5% to +4.5% (Q4 FY26 earnings release); FY24-26 reported growth 6.0%/5.1%/4.7%; fade toward ~3.5% as base grows"
+    },
+    "ebit_margin": {
+     "value": 0.043,
+     "source": "Assumption: FY26 4.2%, FY25 4.4%, FY24 4.2% (10-K); FY27 guidance of adj. op income +6-8% vs sales +3.5-4.5% implies modest expansion; hold 4.3% flat"
+    },
+    "tax_rate": {
+     "value": 0.245,
+     "source": "Assumption: effective rate 23.4% FY25, 25.5% FY24 (10-K FY2025); mid-point ~24.5%"
+    },
+    "da_pct_revenue": {
+     "value": 0.02,
+     "source": "Assumption: FY26 D&A/revenue 14,203/713,163 = 1.99%"
+    },
+    "capex_pct_revenue": {
+     "value": 0.037,
+     "source": "Assumption: FY26 capex/revenue 3.74%, FY25 3.49%; elevated investment in automation/supply chain, slight moderation"
+    },
+    "wacc": {
+     "value": 0.075,
+     "source": "Assumption: low-beta mega-cap retailer (beta ~0.6-0.7), rf ~4.2%, ERP ~5% => cost of equity ~7.5-8%, low debt weight at ~4.5% after-tax cost; ~7.5%. Not from a data provider"
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: roughly long-run nominal GDP/inflation, below WACC"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 34035,
+     "source": "10-K FY2026 acc. 0000104169-26-000055 balance sheet 1/31/2026: short-term borrowings 6,596 + LTD due within one year 3,542 + LTD 34,624 = 44,762, less cash 10,727; leases excluded; no short-term investments reported"
+    },
+    "diluted_shares": {
+     "value": 8022,
+     "source": "10-K FY2026 EPS note: weighted-average diluted shares FY2026, 8,022 million"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 1,
+  "usage": {
+   "input_tokens": 16,
+   "output_tokens": 2747,
+   "cache_creation_input_tokens": 23153,
+   "cache_read_input_tokens": 72338,
+   "server_tool_use": {
+    "web_search_requests": 6
+   }
+  },
+  "cost": 0.1598521,
+  "seconds": 37.808,
+  "tool_calls": {
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: web_search (public web pages). No other data source is available.\n\nBuild a quick unlevered DCF for Walmart Inc. (identifier: WMT).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 16,
+     "cache_creation_input_tokens": 23153,
+     "cache_read_input_tokens": 72338,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 23153,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 2747,
+     "output_tokens_details": {
+      "thinking_tokens": 508
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard",
+     "server_tool_use": {
+      "web_search_requests": 6,
+      "web_fetch_requests": 0
+     }
+    },
+    "cost": 0.1598521,
+    "content": [
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01YHnV2BaRkLyQYBaFeqR7Dj",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":\"Walmart fiscal 2025 10-K revenue operating income depreciation capex diluted shares total debt cash\"})\nfor x in r[:5]:print(x['url'],x['content'][:1500],'\\n')"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_011JMM8yf4sGnBVWv99D2kgW",
+      "name": "web_search",
+      "input": {
+       "query": "Walmart fiscal 2025 10-K revenue operating income depreciation capex diluted shares total debt cash"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01YHnV2BaRkLyQYBaFeqR7Dj"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_011JMM8yf4sGnBVWv99D2kgW",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000021/wmt-20250131.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form 10-K - FY2025 (Annual Financial Statement Tables - full year 2025)",
+        "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416925000021/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "March 14, 2025 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000021/wmt-20250131.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "647 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "10-K: Walmart",
+        "url": "https://www.moomoo.com/news/notice/304003400/walmart-10-k-fy2025-annual-report?level=0&global_content=%7B%22promote_content%22%3A%22mm%3Anotice%3A304003400%22%7D",
+        "encrypted_content": "[omitted]",
+        "page_age": "604 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart reports first quarter results •",
+        "url": "https://corporate.walmart.com/content/dam/corporate/documents/newsroom/2025/05/15/walmart-releases-q1-fy26-earnings/q1-fy26-earnings-release.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "543 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 20, 2025 - PRESS RELEASE - 8-K: Current report filing",
+        "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000010/earningsreleasefy25q4.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "627 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Annual Report 2025",
+        "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000059/0000104169-25-000059.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "605 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-25-000191/0000104169-25-000191.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "341 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart 2025 Annual Report",
+        "url": "https://stock.walmart.com/_assets/_81906fd8150d99dd80e92168ae1aff5d/walmart/db/950/9949/annual_report/Walmart+2025+Annual+Report.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "990 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Financial presentation to accompany management commentary FY25 Q3",
+        "url": "https://stock.walmart.com/_assets/_6262411037be77864e843592286d0a3b/walmart/db/938/9487/presentation/Earnings-Presentation-FY25-Q3.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01YHnV2BaRkLyQYBaFeqR7Dj"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01YHnV2BaRkLyQYBaFeqR7Dj",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDKkGUzCRANWG14OwMBoMLXI6f/OSLNXi82YGIjAPyUV+PEF35D4sqeZZJduhQqnGgoNGO7ICOEMhy9bXnQ43iXc5eWNkjTiAuxPgoJUqEiCG4MAWsFcjS5YXcpKkz1tKbhgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01YHnV2BaRkLyQYBaFeqR7Dj/cell.py\", line 9, in <module>\n    for x in r[:5]:print(x['url'],x['content'][:1500],'\\n')\n                         ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01DzdcxPAr8BBRvr4WKLouHr",
+      "name": "code_execution",
+      "input": {
+       "code": "print(str(r)[:3000])"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01DzdcxPAr8BBRvr4WKLouHr",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "[{\"type\": \"web_search_result\", \"title\": \"Walmart Inc. - Form 10-K - FY2025\", \"url\": \"https://www.sec.gov/Archives/edgar/data/104169/000010416925000021/wmt-20250131.htm\", \"content\": \"|  | Fiscal Years Ended January 31, |  |  |\\n\\n| Total revenues | 680,985 | 648,125 | 611,289 |\\n\\n| Operating income | 29,348 | 27,012 | 20,428 |\\n\\n| Operating income | 4.4% | 4.2% | 3.4% |\\n\\nOperating expenses refers to operating, selling, general and administrative expenses.\\n\\nOur total revenues increased $32.9 billion or 5.1% and $36.8 billion or 6.0% for fiscal 2025 and 2024, respectively, when compared to the previous fiscal year.\\n\\nMembership and other income increased $1.0 billion and $0.1 billion for fiscal 2025 and fiscal 2024, primarily driven by growth in membership fee income globally.\\n\\nOur gross profit rate increased 40 and 27 basis points for fiscal 2025 and 2024, respectively, when compared to the previous fiscal year.\\n\\nOur operating expenses as a percentage of net sales increased 36 and decreased 60 basis points for fiscal 2025 and 2024, respectively, when compared to the previous fiscal year. The increase for fiscal 2025 was primarily due to higher variable pay as a result of exceeding planned performance, increased marketing and higher depreciation expenses.\\n\\nOur effective income tax rate was 23.4%, 25.5%, and 33.6% for fiscal 2025, 2024 and 2023, respectively.\\n\\nThe higher effective tax rate in fiscal 2023 compared to fiscal 2025 and fiscal 2024 is primarily related to the tax impacts of the separation of Flipkart and PhonePe.\\n\\nstatutory rate to the effective income tax rates for fiscal 2025, 2024 and 2023 is provided in Note 9 .\\n\\nDiluted net income per common share attributable to Walmart (\\\"EPS\\\") was $2.41, $1.91 and $1.42 for fiscal 2025, 2024 and 2023, respectively.\"}, {\"type\": \"web_search_result\", \"title\": \"Walmart Inc. - Form 10-K - FY2025 (Annual Financial Statement Tables - full year 2025)\", \"url\": \"https://www.sec.gov/Archives/edgar/data/104169/000010416925000021/Financial_Report.xlsx\", \"content\": \". The following table shows the activity for restricted stock units and restricted stock and performance-based restricted stock units during fiscal 2025: Restricted Stock Units Restricted Stock and (Shares in thousands) Shares Weighted-Average Grant-Date Fair Value Per Share Shares Weighted-Average Grant-Date Fair Value Per Share Outstanding as of February 1, 2024 49,191 $ 46.79 23,103 $ 48.09 Granted 46,054 60.29 9,887 63.97 Adjustment for performance achievement (1) \\u2014 \\u2014 3,661 47.35 Vested/exercised (36,974) 49.99 (12,353) 48.62 Forfeited (6,513) 53.15 (3,338) 49.75 Outstanding as of January 31, 2025 51,758 $ 55.72 20,960 $ 54.88 (1) Represents the adjustment to previously granted performance share units for performance achievement.\\n\\nof certain subsidiaries which contain performance or other conditions including vesting upon an initial public offering.\\n\\nShare Repurchase Program From time to time, the Company repurc\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSrQUKEAgTGAI4AUIIdGhpbmtpbmcSDM9tq07QIgmpjQuCOxoM3783MXzyGL4F/VGnIjB/49cky3kxwsBfRJHBSbSaQue1drIFApw4gebyg2/4UtGOb5fGDErQgcdj/XG1fzMqygSKVoS6Ids+malxMyzmYGQmSdeq/HwxNyATMHjv8SJAeKML6WYwK/RIlIVpySPtlSPQByI9laDHfGdCPHRnkaa1ayZams4jBtlSrxFTz9HKX0L3wf7rnUtAWNJqefunlAS5yBUHdQIwR1RImqhNm70okDW+jKaucDKMMj6iULFu7w57ONwqrF3++oGslJvAoIdzGTzz6N1+CfLOjKy7m8X7JnPZOwzUatzj7TuP0pYGXKukxvh+6mwzrTgVRJ1ABEqusWKcQF8ZVOUmUWcD9xvSDmIFKDtpJxUEuxZAwOWnRyRh5LNcIcO3mnf7+GZUMlGcs5Bx/TAseUEcc2USfly4hTvYtpnOnhqWN+vCTAw+RcSN+oxrs4xNgIlrioscOMXuU67/WffG5oXXtx3ciMjdHlDOOuKbqVeWqqAcplH44d7FKteYsbF3RmKQZc2p8754HyKClNB+1vSho3l1vAhh9MQusdqpRvl1TCtxKOvh3+wXK2WLmicUdk8lQxzB9IFW/H4ebeuukAJvnIdAHdJSLu9p/RGvvDDc8PSJmxDM1euzWYh7TaKr6I/UFmwZwUaM98mcxuWUv1IZi40qy+ubcIgP5RhU284PxMVZTXRffvTj8DTdgZrF6MdEPT8aMweQxyAb8gEX54N/COvSDdmO+LbmHU4VB6y10qJqU9AzVW3ICXmiGM/ii+M9zxWx6cwiZUoD9PdfxpIc5DT7GfRoHfOdRtU03JtIzF7PfT7gtZqLXkvzJ51uhDp5GkT1C6BsHaUPsL05Y/kHGAE="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01VUBo16JZipNGrHsabgAwuV",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"Walmart fiscal 2026 annual results January 31 2026 revenue operating income capex\",\"Walmart 10-K fiscal 2026 depreciation and amortization capital expenditures cash flow\",\"Walmart January 31 2026 balance sheet short-term borrowings long-term debt cash diluted weighted average shares\"]:\n  r=await web_search({\"query\":q})\n  for x in r[:5]:print(x['url'],x['content'][:800].replace('\\n',' '),'\\n')"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01REEykq4GvH4pxruR9X9iZP",
+      "name": "web_search",
+      "input": {
+       "query": "Walmart fiscal 2026 annual results January 31 2026 revenue operating income capex"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01VUBo16JZipNGrHsabgAwuV"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01REEykq4GvH4pxruR9X9iZP",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000104169/000010416926000095/earningsreleasefy27q1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form ARS - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000104169/000010416926000091/wmtfy26annualreport-final.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form 10-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart revenue rises by 4.7% in fiscal 2026",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/walmart-revenue-rises-4-7-094100979.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "196 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form 10-Q - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000104169/000010416926000154/wmt-20260731.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000104169/000010416926000095/earningspresentationfy27.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000104169/000010416926000145/earningspresentationfy27.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000032/earningspresentationfy26.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Financial analysis of Walmart, fiscal 2026 and the first half of fiscal 2027",
+        "url": "https://sec-api.io/insights/financial-analysis-of-walmart-fiscal-2026-and-the-first-half-of-fiscal-2027",
+        "encrypted_content": "[omitted]",
+        "page_age": "66 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01VUBo16JZipNGrHsabgAwuV"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01VUBo16JZipNGrHsabgAwuV",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDOdut8kFnYGi6LcgrhoMJQUL30TZWkHZZdg4IjCuW/h5r8VjAdSmw0J4C8keICwCRzj0cG46xLD2NFto9fLOs+/81s/qZL7jQoh7s3wqEjCiUi6yOFgoVldcSd7Gc4cpihgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01VUBo16JZipNGrHsabgAwuV/cell.py\", line 10, in <module>\n    for x in r[:5]:print(x['url'],x['content'][:800].replace('\\n',' '),'\\n')\n                         ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "text",
+      "text": "Result seems to be a string; print raw."
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_0156fdc9YyqXevcYD9L71YQc",
+      "name": "code_execution",
+      "input": {
+       "code": "import json\nasync def s(q,n=3500):\n  r=await web_search({\"query\":q})\n  if isinstance(r,str):\n    try:r=json.loads(r)\n    except: print(r[:n]);return\n  for x in r[:5]:print(x['url'],x['content'][:n//3].replace('\\n',' '),'\\n')\nawait s(\"Walmart fiscal 2026 annual results January 31 2026 revenue operating income\")"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01LcNeHzsdWCEpJucsZArSpF",
+      "name": "web_search",
+      "input": {
+       "query": "Walmart fiscal 2026 annual results January 31 2026 revenue operating income"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_0156fdc9YyqXevcYD9L71YQc"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01LcNeHzsdWCEpJucsZArSpF",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form ARS - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000104169/000010416926000091/wmtfy26annualreport-final.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form 10-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000032/earningsreleasefy26q4.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form 10-Q - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000104169/000010416926000154/wmt-20260731.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000104169/000010416926000095/earningspresentationfy27.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart (WMT) Revenue 2005-2026",
+        "url": "https://stockanalysis.com/stocks/wmt/revenue/",
+        "encrypted_content": "[omitted]",
+        "page_age": "124 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart revenue rises by 4.7% in fiscal 2026",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/walmart-revenue-rises-4-7-094100979.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "196 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart (WMT) Financials 2026 - Income Statement and Balance Sheet $WMT",
+        "url": "https://www.marketbeat.com/stocks/NASDAQ/WMT/financials/",
+        "encrypted_content": "[omitted]",
+        "page_age": "159 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Financial analysis of Walmart, fiscal 2026 and the first half of fiscal 2027",
+        "url": "https://sec-api.io/insights/financial-analysis-of-walmart-fiscal-2026-and-the-first-half-of-fiscal-2027",
+        "encrypted_content": "[omitted]",
+        "page_age": "66 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_0156fdc9YyqXevcYD9L71YQc"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_0156fdc9YyqXevcYD9L71YQc",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Er4yCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDJtwW2AWcbIuekBulRoMLlJuu5LmLPfd4WRhIjDX0ZKwrmpmbhFFShQ6nmmlxMRFJ35eGVGCuUpn0LxbhsFddSPZbkx4IgHZCJb8IJsqwTEeixiJW2wfK5LeM6Vv4kIlkdHdfRw8BGzbCZPNdLZvwK61X/S1javwQa603zGSvhsXYvhT31oEytqM7p53cazYZBXfH+j7euZlOuJ+Dgr5/3lstmxiH4fwwHPJWyulYxEZzhZ8YehLeB4wznpvR3/3PIjkOGE0GM4/C3FaoThV9yyIG3bnS2CG1+dajRfIk6SjW6Zwo4QDGrrAWUiUVKYAYn7blEBeONSAPCL3iDiNsvszGnoIEdD5fgjkWMFqmUeRsB/B/0aC0kcbsI1sLmMJ14jFtCCivpv8TtzBHFkGQU+iCjZQw6F1thKa7x5h1nb0JPXQrG3gXvY1ge47BmsBN4XoWBHr9OjEvqyTmmbBKZiEsPhhsliaUoHRisX21OaEYtV+UAmEdYS0EeRSfL4VKk8zk6fyWFTMLsHJ7KrEJvn7Yciqb7/Yv9AaczkpgAR7bh97h0pY9TVGBGTwtAnMIAySO/x6huAwHP5Go5kGpi2vGjagXcmFA9SfdmHo7WjRd6/h15OZUpOJJvkAQ5/yCSkG3WklvEUIamptp47yG+pUieZGEw2OH3N9qhrsJPujtew77lJ6VdY9QUUZwH8Cs3yGBKquUcXr+QXwKO4EPf0lxrrP7BNdpNJo0tEUhorGeglhPCyzbN06YSjXfRXJbqCpobuQ+WeQ7t40WCbRuHtqAuxNOk9dL87Enw+gNOBGTChY3IijuRtmhTGT9JpJREEZIbsCGwkKXXexqVM83uITp00P4CvxFZbDpX8Oy7sjtqFOB5lf94kJN/haP9l0aROh5Rsg0WpGPuMaBVGbWbYZENFYIFLc1DVPWfDU1SXgKufYrlfhh/zaYSPQsEvzQvLHComVm7ygQxXisiv5O8KAnpI6qdBJdTyy1W0YsS4dQxeZZQLJWJ8V3PmKtRVHSBvY354cDI+zMQaDaC8PVZ+SpMj6dEQ1cfzO76COzDtjqOAbb+Z1P/aJfzjzzRwf8WRjPMyp0uLYvdXfgrC5WPWk+zwtI2VBSffN++R057T09qt626MDKabOsbvycucSmrBacXL4kbzWshksdx+TdipG0Z4WtU6MoHMd0dgDJMxRLlK3TzLdu/QJpH8wIqSjyVc1FbAZ+Qu0XTIOsxesiSei9mA+DgZ4fhVdku6YTh8YtkpM6uSwNSCRhvhDsQ0hTYqh/Jy+eiGctVnvic9Gr4sE2ZyWMhv8fwRStFr+RvZYZ2I+7KHcM4hYk5Yup3RVNAjlYZg9FvIKYU9ajFCIH/8+lz6f8u8XWV89gia5PuNTPoHw4CSutGKB1puwDKY63ykc/NmuenabzigpYiTsqIQ4GUpgRL4BYVrPq5KmPZ8U1OmxH81Ut2urstJcFR5WZDn0OFkh09+Xn5pN3qXbPpq/fMv4GzfIoQ6/u3CnLJn43bsk3WKRB3R1qK82NlkdksDncOqP9I1nsM6XK6sC6/EckWOuzK6eYWefrwlx/kqKqCdwakkmPsy+FL8sxahioUWpwLuRFIIO7o1GGXoYyprZxYcu8IORYmy1mTdkOAlY5XaD4HPfZ1OnIJEVSR/jWnPLeek3CNrC7GIi1MJezBGeSrE7EnwwyauVh8O9OjNbFIWizvTHLeeVHjV1i3KbHaZKqkH50LWB6PtDKnr9uF0+bvgXl7XESAs+PR0+LN8szZKMQYu2roIXvHpMWtloiVjyuNKZh6ZenGKV+FDOk2IlW742Z0Spxen2eBZJNQ9QdjRkhz9JAidZAeuUd2oZD8+Y1iH13XZUPt797qwlmhphz4+f62T0a1oOheN/2seyg0ksqitc1aBBQzL0jaqX8vpMT0A17SDFPzuoEkmu9TUQO5C8bQC2Wh+NB8TYqEtM2+khABiZVeO8tQtlq9VSNn3CGYKDZT8Ha5NUz7/MuXBovVigI4d9wSbGygxw/uqs76q2JYR6hfkblFQViTCABhPvnoC++pbA9icQL+LZVel723rOxTGhemyIrhV0inNNCpl1v7ZcZEClSfMwHm5zB2qCOQNzrhN1lnHK6Ee121QbX03O+LQYOLS6e46FSOtjJbW550qsDZ0WFwzWuSv1MS8fFQ95yd9E4Cgqs0t9JVNvm83exQOaTeqi0HCdXc8etS5BbgZR5VOrxGyQH5j5NYFZNpo7Ydt5yXdJhEtrq0goHARVf6hwMN61H0sO4+9x3vDXKnyEqEXPB8pb6VlFOhlYMj89mLWaRNd+CSg9hB0qCk9qxbAu4oDMru8hc21VyMshyvNbo1QKLHKLcgPcNqMh9ET+VhoV/QyfM1QhuKhMqHU/eLm2/lU11iEKOyo8nIIUDRrJlfDwBIw+VGn7UwlS+A+ZCYC9geeu9g+Xgs0rqWZho2DH+CrFsn6qBq3p2udMfbrlM++D8YUmzXl2CMDq59fEL+/gx7C6jwAI8XvYsCpq10z7rYZxG/E9Zd991fx3mGIe/4nG47MS3LEM3YZxhcCT5fDJXkUgEE5sL/RaFnLymhMqQZ7MBnBZZMwzmKXehtIvVdM131ByiM6jHWHHMI4M7szWL3B9Ds32qdpKcDhYst3RnNCBwgRABUjXaPbJiB1MW7eH7cp2traUpHmBi6hRoUTCBl2auWeyJDzXc08E5qkDkQgZti/nghO97q6lNC31ly5AaDg91vNz3pqftTaBdBpoKdUUrep4YaERU+x008w5qP6zQaG+gyMJTBqVzqCHYx4YG5UnAIy6rVXX9/GvX7Ad7jD6E6P9R9bK38eLD6b0APb1+13BCJ7W8H4UZHwbuH7oiGNQxZxBnyfwrMlKcFVkHlIfLPR1CyrCrHYr653fB+OPxxuU4FQV0Byw2Y+hcHsMJCYMPKSQjVi1xpYTBBeB9GkXhEz8Wucw/HABg5tdUPWVH94b4bch3Apb/Ty6S8gz6VL/fKaKIFSQQlJNpxqDqKJ2Xc4uzna7fXA+vUkKrA68EGz0EAFQbjipGs4kvSWpfdIwf1AYYu4Ecynang9TkaK3+YiOWYLjG0WAJ5HOQUb2Y4tnA/Yz3lMmkvPfv5eoHqFcS+fLmwQkswkEVmLhnCTYQ53uSE8HVoX3tCP0BcOgrms1/J/h8ftXQbKYh1wCX9XRJvhSL6YOG1l2Qn6XX8vrZKZvCcPF/aagxITtHCklcngmFR+6rPj0OEAdMSsdB8HXeezhxFyBCB4E6lPt6LCvRIqQUdXw/s81n3weGpuP14b3TXiT/aXvw0WuAijg4z1s9vRPV0AGpzYOLZdSl7UkhgcuS/ZQ9Fp77rjmWvVUHoX+FNyTcr/XGJvQgtj/Oj5MNJtiLR5ZnB/Fnb65Ej6w31BOOXjVkk1y6TppLNt9CaH5KpGoHr7hdGtsJ1dQIaNIxM7RoUsn5POPNIaseoBD/0/j0V72y2dq2dOIiZpN4tUDs0wBKiFMwgFc9ZBslLFlCXkL3vu4trDADkuitIHs7N0zEebU67cNED1VfMwCCinIk2mfOnRmTOy76oZOJ0KUUp9XG8NvXIvRD0Z9lm/zNcCc/SVVpBzfpi3W6aaNcBYRRY0DebLGeQ3lrVtx3CA03k3bKeKZdKHvYBhS/vG1YhZda4DSiBmWuFARmtzyGNr77NEF8TAphsZxmvA3HjY8abtmfUR3iRTCY0oKL/AoXfgIC6RUQl9W9LsjAm0u8WzSqHb8A/HECochkH1/93Sce0ymRg//ObglWgib9mdfSzibJqcrPdoiWbt3jn3DYEspSp/FEDuK7m6CS+20g/YPYA1+W2BXXRHt2T8/2G/JFqSoXnqywYtQbRMdGbyEBg9vtqhwJ6+2kwJiBAtBteu9HCYqFpn/pTkJnB5K5+Zd2XZgjz3kGXF4Fcfn55xprNKGqIAACJ0xeHjQlFGXXOuh7rDbDOBzfnLpyCBQLkkZ2ZZdeJgrEGjGIDd/Hrfc+N3cX5PN6h/sL1DaeQampJH/VfSNVXKqD6Bh98NHrT31UPwkJDd7GRx33t8d3Hp5eq+H/u80rk0H+k0vX7TXKgkvFoEdQ7dUotWwd48qW2xdF5J+H5xoJjPT+bJPjiVDyfT5GVqBAYA66+lbDZKs7PptPRrOM82Z7Hql0cE5/E4KX58L39PSi1adwT67viOpTpYtsWkkZaOlACBb7X9BVZ39ii+0mB/FjnCB6xgzxYLUfRgsZDsN3rQgZilbNwEF5Z3VH1PsUBVz1pVu9OuQrg35ph/s+1AsN2RV3+BAwHYJt4/wFu3+3s7xlUVLPXWbfFoYvnDVwIeYf/i02zE7mYB9ZG4VdyQbGa+6mVP2+elaL9gb0gEdB/MDHlYcyjpkhzIVRILY74zPCfQ2qjEKLAHz402jsOComcx0MHsH2Xzt5uvc1m4aiwO7IBAK9IEURtJJAgsyCNaCS4Xi0i2ILMHFxHR3VEG83NsLR/0WXnfIPmHZpp/Y7Ceo6if8I+0UzX6cLKwIk5KbyMA86EOpwqwSaUhdoepbXuXtacQ7p0xdUoBc5uJI/VLJf35mdkomVb5JFPUyKTe4MOd46D55EmCw8wqpzhcz8V4eItmYfFFYoGMFa87P8glOvheAgYfV5ysSbGebTPKkdHo51YuD0dv9nXfmm48+Al85UYTIir0ggRPUPigIJH83XyyM2lX+D8XMLub1lBjBkYbrGfvMdhegU95gBVdg4CiTY45IjHuFV++5RcunQexBMCAW2xZBTJq+PVWQIhPwE8sixmJUII2TLvWfdxtqZ1ouxk7uSeY73r1RbzHqByTWVj1f16XoFgsuCDYWux1HOfNHmfnPOJ9s8Pw1wUuK1M3982M5JsOJlnm0JrhdsHsRJEQ/YFNn165VXkAVXEksbSeWzLsiOc6Hivv37RKgtjZzH5B2KR6BNrfIH7Pfsx2drpcevNxKLZG7G2oFD78+41mUWuOi1HMY/bgpGlLC1WUeD9ILcVw4KQCgI2BvJdZdi25+NOnN0uRo4j4gchkSj4DcapIqIoWZ5W3xl9jT35i4BghQVHtmDDRJBrl5Bo49h1o5y3e+RryfLjUahqcnQMUtWN1maHJzLd+ZkgUaPtPIaXly8w+yFw07zdyWKhNM30HeXAKB+Se9V0Hrz/qljpPBZzL5x05APIkX6kpNjFihwAhD+uCzdzBjYmsgA29FoszamY24wuVrTnSuSsg130Ccm/3UFsgQswdqao2GR4ckIUYrBFv3aP7GlS6VN+rJDsAtXVyDdg6Sy4dGhDnAprcoAkc7r+JgtYtuULVBzmuwPSHDvUfB2HY4YrMFQ8inwfkGImrig+pYhUf2GnbccWRbZEVq2QtoHm5i+s0xM8IM6pKY8thwbVyrBHXrW+eBkB3FdLB/m+wxMzx/aiL1lU4dgJ71+B+eTURggSOqw/jqgdvnK5A43QRH40Q7YeX49rdEMFUewknrSq9Yz0gUbxe9Bzis2XuziGPDHPif5kIHCO57BXJI4MZ0YdEXkdoyOOv8wj+WLRYIP8hqDV9OPt3VBCsR61lIDXS1LL9nDL6RWUiW+ieIzJqcQXMnidhiQO2ol0r0dcWinNtRnLEYRSWZMZvPp2FCx+1uEFOQeR1TJ0K8DRwTVCfX/aD66zfSiPNIXOVYCxX393w3cCO7Uo5ERZRQFk6AynjXSkGBHjUizoR+9vpiKoC4MgIg4MlJmnws5cT65MucLJDwdmxG1lRWUkI72doR/41CO9KVAX+PSXHH2v95W00wzzRci8T+CLUrtV8l7/FjrhseYkK3g4g0j0cNcOhaerjQHgEQdpKA1sRugtW7uKNnShaVfBRjNMgIgXrrdG2jGCy0zxJQtW9y4UBmVH6luduSXEk/7g9DLdHo4ZFsd8GDlrYC4kNxdGdudoxhC5K8QebCTXSp2McHQw7YV94xldR18XeaxQOdNLWY8uuBNagJik5nGP5yUDYjJAq6OSAN6KYaX9rHbBYevsf0YJeKJRtLJp9KXoxwRtNnhm2bVs3sRv5XolHwoyT0IX1QJ3tOdqR+BvBw8TgdW17rwOKno+ZTP9YDbLg5iaerWg5LKjBSsltlV6AuQbBQ31UQeSYLHYWFGXsbRbhq00JIyV2sQvHwrKmNLWoZig9aZlI+nj6twS4dMBxHW5+KW1jkSPjRNy0V8P27yCyouhmbGu2c6qatmmxfi86obnWWwnkTKcd1WjtGSTIBzc0f5Q9bbxvlKuSjqmloahPYsHIulbXn82thm9mTVW333rpuVvj7TvcRZV/8of8OgMNy4McGVVNjpJukcS472EGlwrGIxvECu8akWtpQdkFVP9LEtfiOTKxC1G5/+I1I5y2vg5MROy/1YsEuHxABsaDuoW0lb+M2cM+lDasIOdgW2Ugv4AGrbpvX2LVILcM4w+sbX8Gd8qsF+mbzlw27AaHliFf/CE3SaiqK1KJacNpzlpvN6E9ofZLnJC/YBOBoB8iLq9fKQOcNNYooa/AQibs7uysUcqQ9lZR6V8K6WKSi/xGpyA6pHhN44/+/aXUv1Wvhg/J72yvKnuIpG1Lp6L+b3DbTi980uKORAxCLixt9zjCnAUf7AGJlEpB5xd/a3Q6iWwiupedMn0Ut53z+sHwTUR6DknmrVdRqoFuxws6vnfn1x0uIn06muFy7cEVv/p80mLXCxdDZe3YReF1easuqLJSXGcJMgQYfJ39zIqUBizXftHoFduvubGa6czuHZCW6NGmBrkVUfmLE+EyDwrjOmIz9Z7OAgyKuSHjA6ns7GzIYL1gHLebXY7WPRGJPj/5fu28+MejtlwDr3z8p1KE0PKMs56ac1Es2NPpJPlsicnXn0/YOq4kUGaPDdYlcXLCkudZnzP1kVQ0OCBfHkjg6yCssoC8u9h0IY9iYdoj/WemMEufkP8CDrbbDkaVlh2zLm2hy5YOMZ2gO8+TCBFXWaLqfGzzAdgyZhgUno7JD2ZPfvs9TJ+YdgIhbQLjFQ+AyMieclrjZ0MScpl713wxO2WDRzS3W4G39K3qRoT3PhzEWxZr/Q5WM1DJKVsAJ9QVbLAg0U9SVS2en1hmam16qUatph04PbnGnyDEzEYuz1Y5fHt6uxnTEzk8uDu2ajoY+w8hMpi11bCKgo1KdyDLTpYXlJfAerTDO+AOfTxvrhk5NRjLKqy2PW4geZPbryuEAqKrKm034zOS6LxsNi8poDF6qB0adBmN4tak282vmWNJ82F79TksDY6+ceFU/X4A6VBBekSSj0FokQV8oloQGx8w+7tQNbNvXjP0lyAofvOZCbqNoRvt1vMRP0SJj02CbKbCE1uSRawTmDL5W8V1ScgZu5kJrQ1+BXdIaSN15PVX+vwsvvaUULZwJ8H4Ir2IHiT5rWEMxl9q4T9hHdkSMhHiG4iIil07+FQNBtTkd0B1QiPrZyX4CMfASfgA8bx9WtUCqFN8N3++tL+iCe974JCR0R6bz8CoZmEI2t6scgcZkOUQzIlCcoxT+7HdLbqLzwalzBtBkxQz20Rclx4qWD7izqhs/1cHaIyAbWgqP8MXTiyQqpU9XpuLPOt23XQv74rGKX0RbZkM6eW6rKpvFfjRGqiYLlH3xYtkdTiO3FL0/eXIkmW/SussTz6/rU+4EuZspXzytKanZhDGjJ7jDLgPWI7j7JzGqolZTWfXJoZrE4ozYnAIKR3qhTgkEtrTxyZKO001r0hjVvd61/w0BL/tGOHM9gdxKIzmg9blWJ9Ox68DIfiX/0RaT9CkoWuwOR6iBDL7rvIwh+Vje1EEYVK6+ZEyYsmq7+pxMnwcGzITuTcB6y+w9fOH+QC3OBK/APtPHQJDr5vlxE3GWg3RO29OnDNklatIRIqGlld5fGYb0CnRmJRUTr9zZjJgeM5zd8dX7nD9Z2g2Z2sQgWtBNgf7nOx/MFS0gkkYHWgzSGOapC1dPpffOWGQFOay8d1BNIkjunO1WrHHLcqe0gUfrKFP+OhxKjNK+QvxQJNGuCD6+T3B93B/cepfapG22VL8vpRi+4bSskdKPh9dVM5Jl8mTYrMQuCpmr9AsbgEXNzcqgQ6aMC6ZhOjKJHbyTyOUnKiLQUJf1yczxhGpBpA5ML8rWeIIRb5bndsueK+61+QpaC0XuTqg+ffBI2a84mbRpCpJEVP7QX8aAHgIldVSjAHPN+nUbP8kGbneGsiyLbakMrv1QIPUFzXsoZH/gDDde8457ihp1vE2j8GkuKbohyp16E78kEAXRtwCNG0GHJGrC2aAtaHECDetukpnK5KAuNkUr0D7GoxcTYiChpcPupS1szH4u1szz8q9hGMzu7N4y5ri5P+m29qlFTbG45JQ8N8+mD8EI4BSvm8qIORqcitim2b6JXtetsqzrGTTNT+JiVNgQJTpL3RKnSgZYAgwSVs1VCgaelcMOs5Rc13ip8N7dgUviUu1a2b+nCSuy1dN8gIr4VERJSDvmLXTVaXrZC5WBDktle0SKxBIIMiZIHfKbbJ1Ct0p3rewpx71LKDJNKNeDmWxKfAqGB+W2pTgJtoGfjdtLScj5GAM=",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSwAYKEAgTGAI4AUIIdGhpbmtpbmcSDOSSz7LeRnz8K/zLmxoMMkZrjWgELKIQ1PfUIjBG/Vy/8rSmCYBYO0SIxm7q5p5ZTlFUpYVmCAcZBEHd3vEZmblv5MXag9DrgEHCNjUq3QWMiDSg6Bi37Fd0KOiluE6q0zIqxan7BSCDPpCNHlhqI1LUzHefIJonlFAn1YCAlRQPCfwUlIXVxxDd69GFD/f7lEfN1rKUG9nFrSnJ+ZwEdSLmD04N0sEpzdo0as5z1Jy2uu1BU9ClOoeBEWsVoAGMluO40nkyRiO62en4zh0q6kWstGHW7tn5S75kSxpbl43+zbyqzD/yMBcp9tvwQTdvlgssD9+RTDgE3QyyXDlhYxAThGmlokDWk0QrpOQGfd5YFol8TXC4+xWDC7S9AdXPJJ62sj0iUlEvGIk58DoXWYGO+qOdDzjCDTBdLhczYa/u6WrDqyS7bxDNsSnw1LTIn7MdtujOAPI9vHFgVwN+R61JJvcN07rfQZ5Ev0tg8JN1S6wRRLQty40Eh9eFBS4aoArOreU9pnoXdaGX/Ky58LT28t21qj1viTMFHUhkNU7JjAEYc7H1Sh4E+P7SDX/saj8oTX53LZJcV/1vwGRImRNkDSaoL96gdN85tHyRhLfpm/Aw9QL71xG4BrF1J0QNTTvo4cuoBJZODXE2Fs29Yqtv8owblf9LRJQ1iqlpRfbe1EiErQFIsyyGiroUadhcmF5+fLs6OKmVjihVr5WUdhT0/D6lhJNmw/YTubs0nYayT7q2WuzC6oZ/V/wpgEAdBMP3pBh1jzyL85Q1oz9vETn/Y8wHpuMXREcaVtxqRgoGQNJ4R/LUOO0djz7IYlEKufABAiyBVrvmi7A4WeKT0bI8qTqYQkZ3a0TNPB7cmnjfjB7ct8ik53VWmfuw+rKYTPYOOR79NYAU+utZfp2gOeGmHWsn+CNCFcykVLmbwNvljL29EmwEwdpNNYqSqj181QaIe0WDvP/bnAI6dJOEwBjkdZ24gYXsj3OgrUPqnpIcJU7z7JG8iIl13v96luzsMzu9kckp5BexeaY1bOS+ih78WmGoSzhXXTdiUApgy9mbT7b4I4PzYST4YwQlGAE="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01SQA2gXkC6xa8ns8E1UxoMf",
+      "name": "code_execution",
+      "input": {
+       "code": "await s(\"Walmart fiscal 2026 10-K total revenues depreciation and amortization payments for property and equipment cash flow\",6000)\nawait s(\"Walmart January 31 2026 balance sheet cash and cash equivalents short-term borrowings long-term debt due within one year weighted-average diluted shares\",6000)"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_011RaPUxvUpwNPksehywVTbb",
+      "name": "web_search",
+      "input": {
+       "query": "Walmart fiscal 2026 10-K total revenues depreciation and amortization payments for property and equipment cash flow"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01SQA2gXkC6xa8ns8E1UxoMf"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_011RaPUxvUpwNPksehywVTbb",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form 10-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "March 13, 2026 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000055/wmt-20260131.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "282 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart reports Q4 results •",
+        "url": "https://stock.walmart.com/_assets/_461d6b46a29d437b51015f942ff9bb4e/walmart/db/938/9972/earnings_release/Earnings+Release+(FY26+Q4).pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "263 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart reports Q4 results",
+        "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000032/earningsreleasefy26q4.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "238 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Cash Flow :: Walmart Inc. (WMT)",
+        "url": "https://stock.walmart.com/financial-information/cash-flow",
+        "encrypted_content": "[omitted]",
+        "page_age": "73 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://fortune.com/company-assets/1854/quartr/annual-report-10-k-78f8d-2026-03-13-08-19-07.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "241 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000055/0000104169-26-000055.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "241 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart - 10-K annual report 2026",
+        "url": "https://companiesmarketcap.com/inr/walmart/sec-reports-10k/0000104169-26-000055",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. (WMT) Financial Statements FY2010–FY2026: Income, Balance Sheet, Cash Flow",
+        "url": "https://www.open10k.com/WMT",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "stock.walmart.com",
+        "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-06-000015/0000104169-06-000015.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01SQA2gXkC6xa8ns8E1UxoMf"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_0158Ff2yKjEqYsC2QdYp3RvY",
+      "name": "web_search",
+      "input": {
+       "query": "Walmart January 31 2026 balance sheet cash and cash equivalents short-term borrowings long-term debt due within one year weighted-average diluted shares"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01SQA2gXkC6xa8ns8E1UxoMf"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_0158Ff2yKjEqYsC2QdYp3RvY",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form 10-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "March 13, 2026 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000055/wmt-20260131.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "282 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "May 29, 2026 - 10-Q: Quarterly report [Sections 13 or 15(d)]",
+        "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000102/wmt-20260430.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "193 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000154/0000104169-26-000154.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart reports Q4 results •",
+        "url": "https://stock.walmart.com/_assets/_461d6b46a29d437b51015f942ff9bb4e/walmart/db/938/9972/earnings_release/Earnings+Release+(FY26+Q4).pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "263 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart reports first quarter results •",
+        "url": "https://stock.walmart.com/_assets/_073745ae8c54e2cd48e8e649fea81965/walmart/db/938/9995/earnings_release/Earnings+Release+(FY27+Q1).pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "172 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. (NASDAQ:WMT)",
+        "url": "https://www.stock-analysis-on.net/NASDAQ/Company/Walmart-Inc/Financial-Statement/Liabilities-and-Stockholders-Equity",
+        "encrypted_content": "[omitted]",
+        "page_age": "240 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc (WMT) Annual Balance Sheets Statement - Rolling Periods through Jan 31 2026",
+        "url": "https://csimarket.com/stocks/WMT-Annual-Balance-Sheets",
+        "encrypted_content": "[omitted]",
+        "page_age": "23 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. (NASDAQ:WMT)",
+        "url": "https://www.stock-analysis-on.net/NASDAQ/Company/Walmart-Inc/Analysis/Debt",
+        "encrypted_content": "[omitted]",
+        "page_age": "240 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01SQA2gXkC6xa8ns8E1UxoMf"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01SQA2gXkC6xa8ns8E1UxoMf",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSsggKEAgTGAI4AUIIdGhpbmtpbmcSDN+/dIUH5XTZCv4SXxoME1m0qccgLmcPDKP3IjDfKmXOaKwLzTCoyU7OLDJ69MSWWYakn95bYS6R+ytstByUy3ScCNwrfBIddpkbQQgqzweefSUZQzhyLvSAvPgwN40B6nGzv8qUC5RUFn+O8juLHR15On6TyNd+Z5tnLTI4oAx7kSnPmsg9+tDCilElO9CiW/EtDperNE3hCvFJ3F/J48i8IlNvpJ/tz0V0X6tydYbw8Lws+cZsVVLNjLnDz1MUr00tJ1lEF90P/WwkVXFhIbHS9eLVmikwfQxhaqIQXTKhqonahsXusw+XyTqfCJvl+CY081Y9zjatlOVSsDA6o3gnQ6BP1JHGDa72AWybZ+oxLYGr7c0sjD9uew43wJ7yZyzZ8wfpZzpISaibFCNfRjYMUPzwVdDYoQTSaZderrsbyxlvYjZFO4uHbK1fhiO6h12vvnspQ1afCJ5sqmaPNb4SK+U25hgH+rVWHv6zQyxI5MSzpcpNbNXzI6zI8R2H2jO7rcSmnDAkeLZhw1qJr7hQ8c+WvWuoZiNVfEoPmlcb3TvFrG/4hNfWI/xfZJdulalx4KZJPq/STyb2dlWXVi4ZpWdBasWDSiFpy+zDHYJ6wuIFvnjVnYi+Ofj2HvtPAz3OBZ/3WK44GL22iyLGQFAwtsHsXvxJy83l+qILb5Ipcz/amOz6wPG+pK7huud9W66R5X6dzD91KAWizAZTJcDCJAjvzqv4yTiR0vE1s9amS/pjV/0YewHe0hxzzwyS80I4De9VZw0adKhtVszhtrSZcOaKR0qpA0BCsVJsAmcpZFnFk4tMr7TEeTE2p7Pinu0avvoRwv3tlh9/gwWjtnCyn4msLlfd+8vI6zZkAKtc8sPdFxkhcs0EJAdzayGDreMHGWt9IPg6Os+rxERjw5Awi6IVeq3RaQZ3NBNlQ4p5/4hZ7LAza+rtiaca77rYQ1CzlhCEVBvoQSAgoDhf9uFsJ/cyKxh5N14L+GiAr4sFgssfBIvkW6oxuVFJERB0rog55X3RyX7B+iKbIB+TgcJAz3Q29M9grek/sAQrwfO2UsEhb2fxtNEBLysQnZhKeDU+GOO+lsuhbuPIudffAqI7vkV8TQp3AwYOAk2Zy+LcgXu+OnFf3VEiV5PdcHx9ofuThXuZepx0RMfPxlz3YBpO9syWVGfJ3SVvxDpwb/MWcrSdi+/qmGRzLAGe3xRrkgNBucfQqy3tLAsUhlkDcB3Vjpqdbm8ousu3mYPRy3VSu2srPdZgr3p42ZklPeKP9lAKCUkNbVQI7t1XMh/X10k6C/RUknwS35GsP0DEnbwAcR60UPIdPpCSaxIYHPAJWOBJZtpwUv3VhAreQ2TnHdvilVmFd0C1dExTwVaNjv04nIeKP66fKcYQkHxvM18YAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01T2125pb9GVrcrWvmS1g9Qm",
+      "name": "code_execution",
+      "input": {
+       "code": "await s(\"Walmart fiscal 2026 weighted-average common shares outstanding diluted 10-K net income per common share\",5000)"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01GqeY58UPLWKjYoiCrrKo4j",
+      "name": "web_search",
+      "input": {
+       "query": "Walmart fiscal 2026 weighted-average common shares outstanding diluted 10-K net income per common share"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01T2125pb9GVrcrWvmS1g9Qm"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01GqeY58UPLWKjYoiCrrKo4j",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. - Form 10-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/wmt-20260131.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "March 13, 2026 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000055/wmt-20260131.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "282 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "May 29, 2026 - 10-Q: Quarterly report [Sections 13 or 15(d)]",
+        "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000102/wmt-20260430.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "193 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://stock.walmart.com/sec-filings/all-sec-filings/content/0000104169-26-000154/0000104169-26-000154.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Sec",
+        "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/R26.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart reports Q4 results",
+        "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000032/earningsreleasefy26q4.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "238 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://fortune.com/company-assets/1854/quartr/annual-report-10-k-78f8d-2026-03-13-08-19-07.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "241 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. (WMT) - Weighted-Average Shares Outstanding (Basic) (Annual)",
+        "url": "https://www.alphaquery.com/stock/WMT/fundamentals/annual/weighted-average-shares-outstanding",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walmart Inc. (WMT) - Common Shares Outstanding (Annual)",
+        "url": "https://www.alphaquery.com/stock/WMT/fundamentals/annual/common-shares-outstanding",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Income Statement :: Walmart Inc. (WMT)",
+        "url": "https://stock.walmart.com/financial-information/income-statement",
+        "encrypted_content": "[omitted]",
+        "page_age": "73 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01T2125pb9GVrcrWvmS1g9Qm"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01T2125pb9GVrcrWvmS1g9Qm",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS3QgKEAgTGAI4AUIIdGhpbmtpbmcSDE9YLe/79Dzn0VcmlRoMn5uSyImEzHTKfRenIjDVd+Z+FD4Kc4I4SaXmPAXvaSgxMzJrNMzPVC359l/W6/ev/Sbovd4rjJTaBiUvFyQq+gdr/K+QKBSFP4BfjnsQoDZVg0SrA1Kk+D9dD0IPSvLfBBiQqCaITQfknKI7LDrBB9s0+D1YCpLSP2aK2JySFU8DpsDa9JAIeLCssQ52QXX9QEaT15HBj1inP4pP4rpDtcc2rCzzjwIVOyaX6Dc/nxyQYo+/lerKIOIqReMh2bGU1t0bGPh93fQSAbkvIfi1Mjb8Yt9L+qBS29Hh1rHutDElBMwcf8jwoNVU4SeW+OEMnp/wtpVSbN2TW+YCEsdEUDbJWyxo8d9tHKCNTNKCKILd1N8VXRx6F+ow9IIEyNYMQ/chrRplxiYtJ2ix77jygQER4Drx8F7PehihIKCR0yD+tJse27j+V2+t7OTWFrRsEflBglt5hTHWHd4ukAGdVpWoKeN/0tvKZUtQSXa7sV0cr4YZdm1ZyUgrOCv/fnifmSA02glOzW7AA2a6O5U7IdfVG6JdppZYV+ZYszOEHVEh3IJvnQsaS4s51k4LEUFwA8vBMWuN4JCwp0mtmV0onl1IzPrRy5eu8I43U3LapbgrQBqceiA/Z/LgKdRxnLrFESfMm7rTzupxXDdRFwkK8vhxrXHLlBQ8d4V7xtYFyCm4fQSMoQJyMsoaYxvhjJ89O6nsguHeNOeZYtC+v7HWDZ25aR2TjuKSfbhJiYAwSF5fXCmHPaMcgqqT32KGSIgJtbH0FpJM+irwkQ+Y0uH0A90HGqBqmJ1/zfmBQS/G9nYoY/8BtwnexM/zmdVtBcz/GVBdHgQNQLTVVYmMcsHOseFA88bLJ5S6bKJm5EHJ+dspKqj6ycLTnychqrWibpud+qsLcWZOh5iu+6xeokWniaCMIXLEzl6fQaMxBntATSJT7aga6xJHMFgt5s3lRuz1SzOnmq4d+uDpMiBE+N/L299zi+iIAa9clP8kkBIEPYQe+mjvfngVxG6PLTVYLwKfvy+7mXDcfLO5/jbN6sooExE7KPDyY5YswjkcXa3U8J0J7AjB0M09lOzwnekZaGkdaPvJ2wXqqcQyAsHiXcz4I8sfQvFYKR4kbcJaYIRdqD5jdFxhr2rae7UF/NM7Hk3Pn9NSOgsM3IeASgdreMcSahKszWldSU2tH9MqlcLx0xAkYRJxtElR/Y1sUa7PI5Tx5J6AyY3JaCS7ivoI3f8DycV6aHm9cZAOJjNXu0cvuFjTeIvNxNw9KaCbV/PaR7lZY6ZgRG6CU9qI4v1IIFCBiZkhB5LSYZa47Tx99gHNXAxUS7iuZO+AmPdfv4yZD+Zdvw2PjP1kiYdSnT6AV2fsCArRUM4fEPDW8WqO3jOSwbnEz2E89rwa/o75rdnUinHkxpA1z6mdihZwK2U1zm6+vpxVtcYpRvfCpHXoGAE="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01UVgkhM1woKYt5ucbhi882V",
+      "name": "code_execution",
+      "input": {
+       "code": "print(14203/713163,26642/713163)"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_016SpToK25W5gYmhXdL4RKAC",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Walmart Inc.",
+       "ticker": "WMT",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2024",
+         "FY2025",
+         "FY2026"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           648125,
+           680985,
+           713163
+          ],
+          "source": "Walmart 10-K FY2026 (FYE 1/31/2026), acc. 0000104169-26-000055, total revenues"
+         },
+         "operating_income": {
+          "values": [
+           27012,
+           29348,
+           29825
+          ],
+          "source": "Walmart 10-K FY2026, acc. 0000104169-26-000055, consolidated results of operations"
+         },
+         "d_and_a": {
+          "values": [
+           11900,
+           12973,
+           14203
+          ],
+          "source": "10-K FY2026 acc. 0000104169-26-000055: cash flow statement D&A FY2026 14,203, FY2025 12,973; FY2024 given only as $11.9bn in PP&E note (rounded)"
+         },
+         "capex": {
+          "values": [
+           20606,
+           23783,
+           26642
+          ],
+          "source": "10-K FY2026 acc. 0000104169-26-000055, cash flow statement, payments for property and equipment"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030",
+         "FY2031"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.04,
+          0.04,
+          0.038,
+          0.035,
+          0.035
+         ],
+         "source": "Assumption: FY27 company guidance net sales cc +3.5% to +4.5% (Q4 FY26 earnings release); FY24-26 reported growth 6.0%/5.1%/4.7%; fade toward ~3.5% as base grows"
+        },
+        "ebit_margin": {
+         "value": 0.043,
+         "source": "Assumption: FY26 4.2%, FY25 4.4%, FY24 4.2% (10-K); FY27 guidance of adj. op income +6-8% vs sales +3.5-4.5% implies modest expansion; hold 4.3% flat"
+        },
+        "tax_rate": {
+         "value": 0.245,
+         "source": "Assumption: effective rate 23.4% FY25, 25.5% FY24 (10-K FY2025); mid-point ~24.5%"
+        },
+        "da_pct_revenue": {
+         "value": 0.02,
+         "source": "Assumption: FY26 D&A/revenue 14,203/713,163 = 1.99%"
+        },
+        "capex_pct_revenue": {
+         "value": 0.037,
+         "source": "Assumption: FY26 capex/revenue 3.74%, FY25 3.49%; elevated investment in automation/supply chain, slight moderation"
+        },
+        "wacc": {
+         "value": 0.075,
+         "source": "Assumption: low-beta mega-cap retailer (beta ~0.6-0.7), rf ~4.2%, ERP ~5% => cost of equity ~7.5-8%, low debt weight at ~4.5% after-tax cost; ~7.5%. Not from a data provider"
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "source": "Assumption: roughly long-run nominal GDP/inflation, below WACC"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 34035,
+         "source": "10-K FY2026 acc. 0000104169-26-000055 balance sheet 1/31/2026: short-term borrowings 6,596 + LTD due within one year 3,542 + LTD 34,624 = 44,762, less cash 10,727; leases excluded; no short-term investments reported"
+        },
+        "diluted_shares": {
+         "value": 8022,
+         "source": "10-K FY2026 EPS note: weighted-average diluted shares FY2026, 8,022 million"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 14,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 1,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "WMT",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 648125,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 648125000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 680985,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 680985000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "revenue",
+    "period": "FY2026",
+    "value": 713163,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 713163000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 27012,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 27012000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 29348,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 29348000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "operating_income",
+    "period": "FY2026",
+    "value": 29825,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 29825000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 11900,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 11853000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 12973,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 12973000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "d_and_a",
+    "period": "FY2026",
+    "value": 14203,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 14203000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 20606,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 20606000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 23783,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 23783000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "capex",
+    "period": "FY2026",
+    "value": 26642,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 26642000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "net_debt",
+    "period": "FY2026",
+    "value": 34035,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 34035000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "diluted_shares",
+    "period": "FY2026",
+    "value": 8022,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 8022000000,
+    "resolved": "WMT"
+   }
+  ],
+  "unsourced_refs": [
+   "assumptions.terminal_growth"
+  ],
+  "errors": []
+ }
+}

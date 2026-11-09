@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "Sanofi",
+ "ticker": "549300E9PC51EN656011",
+ "currency": "EUR",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     37817,
+     41081,
+     43626
+    ],
+    "source": "ESEF report 549300E9PC51EN656011-2025-12-31-ESEF-FR-0, ifrs-full:RevenueFromSaleOfGoods, EUR millions"
+   },
+   "operating_income": {
+    "values": [
+     6960,
+     7252,
+     6344
+    ],
+    "source": "Same ESEF report, ifrs-full:ProfitLossFromOperatingActivities"
+   },
+   "d_and_a": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: D&A is null in the ESEF data (issuer tagged it with extension concepts); not filled from memory"
+   },
+   "capex": {
+    "values": [
+     2906,
+     3195,
+     3538
+    ],
+    "source": "Same ESEF report, ifrs-full:PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwill... (PP&E and intangibles purchases)"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.05,
+    0.05,
+    0.04,
+    0.04,
+    0.03
+   ],
+   "source": "Assumption: history shows FY2024 +8.6% and FY2025 +6.2% (ESEF revenue). Growth fades toward the terminal rate as the portfolio matures and patent expiries bite."
+  },
+  "ebit_margin": {
+   "value": 0.17,
+   "source": "Assumption: reported EBIT margin was 18.4% FY2023, 17.7% FY2024, 14.5% FY2025 (ESEF). I used 17%, roughly the 3-year average of 16.9%, assuming a partial recovery from the FY2025 low.",
+   "period": "FY2026-FY2030"
+  },
+  "tax_rate": {
+   "value": 0.22,
+   "source": "Assumption: between the French statutory rate (~25.8%) and Damodaran's low Europe pharma effective rate (7.8%). Rounded estimate, not a filed figure.",
+   "period": "FY2026-FY2030"
+  },
+  "da_pct_revenue": {
+   "value": 0.065,
+   "source": "Assumption: no filed D&A was available, so this has no filing support. I set it a little below capex at 8.1% of revenue, assuming D&A is lower than capex while the company keeps investing. The reviewer should replace it with the figure from the cash flow statement.",
+   "period": "FY2026-FY2030"
+  },
+  "capex_pct_revenue": {
+   "value": 0.08,
+   "source": "Filed capex/revenue: 7.7% FY2023, 7.8% FY2024, 8.1% FY2025 (ESEF). I used 8.0%.",
+   "period": "FY2026-FY2030"
+  },
+  "wacc": {
+   "value": 0.087,
+   "source": "CAPM. Rf 3.266% (ECB AAA 10Y, 2026-11-05). ERP 5.006% (Damodaran, France). Unlevered beta 1.086 (Damodaran Europe pharma, cash-corrected), relevered at D/E 0.159 and 22% tax to 1.215. Ke is about 9.35%. Pre-tax Kd is 5.74% (Damodaran), about 4.3% after tax. Weights are 86%/14% (Damodaran industry D/E, because there is no market cap). WACC is about 8.7%.",
+   "period": "current"
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "source": "Assumption: about long-run euro-area inflation and below the 3.27% risk-free rate.",
+   "period": "terminal"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 10933,
+   "source": "ESEF report 549300E9PC51EN656011-2025-12-31-ESEF-FR-0: borrowings 14,248 non-current + 4,342 current = 18,590 total debt, less cash 7,657; no short-term investments reported. Excludes leases.",
+   "period": "FY2025"
+  },
+  "diluted_shares": {
+   "value": 1225.6,
+   "source": "ESEF report, ifrs-full:AdjustedWeightedAverageShares 1,225,600,000, in millions",
+   "period": "FY2025"
+  }
+ }
+}

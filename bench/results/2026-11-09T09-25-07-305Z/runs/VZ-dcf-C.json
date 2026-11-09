@@ -1,0 +1,932 @@
+{
+ "company": "VZ",
+ "task": "dcf",
+ "arm": "C",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Verizon Communications Inc.",
+   "ticker": "VZ",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       133974,
+       134788,
+       138191
+      ],
+      "source": "deskstack financial_statements, us-gaap:Revenues, 10-K accession 0000732712-26-000007"
+     },
+     "operating_income": {
+      "values": [
+       22877,
+       28686,
+       29259
+      ],
+      "source": "deskstack financial_statements, us-gaap:OperatingIncomeLoss, 10-K 0000732712-26-000007"
+     },
+     "d_and_a": {
+      "values": [
+       17624,
+       17892,
+       18349
+      ],
+      "source": "deskstack financial_statements, us-gaap:DepreciationAndAmortization, 10-K 0000732712-26-000007"
+     },
+     "capex": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found: capex is null in deskstack data for FY2023-FY2025 (verify_value confirmed not reported); not filled from memory"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.02,
+      0.02,
+      0.02,
+      0.018,
+      0.015
+     ],
+     "source": "Assumption: FY2023-25 revenue CAGR was 1.56% and FY2025 growth 2.5% (key_metrics); mature telecom, fading toward terminal growth"
+    },
+    "ebit_margin": {
+     "value": 0.215,
+     "source": "Assumption: FY2025 operating margin 21.2%, FY2024 21.3% (key_metrics); held roughly flat with slight uplift",
+     "period": "FY2026-FY2030"
+    },
+    "tax_rate": {
+     "value": 0.24,
+     "source": "Assumption: FY2025 effective tax rate proxy 24.25% (key_metrics, (pretax-net income)/pretax)",
+     "period": "FY2026-FY2030"
+    },
+    "da_pct_revenue": {
+     "value": 0.133,
+     "source": "FY2025 D&A 18,349 / revenue 138,191 = 13.28% (10-K 0000732712-26-000007)",
+     "period": "FY2025"
+    },
+    "capex_pct_revenue": {
+     "value": 0.133,
+     "source": "Assumption, no filed capex available from tool (not found): set equal to D&A % of revenue as steady-state proxy; reviewer should replace with the 10-K cash flow capex figure",
+     "period": "FY2026-FY2030"
+    },
+    "wacc": {
+     "value": 0.065,
+     "source": "CAPM: rf 4.86% (US Treasury 10Y, 2026-11-06); Damodaran Telecom (Wireless) cash-corrected unlevered beta 0.392 relevered at D/E 0.52 (tax 21%) = 0.553; ERP 4.46% (Damodaran) gives Ke 7.3%; Kd pre-tax ~6.0%, after-tax ~4.7%; weights 66/34 give ~6.4%, rounded to 6.5%",
+     "period": "2026-11"
+    },
+    "terminal_growth": {
+     "value": 0.015,
+     "source": "Assumption lowered from 2.0% to 1.5%: equals final-year (FY2030) growth and recent 1.56% revenue CAGR, conservative for a mature telecom. Note: terminal value share of EV stays ~80% because a 5-year horizon on a stable, low-growth, low-WACC cash-flow business is inherently terminal-weighted; not forced down with unsupported inputs."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 139102,
+     "source": "deskstack derived net_debt FY2025 = total debt 158,150 - cash 19,048 - ST investments 0 (10-K 0000732712-26-000007)",
+     "period": "FY2025"
+    },
+    "diluted_shares": {
+     "value": 4231,
+     "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding FY2025 = 4,231 million, 10-K 0000732712-26-000007",
+     "period": "FY2025"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Verizon Communications Inc.",
+   "ticker": "VZ",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       133974,
+       134788,
+       138191
+      ],
+      "source": "deskstack financial_statements, us-gaap:Revenues, 10-K accession 0000732712-26-000007"
+     },
+     "operating_income": {
+      "values": [
+       22877,
+       28686,
+       29259
+      ],
+      "source": "deskstack financial_statements, us-gaap:OperatingIncomeLoss, 10-K 0000732712-26-000007"
+     },
+     "d_and_a": {
+      "values": [
+       17624,
+       17892,
+       18349
+      ],
+      "source": "deskstack financial_statements, us-gaap:DepreciationAndAmortization, 10-K 0000732712-26-000007"
+     },
+     "capex": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found: capex is null in deskstack data for FY2023-FY2025 (verify_value confirmed not reported); not filled from memory"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.02,
+      0.02,
+      0.02,
+      0.018,
+      0.015
+     ],
+     "source": "Assumption: FY2023-25 revenue CAGR was 1.56% and FY2025 growth 2.5% (key_metrics); mature telecom, fading toward terminal growth"
+    },
+    "ebit_margin": {
+     "value": 0.215,
+     "source": "Assumption: FY2025 operating margin 21.2%, FY2024 21.3% (key_metrics); held roughly flat with slight uplift",
+     "period": "FY2026-FY2030"
+    },
+    "tax_rate": {
+     "value": 0.24,
+     "source": "Assumption: FY2025 effective tax rate proxy 24.25% (key_metrics, (pretax-net income)/pretax)",
+     "period": "FY2026-FY2030"
+    },
+    "da_pct_revenue": {
+     "value": 0.133,
+     "source": "FY2025 D&A 18,349 / revenue 138,191 = 13.28% (10-K 0000732712-26-000007)",
+     "period": "FY2025"
+    },
+    "capex_pct_revenue": {
+     "value": 0.133,
+     "source": "Assumption, no filed capex available from tool (not found): set equal to D&A % of revenue as steady-state proxy; reviewer should replace with the 10-K cash flow capex figure",
+     "period": "FY2026-FY2030"
+    },
+    "wacc": {
+     "value": 0.065,
+     "source": "CAPM: rf 4.86% (US Treasury 10Y, 2026-11-06); Damodaran Telecom (Wireless) cash-corrected unlevered beta 0.392 relevered at D/E 0.52 (tax 21%) = 0.553; ERP 4.46% (Damodaran) gives Ke 7.3%; Kd pre-tax ~6.0% (rf + Damodaran spread ~1.1%), after-tax ~4.7%; weights 66/34 give ~6.4%, rounded to 6.5%",
+     "period": "2026-11"
+    },
+    "terminal_growth": {
+     "value": 0.02,
+     "source": "Assumption: below long-run US nominal GDP growth and below 10Y rf 4.86%; consistent with ~1.5-2.5% recent revenue growth"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 139102,
+     "source": "deskstack derived net_debt FY2025 = total debt 158,150 - cash 19,048 - ST investments 0 (10-K 0000732712-26-000007)",
+     "period": "FY2025"
+    },
+    "diluted_shares": {
+     "value": 4231,
+     "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding FY2025 = 4,231 million, 10-K 0000732712-26-000007",
+     "period": "FY2025"
+    }
+   }
+  },
+  "submit_attempts": 2,
+  "requests": 5,
+  "usage": {
+   "input_tokens": 14,
+   "output_tokens": 4595,
+   "cache_creation_input_tokens": 20804,
+   "cache_read_input_tokens": 57838,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.10955559999999999,
+  "seconds": 31.48,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 1,
+   "key_metrics": 1,
+   "verify_value": 1,
+   "submit_model": 2
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure. After you submit, independent reviewers will check the model and you will get one chance to fix it.\n\nBuild a quick unlevered DCF for Verizon Communications Inc. (identifier: VZ).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7239,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7239,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 230,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0204055,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01WaB1r4eYaVSrTnT1ajEt2Q",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "VZ",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01VYTTYnBw6C9KMFGW6BLHNZ",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US",
+       "tenor": "10Y"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01CwYQycFvWtMRoLEuUaCbR6",
+      "name": "valuation_inputs",
+      "input": {
+       "industry": "Telecom (Wireless)"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01WaB1r4eYaVSrTnT1ajEt2Q",
+      "content": "{\"summary\":\"Verizon Communications Inc. (VZ), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 138.2B USD, net income 17.2B USD. 3 period(s), 3 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Verizon Communications Inc.\",\"ticker\":\"VZ\",\"cik\":732712,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"4813\",\"sic_description\":\"Telephone Communications (No Radiotelephone)\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"start\":\"2023-01-01\",\"end\":\"2023-12-31\",\"income_statement\":{\"revenue\":{\"value\":133974000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000732712-26-000007\"},\"gross_profit\":null,\"operating_income\":{\"value\":22877000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000732712-26-000007\"},\"interest_expense\":{\"value\":5524000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0000732712-24-000010\"},\"pretax_income\":{\"value\":16987000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000732712-26-000007\"},\"net_income\":{\"value\":11614000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000732712-26-000007\"},\"diluted_shares\":{\"value\":4215000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000732712-26-000007\"},\"diluted_eps\":{\"value\":2.75,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000732712-26-000007\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":37475000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000732712-26-000007\"},\"capex\":null,\"d_and_a\":{\"value\":17624000000,\"concept\":\"us-gaap:DepreciationAndAmortization\",\"accession\":\"0000732712-26-000007\"},\"amortization_intangibles\":{\"value\":2687000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000732712-26-000007\"}},\"balance_sheet\":{\"cash\":{\"value\":2065000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000732712-25-000006\"},\"short_term_investments\":null,\"total_assets\":{\"value\":380255000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000732712-25-000006\"},\"total_equity\":{\"value\":93799000000,\"concept\":\"us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest\",\"accession\":\"0000732712-26-000007\"},\"ltd_noncurrent\":{\"value\":137701000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000732712-25-000006\"},\"ltd_total\":{\"value\":150674000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities\",\"accession\":\"0000732712-25-000006\"},\"debt_current\":null,\"ltd_current\":{\"value\":12973000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000732712-25-000006\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":0,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000732712-25-000006\"},\"ltd_due_12m\":{\"value\":12253000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000732712-24-000010\"}},\"derived\":{\"ebitda\":{\"value\":40501000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":null,\"total_debt\":{\"value\":150674000000,\"formula\":\"ltd_noncurrent + ltd_current + short_term_borrowings\"},\"net_debt\":{\"value\":148609000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2024-01-01\",\"end\":\"2024-12-31\",\"income_statement\":{\"revenue\":{\"value\":134788000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000732712-26-000007\"},\"gross_profit\":null,\"operating_income\":{\"value\":28686000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000732712-26-000007\"},\"interest_expense\":{\"value\":6649000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000732712-26-000007\"},\"pretax_income\":{\"value\":22979000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000732712-26-000007\"},\"net_income\":{\"value\":17506000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000732712-26-000007\"},\"diluted_shares\":{\"value\":4223000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000732712-26-000007\"},\"diluted_eps\":{\"value\":4.14,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000732712-26-000007\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":36912000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000732712-26-000007\"},\"capex\":null,\"d_and_a\":{\"value\":17892000000,\"concept\":\"us-gaap:DepreciationAndAmortization\",\"accession\":\"0000732712-26-000007\"},\"amortization_intangibles\":{\"value\":2781000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000732712-26-000007\"}},\"balance_sheet\":{\"cash\":{\"value\":4194000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000732712-26-000007\"},\"short_term_investments\":null,\"total_assets\":{\"value\":384711000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000732712-26-000007\"},\"total_equity\":{\"value\":100575000000,\"concept\":\"us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest\",\"accession\":\"0000732712-26-000007\"},\"ltd_noncurrent\":{\"value\":121381000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000732712-26-000007\"},\"ltd_total\":{\"value\":143949000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities\",\"accession\":\"0000732712-26-000007\"},\"debt_current\":{\"value\":22633000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000732712-26-000007\"},\"ltd_current\":{\"value\":22633000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000732712-26-000007\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":65000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000732712-26-000007\"},\"ltd_due_12m\":{\"value\":21709000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000732712-25-000006\"}},\"derived\":{\"ebitda\":{\"value\":46578000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":null,\"total_debt\":{\"value\":144014000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":139820000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":138191000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000732712-26-000007\"},\"gross_profit\":null,\"operating_income\":{\"value\":29259000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000732712-26-000007\"},\"interest_expense\":{\"value\":6694000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000732712-26-000007\"},\"pretax_income\":{\"value\":22672000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000732712-26-000007\"},\"net_income\":{\"value\":17174000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000732712-26-000007\"},\"diluted_shares\":{\"value\":4231000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000732712-26-000007\"},\"diluted_eps\":{\"value\":4.06,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000732712-26-000007\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":37137000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000732712-26-000007\"},\"capex\":null,\"d_and_a\":{\"value\":18349000000,\"concept\":\"us-gaap:DepreciationAndAmortization\",\"accession\":\"0000732712-26-000007\"},\"amortization_intangibles\":{\"value\":2999000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000732712-26-000007\"}},\"balance_sheet\":{\"cash\":{\"value\":19048000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000732712-26-000007\"},\"short_term_investments\":null,\"total_assets\":{\"value\":404258000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000732712-26-000007\"},\"total_equity\":{\"value\":105741000000,\"concept\":\"us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest\",\"accession\":\"0000732712-26-000007\"},\"ltd_noncurrent\":{\"value\":139532000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000732712-26-000007\"},\"ltd_total\":{\"value\":157709000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities\",\"accession\":\"0000732712-26-000007\"},\"debt_current\":{\"value\":18618000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000732712-26-000007\"},\"ltd_current\":{\"value\":18618000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000732712-26-000007\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":441000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000732712-26-000007\"},\"ltd_due_12m\":{\"value\":17267000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000732712-26-000007\"}},\"derived\":{\"ebitda\":{\"value\":47608000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":null,\"total_debt\":{\"value\":158150000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":139102000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-10-29 (period 2026-09-30) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/732712/000073271224000010/0000732712-24-000010-index.htm\",\"accession_or_id\":\"0000732712-24-000010\",\"form\":\"10-K\",\"period\":\"2023-12-31\",\"as_of\":\"2024-02-09\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/732712/000073271225000006/0000732712-25-000006-index.htm\",\"accession_or_id\":\"0000732712-25-000006\",\"form\":\"10-K\",\"period\":\"2024-12-31\",\"as_of\":\"2025-02-12\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/732712/000073271226000007/0000732712-26-000007-index.htm\",\"accession_or_id\":\"0000732712-26-000007\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-17\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":4144598336,\"as_of\":\"2026-09-30\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000732712-26-000052\",\"url\":\"https://www.sec.gov/Archives/edgar/data/732712/000073271226000052/0000732712-26-000052-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01VYTTYnBw6C9KMFGW6BLHNZ",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01CwYQycFvWtMRoLEuUaCbR6",
+      "content": "{\"summary\":\"US industry data for \\\"Telecom (Wireless)\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"industry\":[{\"region\":\"US\",\"industry\":\"Telecom (Wireless)\",\"firms\":12,\"beta\":0.5381352736640138,\"de_ratio\":0.519466977505286,\"effective_tax_rate\":0.04023108287054421,\"unlevered_beta\":0.3872590553991877,\"cash_to_firm_value\":0.013153696058015397,\"unlevered_beta_cash_corrected\":0.39242083985345116,\"cost_of_equity\":0.06350083320541502,\"equity_weight\":0.6581255234923467,\"cost_of_debt_pretax\":0.050671999999999995,\"after_tax_cost_of_debt\":0.038003999999999996,\"debt_weight\":0.34187447650765335,\"cost_of_capital\":0.0547841167007108,\"match\":\"exact\",\"sources\":[{\"name\":\"Aswath Damodaran, Betas by Sector (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls\",\"accession_or_id\":\"betas/US/Telecom (Wireless)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"},{\"name\":\"Aswath Damodaran, Cost of Capital by Industry (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/wacc.xls\",\"accession_or_id\":\"wacc/US/Telecom (Wireless)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}],\"note\":\"cost_of_equity and cost_of_capital are Damodaran's US$ estimates using his own risk-free rate (0.0395) and ERP (0.0446) at the update date. For a current WACC, prefer unlevered_beta_cash_corrected, relevered at the company's D/E, with today's risk_free_rate.\"}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 7176,
+     "cache_read_input_tokens": 7239,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7176,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 143,
+     "output_tokens_details": {
+      "thinking_tokens": 43
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.020821799999999998,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSzQUKEAgTGAI4AUIIdGhpbmtpbmcSDHd1v8LU2X9N7sQCBxoMKNOJmwkw7muLaXyKIjC5rc0jmzpv6humBc5Qwdl6iJwU3Es3dFUtuyWE/SzFdoGZmMh67mVPWeakpc0mwtwq6gQ4cnZqofnKxqMczdEvym+DsZMgkGG2DV16gDQEnAyM1ZbLvGTN32xoQA4lM/HdphZQPmk7kV29MN+CfAt9p6WFDo0CmX7eJqnru30jNfX8AfmxPnGBiLV66Wv8K+zc0cJ8BXgQF9zbq2rXTOlkXhDr262JyPDBIHl7AfctFKzXlxIddaVS5VJORSwKFrcOMFURsrpp4LKlXEnO3OfmjuhzanvT7Vv4Z2Wp6efJabEdMYFgY/jjCZEwtx5UtHKlkYc4VDXA91yuKaw8F0JBi49LQ+zbrsW6Fh4TPX3PgeHeME4bspzK0q5ovDRmmeLmufpYes2WQgpjLlu33FMwqKqkpGOfvAqOSNC10mbXxlsBLVU7iAgDZqdVQJUju/S+KebjZ9WubfX4gflz91KwQKvy85JqKU+9OCteKzWdrugW3vVjcJIzLZKcBUz2Vs50OIm7QKVrMd2p3PAKIYrbizvR/2l6P/mw+qcQOxFAGFJp2dnKhhyq9Bq0C1tt7yCFljpJDcuAPoqqOtIMAJUS/5RcIuXjaufs/9hsc33Rqk7f96JWmJ78UGPZ3xuV9QiBpbdwGqtqv20MtX8Bvxit31OMk23zY56bSi4poWEH2efeZoVNE+Wdjq89lWvWgaDed2jQHHRHvcWCSkwOYnvHGoHb4jEhGinNHmNV6Rl5SObYqdbkhLU3iUvyKYAHJ4xUNPBJXn55+Lj1bVheUbV+uBz+GdhVL+NwCJsp8HGPMxeZMjlSojcsEVmalJVFenu3oSwNMagyfKSjv5dqVaPcmqbc3SmzoenpEkVN/ptGXFaHLjOliBYUUsGZyYIYAQ=="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01HoaJt9WtTpjGTVpBb8Wpdm",
+      "name": "key_metrics",
+      "input": {
+       "ticker": "VZ",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01HoaJt9WtTpjGTVpBb8Wpdm",
+      "content": "{\"summary\":\"Verizon Communications Inc. (VZ): 3 period(s) of ratios computed by deskstack from reported figures. Each shows its formula; inputs are in financial_statements.\",\"company\":{\"name\":\"Verizon Communications Inc.\",\"ticker\":\"VZ\",\"cik\":732712,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"4813\",\"sic_description\":\"Telephone Communications (No Radiotelephone)\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Ratios are decimals (0.25 = 25%). net_debt_to_ebitda and interest_coverage are multiples (x).\",\"computed\":true,\"revenue_cagr\":{\"value\":0.01561619551240856,\"formula\":\"(revenue(FY2025) / revenue(FY2023))^(1/2) - 1\"},\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"end\":\"2023-12-31\",\"metrics\":{\"revenue_growth\":{\"value\":-0.02090839332042238,\"formula\":\"revenue / revenue(FY2022) - 1\"},\"net_income_growth\":{\"value\":-0.4536130974783591,\"formula\":\"net_income / net_income(FY2022) - 1\"},\"gross_margin\":null,\"operating_margin\":{\"value\":0.1707570125546748,\"formula\":\"operating_income / revenue\"},\"net_margin\":{\"value\":0.0866884619403765,\"formula\":\"net_income / revenue\"},\"fcf_margin\":null,\"capex_to_revenue\":null,\"fcf_conversion\":null,\"roe\":{\"value\":0.12470605920692358,\"formula\":\"net_income / average(total_equity at 2023-12-31, total_equity at 2022-12-31)\"},\"roa\":{\"value\":0.030565772072611474,\"formula\":\"net_income / average(total_assets at 2023-12-31, total_assets at 2022-12-31)\"},\"ebitda_margin\":{\"value\":0.3023049248361622,\"formula\":\"ebitda / revenue\"},\"net_debt_to_ebitda\":{\"value\":3.6692674254956668,\"formula\":\"net_debt / ebitda\"},\"interest_coverage\":{\"value\":4.141383055756698,\"formula\":\"operating_income / interest_expense\"},\"effective_tax_rate_proxy\":{\"value\":0.31630070053570375,\"formula\":\"(pretax_income - net_income) / pretax_income\",\"note\":\"approximation: also absorbs minority interests and discontinued operations\"},\"roic\":{\"value\":0.06452340217255498,\"formula\":\"operating_income × (1 - effective_tax_rate_proxy) / (total_debt + total_equity - cash - short_term_investments)\",\"note\":\"period-end invested capital; tax rate is the proxy above\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"end\":\"2024-12-31\",\"metrics\":{\"revenue_growth\":{\"value\":0.006075805753355201,\"formula\":\"revenue / revenue(FY2023) - 1\"},\"net_income_growth\":{\"value\":0.5073187532288617,\"formula\":\"net_income / net_income(FY2023) - 1\"},\"gross_margin\":null,\"operating_margin\":{\"value\":0.21282309997922663,\"formula\":\"operating_income / revenue\"},\"net_margin\":{\"value\":0.12987803068522422,\"formula\":\"net_income / revenue\"},\"fcf_margin\":null,\"capex_to_revenue\":null,\"fcf_conversion\":null,\"roe\":{\"value\":0.18012697171432393,\"formula\":\"net_income / average(total_equity at 2024-12-31, total_equity at 2023-12-31)\"},\"roa\":{\"value\":0.04576935445496924,\"formula\":\"net_income / average(total_assets at 2024-12-31, total_assets at 2023-12-31)\"},\"ebitda_margin\":{\"value\":0.34556488708193606,\"formula\":\"ebitda / revenue\"},\"net_debt_to_ebitda\":{\"value\":3.001846365236807,\"formula\":\"net_debt / ebitda\"},\"interest_coverage\":{\"value\":4.314332982403369,\"formula\":\"operating_income / interest_expense\"},\"effective_tax_rate_proxy\":{\"value\":0.23817398494277384,\"formula\":\"(pretax_income - net_income) / pretax_income\",\"note\":\"approximation: also absorbs minority interests and discontinued operations\"},\"roic\":{\"value\":0.09090763563273607,\"formula\":\"operating_income × (1 - effective_tax_rate_proxy) / (total_debt + total_equity - cash - short_term_investments)\",\"note\":\"period-end invested capital; tax rate is the proxy above\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"end\":\"2025-12-31\",\"metrics\":{\"revenue_growth\":{\"value\":0.02524705463394361,\"formula\":\"revenue / revenue(FY2024) - 1\"},\"net_income_growth\":{\"value\":-0.018964926310979124,\"formula\":\"net_income / net_income(FY2024) - 1\"},\"gross_margin\":null,\"operating_margin\":{\"value\":0.2117286943433364,\"formula\":\"operating_income / revenue\"},\"net_margin\":{\"value\":0.12427726841834852,\"formula\":\"net_income / revenue\"},\"fcf_margin\":null,\"capex_to_revenue\":null,\"fcf_conversion\":null,\"roe\":{\"value\":0.16648248318113962,\"formula\":\"net_income / average(total_equity at 2025-12-31, total_equity at 2024-12-31)\"},\"roa\":{\"value\":0.04353529733107384,\"formula\":\"net_income / average(total_assets at 2025-12-31, total_assets at 2024-12-31)\"},\"ebitda_margin\":{\"value\":0.34450868725170236,\"formula\":\"ebitda / revenue\"},\"net_debt_to_ebitda\":{\"value\":2.9218198622080322,\"formula\":\"net_debt / ebitda\"},\"interest_coverage\":{\"value\":4.370929190319689,\"formula\":\"operating_income / interest_expense\"},\"effective_tax_rate_proxy\":{\"value\":0.24250176429075512,\"formula\":\"(pretax_income - net_income) / pretax_income\",\"note\":\"approximation: also absorbs minority interests and discontinued operations\"},\"roic\":{\"value\":0.09052184819911861,\"formula\":\"operating_income × (1 - effective_tax_rate_proxy) / (total_debt + total_equity - cash - short_term_investments)\",\"note\":\"period-end invested capital; tax rate is the proxy above\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-10-29 (period 2026-09-30) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/732712/000073271223000012/0000732712-23-000012-index.htm\",\"accession_or_id\":\"0000732712-23-000012\",\"form\":\"10-K\",\"period\":null,\"as_of\":\"2023-02-10\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/732712/000073271224000010/0000732712-24-000010-index.htm\",\"accession_or_id\":\"0000732712-24-000010\",\"form\":\"10-K\",\"period\":\"2023-12-31\",\"as_of\":\"2024-02-09\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/732712/000073271225000006/0000732712-25-000006-index.htm\",\"accession_or_id\":\"0000732712-25-000006\",\"form\":\"10-K\",\"period\":\"2024-12-31\",\"as_of\":\"2025-02-12\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/732712/000073271226000007/0000732712-26-000007-index.htm\",\"accession_or_id\":\"0000732712-26-000007\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-17\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 3,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 3105,
+     "cache_read_input_tokens": 14415,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 3105,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 192,
+     "output_tokens_details": {
+      "thinking_tokens": 26
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0125695,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQShwYKEAgTGAI4AUIIdGhpbmtpbmcSDOyXn3e2E6SfKZGTYxoMkYXZKk0R9fuQiuIAIjC4WivHmzz57HvpjHmQDp4bkn/P9WrSM+bQVjrcYUa5NsdnUkVRhoqWTBjwwJynY7oqpAWJpsiBWGjF7e98lNJku0SuJJrVUkeTB+B+jC2V6sPm1fdOA8icUB57RUuhGYZ7n41pfMxgiyBldE1vFBmwl5cKTMsXwraia1Pa/MvvhPd2QgfYppPPUC3htYuU9+yiLwHsyX1UGLwxadXGRN34tJtv+UsgBZR/8mMm732xwRo4yF7jXSqhwDB018/wlbG6N3okG/Ds8e5WXr2GlwfRPxIoFvSq7vVfy65PBGApimvpX5DIRMzCRvJKRYM6p7Q73Hce9Rc7Im1y60ShyGb1z1YVfLdjPIqoxFI7Vjes6PZiiVG1NPpfTs+DVscpy8OxePVZSruOhxpQjTkPoCBn59em/Hb+diAtvaJFFdfYehb+Fdt3rVuuEVbOZ2elJ+tA0Uw0HHCMnXuqeR0SEu8HtI2PlfxBmbOaDPaFS0w7qnjSmoMdnFiAUJDOZQlAvF3ChM3R5nvTzMBQDMKaOlhXjXogY7Af2SEUWVJ//ciGVFnvJZYpqk/ySFV3450P3RHOGfAulS48T5bZAKJaOPk4ezrZQqk/z4CIshvZoW4NqSPGyqG+MYXXpuWzQT7lpE4zPCx5rPyBYI0TOZwJVp+oee5LM7grkbgRDamcXRVB/TwHLFe6uOy3NHxtJrJ2KhjLVzhLTdqttgHL/ZDpzhxRnwEOSKSCoWgNyb1UlLy85pdwUYSyc/nAUFd+6k/04jhUyLzrJiMm7vzbUmGX5haJzearXeMsAMTWU9DOyyi/sB8AMeSd9jkD73O5b1bT4+7iw3ElF01I2J5Adl0qEhTYYCoDRFnEcCtlmNOTO7Z+4tREY79FNCDNH6Ia+reIdK6BfdwMiqYnzF8HENmQ0eiTuak1lcvJji9y9kag+l2cSdCCv5OzwPLVGQqIXI2QXXHJthnNbWCIGAE="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01AW67VxGPwN7fgTESFhsb2a",
+      "name": "verify_value",
+      "input": {
+       "company": "VZ",
+       "items": [
+        {
+         "metric": "capex",
+         "period": "FY2025",
+         "value": 17000,
+         "scale": "millions"
+        },
+        {
+         "metric": "capex",
+         "period": "FY2024",
+         "value": 17000,
+         "scale": "millions"
+        },
+        {
+         "metric": "capex",
+         "period": "FY2023",
+         "value": 17000,
+         "scale": "millions"
+        }
+       ]
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01AW67VxGPwN7fgTESFhsb2a",
+      "content": "{\"summary\":\"Verizon Communications Inc.: 0 of 3 value(s) match the filings, 3 not found. Read each item's hints before changing a number.\",\"company\":{\"name\":\"Verizon Communications Inc.\",\"ticker\":\"VZ\",\"cik\":732712,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"4813\",\"sic_description\":\"Telephone Communications (No Radiotelephone)\",\"financial_company\":false,\"foreign_private_issuer\":false},\"currency\":\"USD\",\"counts\":{\"total\":3,\"match\":0,\"mismatch\":0,\"not_found\":3,\"ambiguous\":0},\"results\":[{\"ref\":null,\"metric\":\"capex\",\"resolved_metric\":\"capex\",\"period\":\"FY2025\",\"resolved_period\":\"FY2025 (ended 2025-12-31)\",\"status\":\"not_found\",\"claimed\":17000,\"claimed_units\":17000000000,\"filed\":null,\"difference\":null,\"relative_difference\":null,\"concept\":null,\"computed\":false,\"accessions\":[],\"allowance\":{\"units\":0,\"basis\":\"\"},\"hints\":[\"capex is not reported for FY2025 (null in the filing data). Do not use a figure from memory.\"]},{\"ref\":null,\"metric\":\"capex\",\"resolved_metric\":\"capex\",\"period\":\"FY2024\",\"resolved_period\":\"FY2024 (ended 2024-12-31)\",\"status\":\"not_found\",\"claimed\":17000,\"claimed_units\":17000000000,\"filed\":null,\"difference\":null,\"relative_difference\":null,\"concept\":null,\"computed\":false,\"accessions\":[],\"allowance\":{\"units\":0,\"basis\":\"\"},\"hints\":[\"capex is not reported for FY2024 (null in the filing data). Do not use a figure from memory.\"]},{\"ref\":null,\"metric\":\"capex\",\"resolved_metric\":\"capex\",\"period\":\"FY2023\",\"resolved_period\":\"FY2023 (ended 2023-12-31)\",\"status\":\"not_found\",\"claimed\":17000,\"claimed_units\":17000000000,\"filed\":null,\"difference\":null,\"relative_difference\":null,\"concept\":null,\"computed\":false,\"accessions\":[],\"allowance\":{\"units\":0,\"basis\":\"\"},\"hints\":[\"capex is not reported for FY2023 (null in the filing data). Do not use a figure from memory.\"]}],\"sources\":[],\"note\":\"Computed lines (EBITDA, free cash flow, total debt, net debt) are checked against deskstack's own formula from the filed inputs, shown in the hints. A match means the number agrees with the filing; it does not validate assumptions or forecasts.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 4,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 1144,
+     "cache_read_input_tokens": 17520,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 1144,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1939,
+     "output_tokens_details": {
+      "thinking_tokens": 499
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.025758,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "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"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01X1Wmqfgt1YyuqFnMhYC61L",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Verizon Communications Inc.",
+       "ticker": "VZ",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           133974,
+           134788,
+           138191
+          ],
+          "source": "deskstack financial_statements, us-gaap:Revenues, 10-K accession 0000732712-26-000007"
+         },
+         "operating_income": {
+          "values": [
+           22877,
+           28686,
+           29259
+          ],
+          "source": "deskstack financial_statements, us-gaap:OperatingIncomeLoss, 10-K 0000732712-26-000007"
+         },
+         "d_and_a": {
+          "values": [
+           17624,
+           17892,
+           18349
+          ],
+          "source": "deskstack financial_statements, us-gaap:DepreciationAndAmortization, 10-K 0000732712-26-000007"
+         },
+         "capex": {
+          "values": [
+           null,
+           null,
+           null
+          ],
+          "source": "not found: capex is null in deskstack data for FY2023-FY2025 (verify_value confirmed not reported); not filled from memory"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.02,
+          0.02,
+          0.02,
+          0.018,
+          0.015
+         ],
+         "source": "Assumption: FY2023-25 revenue CAGR was 1.56% and FY2025 growth 2.5% (key_metrics); mature telecom, fading toward terminal growth"
+        },
+        "ebit_margin": {
+         "value": 0.215,
+         "source": "Assumption: FY2025 operating margin 21.2%, FY2024 21.3% (key_metrics); held roughly flat with slight uplift",
+         "period": "FY2026-FY2030"
+        },
+        "tax_rate": {
+         "value": 0.24,
+         "source": "Assumption: FY2025 effective tax rate proxy 24.25% (key_metrics, (pretax-net income)/pretax)",
+         "period": "FY2026-FY2030"
+        },
+        "da_pct_revenue": {
+         "value": 0.133,
+         "source": "FY2025 D&A 18,349 / revenue 138,191 = 13.28% (10-K 0000732712-26-000007)",
+         "period": "FY2025"
+        },
+        "capex_pct_revenue": {
+         "value": 0.133,
+         "source": "Assumption, no filed capex available from tool (not found): set equal to D&A % of revenue as steady-state proxy; reviewer should replace with the 10-K cash flow capex figure",
+         "period": "FY2026-FY2030"
+        },
+        "wacc": {
+         "value": 0.065,
+         "source": "CAPM: rf 4.86% (US Treasury 10Y, 2026-11-06); Damodaran Telecom (Wireless) cash-corrected unlevered beta 0.392 relevered at D/E 0.52 (tax 21%) = 0.553; ERP 4.46% (Damodaran) gives Ke 7.3%; Kd pre-tax ~6.0% (rf + Damodaran spread ~1.1%), after-tax ~4.7%; weights 66/34 give ~6.4%, rounded to 6.5%",
+         "period": "2026-11"
+        },
+        "terminal_growth": {
+         "value": 0.02,
+         "source": "Assumption: below long-run US nominal GDP growth and below 10Y rf 4.86%; consistent with ~1.5-2.5% recent revenue growth"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 139102,
+         "source": "deskstack derived net_debt FY2025 = total debt 158,150 - cash 19,048 - ST investments 0 (10-K 0000732712-26-000007)",
+         "period": "FY2025"
+        },
+        "diluted_shares": {
+         "value": 4231,
+         "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding FY2025 = 4,231 million, 10-K 0000732712-26-000007",
+         "period": "FY2025"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01X1Wmqfgt1YyuqFnMhYC61L",
+      "content": "accepted"
+     },
+     {
+      "type": "text",
+      "text": "Independent review of your model:\n\nAssociate (tie-out with verify_value): 11 of 11 filed figures match the filings.\n\nVP review (deterministic checker): 0 blocker, 1 major.\n- DS010 DCF!B15: Terminal value is 80% of enterprise value (> 75%): the valuation rests on the terminal assumptions.\n\nFix what is wrong (check each figure against its filing), then call submit_model again with the full corrected model."
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 5,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 2140,
+     "cache_read_input_tokens": 18664,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 2140,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 2091,
+     "output_tokens_details": {
+      "thinking_tokens": 546
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.030000799999999998,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "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"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01CLs9FTpHhFq9Kn1eaUJDN2",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Verizon Communications Inc.",
+       "ticker": "VZ",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           133974,
+           134788,
+           138191
+          ],
+          "source": "deskstack financial_statements, us-gaap:Revenues, 10-K accession 0000732712-26-000007"
+         },
+         "operating_income": {
+          "values": [
+           22877,
+           28686,
+           29259
+          ],
+          "source": "deskstack financial_statements, us-gaap:OperatingIncomeLoss, 10-K 0000732712-26-000007"
+         },
+         "d_and_a": {
+          "values": [
+           17624,
+           17892,
+           18349
+          ],
+          "source": "deskstack financial_statements, us-gaap:DepreciationAndAmortization, 10-K 0000732712-26-000007"
+         },
+         "capex": {
+          "values": [
+           null,
+           null,
+           null
+          ],
+          "source": "not found: capex is null in deskstack data for FY2023-FY2025 (verify_value confirmed not reported); not filled from memory"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.02,
+          0.02,
+          0.02,
+          0.018,
+          0.015
+         ],
+         "source": "Assumption: FY2023-25 revenue CAGR was 1.56% and FY2025 growth 2.5% (key_metrics); mature telecom, fading toward terminal growth"
+        },
+        "ebit_margin": {
+         "value": 0.215,
+         "source": "Assumption: FY2025 operating margin 21.2%, FY2024 21.3% (key_metrics); held roughly flat with slight uplift",
+         "period": "FY2026-FY2030"
+        },
+        "tax_rate": {
+         "value": 0.24,
+         "source": "Assumption: FY2025 effective tax rate proxy 24.25% (key_metrics, (pretax-net income)/pretax)",
+         "period": "FY2026-FY2030"
+        },
+        "da_pct_revenue": {
+         "value": 0.133,
+         "source": "FY2025 D&A 18,349 / revenue 138,191 = 13.28% (10-K 0000732712-26-000007)",
+         "period": "FY2025"
+        },
+        "capex_pct_revenue": {
+         "value": 0.133,
+         "source": "Assumption, no filed capex available from tool (not found): set equal to D&A % of revenue as steady-state proxy; reviewer should replace with the 10-K cash flow capex figure",
+         "period": "FY2026-FY2030"
+        },
+        "wacc": {
+         "value": 0.065,
+         "source": "CAPM: rf 4.86% (US Treasury 10Y, 2026-11-06); Damodaran Telecom (Wireless) cash-corrected unlevered beta 0.392 relevered at D/E 0.52 (tax 21%) = 0.553; ERP 4.46% (Damodaran) gives Ke 7.3%; Kd pre-tax ~6.0%, after-tax ~4.7%; weights 66/34 give ~6.4%, rounded to 6.5%",
+         "period": "2026-11"
+        },
+        "terminal_growth": {
+         "value": 0.015,
+         "source": "Assumption lowered from 2.0% to 1.5%: equals final-year (FY2030) growth and recent 1.56% revenue CAGR, conservative for a mature telecom. Note: terminal value share of EV stays ~80% because a 5-year horizon on a stable, low-growth, low-WACC cash-flow business is inherently terminal-weighted; not forced down with unsupported inputs."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 139102,
+         "source": "deskstack derived net_debt FY2025 = total debt 158,150 - cash 19,048 - ST investments 0 (10-K 0000732712-26-000007)",
+         "period": "FY2025"
+        },
+        "diluted_shares": {
+         "value": 4231,
+         "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding FY2025 = 4,231 million, 10-K 0000732712-26-000007",
+         "period": "FY2025"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ],
+  "review": "Associate (tie-out with verify_value): 11 of 11 filed figures match the filings.\n\nVP review (deterministic checker): 0 blocker, 1 major.\n- DS010 DCF!B15: Terminal value is 80% of enterprise value (> 75%): the valuation rests on the terminal assumptions.\n\nFix what is wrong (check each figure against its filing), then call submit_model again with the full corrected model."
+ },
+ "score": {
+  "valid": true,
+  "filed": 11,
+  "match": 11,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 22,
+  "unsourced": 2,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "VZ",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 133974,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 133974000000,
+    "resolved": "VZ"
+   },
+   {
+    "company": "VZ",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 134788,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 134788000000,
+    "resolved": "VZ"
+   },
+   {
+    "company": "VZ",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 138191,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 138191000000,
+    "resolved": "VZ"
+   },
+   {
+    "company": "VZ",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 22877,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 22877000000,
+    "resolved": "VZ"
+   },
+   {
+    "company": "VZ",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 28686,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 28686000000,
+    "resolved": "VZ"
+   },
+   {
+    "company": "VZ",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 29259,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 29259000000,
+    "resolved": "VZ"
+   },
+   {
+    "company": "VZ",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 17624,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 17624000000,
+    "resolved": "VZ"
+   },
+   {
+    "company": "VZ",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 17892,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 17892000000,
+    "resolved": "VZ"
+   },
+   {
+    "company": "VZ",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 18349,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 18349000000,
+    "resolved": "VZ"
+   },
+   {
+    "company": "VZ",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 139102,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 139102000000,
+    "resolved": "VZ"
+   },
+   {
+    "company": "VZ",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 4231,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4231000000,
+    "resolved": "VZ"
+   }
+  ],
+  "unsourced_refs": [
+   "assumptions.ebit_margin",
+   "assumptions.capex_pct_revenue"
+  ],
+  "errors": []
+ }
+}

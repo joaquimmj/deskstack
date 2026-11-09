@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "Netflix, Inc.",
+ "ticker": "NFLX",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     33723.297,
+     39000.966,
+     45183.036
+    ],
+    "source": "financial_statements NFLX, us-gaap:Revenues, 10-K acc. 0001065280-26-000034"
+   },
+   "operating_income": {
+    "values": [
+     6954.003,
+     10417.614,
+     13326.603
+    ],
+    "source": "us-gaap:OperatingIncomeLoss, 10-K acc. 0001065280-26-000034"
+   },
+   "d_and_a": {
+    "values": [
+     356.947,
+     328.914,
+     333.389
+    ],
+    "source": "us-gaap:DepreciationDepletionAndAmortization, 10-K acc. 0001065280-26-000034"
+   },
+   "capex": {
+    "values": [
+     348.552,
+     439.538,
+     688.22
+    ],
+    "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, 10-K acc. 0001065280-26-000034"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.13,
+    0.12,
+    0.1,
+    0.09,
+    0.08
+   ],
+   "source": "Assumption: FY2025 growth was 15.9% (45,183 vs 39,001); fade from 13% to 8% as scale grows and subscriber growth matures."
+  },
+  "ebit_margin": {
+   "value": 0.31,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 margin 29.5% (13,327/45,183), up from 26.7% in FY2024 and 20.6% in FY2023; modest operating leverage to 31% held flat."
+  },
+  "tax_rate": {
+   "value": 0.16,
+   "period": "FY2026-FY2030",
+   "source": "Derived from FY2025 filings: pretax 12,722.6M, net income 10,981.2M gives about 13.7% effective rate; assume 16% as moderate normalization upward. Assumption."
+  },
+  "da_pct_revenue": {
+   "value": 0.008,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 D&A 333.4/45,183 = 0.74%; slightly higher as capex grows. Note: content amortization is excluded from D&A and treated as operating cost in EBIT."
+  },
+  "capex_pct_revenue": {
+   "value": 0.015,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 capex 688.2/45,183 = 1.52%; FY2024 1.13%; hold at 1.5%."
+  },
+  "wacc": {
+   "value": 0.095,
+   "period": "current",
+   "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + assumed beta 1.1 (my assumption, not looked up from Damodaran industry data) x ERP 4.46% (Damodaran US, 2026-02-16) = 9.8% cost of equity; debt about 14.5B is small versus equity, so debt weight is low and the after-tax cost of debt is lower; blended WACC about 9.5%."
+  },
+  "terminal_growth": {
+   "value": 0.03,
+   "period": "terminal",
+   "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal US GDP growth."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 5400.477,
+   "period": "FY2025",
+   "source": "financial_statements derived net_debt = (LTD noncurrent 13,463.971 + short-term borrowings 998.865) - cash 9,033.681 - ST investments 28.678; 10-K acc. 0001065280-26-000034"
+  },
+  "diluted_shares": {
+   "value": 4343.863,
+   "period": "FY2025",
+   "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding, 10-K acc. 0001065280-26-000034 (millions of shares)"
+  }
+ }
+}

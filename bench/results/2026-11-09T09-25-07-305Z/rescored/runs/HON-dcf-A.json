@@ -1,0 +1,180 @@
+{
+ "company": "HON",
+ "task": "dcf",
+ "arm": "A",
+ "score": {
+  "valid": true,
+  "filed": 11,
+  "match": 9,
+  "mismatch": 0,
+  "other_line": 1,
+  "definition": 1,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 22,
+  "unsourced": 3,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "HON",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 33009,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 33009000000,
+    "resolved": "HON"
+   },
+   {
+    "company": "HON",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 34717,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 34717000000,
+    "resolved": "HON"
+   },
+   {
+    "company": "HON",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 37442,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 37442000000,
+    "resolved": "HON"
+   },
+   {
+    "company": "HON",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 1004,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1004000000,
+    "resolved": "HON"
+   },
+   {
+    "company": "HON",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 1152,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:FiniteLivedIntangibleAssetsAmortizationExpenseYearFive + us-gaap:Depreciation in the same filing"
+    ],
+    "filed_value": 1153000000,
+    "resolved": "HON",
+    "other_line": "us-gaap:FiniteLivedIntangibleAssetsAmortizationExpenseYearFive + us-gaap:Depreciation"
+   },
+   {
+    "company": "HON",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 1388,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1388000000,
+    "resolved": "HON"
+   },
+   {
+    "company": "HON",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 741,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 741000000,
+    "resolved": "HON"
+   },
+   {
+    "company": "HON",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 871,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 871000000,
+    "resolved": "HON"
+   },
+   {
+    "company": "HON",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 986,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 986000000,
+    "resolved": "HON"
+   },
+   {
+    "company": "HON",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 21657,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 21650000000,
+    "resolved": "HON"
+   },
+   {
+    "company": "HON",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 642.8,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 642800000,
+    "resolved": "HON"
+   }
+  ],
+  "unsourced_refs": [
+   "assumptions.ebit_margin",
+   "assumptions.tax_rate",
+   "assumptions.wacc"
+  ],
+  "errors": []
+ }
+}

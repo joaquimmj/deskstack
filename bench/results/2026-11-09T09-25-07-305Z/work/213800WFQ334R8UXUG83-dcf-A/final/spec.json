@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "VINCI",
+ "ticker": "213800WFQ334R8UXUG83",
+ "currency": "EUR",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     68838,
+     71623,
+     74599
+    ],
+    "source": "VINCI FY2024 annual results press release (2023, 2024 revenue excl. concession subsidiaries' works revenue); FY2025 full-year results press release 5-6 Feb 2026"
+   },
+   "operating_income": {
+    "values": [
+     8357,
+     8997,
+     9558
+    ],
+    "source": "Operating income from ordinary activities (Ebit): FY2024 results release (2023, 2024); FY2025 consolidated income statement (9,558)"
+   },
+   "d_and_a": {
+    "values": [
+     3799,
+     3998,
+     4206
+    ],
+    "source": "Depreciation and amortisation line, consolidated cash flow statements (2024 and 2025 annual financial statements on vinci.com)"
+   },
+   "capex": {
+    "values": [
+     2251,
+     2878,
+     3011
+    ],
+    "source": "Purchases of PP&E and intangible assets, consolidated cash flow statements (2023, 2024, 2025). Excludes concession-related investments in operating financial assets."
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.035,
+    0.035,
+    0.03,
+    0.03,
+    0.025
+   ],
+   "source": "Assumption: FY2025 growth was 4.2% (2.6% organic); management guides to further growth in 2026; fade toward long-run nominal growth."
+  },
+  "ebit_margin": {
+   "value": 0.129,
+   "source": "Assumption: FY2025 Ebit margin 12.8% (9,558/74,599), up from 12.6% in FY2024; hold roughly flat with a slight uplift from mix."
+  },
+  "tax_rate": {
+   "value": 0.258,
+   "source": "Assumption: French statutory corporate tax rate of ~25.8%."
+  },
+  "da_pct_revenue": {
+   "value": 0.056,
+   "source": "Assumption: FY2025 D&A/revenue = 4,206/74,599 = 5.6%."
+  },
+  "capex_pct_revenue": {
+   "value": 0.04,
+   "source": "Assumption: FY2025 capex/revenue = 3,011/74,599 = 4.0%; FY2024 4.0%."
+  },
+  "wacc": {
+   "value": 0.07,
+   "source": "Assumption: infrastructure/concessions-heavy European large cap; rf ~3.3%, ERP ~5%, beta ~0.8, leveraged capital structure. Not from a data provider."
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "source": "Assumption: long-run euro-area inflation ~2%."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 19075,
+   "period": "FY2025",
+   "source": "VINCI net financial debt at 31 Dec 2025 (19,075), FY2025 consolidated financial statements; excludes lease liabilities."
+  },
+  "diluted_shares": {
+   "value": 567.060313,
+   "period": "FY2025",
+   "source": "Weighted average diluted shares 567,060,313 (EPS note, FY2025 consolidated financial statements), in millions"
+  }
+ }
+}

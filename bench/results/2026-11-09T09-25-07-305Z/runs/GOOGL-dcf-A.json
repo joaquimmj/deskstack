@@ -1,0 +1,1732 @@
+{
+ "company": "GOOGL",
+ "task": "dcf",
+ "arm": "A",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Alphabet Inc.",
+   "ticker": "GOOGL",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       307394,
+       350018,
+       402836
+      ],
+      "source": "FY2025 10-K (acc. 0001652044-26-000018) for FY2024/FY2025; FY2023 from FY2023 10-K (acc. 0001652044-24-000022)"
+     },
+     "operating_income": {
+      "values": [
+       84293,
+       112390,
+       129039
+      ],
+      "source": "FY2025 10-K (0001652044-26-000018) FY2024/25; FY2023 from FY2023 10-K (0001652044-24-000022)"
+     },
+     "d_and_a": {
+      "values": [
+       11946,
+       15311,
+       21136
+      ],
+      "source": "Depreciation of property and equipment, cash flow statement (10-K FY2024 exhibit 99.1 Q4'24: 11,946/15,311; FY2025 10-K ~$21.1B, 21,136 per stockanalysis.com). Excludes amortization of intangibles (not separately found)."
+     },
+     "capex": {
+      "values": [
+       32251,
+       52535,
+       91447
+      ],
+      "source": "Purchases of property and equipment, cash flow statement: 32,251/52,535 per Q4'24 exhibit 99.1; FY2025 91,447 per stockanalysis.com cash flow page"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.15,
+      0.13,
+      0.11,
+      0.09,
+      0.07
+     ],
+     "source": "Assumption: FY2025 growth was 15% (402,836 vs 350,018); fade as the base grows and cloud/AI growth normalises toward mature levels."
+    },
+    "ebit_margin": {
+     "value": 0.31,
+     "source": "Assumption: FY2024 and FY2025 operating margin was 32% (10-K); trimmed 1pt for rising depreciation from heavy AI capex.",
+     "period": "FY2026-FY2030"
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "source": "Assumption: approximate recent effective tax rate (mid/high teens) given foreign-derived income deductions; not verified against the 10-K tax note.",
+     "period": "FY2026-FY2030"
+    },
+    "da_pct_revenue": {
+     "value": 0.07,
+     "source": "Assumption: FY2025 depreciation was 5.2% of revenue (21,136/402,836) and rising with capex; 7% average over projection.",
+     "period": "FY2026-FY2030"
+    },
+    "capex_pct_revenue": {
+     "value": 0.2,
+     "source": "Assumption: FY2025 capex 22.7% of revenue; management guided ~$175-185B for 2026 (FY2025 annual report, ~43%+ of revenue), assumed to moderate to ~20% average over the period.",
+     "period": "FY2026-FY2030"
+    },
+    "wacc": {
+     "value": 0.09,
+     "source": "Assumption: risk-free ~4.3%, beta ~1.1, ERP ~5%, almost no debt so WACC ≈ cost of equity ~9-10%; 9% used.",
+     "period": "FY2026-FY2030"
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "source": "Assumption: roughly long-run nominal GDP growth, kept below WACC.",
+     "period": "terminal"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": -80253,
+     "source": "Long-term debt 46,547 (10-K FY2025, acc. 0001652044-26-000018) minus cash, equivalents and short-term marketable securities $126.8B (FY2025 10-K MD&A; rounded to $0.1B). No commercial paper at 12/31/2025; current portion of LT notes not separately found, so may be slightly understated debt. Leases excluded.",
+     "period": "FY2025"
+    },
+    "diluted_shares": {
+     "value": 12230,
+     "source": "Weighted-average shares used in diluted EPS computation, FY2025 total, 10-K FY2025 (acc. 0001652044-26-000018), millions",
+     "period": "FY2025"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Alphabet Inc.",
+   "ticker": "GOOGL",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       307394,
+       350018,
+       402836
+      ],
+      "source": "FY2025 10-K (acc. 0001652044-26-000018) for FY2024/FY2025; FY2023 from FY2023 10-K (acc. 0001652044-24-000022)"
+     },
+     "operating_income": {
+      "values": [
+       84293,
+       112390,
+       129039
+      ],
+      "source": "FY2025 10-K (0001652044-26-000018) FY2024/25; FY2023 from FY2023 10-K (0001652044-24-000022)"
+     },
+     "d_and_a": {
+      "values": [
+       11946,
+       15311,
+       21136
+      ],
+      "source": "Depreciation of property and equipment, cash flow statement (10-K FY2024 exhibit 99.1 Q4'24: 11,946/15,311; FY2025 10-K ~$21.1B, 21,136 per stockanalysis.com). Excludes amortization of intangibles (not separately found)."
+     },
+     "capex": {
+      "values": [
+       32251,
+       52535,
+       91447
+      ],
+      "source": "Purchases of property and equipment, cash flow statement: 32,251/52,535 per Q4'24 exhibit 99.1; FY2025 91,447 per stockanalysis.com cash flow page"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.15,
+      0.13,
+      0.11,
+      0.09,
+      0.07
+     ],
+     "source": "Assumption: FY2025 growth was 15% (402,836 vs 350,018); fade as the base grows and cloud/AI growth normalises toward mature levels."
+    },
+    "ebit_margin": {
+     "value": 0.31,
+     "source": "Assumption: FY2024 and FY2025 operating margin was 32% (10-K); trimmed 1pt for rising depreciation from heavy AI capex.",
+     "period": "FY2026-FY2030"
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "source": "Assumption: approximate recent effective tax rate (mid/high teens) given foreign-derived income deductions; not verified against the 10-K tax note.",
+     "period": "FY2026-FY2030"
+    },
+    "da_pct_revenue": {
+     "value": 0.07,
+     "source": "Assumption: FY2025 depreciation was 5.2% of revenue (21,136/402,836) and rising with capex; 7% average over projection.",
+     "period": "FY2026-FY2030"
+    },
+    "capex_pct_revenue": {
+     "value": 0.2,
+     "source": "Assumption: FY2025 capex 22.7% of revenue; management guided ~$175-185B for 2026 (FY2025 annual report, ~43%+ of revenue), assumed to moderate to ~20% average over the period.",
+     "period": "FY2026-FY2030"
+    },
+    "wacc": {
+     "value": 0.09,
+     "source": "Assumption: risk-free ~4.3%, beta ~1.1, ERP ~5%, almost no debt so WACC ≈ cost of equity ~9-10%; 9% used.",
+     "period": "FY2026-FY2030"
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "source": "Assumption: roughly long-run nominal GDP growth, kept below WACC.",
+     "period": "terminal"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": -80253,
+     "source": "Long-term debt 46,547 (10-K FY2025, acc. 0001652044-26-000018) minus cash, equivalents and short-term marketable securities $126.8B (FY2025 10-K MD&A; rounded to $0.1B). No commercial paper at 12/31/2025; current portion of LT notes not separately found, so may be slightly understated debt. Leases excluded.",
+     "period": "FY2025"
+    },
+    "diluted_shares": {
+     "value": 12230,
+     "source": "Weighted-average shares used in diluted EPS computation, FY2025 total, 10-K FY2025 (acc. 0001652044-26-000018), millions",
+     "period": "FY2025"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 1,
+  "usage": {
+   "input_tokens": 20,
+   "output_tokens": 4391,
+   "cache_creation_input_tokens": 24736,
+   "cache_read_input_tokens": 110481,
+   "server_tool_use": {
+    "web_search_requests": 11
+   }
+  },
+  "cost": 0.2378862,
+  "seconds": 59.278,
+  "tool_calls": {
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: web_search (public web pages). No other data source is available.\n\nBuild a quick unlevered DCF for Alphabet Inc. (identifier: GOOGL).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 20,
+     "cache_creation_input_tokens": 24736,
+     "cache_read_input_tokens": 110481,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 24736,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 4391,
+     "output_tokens_details": {
+      "thinking_tokens": 807
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard",
+     "server_tool_use": {
+      "web_search_requests": 11,
+      "web_fetch_requests": 0
+     }
+    },
+    "cost": 0.2378862,
+    "content": [
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01ARwrf4ZtWGuii7eQACNkvA",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":\"Alphabet 10-K fiscal 2025 annual results revenue operating income depreciation capex diluted shares cash marketable securities debt\"})\nfor x in r[:6]:print(x['url'],x['content'][:1500],'\\n')"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01UhyVy8AdGhhsXR7QKcT44M",
+      "name": "web_search",
+      "input": {
+       "query": "Alphabet 10-K fiscal 2025 annual results revenue operating income depreciation capex diluted shares cash marketable securities debt"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01ARwrf4ZtWGuii7eQACNkvA"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01UhyVy8AdGhhsXR7QKcT44M",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Alphabet-GOOG-_AR_2025_WO2_TRD_WR.pdf",
+        "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/Alphabet-GOOG-_AR_2025_WO2_TRD_WR.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "278 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. SEC 10-K Report — TradingView News",
+        "url": "https://www.tradingview.com/news/tradingview:da3b1ad56fc60:0-alphabet-inc-sec-10-k-report/",
+        "encrypted_content": "[omitted]",
+        "page_age": "276 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q4/GOOG-10-K-2025.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "278 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "GOOGL — Alphabet Inc. financials, 10-year statements & ...",
+        "url": "https://stockrow.com/GOOGL",
+        "encrypted_content": "[omitted]",
+        "page_age": "10 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. (GOOGL) 10K Annual Reports & 10Q SEC Filings",
+        "url": "https://last10k.com/sec-filings/googl",
+        "encrypted_content": "[omitted]",
+        "page_age": "277 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. (GOOGL) 10-K Annual Report February 2025",
+        "url": "https://last10k.com/sec-filings/googl/0001652044-25-000014.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "GOOG Financials: Income Statement, Balance Sheet & Cash Flow",
+        "url": "https://www.stocktitan.net/financials/GOOG/",
+        "encrypted_content": "[omitted]",
+        "page_age": "117 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. 10-K FY2025 Annual Report — Revenue, Net Income, EPS",
+        "url": "https://www.analystlens.com/stocks/googl/10k/fy2025",
+        "encrypted_content": "[omitted]",
+        "page_age": "261 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc Earnings - Q4 2025 Analysis & Highlights",
+        "url": "https://www.alpha-sense.com/earnings/goog/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01ARwrf4ZtWGuii7eQACNkvA"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01ARwrf4ZtWGuii7eQACNkvA",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDHddyeQkXQpDTf1U9hoMk+RNshNNMiZF3w48IjBJQxE/q2DGofs8Kv2pae9tB/XIbq8huCu+XaT/2ltgT2IeInEg3ttrQbVXhwgs8Z8qEp9ZqI39NZm1mTnhTqK6EnWOARgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01ARwrf4ZtWGuii7eQACNkvA/cell.py\", line 9, in <module>\n    for x in r[:6]:print(x['url'],x['content'][:1500],'\\n')\n                         ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01JnCxnwX3mMr2MiL2f6HcDY",
+      "name": "code_execution",
+      "input": {
+       "code": "print(str(r)[:3000])"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01JnCxnwX3mMr2MiL2f6HcDY",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "[{\"type\": \"web_search_result\", \"title\": \"Alphabet-GOOG-_AR_2025_WO2_TRD_WR.pdf\", \"url\": \"https://s206.q4cdn.com/479360582/files/doc_financials/2025/Alphabet-GOOG-_AR_2025_WO2_TRD_WR.pdf\", \"content\": \"For additional information, see Item 1A Risk Factors of this Annual Report on Form 10-K. Alphabet 2025 Annual Report. \\u2026 to invest around $180 billion in total capex, doubled.\\n\\nWe delivered our first-ever $100 billion quarter\\n\\nin Q3 and saw our annual revenues exceed $400\\n\\nbillion for the first time.\\n\\n2024 \\u00b7 2025 \\u00b7 $ Change \\u00b7 % Change\\nConsolidated revenues \\u00b7 $ \\u00b7 350,018 \\u00b7 $ \\u00b7 402,836 \\u00b7 $ \\u00b7 52,818 \\u00b7 15%\\n\\nOperating expenses \\u00b7 $ \\u00b7 91,322 \\u00b7 $ \\u00b7 111,262 \\u00b7 $ \\u00b7 19,940 \\u00b7 22%\\nOperating income \\u00b7 $ \\u00b7 112,390 \\u00b7 $ \\u00b7 129,039 \\u00b7 $ \\u00b7 16,649 \\u00b7 15%\\nOperating margin \\u00b7 32% \\u00b7 32% \\u00b7 0%\\n\\nOther income (expense), net \\u00b7 $ \\u00b7 7,425 \\u00b7 $ \\u00b7 29,787 \\u00b7 $ \\u00b7 22,362 \\u00b7 301%\\nNet income \\u00b7 $ \\u00b7 100,118 \\u00b7 $ \\u00b7 132,170 \\u00b7 $ \\u00b7 32,052 \\u00b7 32%\\nDiluted net income per share^(1) \\u00b7 $ \\u00b7 8.04 \\u00b7 $ \\u00b7 10.81 \\u00b7 $ \\u00b7 2.77 \\u00b7 34%\\n\\n\\u2022 Operating expenses were $111.3 billion, an increase of 22% year over year, primarily driven by increases in employee\\n\\n\\u2022 Repurchases of Class A and Class C shares were $6.5 billion and $38.9 billion, respectively, totaling $45.4 billion for the\\n\\n\\u2022 Operating cash flow was $164.7 billion for the year ended December 31, 2025.\\n\\nCash, Cash Equivalents, and Marketable Securities\\n\\nAs of December 31, 2025, we had $126.8 billion in cash, cash equivalents, and short-term marketable securities.\\n\\nThe following table presents cash flows (in millions):\\n\\nNet cash provided by operating activities \\u00b7 125,299 \\u00b7 164,713\\n\\nNet cash used in investing activities \\u00b7 (45,536) \\u00b7 (120,291)\\n\\nNet cash used in financing activities\", \"page_age\": \"278 days ago\"}, {\"type\": \"web_search_result\", \"title\": \"Alphabet Inc. SEC 10-K Report \\u2014 TradingView News\", \"url\": \"https://www.tradingview.com/news/tradingview:da3b1ad56fc60:0-alphabet-inc-sec-10-k-report/\", \"content\": \"The company repurchased and subsequently retired 240 million shares for $45.4 billion. Additionally, Alphabet declared total cash dividends of $4.8 billion for Class A, $703 million for Class B, and $4.5 billion for Class C shares.\\n\\n# Alphabet Inc. SEC 10-K Report\\n- **Total Revenues**: $402,836 million, an increase of 15% year over year, driven primarily by a $37.8 billion increase in Google Services revenues and a $15.5 billion increase in Google Cloud revenues.\\n\\n- **Operating Income**: $129,039 million, reflecting a 15% increase year over year, with an operating margin of 32%, consistent with the previous year.\\n- **Net Income**: $132,170 million, a substantial 32% increase year over year, driven by strong performance in Google Services and Go\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSlwUKEAgTGAI4AUIIdGhpbmtpbmcSDG7u32Clsoy9JkmxOhoMvSUtg+pnuTSJvcDAIjDgIzWwsATuCiUi9qrOLJ2Q/Fk12s3UYjDAo1yV7Rl0sBHfgBjoF2H736TH6ys6mjsqtARXAzubl98KiMHzkolui3H7u2po0T+9ERNEiFrpN32DnRqqLZ9m3Bvc52UiR3I2Lk7LarYedjFaqI4LhqKFDWFv2U16GPuIBQul9QiZ/JjEEoihd52B5Bqu5ojdRXNUOCwdpvg57lCf/Y3PE3IinE6aU25mXwqXH0Qss77k/Kksz++LEVk/ejYpQMVG/lfkOmMkvRZ1JLjj79WJl4UKzN9m3q2DJ6XwMOWeuBi0UjLimiBhtSigvX7iVl3pwyV8olsnohtwhvX0FVlUVG34jO9xHBcV1hlaFPQ9Jw1zWRPMOTP67AWqfOK03t1oU57unb/t6seZgaH9TymEUIITVlwEBMbEgkL/fQ7EDESVy1Alf3Uf4sfrgkM8Mr3lCIVe1Je41p6fqFOJho2QOgdjptCagNIytuApk2VsJYGYau3WpNuc//5DCe1bnEmyKdPGey+jBrs1kG73QG7OgNczJap5qA9b/0ixcghdym0JdQFWDPIu1up9eLycXs6Bd2fKI3mI9EFmv/ge44K7Ohp2KxGXO+fyIWyY82t0KLgeYtee9Jshxlgs9fIz78McE0MJcPckpwS5FbTzTWNm5jJEiGT2eFxy7ooLQqSfpZotOkOlWr20LhlE4dUbXITcO9o82l6u+/zeBHbC/1zz+UDVy2dPBgQnwlb3B50X30fOz17kX+eNMd/MccN6Gg8HSRkX02XvYIjow1b7GcCs7P9HnSF2QmQ78ceWNLPh/Q9wSuLYbDmzk1cYAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01YWGr6xU38qiMGrkvRR3z1n",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"Alphabet 2025 10-K depreciation of property and equipment purchases of property and equipment 2025 2024 2023 cash flow\",\"Alphabet Q4 2025 results long-term debt weighted average diluted shares 2025 cash flow statement\"]:\n  r=await web_search({\"query\":q})\n  import re\n  for x in r[:6]:\n    c=x['content']\n    print(x['url'])\n    for m in re.finditer(r'(?i)(depreciation|purchases of property|diluted shares|long-term debt|short-term debt|notes payable)',c):\n        print('  ',c[max(0,m.start()-80):m.start()+200].replace('\\n',' '))\n        "
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Sj77VRRufjiPBAbehhyj6W",
+      "name": "web_search",
+      "input": {
+       "query": "Alphabet 2025 10-K depreciation of property and equipment purchases of property and equipment 2025 2024 2023 cash flow"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01YWGr6xU38qiMGrkvRR3z1n"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01Sj77VRRufjiPBAbehhyj6W",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/goog-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204424000022/goog-20231231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2024 (Annual Financial Statement Tables - full year 2024)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q4/GOOG-10-K-2025.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "278 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Announces Fourth Quarter and Fiscal Year 2024 ...",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000010/googexhibit991q42024.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "643 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Announces Fourth Quarter and Fiscal Year 2025 Results",
+        "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q4/2025q4-alphabet-earnings-release.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "278 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. (GOOGN) SEC EDGAR Filings, CIK 0001652044 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/GOOGN",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Announces First Quarter 2026 Results",
+        "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2026/q1/2026q1-alphabet-earnings-release.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "194 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01YWGr6xU38qiMGrkvRR3z1n"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01YWGr6xU38qiMGrkvRR3z1n",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDNPJQaa5uh93LNHtuxoMoDK+dZJ0E7+PZLn7IjAGX/AsNDpkVTo81driUTM2H9nPOWyhGjyWYkhjK63jTrdqVJUiBcRg89M2ghMclfEqEvWmIbS53Up7MJ+HeKk0L8wtzhgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01YWGr6xU38qiMGrkvRR3z1n/cell.py\", line 12, in <module>\n    c=x['content']\n      ~^^^^^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "text",
+      "text": "Results seem to be a string sometimes."
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01H6E8xUAvRsE6PjjssfLa4L",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"Alphabet 2025 10-K depreciation of property and equipment purchases of property and equipment 2025 2024 2023 cash flow\",\"Alphabet Q4 2025 results long-term debt weighted average diluted shares 2025 cash flow statement\"]:\n  r=await web_search({\"query\":q})\n  print(type(r), str(r)[:300] if not isinstance(r,list) else '')\n  if isinstance(r,list):\n   for x in r[:6]:\n    c=x['content']\n    print(x['url'])\n    for m in re.finditer(r'(?i)(depreciation|purchases of property|diluted shares|long-term debt|short-term debt|notes payable)',c):\n        print('  ',c[max(0,m.start()-80):m.start()+200].replace('\\n',' '))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_0134bpvZ972SmAhfP7EHY2Pr",
+      "name": "web_search",
+      "input": {
+       "query": "Alphabet 2025 10-K depreciation of property and equipment purchases of property and equipment 2025 2024 2023 cash flow"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01H6E8xUAvRsE6PjjssfLa4L"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_0134bpvZ972SmAhfP7EHY2Pr",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/goog-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204424000022/goog-20231231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2024 (Annual Financial Statement Tables - full year 2024)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q4/GOOG-10-K-2025.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "278 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Announces Fourth Quarter and Fiscal Year 2025 Results",
+        "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q4/2025q4-alphabet-earnings-release.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "278 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Announces Fourth Quarter and Fiscal Year 2024 ...",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000010/googexhibit991q42024.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "643 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. (GOOGN) SEC EDGAR Filings, CIK 0001652044 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/GOOGN",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Announces First Quarter 2026 Results",
+        "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2026/q1/2026q1-alphabet-earnings-release.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "194 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01H6E8xUAvRsE6PjjssfLa4L"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01PQk1UGXyW4xvG4rMqWNgY4",
+      "name": "web_search",
+      "input": {
+       "query": "Alphabet Q4 2025 results long-term debt weighted average diluted shares 2025 cash flow statement"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01H6E8xUAvRsE6PjjssfLa4L"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01PQk1UGXyW4xvG4rMqWNgY4",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-Q - FY2025 (Quarterly Earnings Tables - quarter ended Mar 2025)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000043/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. (GOOGL) - Long-Term Debt (Annual)",
+        "url": "https://www.alphaquery.com/stock/GOOGL/fundamentals/annual/long-term-debt",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet (GOOGL) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/googl/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1304 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Investor Relations - 2025 Q4 Earnings Call",
+        "url": "https://abc.xyz/investor/events/event-details/2026/2025-Q4-Earnings-Call-2026-Dr_C033hS6/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "278 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Q4 Earnings Call Highlights",
+        "url": "https://finance.yahoo.com/news/alphabet-q4-earnings-call-highlights-235256741.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "277 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Q4 2025 Earnings Slides",
+        "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q4/4/2025q4-alphabet-earnings-slides.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "278 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "GOOG Financials: Income Statement, Balance Sheet & Cash Flow",
+        "url": "https://www.stocktitan.net/financials/GOOG/",
+        "encrypted_content": "[omitted]",
+        "page_age": "117 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://fortune.com/company-assets/1500/quartr/quarterly-report-10-q-19214-2025-10-30-10-17-08.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "383 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01H6E8xUAvRsE6PjjssfLa4L"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01H6E8xUAvRsE6PjjssfLa4L",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "EoYGCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDHp2sENlUhijjTcC7xoMtEWnQnVnMT23T50dIjCa6ayzrLC8CP6kFVFImz1FZIXUz3hX3W2zvrFgcMfiMv4zo7zxXS+Hp2KZYz2UOg0qiQX7+IRXvrrg5qGc9YPFVIfmncYjXqoUuzC+C4cSb0Mxa+ciAux5ESMnBWaV5q33lWgBMtqKXyg1ZPChVwsg8xgdUQht4tzNSp4Pm1lv0dVRlEBIYGAVZfTBNiE7cejckiLPKa6MLoHdYT6yIEzHpDMd4aHAyYxoYJjctBEeqNM+6OCcFX2awzldut+wab3ZgrxAklj/WrnTOYrJeTMi7gWDgYh1x22KWWSw7NYlLO+ZRfX/txQKuX51sWen5WPDfvzFr6FgRwG/AimJHgRqoGZqfNwddqK4mnk5B/vVuXN4FLSWn3wX/WC9pqS8TPRi9xSLFOB0sH7DrovMnU+Aue6s3g0/QwI9M6qdwP4tMl+A5uFcPrOJVlOeXrqaKddbNsVIgwkjnDtVvhTf3U9Cq4va3Jx8FhrGWT1M/qvDNA0E3cncyqwleFx+kfcd/7eNXymuryTPPOSfDBYjnIt77nY/5Xo8VL4TW/HR9czgk4rerwY4f/0hBUTfrarTanUlqLnEOyGxiYSjFUBgpefdQIpD2gPXB6/YlyFe1ddwxMn7jOheacuRnqR/1LpDGiD+Uk86s2y9PCdaUbd/qJyCpYZhx7b2SJwPaVK+a9T1U5uNWHPTXLMCKy/5RbqN9HgcpGY+vUh6GWmyMBraoDLQ3041zy7HBBezn5SnVnjwKjwGQwi4e4tRkWz3H0A5aPWdjWcntZWAZaahVeeEETdhletikHyKe9+/Oild9E7lknmThIjqjoYvHuSoPlrTCZPeXtVl/X/wpSxEELFtDco4D83DWdpvuNhjCWUNDL4fAlNrGZwD7CKc87wrQ2Yx4QPzJx/SAxZMuuXW4LOfAYXPkOEtQ2m6WaWbyODQGAM=",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_012d6cngyqwpBDZ9hgtqD2MK",
+      "name": "code_execution",
+      "input": {
+       "code": "import json\nfor q in [\"Alphabet 2025 10-K depreciation of property and equipment purchases of property and equipment 2025 2024 2023 cash flow\",\"Alphabet Q4 2025 results long-term debt weighted average diluted shares 2025 cash flow statement\"]:\n  r=json.loads(await web_search({\"query\":q}))\n  for x in r[:6]:\n    c=x['content']\n    print(x['url'])\n    for m in re.finditer(r'(?i)(depreciation of|purchases of property|diluted shares|number of shares used|long-term debt|short-term debt|notes payable)',c):\n        print('  ',c[max(0,m.start()-80):m.start()+250].replace('\\n',' '))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01HnWoamGXt1wzyc9u53KyLe",
+      "name": "web_search",
+      "input": {
+       "query": "Alphabet 2025 10-K depreciation of property and equipment purchases of property and equipment 2025 2024 2023 cash flow"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_012d6cngyqwpBDZ9hgtqD2MK"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01HnWoamGXt1wzyc9u53KyLe",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/goog-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204424000022/goog-20231231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2024 (Annual Financial Statement Tables - full year 2024)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q4/GOOG-10-K-2025.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "278 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Announces Fourth Quarter and Fiscal Year 2024 ...",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000010/googexhibit991q42024.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "643 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Announces Fourth Quarter and Fiscal Year 2025 Results",
+        "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q4/2025q4-alphabet-earnings-release.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "278 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. (GOOGN) SEC EDGAR Filings, CIK 0001652044 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/GOOGN",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Announces First Quarter 2026 Results",
+        "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2026/q1/2026q1-alphabet-earnings-release.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "194 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_012d6cngyqwpBDZ9hgtqD2MK"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01ShDWYXYPVrH6AdbjQH41uS",
+      "name": "web_search",
+      "input": {
+       "query": "Alphabet Q4 2025 results long-term debt weighted average diluted shares 2025 cash flow statement"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_012d6cngyqwpBDZ9hgtqD2MK"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01ShDWYXYPVrH6AdbjQH41uS",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-Q - FY2025 (Quarterly Earnings Tables - quarter ended Mar 2025)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000043/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. (GOOGL) - Long-Term Debt (Annual)",
+        "url": "https://www.alphaquery.com/stock/GOOGL/fundamentals/annual/long-term-debt",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet (GOOGL) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/googl/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1304 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Investor Relations - 2025 Q4 Earnings Call",
+        "url": "https://abc.xyz/investor/events/event-details/2026/2025-Q4-Earnings-Call-2026-Dr_C033hS6/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "278 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Q4 Earnings Call Highlights",
+        "url": "https://finance.yahoo.com/news/alphabet-q4-earnings-call-highlights-235256741.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "277 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Q4 2025 Earnings Slides",
+        "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q4/4/2025q4-alphabet-earnings-slides.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "278 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "GOOG Financials: Income Statement, Balance Sheet & Cash Flow",
+        "url": "https://www.stocktitan.net/financials/GOOG/",
+        "encrypted_content": "[omitted]",
+        "page_age": "117 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://fortune.com/company-assets/1500/quartr/quarterly-report-10-q-19214-2025-10-30-10-17-08.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "383 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_012d6cngyqwpBDZ9hgtqD2MK"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_012d6cngyqwpBDZ9hgtqD2MK",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS6AYKEAgTGAI4AUIIdGhpbmtpbmcSDE4tLNjQldwsArnm8xoMN4OxX6ux1idM31gLIjByuCEti8JKGbs8RQ7hBlExkeZc30maHZ7qLs/DMVnerb6lm9D1HIta6Odq8jcXaVYqhQZ1g2UUrcEnCLpDh+fcC9nsh+oodq6UjVodLqmJ4TM/ZBvSBE/KKSuOEZrrCOU3vXsGB93wmBAGrZB0rKAtnaWLsFbz+E73cTwSgkBVJKcGzFzb9rWeXCmIc77Nd/3muk73fsXv7WFTm4M/jzwnwFoi5lETc7p6Sa+sbL0gv4ij1Zf71pJXVPr0TocY8WY5Yt9k3TOMHgGEx4/vgi5dmGWviewVLoMuZGBuBWLgwqJrY9PdV7hzAsUkUhqTP8M/1/C02CrCiTLJmQvnTBrt7VZw16g/Eje7MUxHFcMbmnPBwx0x6/TXDLbh7qeHxSzLah3+uYBwgEgjUXKyP/1PfM5L/zAcmEQiNCF1iu9XtPqG7d8SFDT/GK2TwkFa/odosrEU8pCRTU/Lo2U9nHY7XSYSrUpH75RB3ZttB2P69Z6tlcvVtRYV9wU1PCC095fLLBqTaHQkoSijkT5hV5YtKdt365h4jDy2ZvZnzGiTu890r6AtATHVn1kYeRTapxTZtaxp954pMkIEMe0R2ynVgeMMjfSDWhFyTffmLcerCCDet9uMgs9JeL3lxvfB9Ikw7GUEo/HC7/uUtU6AXWKJmQ6+rNuJJYIVmvBy2Bx0Gcd+b/0CYRWOC/XiaGYlnpo2DMjldkl5EkVrDn0xBRdJnflxIed2hVfti7VH40gQreiB2xAUtOr457sGG+bsYPvvmhiC282ID6Obw78LV71PGw2HZymJw/EzxP/QGouNxQC7MkPM7dLJoonkQWO5C3xsaB2NGi+L0RCQJQwpvVhFCQ5qYY9b+b6AsS4933VOM5XBOnwF1MKtnRG+BeSNDhyvDvaQOkj7KQi5X6FuFpHLarGUSTVulJ3TClyt5fYTDigmSmp+iws2pVivsDDtRa8PqQwQbF7I7AANKOnPN/Uvma6pT4wJS1Btg1L9C4P7dIT6uh9o6Hx+pXJh5WGw4NLOS0ront//Oif8/e+SCRXN2frcMqhAHSrF/jGfusyGezj6EE/ZUnynhe6zHDiAbdTitQ1PLIjlzhgB"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01DQGXD1PD5LRSzK7MJYTdYn",
+      "name": "code_execution",
+      "input": {
+       "code": "for u,q in [(\"cf\",\"stockanalysis Alphabet cash flow statement depreciation amortization capital expenditures\"),(\"s\",\"Alphabet FY2025 current portion long-term debt commercial paper short-term debt balance sheet December 31 2025 weighted average diluted shares\")]:\n  r=json.loads(await web_search({\"query\":q}))\n  for x in r[:6]:\n    c=x['content']\n    print(x['url'])\n    for m in re.finditer(r'(?i)(Depreciation &|Depreciation and|Capital Expenditures|Diluted\\b.{0,30}shares|Shares Outstanding \\(Diluted|commercial paper)',c):\n        print('  ',c[max(0,m.start()-50):m.start()+250].replace('\\n',' '))\n        break"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_014FqXEF9Ts26Bxb7Ni2UVgP",
+      "name": "web_search",
+      "input": {
+       "query": "stockanalysis Alphabet cash flow statement depreciation amortization capital expenditures"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DQGXD1PD5LRSzK7MJYTdYn"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_014FqXEF9Ts26Bxb7Ni2UVgP",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Alphabet (GOOGL) Statistics & Valuation",
+        "url": "https://stockanalysis.com/stocks/googl/statistics/",
+        "encrypted_content": "[omitted]",
+        "page_age": "110 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet (GOOGL) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/googl/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1304 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet (GOOGL) Financials 2026 - Income Statement and Balance Sheet $GOOGL",
+        "url": "https://www.marketbeat.com/stocks/NASDAQ/GOOGL/financials/",
+        "encrypted_content": "[omitted]",
+        "page_age": "109 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Free Cash Flow - Alphabet Inc (NASDAQ:GOOGL) - Alpha Spread",
+        "url": "https://www.alphaspread.com/security/nasdaq/googl/financials/cash-flow-statement/free-cash-flow",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet's free cash flow drops to negative $9.1bn despite $26.2bn profit",
+        "url": "https://ppc.land/alphabets-free-cash-flow-drops-to-negative-9-1bn-despite-26-2bn-profit/",
+        "encrypted_content": "[omitted]",
+        "page_age": "11 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Free cash flow",
+        "url": "https://en.wikipedia.org/wiki/Free_cash_flow",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Cash Flow Statement 2011-2026",
+        "url": "https://www.macrotrends.net/stocks/charts/GOOG/alphabet/cash-flow-statement",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Amortization (accounting)",
+        "url": "https://en.wikipedia.org/wiki/Amortization_(accounting)",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Cash flow",
+        "url": "https://en.wikipedia.org/wiki/Cash_flow",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DQGXD1PD5LRSzK7MJYTdYn"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Mnno1hMKEHJMyQc49r9J8B",
+      "name": "web_search",
+      "input": {
+       "query": "Alphabet FY2025 current portion long-term debt commercial paper short-term debt balance sheet December 31 2025 weighted average diluted shares"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DQGXD1PD5LRSzK7MJYTdYn"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01Mnno1hMKEHJMyQc49r9J8B",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000130817926000344/goog014907-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000043/goog-20250331.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000062/goog-20250630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000091/goog-20250930.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://d18rn0p25nwr6d.cloudfront.net/CIK-0001652044/3df3f79a-6297-4085-a369-fb1d33acb004.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "194 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Long Term Debt - Alphabet Inc (NASDAQ:GOOGL) - Alpha Spread",
+        "url": "https://www.alphaspread.com/security/nasdaq/googl/financials/balance-sheet/long-term-debt",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-Q - FY2025 (Quarterly Earnings Tables - quarter ended Mar 2025)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000043/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet (GOOGL) Balance Sheet",
+        "url": "https://stockanalysis.com/stocks/googl/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. (GOOGL) - Long-Term Debt (Annual)",
+        "url": "https://www.alphaquery.com/stock/GOOGL/fundamentals/annual/long-term-debt",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DQGXD1PD5LRSzK7MJYTdYn"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01DQGXD1PD5LRSzK7MJYTdYn",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01DA7z7YmjVrgg4hVhCLYKcB",
+      "name": "code_execution",
+      "input": {
+       "code": "r=json.loads(await web_search({\"query\":\"stockanalysis Alphabet cash flow statement depreciation amortization capital expenditures\"}))\nfor x in r:\n  if 'cash-flow-statement' in x['url'] and 'stockanalysis' in x['url']:\n    c=x['content']\n    for k in ['Depreciation & Amortization |','Capital Expenditures |']:\n      i=c.find(k);print(c[i:i+200])\n  if 'marketbeat' in x['url']:\n    c=x['content']\n    for k in ['Total Depreciation','Purchases of Property','Capital Expend']:\n      i=c.find(k);print(c[i:i+300] if i>=0 else k+' none')\nr=json.loads(await web_search({\"query\":\"Alphabet 2025 annual consolidated statements of income weighted average shares diluted 2025 12,1\"}))\nfor x in r[:6]:\n  c=x['content']\n  for m in re.finditer(r'(?i)number of shares used in (per share|computing)[^\\n]{0,200}',c):print(x['url'],m.group(0)[:300]);break"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_013bCX3GjBkSjKY82oZRH6aX",
+      "name": "web_search",
+      "input": {
+       "query": "stockanalysis Alphabet cash flow statement depreciation amortization capital expenditures"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DA7z7YmjVrgg4hVhCLYKcB"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_013bCX3GjBkSjKY82oZRH6aX",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Alphabet (GOOGL) Statistics & Valuation",
+        "url": "https://stockanalysis.com/stocks/googl/statistics/",
+        "encrypted_content": "[omitted]",
+        "page_age": "110 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet (GOOGL) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/googl/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1304 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet (GOOGL) Financials 2026 - Income Statement and Balance Sheet $GOOGL",
+        "url": "https://www.marketbeat.com/stocks/NASDAQ/GOOGL/financials/",
+        "encrypted_content": "[omitted]",
+        "page_age": "109 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Free Cash Flow - Alphabet Inc (NASDAQ:GOOGL) - Alpha Spread",
+        "url": "https://www.alphaspread.com/security/nasdaq/googl/financials/cash-flow-statement/free-cash-flow",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Free cash flow",
+        "url": "https://en.wikipedia.org/wiki/Free_cash_flow",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Capital Expenditures - Alphabet Inc (NASDAQ:GOOGL) - Alpha Spread",
+        "url": "https://www.alphaspread.com/security/nasdaq/googl/financials/cash-flow-statement/capital-expenditures",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Cash Flow Statement 2011-2026",
+        "url": "https://www.macrotrends.net/stocks/charts/GOOG/alphabet/cash-flow-statement",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Amortization (accounting)",
+        "url": "https://en.wikipedia.org/wiki/Amortization_(accounting)",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Cash flow",
+        "url": "https://en.wikipedia.org/wiki/Cash_flow",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DA7z7YmjVrgg4hVhCLYKcB"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01FREKp8DLpZBXeJ2bUgm8VS",
+      "name": "web_search",
+      "input": {
+       "query": "Alphabet 2025 annual consolidated statements of income weighted average shares diluted 2025 12,1"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DA7z7YmjVrgg4hVhCLYKcB"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01FREKp8DLpZBXeJ2bUgm8VS",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000130817926000344/goog014907-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Consolidated Alphabet revenues in Q1 2025 increased 12",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000040/googexhibit991q12025.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "564 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000043/goog-20250331.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000062/goog-20250630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. (GOOG) - Weighted-Average Shares Outstanding (Diluted) (Annual)",
+        "url": "https://www.alphaquery.com/stock/GOOG/fundamentals/annual/weighted-average-shares-outstanding-diluted",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. (GOOG) - Weighted-Average Shares Outstanding (Basic) (Annual)",
+        "url": "https://www.alphaquery.com/stock/GOOG/fundamentals/annual/weighted-average-shares-outstanding",
+        "encrypted_content": "[omitted]",
+        "page_age": "678 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Sec",
+        "url": "https://www.sec.gov/Archives/edgar/data/1046568/000119312526059331/R41.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. (GOOGL) Income Statement - Yahoo Finance",
+        "url": "https://finance.yahoo.com/quote/GOOGL/financials/",
+        "encrypted_content": "[omitted]",
+        "page_age": "3482 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DA7z7YmjVrgg4hVhCLYKcB"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01DA7z7YmjVrgg4hVhCLYKcB",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Ep0ICioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDBBI04NywX19hp+NQhoMTXys4gKijx1TDoAvIjAL/7yjYq8imp6OG4sj2rAl5++4Vo+wDozya5i/b/tcHd7GANOnO77dI0Mw4VRiVaoqoAcRBcI1l/1g26/8SlDa4NAk7AfkXAFmAsUgcw8tnQySkpuCSMEiiq5slrAaBfE5z1F/eopFZyPUBjhUL+avAVY1coatmynuNJa9l4LdeHrtSwRmbSJmp2SWFcKrhcIEdrU6OU/2H0bh1Y0xKRVCNQOnVgoCuQ9lnVdSa6fX2i3b9J7YlOsldsR9FaVJaXkLWY4fZfACzg6S4WxLI0nNd4FaAMJf2Ml/5iZ8pGnJlhfntaH84/675v/SaHJpLBh3MU2Yzv1gz55uxvKCsqAgT2/WbQy9gjwB+AmGXk/6yRUXXWfP7NVXSQjAeR79P8LUItgdwwPDfEoZKEHILhtU00aToUHqY6jJcX1cpgmoDhg4X1f4jzFBJpefC3YHSRaPNnaG3nBZhXrYtQvyUr0mE47Uw67ASIPsXlQTLYI2lNNmouNzs4bANQcAht/Z5tvZBZE67UcKaxmXeJlADT4VtNb/BbQfkVB6UrCIWx3N+F/R1YOB/TnHMHrRV/ndhDFnSTLd87//OOEyoQK/ix0NNNrkwDAdPm8yEJU8AY57AcSuQik0aC+vwufxaS6EH7RWSGZnlb6qiio5IXnoIO5csPjFb7PF4b7EQBGFhgQouBruL86XHsbHdUkwMRFtMWx1Uaw41twaa8tj9eroClyZAVFBYMJjMrO1MyTmAjqNIxI/BPodLDzdTxlcRYyCCDDtiPOIL6+OCYs6iVPpdG+bvCYJRgE9vHbcRl/5rZJL+v9BU7FGVfj44++PTi/n56jix7mAgot+V2LnJBxV0XqvnAqtC7qiXrstC90u7UTFdhPnwP9C+GIXfs8m3BlEw9orJEX/8w+hsm+p5MDGs8GcGpYHt7dmlBMutljEvlPVe2uKLCT+JPH2hxovYrSlBnvlbdOiowE+onnCnCQ5IQYhDW67DyB3MVMlPXvu8vchYfCyFuR5RqJdNnsnU1nxd9uDq2/dnWxtJKQaOLUqZBNAJzPSClgw+okrpvxSSmOQPKR1yfoXXeU4L4gaKteKum6SqH9GDy85ZyyeJS1hWSwuqWJAzw4s6/tcPcFwY6eqyQGvarHbNWZo8Yw051i+1O2MATgP+CtpFHS8zgFT+IhYNRbllmzkwtrGtH7ChgcRa0pmFnEUn5B7zpyc60ckJwwUPECgZvsMKegx92V50AnvTUHNmcP5Mzp9CGIt276COqtwfehbHLkDN1rR9n2VyKGhZVf1CVXzFisvBfiW9sFvmCO6GAM=",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSvQkKEAgTGAI4AUIIdGhpbmtpbmcSDAALpRGzlVFZL4vaAxoMEl/a68+86MUDwmltIjD9vj0FshxXqMKHbBs8RWhpL03tVNLMiaoaNoyee/6gmrqTxjmqkiEXMJYG7So3ziUq2ggSi0uglWsgPGHN9v7q6WV9UjldqqwQURBW8poOlC+oM/zVah4S3YaMoA+0GUnC+krH/tBgIZXUq2EkntPGBw8sIPmRQ5NN61XaiG7nLa5vrrs/PvpxwGTpcWPtMtqb2y8av5eJbZ+szfJmO1HEoFjOHV3H+k/dKyHR0feCPMTyYWUSahSq9UjbRUpLBsrSHE0dSqKzLOSdqbry9XTnJR2yzSJ0RxYKcnH3MrjILUKGpn6RWA2XobPEfYq/24pgq0fFl3gY/ODPoENYEuGN1D+s+E/JZCWvafs0odkU4g0jjfnNUT6tiZZiZrUC2FpVi4PoGUbpe75COXkQKpY15YEoycZe4J646EY4R8GvDB2l+plJPkwp6tWVATs+I/LSxCxiXu09Ro2GGJkeCvaZr6cozDbRYENGcbDlP4LH+bUq+xYQ6A5xdvMJFPPtJnNGCTdl/guVwsXD2X+4tJD477KWMjavKgUCVDqQ0Vo5+bzq8RG9Rg2RUErAzZq3IusuyJu84Qys27yjXLkHXCN8W91dTKHWD/vznxHUM7YW6rv/juWLeg23uxE7jOuJg89pd1VEcfmbCOwLWxw0yxayHL5IvkancrvHU7chIP6/LnVjFpUo8Aztx18rHCbpIZXiPREk2/xNZViN37rXwUyQEA6pHSWRduxRsDwoSnOygipoBcYWXTuXujo8IHDZ4+wm6u3MTPqycY1MmPmFnI9Aa/HZx/bbAI4qTrmYC0bpq3XbdK3P4LXNEmFVFI8/20zo6/JpPPc26zNQrAi9Vm5D+904SqNuxUSU3JTIgDRZlqLYN36LC0eAF3cs8TcDeqRDtUgZJYt0AZmmR5OoPQYEf7nizBy6gkSzcHEbiYjj/N/w9ateMBjhEWk+msY1OvALM+irJqat3xkSbCpdhOFI8vLU0vmPW4kD2a7Csf4fdHuvyqsiU2iVKv1UzGVkH9NBEZLRUZXcXmnmXGDNV8RS1/+/LCR0St2UdtesPN3/1sO6aYJ65sCCltdk6IzzNG6PYfOIiLwQIq+JawjvnDyzRzxeQVmnv4kvZC0x81cVfN/kn58P1wqvDRb7UJEn+iyFqlASRbqblFbDHQ71o6Zm+AvlR6AO6w7vlQlqYTu60+HgUFFdfrFcd1OSh6r60WP92/mgXNAovD8+QCGoMGoTyEwgJ6CFATDsnXluHN/5dqicBSows5tLJYAxJAEgR54/7ELLUXj/7RvWPpH11b2CFE4z7fc+llImCdDc4YHvcssx/gumTw9I/0yp+dltdBmxY1LtF1V7Jfu6TvFLfXC7Kenq9nk4IQGvQcvCd72nKs+4YdDQZsGTRiagIZgMmzqz6kFMvpo7dIDB7OKrZd3Nj/GobxH5dg2amxRZsXpwP+Cm8dIXD7q/QG54IFnIY8HqlBE6fgDocO18RLYcOM3KV1BGmpC/7c3XS5I1seLR4131bwaxMwEm4A/SKRq60Dp052K3DEsOXlhCaXq9GAE="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01CgsPCbJWVKghY7iH7EymkN",
+      "name": "code_execution",
+      "input": {
+       "code": "r=json.loads(await web_search({\"query\":\"Alphabet fourth quarter fiscal year 2025 results number of shares used in diluted EPS computation year ended December 31, 2025\"}))\nfor x in r[:8]:\n  c=x['content']\n  for m in re.finditer(r'(?i)(diluted (net income per share|shares)|shares used in)[^\\n]{0,250}',c):print(x['url'],m.group(0)[:300]);"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01BF7nq2YLeEb3168kctaNWL",
+      "name": "web_search",
+      "input": {
+       "query": "Alphabet fourth quarter fiscal year 2025 results number of shares used in diluted EPS computation year ended December 31, 2025"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01CgsPCbJWVKghY7iH7EymkN"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01BF7nq2YLeEb3168kctaNWL",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000130817926000344/goog014907-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000010/googexhibit991q42024.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-Q - FY2025 (Quarterly Earnings Tables - quarter ended Mar 2025)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000043/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000087/googexhibit991q32025.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q4/GOOG-10-K-2025.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "278 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet (GOOGL) EPS (Earnings Per Share) (2022-2025 10-K)",
+        "url": "https://app.edgar.tools/companies/GOOGL/disclosures/earnings-per-share",
+        "encrypted_content": "[omitted]",
+        "page_age": "277 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Alphabet Inc. Q4 2025 earnings summary — revenue, EPS & margin",
+        "url": "https://vectorshift.ai/research/companies/alphabet/earnings/2025-q4-summary",
+        "encrypted_content": "[omitted]",
+        "page_age": "278 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "GOOG EPS (diluted): $10.81 (FY2025) & 10-Year History — stockrow",
+        "url": "https://stockrow.com/GOOG/metrics/eps",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01CgsPCbJWVKghY7iH7EymkN"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01CgsPCbJWVKghY7iH7EymkN",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSlQ4KEAgTGAI4AUIIdGhpbmtpbmcSDB92d7lXCfYrUAdeyhoMhaUaNwsQeXY8PiaGIjCURs8dWNLIEe4S1X+kwOD7Lvqn3aGkD1mPgnURXnOaNCcj00v9ZvQV9sB5G3YikLcqsg0UPbPHFxKeqtjSfM39E7A3FdiKtDI+z/lBEq7YBU491d7twP1uYCRzGFrLT3tXusARWVFcUKhmtHB2V62NuLL2bW3JGX6HqynTIdbSH6+7E+FfJ86RrMjHBnpKRNMHxPcA/sinxWDeIB7xBEbgUkXCcnxkKtZGHgdnrw2A7r8ef9jFUz2VCpPSVI/pE6hCqMmq0LRONskUjdBYE2QfLmFSvFmk5ghYKalQjqgdz+Uuhku67fa8AFhg3ePWXU7QWfunO8gQnGp/2gD22xzXqgJp86UMLedB5SQPnp+whH6e1ZEdF9x/Xc9DxfZgTPVBijOWYlTqaC0486hvQMgZwCF2RPNWBEBSqA7FY0ZuA4DDuGoNaXBJFln5iJCcrvGPbllTnm1QwueIoCNJ/Vb9m1oq9yQaE94bpzv94lcHq5fPVhvMPu8M0XtvYGETPXAfF4rJoJRe7HPSRfGDr66L7ftvJnSObvngmhQEQXxsFrZW4L5N/0XAEzRxy4G1WkunQmCs3gqMu6diCDTqfoTK+HhDZI94TVfN96UYB/ke8RDnoByhln7eS0UULnGPvndW9BuXeelIZmo8f2K6atTfx6XzhtDvld3tXbr6+4M5I+Mu7BLd7UyM8uxaUOAR3oP8TtbHbB1B2BwHjSKPGB9Yp/pfeMvZsG6tIQfg4XFYf5ZdlMwdiO0HrIL+3/W0HUZo6Rr/IBVDmqTfYcQDJ++f0M4r9Z5YOFO7N8CSSiPCE9hjYa2CIcg8T/yoJ4IdMY4QcnsC0x6UWQcBiE7fyY09RpZZ/e98w+HPjEGH4xwiw0WiFYeatgf4yuSegWYMJxCo7xF38bTnxxhvxbcgFFanmoQwJGpJ1Sa0qnLGYQJsZBpdBz/vmcZcTPVpvV/M+8VhFy9e4G2M3mTBGMZFtLQ/JwPVGJCoTpiJCLFGRl2CC9xa2OBFty0TNFvpxu70XwQ2ulHK0CxI03QqtymbO+cWWtEQgU7TzyRhFYf4o1R1oJ922T/dWoR+tOIKhdxb0NL1j90sEaTl5GN55Nw2HVv7LY9OZw348QqrzH+33589pNxSZ0cTZO4sUAaJS0trwrWqskChL+5OGyANEv7vukJajffZ51giT0ilIzESbQsfCYLyzcv6wrOdoXDlC7KjU/I3pNV4cdrQ57PXS0T7jEUdZ88NxKtQ8nAJCwwh3TAKsUVgxLCdj0A3cd8mEOnkuIPs6IZwzDU0fNcKgeM/E7UEQQ6zV/dF3yP2YVp+Q6jzQRbjIMJIWGWJTaj5zAf5lGs6vwYQR/3y47hxtAl+AIUUp00kVswTkAGXPP+v7dlcqsUpFU/rZGjRkn94BRRyu+xdr1DAzf736oAPciS+usVOoyBPl0YsGHlSfhxXV96ekSJquu1Qu1/etshCprSsCRx3WCZVKQYsI8mrTPLSefd4rWdnvB2H7c1grMLFuYNKAuMLbI4bITKag9U0rfWo1IxSp87WpOTAtqTlNuiSWuX5sRq5g8D0KrwvV7a+BvO+yNaMReJFChjbIqfZEWi6LpmnjpG2ouFC5rjOWCN4yW/t5goQNKhHBopb5FN3AvCPQlEw+sKXh5sC7V0mG7JJc1D/KMixIHlRBi39rYrTjSDwCIDW5u2KCylxzJ75c9t0H5SfAF6K8WThXWkqmn3s0cAL+0oZGiOO9OdEID58XUVPPnvZ9HFwKErvQRBSjdFL93Iw+RYpEWjtDAr4E2rL+6Tok8Asi7qEfw6F7JTBJREAGc+O7sADJljpBGB0tpPtxwLDYk9vOFgY2MkC9PDMQDRVm4J+SESvOB80jkLKYomERr5du0hhjzQzfTei4OGnEl+vhTefHDxZEgclrGhpOQMcuaMRLejiQJCEIDixEQrK5VxGJAqjKAGMMqP7GBzWBe0D+VRuN4nSdkui70s38CmwR+EdGKfqGoBB/H8e4ouTOeqLPWY1gt6gKXSeYRTQMO5NO3W5yHEhWEU7svbxvbtqfAitH9VauiSgcuPv0NsvELlZlXAMVhoa0LthNmt62dWge+Z0j4xmGR/JFI5MfjQdPqgFBeQ+XEUSj3tsF+6WGLMXkWXQ+sB5mHaYcJ/ekSE115ieI5mvAzr6bGuNX0jIM40/j3fMitLnd9ogK9RO4vnEnlIHh8TIzrXQ3H1ZY3SUEEnoxYnxoe9V0KPLa0n1pHeSL4qxhnJd783I49+HsKkh68xD9Kz535hZr3lvUCijMM04uk05yTOxWI5KC/suMVUHuSoics+4dT8QnJNLFv3Aswqn1FCh/arZ3m2iq6dY6T5gGAE="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_018sQ9Qzjvbje6X1kgmLxPdZ",
+      "name": "code_execution",
+      "input": {
+       "code": "print(1)"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01QLW92eLkpWe6QsdYwXH6jd",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Alphabet Inc.",
+       "ticker": "GOOGL",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           307394,
+           350018,
+           402836
+          ],
+          "source": "FY2025 10-K (acc. 0001652044-26-000018) for FY2024/FY2025; FY2023 from FY2023 10-K (acc. 0001652044-24-000022)"
+         },
+         "operating_income": {
+          "values": [
+           84293,
+           112390,
+           129039
+          ],
+          "source": "FY2025 10-K (0001652044-26-000018) FY2024/25; FY2023 from FY2023 10-K (0001652044-24-000022)"
+         },
+         "d_and_a": {
+          "values": [
+           11946,
+           15311,
+           21136
+          ],
+          "source": "Depreciation of property and equipment, cash flow statement (10-K FY2024 exhibit 99.1 Q4'24: 11,946/15,311; FY2025 10-K ~$21.1B, 21,136 per stockanalysis.com). Excludes amortization of intangibles (not separately found)."
+         },
+         "capex": {
+          "values": [
+           32251,
+           52535,
+           91447
+          ],
+          "source": "Purchases of property and equipment, cash flow statement: 32,251/52,535 per Q4'24 exhibit 99.1; FY2025 91,447 per stockanalysis.com cash flow page"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.15,
+          0.13,
+          0.11,
+          0.09,
+          0.07
+         ],
+         "source": "Assumption: FY2025 growth was 15% (402,836 vs 350,018); fade as the base grows and cloud/AI growth normalises toward mature levels."
+        },
+        "ebit_margin": {
+         "value": 0.31,
+         "source": "Assumption: FY2024 and FY2025 operating margin was 32% (10-K); trimmed 1pt for rising depreciation from heavy AI capex.",
+         "period": "FY2026-FY2030"
+        },
+        "tax_rate": {
+         "value": 0.17,
+         "source": "Assumption: approximate recent effective tax rate (mid/high teens) given foreign-derived income deductions; not verified against the 10-K tax note.",
+         "period": "FY2026-FY2030"
+        },
+        "da_pct_revenue": {
+         "value": 0.07,
+         "source": "Assumption: FY2025 depreciation was 5.2% of revenue (21,136/402,836) and rising with capex; 7% average over projection.",
+         "period": "FY2026-FY2030"
+        },
+        "capex_pct_revenue": {
+         "value": 0.2,
+         "source": "Assumption: FY2025 capex 22.7% of revenue; management guided ~$175-185B for 2026 (FY2025 annual report, ~43%+ of revenue), assumed to moderate to ~20% average over the period.",
+         "period": "FY2026-FY2030"
+        },
+        "wacc": {
+         "value": 0.09,
+         "source": "Assumption: risk-free ~4.3%, beta ~1.1, ERP ~5%, almost no debt so WACC ≈ cost of equity ~9-10%; 9% used.",
+         "period": "FY2026-FY2030"
+        },
+        "terminal_growth": {
+         "value": 0.03,
+         "source": "Assumption: roughly long-run nominal GDP growth, kept below WACC.",
+         "period": "terminal"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": -80253,
+         "source": "Long-term debt 46,547 (10-K FY2025, acc. 0001652044-26-000018) minus cash, equivalents and short-term marketable securities $126.8B (FY2025 10-K MD&A; rounded to $0.1B). No commercial paper at 12/31/2025; current portion of LT notes not separately found, so may be slightly understated debt. Leases excluded.",
+         "period": "FY2025"
+        },
+        "diluted_shares": {
+         "value": 12230,
+         "source": "Weighted-average shares used in diluted EPS computation, FY2025 total, 10-K FY2025 (acc. 0001652044-26-000018), millions",
+         "period": "FY2025"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 13,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 1,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 1,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "GOOGL",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 307394,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 307394000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "GOOGL",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 350018,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 350018000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "GOOGL",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 402836,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 402836000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "GOOGL",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 84293,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 84293000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "GOOGL",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 112390,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 112390000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "GOOGL",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 129039,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 129039000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "GOOGL",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 11946,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 11946000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "GOOGL",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 15311,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 15311000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "GOOGL",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 21136,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 21136000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "GOOGL",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 32251,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 32251000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "GOOGL",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 52535,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 52535000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "GOOGL",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 91447,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 91447000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "GOOGL",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": -80253,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": -78300000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "GOOGL",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 12230,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 12230000000,
+    "resolved": "GOOGL"
+   }
+  ],
+  "unsourced_refs": [
+   "assumptions.terminal_growth"
+  ],
+  "errors": []
+ }
+}

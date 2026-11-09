@@ -1,0 +1,719 @@
+{
+ "company": "UNP",
+ "task": "dcf",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Union Pacific Corporation",
+   "ticker": "UNP",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       24119,
+       24250,
+       24510
+      ],
+      "source": "UNP 10-K FY2025 acc. 0000100885-26-000037, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+     },
+     "operating_income": {
+      "values": [
+       9082,
+       9713,
+       9846
+      ],
+      "source": "UNP 10-K acc. 0000100885-26-000037, us-gaap:OperatingIncomeLoss"
+     },
+     "d_and_a": {
+      "values": [
+       2318,
+       2398,
+       2465
+      ],
+      "source": "UNP 10-K acc. 0000100885-26-000037, us-gaap:Depreciation"
+     },
+     "capex": {
+      "values": [
+       3606,
+       3452,
+       3791
+      ],
+      "source": "UNP 10-K acc. 0000100885-26-000037, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.03,
+      0.035,
+      0.035,
+      0.03,
+      0.03
+     ],
+     "source": "Assumption: FY23-25 revenue CAGR was ~0.8%, so growth is modestly above that on volume recovery plus ~2-3% pricing, fading to near GDP/inflation."
+    },
+    "ebit_margin": {
+     "value": 0.405,
+     "source": "Assumption: FY2025 margin was 40.2% (9,846/24,510); a slight improvement is assumed, in line with the FY23-25 trend (37.7%, 40.1%, 40.2%)."
+    },
+    "tax_rate": {
+     "value": 0.22,
+     "source": "Assumption: 21% federal plus state taxes. Damodaran's railroad effective rate is 17.0%, and I used a higher marginal rate to be conservative."
+    },
+    "da_pct_revenue": {
+     "value": 0.1,
+     "source": "Assumption: FY2025 D&A was 10.06% of revenue (2,465/24,510); FY23-25 range 9.6-10.1%."
+    },
+    "capex_pct_revenue": {
+     "value": 0.155,
+     "source": "Assumption: FY2025 capex was 15.5% of revenue (3,791/24,510); FY23-25 average about 14.8%."
+    },
+    "wacc": {
+     "value": 0.08,
+     "source": "CAPM: rf 4.86% (US 10Y, 2026-11-06, Treasury) + relevered beta 0.99 x ERP 4.46% (Damodaran US, 2026-02-16) = 9.3% cost of equity. Beta is Damodaran's railroad unlevered beta 0.814 relevered at the industry D/E of 0.278 (UNP market cap not available). Pre-tax cost of debt 4.73% (Damodaran), 3.7% after tax. Weights 78%/22%. Result is 8.1%, rounded to 8.0%."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: long-run nominal US growth, below the 4.86% risk-free rate."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 30548,
+     "period": "FY2025",
+     "source": "financial_statements derived net_debt = total debt 31,814 - cash 1,266 - short-term investments 0 (acc. 0000100885-26-000037). Leases excluded."
+    },
+    "diluted_shares": {
+     "value": 595.9,
+     "period": "FY2025",
+     "source": "Weighted average diluted shares, 595,900,000 (acc. 0000100885-26-000037), in millions."
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Union Pacific Corporation",
+   "ticker": "UNP",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       24119,
+       24250,
+       24510
+      ],
+      "source": "UNP 10-K FY2025 acc. 0000100885-26-000037, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+     },
+     "operating_income": {
+      "values": [
+       9082,
+       9713,
+       9846
+      ],
+      "source": "UNP 10-K acc. 0000100885-26-000037, us-gaap:OperatingIncomeLoss"
+     },
+     "d_and_a": {
+      "values": [
+       2318,
+       2398,
+       2465
+      ],
+      "source": "UNP 10-K acc. 0000100885-26-000037, us-gaap:Depreciation"
+     },
+     "capex": {
+      "values": [
+       3606,
+       3452,
+       3791
+      ],
+      "source": "UNP 10-K acc. 0000100885-26-000037, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.03,
+      0.035,
+      0.035,
+      0.03,
+      0.03
+     ],
+     "source": "Assumption: FY23-25 revenue CAGR was ~0.8%, so growth is modestly above that on volume recovery plus ~2-3% pricing, fading to near GDP/inflation."
+    },
+    "ebit_margin": {
+     "value": 0.405,
+     "source": "Assumption: FY2025 margin was 40.2% (9,846/24,510); a slight improvement is assumed, in line with the FY23-25 trend (37.7%, 40.1%, 40.2%)."
+    },
+    "tax_rate": {
+     "value": 0.22,
+     "source": "Assumption: 21% federal plus state taxes. Damodaran's railroad effective rate is 17.0%, and I used a higher marginal rate to be conservative."
+    },
+    "da_pct_revenue": {
+     "value": 0.1,
+     "source": "Assumption: FY2025 D&A was 10.06% of revenue (2,465/24,510); FY23-25 range 9.6-10.1%."
+    },
+    "capex_pct_revenue": {
+     "value": 0.155,
+     "source": "Assumption: FY2025 capex was 15.5% of revenue (3,791/24,510); FY23-25 average about 14.8%."
+    },
+    "wacc": {
+     "value": 0.08,
+     "source": "CAPM: rf 4.86% (US 10Y, 2026-11-06, Treasury) + relevered beta 0.99 x ERP 4.46% (Damodaran US, 2026-02-16) = 9.3% cost of equity. Beta is Damodaran's railroad unlevered beta 0.814 relevered at the industry D/E of 0.278 (UNP market cap not available). Pre-tax cost of debt 4.73% (Damodaran), 3.7% after tax. Weights 78%/22%. Result is 8.1%, rounded to 8.0%."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: long-run nominal US growth, below the 4.86% risk-free rate."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 30548,
+     "period": "FY2025",
+     "source": "financial_statements derived net_debt = total debt 31,814 - cash 1,266 - short-term investments 0 (acc. 0000100885-26-000037). Leases excluded."
+    },
+    "diluted_shares": {
+     "value": 595.9,
+     "period": "FY2025",
+     "source": "Weighted average diluted shares, 595,900,000 (acc. 0000100885-26-000037), in millions."
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 3,
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 1981,
+   "cache_creation_input_tokens": 14845,
+   "cache_read_input_tokens": 21043,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.06114710000000001,
+  "seconds": 17.505,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 2,
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a quick unlevered DCF for Union Pacific Corporation (identifier: UNP).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7211,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7211,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 196,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0199955,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01Wff5kHnUUWX8E1dFA8aUd6",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "UNP",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_017YZFdLqnmR1Cyiv3Zq2Wu5",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_016brXyhGU2t3S9KmdfaREFc",
+      "name": "valuation_inputs",
+      "input": {
+       "country": "United States"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01Wff5kHnUUWX8E1dFA8aUd6",
+      "content": "{\"summary\":\"UNION PACIFIC CORP (UNP), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 24.5B USD, net income 7.1B USD. 3 period(s), 3 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"UNION PACIFIC CORP\",\"ticker\":\"UNP\",\"cik\":100885,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"4011\",\"sic_description\":\"Railroads, Line-Haul Operating\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"start\":\"2023-01-01\",\"end\":\"2023-12-31\",\"income_statement\":{\"revenue\":{\"value\":24119000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000100885-26-000037\"},\"gross_profit\":null,\"operating_income\":{\"value\":9082000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000100885-26-000037\"},\"interest_expense\":{\"value\":1340000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0001437749-24-003599\"},\"pretax_income\":{\"value\":8233000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000100885-26-000037\"},\"net_income\":{\"value\":6379000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000100885-26-000037\"},\"diluted_shares\":{\"value\":610200000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000100885-26-000037\"},\"diluted_eps\":{\"value\":10.45,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000100885-26-000037\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":8379000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000100885-26-000037\"},\"capex\":{\"value\":3606000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000100885-26-000037\"},\"d_and_a\":{\"value\":2318000000,\"concept\":\"us-gaap:Depreciation\",\"accession\":\"0000100885-26-000037\"}},\"balance_sheet\":{\"cash\":{\"value\":1055000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000100885-26-000037\"},\"short_term_investments\":null,\"total_assets\":{\"value\":67132000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000100885-25-000042\"},\"total_equity\":{\"value\":14788000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000100885-26-000037\"},\"ltd_noncurrent\":{\"value\":31156000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000100885-25-000042\"},\"ltd_total\":{\"value\":32579000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001437749-24-003599\"},\"debt_current\":null,\"ltd_current\":{\"value\":1423000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent\",\"accession\":\"0000100885-25-000042\"},\"commercial_paper\":{\"value\":0,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000100885-25-000042\"},\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":1427000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001437749-24-003599\"}},\"derived\":{\"ebitda\":{\"value\":11400000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":4773000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":32579000000,\"formula\":\"ltd_noncurrent + ltd_current + commercial_paper\"},\"net_debt\":{\"value\":31524000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2024-01-01\",\"end\":\"2024-12-31\",\"income_statement\":{\"revenue\":{\"value\":24250000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000100885-26-000037\"},\"gross_profit\":null,\"operating_income\":{\"value\":9713000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000100885-26-000037\"},\"interest_expense\":{\"value\":1269000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000100885-26-000037\"},\"pretax_income\":{\"value\":8794000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000100885-26-000037\"},\"net_income\":{\"value\":6747000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000100885-26-000037\"},\"diluted_shares\":{\"value\":608600000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000100885-26-000037\"},\"diluted_eps\":{\"value\":11.09,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000100885-26-000037\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":9346000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000100885-26-000037\"},\"capex\":{\"value\":3452000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000100885-26-000037\"},\"d_and_a\":{\"value\":2398000000,\"concept\":\"us-gaap:Depreciation\",\"accession\":\"0000100885-26-000037\"}},\"balance_sheet\":{\"cash\":{\"value\":1016000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000100885-26-000037\"},\"short_term_investments\":null,\"total_assets\":{\"value\":67715000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000100885-26-000037\"},\"total_equity\":{\"value\":16890000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000100885-26-000037\"},\"ltd_noncurrent\":{\"value\":29767000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000100885-26-000037\"},\"ltd_total\":{\"value\":31192000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000100885-25-000042\"},\"debt_current\":null,\"ltd_current\":{\"value\":1425000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent\",\"accession\":\"0000100885-26-000037\"},\"commercial_paper\":{\"value\":0,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000100885-26-000037\"},\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":1426000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000100885-25-000042\"}},\"derived\":{\"ebitda\":{\"value\":12111000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":5894000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":31192000000,\"formula\":\"ltd_noncurrent + ltd_current + commercial_paper\"},\"net_debt\":{\"value\":30176000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":24510000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000100885-26-000037\"},\"gross_profit\":null,\"operating_income\":{\"value\":9846000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000100885-26-000037\"},\"interest_expense\":{\"value\":1309000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000100885-26-000037\"},\"pretax_income\":{\"value\":9166000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000100885-26-000037\"},\"net_income\":{\"value\":7138000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000100885-26-000037\"},\"diluted_shares\":{\"value\":595900000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000100885-26-000037\"},\"diluted_eps\":{\"value\":11.98,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000100885-26-000037\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":9290000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000100885-26-000037\"},\"capex\":{\"value\":3791000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000100885-26-000037\"},\"d_and_a\":{\"value\":2465000000,\"concept\":\"us-gaap:Depreciation\",\"accession\":\"0000100885-26-000037\"}},\"balance_sheet\":{\"cash\":{\"value\":1266000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000100885-26-000037\"},\"short_term_investments\":null,\"total_assets\":{\"value\":69698000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000100885-26-000037\"},\"total_equity\":{\"value\":18467000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000100885-26-000037\"},\"ltd_noncurrent\":{\"value\":30294000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000100885-26-000037\"},\"ltd_total\":{\"value\":31814000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000100885-26-000037\"},\"debt_current\":null,\"ltd_current\":{\"value\":1520000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent\",\"accession\":\"0000100885-26-000037\"},\"commercial_paper\":{\"value\":0,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000100885-26-000037\"},\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":1521000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000100885-26-000037\"}},\"derived\":{\"ebitda\":{\"value\":12311000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":5499000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":31814000000,\"formula\":\"ltd_noncurrent + ltd_current + commercial_paper\"},\"net_debt\":{\"value\":30548000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-10-22 (period 2026-09-30) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/100885/000010088525000042/0000100885-25-000042-index.htm\",\"accession_or_id\":\"0000100885-25-000042\",\"form\":\"10-K\",\"period\":\"2024-12-31\",\"as_of\":\"2025-02-07\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/100885/000010088526000037/0000100885-26-000037-index.htm\",\"accession_or_id\":\"0000100885-26-000037\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-06\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/100885/000143774924003599/0001437749-24-003599-index.htm\",\"accession_or_id\":\"0001437749-24-003599\",\"form\":\"10-K\",\"period\":\"2023-12-31\",\"as_of\":\"2024-02-09\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":594250416,\"as_of\":\"2026-10-16\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000100885-26-000321\",\"url\":\"https://www.sec.gov/Archives/edgar/data/100885/000010088526000321/0000100885-26-000321-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_017YZFdLqnmR1Cyiv3Zq2Wu5",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_016brXyhGU2t3S9KmdfaREFc",
+      "content": "{\"summary\":\"Country risk data for \\\"United States\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"country\":[{\"country\":\"United States\",\"region\":\"North America\",\"moodys_rating\":\"Aa1\",\"default_spread\":0.002333679169992019,\"equity_risk_premium\":0.0446,\"country_risk_premium\":0.002333679169992019,\"basis\":\"Moody's sovereign rating\",\"match\":\"exact\",\"mature_market_erp\":0.0423,\"source\":{\"name\":\"Aswath Damodaran, Country Default Spreads and Risk Premiums\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx\",\"accession_or_id\":\"ctryprem/United States\",\"period\":\"2026-02-16\",\"as_of\":\"2026-02-16\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 6621,
+     "cache_read_input_tokens": 7211,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 6621,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 79,
+     "output_tokens_details": {
+      "thinking_tokens": 17
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.018788700000000002,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSlwUKEAgTGAI4AUIIdGhpbmtpbmcSDHxIzS9D6rdgkLC9kRoMxmZIG6X6LrLCK2DJIjDYzu2sLZBmnND5GseBIovrGcY2MzT0FsrLJ/pwLKDQBXWhBb/G1SJkiYiKPLT2vRcqtARm4ibiXdEQhAvBfDFh4S4pl1Ao+iUmsnuSSSceZH5PbdzSey5QEa+aUUWos45LQMGsqxC9ASZZbS+UsdK90HBAIVW4N65ZfAqhwBy3rNByQRqTLxsrMsp+6+fAS7yqNfrgBWOd9Vxin6W6qmHKDVCucTbsxFlgiquwSbBw9EHLfT+hc+5IuKwlIsWi7iRlBcL6TyyWg7VioTzY+0oEoTLjdQJJRGo3oYA4DXdnv9cMotzBb/DqawxdRcfFy0Eskt/TGEEmfzv2YC3VjhWkTns56gYg7Df/m2LCzo4mwLnnIRwWyhEMKNJSaEQm4hoGnYlIIBXoJUEKPgzhp/0z87kNfWop4wMQtgiL3Ywd6OsEk9kkdJpK4m164IXpfpTPe12N3W/A264kREym4gbiI2E81S7aNxVRgPnDCAiOYcvDs77cSEcyypiieziS3gL+hlaoThp3/+pRchNvMGEu59r2KQ+OALXYFO4Kgx1FNN5Z6V27yJexwbqIX5aMx8TuvsuE5SmM3bPey4rRs+LCBXo7ndJ+UvW5tmuM1QVUcrnu/dcDr4/m+v8SLuH2gLd2RcLTzIezKUTylI8iF89C/zwvT7jkEPkCj8wIi5jwsDhTe6Eiwkj5aO/QtR8FQ9/fM47PetONVePGmiGq4UHCO6j3uS4noYTS2rRjFJUdEkvkf+FybNktVV59I0yGCZxfV5dGHnSR+jfyullhFmRtFERk4hrCpZXSqSrE9sxtICzuqucxix8YAQ=="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01Bh2KsZxTTVepgB51Um4K6v",
+      "name": "valuation_inputs",
+      "input": {
+       "industry": "Transportation (Railroads)"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01Bh2KsZxTTVepgB51Um4K6v",
+      "content": "{\"summary\":\"US industry data for \\\"Transportation (Railroads)\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"industry\":[{\"region\":\"US\",\"industry\":\"Transportation (Railroads)\",\"firms\":4,\"beta\":0.9751457485154854,\"de_ratio\":0.2779156347027222,\"effective_tax_rate\":0.16983557424101936,\"unlevered_beta\":0.8069481235657714,\"cash_to_firm_value\":0.008324868096860625,\"unlevered_beta_cash_corrected\":0.8137222539977831,\"cost_of_equity\":0.08299150038379065,\"equity_weight\":0.782524270651581,\"cost_of_debt_pretax\":0.047306,\"after_tax_cost_of_debt\":0.0354795,\"debt_weight\":0.21747572934841897,\"cost_of_capital\":0.0726587934475234,\"match\":\"exact\",\"sources\":[{\"name\":\"Aswath Damodaran, Betas by Sector (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls\",\"accession_or_id\":\"betas/US/Transportation (Railroads)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"},{\"name\":\"Aswath Damodaran, Cost of Capital by Industry (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/wacc.xls\",\"accession_or_id\":\"wacc/US/Transportation (Railroads)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}],\"note\":\"cost_of_equity and cost_of_capital are Damodaran's US$ estimates using his own risk-free rate (0.0395) and ERP (0.0446) at the update date. For a current WACC, prefer unlevered_beta_cash_corrected, relevered at the company's D/E, with today's risk_free_rate.\"}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 3,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 1013,
+     "cache_read_input_tokens": 13832,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 1013,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1706,
+     "output_tokens_details": {
+      "thinking_tokens": 318
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0223629,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSxQkKEAgTGAI4AUIIdGhpbmtpbmcSDFjddkgOp0ObdJotPhoMuWJ7ld43z6VBUrJ3IjAT0skDqSRjzGrlreH5+9e08hY0FDjAJbRdDbzpDm7YBgoRAQnCgOSDjhA9znH0zlkq4ghqj2DabjVPzAAXn2JDKDbhJ7AEdHk//cil2ELdg/PRCUQtGo2409cL4IZ4N9raen4iUO0rVYM+++5hWfeqYE/r48KVlRu5CBRHGUdYsxGln2BjAJSFLT6J0+QUJaC5b/TcTvkS6bMb8BKqFjKSQJwmf8KqaSR8CQydSILI/7Ku5IzXFDc0MPxVUkwrkJZxGPIkGqN+gb4u37DQJebrn3y9NZtqNaDqbuJ1frF0NtI/BEAT11YzOBHwd0csimlD/SnHFheh2NgCaL8DB1air+/Q/pwc1lUdrcs+bo9hMK4EyBvqmjdg5M1IFgvUor+c6vbbR0GALciPK4CpYA/ATB9bBOqVaTKvvJFwxYbX1z1tKTrMfwykiFH4W4/m6bsk42uqaPAEK0jYRcFX5wJFMcCZt7mQb5eXTy2ofgF3qpprsHbRi3olLQNOfUazNYmG15RQSX30qosz1Ao4R4V3sPa9G0fyM3CQQrCerNgvIFNjfDawP+/MR7Ija3OECZPyXF+dT+9McJXveI1WdoMJyCWLDKMAMSWlZ0eEc/Re5YhfL/JfSYeBWLHtxmERzx35wlboTcAgEDAcaDTqp1eHXLa7rAdstv+DoT3sb2/fuN82WqUTgZ2WYBBm+gM0nJrgGhs3QFoXBo/jE6hoqSy4mrxv2BYWR3CWGmCfp6FU5C2SJThpnXkkTdn0f9bhwLC0oNBQ64FZAxUYmh5oMdJ9WyL3x8rtoyuSXP2T1bW+f2jZY2prcoLo10yLoD4qzzWYpfsEGatL/G132yASRzUmLuAMsGhY+QkmGOIWTg7zkTAGHcSdFfSHZTp0nUasGaRvrW84gdbxwfaoRouj7QaboDVsmKJ/mQAxt4LC73pEPs86Sy9lJl3abUulMxKMMPJN2c1/fbnHapBtw+Tnvk/3tK0IMWSxLEEl8ejxa6IPrRPKeQXZkC2ZogEIofhAh7rC6VAq+CFuctAlAJuwHzgGPphw1alwBPoC8akynDLFh6BEM6sBx3x22Heue7SpmOlcJTMd7sLSSM/6KSAU2BuOBi5Kn4AxARtfLuuQsc6vwxSSxHcs9o7jQSVNrTVO3ZSNPKd+VYed/y/y2EBfQkbm57KIojU1k9UewWz4A2Ymds3doGEP5WrXVJEm1OTvh6nIKltJWwG1bKQMKaboNZ5x0vR6rE6ARmXgo8Oo0f57kglR/6rkoUa+Sm0+eJ3JZoNR5/PTFdO/DpP/S//uyDev0JSrjeYyfTV9BM0KBdho7ZU8zUIF9/6GhmWVoQN+stsWbj69e1uEIcPzKiWrebuUFplxh9wOL0a9kAeVdfbZ/FSTja3dm4ir7dtpC9Kd+pTPInFzXlkDiIEpyYUpVlhPwC1ZJBZHxX16xv8R7McsmqA4HpNjhZt1sPD1NYxTiiXjMLxwmCRvbyGFwrfh/nM35bY7wWYUcXDVwEJ3EH15oqron81SIqrZlzUaT3uTg+6gW31uVl70YJBxUedhCvmbkVGt8KcYAQ=="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01NQKa4FbytuPu2hbTBK8nET",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Union Pacific Corporation",
+       "ticker": "UNP",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           24119,
+           24250,
+           24510
+          ],
+          "source": "UNP 10-K FY2025 acc. 0000100885-26-000037, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+         },
+         "operating_income": {
+          "values": [
+           9082,
+           9713,
+           9846
+          ],
+          "source": "UNP 10-K acc. 0000100885-26-000037, us-gaap:OperatingIncomeLoss"
+         },
+         "d_and_a": {
+          "values": [
+           2318,
+           2398,
+           2465
+          ],
+          "source": "UNP 10-K acc. 0000100885-26-000037, us-gaap:Depreciation"
+         },
+         "capex": {
+          "values": [
+           3606,
+           3452,
+           3791
+          ],
+          "source": "UNP 10-K acc. 0000100885-26-000037, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.03,
+          0.035,
+          0.035,
+          0.03,
+          0.03
+         ],
+         "source": "Assumption: FY23-25 revenue CAGR was ~0.8%, so growth is modestly above that on volume recovery plus ~2-3% pricing, fading to near GDP/inflation."
+        },
+        "ebit_margin": {
+         "value": 0.405,
+         "source": "Assumption: FY2025 margin was 40.2% (9,846/24,510); a slight improvement is assumed, in line with the FY23-25 trend (37.7%, 40.1%, 40.2%)."
+        },
+        "tax_rate": {
+         "value": 0.22,
+         "source": "Assumption: 21% federal plus state taxes. Damodaran's railroad effective rate is 17.0%, and I used a higher marginal rate to be conservative."
+        },
+        "da_pct_revenue": {
+         "value": 0.1,
+         "source": "Assumption: FY2025 D&A was 10.06% of revenue (2,465/24,510); FY23-25 range 9.6-10.1%."
+        },
+        "capex_pct_revenue": {
+         "value": 0.155,
+         "source": "Assumption: FY2025 capex was 15.5% of revenue (3,791/24,510); FY23-25 average about 14.8%."
+        },
+        "wacc": {
+         "value": 0.08,
+         "source": "CAPM: rf 4.86% (US 10Y, 2026-11-06, Treasury) + relevered beta 0.99 x ERP 4.46% (Damodaran US, 2026-02-16) = 9.3% cost of equity. Beta is Damodaran's railroad unlevered beta 0.814 relevered at the industry D/E of 0.278 (UNP market cap not available). Pre-tax cost of debt 4.73% (Damodaran), 3.7% after tax. Weights 78%/22%. Result is 8.1%, rounded to 8.0%."
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "source": "Assumption: long-run nominal US growth, below the 4.86% risk-free rate."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 30548,
+         "period": "FY2025",
+         "source": "financial_statements derived net_debt = total debt 31,814 - cash 1,266 - short-term investments 0 (acc. 0000100885-26-000037). Leases excluded."
+        },
+        "diluted_shares": {
+         "value": 595.9,
+         "period": "FY2025",
+         "source": "Weighted average diluted shares, 595,900,000 (acc. 0000100885-26-000037), in millions."
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 14,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 1,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "UNP",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 24119,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 24119000000,
+    "resolved": "UNP"
+   },
+   {
+    "company": "UNP",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 24250,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 24250000000,
+    "resolved": "UNP"
+   },
+   {
+    "company": "UNP",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 24510,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 24510000000,
+    "resolved": "UNP"
+   },
+   {
+    "company": "UNP",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 9082,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 9082000000,
+    "resolved": "UNP"
+   },
+   {
+    "company": "UNP",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 9713,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 9713000000,
+    "resolved": "UNP"
+   },
+   {
+    "company": "UNP",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 9846,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 9846000000,
+    "resolved": "UNP"
+   },
+   {
+    "company": "UNP",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 2318,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2318000000,
+    "resolved": "UNP"
+   },
+   {
+    "company": "UNP",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 2398,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2398000000,
+    "resolved": "UNP"
+   },
+   {
+    "company": "UNP",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 2465,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2465000000,
+    "resolved": "UNP"
+   },
+   {
+    "company": "UNP",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 3606,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3606000000,
+    "resolved": "UNP"
+   },
+   {
+    "company": "UNP",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 3452,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3452000000,
+    "resolved": "UNP"
+   },
+   {
+    "company": "UNP",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 3791,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3791000000,
+    "resolved": "UNP"
+   },
+   {
+    "company": "UNP",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 30548,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 30548000000,
+    "resolved": "UNP"
+   },
+   {
+    "company": "UNP",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 595.9,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 595900000,
+    "resolved": "UNP"
+   }
+  ],
+  "unsourced_refs": [
+   "assumptions.wacc"
+  ],
+  "errors": []
+ }
+}

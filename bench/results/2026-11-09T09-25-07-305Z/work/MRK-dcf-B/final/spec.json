@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "Merck & Co., Inc.",
+ "ticker": "MRK",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     60115,
+     64168,
+     65011
+    ],
+    "source": "financial_statements MRK, us-gaap:Revenues, 10-K accession 0000310158-26-000063"
+   },
+   "operating_income": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: operating income is null in deskstack data for FY2023-FY2025 (verify_value also not_found); not filled from memory"
+   },
+   "d_and_a": {
+    "values": [
+     3828,
+     4504,
+     5845
+    ],
+    "source": "Computed: us-gaap:Depreciation (1828/2104/3045) + us-gaap:AmortizationOfIntangibleAssets (2000/2400/2800), accession 0000310158-26-000063; amortization values appear rounded in source"
+   },
+   "capex": {
+    "values": [
+     3863,
+     3372,
+     4112
+    ],
+    "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000310158-26-000063"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.06,
+    0.05,
+    0.02,
+    0.01,
+    0.03
+   ],
+   "source": "Assumption: FY23-25 growth was 6.7% and 1.3%; near-term growth from the current portfolio, slowing 2028-29 for expected Keytruda patent expiry (general knowledge, not from a filing) and recovering as newer products launch."
+  },
+  "ebit_margin": {
+   "value": 0.33,
+   "source": "Assumption: operating income not reported in data. Proxy FY2025 (pretax income 21,067 + interest expense 1,357)/revenue 65,011 = 34.5%, which includes other income/expense. Haircut to 33% for margin pressure and R&D/acquisition charges."
+  },
+  "tax_rate": {
+   "value": 0.15,
+   "source": "Assumption: approximate effective rate for a global pharma with an FY2025 ratio of (21,067-18,254)/21,067 = 13.4% from filed pretax and net income; rounded up for conservatism."
+  },
+  "da_pct_revenue": {
+   "value": 0.09,
+   "source": "Assumption: FY2025 D&A 5,845/65,011 = 9.0% (computed from filed depreciation and amortization)."
+  },
+  "capex_pct_revenue": {
+   "value": 0.063,
+   "source": "Assumption: FY2025 capex 4,112/65,011 = 6.3%, with FY2023-25 range 5.3-6.4%."
+  },
+  "wacc": {
+   "value": 0.088,
+   "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 1.02 x ERP 4.46% (Damodaran US, 2026-02-16) = 9.4% cost of equity; beta = cash-corrected unlevered 0.915 relevered at D/E 0.145 and 21% tax (Damodaran Drugs industry; company market D/E not available since there is no price). Weights 87.3/12.7 with after-tax cost of debt 4.5% (Damodaran) give about 8.8%."
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "source": "Assumption: below the long-run nominal US GDP growth and below the 10Y Treasury yield of 4.86%; mature pharma."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 34774,
+   "period": "FY2025",
+   "source": "financial_statements derived net_debt = total debt 49,339 (LT debt noncurrent 46,750 + current debt 2,589) - cash 14,565 - short-term investments 0; accession 0000310158-26-000063"
+  },
+  "diluted_shares": {
+   "value": 2507,
+   "period": "FY2025",
+   "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 2,507M, accession 0000310158-26-000063"
+  }
+ }
+}

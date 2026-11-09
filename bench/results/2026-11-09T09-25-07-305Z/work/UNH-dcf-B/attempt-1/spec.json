@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "UnitedHealth Group Incorporated",
+ "ticker": "UNH",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     371622,
+     400278,
+     447567
+    ],
+    "source": "UNH 10-K FY2025, accession 0000731766-26-000062, us-gaap:Revenues"
+   },
+   "operating_income": {
+    "values": [
+     32358,
+     32287,
+     18964
+    ],
+    "source": "UNH 10-K FY2025, accession 0000731766-26-000062, us-gaap:OperatingIncomeLoss"
+   },
+   "d_and_a": {
+    "values": [
+     3972,
+     4099,
+     4361
+    ],
+    "source": "UNH 10-K FY2025, accession 0000731766-26-000062, us-gaap:DepreciationAndAmortization"
+   },
+   "capex": {
+    "values": [
+     3386,
+     3499,
+     3622
+    ],
+    "source": "UNH 10-K FY2025, accession 0000731766-26-000062, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.05,
+    0.05,
+    0.045,
+    0.04,
+    0.04
+   ],
+   "source": "Assumption: growth slows from FY2025 +11.8% as the company reprices and shrinks unprofitable Medicare Advantage plans; settles near 4% long-run medical cost/enrolment growth."
+  },
+  "ebit_margin": {
+   "value": 0.05,
+   "period": "FY2026-FY2030 flat",
+   "source": "Assumption: FY2025 margin was 4.2% (18,964/447,567) and FY2023-24 were 8.7% and 8.1%. A partial recovery to 5% is assumed (flat), below history because of elevated medical cost trend. Flat input is a simplification, so the reviewer should consider a ramp."
+  },
+  "tax_rate": {
+   "value": 0.22,
+   "period": "all projected years",
+   "source": "Assumption: US 21% federal plus state, less other items. Filed FY2025 pretax income was 14,697 and net income 12,056, which implies about 18% effective, so 22% is conservative."
+  },
+  "da_pct_revenue": {
+   "value": 0.0097,
+   "period": "all projected years",
+   "source": "FY2025 D&A 4,361 / revenue 447,567 = 0.97%, held flat."
+  },
+  "capex_pct_revenue": {
+   "value": 0.0081,
+   "period": "all projected years",
+   "source": "FY2025 capex 3,622 / revenue 447,567 = 0.81%, held flat."
+  },
+  "wacc": {
+   "value": 0.08,
+   "period": "n/a",
+   "source": "Assumption using CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + beta 0.9 (my assumption for managed care, not taken from a tool) x ERP 4.46% (Damodaran US, 2026-02-16) = 8.9% cost of equity. After-tax cost of debt is about 4.5% to 5%. Debt weight is about 20% (78.4B debt vs a roughly 300B+ market cap, which is an estimate), giving WACC of about 8.0%."
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "period": "n/a",
+   "source": "Assumption: below the 4.86% risk-free rate and in line with long-run US nominal GDP growth, discounted for maturity."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 50268,
+   "period": "FY2025",
+   "source": "financial_statements derived net_debt: total debt 78,389 (LT debt 72,320 + current debt 6,069) - cash 24,365 - ST investments 3,756; accession 0000731766-26-000062"
+  },
+  "diluted_shares": {
+   "value": 911,
+   "period": "FY2025",
+   "source": "Weighted average diluted shares 911,000,000 (us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding), accession 0000731766-26-000062, expressed in millions"
+  }
+ }
+}

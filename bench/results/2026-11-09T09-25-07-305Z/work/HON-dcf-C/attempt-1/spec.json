@@ -1,0 +1,49 @@
+{
+ "kind": "dcf",
+ "company": "Honeywell International Inc",
+ "ticker": "HON",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     33009,
+     34717,
+     37442
+    ],
+    "source": "financial_statements HON, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K acc. 0000773840-26-000013"
+   },
+   "operating_income": {
+    "values": [
+     7563,
+     7667,
+     8127
+    ],
+    "source": "financial_statements HON, us-gaap:OperatingIncomeLoss, acc. 0000773840-26-000013"
+   },
+   "d_and_a": {
+    "values": [
+     1004,
+     1153,
+     1388
+    ],
+    "source": "financial_statements HON, us-gaap:DepreciationDepletionAndAmortization, acc. 0000773840-26-000013"
+   },
+   "capex": {
+    "values": [
+     741,
+     871,
+     986
+    ],
+    "source": "financial_statements HON, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, acc. 0000773840-26-000013"
+   }
+  }
+ },
+ "assumptions": "{\"projection_labels\":[\"FY2026\",\"FY2027\",\"FY2028\",\"FY2029\",\"FY2030\"],\"revenue_growth\":{\"values\":[0.04,0.04,0.04,0.035,0.03],\"source\":\"Assumption: fades from ~4% toward GDP-like growth; FY23-25 revenue CAGR was 6.5% (partly acquisitions), so a more conservative organic rate is used.\"},\"ebit_margin\":{\"value\":0.22,\"period\":\"FY2026-FY2030\",\"source\":\"Assumption: FY2025 margin was 21.7% (8127/37442), FY2024 22.1%; hold ~22%.\"},\"tax_rate\":{\"value\":0.21,\"period\":\"FY2026-FY2030\",\"source\":\"Assumption: US federal statutory 21%; no effective rate computed from filings.\"},\"da_pct_revenue\":{\"value\":0.037,\"period\":\"FY2026-FY2030\",\"source\":\"FY2025 D&A 1388 / revenue 37442 = 3.7%\"},\"capex_pct_revenue\":{\"value\":0.026,\"period\":\"FY2026-FY2030\",\"source\":\"FY2025 capex 986 / revenue 37442 = 2.6%\"},\"wacc\":{\"value\":0.085,\"period\":\"n/a\",\"source\":\"Assumption: CAPM cost of equity = 10Y UST 4.86% (2026-11-06) + beta ~1.1 (assumed, not looked up) x US ERP 4.46% (Damodaran 2026-02-16) = ~9.8%; after-tax cost of debt ~4.5% assumed; debt weight ~20% -> ~8.5%.\"},\"terminal_growth\":{\"value\":0.025,\"period\":\"terminal\",\"source\":\"Assumption: below the 4.86% risk-free rate and in line with long-run nominal GDP growth.\"},\"mid_year\":true},\"bridge\">{\"net_debt\":{\"value\":21650,\"period\":\"FY2025\",\"source\":\"financial_statements derived net_debt = total debt 34,580 - cash 12,487 - ST investments 443, acc. 0000773840-26-000013\"},\"diluted_shares\":{\"value\":642.8,\"period\":\"FY2025\",\"source\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 642,800,000 shares = 642.8 millions, acc. 0000773840-26-000013. Note: cover-page shares at 2026-09-30 were 317.4M, which suggests a spin-off or other change after year end; reviewer should check.\"}}"
+}

@@ -1,0 +1,107 @@
+{
+ "kind": "dcf",
+ "company": "Iberdrola SA",
+ "ticker": "5QK37QC7NWOJ8D7WVQ45",
+ "currency": "EUR",
+ "scale": "units",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     49335000000,
+     42988000000,
+     44076000000
+    ],
+    "source": "ESEF ifrs-full:Revenue, reports 5QK37QC7NWOJ8D7WVQ45-2024-12-31-ESEF-ES-0 and -2025-12-31-ESEF-ES-0"
+   },
+   "operating_income": {
+    "values": [
+     8973000000,
+     7639000000,
+     9755000000
+    ],
+    "source": "ESEF ifrs-full:ProfitLossFromOperatingActivities, same reports"
+   },
+   "d_and_a": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: D&A not mapped in deskstack ESEF data (null for all years)"
+   },
+   "capex": {
+    "values": [
+     7336000000,
+     7665000000,
+     7607000000
+    ],
+    "source": "ESEF ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities, same reports"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.04,
+    0.04,
+    0.035,
+    0.03,
+    0.03
+   ],
+   "source": "Assumption: FY2025 growth was 2.5% after a FY2024 decline of 12.9%; modest recovery tied to regulated network and renewables investment, fading toward long-run growth."
+  },
+  "ebit_margin": {
+   "value": 0.22,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 EBIT margin 22.1% (9,755/44,076); held flat. FY2023 18.2%, FY2024 17.8%."
+  },
+  "tax_rate": {
+   "value": 0.25,
+   "source": "Assumption: Spanish statutory corporate rate 25%; Damodaran Europe Power effective tax 22.3% as a cross-check."
+  },
+  "da_pct_revenue": {
+   "value": null,
+   "period": "FY2026-FY2030",
+   "source": "not found: D&A not reported in the tool data; reviewer to fill from the Iberdrola cash flow statement or notes."
+  },
+  "capex_pct_revenue": {
+   "value": 0.17,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2023-25 capex/revenue was 14.9%, 17.8% and 17.3% (average ~16.7%); held at ~17% for the grid and renewables build-out."
+  },
+  "wacc": {
+   "value": 0.06,
+   "source": "CAPM: Rf 3.266% (ECB 10Y AAA, 2026-11-05) + relevered beta 0.66 x Spain ERP 5.78% (Damodaran) = Ke ~7.1%. Beta is the Damodaran Europe Power cash-corrected unlevered 0.453 relevered at D/E 0.60 and 25% tax. Pre-tax Kd 5.18% (Damodaran), ~3.9% after tax. Weights 62/38 give ~5.9%, rounded to 6.0%."
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "source": "Assumption: long-run euro-area inflation/nominal growth, below the 3.27% risk-free rate."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": null,
+   "period": "FY2025",
+   "source": "not found: borrowings are null in the ESEF extraction. Cash was 3,670,000,000 EUR (ifrs-full:CashAndCashEquivalents, 5QK37QC7NWOJ8D7WVQ45-2025-12-31-ESEF-ES-0). Reviewer to add total debt from the balance sheet."
+  },
+  "diluted_shares": {
+   "value": null,
+   "period": "FY2025",
+   "source": "not found: diluted weighted shares are null in the ESEF extraction."
+  }
+ }
+}

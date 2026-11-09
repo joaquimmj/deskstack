@@ -1,0 +1,1422 @@
+{
+ "company": "DIS",
+ "task": "dcf",
+ "arm": "A",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "The Walt Disney Company",
+   "ticker": "DIS",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       88898,
+       91361,
+       94425
+      ],
+      "source": "Disney FY2025 10-K (acc. 0001744489-25-000155), Consolidated Statements of Income, total revenues"
+     },
+     "operating_income": {
+      "values": [
+       8992,
+       11914,
+       13832
+      ],
+      "source": "Derived: total revenues minus total costs and expenses (79,906 / 79,447 / 80,593) per FY2025 10-K income statement; includes restructuring & impairment charges; excludes equity income/interest. Disney does not report a GAAP operating income line"
+     },
+     "d_and_a": {
+      "values": [
+       5369,
+       4990,
+       5326
+      ],
+      "source": "FY2025 10-K cash flow statement, Depreciation and amortization"
+     },
+     "capex": {
+      "values": [
+       4969,
+       5412,
+       8024
+      ],
+      "source": "FY2025 10-K cash flow statement, Investments in parks, resorts and other property"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.04,
+      0.045,
+      0.04,
+      0.04,
+      0.035
+     ],
+     "source": "Assumption: FY2025 growth was 3.4% (94,425 vs 91,361); modest acceleration from Experiences capacity expansion (cruise, parks) and streaming growth, fading toward GDP-like by FY2030"
+    },
+    "ebit_margin": {
+     "value": 0.16,
+     "source": "Assumption: FY2025 derived margin 14.6% (FY2024 13.0%) was depressed by 819 restructuring/impairment; 16% assumes fewer one-offs and continued segment margin gains"
+    },
+    "tax_rate": {
+     "value": 0.22,
+     "source": "Assumption: approx. blended US federal+state and foreign rate; typical Disney effective rate ~20-25%; not verified against FY2025 filing"
+    },
+    "da_pct_revenue": {
+     "value": 0.056,
+     "source": "Assumption: FY2025 D&A 5,326/94,425 = 5.6%"
+    },
+    "capex_pct_revenue": {
+     "value": 0.085,
+     "source": "Assumption: FY2025 capex 8,024/94,425 = 8.5%, elevated by parks/cruise investment program; held flat as the expansion continues"
+    },
+    "wacc": {
+     "value": 0.085,
+     "source": "Assumption: beta ~1.2, risk-free ~4.2%, ERP ~5%, cost of equity ~10%, after-tax cost of debt ~4%, ~20% debt weight => ~8.5%"
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: long-run nominal GDP/inflation-like growth, below risk-free rate"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 36331,
+     "source": "FY2025 10-K (FYE 2025-09-27): total borrowings 42,026 minus cash and cash equivalents 5,695; no short-term investments identified; lease liabilities excluded",
+     "period": "FY2025"
+    },
+    "diluted_shares": {
+     "value": 1811,
+     "source": "FY2025 10-K, weighted average diluted shares 1,811 million",
+     "period": "FY2025"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "The Walt Disney Company",
+   "ticker": "DIS",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       88898,
+       91361,
+       94425
+      ],
+      "source": "Disney FY2025 10-K (acc. 0001744489-25-000155), Consolidated Statements of Income, total revenues"
+     },
+     "operating_income": {
+      "values": [
+       8992,
+       11914,
+       13832
+      ],
+      "source": "Derived: total revenues minus total costs and expenses (79,906 / 79,447 / 80,593) per FY2025 10-K income statement; includes restructuring & impairment charges; excludes equity income/interest. Disney does not report a GAAP operating income line"
+     },
+     "d_and_a": {
+      "values": [
+       5369,
+       4990,
+       5326
+      ],
+      "source": "FY2025 10-K cash flow statement, Depreciation and amortization"
+     },
+     "capex": {
+      "values": [
+       4969,
+       5412,
+       8024
+      ],
+      "source": "FY2025 10-K cash flow statement, Investments in parks, resorts and other property"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.04,
+      0.045,
+      0.04,
+      0.04,
+      0.035
+     ],
+     "source": "Assumption: FY2025 growth was 3.4% (94,425 vs 91,361); modest acceleration from Experiences capacity expansion (cruise, parks) and streaming growth, fading toward GDP-like by FY2030"
+    },
+    "ebit_margin": {
+     "value": 0.16,
+     "source": "Assumption: FY2025 derived margin 14.6% (FY2024 13.0%) was depressed by 819 restructuring/impairment; 16% assumes fewer one-offs and continued segment margin gains"
+    },
+    "tax_rate": {
+     "value": 0.22,
+     "source": "Assumption: approx. blended US federal+state and foreign rate; typical Disney effective rate ~20-25%; not verified against FY2025 filing"
+    },
+    "da_pct_revenue": {
+     "value": 0.056,
+     "source": "Assumption: FY2025 D&A 5,326/94,425 = 5.6%"
+    },
+    "capex_pct_revenue": {
+     "value": 0.085,
+     "source": "Assumption: FY2025 capex 8,024/94,425 = 8.5%, elevated by parks/cruise investment program; held flat as the expansion continues"
+    },
+    "wacc": {
+     "value": 0.085,
+     "source": "Assumption: beta ~1.2, risk-free ~4.2%, ERP ~5%, cost of equity ~10%, after-tax cost of debt ~4%, ~20% debt weight => ~8.5%"
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: long-run nominal GDP/inflation-like growth, below risk-free rate"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 36331,
+     "source": "FY2025 10-K (FYE 2025-09-27): total borrowings 42,026 minus cash and cash equivalents 5,695; no short-term investments identified; lease liabilities excluded",
+     "period": "FY2025"
+    },
+    "diluted_shares": {
+     "value": 1811,
+     "source": "FY2025 10-K, weighted average diluted shares 1,811 million",
+     "period": "FY2025"
+    }
+   }
+  },
+  "submit_attempts": 2,
+  "requests": 2,
+  "usage": {
+   "input_tokens": 16,
+   "output_tokens": 4179,
+   "cache_creation_input_tokens": 18609,
+   "cache_read_input_tokens": 66301,
+   "server_tool_use": {
+    "web_search_requests": 7
+   }
+  },
+  "cost": 0.1716047,
+  "seconds": 47.937,
+  "tool_calls": {
+   "submit_model": 2
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: web_search (public web pages). No other data source is available.\n\nBuild a quick unlevered DCF for The Walt Disney Company (identifier: DIS).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 14,
+     "cache_creation_input_tokens": 16954,
+     "cache_read_input_tokens": 49347,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 16954,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 2889,
+     "output_tokens_details": {
+      "thinking_tokens": 435
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard",
+     "server_tool_use": {
+      "web_search_requests": 7,
+      "web_fetch_requests": 0
+     }
+    },
+    "cost": 0.15117239999999998,
+    "content": [
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01BU28zpfEsxpewsxiZFdjvx",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":\"Disney fiscal 2025 annual results revenues segment operating income depreciation capital expenditures borrowings cash diluted shares 10-K\"})\nfor x in r[:6]:print(x['url'],x['content'][:1500],'\\n')"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Kom14axiDtWyheYhN4NcXV",
+      "name": "web_search",
+      "input": {
+       "query": "Disney fiscal 2025 annual results revenues segment operating income depreciation capital expenditures borrowings cash diluted shares 10-K"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01BU28zpfEsxpewsxiZFdjvx"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01Kom14axiDtWyheYhN4NcXV",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company - 10K - Annual Report - November 13, 2025",
+        "url": "https://fintel.io/doc/sec-walt-disney-co-1744489-10k-2025-november-13-20405-8302",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://fortune.com/company-assets/1596/quartr/annual-report-10-k-16778-2025-11-13-11-44-45.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company Reports Fourth Quarter and Full Year Earnings for Fiscal 2025",
+        "url": "https://thewaltdisneycompany.com/press-releases/the-walt-disney-company-reports-fourth-quarter-and-full-year-earnings-for-fiscal-2025/",
+        "encrypted_content": "[omitted]",
+        "page_age": "310 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FOR IMMEDIATE RELEASE Exhibit 99.1 November 13, 2025",
+        "url": "https://fortune.com/company-assets/1596/quartr/earnings-release-8-k-1b71b-2025-11-13-11-30-43.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company - The Walt Disney Company Reports Fourth Quarter and Full Year Earnings for Fiscal 2025",
+        "url": "https://investors.thewaltdisneycompany.com/news/news-details/2025/The-Walt-Disney-Company-Reports-Fourth-Quarter-and-Full-Year-Earnings-for-Fiscal-2025/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company (via Public) / Annual Report for Fiscal Year Ending 09-27, 2025 (Form 10-K)",
+        "url": "https://www.publicnow.com/view/B93D5C22EBCA7B304E0555D226AC86EE081C15AD",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company Reports Second Quarter and Six Months Earnings for Fiscal 2025",
+        "url": "https://thewaltdisneycompany.com/press-releases/the-walt-disney-company-reports-second-quarter-and-six-months-earnings-for-fiscal-2025/",
+        "encrypted_content": "[omitted]",
+        "page_age": "310 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company Reports Fourth Quarter and Full Year Earnings for Fiscal 2025",
+        "url": "https://www.nasdaq.com/press-release/walt-disney-company-reports-fourth-quarter-and-full-year-earnings-fiscal-2025-2025-11",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "August 6, 2025 THE WALT DISNEY COMPANY REPORTS",
+        "url": "https://thewaltdisneycompany.com/app/uploads/2025/08/q3-fy25-earnings.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "460 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01BU28zpfEsxpewsxiZFdjvx"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01BU28zpfEsxpewsxiZFdjvx",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDDrCnhyVMI17xK+UDBoMZsqbLqgl06t3J4gSIjDDMXCGM/tj2W6vozBCmhFmbZPJoztIIW35lw9WdkjwtM1bS90JQKCVek16/O1guWcqEoJmXaNmC1ytoo0kNI/tSzmibxgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01BU28zpfEsxpewsxiZFdjvx/cell.py\", line 9, in <module>\n    for x in r[:6]:print(x['url'],x['content'][:1500],'\\n')\n                         ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01UsoRe2H2Xzv48o4PafzjKX",
+      "name": "code_execution",
+      "input": {
+       "code": "print(str(r)[:1500])"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01UsoRe2H2Xzv48o4PafzjKX",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "[{\"type\": \"web_search_result\", \"title\": \"Walt Disney Co - Form 10-K - FY2025\", \"url\": \"https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm\", \"content\": \"### BUSINESS SEGMENT RESULTS - 2025 vs. 2024\\nThe following table presents revenues from our operating segments:\\n\\n*(untagged table \\u2014 column alignment not verified)*\\n\\n| ($ in millions) | 2025 | 2024 | % ChangeBetter (Worse) |\\n| --- | --- | --- | --- |\\n| Entertainment | $42,466 | $41,186 | 3 % |\\n| Sports | 17,672 | 17,619 | \\u2014 % |\\n| Experiences | 36,156 | 34,151 | 6 % |\\n| Eliminations | (1,869) | (1,595) | (17) % |\\n|  |  |  |  |\\n| Revenues | $94,425 | $91,361 | 3 % |\\n\\n#### TABLE OF CONTENTS\\nThe following table presents income from our operating segments and other components of income before income taxes:\\n\\n*(untagged table \\u2014 column alignment not verified)*\\n\\n| ($ in millions) | 2025 | 2024 | % ChangeBetter (Worse) |\\n| --- | --- | --- | --- |\\n| Entertainment operating income | $4,674 | $3,923 | 19 % |\\n| Sports operating income | 2,882 | 2,406 | 20 % |\\n| Experiences operating income | 9,995 | 9,272 | 8 % |\\n|  |  |  |  |\\n| Corporate and unallocated shared expenses | (1,646) | (1,435) | (15) % |\\n| Equity in the loss of India joint venture | (202) | \\u2014 | nm |\\n| Restructuring and impairment charges | (819) | (3,595) | 77 % |\\n\\n| Income before income taxes | $12,003 | $7,569 | 59 % |\\n\\n- Equity in the loss of India joint venture \\u2014 Equity in the income of \n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQStQYKEAgTGAI4AUIIdGhpbmtpbmcSDDGqCJfUr8bF09HdixoMGDF/pcOZrEdvFRHAIjBjuWtt72Zs/2N/eO3dMNrEpjkhOKgfPW9wD3J/Ms4n2rHI3qzdH+mlw9dvI7RfZ9Iq0gXDKm5eNumPTXM8skhBCgRjIKkDybPVkNSn8ps1muGiYRu84aTQYieFrrA5yn4pmApxmK9AERHMc0AV/zHAquEAXthVRuR3WzelSpQzcgfT74y6nTNfBbmVkDBSlWXq/PY7TNEdYjhXzHM+XwZWGZXcft93bOqgsfw0JW2GMaLf5wDUJQX5bq1H05yigjOXRu5IL1WkXc7qNNnbqFMYA6R1AQeqG85lEywRUlT8Ui0RUHX05Te0cgi4+l98FZ9bsXltLtplGpy182jZRWX/fvQg7U9wktAPxwVqPG9bivxe7eYirC82L2VuhHpOb9U9HZWh1fiemnIP1LuKltdft8l7RZbDGSozJbSXvPoRxyFPSlkoXHFwt/gmf9XmmZaG1h5iX8JG7wKF+/OYYEhanL24TrV8F2CzxvVyLN8Yxo0HSIooYrHOSRc88dfV0Cqx7BV9e27Lu6xzsobtx7Kttb9pGN2CwWh+Xne/k4WFOhOY3bmcaJL5e7AVygS/ZHHldjP0pHU5fqIqh+uXkhAwOZUYPL8CDnhubSyDlQ2uO2B7cLNGEUILQirxbGH76kokO8bjiotjDz1NZYcAAX7RJaM+EPqQoqFgmyQNc+BVGOOQz1xZWOLN3RzVPsQy3rgVju644qwF9Qn4g9CPT09wAoFDO/f+s1mhlsYJZ+6YuQAiZHAmvXuplem3d6Ht2VF0MCaP6I+KxKk0k5RUhcwd8sp4avwkQYMz+u22MnIrpxlV1TqpR8qGNPyLV5+9IEdjG//CCj2YoH9QQis5ZpiEwW6wrR185kCIWKVKCIHuUhod8h4Cnwm7LQZhADdU34474yhe+TtCAZSHclfoGt2ySzvAUhjKmxuGDUGfZjEeq248AwQVrae3SqevR0BPHVf+ioE2p8kHfExVlCkrebNODhjH3I89OSBTaQU5RvHZiZHd2Co8bHlHJjvF9Dt2QxLKfpW6BhgB"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_015S8d86aGpd2kieiHhuogin",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"Disney 10-K fiscal 2025 cash flow investments in parks resorts and other property depreciation and amortization 2025 2024 2023\",\"Disney 10-K 2025 borrowings total cash and cash equivalents diluted weighted average shares 2025\",\"Disney fiscal 2023 revenues 88,898 segment operating income total restructuring impairment depreciation\"]:\n  r=await web_search({\"query\":q})\n  import re\n  for x in r[:6]:\n    c=x['content']\n    print(x['url'])\n    for m in re.finditer(r'(?i)(depreciation and amortization|investments in parks|weighted average number|total borrowings|cash and cash equivalents|Total segment operating income|Diluted)[^\\n]{0,200}',c):print('  ',m.group(0)[:230])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_016h9SyFpzSsyir9Wy4ffFZV",
+      "name": "web_search",
+      "input": {
+       "query": "Disney 10-K fiscal 2025 cash flow investments in parks resorts and other property depreciation and amortization 2025 2024 2023"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_015S8d86aGpd2kieiHhuogin"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_016h9SyFpzSsyir9Wy4ffFZV",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co - Form 10-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000216/dis-20230930.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448924000276/dis-20240928.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company - 10K - Annual Report - November 13, 2025",
+        "url": "https://fintel.io/doc/sec-walt-disney-co-1744489-10k-2025-november-13-20405-8302",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "August 6, 2025 THE WALT DISNEY COMPANY REPORTS",
+        "url": "https://thewaltdisneycompany.com/app/uploads/2025/08/q3-fy25-earnings.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "460 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company Reports Third Quarter and Nine Months Earnings for Fiscal 2025",
+        "url": "https://thewaltdisneycompany.com/press-releases/the-walt-disney-company-reports-third-quarter-and-nine-months-earnings-for-fiscal-2025/",
+        "encrypted_content": "[omitted]",
+        "page_age": "310 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "May 7, 2025 THE WALT DISNEY COMPANY REPORTS",
+        "url": "https://thewaltdisneycompany.com/app/uploads/2025/05/q2-fy25-earnings.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "551 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company Reports Fourth Quarter and Full Year Earnings for Fiscal 2025",
+        "url": "https://thewaltdisneycompany.com/press-releases/the-walt-disney-company-reports-fourth-quarter-and-full-year-earnings-for-fiscal-2025/",
+        "encrypted_content": "[omitted]",
+        "page_age": "310 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "November 13, 2025 THE WALT DISNEY COMPANY REPORTS",
+        "url": "https://thewaltdisneycompany.com/app/uploads/2025/11/q4-fy25-earnings.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co (DIS) SEC EDGAR Filings, CIK 0001744489 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/DIS",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_015S8d86aGpd2kieiHhuogin"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_015S8d86aGpd2kieiHhuogin",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDFRj2mrA/sFBK7FC5BoMiGqbkiV939/S8hUUIjCvIr2bjJ/WX6FEloXivm7JEH1ELa9DVMTa2uQXJtAP8kO+/+/izhHE/FWBWVQ9ogcqEv6cJwtLnwT1tigrFoHSdR3HABgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_015S8d86aGpd2kieiHhuogin/cell.py\", line 12, in <module>\n    c=x['content']\n      ~^^^^^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "text",
+      "text": "Results seem to be a string sometimes."
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_018Ddt2wYNhTbswGggMGrR4U",
+      "name": "code_execution",
+      "input": {
+       "code": "import re\nfor q in [\"Disney 10-K fiscal 2025 cash flow investments in parks resorts and other property depreciation and amortization 2025 2024 2023\",\"Disney 10-K 2025 borrowings total cash and cash equivalents diluted weighted average shares 2025\"]:\n  r=await web_search({\"query\":q})\n  print(type(r), str(r)[:200] if isinstance(r,str) else len(r))\n  if isinstance(r,list):\n   for x in r[:6]:\n    if not isinstance(x,dict):continue\n    c=x['content'];print(x['url'])\n    for m in re.finditer(r'(?i)(depreciation and amortization|investments in parks|weighted average number|total borrowings|cash and cash equivalents|Diluted|income before income taxes)[^\\n]{0,200}',c):print('  ',m.group(0)[:230])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01PTFpSKN3QPtBymr529mcbw",
+      "name": "web_search",
+      "input": {
+       "query": "Disney 10-K fiscal 2025 cash flow investments in parks resorts and other property depreciation and amortization 2025 2024 2023"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_018Ddt2wYNhTbswGggMGrR4U"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01PTFpSKN3QPtBymr529mcbw",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co - Form 10-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000216/dis-20230930.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448924000276/dis-20240928.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company - 10K - Annual Report - November 13, 2025",
+        "url": "https://fintel.io/doc/sec-walt-disney-co-1744489-10k-2025-november-13-20405-8302",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "August 6, 2025 THE WALT DISNEY COMPANY REPORTS",
+        "url": "https://thewaltdisneycompany.com/app/uploads/2025/08/q3-fy25-earnings.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "460 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company Reports Third Quarter and Nine Months Earnings for Fiscal 2025",
+        "url": "https://thewaltdisneycompany.com/press-releases/the-walt-disney-company-reports-third-quarter-and-nine-months-earnings-for-fiscal-2025/",
+        "encrypted_content": "[omitted]",
+        "page_age": "310 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "May 7, 2025 THE WALT DISNEY COMPANY REPORTS",
+        "url": "https://thewaltdisneycompany.com/app/uploads/2025/05/q2-fy25-earnings.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "551 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "November 13, 2025 THE WALT DISNEY COMPANY REPORTS",
+        "url": "https://thewaltdisneycompany.com/app/uploads/2025/11/q4-fy25-earnings.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co (DIS) SEC EDGAR Filings, CIK 0001744489 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/DIS",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company Reports Fourth Quarter and Full Year Earnings for Fiscal 2025",
+        "url": "https://thewaltdisneycompany.com/press-releases/the-walt-disney-company-reports-fourth-quarter-and-full-year-earnings-for-fiscal-2025/",
+        "encrypted_content": "[omitted]",
+        "page_age": "310 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_018Ddt2wYNhTbswGggMGrR4U"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_0178rN13dLCpugvtBTyBTqNo",
+      "name": "web_search",
+      "input": {
+       "query": "Disney 10-K 2025 borrowings total cash and cash equivalents diluted weighted average shares 2025"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_018Ddt2wYNhTbswGggMGrR4U"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_0178rN13dLCpugvtBTyBTqNo",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company - 10K - Annual Report - November 13, 2025",
+        "url": "https://fintel.io/doc/sec-walt-disney-co-1744489-10k-2025-november-13-20405-8302",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "November 13, 2025 THE WALT DISNEY COMPANY REPORTS",
+        "url": "https://thewaltdisneycompany.com/app/uploads/2025/11/q4-fy25-earnings.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s206.q4cdn.com/979796730/files/doc_financials/2026/q1/6a458218-80bc-4c84-a57a-768a278eddf8.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "280 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co (DIS) SEC EDGAR Filings, CIK 0001744489 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/DIS",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company Reports Third Quarter and Nine Months Earnings for Fiscal 2025",
+        "url": "https://thewaltdisneycompany.com/press-releases/the-walt-disney-company-reports-third-quarter-and-nine-months-earnings-for-fiscal-2025/",
+        "encrypted_content": "[omitted]",
+        "page_age": "310 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company (DIS) - Weighted-Average Shares Outstanding (Diluted) (Annual)",
+        "url": "https://www.alphaquery.com/stock/DIS/fundamentals/annual/weighted-average-shares-outstanding-diluted",
+        "encrypted_content": "[omitted]",
+        "page_age": "297 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney - 10-K annual report 2025",
+        "url": "https://companiesmarketcap.com/walt-disney/sec-reports-10k/0001744489-25-000155/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "10-Q 1 v11637e10vq.htm FORM 10-Q e10vq",
+        "url": "https://www.sec.gov/Archives/edgar/data/1001039/000095012905008038/v11637e10vq.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_018Ddt2wYNhTbswGggMGrR4U"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_018Ddt2wYNhTbswGggMGrR4U",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Er4ECioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDIZBAPBxGyFY4o5HQRoMHKVJXSGnxbr526PGIjAeyPntUzeJOkmvmDriaFz4sPYpMbXjPRZ0eiPY/mfPwQzKiR7yZLwkPTCK3RuQZGgqwQNNdpQWvUtm+NNFwH93tf9AFjZoqqurz1bwTCKwb9vNa1SRtD/7pxGWIqFiLJQ+GKEdkJntU+HaT+wYKrK4haWxPmIyCZ20tkeGaQFBM38yiAH5LVhIrQvylTSWs6oFWyD4YIFFQel862LPHx5QBkSmrzIslptIc+1unDOrDoE3StCnPfA7EucN56CHZemT873z/rsvwJYcwfwgxVLXVXD0AwfSfADAcLtQcJsUi0j/15ck3PGddL87XPW6pnRYzf6PtpLrws+/nx8KQjDAo/fgd7I5BG1G2nWrKpButnB9JGtbDclOhbRpN1n+c/q4Bps5RZ0CEdkdxyZg57gdX7WPqGLIHMFs086QN+qMYC+gKOVMJSrcgBtTMp0XQAHgnCeM8/NAy1pFW6ZeQ5kMjAqXVOKkYdj6s2TWu77yupav6Zjns+MAVzDBGHqApnOMDBhztK9ZRdZwUn1ScANJ37//GVCeol3CyPHtZO6G41qE+mpeK0noJzVbjzJeLTsj64BQfvoVhZPzwSmOlvgi4vitQAEt98NxfMhCRKoyPXYOu4bLenmhI8M9/wWgA4UNQh2ySu+WOCWxYnaToww+vjbRqhgD",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_018LZ9QZTYyeg1ZMWQLSTu1V",
+      "name": "code_execution",
+      "input": {
+       "code": "import json\nfor q in [\"Disney 10-K fiscal 2025 cash flow investments in parks resorts and other property depreciation and amortization 2025 2024 2023\",\"Disney 10-K 2025 borrowings total cash and cash equivalents diluted weighted average shares 2025\",\"Disney 10-K 2025 consolidated statements of income revenues total costs and expenses\"]:\n  r=json.loads(await web_search({\"query\":q}))\n  for x in r[:6]:\n    c=x['content'];print(x['url'])\n    for m in re.finditer(r'(?i)[^\\n]*(depreciation|investments in parks|weighted average number|total borrowings|cash and cash equivalents|diluted|income before income taxes|total costs and expenses|Revenues)[^\\n]{0,200}',c):print('  ',m.group(0)[:250])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_0142DFPQLtM9tpT6MTat7SaZ",
+      "name": "web_search",
+      "input": {
+       "query": "Disney 10-K fiscal 2025 cash flow investments in parks resorts and other property depreciation and amortization 2025 2024 2023"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_018LZ9QZTYyeg1ZMWQLSTu1V"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_0142DFPQLtM9tpT6MTat7SaZ",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co - Form 10-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448923000216/dis-20230930.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448924000276/dis-20240928.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "August 6, 2025 THE WALT DISNEY COMPANY REPORTS",
+        "url": "https://thewaltdisneycompany.com/app/uploads/2025/08/q3-fy25-earnings.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "460 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company - 10K - Annual Report - November 13, 2025",
+        "url": "https://fintel.io/doc/sec-walt-disney-co-1744489-10k-2025-november-13-20405-8302",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "May 7, 2025 THE WALT DISNEY COMPANY REPORTS",
+        "url": "https://thewaltdisneycompany.com/app/uploads/2025/05/q2-fy25-earnings.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "551 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company Reports Fourth Quarter and Full Year Earnings for Fiscal 2025",
+        "url": "https://thewaltdisneycompany.com/press-releases/the-walt-disney-company-reports-fourth-quarter-and-full-year-earnings-for-fiscal-2025/",
+        "encrypted_content": "[omitted]",
+        "page_age": "310 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "November 13, 2025 THE WALT DISNEY COMPANY REPORTS",
+        "url": "https://thewaltdisneycompany.com/app/uploads/2025/11/q4-fy25-earnings.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co (DIS) SEC EDGAR Filings, CIK 0001744489 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/DIS",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company Reports Third Quarter and Nine Months Earnings for Fiscal 2025",
+        "url": "https://thewaltdisneycompany.com/press-releases/the-walt-disney-company-reports-third-quarter-and-nine-months-earnings-for-fiscal-2025/",
+        "encrypted_content": "[omitted]",
+        "page_age": "310 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_018LZ9QZTYyeg1ZMWQLSTu1V"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_018PkxRk2d6dYcZf9S8isu8c",
+      "name": "web_search",
+      "input": {
+       "query": "Disney 10-K 2025 borrowings total cash and cash equivalents diluted weighted average shares 2025"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_018LZ9QZTYyeg1ZMWQLSTu1V"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_018PkxRk2d6dYcZf9S8isu8c",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company - 10K - Annual Report - November 13, 2025",
+        "url": "https://fintel.io/doc/sec-walt-disney-co-1744489-10k-2025-november-13-20405-8302",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "November 13, 2025 THE WALT DISNEY COMPANY REPORTS",
+        "url": "https://thewaltdisneycompany.com/app/uploads/2025/11/q4-fy25-earnings.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s206.q4cdn.com/979796730/files/doc_financials/2026/q1/6a458218-80bc-4c84-a57a-768a278eddf8.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "280 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co (DIS) SEC EDGAR Filings, CIK 0001744489 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/DIS",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company Reports Third Quarter and Nine Months Earnings for Fiscal 2025",
+        "url": "https://thewaltdisneycompany.com/press-releases/the-walt-disney-company-reports-third-quarter-and-nine-months-earnings-for-fiscal-2025/",
+        "encrypted_content": "[omitted]",
+        "page_age": "310 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company (DIS) - Weighted-Average Shares Outstanding (Diluted) (Annual)",
+        "url": "https://www.alphaquery.com/stock/DIS/fundamentals/annual/weighted-average-shares-outstanding-diluted",
+        "encrypted_content": "[omitted]",
+        "page_age": "297 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney - 10-K annual report 2025",
+        "url": "https://companiesmarketcap.com/walt-disney/sec-reports-10k/0001744489-25-000155/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "10-Q 1 v11637e10vq.htm FORM 10-Q e10vq",
+        "url": "https://www.sec.gov/Archives/edgar/data/1001039/000095012905008038/v11637e10vq.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_018LZ9QZTYyeg1ZMWQLSTu1V"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_015U7vxZaF3svLVvRa2TB9T9",
+      "name": "web_search",
+      "input": {
+       "query": "Disney 10-K 2025 consolidated statements of income revenues total costs and expenses"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_018LZ9QZTYyeg1ZMWQLSTu1V"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_015U7vxZaF3svLVvRa2TB9T9",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/dis-20250927.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company - 10K - Annual Report - November 13, 2025",
+        "url": "https://fintel.io/doc/sec-walt-disney-co-1744489-10k-2025-november-13-20405-8302",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co (DIS) SEC EDGAR Filings, CIK 0001744489 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/DIS",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://fortune.com/company-assets/1596/quartr/annual-report-10-k-16778-2025-11-13-11-44-45.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FISCAL YEAR 2025 ANNUAL FINANCIAL REPORT",
+        "url": "https://s206.q4cdn.com/979796730/files/doc_financials/2025/ar/2025-Annual-Report.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "367 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Annual Report 2025 Form 10-K (NYSE:DIS) ...",
+        "url": "https://stocklight.com/stocks/us/nyse-dis/walt-disney/annual-reports/nyse-dis-2025-10K-251475282.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Walt Disney Company (via Public) / Annual Report for Fiscal Year Ending 09-27, 2025 (Form 10-K)",
+        "url": "https://www.publicnow.com/view/B93D5C22EBCA7B304E0555D226AC86EE081C15AD",
+        "encrypted_content": "[omitted]",
+        "page_age": "361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney Co SEC 10-K Report — TradingView News",
+        "url": "https://www.tradingview.com/news/tradingview:d6292ed4788e6:0-walt-disney-co-sec-10-k-report/",
+        "encrypted_content": "[omitted]",
+        "page_age": "360 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Walt Disney (DIS) FY2025 10-K Summary: Risk Factors and MD&A",
+        "url": "https://tickerscout.ai/dis/narrative/",
+        "encrypted_content": "[omitted]",
+        "page_age": "88 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_018LZ9QZTYyeg1ZMWQLSTu1V"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_018LZ9QZTYyeg1ZMWQLSTu1V",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "EoVoCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDHGVU8fTDeaozkuqcRoMJaryKumtj4Oa7o22IjD9FCayXMF8vp6mosOJlloYPHwFL+Y0zDwYS1qsgHVij/9549bJt4dl1ut3s0fcgbAqiGfncocyOQM67WArgvNMm64pFvHOon3U14xoTOiJYEsQm/5emh+e5GJPH93W+gyd0SXh8KK/P0ntJLQlxRovvYX9TcXpUgQ8mNrA9hqJsK0GR2ungHrZ6NiBqnJMKflRAsP6ErGTiFMsv71xflrZjNXxchTOOzLcvEInIHTLfgQo/J6WvD3eBZ33lcqhJLsjMFBT3ivVTQmpU8f31MYpEC9kskRarQqLkSalL8v0dxvswvJ9xIx2m6Zg6RLBMJgQEBu77veDLR0xIThRsPDL2tk91ou7SfWJY69bW72Z428R//v9o1XKynTZr7gu0G5LJ8ndPpy7BN/h9M9cQDpFdZpFh3IJJaE7/guRQbDN2xN/yJNOeHUebgT6TrAEqCxUz6NIkNTNOGin5bcQENvxezAAUbYKR/h4hbUmiIaldVS1SLGbD/YHi4MKLnJPmPv4J236AA9AzLQRKYJa5AiajIW51wUoqHA1dy4+uIAFN5B7psc3/4QjomXvNFWnC+SuqP8B5o5zoaUd2BEhaQudLHsvcccKtLhxXpbyajnxHaSmP3l1v162geVsakoTu/HJKBitrYWHkR1GhTWzN3P/6Nc+7ZdbgmIEDqQVpgg/Z4hC4TpDWsiYFt+sC3ETyamPN7d/o3f8RS39gQVawsDvUP2AT3D7SrNjmS08POZuyNYNNcjeoFzgD/EECcBYQTDatDmdEX6Hsosv4PArEj6OH9eANoNX6DJNa9dUe1HmggwAu24Hxo8ZhbxJ7o1km18bNWXQi+A9beLidXr9D3YJVyR7i4Vze9/HDmohPWoh3O3TBpOZ8fltSLAQTwflrxVWmAa28ua1aaXjdhaEHKT2pWaYztGx8toygior1sMh/OMHhY8FoZl4hAfKaeew/PdN0mC++l4IGRQkWI85CgclVLRMcBeWgQ8UZD/8KO9K2cYzLMqGsqv//uzmjYvI6RZRSOD7k2Yk7pDtmaIy5aMyAWBukwAmHVsVZ4zVgF3AzGgQRfMtQOHt6dyJWsrkYeyhaJwXtH7dDoJZAWMLmbND431Gq4dSMim4YoO6Rv1LWH2mVSEj95mXIOQy2NvTR+0ferAvxqWh2fs9Gi+Yf6iIO0nh0VtgCrEsHaKzR1GIAasFXNCjqv1sVc8IdDIt3jqeOLn3Ah4fpNVXMQ7tgl94PVZDVLMNej835ufv/+UzQTTMTH0kroq3OktEXNwdnkxXafAI9CryWyTunLlwG3X0yTudwSiWkXucPEzTSjfVVT1Efhg0FebdYv57Df5xssz7HkMQr8i5PLrIFiwGv6+ceEZ4Gg61Q6SXUfJAtpqIVnB8V81pEo0S2mYi4z1r4zzp81RHMSi0lms1w4dq9XhpI6po88PXI6u1KljHLUVHDfK6YQlcXn5VaEQfAiZeUv3AKU+AYBFoyMhgSjk4sVA6OVJ4O5LCYonlLeCPfovS/myfqWGz14pquEoZthkygfVpGCTzPUDhI4j4I45bhwQWASsWD8/GEkp6U7zcx2LgFolutskZmJSgzU6QFslU1EHo9rORCfNnT7hFdDSxm+qLiLji0BIKpJa0kZKeCIGl8KZ3mXDwAnAwuLQ7cBmYYNvmyWu/8keh+Njc98rrDahE1XLinTGIj2moxePIoWg2Dnt9pFOXMWmSxHHPsar818OZja9+JklycdyXj4LX6FbeAzaE+FAca9GiqVDRVRh+VmFZNDTXLeGo1vrJVnF+/79b/ZWMlt8Q1kRjBH5bbBxwO7htSZPHGiApYwJl/eU0tmX1HP6J4xESu7lKYnr7SfqqTPxkojYhTddLD1jqsommiKCgAtZSyQwK7EVRzAw8VBbq9YdrXGlXznD70r/OsAls8wKbedyqUUDqr6TFW9X5ayYoaKtWqD65ciR9a5CtEbW4nuHHHUfR3zL+L5HBGiRIBCBSBzkyuL5IIl5XequCTcnDhF0rup26/Kw9Xin9sQ1Hh7299itIJvdlC9C5BpK03Kqz+bvdf3cPxPMF++xhMAVMaX/g0btqSXK2i80a3VOVEkWcHsad9gAsEAcmwqh0GkyDx9YPqZ22Kd3ZzV1FWUgtzS2qF6GmZrXJGZCZf8nB0XMStsuZ4r5v42LqsKMZ3vcTVOmpwuV5j+YLQIE996v0R974yoyrSdorxMqmSQVVLktsEKBUxWZiagXeHY1aju9LQfRoojWFnOyxM2FyOEsYgt9kXt1BfEEcppD8olvETf05qQ9W6lEXQrPWwttLTTr33XXO4jMV6zmTp8HA9gIQLzm2AMcZ3SwcRhvee6sy4DJAr+f7VMCxPx9gfcKyKFG64c8PH625UimuvgGiN7hGjI5qy16iNGr+4Zc3Q54MvH3LdXka4lH1c8cnL8RQxZLuShOt0oBFkY1tgN2lnogIJGR6SY6kPTj7Vbr5RCIBnRBfLMATEb/qCDW4EIIoQbheaA5YwSNPGHSl9DTRYbDv8/OQwyy+po7ZoLvsY9aJ+dFnwHSpdpau0IYs65yB1v9Phy+vOd22W97B1UIQQEL2lZHpwDPVTBpl6P5d0YHv9iE1NO9ZO5sqDRvuBz0HBMhvQf59RZOyu+AskDJKfQuJpGkd03k/1c977V1XPNlL2P8fhnsUiwG/cv78fjc7BkACHK2puTwm1O5Oa9jcZtrSKmAW8+zhzi76K0XAI/SsNFKYDr+RwXgelJQZmbymFgrRczxnyJi3UVvWKFvGUpM7+oOFvJjdsMs4Lqrw/7Zumlt7EWH0r4th7zrF2t5klz+V37wgxbI36Pas4BU6LnrR5vJjE5rk/ZUsRFHj3EzXKLckREWsBkf3k9Ar6mXisg1VjaFP7oQ4Qx2QDlrZMxzmdObwBC6aKJafRl2ZJIvGrtSp3ethmZYE3F+2ZLzL2yQmzibHPXUr7xx0Xo6FQxGncd67qVIjfQJe2NksB6a2lP7tALjMoBX8gNDAFxJYE45qaOpHojTtZq6aZ752svdGVcz7obBFRkA3d76lZrTSP4pG5OnVYIvBOuwYi1k9QV+D4LW1KVX+w1Nz+tVgGwfFUOf7wdVu9eWxsYXp81d4N1cGmrvmQdELpW62kve67/IVyKSCMKnzMk226cTJrC8T/KRRUkEmZ/mswRvDzpZMAaiX18T9IO+x7uvIxueNPTXilqZPYIJD3fu0LirboX2VivBHqceCg90j6lhbhBz6/0gTjIYmSxsaowt1GX7W7K4Mjror7j0ASZZSiudgq+XJEfTreHvDBCfgcwg83cibgAtKm7AmKETpsSQlakVL3TGlyPH1UC6WJsOGuI1Ae1l8zy3btMdnHhUmGPyO1W7C+m1lJjlrCxMN5WBBAtMote3rN06rkNiPdf4kTkzR5mygVVIUXQFZzJazXDLOe6bEgU7o28kA7uWlJskIRPss30PID0f0eZKs0VHokf5WKbndNwVS78qgKtTQzHJzn0yxFs8bcBqZE7j1CHuu6zYwFRO0IyErlF7xl0PwOgJJdFdK3K66ta1T9+6IsuSwgy34gYn3PRCaapBQgJVyxoyLTFTmxD4ax6ynf5DqzgfDTJXX4G6iV/IMn5w7J1oI8qCfk1LVF3f+oaUMVqJ8CqdiLaqWTwPU0sjCdsbSxnKRZe0U1WAJDA3X7jRGJXzqCK3693WMgAOt4vfesBnhmQPb0qCFVjcc3xxS7Am+bZCLwri4h4y9MqyoAMKd5qZcxeVOPt7MfuPr/Bs8k97YGmFLSrNv4nLehpkozfmUKgUzah2SlDeBrMUcLFm3aMDtY1xyVrtXIKqX9j66qHChbPHwemdgU7qdal09zgn4vhncAc0vPL/XCRTk12o0jAwxN1x9t8mHduThDYGcKjc3ZFHTenke4Rj80nU8O4KFL1dRnjLOXSxq7WlelHhwxvLJu12iiMcP/X6VGcBB7d+JXqvYrrsE2K1DsjlE0WKpTHLp/xm1isdd3E3Scr27SZvtonBXkufsPvf9XFSIpFtiG7ybiTLyYDfLa+Wd94iliivHB9i8bWgXpTkdmpjf30znrh6h4ch7uJ2w5KHRWh2aIjIzrJwu5J4Tw00rS7ZnzC7oTU4xaSdn8ROpJ0ehhi2T8HcO4jQldZNAqe8RDe2fWi4LXq6C4tpJdycTFObl6Bkq0zcPQhsOiQrzM/tiZLuc8QPz3v7N6IAQfckRtwAsR7Az2cagJPV8uGu8EhcI75IE8pvoTkG+cmqKZbFYzXSnmckTOhalzR6kiV2FjKzDNlDm1vf3LKng14VOiksPHkWNdnEEy6jGbGQUBykaWQVtmGgF3kUSJC0ulEC2/HwETTwA+HXn+0QdG+KfwSY0LJaeavT2rZDwfxKcP4Pdss3/wcZa1CilLiYobB4fMLRbm1AcDBd/BeymRbu0l9xVCxIsysq/Z/9MCX7tGQWU0EK+8ALc/Kb7+xPiWWykTC2P5LkIMZSlLgOnOLq1L4rtxJDXjfkXvnmEd8qEILGcrb96L5e5MM3O5WfO3BUK9OfktupQV0tuA9KRCUkeP3TmkT62SNCVQhFGAWvmQs3S9Rsij7DikLQBEP8y5W1/MlWnJwWacsPGJr5H3FAk3QnJZTJuAE+qjvbToTgy/7Wpauel/yGuRd/8E4br5DEbPl4IVonrABsk0F2zJBwtsv0QWi8fEacidSVk5wb/UQRpHPJci6sx2rWdN0dzJ8+TvrssGWmaQJSzsibsc4jWcxDuoUSC2C50BudxmblvkBwD7+Mv3kB6NqVFjlEiCTqYMPBPQGgoU89nof/909wL9VBLHi7t/wJAoBRls6mts3eZ89EAAlqjWN3Typy4N1Ml5HLp9wjpnW/xDmYMNbj42W2PL4WfURTYQuj5vmck1vYKCzdYkmYotdls/3SGfk/71O6ai6q4g2+zntWRGnN34VloEHorv050/PclXR/IQ3Va+KGrkwoEClBYJV//lu7C0a3YUeZvctI5S7iE7Fos6ge3owfd7GquRHjOHrn6uKSaZLEm3yAFEuLbpClRb/GFK4zx1PVe1u+ajWYzGqXqbY0KxO0qQDjlrLKPv4bQeIxm5h7GAfBftpZy+Wm6YdCQDLnnyAcrywqjqfAvyrp5MwuGEr/cIWWAOnker9JZBUIh3tl5ztzmDJjl1X3Ah7qoEqH5Zl8u7kw3xzd3ViPiLQ8mn2dwuLoTvVnFPFhiz/BMcMR1MXhDOsYt+sB9pJmR+SUZ7N3y9XEF20p1ipntc2LNlxAUl4x3aBSMk/g1FW9xuta+yIdZhtptQ3YD1Xgsy+B7gwhy7DKyXxmfa1wLesRRQtYSHvHP+87QbGxE6MSjLueH0CCsb4Jm0/fM6qGmCnEy+A/r9VOZLSiCCrie0v11b1X/kRQ5iAQ+CaSEJ+xWZ2YTiJMKbt+TxqnVa4V5lALbfFKPuEW1HYLEoT6gN884dsX4E3JxC/JMPX6NqKeAEfXrovbpsiHCFpMl1xLKkru5QqdNcRApBuwaC/mGqyqSqZC7lIreLzEHTgy2peCS5WjX8Wpt/aebU60QSruwhEKdcTi6lVmHo+eQh4eSren9+IS4eG0wCkqVdL07V7cMhnowYZysga34jDmKhNLE/VXofAZZR6uG08nC4KDiM9ZE/ZKrZV/wWm0aHjfgee7vtIdp2x5Mi34FX6qCNyEPu0aXv2jeuymYuqII0lUNBK8vT4+zsDL+bQrJGGrTKgAI/1lbrTqxAhw7aQcpLZviKGkKz8trx25b6sEtQNU0nWt0zJqav3DA3ztxhQCfaawETey+C64oZfIzeogodhumqvReGMvCTUcFo3HIyRdczkWtE6RE/QouajWY2uT+ySIU0Wlmb+f+DfXpQX0DEnFv1K2Bm4uWOCs2BELrnivfyx2pbCnTiasextYWQCk2dB0ahSuoga/0yBc8ARO3fugyNNXuCaHf6rIkrX3i08pY7k7THy+abGTrRNsxbWWdtG4EKR3O15bAk6FkmC5q/cUoU0xd3xW2Y9pA8h5JydZoUkVSOOJXBvPCyG9hkdtGowi35BIIXKtpdVhDlCPoc7gdRDyaZLu0il+YhLrJwHKeSXcD3h3AvW6S8ufO1+VpFIUL8c9g2QaTE1YWsWDLTWX/vhVW4tXsdoAFUlrsb7Qz1ZKGXK3koKo3+VYqBK0n3f6hRa6RdlDNK+8qywO2it4ojeNVIH9DwwneEqh+4JxBn6/bS2yHXaeeOZA82K+5He5A52HvPoyJdbS1cBdumPYXtJ649SsSXa47+mERLTziX3gbhIhQnI2S3nOQFU1Ng5HRTtYcKtF5DMb/XeeiSkOmcclrY/3K+GP9nf9kZNPEYQ2MpUA7SaBy4wK+siP+01QENWphJnh5/JknTuDMped7z6KMaftw/AHfQBhEbN0VINy+MOf8fpQzKyoqEhoqukHKiWqRbTYknfKeIAbe7x/iBRlPMA9QMYf594vi/Ezhg7y88BheDXRj06AcxiQduH+x0VP/5J3O8/qa4GIdZnApXSqrdrEh4y6UcBZ+2qThuwepdo9rO3amb/TgN7w4F8IbEYUGs9oAT5lwzqhYnR1oXMkWlzHZqnciHDThTrnwEWCUH9uqJ6w581ehxsqHOAM5qr92flzsUXZ6RS+mO/1MN5Wd4IxcYuxDdocqkyWBnVdEe59Swoogz5Giro4sU9Cyr5GxtMX5r7oSip9h3tpFMQBJnRyjDIHQX7QqRjhQLj0RXwVmejS0Bzmdb9Cys0zAhyoE6YBUA9QS4eANnoHdwY8Jdvz45IfwsGWY4Gf9f8bBmfBNdXAm5sgNtC1741A9OGgwT0mz65wWNVXIIpMgFVdimc5GGIZrqyQzHiW/4vaBinmx8itkutfMWRhzMBMYYmzChlqx1nIJmJY7PSyPkvY2NA1x9P3PHipVONoDuLzcI58NuZzeCi3EA/HKF1lGSS7bKBcdq6vNE6WWUXbdCeaEWJ3H5Hu6FaX6xc/ymrYalayBh4oQOFIgfQ6cz3rnHQRQDMFuH7ud3CGjmQBdRxTX+9fTFNovNwk5z4YfcoOKpL6X8AwnViCRHhJE0+z091nrAw4rNXSNAwoVOM48tXNMktkibrHIoz5mV4oX+N0YbgLef8HTxeCJYppsBOc5wxILSOoU31F+hLdyfrg5GDB2ydODXCP9M/hBwQO/sfu1E8hIuJY953ci69tY8cvb3wJB5FniHDAr2eWf5OXqaX3iEVWnvfwU/wvHeNjEKTWq+bx8qg7Xs7YuTcTXL+fDSU2a5wNsxjK3WMEQcCDka+HQAZ4sOPPmjEUx6kUtpa2VhPlyFkq85iMQkMRCn2FHTIBKWDW8cGmmNGeC0DtwcU2HL3LiYVvsYNcEy+iajkbZFVNBHG7Eav0CGmBLXa9sRvhAraOcw9HxPP6UE3z57h3ImlI+cQZ/oVnVLa7DhsyxXEarrSAIjFJRfBaMwhrGjXvedT3vzawBlcuzdDclA/so+ZJxw3B9iTZrZ3ntBZA12WEj7qD3Y/leGfQ96QgZI9pLD35BU19q9MxI1DxuDsAXsV7a2tx2MIGr0M0mQA+RZau8DxUx8rpIJClxjp6CU1oa+eLCM/K7h1qT8ZKPA9hKzxH0LgsjpoZFBU8QjHJZLEJzEM8tQnR9k+xghihJB9LtDcPfwtJGtOlPZ74lcVXpd7j8tlww/LuZ4Q0zXIj5APOtav8ROyOb4a+piJoiec1MOuYGU9JRVN8WpVGkBP3puvIYNSj15zgCLDV0pF3dhDhZt9K7SPC5wgjF5YO1H8Js3Q5xh/T1yZoeR51DsgHKv4ifu1MDYWkiLlwahwFndXazjopaDaV2BJAchKDxzsuthoedQe+UCug9TmVkecne7pOEhObTVkzLR99onQNtpN9Pzfz9DJPxuc8ITjGWUs+XoxetEaVuE7aGgfQH1i4pwnTLn2tuN+2rpjKA0QVe1y95Q0zxhIF1Cl4D/MMxGR7VyChKE604DReB8EwSvXkRTEts2aIFg/UGhp8zgUalxmolAtpfurWJUI8m0+aQV6n/UN2aI5ri+H42qlUZ3YBGtqZiPIYVJSPSEewJi9/q64G1d9PIV+oQO7OBPHNlJv2LgubNtkCnzrNi7EVDN0n2RV77nYzNT9M8G6c1kcMCbUw+f1141eIX1iCy482ciyxuGKzZsPOlH4s3OYmZp4qKxvr9bf2GylgVk/COrNInDlpTkBx40fKqrLxLV0vhqjmkfvALL06S51GsEkHwIQnfYgYaWQGn5Ywuy4hlGDgvNHTTAIXPKVyI/5j+imqbZMyaP1r27VrO5AZkeaH0o1CESOJIEO3lU7ZstPeUJqSY3rwYE0ISiZ0vPz0dLDMN9GjbILCscFLcexyQ/W4O6xNxUPbz95JMlYw9Wu52Z002xoihfLoZ2dzpSNXnJyH3JcV19g1dt7K2rIVUmYazREfUM/yzsPP3VrfvVAWGgwnvft4vWOnoxAsPGHYpdjcr5UIcYxbfdLjpgS5s0sxtNL91xYAN+M5p7tKMY+hj7hCcRye6cuP2KKjbAcZhBqs9PxrGgy8saek2WPnv/vcyCX+o5PM0G7zU78LKqxN5zsA6Cz8e3pE/jgFWuPCMUYZ9rC3xG9VLMitObBy9MNV/wkWCcKlZeJqFsxGMjZd71QdOMD+YGhy74ukZ0s9waKbYW/efnQ8Uy4c3UMk49uCOLdktJNv+S2G2sqWlMpEIjca53kJTPhfX4wzgyO/SVKPZTm8cdsyviCjQvYteMvbj8k+MQST2jvTwmTZqzPYkqknZOFI6UO14sZnpKOBVgMD2rlcvN3vZ174AJfCtOC/d1XgW4bCIhflPLEAcAWrmch/3exo5wXlsn67TTtyvkGJSixYHcSUC89dRnnBabaC7NxW2NwXxT0glGU8mObfUGPnU1EfaXiSjuMIzyIQQywJ47kwN9zySM4iidlWsHeTt0NvcLW3rDM+RUvykCKmiJ8bDw/5NuJUUQjfv8k0wPy8Eqoc4ItvqFH1U82c6rQTk1uBiJxoqbZAUAxMMjj9Z1jheN6p944vHGEWWfcVFnH9i08DN3VkhN2mu2/8ppOEaM0yWEUwm01jvXRH1c2qKatV/bnjIt4BWnrDI/HeYpT9Glf19fx+SaHsxUKNC6ReNr5JRjR+bGSqs+E7OJEDSnETMF4+dJE7OLEuj46ieTeQ/O+73CuNgQL7orj8z4pq3vz0SuhnkBziAZpkOnD0C+8FIH3/UF41TLLnEhSndq8ApeG/euiDyZUf1VmnJ9/Z5wTMZkLC6oAhGUzbpd5xyRAgSGVmF4+Gr7teOSAZfjs9qOHCYuzc/DJH1ccPsG2OXcUIpqK+RusvoYwihR88Wkg/rfwjFeJy8CRbkQbCosn1+XzyhBQYsTS5vGtCMqEJbJVZgGP07dESUKD6j75bUyA6cljN803GQAEcSrT5KhnOKZmNh5bWJ/FkrGWoZHOw9K4SZ0JirJBayA6mS2UUKkD+h/X6DH6JrxDS2EmEQnz4igOo6JPgwXaq8nbzqWkzomlSqb/gc+ZGx+6arax4uLe/fKRwwO9aoqDLEfLbl6SQzwR8JjdxNRcwzf8OVZBY8peYoYu+vVUoLXYAT8abUrmWepoW/+Jd1NufGRIgL6aNVZSy9sj/8zdcJmGUd5tEABXv2UQFBkZWR3oJFX4wJugg/XnrK4/WCiLGt67+miOGKuUNeymCCjLV/HfdrEaxdbaczpibNvhkQZMx6YhVmpk8gqQbLx2Y3UJ2Ckz1Dh4D7oEf2d3g/ERN8q4ccb7k/cOwrIcz7P2ujT3B7gWyOSo+hNj1/gGQaR55Dbi8K2FvxIwlcdMh01Zz8S+LazVVE8Z3+8SeIHJQiwNdD3iYzqDPjVf4Be1/Uut5rF21rm5SZJbcXRXzLSBTHzdXdeNq5ILu5hEVS1G70sQ4Nnw5JCg6RdgkPsMu4i6DKMzllyJUCDug6XjXyjLRkTtmgeO8zINr4II2HqX0IicDnJtBxQKAOTqWQLtl6zC7kpF1A2CW5RDDPPZA49EpL0bzP8/gX3UHSdesN5svmHmQSvW9rTeP9H3iUqmLXT95oQJZupJGXKmUzpu/HwFgsiYbg55o1aEyL+O3BXRaT1V3RNnQR8SWqxkb/36HzT+JueQgC8YdRtBdp6F97B2qF4L0nRnMKHyfGBvr2uGgsDrNyjDf2MYQ6vVBv2aaJezPxJ2qr3Zt6x16TdAHq9sqVM1MY+GtSDVHA1Umuj4FEU+2lI/ZpT8QTkzMVANwn54Y3xLcLBxH0Kn5YFiRwnGx/NSqDtjrD3mTF/tFluWL9ozmPUv5N5Bzoz6gNeku5ebe8Na20QneVKqneXkO7+1Iqo3nKTAUvPdEDi3C4cScr7xttukqGrIhO5QBBci9PDzC1d0mfwf524/OiJzn5qIOC7pSQH5JbNSwLFKjHg1Jw/y4RONfVZoxNQb9U3CuAN2m8upWkzWgFiFXgrE6hD/cL5JXdPIe/oj0QmUZCFqmQBkHKZBWaTxH0+h4yE4+rDn9Z1bAmk9F/EWuenYIJYiB9suDUvGn072UwPQSDZ5kKeMoKrHwUmI14eC0dBXOKEXzjJ4bpeC9WujrETeH5u5CTqcr74T/LP2uqKLKxCPWFGbrLxxzNzC1H0i/l/tWGnuQhNZmbvikJid4Igtaa0g+7UDZTPsI6t3+gJUXg6Opsg+GuOwNG9oPXw7sbZVsnAxt6xbb8C5BN+0mBV8Y7WdF/7xsOjVlOHCd5LFEYNYSlUeiQvYYf2HibJN23MKOWhSGfEqimEiDjfzcJcqc0reJ9DqOhpLJKdToi+QeZX4nl0Qe3ZRm2bkGHrxXzkY5cfYroI2XVxrhfBvK+IYCwfegpQxJSVN+qi3vdo58dId5ZiDRZAy800obG8m/SVqso1m+SPNsFEK1aZxwFnu77G8du01KFeuDnmoiQDiNUVPbVlvx8frx6raL95FwONo5Z3Ri+5+f3v+HuzjrrQ9uWZUORsSThuCiIyRgVU+rnPH3IMTh03vcd6lg1HaQpDFqRbTaeDb7q+YJPLrkA8Wg4iwaFxz1CAQM33wIyohty/Ued4ZwFvuJynoz9pQsMQppy24DzEHvHfy6dH5Q1F9hL3IgnGm6RWZMw3S0SD+A5ZQsnSnn0TLuA2om2LK/xbHswhdRlJ1nRLiuvXgwA1lJRfGl6AgwFb8670rj4/Vt9M7bZ49JPEwQkcsR3wFv4eE5ooI+UlHS8o96mq3vnRNtd64lrEqzgdVPHXqfIPEMgzW5+scBAFVqy05B1W7koixktHf7LgUSZx+d3VMWCWHjqcqG38uhLIHQqfES64JVcoTn7tQvha+qI+HThcdkNVRxaQP98iusFKT+EmJ5XeRAfT8x8Zoto5n9TD60BW8hXSpOr3M0bJqPepnGXp2YrYAEHxRnMNUMPXjzUekyXW9nKXsw93DQbK5KjSYqLG+fJ9QW0c0iSg7YP3FjvAytvmnyup99GbcxEyxudAgrYcnbbPwJ5yNuR56gxS5mm3GWcxalmZXSzGN9LaoDyDatCZzvZ8dti4HDUyml+6SkjIBr/miVpFadfmfbp0L1dDfftETVbq7HiYOQNmSnygiGcm6EXrc+IXtrjz0e9qFdDnm21GwS1RSUxrxvkxQr/8TIpo1vn8hQd1RpSNHm6+AuXhCAwqddNPn3Ef6yKxaOPj+JsZw52nJ0HLINNi94XuoKAUJWrzy8Xp833bLfPuryZZUNGqwYClq3LcnOSSnv7t1RWtA1uA18M7Zx+P8y+M1H+aS06JIkIb9rohx5cwdjii+GOilzC5IBq/8P2xpOSnoQdBUs76V5NrrbUCgfP/TfImKM85sKDuBXCSnuXAk+S+ImbIsckBHHeEk4p8En6qXyJgofvr5Y2AdMhV9JpSYUY7SpmGo9irHky6W2svW6QdRhX+ATMTDIiMPoHQlMExq+fnNVWyOVVxE2OxZ8IB45jHsLM6tPcS6/fg/CgAizD7mn+l3YcjMUQL7eqOGBj3suO0v94gMBz/kcb4fYgbhOLEgZckhLh7C0a95T9/l79BPNegHGnY6NQWf+QvFOUThfuWIy39dLvgaq2MLEsTZCNdLkVDjau2+JWVDdUg6YJMPtOVYBJlguiVXzIFD5/vi4OUTHHEPCzZ66xi7rCCssIZ5aC9+vZuVWgkJfGkAq7kvfdGhjzvXH20iHYGKktXuPW8sJUfh0gADUVHz9PMVFkou64P+c+zhfk4g0wxDxEVsM/nlXIhVhbRorpC5ub86AiZ3+hcIMj2dGM++mYrQUldc/H5EsP+vgReiBZnT8yKzpP83vl6jF6cvRPYwaj9LeTYX5Jdf0ZFS9AiVunSvSnbV7rXOm3ljdOaYXVN2b2gs/0FAPxU2nWxa78fIpbDEMVaqTpdcYsnGPFQS4xngezd3ndxPymrtoZx4NOplgnW4oXY8ZNI87eBj0gKHK6PAekn/yCx43mfuXpLlga9Vu78LS2i1xrSHewV8mArdLlwkwoceoZqyHHyYQQWFgAH857tnWbHs0AhrkMZqtFPWGHpiqhRMeaDqGgb9dd1eMixmtu7ZME4IR7iv8uNcpYPEJfGi/ddSHckqWuQCDWawVkOp7bqnsxQ+KzTQWuTmKeGBKBHyydNMKkzTddxxALsgbFHTduyJEI1qOYi2tZUzckzlCdC2YgUmCq8WBu+XNjcxAgtXtl3RzvO2+ejvQ5LCAAHiKphr57XcIF3NbMAAEKSTsXhaJEievAXRHp9+A6lEAnlhzg40GcIBD1Wb63kQRT9r1+m0R0oGtXvBlVSWAThIrSJCe69nUut+VqiCPJuQyzyvr2gNisoC8ibvfA/HFne+5KgI9nHVkmUVntifBIISqmS6wNbZY+m4euICihUh2S+x7XuSDQz1FRtfxjJyMR9uu904BZiDE85PrHeEmn1Ek6SiXrzzrNHb0rckl7EDSr4cbPTjwMX6LvZSL0Ga6hEhXhHWq0cnTTngTwX98ILXzsiXRRoO0MJJIHPmpldtT9wSOYCcX5QdUACDWY+a92Zt8vrl9pWxzOxVBEaQPl4BPSlLgQqVlQEk+0tIcr2KON1aqslyg4XfuXdiSSPohtyvG7GK58VS/F5WV/owYAPetwMJ7w3CZzRIIzwkT3pGN5eYbheNSvZGfsFUxcLH0bbXjgksRwVsM+v1U3F5vjIFicL8CQcQ+hldL+DBw4yJ3csNfl9xYF8jrB8hEZeqRupol1XDDG/McdcFJhBYNtWmWvElNHdr/2PHa2ATWq35AXL+cqWQw4pGB4+OfMgaEO5ztdXZ7/EefZIUtwPqgqW4ZY12O8mccvDveE6tU1M6jPmr0BruvrFP3VvcEhl9x+GSWDDs6/r5Uncb4zZAGLYGhRSrClLeBJ+arRSPX6z46cC4dm5t85PwoOWryfrebdo9wDmj/JXdIGQD3zqieisykz/d22gPjAqRzYoRXpSd/hOuN6KYyfaoZcv/3IYqo2xX4SODbpeVcsMIK8cmWJweiTwGXb/DBT3wJYPRrehVytHHSdeuLYMPW/5VAHjPndZhvXTxItBvCqHoyoMlGMFkAJ0KwPgH22Hkf91NErDvyueD6/NaMZB8Q2/uSv2pYGeC/JZTkm121cVkj0CyJIupi6EOX4XsfRHrwQVJUrlnTb9hZAmC8l6xM/fHR/yZ87n/MfkCuzEdGTxu8mI4TTZPUYKzLxx7zUSv20FiPM5X8lZAqqOkvLVFZyS8Z3ZM1oYG5rZoOXkWkH1/PtMIwPaydxx3CqbyCC9Ypx90oDWuu+6249euYZq0ngtkdHEpgoPXSm9b640G6vfja6cuQGqnf2q+ZO8Bs8SzDx6ys2cVlfcFttciF4P0gwZUe73npOf1C3MzJsEzv5RE4LlYwCND7z5ZsQtE4FseJtilj5bzrz8EaFW5Q6sIALmQWYoCztWIa7SlVo7wdjTA3nMANDc9n+tKY900KiXkSg5UY+dTauAtAn7HAc5pJv3Rx3vn8WcUomlyu4D1IrLndPAdwbHFo465uTxUgwqCmNkIdquiyb3K598IEKwrkg7pqYPLlnMg8g6hIs7kSQfhcKgNgl5d6/YkJEIvONiEUgYTUhmYiQ3fUN8kV56GBQvRrf1zd5RXQdkNzMqMjJzwiUB8/2M+lz45t8kjj1qEbJMouOwS+6y0OKQZbXMz3Bkg7dq0QW8Xtd6hMSCw0WSiC/Kfrv+GfbgQDQh33egYkd/SbqfDLKMMAD3ULXMrZLs3bnCHGVM8wI7Afzmnfv6HcSS5bEOJ/0ihCAK0DaGJByJNIou0/i3LgOAHaBxES2uGMwFZOlPWl9wAyqWMW99FLAk2S6QFb4rqMrwJQuwVGytN7SjlEHeTeTMhZoguxFdnn0tFr0mDTR940kUgJiAZ6iXxvtvciO8wDLA287ot9q43WI2kvUgwNy/zKuyxk3IDO56NUsOpAtk0C26kjK5lpA9n1W9c2Do4mrxrRqTWU26xZ6eE7iY8c5fIMGz0BuPnFRtRVlg7OB6UDAt42n2ZlxRQmUN4005LZejRCre3A//DFeWQN1Qj6NzHQT7j9t+gcWYqsQFBFQdY9ozMXe3sE1GSzfbkKsJK7Z5224wb63jtd9eZp1JZ8qQh1ZHxah3Stq5DICCHgcr4vxDaFDu1D8itMVPx/DQOx6T4SEGRC2ORseHjSrXBbeTOIJu/J7s5WV/wPAeS6YAx9v845y1jvYwobPDWDjzs4na+vETzTKX/xGt/e2c1QKEApw5kaMRuvCS8t4uWIJwYuMH/2A3anhsEmL7cH1m9MU8XmEnG2tioDZI+vEVrxBKtGVYtoiNEjbPNBQ5rqfbgvAA2TpGRtaXPS3XZLW83NqPam2kd+Lim1zL1/oAxjfnTDgxBaGhdNg6/1MTSSte7JBDAeNkdUjoebnq/QmVoyiDy4DqOaA3TBst7gP7u0qCXS1hHITdj0S+Xw2unRegofndguh9o58BWAZVfV3j6DiR2BrjtgGTohWJGxgWba7zVRwtwc7ZwNlOOVfX01opOzdgYG5/XfzU2Sd/cEc1tTe7S9LWsHC9oqYU/lmbDpftITQprMGR87oZBKpmWoaJgl3OrKMmLAKH7kH+tU+8mJja0ll3AyyeB/mSIJtpCmZ9o2FkfZ8+Nu0Q7rzmgu9kMsKwv6nUAMToRFVCWyvTLtZHCFTwy2YMW9t0ufrmVFaeZ1ZYfnyCQnTY0dfVMtQZgMT0bSSOWj92oi3fFDGChkiK7hLQ/M3JHa52dCpNmRKtBYH/V0ZuWE7UgyTU79soU5x4ZuZLkjRONK6yp9HB3FmCsKsyQcZXUlY1L3HI5hI8nUlkjZhz+5dzEFIMuEP2j5gbi41VsLeyV6YfAnRLCKX6wNiPFcTB5x4WUW6RbAxYOnyflgFWlEUzaayl8s2c2smx6lEG3BlaTrnB13PHJBL5aLoe7IXCVKJgoQiSy637tRjplEV7hy0xzzmpGY9pSQ8C7SAu52vw58Nlfwmvt7AshL41tYFTiNXvtoFh0IHM9E5ExmTYR63vgbpl3xmfjjnV99n80I3LVE/FQZ66stGs0NeDqW1ifqmNNVsUnFwwxAst4MApI8lvfGG+/W4xG4oaRXc0af1csS2ROGfUIhFd4Q2M8WU8XziYjFRLihe6VWQNrvgmsKCipyuWbadrIcHBYUXthGRnGSMPsRBOH61nKOggup7HluKYZrtykQMR1DXCdWalZ5iia52Q/1GLuXBDGCepp/4bh9nEgQuaUeVF2WAcDY48sBfKUks0IwDC7aq8ajtuntsQ/g3Hg3ja/Z6vEwgH8BrJYVbhvzweIIB4TMp52jMSe+qpiQQ0nl1OCRSa0RLmcYzR8jujm9oTkuxARkyvc8P6QjNPMov06b8FejXiWZTYMqJLtnDRptoCLdO9MB3X8AXbbNRzkTBp+jBo2+/32AQ/GjRHRsu8c7G7tYgf+yTTnRN0y8r7v4UI+NMrb0pmK529DHs+M4Obo4PlDxj4GHo8tROm48V7dbEldRmLPubiGwr8gBXOSjy0g57u7sz5GBOtNr747eqjw7pvSLgWaBPrxtpgWWSjdNhTxu5h/qRwi9xwPTkBJIbaNLTE0VXLR95j9Y85fL3xF9ZQstY8MH0y8t2JP+4JRRXm8dwHLMCNX9acBashnDk8EuBgT5JemVEUu/MybSUkS8PtcNJKEEX6BgZQR6PzGCt+MQtlunF/J1srWWOm8gYXazJiNaSARruyfgBREApLaTF9oQTQAICPshhxCAKzYGWKEV9B6jcyglL4kY2lNG1MaS9V3GV8ctuv9nQ7MWL5NrVytjiotVpEfMaB99p3Dj/3Z0udYKDGGMUVXExlzkHqPOAeQnSoKgyPVM2s65dvKCpH+iwg88zYiJ0XJRx+d8wZt+vjtBYb7AkLm8XmUhI+H/T8pt13ZAJfe9EbCAwxFB/zyl67nANPZD6GSUeYneAUyw33SZkUvT51nyW0pYEmGcuDEgwD+XmzTxNTircBgLQPp4m58AF8FTNq/6fTtDKZboPBv4yiZ8hwu2ZS0Wfjuti6lgeKodOdCcq9s9qbMXqhBWyk5o7DFAtOz1ZhgiwMcmVGOUi1gTBL1YAmS45y/JkggSunr66DfdnDVoj9KI7USjI8tqekW5MGMuikdFCu9rGCiYWjr+ALaazRALtS+7SRr60zE0udK93joqofW1pcXlz3HCXBPjIbA0sKoVkq0yeMG3nkUUmrZTR0FPjmOfA2NOLHEuNmamsnGCPWDQ24KddB4Z7fXlxm9UJ0aQbBR1Tuuwsc67vwEkU3vdPP+xXfayaBX73t4LS/noTwDbORI7RffRkiRP9BWSDkqRW7pJnppkEYDAPm+EORnHzBBiezjGXO01Hri4JeNdsSnf9ApLJaP7kng1Pldv85eI5vAwUX3qEfSQXHJq3D0WpXPjEn2YjzjreUtDc9ciANQH/Nk8vEIM+H6utR5YL+98UsELKxa768GgWZBKHrlcwKAD88dkExTf7p93SSf/z7NWMuVv8sJqvA7JT6oRdK92JRVSl3HKwKbwA8ogfMsribS8rieqxZpoxR9ZqZTTAXKv2X9fdLGmb174PmWgT8rHiBEdvZtfHgYgkRi+zvQK7R/InRnnQ5hZHqQevikEkHXAQaGmIGaabcdk5m8su91QJEeCl3pGwK6VI5FnfYuEpSPSiVHpgziYwgnRnRxjeRzg0GFu0UFHEBidL9tjCc9nbIHMHU6tet1gdxZllaVuPnuTFkJ0mpTzKuwCP54dfKec/2eKmwF4aKfp4wo5pWsW0PPduA2x21HF7Fm1EjTiHwrr63CuhZoTP/OqiwPYm/JfeCXGz7hFhNO5u4f6iC+zkiAwtcTMhDfh6QBRj86uzn2FnsFE3CzS6eLloVmUalu0ONGYMbwDl54IdXc9nwqMTfnmH+U3RRq06SwmLSWA9DXgGIiWLkTfM4YyvuFMuxaB9LSjiMNxj/WS9F21Oc1JdSWZSC+4dhXhMEjtITasdziDT30U2rp0OkbTpsELnanNq5CB+UdojCCFtFwrrFW30ESLbcE1luEHj7fodadsZewba23Q1m1j4oi/X235g2jiclftBsV7Lo3IlaVi/y/cjtT/XLu7VlvDZNcTOJjxhNdJmbL0OVnJZtK6ybe9KiLUPJR7vGAM=",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS6wsKEAgTGAI4AUIIdGhpbmtpbmcSDNiD3twKuKZRpWjMGhoMPbT1sMocdo/HBwsGIjC+tAzf9pSTQP7B0G8+AT0owoGYbZZg0DnSWvPBZFhtwrQCUzIDguHu80kRKPtpnc8qiAs7Jir2UhIdnEryYCEa3cWcayOCrbs3dASF8BbZKTaD6OV1zl56HAc/mou91THnJfYqBUUTD2Q3+coSy4RczgHmfxm7w40g9bpYQmknMgclXqoS9JxTCkE9Ft/ZdtKyakmjDBGZhPtdSeIcvVXqxHSFfwssTOv//j0GXKE3aiX0aaWAAdXZ2DUNz0FulFlcr1tVjSjkbiqTWZEI4fN6uQOw0SembbdVkKhKGzrBSs6oz+7hbgl/tY0FWtRwyQuXfdbJ040A1UhUWP+SXvVeMkt9Zp3XitqepX+nK/9O8dYxDMtgqvMhIkpzdJ+hj5MOpFhQU7yA8wEcJcgBax8qMUS6TmxhSTpf2Q6MeD1prk4RA8gGfygB//5W2T4sRnWYyOzSEKqBiBClx0a52sKgQF+UzHFZzTW/50bv+vX8XuFzMvWv8SWqFNcwY3aReILimn1LdTWnKC5zJVeV1qo4l++mMFJbK8HPoiI85O24OHBdYqEHtF5UTxIpd1cRgIDlboDgkv7kwkQXeR+RvvaXYx1++dNvEYK6N03KjnqnxgUGDszwMFcZ+KS4OMyzTrQyWKduDv5MeQ57HRry+9D9EVSHa6C+LNdtdU6NZkUgSvjJdhpiPjFWI3Rd4v3zHogLnZS7qNAI04qHq3WFG5j5dNr2yxup8S5KqQLsE5tAWB1FKWL3ET6fPN0inz+aSvYBuCnlL4MZToCNUSaf2olXUhoZTB+iOZJtLS5t0HzOdYRFBuF413nCzR1LPoUlirbJzU+jjwqEQgRRWGcRZ+/q1SSdawqGIAw9wKb5zCluHAmRvvFG0ZOhjgTfEWt2GG3zpQb045XuYBDwQadG/+lPycLFomRoxSZkCJCEJjwccd80BPDGBzXhM/aXFHkbq3EutfC9yxGMnsbYmQGllstz1i/PELNaaHn1R/hENi8f890ZeHlbATB/myR8WpG9WDXYqMqTO83qKScBLTqg9k1lYskdBp/jyr4Qdw/kKOvVYxnehe0GkfUacT1wf/rM2uGf+zC0iq5crElo3M4LIROASrqZVtFCQAKEChJvizo0q830mA63Ez1oVPhvDtRawrRwQgL+isJNcwH684DZE0ids9pMy+D2bJFnj1Fn8aeYSUexVuiFpvRGuBTiF/mZGOBfdcNZvOOjO7JBWK1v4BNZj4VEv0JUSe/FPkTwk0/k1rT30WHinen+aR8spAP4PJ9/kCONxUMoZUoOY1GWgsesVuem85LM40iG3FjNVidVWHC5eP7N3JUpep1KA4j8c7E9JfKD9qaIczhJUx17xizKmWX9j/O+Cufrke8ih233ENhMAhhdLxUaiyJMveps25YaMnO90WB+9JcCsfdkOVev4ndLIjhsQsiFfAXx9gC/ow42qjuGB5DJE/M1Qxi+PvH1xEsjqpqMcPgoko7kPWoOt1PuFDeWc7sEzIKQHmuBiPiWRrBZNVPcw3OGtCKZ6q+8pKgIRmKAZYFlXdMm+/zf6cQ8yuiecZY0DbB+pdC20edPCnhMBQUYpxrsT1jcqaSuJuL4Pt2F/Ta3lrqKUcb+P5kiTxrzjlo1kJOfD/bzNPo4TpsadlX3fL249JPUIAC9FgOlqcYU68rdoLODQphLHk39t8aSMxW767moIFXyOt144XrMmRtFMCnj7KsEPLcdPOUIQcduI6D38f6SwcQC7oDlNHucm1VRut0zf5lGTgz9+dp2V6coWfh6ywm8s4ehisO9EX+SnjsVLK2t9e4pNPfU7jSaQ1Ifm70Ej7XzBmGS50uMbp2odhYWPXEGJCNUMpNrZGCzInkRN7KSjgk0TeEl9lsEZfAUfsD/3MnFDYhf4erX0Iq+rPhXlxRZHoH9Z/kblJatNWYKmng4M6sZUfN7T/0y9NKgy2wYAQ=="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01M9nCdZakU3gcU9bQ2zp9EZ",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "The Walt Disney Company",
+       "ticker": "DIS",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           88898,
+           91361,
+           94425
+          ],
+          "source": "Disney FY2025 10-K (acc. 0001744489-25-000155), Consolidated Statements of Income, total revenues"
+         },
+         "operating_income": {
+          "values": [
+           8992,
+           11914,
+           13832
+          ],
+          "source": "Derived: total revenues minus total costs and expenses (79,906 / 79,447 / 80,593) per FY2025 10-K income statement; includes restructuring & impairment charges; excludes equity income/interest. Disney does not report a GAAP operating income line"
+         },
+         "d_and_a": {
+          "values": [
+           5369,
+           4990,
+           5326
+          ],
+          "source": "FY2025 10-K cash flow statement, Depreciation and amortization"
+         },
+         "capex": {
+          "values": [
+           4969,
+           5412,
+           8024
+          ],
+          "source": "FY2025 10-K cash flow statement, Investments in parks, resorts and other property"
+         }
+        }
+       },
+       "assumptions": "{\"projection_labels\":[\"FY2026\",\"FY2027\",\"FY2028\",\"FY2029\",\"FY2030\"],\"revenue_growth\":{\"values\":[0.04,0.045,0.04,0.04,0.035],\"source\":\"Assumption: FY2025 growth was 3.4% (94,425 vs 91,361); modest acceleration from Experiences capacity expansion (cruise, parks) and streaming growth, fading toward GDP-like by FY2030\"},\"ebit_margin\":{\"value\":0.16,\"source\":\"Assumption: FY2025 derived margin 14.6% (FY2024 13.0%) was depressed by 819 restructuring/impairment; 16% assumes fewer one-offs and continued Entertainment/Sports/Experiences margin gains\"},\"tax_rate\":{\"value\":0.22,\"source\":\"Assumption: approx. blended US federal+state and foreign rate; typical Disney effective rate ~20-25%; not verified against FY2025 filing\"},\"da_pct_revenue\":{\"value\":0.056,\"source\":\"Assumption: FY2025 D&A 5,326/94,425 = 5.6%\"},\"capex_pct_revenue\":{\"value\":0.085,\"source\":\"Assumption: FY2025 capex 8,024/94,425 = 8.5%, elevated by parks/cruise investment program; held flat as the expansion continues\"},\"wacc\":{\"value\":0.085,\"source\":\"Assumption: beta ~1.2, risk-free ~4.2%, ERP ~5%, cost of equity ~10%, after-tax cost of debt ~4%, ~20% debt weight => ~8.5%\"},\"terminal_growth\":{\"value\":0.025,\"source\":\"Assumption: long-run nominal GDP/inflation-like growth, below risk-free rate\"},\"mid_year\":true},\"bridge\">{\"net_debt\":{\"value\":36331,\"source\":\"FY2025 10-K (FYE 2025-09-27): total borrowings 42,026 minus cash and cash equivalents 5,695; no short-term investments identified; lease liabilities excluded\",\"period\":\"FY2025\"},\"diluted_shares\":{\"value\":1811,\"source\":\"FY2025 10-K, weighted average diluted shares 1,811 million\",\"period\":\"FY2025\"}}"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01M9nCdZakU3gcU9bQ2zp9EZ",
+      "content": "Not accepted: Missing 'bridge' in the DCF spec.",
+      "is_error": true
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 1655,
+     "cache_read_input_tokens": 16954,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 1655,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1290,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0204323,
+    "content": [
+     {
+      "type": "text",
+      "text": "Typo in the key; resubmitting."
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_016iFDDusKKGWjJPsiXiGUS3",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "The Walt Disney Company",
+       "ticker": "DIS",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           88898,
+           91361,
+           94425
+          ],
+          "source": "Disney FY2025 10-K (acc. 0001744489-25-000155), Consolidated Statements of Income, total revenues"
+         },
+         "operating_income": {
+          "values": [
+           8992,
+           11914,
+           13832
+          ],
+          "source": "Derived: total revenues minus total costs and expenses (79,906 / 79,447 / 80,593) per FY2025 10-K income statement; includes restructuring & impairment charges; excludes equity income/interest. Disney does not report a GAAP operating income line"
+         },
+         "d_and_a": {
+          "values": [
+           5369,
+           4990,
+           5326
+          ],
+          "source": "FY2025 10-K cash flow statement, Depreciation and amortization"
+         },
+         "capex": {
+          "values": [
+           4969,
+           5412,
+           8024
+          ],
+          "source": "FY2025 10-K cash flow statement, Investments in parks, resorts and other property"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.04,
+          0.045,
+          0.04,
+          0.04,
+          0.035
+         ],
+         "source": "Assumption: FY2025 growth was 3.4% (94,425 vs 91,361); modest acceleration from Experiences capacity expansion (cruise, parks) and streaming growth, fading toward GDP-like by FY2030"
+        },
+        "ebit_margin": {
+         "value": 0.16,
+         "source": "Assumption: FY2025 derived margin 14.6% (FY2024 13.0%) was depressed by 819 restructuring/impairment; 16% assumes fewer one-offs and continued segment margin gains"
+        },
+        "tax_rate": {
+         "value": 0.22,
+         "source": "Assumption: approx. blended US federal+state and foreign rate; typical Disney effective rate ~20-25%; not verified against FY2025 filing"
+        },
+        "da_pct_revenue": {
+         "value": 0.056,
+         "source": "Assumption: FY2025 D&A 5,326/94,425 = 5.6%"
+        },
+        "capex_pct_revenue": {
+         "value": 0.085,
+         "source": "Assumption: FY2025 capex 8,024/94,425 = 8.5%, elevated by parks/cruise investment program; held flat as the expansion continues"
+        },
+        "wacc": {
+         "value": 0.085,
+         "source": "Assumption: beta ~1.2, risk-free ~4.2%, ERP ~5%, cost of equity ~10%, after-tax cost of debt ~4%, ~20% debt weight => ~8.5%"
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "source": "Assumption: long-run nominal GDP/inflation-like growth, below risk-free rate"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 36331,
+         "source": "FY2025 10-K (FYE 2025-09-27): total borrowings 42,026 minus cash and cash equivalents 5,695; no short-term investments identified; lease liabilities excluded",
+         "period": "FY2025"
+        },
+        "diluted_shares": {
+         "value": 1811,
+         "source": "FY2025 10-K, weighted average diluted shares 1,811 million",
+         "period": "FY2025"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 11,
+  "mismatch": 0,
+  "other_line": 3,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "DIS",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 88898,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 88898000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 91361,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 91361000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 94425,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 94425000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 8992,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:RestructuringSettlementAndImpairmentProvisions + us-gaap:ContractWithCustomerLiabilityRevenueRecognized in the same filing"
+    ],
+    "filed_value": 12863000000,
+    "resolved": "DIS",
+    "other_line": "us-gaap:RestructuringSettlementAndImpairmentProvisions + us-gaap:ContractWithCustomerLiabilityRevenueRecognized"
+   },
+   {
+    "company": "DIS",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 11914,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:StockRepurchaseProgramRemainingNumberOfSharesAuthorizedToBeRepurchased + us-gaap:HedgedLiabilityFairValueHedge in the same filing"
+    ],
+    "filed_value": 15601000000,
+    "resolved": "DIS",
+    "other_line": "us-gaap:StockRepurchaseProgramRemainingNumberOfSharesAuthorizedToBeRepurchased + us-gaap:HedgedLiabilityFairValueHedge"
+   },
+   {
+    "company": "DIS",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 13832,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:IncomeTaxExpenseBenefit + us-gaap:NetIncomeLoss in the same filing"
+    ],
+    "filed_value": 17551000000,
+    "resolved": "DIS",
+    "other_line": "us-gaap:IncomeTaxExpenseBenefit + us-gaap:NetIncomeLoss"
+   },
+   {
+    "company": "DIS",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 5369,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 5369000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 4990,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4990000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 5326,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 5326000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 4969,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4969000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 5412,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 5412000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 8024,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 8024000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 36331,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 36331000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 1811,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1811000000,
+    "resolved": "DIS"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

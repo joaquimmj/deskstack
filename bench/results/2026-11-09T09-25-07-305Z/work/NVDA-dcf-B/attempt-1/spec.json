@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "NVIDIA Corporation",
+ "ticker": "NVDA",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2024",
+   "FY2025",
+   "FY2026"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     60922,
+     130497,
+     215938
+    ],
+    "source": "10-K FY2026 acc. 0001045810-26-000021, us-gaap:Revenues"
+   },
+   "operating_income": {
+    "values": [
+     32972,
+     81453,
+     130387
+    ],
+    "source": "10-K acc. 0001045810-26-000021, us-gaap:OperatingIncomeLoss"
+   },
+   "d_and_a": {
+    "values": [
+     1508,
+     1864,
+     2843
+    ],
+    "source": "10-K acc. 0001045810-26-000021, us-gaap:DepreciationDepletionAndAmortization"
+   },
+   "capex": {
+    "values": [
+     1069,
+     3236,
+     6042
+    ],
+    "source": "10-K acc. 0001045810-26-000021, us-gaap:PaymentsToAcquireProductiveAssets"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030",
+   "FY2031"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.45,
+    0.28,
+    0.18,
+    0.12,
+    0.08
+   ],
+   "source": "Analyst assumption: growth decelerates from FY2026 +65.5% (215,938 vs 130,497) as the base gets large and AI data-center capex normalizes; not a forecast from filings."
+  },
+  "ebit_margin": {
+   "value": 0.58,
+   "period": "FY2027-FY2031",
+   "source": "Assumption: slight fade from FY2026 60.4% (130,387/215,938) for competition and pricing pressure."
+  },
+  "tax_rate": {
+   "value": 0.16,
+   "period": "FY2027-FY2031",
+   "source": "Assumption: FY2026 effective rate ~15.1% (pretax 141,450 less net income 120,067, acc. 0001045810-26-000021), nudged up for global minimum tax."
+  },
+  "da_pct_revenue": {
+   "value": 0.014,
+   "period": "FY2027-FY2031",
+   "source": "Assumption: FY2026 D&A/revenue 1.3% (2,843/215,938), rising slightly with capex."
+  },
+  "capex_pct_revenue": {
+   "value": 0.03,
+   "period": "FY2027-FY2031",
+   "source": "Assumption: FY2026 capex/revenue 2.8% (6,042/215,938), modest increase for capacity investment."
+  },
+  "wacc": {
+   "value": 0.115,
+   "period": "current",
+   "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + beta 1.50 (Damodaran US Semiconductor unlevered cash-corrected 1.5046, relevered at NVDA D/E ~0) x ERP 4.46% (Damodaran US, 2026-02-16) = ~11.6% cost of equity; debt weight negligible (debt 8,468 vs very large market cap); rounded to 11.5%."
+  },
+  "terminal_growth": {
+   "value": 0.03,
+   "period": "terminal",
+   "source": "Assumption: below the 10Y Treasury yield of 4.86% and near long-run nominal GDP growth."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": -2137,
+   "period": "FY2026 (2026-01-25)",
+   "source": "financial_statements derived net_debt = total debt 8,468 (acc. 0001045810-26-000021) - cash 10,605; short-term investments not reported in the tool output for FY2026 (null), so net cash is likely understated; reviewer should check marketable securities in the 10-K."
+  },
+  "diluted_shares": {
+   "value": 24514,
+   "period": "FY2026",
+   "source": "10-K acc. 0001045810-26-000021, us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding (24.514B shares, in millions)"
+  }
+ }
+}

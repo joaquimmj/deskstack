@@ -1,0 +1,684 @@
+{
+ "company": "724500Y6DUVHQD6OXN27",
+ "task": "dcf",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "ASML Holding N.V.",
+   "ticker": "724500Y6DUVHQD6OXN27",
+   "currency": "EUR",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       27558.5,
+       28262.9,
+       32667.3
+      ],
+      "source": "ESEF reports 724500Y6DUVHQD6OXN27-2024-12-31 and -2025-12-31 (ifrs-full:Revenue / RevenueFromContractsWithCustomers)"
+     },
+     "operating_income": {
+      "values": [
+       9511.9,
+       9937.1,
+       12054
+      ],
+      "source": "ESEF 2025-12-31 report, ifrs-full:ProfitLossFromOperatingActivities"
+     },
+     "d_and_a": {
+      "values": [
+       1047.5,
+       1200.1,
+       1432.8
+      ],
+      "source": "ESEF 2025-12-31 report, ifrs-full:AdjustmentsForDepreciationAndAmortisationExpense"
+     },
+     "capex": {
+      "values": [
+       2155.6,
+       2067.2,
+       1573.6
+      ],
+      "source": "ESEF 2025-12-31 report, ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.08,
+      0.1,
+      0.09,
+      0.08,
+      0.06
+     ],
+     "source": "Analyst assumption: FY2025 growth was 15.6% and FY2023-25 CAGR 8.9%; assume continued but decelerating growth on EUV/High-NA demand, fading toward the long-term rate. Not company guidance."
+    },
+    "ebit_margin": {
+     "value": 0.375,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 EBIT margin 36.9% (12,054/32,667), FY2023 34.5%, FY2024 35.2%; modest expansion to 37.5% held flat."
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 effective rate ~16% (pretax 12,158.7 vs net income 10,213.0); rounded up to 17% for conservatism (Dutch innovation box benefit)."
+    },
+    "da_pct_revenue": {
+     "value": 0.044,
+     "period": "FY2026-FY2030",
+     "source": "FY2025 D&A/revenue = 1,432.8/32,667.3 = 4.4%; held flat."
+    },
+    "capex_pct_revenue": {
+     "value": 0.055,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: 3-yr range 4.8%-7.8% (FY2025 4.8%, FY2024 7.3%, FY2023 7.8%); 5.5% reflects capacity expansion above FY2025 level."
+    },
+    "wacc": {
+     "value": 0.085,
+     "period": "n/a",
+     "source": "CAPM: Rf 3.27% (ECB 10Y AAA par yield, 2026-11-05) + assumed levered beta ~1.2 (semiconductor-equipment-type; not looked up) x ERP 4.23% (Damodaran Netherlands, 2026-02-16) = ~8.3%; ASML has negligible net debt so WACC ≈ cost of equity; rounded to 8.5%."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "period": "n/a",
+     "source": "Assumption: ~long-run euro-area nominal GDP/inflation; below the 3.27% risk-free rate."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": -8931,
+     "period": "FY2025 (2025-12-31)",
+     "source": "financial_statements derived net_debt = total debt 4,390.9 (borrowings noncurrent 2,709.0 + current portion 1,681.9) - cash 12,916.0 - short-term investments 405.9; excludes leases; ESEF 724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0"
+    },
+    "diluted_shares": {
+     "value": 388.9,
+     "period": "FY2025",
+     "source": "Weighted average diluted shares 388,900,000 (ifrs-full:AdjustedWeightedAverageShares), ESEF 2025-12-31 report, in millions"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "ASML Holding N.V.",
+   "ticker": "724500Y6DUVHQD6OXN27",
+   "currency": "EUR",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       27558.5,
+       28262.9,
+       32667.3
+      ],
+      "source": "ESEF reports 724500Y6DUVHQD6OXN27-2024-12-31 and -2025-12-31 (ifrs-full:Revenue / RevenueFromContractsWithCustomers)"
+     },
+     "operating_income": {
+      "values": [
+       9511.9,
+       9937.1,
+       12054
+      ],
+      "source": "ESEF 2025-12-31 report, ifrs-full:ProfitLossFromOperatingActivities"
+     },
+     "d_and_a": {
+      "values": [
+       1047.5,
+       1200.1,
+       1432.8
+      ],
+      "source": "ESEF 2025-12-31 report, ifrs-full:AdjustmentsForDepreciationAndAmortisationExpense"
+     },
+     "capex": {
+      "values": [
+       2155.6,
+       2067.2,
+       1573.6
+      ],
+      "source": "ESEF 2025-12-31 report, ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.08,
+      0.1,
+      0.09,
+      0.08,
+      0.06
+     ],
+     "source": "Analyst assumption: FY2025 growth was 15.6% and FY2023-25 CAGR 8.9%; assume continued but decelerating growth on EUV/High-NA demand, fading toward the long-term rate. Not company guidance."
+    },
+    "ebit_margin": {
+     "value": 0.375,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 EBIT margin 36.9% (12,054/32,667), FY2023 34.5%, FY2024 35.2%; modest expansion to 37.5% held flat."
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 effective rate ~16% (pretax 12,158.7 vs net income 10,213.0); rounded up to 17% for conservatism (Dutch innovation box benefit)."
+    },
+    "da_pct_revenue": {
+     "value": 0.044,
+     "period": "FY2026-FY2030",
+     "source": "FY2025 D&A/revenue = 1,432.8/32,667.3 = 4.4%; held flat."
+    },
+    "capex_pct_revenue": {
+     "value": 0.055,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: 3-yr range 4.8%-7.8% (FY2025 4.8%, FY2024 7.3%, FY2023 7.8%); 5.5% reflects capacity expansion above FY2025 level."
+    },
+    "wacc": {
+     "value": 0.085,
+     "period": "n/a",
+     "source": "CAPM: Rf 3.27% (ECB 10Y AAA par yield, 2026-11-05) + assumed levered beta ~1.2 (semiconductor-equipment-type; not looked up) x ERP 4.23% (Damodaran Netherlands, 2026-02-16) = ~8.3%; ASML has negligible net debt so WACC ≈ cost of equity; rounded to 8.5%."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "period": "n/a",
+     "source": "Assumption: ~long-run euro-area nominal GDP/inflation; below the 3.27% risk-free rate."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": -8931,
+     "period": "FY2025 (2025-12-31)",
+     "source": "financial_statements derived net_debt = total debt 4,390.9 (borrowings noncurrent 2,709.0 + current portion 1,681.9) - cash 12,916.0 - short-term investments 405.9; excludes leases; ESEF 724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0"
+    },
+    "diluted_shares": {
+     "value": 388.9,
+     "period": "FY2025",
+     "source": "Weighted average diluted shares 388,900,000 (ifrs-full:AdjustedWeightedAverageShares), ESEF 2025-12-31 report, in millions"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 2,
+  "usage": {
+   "input_tokens": 6,
+   "output_tokens": 1902,
+   "cache_creation_input_tokens": 14742,
+   "cache_read_input_tokens": 7221,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.0573312,
+  "seconds": 12.784,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 1,
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a quick unlevered DCF for ASML Holding (identifier: 724500Y6DUVHQD6OXN27).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7221,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7221,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 189,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0199505,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01TwMU6R48tCKVmWYoAkG4ff",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "724500Y6DUVHQD6OXN27",
+       "years": 3
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01XMbWUNneBCub72xtEc54r5",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "EUR"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_016AuqWBXaJhftwPMH9efkfC",
+      "name": "valuation_inputs",
+      "input": {
+       "country": "Netherlands"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01TwMU6R48tCKVmWYoAkG4ff",
+      "content": "{\"summary\":\"ASML Holding N.V. (LEI 724500Y6DUVHQD6OXN27, NL), IFRS, EUR. FY2025 (ended 2025-12-31): revenue 32.7B EUR, net income 10.2B EUR. 3 period(s), 2 cited ESEF report(s). Every value cites its IFRS concept and report; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"ASML Holding N.V.\",\"ticker\":null,\"lei\":\"724500Y6DUVHQD6OXN27\",\"country\":\"NL\",\"region\":\"EU\",\"reporting_standard\":\"IFRS\",\"currency\":\"EUR\",\"fiscal_year_end\":\"1231\",\"financial_company\":false},\"units\":\"Monetary values in EUR, absolute (not thousands or millions). diluted_eps in EUR per share.\",\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"start\":\"2023-01-01\",\"end\":\"2023-12-31\",\"income_statement\":{\"revenue\":{\"value\":27558500000,\"concept\":\"ifrs-full:Revenue\",\"accession\":\"724500Y6DUVHQD6OXN27-2024-12-31-ESEF-NL-0\"},\"gross_profit\":{\"value\":13774400000,\"concept\":\"ifrs-full:GrossProfit\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"operating_income\":{\"value\":9511900000,\"concept\":\"ifrs-full:ProfitLossFromOperatingActivities\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"interest_expense\":{\"value\":152700000,\"concept\":\"ifrs-full:FinanceCosts\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"pretax_income\":{\"value\":9553100000,\"concept\":\"ifrs-full:ProfitLossBeforeTax\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"net_income\":{\"value\":8115200000,\"concept\":\"ifrs-full:ProfitLoss\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"diluted_shares\":{\"value\":394100000,\"concept\":\"ifrs-full:AdjustedWeightedAverageShares\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"diluted_eps\":{\"value\":20.59,\"concept\":\"ifrs-full:DilutedEarningsLossPerShare\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":6536200000,\"concept\":\"ifrs-full:CashFlowsFromUsedInOperatingActivities\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"capex\":{\"value\":2155600000,\"concept\":\"ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"d_and_a\":{\"value\":1047500000,\"concept\":\"ifrs-full:AdjustmentsForDepreciationAndAmortisationExpense\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"}},\"balance_sheet\":{\"cash\":{\"value\":7004700000,\"concept\":\"ifrs-full:CashAndCashEquivalents\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"short_term_investments\":{\"value\":5400000,\"concept\":\"ifrs-full:ShorttermDepositsNotClassifiedAsCashEquivalents\",\"accession\":\"724500Y6DUVHQD6OXN27-2024-12-31-ESEF-NL-0\"},\"total_assets\":{\"value\":43078600000,\"concept\":\"ifrs-full:Assets\",\"accession\":\"724500Y6DUVHQD6OXN27-2024-12-31-ESEF-NL-0\"},\"total_equity\":{\"value\":16209500000,\"concept\":\"ifrs-full:Equity\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"borrowings\":null,\"borrowings_noncurrent\":{\"value\":4631500000,\"concept\":\"ifrs-full:LongtermBorrowings\",\"accession\":\"724500Y6DUVHQD6OXN27-2024-12-31-ESEF-NL-0\"},\"borrowings_current\":null,\"short_term_borrowings\":null,\"current_portion_of_longterm_borrowings\":{\"value\":100000,\"concept\":\"ifrs-full:CurrentPortionOfLongtermBorrowings\",\"accession\":\"724500Y6DUVHQD6OXN27-2024-12-31-ESEF-NL-0\"}},\"derived\":{\"ebitda\":{\"value\":10559400000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":4380600000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":4631600000,\"formula\":\"borrowings_noncurrent + current_portion_of_longterm_borrowings\"},\"net_debt\":{\"value\":-2378500000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2024-01-01\",\"end\":\"2024-12-31\",\"income_statement\":{\"revenue\":{\"value\":28262900000,\"concept\":\"ifrs-full:Revenue\",\"accession\":\"724500Y6DUVHQD6OXN27-2024-12-31-ESEF-NL-0\"},\"gross_profit\":{\"value\":14283800000,\"concept\":\"ifrs-full:GrossProfit\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"operating_income\":{\"value\":9937100000,\"concept\":\"ifrs-full:ProfitLossFromOperatingActivities\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"interest_expense\":{\"value\":162600000,\"concept\":\"ifrs-full:FinanceCosts\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"pretax_income\":{\"value\":9956900000,\"concept\":\"ifrs-full:ProfitLossBeforeTax\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"net_income\":{\"value\":8349000000,\"concept\":\"ifrs-full:ProfitLoss\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"diluted_shares\":{\"value\":393600000,\"concept\":\"ifrs-full:AdjustedWeightedAverageShares\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"diluted_eps\":{\"value\":21.21,\"concept\":\"ifrs-full:DilutedEarningsLossPerShare\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":12369700000,\"concept\":\"ifrs-full:CashFlowsFromUsedInOperatingActivities\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"capex\":{\"value\":2067200000,\"concept\":\"ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"d_and_a\":{\"value\":1200100000,\"concept\":\"ifrs-full:AdjustmentsForDepreciationAndAmortisationExpense\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"}},\"balance_sheet\":{\"cash\":{\"value\":12735900000,\"concept\":\"ifrs-full:CashAndCashEquivalents\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"short_term_investments\":{\"value\":5400000,\"concept\":\"ifrs-full:ShorttermDepositsNotClassifiedAsCashEquivalents\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"total_assets\":{\"value\":52566500000,\"concept\":\"ifrs-full:Assets\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"total_equity\":{\"value\":22021900000,\"concept\":\"ifrs-full:Equity\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"borrowings\":null,\"borrowings_noncurrent\":{\"value\":3677300000,\"concept\":\"ifrs-full:LongtermBorrowings\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"borrowings_current\":null,\"short_term_borrowings\":null,\"current_portion_of_longterm_borrowings\":{\"value\":1010300000,\"concept\":\"ifrs-full:CurrentPortionOfLongtermBorrowings\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"}},\"derived\":{\"ebitda\":{\"value\":11137200000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":10302500000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":4687600000,\"formula\":\"borrowings_noncurrent + current_portion_of_longterm_borrowings\"},\"net_debt\":{\"value\":-8053700000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":32667300000,\"concept\":\"ifrs-full:RevenueFromContractsWithCustomers\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"gross_profit\":{\"value\":16931400000,\"concept\":\"ifrs-full:GrossProfit\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"operating_income\":{\"value\":12054000000,\"concept\":\"ifrs-full:ProfitLossFromOperatingActivities\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"interest_expense\":{\"value\":118300000,\"concept\":\"ifrs-full:FinanceCosts\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"pretax_income\":{\"value\":12158700000,\"concept\":\"ifrs-full:ProfitLossBeforeTax\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"net_income\":{\"value\":10213000000,\"concept\":\"ifrs-full:ProfitLoss\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"diluted_shares\":{\"value\":388900000,\"concept\":\"ifrs-full:AdjustedWeightedAverageShares\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"diluted_eps\":{\"value\":26.26,\"concept\":\"ifrs-full:DilutedEarningsLossPerShare\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":13826500000,\"concept\":\"ifrs-full:CashFlowsFromUsedInOperatingActivities\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"capex\":{\"value\":1573600000,\"concept\":\"ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"d_and_a\":{\"value\":1432800000,\"concept\":\"ifrs-full:AdjustmentsForDepreciationAndAmortisationExpense\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"}},\"balance_sheet\":{\"cash\":{\"value\":12916000000,\"concept\":\"ifrs-full:CashAndCashEquivalents\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"short_term_investments\":{\"value\":405900000,\"concept\":\"ifrs-full:ShorttermDepositsNotClassifiedAsCashEquivalents\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"total_assets\":{\"value\":55576800000,\"concept\":\"ifrs-full:Assets\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"total_equity\":{\"value\":24185000000,\"concept\":\"ifrs-full:Equity\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"borrowings\":null,\"borrowings_noncurrent\":{\"value\":2709000000,\"concept\":\"ifrs-full:LongtermBorrowings\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"},\"borrowings_current\":null,\"short_term_borrowings\":null,\"current_portion_of_longterm_borrowings\":{\"value\":1681900000,\"concept\":\"ifrs-full:CurrentPortionOfLongtermBorrowings\",\"accession\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\"}},\"derived\":{\"ebitda\":{\"value\":13486800000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":12252900000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":4390900000,\"formula\":\"borrowings_noncurrent + current_portion_of_longterm_borrowings\"},\"net_debt\":{\"value\":-8931000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\",\"ESEF report (IFRS as adopted in the EU), from the issuer's tagged consolidated statements. Lines the issuer tagged only with its own (extension) concepts are not mapped and come back null.\",\"No LTM column: the issuer's half-year report is not available in ESEF format.\"],\"sources\":[{\"name\":\"ASML Holding N.V., ESEF annual financial report (filings.xbrl.org)\",\"url\":\"https://filings.xbrl.org/724500Y6DUVHQD6OXN27/2024-12-31/ESEF/NL/0/asml-2024-12-31-en/reports/ixbrlviewer.html\",\"accession_or_id\":\"724500Y6DUVHQD6OXN27-2024-12-31-ESEF-NL-0\",\"form\":\"ESEF annual report\",\"period\":\"2024-12-31\",\"as_of\":\"2025-03-05\",\"license_note\":\"ESEF report filed under the EU Transparency Directive, via filings.xbrl.org (XBRL International); the repository states no restrictions on use. Cite the report.\"},{\"name\":\"ASML Holding N.V., ESEF annual financial report (filings.xbrl.org)\",\"url\":\"https://filings.xbrl.org/724500Y6DUVHQD6OXN27/2025-12-31/ESEF/NL/0/asml-2025-12-31-1-en/reports/ixbrlviewer.html\",\"accession_or_id\":\"724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0\",\"form\":\"ESEF annual report\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-25\",\"license_note\":\"ESEF report filed under the EU Transparency Directive, via filings.xbrl.org (XBRL International); the repository states no restrictions on use. Cite the report.\"}],\"data_as_of\":\"2026-11-09T09:23:34.355Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01XMbWUNneBCub72xtEc54r5",
+      "content": "{\"summary\":\"EUR 10Y government yield: 3.266% (decimal 0.03266) on 2026-11-05 (European Central Bank, Data Portal, euro area yield curves).\",\"region\":\"EUR\",\"tenor\":\"10Y\",\"rate_pct\":3.2663886346,\"rate_decimal\":0.032663886346,\"date\":\"2026-11-05\",\"basis\":\"ECB euro area par yield, 10Y, AAA-rated euro area central government bonds (ECB series title: Svensson model, continuous compounding)\",\"series\":\"YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y\",\"warnings\":[],\"source\":{\"name\":\"European Central Bank, Data Portal, euro area yield curves\",\"url\":\"https://data.ecb.europa.eu/data/datasets/YC/YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y\",\"accession_or_id\":\"YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y/2026-11-05\",\"period\":\"2026-11-05\",\"as_of\":\"2026-11-05\",\"license_note\":\"Source: ECB statistics. Reuse allowed with attribution; figures unmodified.\"},\"sources\":[{\"name\":\"European Central Bank, Data Portal, euro area yield curves\",\"url\":\"https://data.ecb.europa.eu/data/datasets/YC/YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y\",\"accession_or_id\":\"YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y/2026-11-05\",\"period\":\"2026-11-05\",\"as_of\":\"2026-11-05\",\"license_note\":\"Source: ECB statistics. Reuse allowed with attribution; figures unmodified.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_016AuqWBXaJhftwPMH9efkfC",
+      "content": "{\"summary\":\"Country risk data for \\\"Netherlands\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"country\":[{\"country\":\"Netherlands\",\"region\":\"Western Europe\",\"moodys_rating\":\"Aaa\",\"default_spread\":0,\"equity_risk_premium\":0.0423,\"country_risk_premium\":0,\"basis\":\"Moody's sovereign rating\",\"match\":\"exact\",\"mature_market_erp\":0.0423,\"source\":{\"name\":\"Aswath Damodaran, Country Default Spreads and Risk Premiums\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx\",\"accession_or_id\":\"ctryprem/Netherlands\",\"period\":\"2026-02-16\",\"as_of\":\"2026-02-16\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 7521,
+     "cache_read_input_tokens": 7221,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7521,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1713,
+     "output_tokens_details": {
+      "thinking_tokens": 103
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.037380699999999996,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS0AYKEAgTGAI4AUIIdGhpbmtpbmcSDOz82Uu3s6ZLhtybkBoMjxrbhQ6z8N7EKM7fIjDf3khT9WPAdLyci1HSYtKaBCO8mnGv0J3S7tRAQQ9YCg3cUYgjjeouHCrMQm7Yeosq7QXRC7hC9hF89D202X7rmxyLpbEHdndOJK4QVYRLO3kXBo29wbHE7uf72V0W+f5nkj3kjsQVJIA/xA31sJkeBIK0QpX1vobcK2KG81UvFpwsDo5Uf0truWjYIIc0R3M5aSk9RgIr3ja1RdATQuwp8U1SwFKb8dMEubj4nZtE7S1R6EHG3NvN+Jx8vx5ovUDY5Pm61hb+wKpAv9Ra8g4qz8IhBJoaUjoR/sfsZ8rGpVX3scyYYDGEN/6CJvuSsUbc3EbjbQMRdAxfU6CC9xJ9DN5ADGXkoL4mrnJcV5Ds4YZbB3df8eh3GoznJDa2nbIQKH29bLN63FmNTqxGr3TDgBMhe/BvdS4ugeXeWTFAHwP0Bo7uzM34VIKV/1b7hJpSR/8faYWm/obwEI/vUvPY0cYR+qchb4jVEBJxiOr8bZVjn9HujUvrb7/53hsiL/G56R4OX7oQGnQbcoIkMfWFoIm4sh/Y3cloVvv3iR0YcEmEGKrcXjLzLOoaTgG4Y9LGf7nSjMcmigbDDxPRMxepwEd8zPNXs2nJxMzViMzOgRamkF6QEdc/Cspjt6Hu8lii0D7yrQ6FyDH1TvMwZ+NtD+v85LjFDyI7ZIJhAyAg85j/Wz6w8bbwgn1jhufw8Fyh+KRHCgzcGwGxBJIiitFVe0o0bchRRvzFkiaglBm6haf3mDzsJa8ezTNzhQYuQpqmshvATXYF9cHXmlM3dg8B6D83G0YQkz8lW81D0mSTiRbk5zrGOxadyBG5ytSKvo70U42Yu1/9OwFkzgZAPzt6+epd4owfBBNfDipCZWb3Jf+AYGyYUztFn9KK9Qn5Wxl8Nh9S/b9msOhCz81A/ozYN8Ebqet8u4LE/4qP6M78RQoJjdscqMjpYOrT9jhMiB4xq1m1lYJyHN9jyPL6GnyyfPvdgF5mLyOHQo2oF2aQXo5Q6cAS8T4d52vUqQYb2u05HHsIjamha8NVJLBomhMPAvtW6qtDOn1wxcNaAwZIohgB"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_017nZgKnLLNQfcXvENWERmow",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "ASML Holding N.V.",
+       "ticker": "724500Y6DUVHQD6OXN27",
+       "currency": "EUR",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           27558.5,
+           28262.9,
+           32667.3
+          ],
+          "source": "ESEF reports 724500Y6DUVHQD6OXN27-2024-12-31 and -2025-12-31 (ifrs-full:Revenue / RevenueFromContractsWithCustomers)"
+         },
+         "operating_income": {
+          "values": [
+           9511.9,
+           9937.1,
+           12054
+          ],
+          "source": "ESEF 2025-12-31 report, ifrs-full:ProfitLossFromOperatingActivities"
+         },
+         "d_and_a": {
+          "values": [
+           1047.5,
+           1200.1,
+           1432.8
+          ],
+          "source": "ESEF 2025-12-31 report, ifrs-full:AdjustmentsForDepreciationAndAmortisationExpense"
+         },
+         "capex": {
+          "values": [
+           2155.6,
+           2067.2,
+           1573.6
+          ],
+          "source": "ESEF 2025-12-31 report, ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.08,
+          0.1,
+          0.09,
+          0.08,
+          0.06
+         ],
+         "source": "Analyst assumption: FY2025 growth was 15.6% and FY2023-25 CAGR 8.9%; assume continued but decelerating growth on EUV/High-NA demand, fading toward the long-term rate. Not company guidance."
+        },
+        "ebit_margin": {
+         "value": 0.375,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: FY2025 EBIT margin 36.9% (12,054/32,667), FY2023 34.5%, FY2024 35.2%; modest expansion to 37.5% held flat."
+        },
+        "tax_rate": {
+         "value": 0.17,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: FY2025 effective rate ~16% (pretax 12,158.7 vs net income 10,213.0); rounded up to 17% for conservatism (Dutch innovation box benefit)."
+        },
+        "da_pct_revenue": {
+         "value": 0.044,
+         "period": "FY2026-FY2030",
+         "source": "FY2025 D&A/revenue = 1,432.8/32,667.3 = 4.4%; held flat."
+        },
+        "capex_pct_revenue": {
+         "value": 0.055,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: 3-yr range 4.8%-7.8% (FY2025 4.8%, FY2024 7.3%, FY2023 7.8%); 5.5% reflects capacity expansion above FY2025 level."
+        },
+        "wacc": {
+         "value": 0.085,
+         "period": "n/a",
+         "source": "CAPM: Rf 3.27% (ECB 10Y AAA par yield, 2026-11-05) + assumed levered beta ~1.2 (semiconductor-equipment-type; not looked up) x ERP 4.23% (Damodaran Netherlands, 2026-02-16) = ~8.3%; ASML has negligible net debt so WACC ≈ cost of equity; rounded to 8.5%."
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "period": "n/a",
+         "source": "Assumption: ~long-run euro-area nominal GDP/inflation; below the 3.27% risk-free rate."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": -8931,
+         "period": "FY2025 (2025-12-31)",
+         "source": "financial_statements derived net_debt = total debt 4,390.9 (borrowings noncurrent 2,709.0 + current portion 1,681.9) - cash 12,916.0 - short-term investments 405.9; excludes leases; ESEF 724500Y6DUVHQD6OXN27-2025-12-31-ESEF-NL-0"
+        },
+        "diluted_shares": {
+         "value": 388.9,
+         "period": "FY2025",
+         "source": "Weighted average diluted shares 388,900,000 (ifrs-full:AdjustedWeightedAverageShares), ESEF 2025-12-31 report, in millions"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 14,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 27558.5,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 27558500000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 28262.9,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 28262900000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 32667.3,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 32667300000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 9511.9,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.operating_income[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 9511900000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 9937.1,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 9937100000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 12054,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 12054000000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 1047.5,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1047500000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 1200.1,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1200100000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 1432.8,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1432800000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 2155.6,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2155600000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 2067.2,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2067200000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 1573.6,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1573600000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": -8931,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": -8931000000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 388.9,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 388900000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

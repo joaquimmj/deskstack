@@ -1,0 +1,105 @@
+{
+ "kind": "dcf",
+ "company": "Sanofi",
+ "ticker": "549300E9PC51EN656011",
+ "currency": "EUR",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     37817,
+     41081,
+     43626
+    ],
+    "source": "Sanofi Q4 2024 release (30 Jan 2025) App.3 for FY2023/FY2024 (Opella restated as discontinued); Sanofi Q4/FY2025 release (29 Jan 2026) for FY2025 net sales 43,626"
+   },
+   "operating_income": {
+    "values": [
+     6960,
+     7252,
+     6344
+    ],
+    "source": "IFRS operating income. FY2023 6,960 from Q4 2024 release (FY2024 shown there as 7,491); FY2024 7,252 and FY2025 6,344 from Q4/FY2025 release App.3 (FY2024 as restated there). Basis for FY2023 may differ slightly from FY2024/25 restatement. FY2025 includes €2,241m intangible impairments"
+   },
+   "d_and_a": {
+    "values": [
+     3420,
+     3295,
+     3210
+    ],
+    "source": "Computed: D&A of PP&E and software (FY2023 1,509; FY2024 1,546; FY2025 1,434; Q4 2024 and Q4 2025 releases) + amortisation of intangibles (1,911; 1,749; 1,776; same releases). Excludes intangible impairments"
+   },
+   "capex": {
+    "values": [
+     1677,
+     1808,
+     1858
+    ],
+    "source": "Acquisitions of PP&E and software, Q4 2024 release (FY2023, FY2024) and Q4/FY2025 release (FY2025 1,858, FY2024 1,808). Excludes acquired intangibles/R&D and M&A"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.06,
+    0.055,
+    0.05,
+    0.045,
+    0.04
+   ],
+   "source": "Assumption: FY2025 growth was 6.2% reported / 9.9% CER; Dupixent-led growth expected to fade gradually toward GDP-plus as patent expiries approach; no company guidance used"
+  },
+  "ebit_margin": {
+   "value": 0.2,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 IFRS margin 14.5% (6,344/43,626) is depressed by €2,241m impairments; ex-impairment 19.7%. Business operating margin ~27.8% (12,149/43,626) before ~4% amortisation. 20% chosen as normalised"
+  },
+  "tax_rate": {
+   "value": 0.21,
+   "source": "Assumption: approx. Sanofi business effective tax rate guidance ~21%; not verified from a filing in this session"
+  },
+  "da_pct_revenue": {
+   "value": 0.074,
+   "source": "FY2025 D&A 3,210 / 43,626 = 7.4%, held flat"
+  },
+  "capex_pct_revenue": {
+   "value": 0.043,
+   "source": "FY2025 capex 1,858 / 43,626 = 4.3%, held flat (excludes intangible acquisitions)"
+  },
+  "wacc": {
+   "value": 0.07,
+   "source": "Assumption: large-cap defensive pharma; beta ~0.6, rf ~3%, ERP ~5.5%, modest debt; no data provider used"
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "source": "Assumption: long-run euro-area inflation/nominal growth, conservative for pharma"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 11008,
+   "period": "FY2025 (31 Dec 2025)",
+   "source": "Sanofi Q4/FY2025 press release 29 Jan 2026: net debt €11,008m net of €7,657m cash and equivalents (Sanofi definition, excludes lease liabilities)"
+  },
+  "diluted_shares": {
+   "value": 1220.4,
+   "period": "FY2025",
+   "source": "Average shares OUTSTANDING (basic) 1,220.4m from FY2025 release App.3; FY2025 diluted average not found (H1 2025 diluted was 1,230.7m vs 1,225.5m basic, so true diluted is likely ~5m higher)"
+  }
+ }
+}

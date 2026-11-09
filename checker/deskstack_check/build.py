@@ -132,9 +132,19 @@ class _Book:
 
 
 def _need(d: dict, key: str, where: str):
+    if not isinstance(d, dict):
+        raise SpecError(f"{where} must be an object with '{key}', not {type(d).__name__} {d!r:.60}.")
     if key not in d:
         raise SpecError(f"Missing '{key}' in {where}.")
     return d[key]
+
+
+def _val(d: dict, key: str, where: str):
+    """The value of a {"value": ..., "source": ...} field, with a clear error when the field is a bare number or text."""
+    item = _need(d, key, where)
+    if not isinstance(item, dict) or "value" not in item:
+        raise SpecError(f'{where}.{key} must be an object like {{"value": 123, "source": "..."}}, not {item!r:.60}.')
+    return item["value"]
 
 
 def _num(x, where: str) -> float:
@@ -204,7 +214,7 @@ def build_dcf(spec: dict, out: str | Path, tamper=None) -> Path:
     if n > 10:
         raise SpecError("At most 10 projected years.")
     single = ["ebit_margin", "tax_rate", "da_pct_revenue", "capex_pct_revenue", "wacc", "terminal_growth"]
-    av = {k: _num(_need(a, k, "assumptions")["value"], f"assumptions.{k}.value") for k in single}
+    av = {k: _num(_val(a, k, "assumptions"), f"assumptions.{k}.value") for k in single}
     g = [_num(x, "revenue_growth") for x in growth]
     mid = a.get("mid_year", False)
     if not isinstance(mid, bool):
@@ -221,8 +231,8 @@ def build_dcf(spec: dict, out: str | Path, tamper=None) -> Path:
         raise SpecError(f"assumptions.revenue_growth.sources needs {n} entries (one per projected year).")
     if a.get("projection_labels") is not None and len(a["projection_labels"]) != n:
         raise SpecError(f"assumptions.projection_labels needs {n} labels (one per growth rate).")
-    nd = _num(_need(br, "net_debt", "bridge")["value"], "bridge.net_debt.value")
-    sh = _num(_need(br, "diluted_shares", "bridge")["value"], "bridge.diluted_shares.value")
+    nd = _num(_val(br, "net_debt", "bridge"), "bridge.net_debt.value")
+    sh = _num(_val(br, "diluted_shares", "bridge"), "bridge.diluted_shares.value")
     if av["wacc"] <= av["terminal_growth"]:
         raise SpecError("WACC must be above terminal growth (the Gordon formula has no finite value otherwise).")
     if sh <= 0:

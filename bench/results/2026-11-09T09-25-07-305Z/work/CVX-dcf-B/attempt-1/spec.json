@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "Chevron Corporation",
+ "ticker": "CVX",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     200949,
+     202792,
+     189031
+    ],
+    "source": "financial_statements CVX, us-gaap:Revenues, 10-K accession 0000093410-26-000078"
+   },
+   "operating_income": {
+    "values": [
+     30053,
+     28100,
+     20960
+    ],
+    "source": "Operating income not reported in XBRL (null). Proxy = pretax income (IncomeLossFromContinuingOperationsBeforeIncomeTaxes...) + InterestExpenseDebt, accession 0000093410-26-000078: 29584+469, 27506+594, 19743+1217. Reviewer should verify vs 10-K."
+   },
+   "d_and_a": {
+    "values": [
+     17326,
+     17282,
+     20132
+    ],
+    "source": "us-gaap:DepreciationDepletionAndAmortization, accession 0000093410-26-000078"
+   },
+   "capex": {
+    "values": [
+     15829,
+     16448,
+     17347
+    ],
+    "source": "us-gaap:PaymentsToAcquireProductiveAssets, accession 0000093410-26-000078"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.03,
+    0.02,
+    0.02,
+    0.02,
+    0.02
+   ],
+   "source": "Assumption: FY2025 revenue fell 6.8% on lower commodity prices; modest recovery in 2026 then ~inflation-level growth. No price deck used."
+  },
+  "ebit_margin": {
+   "value": 0.12,
+   "source": "Assumption: proxy EBIT margin was 15.0%/13.9%/11.1% for FY2023-25; 12% is a mid-cycle level between FY2025 and 3-yr average (13.3%)."
+  },
+  "tax_rate": {
+   "value": 0.28,
+   "source": "Assumption: Damodaran US Integrated Oil/Gas effective tax rate 28.2% (dataset 2026-01-05)."
+  },
+  "da_pct_revenue": {
+   "value": 0.105,
+   "source": "Assumption: FY2025 D&A/revenue 10.65% (20,132/189,031); 3-yr range 8.6%-10.7%."
+  },
+  "capex_pct_revenue": {
+   "value": 0.092,
+   "source": "Assumption: FY2025 capex/revenue 9.18% (17,347/189,031); FY2023-25 range 7.9%-9.2%."
+  },
+  "wacc": {
+   "value": 0.08,
+   "source": "Assumption. CAPM check: Rf 4.86% (US 10Y, 2026-11-06) + relevered beta ~0.31 (Damodaran unlevered 0.278, D/E 0.138) x ERP 4.46% = ~6.2% CoE, ~5.8% WACC; that beta looks too low for a cyclical commodity producer, so 8% is used as a conservative judgment. Reviewer to revisit."
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "source": "Assumption: below the 4.86% risk-free rate and in line with long-run inflation; mature, depleting-resource business."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 43414,
+   "period": "FY2025",
+   "source": "financial_statements derived net_debt = total debt 50,699 - cash 7,285 - ST investments 0, accession 0000093410-26-000078"
+  },
+  "diluted_shares": {
+   "value": 1856,
+   "period": "FY2025",
+   "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 1,856,000,000, accession 0000093410-26-000078 (millions)"
+  }
+ }
+}

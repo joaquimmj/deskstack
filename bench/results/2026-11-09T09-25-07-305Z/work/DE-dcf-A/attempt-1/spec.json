@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "Deere & Company",
+ "ticker": "DE",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     61251,
+     51716,
+     45684
+    ],
+    "source": "Total net sales and revenues, Deere 10-K FY2025 (acc. 0001104659-25-122321) and FY2024 10-K (0001558370-24-016169); FY2023 = total costs 48,232 + pre-tax income 13,019 from FY2023 10-K"
+   },
+   "operating_income": {
+    "values": [
+     15472,
+     12554,
+     9427
+    ],
+    "source": "Derived EBIT = Income of consolidated group before income taxes + interest expense (Deere reports no consolidated EBIT line): FY2025 6,257+3,170; FY2024 9,206+3,348; FY2023 13,019+2,453. Includes Financial Services; interest expense of finance arm is added back."
+   },
+   "d_and_a": {
+    "values": [
+     2004,
+     2118,
+     2229
+    ],
+    "source": "Consolidated cash flow statement, depreciation and amortization, FY2025 10-K (0001104659-25-122321); includes depreciation of equipment on operating leases"
+   },
+   "capex": {
+    "values": [
+     1498,
+     1640,
+     1360
+    ],
+    "source": "Purchases of property and equipment, consolidated cash flow, FY2025 10-K. Excludes cost of equipment on operating leases acquired (FY2025 2,868)."
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.02,
+    0.06,
+    0.06,
+    0.05,
+    0.04
+   ],
+   "source": "Assumption: FY2025 revenue fell 11.7% on trough ag/construction demand; modest FY2026 stabilisation then cyclical recovery toward mid-cycle, fading to 4%. Not company guidance."
+  },
+  "ebit_margin": {
+   "value": 0.21,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: derived EBIT margin was 25.3% FY2023, 24.3% FY2024, 20.6% FY2025; use 21% flat (slightly above trough, below peak given tariffs/under-absorption)."
+  },
+  "tax_rate": {
+   "value": 0.21,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: US statutory 21%; FY2025 effective 20.1% (1,259/6,257), FY2024 22.7%."
+  },
+  "da_pct_revenue": {
+   "value": 0.049,
+   "period": "FY2026-FY2030",
+   "source": "FY2025 D&A 2,229 / revenue 45,684 = 4.9% (FY2024 4.1%)."
+  },
+  "capex_pct_revenue": {
+   "value": 0.03,
+   "period": "FY2026-FY2030",
+   "source": "FY2025 capex 1,360 / revenue 45,684 = 3.0% (FY2024 3.2%). Note excludes operating-lease equipment purchases while D&A includes lease depreciation, so FCF is likely overstated - reviewer to consider."
+  },
+  "wacc": {
+   "value": 0.09,
+   "period": "current",
+   "source": "Assumption: cyclical industrial, beta ~1.0-1.1, risk-free ~4.2%, ERP ~5% gives cost of equity ~9.5-10%; after-tax cost of debt ~4%; blended ~9%. Not sourced from a data provider."
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "period": "terminal",
+   "source": "Assumption: long-run nominal GDP/inflation-like growth, below risk-free rate."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 54249,
+   "period": "FY2025 (Nov 2, 2025)",
+   "source": "Consolidated balance sheet, FY2025 10-K: short-term borrowings 13,796 + securitization borrowings 6,596 + long-term borrowings 43,544 = 63,936, minus cash 8,276 minus marketable securities 1,411. Includes Financial Services debt, consistent with consolidated EBIT; excludes leases."
+  },
+  "diluted_shares": {
+   "value": 271.7,
+   "period": "FY2025",
+   "source": "Weighted average diluted shares, millions, FY2025 10-K income statement (0001104659-25-122321)"
+  }
+ }
+}

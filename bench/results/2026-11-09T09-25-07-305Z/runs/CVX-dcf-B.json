@@ -1,0 +1,673 @@
+{
+ "company": "CVX",
+ "task": "dcf",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Chevron Corporation",
+   "ticker": "CVX",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       200949,
+       202792,
+       189031
+      ],
+      "source": "financial_statements CVX, us-gaap:Revenues, 10-K accession 0000093410-26-000078"
+     },
+     "operating_income": {
+      "values": [
+       30053,
+       28100,
+       20960
+      ],
+      "source": "Operating income not reported in XBRL (null). Proxy = pretax income (IncomeLossFromContinuingOperationsBeforeIncomeTaxes...) + InterestExpenseDebt, accession 0000093410-26-000078: 29584+469, 27506+594, 19743+1217. Reviewer should verify vs 10-K."
+     },
+     "d_and_a": {
+      "values": [
+       17326,
+       17282,
+       20132
+      ],
+      "source": "us-gaap:DepreciationDepletionAndAmortization, accession 0000093410-26-000078"
+     },
+     "capex": {
+      "values": [
+       15829,
+       16448,
+       17347
+      ],
+      "source": "us-gaap:PaymentsToAcquireProductiveAssets, accession 0000093410-26-000078"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.03,
+      0.02,
+      0.02,
+      0.02,
+      0.02
+     ],
+     "source": "Assumption: FY2025 revenue fell 6.8% on lower commodity prices; modest recovery in 2026 then ~inflation-level growth. No price deck used."
+    },
+    "ebit_margin": {
+     "value": 0.12,
+     "source": "Assumption: proxy EBIT margin was 15.0%/13.9%/11.1% for FY2023-25; 12% is a mid-cycle level between FY2025 and 3-yr average (13.3%)."
+    },
+    "tax_rate": {
+     "value": 0.28,
+     "source": "Assumption: Damodaran US Integrated Oil/Gas effective tax rate 28.2% (dataset 2026-01-05)."
+    },
+    "da_pct_revenue": {
+     "value": 0.105,
+     "source": "Assumption: FY2025 D&A/revenue 10.65% (20,132/189,031); 3-yr range 8.6%-10.7%."
+    },
+    "capex_pct_revenue": {
+     "value": 0.092,
+     "source": "Assumption: FY2025 capex/revenue 9.18% (17,347/189,031); FY2023-25 range 7.9%-9.2%."
+    },
+    "wacc": {
+     "value": 0.08,
+     "source": "Assumption. CAPM check: Rf 4.86% (US 10Y, 2026-11-06) + relevered beta ~0.31 (Damodaran unlevered 0.278, D/E 0.138) x ERP 4.46% = ~6.2% CoE, ~5.8% WACC; that beta looks too low for a cyclical commodity producer, so 8% is used as a conservative judgment. Reviewer to revisit."
+    },
+    "terminal_growth": {
+     "value": 0.02,
+     "source": "Assumption: below the 4.86% risk-free rate and in line with long-run inflation; mature, depleting-resource business."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 43414,
+     "period": "FY2025",
+     "source": "financial_statements derived net_debt = total debt 50,699 - cash 7,285 - ST investments 0, accession 0000093410-26-000078"
+    },
+    "diluted_shares": {
+     "value": 1856,
+     "period": "FY2025",
+     "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 1,856,000,000, accession 0000093410-26-000078 (millions)"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Chevron Corporation",
+   "ticker": "CVX",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       200949,
+       202792,
+       189031
+      ],
+      "source": "financial_statements CVX, us-gaap:Revenues, 10-K accession 0000093410-26-000078"
+     },
+     "operating_income": {
+      "values": [
+       30053,
+       28100,
+       20960
+      ],
+      "source": "Operating income not reported in XBRL (null). Proxy = pretax income (IncomeLossFromContinuingOperationsBeforeIncomeTaxes...) + InterestExpenseDebt, accession 0000093410-26-000078: 29584+469, 27506+594, 19743+1217. Reviewer should verify vs 10-K."
+     },
+     "d_and_a": {
+      "values": [
+       17326,
+       17282,
+       20132
+      ],
+      "source": "us-gaap:DepreciationDepletionAndAmortization, accession 0000093410-26-000078"
+     },
+     "capex": {
+      "values": [
+       15829,
+       16448,
+       17347
+      ],
+      "source": "us-gaap:PaymentsToAcquireProductiveAssets, accession 0000093410-26-000078"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.03,
+      0.02,
+      0.02,
+      0.02,
+      0.02
+     ],
+     "source": "Assumption: FY2025 revenue fell 6.8% on lower commodity prices; modest recovery in 2026 then ~inflation-level growth. No price deck used."
+    },
+    "ebit_margin": {
+     "value": 0.12,
+     "source": "Assumption: proxy EBIT margin was 15.0%/13.9%/11.1% for FY2023-25; 12% is a mid-cycle level between FY2025 and 3-yr average (13.3%)."
+    },
+    "tax_rate": {
+     "value": 0.28,
+     "source": "Assumption: Damodaran US Integrated Oil/Gas effective tax rate 28.2% (dataset 2026-01-05)."
+    },
+    "da_pct_revenue": {
+     "value": 0.105,
+     "source": "Assumption: FY2025 D&A/revenue 10.65% (20,132/189,031); 3-yr range 8.6%-10.7%."
+    },
+    "capex_pct_revenue": {
+     "value": 0.092,
+     "source": "Assumption: FY2025 capex/revenue 9.18% (17,347/189,031); FY2023-25 range 7.9%-9.2%."
+    },
+    "wacc": {
+     "value": 0.08,
+     "source": "Assumption. CAPM check: Rf 4.86% (US 10Y, 2026-11-06) + relevered beta ~0.31 (Damodaran unlevered 0.278, D/E 0.138) x ERP 4.46% = ~6.2% CoE, ~5.8% WACC; that beta looks too low for a cyclical commodity producer, so 8% is used as a conservative judgment. Reviewer to revisit."
+    },
+    "terminal_growth": {
+     "value": 0.02,
+     "source": "Assumption: below the 4.86% risk-free rate and in line with long-run inflation; mature, depleting-resource business."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 43414,
+     "period": "FY2025",
+     "source": "financial_statements derived net_debt = total debt 50,699 - cash 7,285 - ST investments 0, accession 0000093410-26-000078"
+    },
+    "diluted_shares": {
+     "value": 1856,
+     "period": "FY2025",
+     "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 1,856,000,000, accession 0000093410-26-000078 (millions)"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 2,
+  "usage": {
+   "input_tokens": 6,
+   "output_tokens": 1993,
+   "cache_creation_input_tokens": 14467,
+   "cache_read_input_tokens": 7209,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.0575513,
+  "seconds": 14.207,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 1,
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a quick unlevered DCF for Chevron Corporation (identifier: CVX).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7209,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7209,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 208,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0201105,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01SWheftkLXnsWwohVmzW2mm",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "CVX",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01JDfxDBKfM6C8ZyzgWG9T46",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01HUjSzcoXJMBXWY82xz9kcW",
+      "name": "valuation_inputs",
+      "input": {
+       "industry": "Oil/Gas (Integrated)"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01SWheftkLXnsWwohVmzW2mm",
+      "content": "{\"summary\":\"Chevron Corp (CVX), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 189.0B USD, net income 12.3B USD. 3 period(s), 3 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Chevron Corp\",\"ticker\":\"CVX\",\"cik\":93410,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2911\",\"sic_description\":\"Petroleum Refining\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"start\":\"2023-01-01\",\"end\":\"2023-12-31\",\"income_statement\":{\"revenue\":{\"value\":200949000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000093410-26-000078\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":469000000,\"concept\":\"us-gaap:InterestExpenseDebt\",\"accession\":\"0000093410-26-000078\"},\"pretax_income\":{\"value\":29584000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments\",\"accession\":\"0000093410-26-000078\"},\"net_income\":{\"value\":21369000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000093410-26-000078\"},\"diluted_shares\":{\"value\":1880000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000093410-26-000078\"},\"diluted_eps\":{\"value\":11.36,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000093410-26-000078\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":35609000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000093410-26-000078\"},\"capex\":{\"value\":15829000000,\"concept\":\"us-gaap:PaymentsToAcquireProductiveAssets\",\"accession\":\"0000093410-26-000078\"},\"d_and_a\":{\"value\":17326000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000093410-26-000078\"}},\"balance_sheet\":{\"cash\":{\"value\":8178000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000093410-24-000013\"},\"short_term_investments\":{\"value\":45000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0000093410-25-000009\"},\"total_assets\":{\"value\":261632000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000093410-25-000009\"},\"total_equity\":{\"value\":160957000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000093410-25-000009\"},\"ltd_noncurrent\":{\"value\":20307000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000093410-25-000009\"},\"ltd_total\":{\"value\":20307000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities\",\"accession\":\"0000093410-25-000009\"},\"debt_current\":{\"value\":5072000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000093410-25-000009\"},\"ltd_current\":{\"value\":1650000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000093410-25-000009\"},\"commercial_paper\":{\"value\":0,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000093410-25-000009\"},\"short_term_borrowings\":{\"value\":529000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000093410-25-000009\"},\"ltd_due_12m\":{\"value\":1650000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000093410-24-000013\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":19780000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":25379000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":17156000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2024-01-01\",\"end\":\"2024-12-31\",\"income_statement\":{\"revenue\":{\"value\":202792000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000093410-26-000078\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":594000000,\"concept\":\"us-gaap:InterestExpenseDebt\",\"accession\":\"0000093410-26-000078\"},\"pretax_income\":{\"value\":27506000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments\",\"accession\":\"0000093410-26-000078\"},\"net_income\":{\"value\":17661000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000093410-26-000078\"},\"diluted_shares\":{\"value\":1817000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000093410-26-000078\"},\"diluted_eps\":{\"value\":9.72,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000093410-26-000078\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":31492000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000093410-26-000078\"},\"capex\":{\"value\":16448000000,\"concept\":\"us-gaap:PaymentsToAcquireProductiveAssets\",\"accession\":\"0000093410-26-000078\"},\"d_and_a\":{\"value\":17282000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000093410-26-000078\"}},\"balance_sheet\":{\"cash\":{\"value\":8262000000,\"concept\":\"us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents\",\"accession\":\"0000093410-26-000078\"},\"short_term_investments\":{\"value\":0,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0000093410-26-000078\"},\"total_assets\":{\"value\":256938000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000093410-26-000078\"},\"total_equity\":{\"value\":152318000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000093410-26-000078\"},\"ltd_noncurrent\":{\"value\":20135000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000093410-26-000078\"},\"ltd_total\":{\"value\":20135000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities\",\"accession\":\"0000093410-26-000078\"},\"debt_current\":{\"value\":12656000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000093410-26-000078\"},\"ltd_current\":{\"value\":4012000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000093410-26-000078\"},\"commercial_paper\":{\"value\":5386000000,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000093410-26-000078\"},\"short_term_borrowings\":{\"value\":4406000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000093410-26-000078\"},\"ltd_due_12m\":{\"value\":4012000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000093410-25-000009\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":15044000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":32791000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":24529000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":189031000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000093410-26-000078\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":1217000000,\"concept\":\"us-gaap:InterestExpenseDebt\",\"accession\":\"0000093410-26-000078\"},\"pretax_income\":{\"value\":19743000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments\",\"accession\":\"0000093410-26-000078\"},\"net_income\":{\"value\":12299000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000093410-26-000078\"},\"diluted_shares\":{\"value\":1856000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000093410-26-000078\"},\"diluted_eps\":{\"value\":6.63,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000093410-26-000078\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":33939000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000093410-26-000078\"},\"capex\":{\"value\":17347000000,\"concept\":\"us-gaap:PaymentsToAcquireProductiveAssets\",\"accession\":\"0000093410-26-000078\"},\"d_and_a\":{\"value\":20132000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000093410-26-000078\"}},\"balance_sheet\":{\"cash\":{\"value\":7285000000,\"concept\":\"us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents\",\"accession\":\"0000093410-26-000078\"},\"short_term_investments\":{\"value\":0,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0000093410-26-000078\"},\"total_assets\":{\"value\":324012000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000093410-26-000078\"},\"total_equity\":{\"value\":186450000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000093410-26-000078\"},\"ltd_noncurrent\":{\"value\":39781000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000093410-26-000078\"},\"ltd_total\":{\"value\":39781000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities\",\"accession\":\"0000093410-26-000078\"},\"debt_current\":{\"value\":10918000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000093410-26-000078\"},\"ltd_current\":{\"value\":2345000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000093410-26-000078\"},\"commercial_paper\":{\"value\":4642000000,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000093410-26-000078\"},\"short_term_borrowings\":{\"value\":977000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000093410-26-000078\"},\"ltd_due_12m\":{\"value\":2345000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000093410-26-000078\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":16592000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":50699000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":43414000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-11-05 (period 2026-09-30) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/93410/000009341024000013/0000093410-24-000013-index.htm\",\"accession_or_id\":\"0000093410-24-000013\",\"form\":\"10-K\",\"period\":\"2023-12-31\",\"as_of\":\"2024-02-26\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/93410/000009341025000009/0000093410-25-000009-index.htm\",\"accession_or_id\":\"0000093410-25-000009\",\"form\":\"10-K\",\"period\":\"2024-12-31\",\"as_of\":\"2025-02-21\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/93410/000009341026000078/0000093410-26-000078-index.htm\",\"accession_or_id\":\"0000093410-26-000078\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-24\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":1965421686,\"as_of\":\"2026-09-30\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000093410-26-000200\",\"url\":\"https://www.sec.gov/Archives/edgar/data/93410/000009341026000200/0000093410-26-000200-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01JDfxDBKfM6C8ZyzgWG9T46",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01HUjSzcoXJMBXWY82xz9kcW",
+      "content": "{\"summary\":\"US industry data for \\\"Oil/Gas (Integrated)\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"industry\":[{\"region\":\"US\",\"industry\":\"Oil/Gas (Integrated)\",\"firms\":4,\"beta\":0.2993819796439979,\"de_ratio\":0.13845002805508974,\"effective_tax_rate\":0.2824095529705382,\"unlevered_beta\":0.2712192455295165,\"cash_to_firm_value\":0.024405283836666014,\"unlevered_beta_cash_corrected\":0.2780040123588666,\"cost_of_equity\":0.05285243629212231,\"equity_weight\":0.878387259305869,\"cost_of_debt_pretax\":0.047306,\"after_tax_cost_of_debt\":0.0354795,\"debt_weight\":0.12161274069413097,\"cost_of_capital\":0.05073966589573278,\"match\":\"exact\",\"sources\":[{\"name\":\"Aswath Damodaran, Betas by Sector (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls\",\"accession_or_id\":\"betas/US/Oil/Gas (Integrated)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"},{\"name\":\"Aswath Damodaran, Cost of Capital by Industry (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/wacc.xls\",\"accession_or_id\":\"wacc/US/Oil/Gas (Integrated)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}],\"note\":\"cost_of_equity and cost_of_capital are Damodaran's US$ estimates using his own risk-free rate (0.0395) and ERP (0.0446) at the update date. For a current WACC, prefer unlevered_beta_cash_corrected, relevered at the company's D/E, with today's risk_free_rate.\"}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 7258,
+     "cache_read_input_tokens": 7209,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7258,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1785,
+     "output_tokens_details": {
+      "thinking_tokens": 397
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0374408,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSoAsKEAgTGAI4AUIIdGhpbmtpbmcSDIyROezbHQn/GjJDEBoM5XB8BFWadLoAl+8YIjCrxdSBFiuJizjWxrQ5S4gdgA1AbLkuuPMX2G0FrRzQQMRfPoyOjUJvpCOnC5HK/l8qvQohys+HDZG9oIbZ/EqaVRHxFzibs3NZxn/bVKzx6YPAdeIr3fFVRnBq/GQe69qEhS2ej5TJOVi8sYYyzRzIivvtESuMsjHHIdXZ3qWmVq3hPv9LP0imaaDFLRtdh0wSnbuDoM9AJP5gKwATyYjvBhcljStTU3iuNi9X7MxGAew9zffcnR157a5jckMrZ/8uqRKeezcKp6CiGm4woHv6Bw2XnuPk17CSwzD823eQxtP5bWxnglEyT9e8Zf1ywHo834E49Nxs12ra4kK7M3biXikkHFaSxj2wKfb0OJqUGt6FqJZGhqQKyjWocQ8QLtJMCol64MLPj3u6jswBmbzdSRAF0Ycis+6tCXbhxW5r9PK/F/OJ0qojWLS91z0l6xyKfWbqwfVdjYROuYcnMjmlpSwTwFrAeTnSIH2HMJwS5v7ZQMcIrH63UfHJ029MzyKTFvp1R3PbYmjMEF88odQth9iZaqfH7ohhCC5k0rka464xvDDRi1GtnWk1c5Mu1ZkKW0erRC5wNzgBFZt/4/Tit2a3foT5CR22AlKMr1eJDa1DZfmlolvqlKES+FxnHx48yN4mxceAV1Uzg6SY4zZCSsG4494YIV7LpWo52GT0AY3XEpm+OPIx0WxK6+ccmPZStVmz2Jq8hSW/NSKjLAGFXmy0FmyeaNYDBT0GCNBruPN2Y5Y6O3LWnQRIFnS5jyZcd0GlvNu12aeRglM3COPC7ELYnv/cT3G5Tk/Th3FlEQHPxQwrxVqqA7gEU36Mda9mxpjnKYoKxuMaIdghBxlvilzQqJLV+9lDa3bkBmN+y7R8LNbIcj0ZuILkvxT3gHt0m3nstJC9HKCQJriyS2/NT/dM2vlUUQqaOd8EGGWnKiY5Ep2YZnLqDi5JVjbSK9MZUQ4+TprzvenKEPnxnkX6KV7q1XdOl1cpx+Hv02DlHBj1HTrD1FPYbVQsD+dKw8gV8XjNOMcbt4jn/VyYE/Ymupw0VdUEw7HDwGiO3IMQzP1E0FjS1syTGCdxy/XqZxOpP3+EvF2Jfd1xXbcGrqywM4KmbfH5dPA8QSbHKm12GhTYu0SRZaRu5IXJ95zjcG+WtHE0Kc8GSDNvCUnUt12QB08WOFsHpGEfc8xkJ8ZNcXA1twoVOA70EO9unOcEQ8Bl6gSPa8zYmqaB1P4ihzBAx9N4TPQjZBss5y8mmJ9mkO/KfydEeSKwjDNAkD0ARLPu8BohXSefql/k0dJYoQdOdIRY8WkZ7CE4M/d0F2IbHxklgZIRdc7qUYD37EkHSJ06AdM9jWcXLyjkfG6avhixdtsXyAOHUlPv7QXrWs30rgL3wjiNhU4BUXzTQdL7vxwnGjRt4Y85JyW7Lv8LS7s/u6u1PMg8yuyDbIiIV192Hj8KW/hHVLPjFCqXo6SQocgek43OVq1WbIxkaeVPcU2Xl0GO8RqWYDN550/uMRVqmpRTjtatLwEZihBx/qfEEda4JPHVKzd07JqpJcV+Nl0sOcC3G7t2UM+amdYCJZCzyLAfRXEtnlsPjh+w7QszXEDzo1aXJi3H5oREkoOz/4zfo88e+DNBSTyZ5VI/nVB6j/BgMK/nH4JNVB9vvKXzgrlWdqgWHcCLpuGaJ3k9sDZ1Qa6ehfngqG0t8k7EIaMZvn7Zunoer6MKOTtIGvfCAeOQztyUP/2w9g0RnBx6Ijb9egaETV9c/g6Xc6+Jxuqz2i+lL9YrQ9nWOdAqn+eEjX6Rauzy8kAXaDFPKbsQj6HJNpctVJNP/g4Ehjt9djUaOTRitWC3RIeGx9uKzaDyHa4YAQ=="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_019365fkydMsns4xGfVM35fu",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Chevron Corporation",
+       "ticker": "CVX",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           200949,
+           202792,
+           189031
+          ],
+          "source": "financial_statements CVX, us-gaap:Revenues, 10-K accession 0000093410-26-000078"
+         },
+         "operating_income": {
+          "values": [
+           30053,
+           28100,
+           20960
+          ],
+          "source": "Operating income not reported in XBRL (null). Proxy = pretax income (IncomeLossFromContinuingOperationsBeforeIncomeTaxes...) + InterestExpenseDebt, accession 0000093410-26-000078: 29584+469, 27506+594, 19743+1217. Reviewer should verify vs 10-K."
+         },
+         "d_and_a": {
+          "values": [
+           17326,
+           17282,
+           20132
+          ],
+          "source": "us-gaap:DepreciationDepletionAndAmortization, accession 0000093410-26-000078"
+         },
+         "capex": {
+          "values": [
+           15829,
+           16448,
+           17347
+          ],
+          "source": "us-gaap:PaymentsToAcquireProductiveAssets, accession 0000093410-26-000078"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.03,
+          0.02,
+          0.02,
+          0.02,
+          0.02
+         ],
+         "source": "Assumption: FY2025 revenue fell 6.8% on lower commodity prices; modest recovery in 2026 then ~inflation-level growth. No price deck used."
+        },
+        "ebit_margin": {
+         "value": 0.12,
+         "source": "Assumption: proxy EBIT margin was 15.0%/13.9%/11.1% for FY2023-25; 12% is a mid-cycle level between FY2025 and 3-yr average (13.3%)."
+        },
+        "tax_rate": {
+         "value": 0.28,
+         "source": "Assumption: Damodaran US Integrated Oil/Gas effective tax rate 28.2% (dataset 2026-01-05)."
+        },
+        "da_pct_revenue": {
+         "value": 0.105,
+         "source": "Assumption: FY2025 D&A/revenue 10.65% (20,132/189,031); 3-yr range 8.6%-10.7%."
+        },
+        "capex_pct_revenue": {
+         "value": 0.092,
+         "source": "Assumption: FY2025 capex/revenue 9.18% (17,347/189,031); FY2023-25 range 7.9%-9.2%."
+        },
+        "wacc": {
+         "value": 0.08,
+         "source": "Assumption. CAPM check: Rf 4.86% (US 10Y, 2026-11-06) + relevered beta ~0.31 (Damodaran unlevered 0.278, D/E 0.138) x ERP 4.46% = ~6.2% CoE, ~5.8% WACC; that beta looks too low for a cyclical commodity producer, so 8% is used as a conservative judgment. Reviewer to revisit."
+        },
+        "terminal_growth": {
+         "value": 0.02,
+         "source": "Assumption: below the 4.86% risk-free rate and in line with long-run inflation; mature, depleting-resource business."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 43414,
+         "period": "FY2025",
+         "source": "financial_statements derived net_debt = total debt 50,699 - cash 7,285 - ST investments 0, accession 0000093410-26-000078"
+        },
+        "diluted_shares": {
+         "value": 1856,
+         "period": "FY2025",
+         "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 1,856,000,000, accession 0000093410-26-000078 (millions)"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 11,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 3,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "CVX",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 200949,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 200949000000,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 202792,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 202792000000,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 189031,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 189031000000,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 30053,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "not_found",
+    "hints": [
+     "operating_income is not reported for FY2023 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 28100,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "not_found",
+    "hints": [
+     "operating_income is not reported for FY2024 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 20960,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "not_found",
+    "hints": [
+     "operating_income is not reported for FY2025 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 17326,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 17326000000,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 17282,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 17282000000,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 20132,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 20132000000,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 15829,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 15829000000,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 16448,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 16448000000,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 17347,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 17347000000,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 43414,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 43414000000,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 1856,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1856000000,
+    "resolved": "CVX"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

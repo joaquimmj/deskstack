@@ -1,0 +1,105 @@
+{
+ "kind": "dcf",
+ "company": "UnitedHealth Group Incorporated",
+ "ticker": "UNH",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     371622,
+     400278,
+     447567
+    ],
+    "source": "UNH FY2025 Form 10-K (acc. 0000731766-26-000062), results summary: total revenues"
+   },
+   "operating_income": {
+    "values": [
+     32358,
+     32287,
+     18964
+    ],
+    "source": "UNH FY2025 Form 10-K (0000731766-26-000062), earnings from operations"
+   },
+   "d_and_a": {
+    "values": [
+     3972,
+     4099,
+     4361
+    ],
+    "source": "UNH FY2025 Form 10-K (0000731766-26-000062), depreciation and amortization"
+   },
+   "capex": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: full-year 'purchases of property, equipment and capitalized software' not retrieved (search tool limit hit). Only 9M-2025 = 2,674 vs 9M-2024 = 2,587 seen in Q3 2025 release"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    -0.01,
+    0.05,
+    0.06,
+    0.06,
+    0.05
+   ],
+   "source": "Assumption: FY2026 slight decline as UNH shrinks unprofitable Medicare Advantage/exits business (management 2026 outlook not verified); recovery to mid-single-digit growth, near healthcare spend growth, afterwards"
+  },
+  "ebit_margin": {
+   "value": 0.06,
+   "period": "FY2026-30 avg",
+   "source": "Assumption: FY2025 margin 4.2% (18,964/447,567) depressed by medical cost trend; FY2023-24 ~8.1%; assume gradual recovery, 6% flat as simplified average"
+  },
+  "tax_rate": {
+   "value": 0.22,
+   "source": "Assumption: approx. 21% federal plus state, normalized; not taken from filing"
+  },
+  "da_pct_revenue": {
+   "value": 0.0097,
+   "source": "FY2025 D&A 4,361 / revenue 447,567 = 0.97%"
+  },
+  "capex_pct_revenue": {
+   "value": 0.009,
+   "source": "Assumption: 9M-2025 capex 2,674 (Q3 2025 release) implies ~0.8-0.9% of revenue; full-year history not found"
+  },
+  "wacc": {
+   "value": 0.08,
+   "source": "Assumption: managed care large-cap, beta ~0.6-0.8, rf ~4.3%, ERP ~5%, plus elevated leverage/regulatory risk premium"
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "source": "Assumption: long-run nominal GDP/healthcare spend, below WACC"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 54024,
+   "period": "FY2025",
+   "source": "stockanalysis.com UNH balance sheet (FY2025): short-term debt 2,249 + current LT debt 3,820 + long-term debt 72,320 = 78,389, less cash 24,365. Short-term investments NOT found/not subtracted; check vs 10-K 0000731766-26-000062 and leases"
+  },
+  "diluted_shares": {
+   "value": 911,
+   "period": "FY2025",
+   "source": "Derived: net earnings to common 12,056 / diluted EPS 13.23 (FY2025 10-K) = ~911m; reported diluted weighted-average count not retrieved directly"
+  }
+ }
+}

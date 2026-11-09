@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "Meta Platforms, Inc.",
+ "ticker": "META",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     134902,
+     164501,
+     200966
+    ],
+    "source": "financial_statements META, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K accession 0001628280-26-003942"
+   },
+   "operating_income": {
+    "values": [
+     46751,
+     69380,
+     83276
+    ],
+    "source": "financial_statements META, us-gaap:OperatingIncomeLoss, accession 0001628280-26-003942"
+   },
+   "d_and_a": {
+    "values": [
+     11178,
+     15498,
+     18616
+    ],
+    "source": "financial_statements META, us-gaap:DepreciationDepletionAndAmortization, accession 0001628280-26-003942"
+   },
+   "capex": {
+    "values": [
+     27045,
+     37256,
+     69691
+    ],
+    "source": "financial_statements META, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0001628280-26-003942"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.18,
+    0.15,
+    0.12,
+    0.1,
+    0.08
+   ],
+   "source": "Assumption: decelerating from FY2025 growth of 22.2% (200,966/164,501) as the base gets larger; fading toward terminal growth."
+  },
+  "ebit_margin": {
+   "value": 0.4,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: slightly below FY2025 margin of 41.4% (83,276/200,966) to reflect rising depreciation from heavy AI capex."
+  },
+  "tax_rate": {
+   "value": 0.17,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: normalized rate below the 21% US statutory rate. Computed FY2023 rate was 17.6% (pretax 47,428, net income 39,098) and FY2024 was 11.7% (pretax 70,663, net income 62,360). The FY2025 computed rate of 29.6% (pretax 85,932, net income 60,458) is an outlier. I did not verify its cause in the filing, so I did not use it. Reviewer should check the 10-K tax note."
+  },
+  "da_pct_revenue": {
+   "value": 0.1,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 was 9.3% (18,616/200,966) and FY2024 was 9.4%; raised to 10% as the FY2025 capex step-up depreciates."
+  },
+  "capex_pct_revenue": {
+   "value": 0.27,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 was 34.7% (69,691/200,966) and FY2024 was 22.6%; assume intensity eases from the FY2025 peak but stays well above the FY2024 level."
+  },
+  "wacc": {
+   "value": 0.105,
+   "period": "current",
+   "source": "Assumption anchored on Damodaran US Software (Internet) cost of capital of 10.66% (dataset 2026-01-05). Cross-check: risk-free rate 4.86% (US Treasury 10Y, 2026-11-06) and US ERP 4.46% (Damodaran, 2026-02-16). I rounded down because Meta is a large, cash-rich company with low leverage."
+  },
+  "terminal_growth": {
+   "value": 0.03,
+   "period": "terminal",
+   "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal GDP growth."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": -22848,
+   "period": "FY2025",
+   "source": "financial_statements META derived net_debt = total debt 58,744 - cash 35,873 - marketable securities 45,719, accession 0001628280-26-003942 (excludes leases)"
+  },
+  "diluted_shares": {
+   "value": 2574,
+   "period": "FY2025",
+   "source": "financial_statements META, us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 2,574,000,000 shares = 2,574 million, accession 0001628280-26-003942"
+  }
+ }
+}
