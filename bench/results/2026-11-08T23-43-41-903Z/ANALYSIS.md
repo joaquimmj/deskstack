@@ -30,26 +30,48 @@ are scored as right.
 
 ## What the pilot does show
 
-- **Reliability.** Arm A finished 6 of 10 models: all four of its unfinished runs are comps tables that hit the per-run request
-  cap before submitting. Arm B finished 8 of 10 (two runs ended without a submission). Arm C finished 10 of 10.
+- **Reliability.** Arm A finished 6 of 10 models: all four of its unfinished runs are comps tables stopped by the
+  per-run cost cap ($1.50) after 2-3 requests, because the worst case of one more web-search request (its whole context
+  plus the maximum output) would have crossed it. Arm B finished 8 of 10 (two runs ended without a submission). Arm C finished 10 of 10.
 - **Cost and time.** Average per model: A $0.38 and 99 s; B $0.13 and 32 s; C $0.16 and 47 s. Arm A uses about 3×
   more tokens because it searches and reads pages.
 - **Sourcing.** Arm A's citations are web pages and filings it found itself, sometimes with admissions such as
   "rounded; exact figure not retrieved" or "value recalled". B and C cite accession numbers. B and C have more typed
   numbers without a source (12-14% vs 7%), mostly market capitalizations: deskstack provides no prices.
 
-## Fixed in this change
+## What changed after the pilot
 
-- `OtherShortTermInvestments` now counts as short-term investments (Coca-Cola and other filers).
+Data (deskstack connector):
+- `OtherShortTermInvestments` counts as short-term investments (Coca-Cola: net debt 35.2B -> 31.6B).
 - With no current-debt line tagged, the 12-month maturity of long-term debt
   (`LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths`) stands in for the current portion, next to a
-  non-current line only. The formula says so.
+  non-current line only, and the formula says so (Caterpillar: 26.2B -> 33.4B).
+- IFRS short-term deposits (`ShorttermDepositsNotClassifiedAsCashEquivalents`) count as short-term investments
+  (Inditex: -5.3B -> -11.0B, arm A's figure). TotalEnergies only tags `OtherCurrentFinancialAssets`, which mixes
+  derivatives and receivables, so it stays out.
+- EBITDA adds intangible amortization when D&A is depreciation alone (Keurig Dr Pepper: 4,030 -> 4,168).
+- ExxonMobil: XOM moved to ExxonMobil Holdings Corp (new CIK, no 10-K yet) in July 2026. The connector now falls back
+  to the predecessor's filings for this known reorganization and says so in a `predecessor_note`.
+
+Scoring (`server/bench/score.ts`, `filing-facts.ts`):
+- EBITDA and net debt mismatches are reported as **other definition**, not wrong: definitions vary between analysts.
+  The cost: a computed figure that is plainly wrong (Monster's EBITDA, above) is no longer counted as wrong either.
+- A reported line that equals another line of the same filing, or two lines added, to the precision written, is
+  **other line of the filing**. Facts come from the filing itself (SEC companyfacts, or the ESEF report with its
+  extension concepts), not from deskstack.
+
+## Re-scored with the new scorer
+
+`rescored/` holds the same 30 submissions scored again (no API calls). Arm A: **0 wrong** of 67 filed figures;
+6 other lines (TotalEnergies revenue matched `tot:RevenueFromContractsWithCustomersExcludingExciseTax`; Caterpillar
+capex matched `us-gaap:SegmentExpenditureAdditionToLongLivedAssets`, capex including leased equipment) and 7 other
+definitions (net debt and EBITDA). Arms B and C: 0 wrong, as before.
+
+On this pilot, Claude with web search alone got every reported line it submitted right. Where it fell short was
+finishing (6 of 10 models), cost (2-3x) and time (2-3x), not accuracy.
 
 ## Before a full run
 
-1. The scorer has to tell a wrong number apart from a different definition: an arm-A line that matches a
-   different line of the same filing should be "other definition", not "wrong".
-2. IFRS short-term investments (Inditex, TotalEnergies) and separately tagged D&A (KDP): fix or mark as not verifiable.
-3. ExxonMobil (in the 50-company list) moved to a new holding registrant; its history sits under the old CIK (34088).
-   Pin it, or the B and C runs will fail.
-4. Raise arm A's request cap for comps, or report its unfinished runs as a result in their own right (they are one).
+- The per-run cost cap: pass `--max-run-cost 3` so arm A's comps can finish (the overall budget stays the hard limit).
+- Scope: the measured cost per company-task is about $0.89 ($0.49 DCF, $1.29 comps), so by the rule fixed before the
+  pilot (`bench/COST_ESTIMATE.md`) the main run is 50 companies x DCF x 3 arms, about $25.

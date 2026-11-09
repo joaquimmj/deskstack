@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "Industria de Diseño Textil (Inditex)",
+ "ticker": "549300TTCXZOGZM2EY83",
+ "currency": "EUR",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     35947,
+     38632,
+     39864
+    ],
+    "source": "ifrs-full:Revenue; ESEF reports 549300TTCXZOGZM2EY83-2025-01-31-ESEF-ES-0 (FY2023) and -2026-01-31-ESEF-ES-0 (FY2024, FY2025); EUR millions"
+   },
+   "operating_income": {
+    "values": [
+     6809,
+     7554,
+     7997
+    ],
+    "source": "ifrs-full:ProfitLossFromOperatingActivities; same ESEF reports"
+   },
+   "d_and_a": {
+    "values": [
+     3041,
+     3174,
+     3270
+    ],
+    "source": "ifrs-full:DepreciationAndAmortisationExpense; same ESEF reports (includes right-of-use depreciation)"
+   },
+   "capex": {
+    "values": [
+     1399,
+     2207,
+     2193
+    ],
+    "source": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities; same ESEF reports (PP&E purchases only)"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.04,
+    0.04,
+    0.035,
+    0.03,
+    0.03
+   ],
+   "source": "Assumption: FY2025 growth was 3.2% (key_metrics); modest reacceleration to ~4% from store/online expansion, fading to 3% toward terminal growth."
+  },
+  "ebit_margin": {
+   "value": 0.2,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: held near FY2025 operating margin of 20.06% (key_metrics); FY2023-25 range 18.9%-20.1%, no further expansion assumed."
+  },
+  "tax_rate": {
+   "value": 0.225,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 effective tax proxy 22.4% (key_metrics); Damodaran Europe retail effective tax 23.5%."
+  },
+  "da_pct_revenue": {
+   "value": 0.082,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 D&A 3,270 / revenue 39,864 = 8.2% (financial_statements)."
+  },
+  "capex_pct_revenue": {
+   "value": 0.055,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 capex 2,193 / revenue 39,864 = 5.5%; FY2024 5.7%. D&A includes lease depreciation while lease payments are not in capex, so FCF may be overstated; reviewer should consider."
+  },
+  "wacc": {
+   "value": 0.076,
+   "period": "n/a",
+   "source": "CAPM: Rf 3.266% (ECB AAA 10Y, 2026-11-05) + beta 0.75 (Damodaran Europe Retail (Grocery and Food) cash-corrected unlevered beta 0.7497; ~0 D/E since Inditex debt is 2m vs large cash) x Spain ERP 5.782% (Damodaran, 2026-02-16) = 7.6%. Debt weight ~0 so WACC = cost of equity. Grocery retail used as industry proxy."
+  },
+  "terminal_growth": {
+   "value": 0.015,
+   "period": "n/a",
+   "source": "Assumption: lowered from 2.0% to 1.5% (conservative, below euro-area ~2% inflation target and well below 3.27% risk-free rate) to bring terminal value share of EV under 75% per VP review."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": -5274,
+   "period": "FY2025 (2026-01-31)",
+   "source": "financial_statements derived net_debt = total debt 2 (current borrowings) - cash 5,276; no short-term investments reported; ESEF 549300TTCXZOGZM2EY83-2026-01-31-ESEF-ES-0; EUR millions"
+  },
+  "diluted_shares": {
+   "value": 1,
+   "period": "FY2025",
+   "source": "NOT FOUND - PLACEHOLDER, NOT A REAL FIGURE. Weighted diluted shares and diluted EPS are null in the deskstack ESEF data (verify_value: not_found); no other cited source available, and I will not use memory. 1 (million) only satisfies the tool's positivity check; reviewer must replace with the diluted share count from Inditex's annual report. Per-share value meaningless until then."
+  }
+ }
+}
