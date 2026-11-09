@@ -73,10 +73,13 @@ export function normPeriod(p: unknown): string | null {
 }
 
 const words = (s: string) => new Set(s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").split(/[^a-z0-9]+/).filter((w) => w.length >= 2 && !STOP.has(w)));
-export function sameName(a: string, b: string): boolean {
-  const A = words(a), B = words(b);
-  for (const w of A) if (B.has(w)) return true;
-  return false;
+/** The name a model wrote matches an official name when every distinctive word of it is in the official one: "LVMH"
+ *  is LVMH Moet Hennessy Louis Vuitton, but "Coca-Cola Europacific Partners" is not The Coca-Cola Company. */
+export function sameName(written: string, official: string): boolean {
+  const W = words(written), O = words(official);
+  if (W.size === 0) return false;
+  for (const w of W) if (!O.has(w)) return false;
+  return true;
 }
 
 /** Filed figures to tie out, and every typed number with its source. */
@@ -180,7 +183,7 @@ async function resolvePeer(c: Connector, name: string, written: string, cache: M
     const r = await callWithRetry(c, "company_lookup", { query: q, limit: 5 }, o);
     if (r.isError) continue;
     for (const hit of (JSON.parse(r.text).results ?? []) as Array<{ name?: string; lei?: string; ticker?: string | null; cik?: number }>) {
-      if (hit.name && name && sameName(hit.name, name)) {
+      if (hit.name && name && sameName(name, hit.name)) {
         id = hit.lei ?? hit.ticker ?? (hit.cik ? String(hit.cik) : null);
         if (id) break outer;
       }
