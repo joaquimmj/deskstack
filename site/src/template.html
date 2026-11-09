@@ -7,45 +7,98 @@
 <meta name="description" content="{{desc_attr}}">
 <link rel="alternate" hreflang="{{other_lang}}" href="{{other_href}}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{prefix}}style.css">
 <link rel="icon" href="{{favicon}}">
 </head>
 <body>
 <a class="skip" href="#install">{{skip}}</a>
-<div class="wrap">
-<header class="top">
-  <a class="brand" href="{{home}}">{{logo}}deskstack</a>
-  <nav class="top" aria-label="{{nav}}">
-    <a href="#install">{{n_install}}</a>
-    <a class="hide-sm" href="{{gh}}/blob/main/{{tut}}">{{n_tut}}</a>
-    <a class="hide-sm" href="{{gh}}">GitHub</a>
-    <a href="{{other_href}}" hreflang="{{other_lang}}" lang="{{other_lang}}">{{other_name}}</a>
-  </nav>
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="{{home}}">{{logo}}deskstack</a>
+    <nav aria-label="{{nav}}">
+      <a class="hide-sm" href="#proof">{{n_proof}}</a>
+      <a class="hide-sm" href="#team">{{n_team}}</a>
+      <a class="hide-sm" href="{{gh}}">GitHub</a>
+      <a href="{{other_href}}" hreflang="{{other_lang}}" lang="{{other_lang}}">{{other_name}}</a>
+      <a class="btn sm" href="#install">{{n_install}}</a>
+    </nav>
+  </div>
 </header>
 
 <main id="main">
-<div class="hero">
-  <div>
-    <h1>{{h1}}</h1>
-    <p class="lede">{{lede}}</p>
-    <div class="actions">
-      <a class="btn" href="#install">{{cta}}</a>
-      <a class="btn ghost" href="{{gh}}/blob/main/{{tut}}">{{cta2}}</a>
+<!-- The hero is a workbook: the headline is the selected range, the associate ties out the history to the 10-K. -->
+<section class="sheet-hero" aria-labelledby="hero-t">
+  <div class="fx" aria-hidden="true">
+    <span class="ref">B4:K8</span><span class="fxl">fx</span>
+    <code>=DESKSTACK.TIEOUT(Inputs!D3, "AAPL 10-K FY2025")</code>
+    <span class="fx-ok">{{tick}}416,161 · 0000320193-25-000079</span>
+  </div>
+  <div class="sheet">
+    <div class="grid" aria-hidden="true">
+      <div class="cols">{{col_heads}}</div>
+      <div class="rows">{{row_heads}}</div>
+      <div class="cells">{{hero_cells}}
+        <div class="cursor c-associate" style="--x:3;--y:2"></div>
+        <div class="comment" style="--x:5;--y:2"><b>{{who_associate}}</b> {{note}}</div>
+        <div class="cursor c-analyst" style="--x:11;--y:3"><span>{{who_analyst}}</span></div>
+      </div>
+    </div>
+    <div class="selection"><h1 id="hero-t">{{h1}}</h1></div>
+    <div class="below">
+      <p class="lede">{{lede}}</p>
+      <div class="actions">
+        <a class="btn" href="#install">{{cta}}</a>
+        <a class="btn ghost" href="#proof">{{cta2}}</a>
+      </div>
     </div>
   </div>
-  <figure class="workpaper" aria-label="{{wp_aria}}">
-    <h2>Apple Inc. <span>{{wp_sub}}</span></h2>
-    <table class="wp">
-      <thead><tr><th scope="col">{{th_line}}</th><th scope="col">{{th_period}}</th><th scope="col" class="r">{{th_value}}</th><th scope="col"><span class="visually-hidden">{{th_tie}}</span></th></tr></thead>
-      <tbody>
-{{rows}}
-      </tbody>
-    </table>
-    <p class="margin-note">{{note}}</p>
-    <div class="legend"><span>{{tick}}{{leg_ok}}</span><span>{{circle}}{{leg_bad}}</span></div>
+  <p class="legend" aria-hidden="true"><span class="k-in">123</span>{{leg_in}}<span class="k-ok">123</span>{{leg_ok}}<span class="k-bad">123</span>{{leg_bad}}</p>
+</section>
+
+<section id="proof" class="band" aria-labelledby="proof-t">
+  <div class="wrap">
+    <h2 class="visually-hidden" id="proof-t">{{p_t}}</h2>
+    <ul class="stats">{{stats}}</ul>
+    <p class="fine">{{stats_note}} <a href="{{gh}}/blob/main/{{analysis}}">{{stats_link}}</a></p>
+  </div>
+</section>
+
+<div class="wrap">
+<section id="team" aria-labelledby="team-t">
+  <h2 class="title" id="team-t">{{t_t}}</h2>
+  <p class="intro">{{t_intro}}</p>
+  <ol class="lanes" aria-label="{{t_t}}">{{lanes}}</ol>
+  <p class="after">{{t_after}}</p>
+</section>
+
+<section aria-labelledby="demo-t">
+  <h2 class="title" id="demo-t">{{demo_t}}</h2>
+  <p class="intro">{{demo_p}}</p>
+  <figure class="demo">
+    <img src="{{prefix}}media/demo.gif" width="1080" height="608" loading="lazy" alt="{{demo_alt}}">
   </figure>
-</div>
+</section>
+
+<section aria-labelledby="bench-t">
+  <h2 class="title" id="bench-t">{{b_t}}</h2>
+  <p class="intro">{{b_intro}}</p>
+  <figure class="bench">
+    {{bench_tables}}
+    <figcaption>{{b_caveat}}</figcaption>
+  </figure>
+  <div class="two">
+    <div>
+      <h3>{{acc_t}}</h3>
+      <p>{{acc_p}}</p>
+      <p><a href="{{gh}}/blob/main/evals/README.md">{{acc_link}}</a></p>
+    </div>
+    <div>
+      <h3>{{cp_t}}</h3>
+      <p>{{cp_p}}</p>
+    </div>
+  </div>
+</section>
 
 <section id="install" aria-labelledby="install-t">
   <h2 class="title" id="install-t">{{i_t}}</h2>
@@ -55,7 +108,7 @@
       <h3>{{s1}}</h3>
       <p>{{s1p}}</p>
       <div class="urlbox" data-connector data-placeholder="{{placeholder}}"><code id="connector-url">{{placeholder}}</code><button class="btn" type="button" data-copy="connector-url" data-done="{{copied}}" data-fallback="{{selected}}">{{copy}}</button></div>
-      <p class="pending" data-pending>{{pending}}</p>
+      <p class="pending" data-pending hidden>{{pending}}</p>
     </li>
     <li>
       <h3>{{s2}}</h3>
@@ -68,30 +121,6 @@
       <div class="urlbox"><code id="first-cmd">/deal-team Apple quick-dcf</code><button class="btn" type="button" data-copy="first-cmd" data-done="{{copied}}" data-fallback="{{selected}}">{{copy}}</button></div>
     </li>
   </ol>
-</section>
-
-<section aria-labelledby="team-t">
-  <h2 class="title" id="team-t">{{t_t}}</h2>
-  <p class="intro">{{t_intro}}</p>
-  <ol class="pipeline">{{roles}}</ol>
-  <p class="after">{{t_after}}</p>
-</section>
-
-<section aria-labelledby="proof-t">
-  <h2 class="title" id="proof-t">{{p_t}}</h2>
-  <div class="two">
-    <div>
-      <h3>{{acc_t}}</h3>
-      <p class="stat">100/100</p>
-      <p>{{acc_p}}</p>
-      <p><a href="{{gh}}/blob/main/evals/README.md">{{acc_link}}</a></p>
-    </div>
-    <div>
-      <h3>{{b_t}}</h3>
-      <p>{{b_p}}</p>
-      <p><a href="{{gh}}/blob/main/bench/README.md">{{b_link}}</a></p>
-    </div>
-  </div>
 </section>
 
 <section aria-labelledby="data-t">
@@ -107,14 +136,16 @@
   <h2 class="title" id="lim-t">{{l_t}}</h2>
   <ul class="limits">{{limit_items}}</ul>
 </section>
+</div>
 </main>
 
 <footer>
-  <p>{{f1}}</p>
-  <p>{{f2}}</p>
-  <p>{{f3}}</p>
+  <div class="wrap">
+    <p>{{f1}}</p>
+    <p>{{f2}}</p>
+    <p>{{f3}}</p>
+  </div>
 </footer>
-</div>
 <script src="{{prefix}}config.js"></script>
 <script src="{{prefix}}app.js"></script>
 </body>
