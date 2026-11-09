@@ -91,8 +91,14 @@ export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
   pretax_income: ["ProfitLossBeforeTax"],
   net_income: ["ProfitLossAttributableToOwnersOfParent", "ProfitLoss"],
   interest_expense: ["InterestExpense", "FinanceCosts"],
-  // Impairment-inclusive D&A concepts are left out so EBITDA means the same thing across filers.
-  d_and_a: ["DepreciationAndAmortisationExpense", "AdjustmentsForDepreciationAndAmortisationExpense"],
+  // Impairment-inclusive D&A concepts come last, for filers that tag nothing else (TotalEnergies, AB InBev, Ahold,
+  // Iberdrola); adjustRow notes it on the cell, since EBITDA then includes impairment.
+  d_and_a: [
+    "DepreciationAndAmortisationExpense",
+    "AdjustmentsForDepreciationAndAmortisationExpense",
+    "AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss",
+    "DepreciationAmortisationAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss",
+  ],
   operating_cash_flow: ["CashFlowsFromUsedInOperatingActivities"],
   capex: [
     "PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
@@ -492,6 +498,9 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx): void {
       formula: "revenue - costs_and_expenses",
       note: why,
     };
+  }
+  if (/ImpairmentLossReversalOfImpairmentLoss/.test(row.d_and_a?.concept ?? "")) {
+    row.d_and_a = { ...row.d_and_a!, note: "includes impairment: the filer tags no D&A line without it, so EBITDA includes impairment too" };
   }
   if (row.diluted_eps?.concept === "ifrs-full:BasicEarningsLossPerShare") {
     row.diluted_eps = { ...row.diluted_eps, note: "basic EPS: the filer tags no diluted EPS" };

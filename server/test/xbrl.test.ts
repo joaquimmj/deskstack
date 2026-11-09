@@ -178,6 +178,23 @@ describe("real filings", () => {
     expect(facts({ AdjustedWeightedAverageShares: { units: { shares: y(3_050e6) } } }).diluted_shares!.value).toBe(3_050e6);
   });
 
+  it("an IFRS filer that tags D&A only with impairment gets that figure, with a note (TotalEnergies, Ahold)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "t-25", "2026-03-20", "ESEF", 2025)];
+    const base = { Revenue: { units: { USD: y(180_000e6) } }, ProfitLossFromOperatingActivities: { units: { USD: y(20_000e6) } } };
+    const cf = (extra: Record<string, { units: Record<string, RawFact[]> }>) =>
+      standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": { ...base, ...extra } } } as never, 5, false).periods[0]!;
+    const withImp = cf({ AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss: { units: { USD: y(13_847e6) } } });
+    expect(withImp.values.d_and_a!.value).toBe(13_847e6);
+    expect(withImp.values.d_and_a!.note).toMatch(/includes impairment/);
+    // A D&A line without impairment always wins.
+    const both = cf({
+      AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss: { units: { USD: y(13_847e6) } },
+      AdjustmentsForDepreciationAndAmortisationExpense: { units: { USD: y(12_000e6) } },
+    });
+    expect(both.values.d_and_a!.value).toBe(12_000e6);
+    expect(both.values.d_and_a!.note).toBeUndefined();
+  });
+
   it("Toyota IFRS with no standard capex concept", () => {
     const r = standardize(facts("TM"), 1);
     const fy = r.periods[0]!;
