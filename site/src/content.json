@@ -5,122 +5,23 @@
     "other_href": "fr/",
     "other_name": "Français",
     "title": "deskstack: every number tied out to the filing",
-    "desc": "Free, cited financial data for Claude and a review team that checks every number against the SEC or ESEF filing. Open source.",
+    "desc": "Free, cited financial data for Claude, and a review team that ties every number in your model to the SEC or ESEF filing. Open source.",
     "skip": "Skip to install",
     "nav": "Main",
+    "n_how": "How it works",
+    "n_bench": "Benchmark",
+    "n_data": "Data",
+    "n_faq": "FAQ",
     "n_install": "Install",
-    "n_tut": "Tutorial",
-    "tut": "docs/TUTORIAL.md",
-    "h1": "Every number in your model, tied out to the filing.",
-    "lede": "Claude builds the model with free, cited data. Other agents tie every number to the SEC or European filing, and nothing ships until you sign off.",
+    "h1a": "Every number in your model,",
+    "h1b": "tied out to the filing.",
+    "lede_b": "A deal team inside Claude.",
+    "lede": "One agent builds the model from free, cited data. Others tie every number to the SEC or European filing. Nothing ships until you sign off.",
     "cta": "Install in Claude",
-    "cta2": "See the results",
-    "note": "Filed 391,035, not 391,053: two digits swapped. Accession 0000320193-25-000079.",
-    "leg_ok": "agrees with the filing",
-    "leg_bad": "doesn't: see the note",
-    "i_t": "Install in three steps",
-    "i_intro": "No terminal, no account to create. You need a Claude account with code execution on; the roles need a paid plan.",
-    "s1": "Add the data connector",
-    "s1p": "In Claude, open Settings, then Connectors, then Add custom connector. Paste the URL, with no sign-in.",
-    "placeholder": "Coming soon",
-    "copy": "Copy",
-    "copied": "Copied",
-    "pending": "The hosted connector isn't online yet. You can run your own copy for free in a few minutes: <a href=\"https://github.com/joaquimmj/deskstack/blob/main/docs/SELF_HOSTING.md\">self-hosting guide</a>.",
-    "s2": "Add the deal team",
-    "s2p": "Open Customize, then Plugins, then Add marketplace. Paste this repository, then install deskstack.",
-    "s3": "Ask for a model",
-    "s3p": "Claude builds the DCF, has every number checked and reviewed, then waits for your approval.",
-    "t_t": "A deal team where every role has one job",
-    "t_intro": "Each role is a skill with its own checklist and a fixed report. Agents build and check; only you approve the export.",
-    "roles": [
-      [
-        "/analyst",
-        "agent",
-        "Builds the workbook from cited data, after agreeing the assumptions with you."
-      ],
-      [
-        "/associate",
-        "agent",
-        "Ties every typed number to the filing, cell by cell, and flags what doesn't agree."
-      ],
-      [
-        "/vp-review",
-        "agent",
-        "Runs the deterministic model checks, then reviews the assumptions against history."
-      ],
-      [
-        "/md-redteam",
-        "agent",
-        "Argues against the valuation: what moves it, and what the market implies."
-      ],
-      [
-        "/compliance",
-        "agent",
-        "Checks the disclaimer, the sources and the language before anything is shared."
-      ],
-      [
-        "/sign-off",
-        "you",
-        "Shows every open item, and exports a signed copy only after you approve in your own words."
-      ]
-    ],
-    "t_after": "Reviewers report; they never edit your file. In Claude Code and Cowork they run as separate agents that don't see how the model was built. They also review workbooks made with Anthropic's financial-analysis plugin.",
-    "p_t": "Results",
-    "acc_t": "Accuracy, checked every night",
-    "acc_p": "Golden questions answered exactly as filed, on every change: US and European companies, a bank, restatements, a stock split, fiscal years ending in January, March, June and September. Each night, the answers are re-read from the filings with independent parsers.",
-    "acc_link": "How the golden set works",
-    "b_t": "The benchmark",
-    "b_p": "We measure how many numbers are wrong or unsourced when Claude builds a model with web search only, with deskstack's data, and with deskstack's reviewers too, scored automatically against the filings. First results, on 50 companies (a DCF each, Claude Sonnet 5.5): with web search only, 20 of 573 reported figures were wrong (3.5%), checked by hand against the filings. With deskstack's data, none, at a third of the cost. That zero is partly by construction (the scorer checks against the same data), and the analysis says how the data is checked independently and what the run found wrong in deskstack itself. Every transcript is public.",
-    "b_link": "Analysis and transcripts",
-    "d_t": "Free data, with the source on every figure",
-    "d_intro": "Official filings and public datasets only. Missing figures stay empty; they are never estimated.",
-    "d_h1": "Data",
-    "d_h2": "Source",
-    "d_h3": "Coverage",
-    "data": [
-      [
-        "Financial statements, US",
-        "SEC EDGAR filings (10-K, 10-Q, 20-F)",
-        "US-listed companies, including foreign filers under IFRS; annual and last twelve months"
-      ],
-      [
-        "Financial statements, Europe",
-        "ESEF annual reports on filings.xbrl.org",
-        "About 30 large issuers in France, the Netherlands, Spain, Finland, Italy and Belgium"
-      ],
-      [
-        "Risk-free rates",
-        "U.S. Treasury; European Central Bank",
-        "Daily yields from 1 month to 30 years"
-      ],
-      [
-        "Exchange rates",
-        "European Central Bank",
-        "30+ currencies, on a date or averaged over a period"
-      ],
-      [
-        "Valuation inputs",
-        "Aswath Damodaran, NYU Stern",
-        "Equity risk premium by country; betas and cost of capital by industry"
-      ]
-    ],
-    "l_t": "What it doesn't do",
-    "limits": [
-      "No share prices and no consensus estimates: a market cap needs a price you provide.",
-      "European coverage is partial and annual only; German issuers aren't in the public repository yet.",
-      "Banks and insurers are flagged: a standard DCF doesn't fit them.",
-      "Reviews reduce errors but don't replace a human reviewer. Everything is a draft until you sign it off."
-    ],
-    "f1": "deskstack is free and open source (MIT). Run your own copy on a free Cloudflare account, or read the code on <a href=\"https://github.com/joaquimmj/deskstack\">GitHub</a>. <a href=\"https://github.com/joaquimmj/deskstack/blob/main/PRIVACY.md\">Privacy</a>.",
-    "f2": "Data from SEC EDGAR, XBRL International's filings.xbrl.org, the U.S. Treasury, ECB statistics and Aswath Damodaran (NYU Stern). SEC XBRL handling builds on open-finance-mcp by Nathanael Johnson.",
-    "f3": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed. Not investment advice.",
-    "selected": "Selected: press Ctrl+C",
-    "n_proof": "Results",
-    "n_team": "How it works",
-    "who_agent": "Agents",
-    "who_you": "You",
-    "who_analyst": "Analyst",
-    "who_associate": "Associate",
+    "cta2": "See the benchmark",
+    "c_associate": "Associate",
+    "c_you": "You",
+    "note": "Filed 391,035, not 391,053: two digits swapped.",
     "cell_words": {
       "revenue": "Revenue",
       "ebit": "EBIT",
@@ -129,38 +30,163 @@
       "awaiting": "awaiting you",
       "tieout": "Tie-out"
     },
-    "leg_in": "typed assumption",
     "stats": [
       [
-        "3.5%",
-        "of reported figures were wrong when Claude built DCFs with web search alone: 20 of 573, every one checked by hand"
+        "0 of 3,230",
+        "figures wrong with deskstack's data, across 199 DCFs and comps tables"
       ],
       [
-        "0",
-        "wrong with deskstack's data, on the same 50 companies, in DCFs and comps tables alike"
+        "3.5%",
+        "of figures wrong with web search alone (DCFs), read by hand against the filings"
       ],
       [
         "⅓",
-        "of the cost per model: $0.07–0.10 instead of $0.23, and 2–3× faster"
+        "of the cost per model, and 2–5× faster"
       ],
       [
         "10,419",
-        "US companies, plus large European issuers, from the filings"
+        "US companies, plus large European issuers, straight from the filings"
       ]
     ],
-    "stats_note": "50 companies, a DCF and a comps table each, Claude Sonnet 5.5, November 2026. The zero is partly by construction: the scorer checks against the same data, which is checked separately against two other parsers every night.",
-    "stats_link": "Read the analysis",
-    "b_intro": "Claude Sonnet 5.5 built a DCF and a comps table for each of 50 companies (35 US, 15 European), three ways. Every reported figure was scored against the filing, and every one flagged as wrong was read by hand.",
+    "stats_note": "50 companies × DCF and comps × 3 setups, Claude Sonnet 5.5, November 2026. The zero is partly by construction: the scorer checks against the same data, which is checked every night against two other parsers.",
+    "sc_t1": "One agent builds the model.",
+    "sc_t2": "Others check every number.",
+    "sc_p": "Each role is a skill with its own checklist and a fixed report. Reviewers report; they never edit your file.",
+    "tabs": [
+      [
+        "analyst",
+        "/analyst",
+        "Builds the model",
+        "A three-statement DCF or a comps table from cited data, after agreeing the assumptions with you."
+      ],
+      [
+        "associate",
+        "/associate",
+        "Ties out to the filing",
+        "Every typed number checked against the 10-K or ESEF report, cell by cell, with the reason when it doesn't agree."
+      ],
+      [
+        "vp",
+        "/vp-review",
+        "Reviews the model",
+        "Deterministic checks for hardcodes, broken formulas, WACC vs growth and sign conventions, then the assumptions against history."
+      ],
+      [
+        "compliance",
+        "/compliance",
+        "Checks before sharing",
+        "Disclaimer, sources, dated inputs, no advice language and no hidden instructions."
+      ],
+      [
+        "signoff",
+        "/sign-off",
+        "Waits for you",
+        "Shows every open item and exports a signed copy only after you approve in your own words."
+      ]
+    ],
+    "m_title": "Apple · DCF · USD m",
+    "m_src": "Source: Apple 10-K FY2025 · 0000320193-25-000079 · sec.gov",
+    "m_inputs": "Inputs",
+    "m_hist": "History, from the filings",
+    "m_line": "Line",
+    "m_model": "Model",
+    "m_filed": "Filed",
+    "m_tie_sum": "13 of 14 figures match Apple's 10-K. 1 mismatch.",
+    "m_typo": "Typo: two adjacent digits look swapped (filed 391,035, written 391,053).",
+    "m_vp_sum": "Model check: clean",
+    "m_vp_counts": "0 blocker · 0 major · 0 minor",
+    "vp_checks": [
+      "Hardcoded numbers",
+      "Formula consistency",
+      "Error values",
+      "WACC vs terminal growth",
+      "Terminal growth vs GDP",
+      "Sign convention",
+      "Discount timing"
+    ],
+    "m_c_sum": "Compliance: 10 pass, 0 fail",
+    "c_checks": [
+      "Draft / not-investment-advice disclaimer",
+      "Every typed number cited",
+      "No placeholder or memory citations",
+      "User-provided inputs are dated",
+      "No recommendation or promise language",
+      "No instructions addressed to an AI or a reviewer"
+    ],
+    "m_s_rows": [
+      [
+        "Tie-out to filings",
+        "pass",
+        "14 match"
+      ],
+      [
+        "Model review",
+        "pass",
+        "0 blocker, 0 major"
+      ],
+      [
+        "Compliance",
+        "pass",
+        "10 pass, 0 fail"
+      ]
+    ],
+    "m_s_token": "Approval token",
+    "m_s_wait": "Nothing is exported until you approve in your own words.",
+    "m_s_btn": "Approve and export",
+    "ln_t1": "Agents build and check.",
+    "ln_t2": "You sign off.",
+    "ln_agents": "Agents",
+    "ln_you": "You",
+    "ln_steps": [
+      "Agree assumptions",
+      "Build",
+      "Tie out",
+      "Review",
+      "Red-team",
+      "Compliance",
+      "Approve"
+    ],
+    "ln_p": "In Claude Code and Cowork the reviewers run as separate agents that never see how the model was built. They review work you bring, too: any .xlsx.",
+    "dk_t1": "Checked against the filing.",
+    "dk_t2": "Not against another model.",
+    "dk_p": "verify_value reads the filed figure for the same company, line and period, and says why a number differs: scale, sign, currency, period, line item or a typo.",
+    "dk_steps": [
+      "Read the filing",
+      "Write the model",
+      "Tie out",
+      "Fix and re-check"
+    ],
+    "dk_card1_t": "A reason, not just a red cell",
+    "dk_card1_p": "Every mismatch comes back with the filed value, the filing's accession number and the likely cause.",
+    "dk_hints": [
+      [
+        "Scale",
+        "Typed in thousands, filed in millions"
+      ],
+      [
+        "Sign",
+        "Capex entered as negative"
+      ],
+      [
+        "Period",
+        "Matches FY2026, not the last twelve months"
+      ],
+      [
+        "Typo",
+        "Two adjacent digits swapped"
+      ]
+    ],
+    "dk_card2_t": "Watch it catch a typo",
+    "dk_card2_p": "The review scripts on Apple's FY2025 DCF with one planted typo. The model review can't see it; the tie-out to the 10-K can.",
+    "demo_alt": "Terminal recording: /associate finds 13 of 14 figures match Apple's 10-K and flags revenue FY2024 391,053 against a filed 391,035 as swapped digits; /vp-review finds the model clean; after the fix, /sign-off shows all checks passing and waits for approval.",
+    "b_t1": "We measured it.",
+    "b_t2": "Then read every wrong figure by hand.",
+    "b_p": "Claude Sonnet 5.5 built a DCF and a comps table for each of 50 companies (35 US, 15 European), three ways. Every reported figure was scored against the filing.",
     "b_h_arm": "Setup",
     "b_h_wrong": "Reported figures wrong",
     "b_h_cost": "Cost / model",
     "b_h_time": "Time",
-    "b_caveat": "In the DCFs, most wrong figures were numbers the model couldn't find and filled in anyway: derived share counts, estimated capex, aggregator figures, non-GAAP revenue. In the comps, 15 of 16 were twelve-month figures a quarter out of date, from an aggregator, after the latest 10-Qs were filed. Net debt and EBITDA are reported apart, since definitions vary. Every transcript is public.",
-    "cp_t": "What the run found in deskstack",
-    "cp_p": "The benchmark also checks us: it found four gaps in deskstack's own data (narrow D&A, Disney's segment operating income, a mis-scaled share count, a dual filer), all fixed and tested since.",
-    "demo_t": "See it catch a typo",
-    "demo_p": "The review scripts on Apple's FY2025 DCF with one planted typo: the model review can't see it, the tie-out to the 10-K can. Real scripts, real filing, no AI in this loop.",
-    "demo_alt": "Terminal recording: /associate finds 13 of 14 figures match Apple's 10-K and flags revenue FY2024 391,053 against a filed 391,035 as swapped digits; /vp-review finds the model clean; after the fix 14 of 14 match; /sign-off shows every check passed and waits for approval.",
+    "b_link": "Analysis and transcripts",
     "benches": [
       {
         "t": "DCF, 50 companies",
@@ -183,7 +209,7 @@
             ""
           ],
           [
-            "deskstack data + reviewers",
+            "deskstack + reviewers",
             "0%",
             "0 of 606",
             "$0.10",
@@ -213,7 +239,7 @@
             ""
           ],
           [
-            "deskstack data + reviewers",
+            "deskstack + reviewers",
             "0%",
             "0 of 1,010",
             "$0.22",
@@ -222,170 +248,310 @@
           ]
         ]
       }
-    ]
+    ],
+    "b_cards": [
+      [
+        "What web search got wrong",
+        "In the DCFs, numbers it couldn't find and filled in anyway: derived share counts, estimated capex, non-GAAP revenue. In the comps, twelve-month figures a quarter out of date, from an aggregator."
+      ],
+      [
+        "With more searches?",
+        "A pre-registered re-run with 30 searches and high effort still wrote a figure that isn't the filing's. The placeholders went away; the cost per table more than doubled."
+      ],
+      [
+        "It checks us too",
+        "The runs found gaps in deskstack's own data and two bugs in the scorer. All fixed, tested, and written up with the results."
+      ]
+    ],
+    "b_robust": "Robustness check",
+    "d_t1": "Free data,",
+    "d_t2": "with the source on every figure.",
+    "d_p": "Official filings and public datasets only. A figure that isn't filed stays empty; it is never estimated.",
+    "data": [
+      [
+        "SEC EDGAR",
+        "Financial statements, US",
+        "10-K, 10-Q and 20-F filings: annual and last twelve months, for US-listed companies including foreign filers under IFRS."
+      ],
+      [
+        "filings.xbrl.org",
+        "Financial statements, Europe",
+        "ESEF annual reports of about 30 large issuers in France, the Netherlands, Spain, Finland, Italy and Belgium."
+      ],
+      [
+        "U.S. Treasury · ECB",
+        "Risk-free rates",
+        "Daily yields from 1 month to 30 years."
+      ],
+      [
+        "European Central Bank",
+        "Exchange rates",
+        "30+ currencies, on a date or averaged over a period."
+      ],
+      [
+        "Aswath Damodaran, NYU Stern",
+        "Valuation inputs",
+        "Equity risk premium by country; betas and cost of capital by industry."
+      ],
+      [
+        "Every answer",
+        "A citation",
+        "Source, URL, accession or ID, period and as-of date on each figure, so you can open the filing it came from."
+      ]
+    ],
+    "acc_t": "Accuracy, checked every night",
+    "acc_p": "Golden questions answered exactly as filed, against the live connector, and every answer re-read from the filing by an independent parser.",
+    "acc_link": "How it is checked",
+    "i_t1": "Install in three steps.",
+    "i_t2": "No terminal, no account to create.",
+    "i_p": "You need a Claude account with code execution on; the roles need a paid plan.",
+    "s1": "Add the data connector",
+    "s1p": "In Claude, open Settings, then Connectors, then Add custom connector. Paste the URL, with no sign-in.",
+    "s2": "Add the deal team",
+    "s2p": "Open Customize, then Plugins, then Add marketplace. Paste this repository, then install deskstack.",
+    "s3": "Ask for a model",
+    "s3p": "Claude builds the DCF, has every number checked and reviewed, then waits for your approval.",
+    "placeholder": "Coming soon",
+    "copy": "Copy",
+    "copied": "Copied",
+    "selected": "Selected: press Ctrl+C",
+    "pending": "The hosted connector isn't online yet. You can run your own copy for free in a few minutes: <a href=\"https://github.com/joaquimmj/deskstack/blob/main/docs/SELF_HOSTING.md\">self-hosting guide</a>.",
+    "tut": "Read the tutorial",
+    "q_t1": "Questions,",
+    "q_t2": "answered.",
+    "faq": [
+      [
+        "Is it free?",
+        "Yes. The data connector runs on Cloudflare's free plan with a daily cap shared by everyone, and the code is MIT-licensed. For heavy use, deploy your own copy in a few minutes: <a href=\"https://github.com/joaquimmj/deskstack/blob/main/docs/SELF_HOSTING.md\">self-hosting guide</a>."
+      ],
+      [
+        "Where do the numbers come from?",
+        "From the filings themselves: SEC EDGAR for US companies, ESEF reports on filings.xbrl.org for European ones, plus the U.S. Treasury, the ECB and Damodaran's datasets. Every figure carries its source."
+      ],
+      [
+        "Does the server see my workbook?",
+        "No. The review scripts run in your own Claude session. The server only sees the values the associate sends to verify_value, and keeps no user data. <a href=\"https://github.com/joaquimmj/deskstack/blob/main/PRIVACY.md\">Privacy</a>."
+      ],
+      [
+        "What doesn't it do?",
+        "No share prices and no consensus estimates: a market cap needs a price you provide. European coverage is partial and annual only. Banks and insurers are flagged, since a standard DCF doesn't fit them."
+      ],
+      [
+        "Does it replace a reviewer?",
+        "No. It catches what can be checked: figures against filings, formulas against rules, language against a checklist. Everything is a draft until you sign it off."
+      ],
+      [
+        "Is it made by Anthropic?",
+        "No. deskstack is an independent open-source project that works with Claude. It is not affiliated with or endorsed by Anthropic."
+      ]
+    ],
+    "end_t1": "Tie out your next model.",
+    "end_t2": "Before anyone else does.",
+    "f_product": "Product",
+    "f_docs": "Docs",
+    "f_project": "Project",
+    "f_links": {
+      "tutorial": "Tutorial",
+      "tools": "Data tools",
+      "roles": "Roles",
+      "data": "Data sources",
+      "self": "Self-hosting",
+      "bench": "Benchmark",
+      "privacy": "Privacy",
+      "security": "Security",
+      "license": "MIT license"
+    },
+    "f_credit": "Data from SEC EDGAR, XBRL International's filings.xbrl.org, the U.S. Treasury, ECB statistics and Aswath Damodaran (NYU Stern). SEC XBRL handling builds on open-finance-mcp by Nathanael Johnson.",
+    "f_disc": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed. Not investment advice."
   },
   "fr": {
     "lang": "fr",
     "other_lang": "en",
     "other_href": "../",
     "other_name": "English",
-    "title": "deskstack : chaque chiffre rapproché du dépôt officiel",
-    "desc": "Des données financières gratuites et sourcées pour Claude, et une équipe de relecture qui vérifie chaque chiffre contre le dépôt SEC ou ESEF. Open source.",
+    "title": "deskstack : chaque chiffre rapproché du dépôt officiel",
+    "desc": "Des données financières gratuites et sourcées pour Claude, et une équipe de revue qui rapproche chaque chiffre de votre modèle du dépôt SEC ou ESEF. Open source.",
     "skip": "Aller à l'installation",
     "nav": "Principal",
+    "n_how": "Fonctionnement",
+    "n_bench": "Benchmark",
+    "n_data": "Données",
+    "n_faq": "FAQ",
     "n_install": "Installer",
-    "n_tut": "Tutoriel",
-    "tut": "docs/TUTORIEL.md",
-    "h1": "Chaque chiffre de votre modèle, rapproché du dépôt officiel.",
-    "lede": "Claude construit le modèle avec des données gratuites et sourcées. D'autres agents pointent chaque chiffre contre le dépôt SEC ou européen, et rien ne sort sans votre accord.",
+    "h1a": "Chaque chiffre de votre modèle,",
+    "h1b": "rapproché du dépôt officiel.",
+    "lede_b": "Une équipe deal dans Claude.",
+    "lede": "Un agent construit le modèle à partir de données gratuites et sourcées. D'autres rapprochent chaque chiffre du dépôt SEC ou européen. Rien ne sort sans votre accord.",
     "cta": "Installer dans Claude",
-    "cta2": "Voir les résultats",
-    "note": "Déposé : 391 035, pas 391 053 : deux chiffres inversés. Accession 0000320193-25-000079.",
-    "leg_ok": "conforme au dépôt",
-    "leg_bad": "non conforme : voir la note",
-    "i_t": "Installer en trois étapes",
-    "i_intro": "Pas de terminal, pas de compte à créer. Il faut un compte Claude avec l'exécution de code activée ; les rôles demandent un abonnement payant.",
-    "s1": "Ajouter le connecteur de données",
-    "s1p": "Dans Claude, ouvrez Paramètres, puis Connecteurs, puis Ajouter un connecteur personnalisé. Collez l'URL, sans connexion.",
-    "placeholder": "Bientôt en ligne",
-    "copy": "Copier",
-    "copied": "Copié",
-    "pending": "Le connecteur hébergé n'est pas encore en ligne. Vous pouvez lancer votre propre copie gratuitement en quelques minutes : <a href=\"https://github.com/joaquimmj/deskstack/blob/main/docs/SELF_HOSTING.md\">guide d'auto-hébergement</a>.",
-    "s2": "Ajouter l'équipe",
-    "s2p": "Ouvrez Personnaliser, puis Plugins, puis Ajouter une marketplace. Collez ce dépôt, puis installez deskstack.",
-    "s3": "Demander un modèle",
-    "s3p": "Claude construit le DCF, fait vérifier et relire chaque chiffre, puis attend votre accord.",
-    "t_t": "Une équipe où chaque rôle a une seule tâche",
-    "t_intro": "Chaque rôle est un skill avec sa liste de contrôle et un rapport fixe. Les agents construisent et vérifient ; vous seul approuvez l'export.",
-    "roles": [
-      [
-        "/analyst",
-        "agent",
-        "Construit le classeur à partir de données sourcées, après avoir validé les hypothèses avec vous."
-      ],
-      [
-        "/associate",
-        "agent",
-        "Pointe chaque chiffre saisi contre le dépôt, cellule par cellule, et signale ce qui ne concorde pas."
-      ],
-      [
-        "/vp-review",
-        "agent",
-        "Lance les contrôles déterministes du modèle, puis confronte les hypothèses à l'historique."
-      ],
-      [
-        "/md-redteam",
-        "agent",
-        "Plaide contre la valorisation : ce qui la fait bouger, et ce que le marché suppose."
-      ],
-      [
-        "/compliance",
-        "agent",
-        "Vérifie l'avertissement, les sources et le vocabulaire avant tout partage."
-      ],
-      [
-        "/sign-off",
-        "you",
-        "Montre chaque point ouvert, et n'exporte une copie signée qu'après votre accord, avec vos mots."
-      ]
-    ],
-    "t_after": "Les relecteurs font un rapport ; ils ne modifient jamais votre fichier. Dans Claude Code et Cowork, ils tournent comme des agents séparés qui ne voient pas comment le modèle a été construit. Ils relisent aussi les classeurs faits avec le plugin financial-analysis d'Anthropic.",
-    "p_t": "Résultats",
-    "acc_t": "Exactitude, vérifiée chaque nuit",
-    "acc_p": "Questions de référence auxquelles l'outil répond exactement comme dans les dépôts, à chaque modification : entreprises américaines et européennes, une banque, des retraitements, une division d'action, des exercices clos en janvier, mars, juin et septembre. Chaque nuit, les réponses sont relues dans les dépôts par des outils indépendants.",
-    "acc_link": "Comment fonctionne le jeu de référence",
-    "b_t": "Le benchmark",
-    "b_p": "Nous mesurons combien de chiffres sont faux ou sans source quand Claude construit un modèle avec la recherche web seule, avec les données deskstack, et avec les relecteurs deskstack en plus, notés automatiquement contre les dépôts. Premiers résultats, sur 50 entreprises (un DCF chacune, Claude Sonnet 5.5) : avec la recherche web seule, 20 chiffres publiés sur 573 étaient faux (3,5 %), vérifiés à la main contre les dépôts. Avec les données deskstack, aucun, pour un tiers du coût. Ce zéro tient en partie à la méthode (la notation vérifie contre les mêmes données) : l'analyse explique comment ces données sont vérifiées par ailleurs, et ce que le run a trouvé de faux dans deskstack. Chaque transcription est publique.",
-    "b_link": "Analyse et transcriptions",
-    "d_t": "Des données gratuites, avec la source de chaque chiffre",
-    "d_intro": "Uniquement des dépôts officiels et des jeux de données publics. Un chiffre absent reste vide ; il n'est jamais estimé.",
-    "d_h1": "Donnée",
-    "d_h2": "Source",
-    "d_h3": "Couverture",
-    "data": [
-      [
-        "Comptes, États-Unis",
-        "Dépôts SEC EDGAR (10-K, 10-Q, 20-F)",
-        "Sociétés cotées aux États-Unis, y compris les émetteurs étrangers en IFRS ; annuel et douze derniers mois"
-      ],
-      [
-        "Comptes, Europe",
-        "Rapports annuels ESEF sur filings.xbrl.org",
-        "Une trentaine de grands émetteurs en France, aux Pays-Bas, en Espagne, en Finlande, en Italie et en Belgique"
-      ],
-      [
-        "Taux sans risque",
-        "Trésor américain ; Banque centrale européenne",
-        "Rendements quotidiens de 1 mois à 30 ans"
-      ],
-      [
-        "Taux de change",
-        "Banque centrale européenne",
-        "Plus de 30 devises, à une date ou en moyenne sur une période"
-      ],
-      [
-        "Paramètres de valorisation",
-        "Aswath Damodaran, NYU Stern",
-        "Prime de risque par pays ; bêtas et coût du capital par secteur"
-      ]
-    ],
-    "l_t": "Ce que l'outil ne fait pas",
-    "limits": [
-      "Pas de cours de bourse ni de consensus : une capitalisation demande un cours que vous fournissez.",
-      "La couverture européenne est partielle et annuelle ; les émetteurs allemands ne sont pas encore dans la base publique.",
-      "Les banques et assureurs sont signalés : un DCF classique ne s'y applique pas.",
-      "Les relectures réduisent les erreurs mais ne remplacent pas un relecteur humain. Tout reste un brouillon jusqu'à votre validation."
-    ],
-    "f1": "deskstack est gratuit et open source (MIT). Lancez votre propre copie sur un compte Cloudflare gratuit, ou lisez le code sur <a href=\"https://github.com/joaquimmj/deskstack\">GitHub</a>. <a href=\"https://github.com/joaquimmj/deskstack/blob/main/PRIVACY.md\">Confidentialité</a>.",
-    "f2": "Données : SEC EDGAR, filings.xbrl.org (XBRL International), Trésor américain, statistiques de la BCE et Aswath Damodaran (NYU Stern). Le traitement du XBRL de la SEC s'appuie sur open-finance-mcp de Nathanael Johnson.",
-    "f3": "Projet open source indépendant. Non affilié à Anthropic ni approuvé par Anthropic. Les données peuvent être incomplètes ou en retard. Pas un conseil en investissement.",
-    "selected": "Sélectionné : faites Ctrl+C",
-    "n_proof": "Résultats",
-    "n_team": "Fonctionnement",
-    "who_agent": "Agents",
-    "who_you": "Vous",
-    "who_analyst": "Analyste",
-    "who_associate": "Associate",
+    "cta2": "Voir le benchmark",
+    "c_associate": "Associate",
+    "c_you": "Vous",
+    "note": "Déposé 391 035, pas 391 053 : deux chiffres inversés.",
     "cell_words": {
       "revenue": "CA",
       "ebit": "EBIT",
       "tax": "Impôt",
       "netdebt": "Dette nette",
-      "awaiting": "vous attend",
+      "awaiting": "en attente",
       "tieout": "Pointage"
     },
-    "leg_in": "hypothèse saisie",
     "stats": [
       [
-        "3,5 %",
-        "des chiffres publiés étaient faux quand Claude a construit des DCF avec la recherche web seule : 20 sur 573, tous vérifiés à la main"
+        "0 sur 3 230",
+        "chiffres faux avec les données deskstack, sur 199 DCF et tableaux de comparables"
       ],
       [
-        "0",
-        "faux avec les données deskstack, sur les mêmes 50 entreprises, en DCF comme en comparables"
+        "3,5 %",
+        "de chiffres faux avec la recherche web seule (DCF), relus à la main contre les dépôts"
       ],
       [
         "⅓",
-        "du coût par modèle : 0,07–0,10 $ au lieu de 0,23 $, et 2 à 3 fois plus rapide"
+        "du coût par modèle, et 2 à 5 fois plus rapide"
       ],
       [
         "10 419",
-        "entreprises américaines, plus de grands émetteurs européens, depuis les dépôts"
+        "entreprises américaines, plus de grands émetteurs européens, directement depuis les dépôts"
       ]
     ],
-    "stats_note": "50 entreprises, un DCF et des comparables chacune, Claude Sonnet 5.5, novembre 2026. Le zéro tient en partie à la méthode : la notation vérifie contre les mêmes données, elles-mêmes comparées chaque nuit à deux autres parseurs.",
-    "stats_link": "Lire l'analyse",
-    "b_intro": "Claude Sonnet 5.5 a construit un DCF et un tableau de comparables pour chacune de 50 entreprises (35 américaines, 15 européennes), de trois façons. Chaque chiffre publié a été noté contre le dépôt, et chaque chiffre signalé faux a été relu à la main.",
+    "stats_note": "50 entreprises × DCF et comparables × 3 configurations, Claude Sonnet 5.5, novembre 2026. Le zéro tient en partie à la méthode : la notation vérifie contre les mêmes données, elles-mêmes comparées chaque nuit à deux autres parseurs.",
+    "sc_t1": "Un agent construit le modèle.",
+    "sc_t2": "D'autres vérifient chaque chiffre.",
+    "sc_p": "Chaque rôle est un skill avec sa propre checklist et un rapport fixe. Les relecteurs signalent ; ils ne modifient jamais votre fichier.",
+    "tabs": [
+      [
+        "analyst",
+        "/analyst",
+        "Construit le modèle",
+        "Un DCF trois états ou un tableau de comparables à partir de données sourcées, après avoir validé les hypothèses avec vous."
+      ],
+      [
+        "associate",
+        "/associate",
+        "Rapproche du dépôt",
+        "Chaque chiffre saisi vérifié contre le 10-K ou le rapport ESEF, cellule par cellule, avec la raison quand il ne concorde pas."
+      ],
+      [
+        "vp",
+        "/vp-review",
+        "Relit le modèle",
+        "Contrôles déterministes : valeurs en dur, formules cassées, WACC contre croissance, conventions de signe, puis les hypothèses contre l'historique."
+      ],
+      [
+        "compliance",
+        "/compliance",
+        "Vérifie avant diffusion",
+        "Avertissement, sources, saisies datées, aucun langage de conseil et aucune instruction cachée."
+      ],
+      [
+        "signoff",
+        "/sign-off",
+        "Vous attend",
+        "Montre chaque point ouvert et n'exporte une copie signée qu'après votre accord, dans vos propres mots."
+      ]
+    ],
+    "m_title": "Apple · DCF · M USD",
+    "m_src": "Source : Apple 10-K FY2025 · 0000320193-25-000079 · sec.gov",
+    "m_inputs": "Hypothèses",
+    "m_hist": "Historique, depuis les dépôts",
+    "m_line": "Ligne",
+    "m_model": "Modèle",
+    "m_filed": "Déposé",
+    "m_tie_sum": "13 chiffres sur 14 concordent avec le 10-K d'Apple. 1 écart.",
+    "m_typo": "Coquille : deux chiffres voisins semblent inversés (déposé 391 035, saisi 391 053).",
+    "m_vp_sum": "Contrôle du modèle : propre",
+    "m_vp_counts": "0 bloquant · 0 majeur · 0 mineur",
+    "vp_checks": [
+      "Valeurs en dur",
+      "Cohérence des formules",
+      "Valeurs d'erreur",
+      "WACC contre croissance terminale",
+      "Croissance terminale contre PIB",
+      "Convention de signe",
+      "Calendrier d'actualisation"
+    ],
+    "m_c_sum": "Conformité : 10 conformes, 0 échec",
+    "c_checks": [
+      "Avertissement brouillon / pas un conseil en investissement",
+      "Chaque chiffre saisi est sourcé",
+      "Aucune source fictive ou « de mémoire »",
+      "Les saisies de l'utilisateur sont datées",
+      "Aucun langage de recommandation ou de promesse",
+      "Aucune instruction adressée à une IA ou à un relecteur"
+    ],
+    "m_s_rows": [
+      [
+        "Rapprochement des dépôts",
+        "OK",
+        "14 concordent"
+      ],
+      [
+        "Revue du modèle",
+        "OK",
+        "0 bloquant, 0 majeur"
+      ],
+      [
+        "Conformité",
+        "OK",
+        "10 conformes, 0 échec"
+      ]
+    ],
+    "m_s_token": "Jeton d'approbation",
+    "m_s_wait": "Rien n'est exporté avant votre accord, dans vos propres mots.",
+    "m_s_btn": "Approuver et exporter",
+    "ln_t1": "Les agents construisent et vérifient.",
+    "ln_t2": "Vous signez.",
+    "ln_agents": "Agents",
+    "ln_you": "Vous",
+    "ln_steps": [
+      "Hypothèses",
+      "Construction",
+      "Pointage",
+      "Revue",
+      "Contradiction",
+      "Conformité",
+      "Accord"
+    ],
+    "ln_p": "Dans Claude Code et Cowork, les relecteurs tournent comme des agents séparés qui ne voient jamais comment le modèle a été construit. Ils relisent aussi votre travail : n'importe quel .xlsx.",
+    "dk_t1": "Vérifié contre le dépôt.",
+    "dk_t2": "Pas contre un autre modèle.",
+    "dk_p": "verify_value lit le chiffre déposé pour la même entreprise, la même ligne et la même période, et dit pourquoi un chiffre diffère : échelle, signe, devise, période, ligne ou coquille.",
+    "dk_steps": [
+      "Lire le dépôt",
+      "Écrire le modèle",
+      "Rapprocher",
+      "Corriger et revérifier"
+    ],
+    "dk_card1_t": "Une raison, pas juste une cellule rouge",
+    "dk_card1_p": "Chaque écart revient avec la valeur déposée, le numéro du dépôt et la cause probable.",
+    "dk_hints": [
+      [
+        "Échelle",
+        "Saisi en milliers, déposé en millions"
+      ],
+      [
+        "Signe",
+        "Investissements saisis en négatif"
+      ],
+      [
+        "Période",
+        "Correspond à l'exercice 2026, pas aux douze derniers mois"
+      ],
+      [
+        "Coquille",
+        "Deux chiffres voisins inversés"
+      ]
+    ],
+    "dk_card2_t": "Le voir repérer une coquille",
+    "dk_card2_p": "Les scripts de revue sur le DCF FY2025 d'Apple, avec une coquille glissée. La revue du modèle ne la voit pas ; le rapprochement avec le 10-K, si.",
+    "demo_alt": "Enregistrement de terminal : /associate trouve 13 chiffres sur 14 conformes au 10-K d'Apple et signale le CA FY2024 391 053 contre 391 035 déposé, deux chiffres inversés ; /vp-review trouve le modèle propre ; après correction, /sign-off montre tous les contrôles au vert et attend l'accord.",
+    "b_t1": "Nous l'avons mesuré.",
+    "b_t2": "Puis relu chaque chiffre faux à la main.",
+    "b_p": "Claude Sonnet 5.5 a construit un DCF et un tableau de comparables pour chacune de 50 entreprises (35 américaines, 15 européennes), de trois façons. Chaque chiffre publié a été noté contre le dépôt.",
     "b_h_arm": "Configuration",
     "b_h_wrong": "Chiffres publiés faux",
     "b_h_cost": "Coût / modèle",
     "b_h_time": "Temps",
-    "b_caveat": "Dans les DCF, la plupart des chiffres faux sont des chiffres introuvables que le modèle a remplis quand même : nombres d'actions calculés, investissements estimés, chiffres d'agrégateurs, chiffre d'affaires non comptable. Dans les comparables, 15 sur 16 étaient des chiffres sur douze mois en retard d'un trimestre, pris chez un agrégateur alors que les derniers 10-Q étaient publiés. Dette nette et EBITDA sont présentés à part, car les définitions varient. Chaque transcription est publique.",
-    "cp_t": "Ce que le run a trouvé dans deskstack",
-    "cp_p": "Le benchmark nous vérifie aussi : il a trouvé quatre manques dans les données de deskstack (D&A trop étroit, résultat opérationnel de Disney par segments, nombre d'actions mal échelonné, double déposant), tous corrigés et testés depuis.",
-    "demo_t": "Le voir attraper une faute de frappe",
-    "demo_p": "Les scripts de revue sur le DCF d'Apple FY2025 avec une faute glissée : la revue du modèle ne la voit pas, le pointage contre le 10-K si. Vrais scripts, vrai dépôt, sans IA dans cette boucle.",
-    "demo_alt": "Enregistrement de terminal : /associate trouve 13 chiffres sur 14 conformes au 10-K d'Apple et signale le chiffre d'affaires FY2024 391 053 contre 391 035 déposé, deux chiffres inversés ; /vp-review trouve le modèle propre ; après correction, 14 sur 14 ; /sign-off montre tous les contrôles réussis et attend l'accord.",
+    "b_link": "Analyse et transcriptions",
     "benches": [
       {
         "t": "DCF, 50 sociétés",
@@ -408,7 +574,7 @@
             ""
           ],
           [
-            "Données deskstack + relecteurs",
+            "deskstack + relecteurs",
             "0 %",
             "0 sur 606",
             "0,10 $",
@@ -438,7 +604,7 @@
             ""
           ],
           [
-            "Données deskstack + relecteurs",
+            "deskstack + relecteurs",
             "0 %",
             "0 sur 1 010",
             "0,22 $",
@@ -447,6 +613,120 @@
           ]
         ]
       }
-    ]
+    ],
+    "b_cards": [
+      [
+        "Ce que la recherche web a raté",
+        "Dans les DCF, des chiffres introuvables remplis quand même : nombres d'actions calculés, investissements estimés, chiffre d'affaires non comptable. Dans les comparables, des chiffres sur douze mois en retard d'un trimestre, pris chez un agrégateur."
+      ],
+      [
+        "Avec plus de recherches ?",
+        "Une reprise préenregistrée avec 30 recherches et un effort élevé a encore écrit un chiffre qui n'est pas celui du dépôt. Les valeurs fictives ont disparu ; le coût par tableau a plus que doublé."
+      ],
+      [
+        "Il nous vérifie aussi",
+        "Les runs ont trouvé des lacunes dans les données de deskstack et deux bugs dans la notation. Tous corrigés, testés et documentés avec les résultats."
+      ]
+    ],
+    "b_robust": "Test de robustesse",
+    "d_t1": "Des données gratuites,",
+    "d_t2": "avec la source sur chaque chiffre.",
+    "d_p": "Uniquement des dépôts officiels et des jeux de données publics. Un chiffre non déposé reste vide ; il n'est jamais estimé.",
+    "data": [
+      [
+        "SEC EDGAR",
+        "États financiers, États-Unis",
+        "Dépôts 10-K, 10-Q et 20-F : annuels et douze derniers mois, pour les sociétés cotées aux États-Unis, y compris les émetteurs étrangers en IFRS."
+      ],
+      [
+        "filings.xbrl.org",
+        "États financiers, Europe",
+        "Rapports annuels ESEF d'une trentaine de grands émetteurs en France, aux Pays-Bas, en Espagne, en Finlande, en Italie et en Belgique."
+      ],
+      [
+        "Trésor américain · BCE",
+        "Taux sans risque",
+        "Rendements quotidiens de 1 mois à 30 ans."
+      ],
+      [
+        "Banque centrale européenne",
+        "Taux de change",
+        "Plus de 30 devises, à une date ou en moyenne sur une période."
+      ],
+      [
+        "Aswath Damodaran, NYU Stern",
+        "Paramètres de valorisation",
+        "Prime de risque par pays ; bêtas et coût du capital par secteur."
+      ],
+      [
+        "Chaque réponse",
+        "Une citation",
+        "Source, URL, numéro de dépôt, période et date sur chaque chiffre, pour ouvrir le dépôt d'où il vient."
+      ]
+    ],
+    "acc_t": "Exactitude, vérifiée chaque nuit",
+    "acc_p": "Des questions de référence répondues exactement comme déposé, contre le connecteur en ligne, et chaque réponse relue depuis le dépôt par un parseur indépendant.",
+    "acc_link": "Comment c'est vérifié",
+    "i_t1": "Installer en trois étapes.",
+    "i_t2": "Sans terminal, sans compte à créer.",
+    "i_p": "Il vous faut un compte Claude avec l'exécution de code activée ; les rôles demandent un forfait payant.",
+    "s1": "Ajouter le connecteur de données",
+    "s1p": "Dans Claude, ouvrez Réglages, puis Connecteurs, puis Ajouter un connecteur personnalisé. Collez l'URL, sans connexion.",
+    "s2": "Ajouter l'équipe deal",
+    "s2p": "Ouvrez Personnaliser, puis Plugins, puis Ajouter une marketplace. Collez ce dépôt, puis installez deskstack.",
+    "s3": "Demander un modèle",
+    "s3p": "Claude construit le DCF, fait vérifier et relire chaque chiffre, puis attend votre accord.",
+    "placeholder": "Bientôt disponible",
+    "copy": "Copier",
+    "copied": "Copié",
+    "selected": "Sélectionné : faites Ctrl+C",
+    "pending": "Le connecteur hébergé n'est pas encore en ligne. Vous pouvez lancer votre propre copie gratuitement en quelques minutes : <a href=\"https://github.com/joaquimmj/deskstack/blob/main/docs/SELF_HOSTING.md\">guide d'auto-hébergement</a>.",
+    "tut": "Lire le tutoriel",
+    "q_t1": "Vos questions,",
+    "q_t2": "nos réponses.",
+    "faq": [
+      [
+        "Est-ce gratuit ?",
+        "Oui. Le connecteur tourne sur l'offre gratuite de Cloudflare avec un plafond quotidien partagé, et le code est sous licence MIT. Pour un usage intensif, déployez votre propre copie en quelques minutes : <a href=\"https://github.com/joaquimmj/deskstack/blob/main/docs/SELF_HOSTING.md\">guide d'auto-hébergement</a>."
+      ],
+      [
+        "D'où viennent les chiffres ?",
+        "Des dépôts eux-mêmes : SEC EDGAR pour les sociétés américaines, les rapports ESEF sur filings.xbrl.org pour les européennes, plus le Trésor américain, la BCE et les données de Damodaran. Chaque chiffre porte sa source."
+      ],
+      [
+        "Le serveur voit-il mon classeur ?",
+        "Non. Les scripts de revue tournent dans votre propre session Claude. Le serveur ne voit que les valeurs que l'associate envoie à verify_value, et ne conserve aucune donnée utilisateur. <a href=\"https://github.com/joaquimmj/deskstack/blob/main/PRIVACY.md\">Confidentialité</a>."
+      ],
+      [
+        "Que ne fait-il pas ?",
+        "Pas de cours de bourse ni de consensus : une capitalisation demande un cours que vous fournissez. La couverture européenne est partielle et annuelle uniquement. Les banques et assureurs sont signalés, un DCF standard ne leur convient pas."
+      ],
+      [
+        "Remplace-t-il un relecteur ?",
+        "Non. Il attrape ce qui se vérifie : les chiffres contre les dépôts, les formules contre des règles, le langage contre une checklist. Tout reste un brouillon jusqu'à votre accord."
+      ],
+      [
+        "Est-ce fait par Anthropic ?",
+        "Non. deskstack est un projet open source indépendant qui fonctionne avec Claude. Il n'est ni affilié à Anthropic ni approuvé par elle."
+      ]
+    ],
+    "end_t1": "Rapprochez votre prochain modèle.",
+    "end_t2": "Avant que quelqu'un d'autre ne le fasse.",
+    "f_product": "Produit",
+    "f_docs": "Docs",
+    "f_project": "Projet",
+    "f_links": {
+      "tutorial": "Tutoriel",
+      "tools": "Outils de données",
+      "roles": "Rôles",
+      "data": "Sources de données",
+      "self": "Auto-hébergement",
+      "bench": "Benchmark",
+      "privacy": "Confidentialité",
+      "security": "Sécurité",
+      "license": "Licence MIT"
+    },
+    "f_credit": "Données de SEC EDGAR, filings.xbrl.org (XBRL International), du Trésor américain, de la BCE et d'Aswath Damodaran (NYU Stern). Le traitement XBRL de la SEC s'appuie sur open-finance-mcp de Nathanael Johnson.",
+    "f_disc": "Projet open source indépendant. Ni affilié à Anthropic ni approuvé par elle. Les données peuvent être incomplètes ou en retard. Pas un conseil en investissement."
   }
 }
