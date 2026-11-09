@@ -1,0 +1,107 @@
+{
+ "kind": "dcf",
+ "company": "Deere & Company",
+ "ticker": "DE",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     61251,
+     51716,
+     45684
+    ],
+    "source": "deskstack financial_statements, us-gaap:Revenues, 10-K accession 0001104659-25-122321"
+   },
+   "operating_income": {
+    "values": [
+     12958,
+     9039,
+     null
+    ],
+    "source": "FY2023/FY2024: us-gaap:OperatingIncomeLoss, accession 0001558370-24-016169. FY2025: not found (operating income null in filing data); not estimated"
+   },
+   "d_and_a": {
+    "values": [
+     2004,
+     2118,
+     2229
+    ],
+    "source": "us-gaap:DepreciationDepletionAndAmortization, accession 0001104659-25-122321"
+   },
+   "capex": {
+    "values": [
+     1498,
+     1640,
+     1360
+    ],
+    "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0001104659-25-122321"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.02,
+    0.06,
+    0.06,
+    0.05,
+    0.04
+   ],
+   "source": "Analyst assumption: revenue fell 15.6% in FY2024 and 11.7% in FY2025 (cyclical downturn); assume trough in FY2026 then recovery moderating toward long-run growth"
+  },
+  "ebit_margin": {
+   "value": 0.15,
+   "period": "FY2026-FY2030",
+   "source": "Analyst assumption: below FY2023 21.2% and FY2024 17.5% margins (computed from filed EBIT/revenue); FY2025 EBIT not found; mid-cycle level assumed"
+  },
+  "tax_rate": {
+   "value": 0.21,
+   "source": "Analyst assumption: US federal statutory rate; Damodaran US Machinery effective rate 13.4% considered too low for a sustainable rate"
+  },
+  "da_pct_revenue": {
+   "value": 0.049,
+   "period": "FY2025 basis",
+   "source": "FY2025 D&A 2,229 / revenue 45,684 = 4.9% (accession 0001104659-25-122321)"
+  },
+  "capex_pct_revenue": {
+   "value": 0.03,
+   "period": "FY2023-FY2025 average",
+   "source": "Capex/revenue: 2.4%, 3.2%, 3.0% in FY2023-25 (filed); 3.0% assumed"
+  },
+  "wacc": {
+   "value": 0.087,
+   "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta ~1.0 (Damodaran US Machinery unlevered cash-corrected 0.894, D/E 0.147, 21% tax) x ERP 4.46% (Damodaran US, 2026-02-16) = cost of equity ~9.3%; after-tax cost of debt ~4.2% (Damodaran pre-tax 5.29%); weights 87/13 gives ~8.7%"
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "source": "Analyst assumption: long-run nominal US GDP-like growth, below the 4.86% risk-free rate"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 5520,
+   "period": "FY2025 (2025-11-02)",
+   "source": "deskstack derived net_debt = debt_current 13,796 - cash 8,276 (accession 0001104659-25-122321). CAVEAT: tool flags total debt as likely incomplete (no long-term debt concept reported); true net debt likely much higher. Verify against the 10-K balance sheet."
+  },
+  "diluted_shares": {
+   "value": 271.7,
+   "period": "FY2025",
+   "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 271,700,000 shares = 271.7 million, accession 0001104659-25-122321"
+  }
+ }
+}

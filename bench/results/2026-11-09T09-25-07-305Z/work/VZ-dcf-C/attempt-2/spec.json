@@ -1,0 +1,109 @@
+{
+ "kind": "dcf",
+ "company": "Verizon Communications Inc.",
+ "ticker": "VZ",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     133974,
+     134788,
+     138191
+    ],
+    "source": "deskstack financial_statements, us-gaap:Revenues, 10-K accession 0000732712-26-000007"
+   },
+   "operating_income": {
+    "values": [
+     22877,
+     28686,
+     29259
+    ],
+    "source": "deskstack financial_statements, us-gaap:OperatingIncomeLoss, 10-K 0000732712-26-000007"
+   },
+   "d_and_a": {
+    "values": [
+     17624,
+     17892,
+     18349
+    ],
+    "source": "deskstack financial_statements, us-gaap:DepreciationAndAmortization, 10-K 0000732712-26-000007"
+   },
+   "capex": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: capex is null in deskstack data for FY2023-FY2025 (verify_value confirmed not reported); not filled from memory"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.02,
+    0.02,
+    0.02,
+    0.018,
+    0.015
+   ],
+   "source": "Assumption: FY2023-25 revenue CAGR was 1.56% and FY2025 growth 2.5% (key_metrics); mature telecom, fading toward terminal growth"
+  },
+  "ebit_margin": {
+   "value": 0.215,
+   "source": "Assumption: FY2025 operating margin 21.2%, FY2024 21.3% (key_metrics); held roughly flat with slight uplift",
+   "period": "FY2026-FY2030"
+  },
+  "tax_rate": {
+   "value": 0.24,
+   "source": "Assumption: FY2025 effective tax rate proxy 24.25% (key_metrics, (pretax-net income)/pretax)",
+   "period": "FY2026-FY2030"
+  },
+  "da_pct_revenue": {
+   "value": 0.133,
+   "source": "FY2025 D&A 18,349 / revenue 138,191 = 13.28% (10-K 0000732712-26-000007)",
+   "period": "FY2025"
+  },
+  "capex_pct_revenue": {
+   "value": 0.133,
+   "source": "Assumption, no filed capex available from tool (not found): set equal to D&A % of revenue as steady-state proxy; reviewer should replace with the 10-K cash flow capex figure",
+   "period": "FY2026-FY2030"
+  },
+  "wacc": {
+   "value": 0.065,
+   "source": "CAPM: rf 4.86% (US Treasury 10Y, 2026-11-06); Damodaran Telecom (Wireless) cash-corrected unlevered beta 0.392 relevered at D/E 0.52 (tax 21%) = 0.553; ERP 4.46% (Damodaran) gives Ke 7.3%; Kd pre-tax ~6.0%, after-tax ~4.7%; weights 66/34 give ~6.4%, rounded to 6.5%",
+   "period": "2026-11"
+  },
+  "terminal_growth": {
+   "value": 0.015,
+   "source": "Assumption lowered from 2.0% to 1.5%: equals final-year (FY2030) growth and recent 1.56% revenue CAGR, conservative for a mature telecom. Note: terminal value share of EV stays ~80% because a 5-year horizon on a stable, low-growth, low-WACC cash-flow business is inherently terminal-weighted; not forced down with unsupported inputs."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 139102,
+   "source": "deskstack derived net_debt FY2025 = total debt 158,150 - cash 19,048 - ST investments 0 (10-K 0000732712-26-000007)",
+   "period": "FY2025"
+  },
+  "diluted_shares": {
+   "value": 4231,
+   "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding FY2025 = 4,231 million, 10-K 0000732712-26-000007",
+   "period": "FY2025"
+  }
+ }
+}

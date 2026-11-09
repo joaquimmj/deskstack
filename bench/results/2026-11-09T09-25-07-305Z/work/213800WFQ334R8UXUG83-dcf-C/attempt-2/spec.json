@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "VINCI",
+ "ticker": "213800WFQ334R8UXUG83",
+ "currency": "EUR",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     69619,
+     72459,
+     75372
+    ],
+    "source": "VINCI ESEF reports 213800WFQ334R8UXUG83-2024-12-31-ESEF-FR-0 and -2025-12-31-ESEF-FR-0, ifrs-full:RevenueFromContractsWithCustomers"
+   },
+   "operating_income": {
+    "values": [
+     8071,
+     8783,
+     9364
+    ],
+    "source": "Same ESEF reports, ifrs-full:ProfitLossFromOperatingActivities"
+   },
+   "d_and_a": {
+    "values": [
+     3799,
+     3998,
+     4206
+    ],
+    "source": "Same ESEF reports, ifrs-full:AdjustmentsForDepreciationAndAmortisationExpense"
+   },
+   "capex": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: capex is null in deskstack ESEF data for all three years; not filled from memory"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.04,
+    0.04,
+    0.035,
+    0.03,
+    0.03
+   ],
+   "source": "Assumption: FY2025 growth was 4.0% (75,372/72,459) and FY2024 4.1%; fade toward 3% as concession and construction growth normalises."
+  },
+  "ebit_margin": {
+   "value": 0.125,
+   "source": "Assumption: FY2025 EBIT margin 12.4% (9,364/75,372), up from 11.6% in FY2023; hold roughly flat at 12.5%."
+  },
+  "tax_rate": {
+   "value": 0.258,
+   "source": "Assumption: French statutory corporate rate of about 25.8%; effective rate not extracted from filings."
+  },
+  "da_pct_revenue": {
+   "value": 0.056,
+   "source": "FY2025 D&A 4,206 / revenue 75,372 = 5.6% (ESEF); held flat."
+  },
+  "capex_pct_revenue": {
+   "value": 0.05,
+   "source": "Assumption, not from filings (capex not found in data): set slightly below D&A at 5.0% of revenue, a placeholder for the reviewer to verify against the cash flow statement."
+  },
+  "wacc": {
+   "value": 0.07,
+   "source": "Assumption: CAPM with 10Y AAA euro yield 3.266% (ECB, 2026-11-05), France ERP 5.01% (Damodaran, 2026-02-16), assumed beta ~0.9 (not retrieved from Damodaran), giving cost of equity ~7.8%. After-tax cost of debt ~3.5% with an assumed ~25% debt weight gives WACC ~7.0%."
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "source": "Assumption: long-run euro-area inflation/nominal growth, below the 3.27% risk-free rate."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": -10514,
+   "source": "deskstack derived net_debt FY2025 = short_term_borrowings 6,740 - cash 17,254. WARNING: INCOMPLETE. No non-current borrowings concept was reported, so true net debt is higher, and likely positive once long-term bonds are included. The reviewer must replace it with the figure from the FY2025 balance sheet.",
+   "period": "FY2025"
+  },
+  "diluted_shares": {
+   "value": 566.8,
+   "source": "Derived, millions: FY2025 net income attributable 4,903m / diluted EPS 8.65 (ESEF 213800WFQ334R8UXUG83-2025-12-31-ESEF-FR-0). Weighted diluted share count is not tagged in the data, so this is approximate.",
+   "period": "FY2025"
+  }
+ }
+}

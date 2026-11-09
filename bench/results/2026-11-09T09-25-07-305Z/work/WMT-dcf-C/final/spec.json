@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "Walmart Inc.",
+ "ticker": "WMT",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2024",
+   "FY2025",
+   "FY2026"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     648125,
+     680985,
+     713163
+    ],
+    "source": "financial_statements WMT, us-gaap:Revenues, 10-K accession 0000104169-26-000055"
+   },
+   "operating_income": {
+    "values": [
+     27012,
+     29348,
+     29825
+    ],
+    "source": "us-gaap:OperatingIncomeLoss, 10-K 0000104169-26-000055"
+   },
+   "d_and_a": {
+    "values": [
+     11853,
+     12973,
+     14203
+    ],
+    "source": "us-gaap:DepreciationAmortizationAndAccretionNet, 10-K 0000104169-26-000055"
+   },
+   "capex": {
+    "values": [
+     20606,
+     23783,
+     26642
+    ],
+    "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, 10-K 0000104169-26-000055"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030",
+   "FY2031"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.045,
+    0.045,
+    0.04,
+    0.04,
+    0.035
+   ],
+   "source": "Assumption: FY2026 growth was 4.7% and FY2025 5.1% (filed revenue); fade toward mature-retailer growth near 3.5%."
+  },
+  "ebit_margin": {
+   "value": 0.042,
+   "period": "FY2027-FY2031",
+   "source": "Assumption: held at FY2026 filed margin 29,825/713,163 = 4.18%; no expansion assumed."
+  },
+  "tax_rate": {
+   "value": 0.25,
+   "period": "FY2027-FY2031",
+   "source": "Assumption: FY2026 effective rate approx 25.7% (1-21,893/29,469, before NCI); ~25% used (21% federal + state/foreign)."
+  },
+  "da_pct_revenue": {
+   "value": 0.02,
+   "period": "FY2027-FY2031",
+   "source": "Assumption: FY2026 D&A 14,203/713,163 = 2.0%."
+  },
+  "capex_pct_revenue": {
+   "value": 0.035,
+   "period": "FY2027-FY2031",
+   "source": "Assumption: FY2025 capex 3.5% of revenue (23,783/680,985), FY2026 3.7%; 3.5% used, still above D&A 2.0% as automation/supply-chain investment continues. Note: this elevated capex depresses explicit-period FCF and is a main reason terminal value is a high share of EV."
+  },
+  "wacc": {
+   "value": 0.075,
+   "period": "current",
+   "source": "CAPM: 10Y UST 4.86% (Treasury 2026-11-06) + assumed beta ~0.75 (assumption; low-beta defensive retailer) x US ERP 4.46% (Damodaran 2026-02-16) = ~8.2% cost of equity; debt 44.8B (FY2026) small vs market cap, after-tax cost of debt ~4%; blended ~7.5%."
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "period": "terminal",
+   "source": "Assumption: 2.0%, at/below long-run inflation, lowered from 2.5% to reduce reliance on terminal value; well below 4.86% risk-free rate. Terminal value share of EV remains high (inherent to a 5-year horizon for a stable, low-margin compounder); reviewer should treat as a flagged limitation."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 34035,
+   "period": "FY2026",
+   "source": "financial_statements derived net_debt = total debt 44,762 (LTD noncurrent 34,624 + current 3,542 + short-term borrowings 6,596) - cash 10,727; 10-K 0000104169-26-000055; excludes leases"
+  },
+  "diluted_shares": {
+   "value": 8022,
+   "period": "FY2026",
+   "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 8,022,000,000 shares = 8,022 millions, 10-K 0000104169-26-000055"
+  }
+ }
+}

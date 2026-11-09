@@ -1,0 +1,997 @@
+{
+ "company": "AAPL",
+ "task": "dcf",
+ "arm": "A",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Apple Inc.",
+   "ticker": "AAPL",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       391035,
+       416161,
+       478834
+      ],
+      "source": "Apple FY2026 Form 10-K (FYE Sep 26, 2026), income statement: total net sales"
+     },
+     "operating_income": {
+      "values": [
+       123216,
+       133050,
+       158063
+      ],
+      "source": "Apple FY2026 Form 10-K income statement (via stocktitan summary of 10-K, and stock-analysis-on.net); FY2024/25 match edgar.tools"
+     },
+     "d_and_a": {
+      "values": [
+       11445,
+       11698,
+       13423
+      ],
+      "source": "Apple FY2026 Form 10-K cash flow statement: depreciation and amortization"
+     },
+     "capex": {
+      "values": [
+       9447,
+       12715,
+       9041
+      ],
+      "source": "Apple FY2026 Form 10-K cash flow statement: payments for acquisition of PP&E (sign flipped to positive)"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.08,
+      0.07,
+      0.06,
+      0.05,
+      0.04
+     ],
+     "source": "Assumption: FY2026 growth was 15% (FY2025 6%, FY2024 2%), judged above trend; fade from 8% to 4%, converging toward terminal growth."
+    },
+    "ebit_margin": {
+     "value": 0.32,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: FY2026 margin 33.0% (158,063/478,834), FY2025 32.0%, FY2024 31.5%; set at 32%, a slight haircut to FY2026 peak for mean reversion."
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: approx. Apple effective rate in recent years (mid-to-high teens); 21% US statutory rate offset by foreign mix. Not verified against the 10-K tax note."
+    },
+    "da_pct_revenue": {
+     "value": 0.028,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: 3-yr historical average D&A/revenue (2.9%, 2.8%, 2.8%) from 10-K figures above."
+    },
+    "capex_pct_revenue": {
+     "value": 0.025,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: 3-yr historical average capex/revenue (2.4%, 3.1%, 1.9% = ~2.5%)."
+    },
+    "wacc": {
+     "value": 0.09,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: cost of equity ~9% (rf ~4.2% + beta ~1.1-1.2 x ERP ~4.5-5%); debt only ~3% of capital so WACC≈cost of equity. Not sourced from a data provider."
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "period": "terminal",
+     "source": "Assumption: long-run nominal GDP/inflation-ish growth, below the risk-free rate."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 23389,
+     "period": "FY2026 (Sep 26, 2026)",
+     "source": "Apple FY2026 10-K: term debt 78,114 (total, current+non-current) + commercial paper 1,997 (stocktitan 10-K summary) = 80,111, less cash 36,305 and current marketable securities 20,417 (10-K balance sheet) = 56,722. Excludes leases and non-current marketable securities (~80.2bn; total cash+securities 136,935), per the stated convention; the reviewer may want to include them."
+    },
+    "diluted_shares": {
+     "value": 14720.306,
+     "period": "FY2026",
+     "source": "Apple FY2026 10-K: weighted-average diluted shares 14,720,306 thousand = 14,720.306 million"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Apple Inc.",
+   "ticker": "AAPL",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       391035,
+       416161,
+       478834
+      ],
+      "source": "Apple FY2026 Form 10-K (FYE Sep 26, 2026), income statement: total net sales"
+     },
+     "operating_income": {
+      "values": [
+       123216,
+       133050,
+       158063
+      ],
+      "source": "Apple FY2026 Form 10-K income statement (via stocktitan summary of 10-K, and stock-analysis-on.net); FY2024/25 match edgar.tools"
+     },
+     "d_and_a": {
+      "values": [
+       11445,
+       11698,
+       13423
+      ],
+      "source": "Apple FY2026 Form 10-K cash flow statement: depreciation and amortization"
+     },
+     "capex": {
+      "values": [
+       9447,
+       12715,
+       9041
+      ],
+      "source": "Apple FY2026 Form 10-K cash flow statement: payments for acquisition of PP&E (sign flipped to positive)"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.08,
+      0.07,
+      0.06,
+      0.05,
+      0.04
+     ],
+     "source": "Assumption: FY2026 growth was 15% (FY2025 6%, FY2024 2%), judged above trend; fade from 8% to 4%, converging toward terminal growth."
+    },
+    "ebit_margin": {
+     "value": 0.32,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: FY2026 margin 33.0% (158,063/478,834), FY2025 32.0%, FY2024 31.5%; set at 32%, a slight haircut to FY2026 peak for mean reversion."
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: approx. Apple effective rate in recent years (mid-to-high teens); 21% US statutory rate offset by foreign mix. Not verified against the 10-K tax note."
+    },
+    "da_pct_revenue": {
+     "value": 0.028,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: 3-yr historical average D&A/revenue (2.9%, 2.8%, 2.8%) from 10-K figures above."
+    },
+    "capex_pct_revenue": {
+     "value": 0.025,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: 3-yr historical average capex/revenue (2.4%, 3.1%, 1.9% = ~2.5%)."
+    },
+    "wacc": {
+     "value": 0.09,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: cost of equity ~9% (rf ~4.2% + beta ~1.1-1.2 x ERP ~4.5-5%); debt only ~3% of capital so WACC≈cost of equity. Not sourced from a data provider."
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "period": "terminal",
+     "source": "Assumption: long-run nominal GDP/inflation-ish growth, below the risk-free rate."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 23389,
+     "period": "FY2026 (Sep 26, 2026)",
+     "source": "Apple FY2026 10-K: term debt 78,114 (total, current+non-current) + commercial paper 1,997 (stocktitan 10-K summary) = 80,111, less cash 36,305 and current marketable securities 20,417 (10-K balance sheet) = 56,722. Excludes leases and non-current marketable securities (~80.2bn; total cash+securities 136,935), per the stated convention; the reviewer may want to include them."
+    },
+    "diluted_shares": {
+     "value": 14720.306,
+     "period": "FY2026",
+     "source": "Apple FY2026 10-K: weighted-average diluted shares 14,720,306 thousand = 14,720.306 million"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 1,
+  "usage": {
+   "input_tokens": 18,
+   "output_tokens": 2735,
+   "cache_creation_input_tokens": 33040,
+   "cache_read_input_tokens": 89561,
+   "server_tool_use": {
+    "web_search_requests": 3
+   }
+  },
+  "cost": 0.1578982,
+  "seconds": 35.24,
+  "tool_calls": {
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: web_search (public web pages). No other data source is available.\n\nBuild a quick unlevered DCF for Apple Inc. (identifier: AAPL).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 18,
+     "cache_creation_input_tokens": 33040,
+     "cache_read_input_tokens": 89561,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 33040,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 2735,
+     "output_tokens_details": {
+      "thinking_tokens": 571
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard",
+     "server_tool_use": {
+      "web_search_requests": 3,
+      "web_fetch_requests": 0
+     }
+    },
+    "cost": 0.1578982,
+    "content": [
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01PDs32HXZr6J1N4kJAzB9UZ",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"params\":{\"query\":\"Apple 10-K fiscal 2025 net sales operating income depreciation amortization payments for acquisition of property plant equipment diluted shares\"}})\nfor x in r[:6]:\n    print(x['url']);print(x['content'][:1500]);print('--')"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_011oGNNx9D9cdg59W6Dd3Ucb",
+      "name": "web_search",
+      "input": {
+       "params": {
+        "query": "Apple 10-K fiscal 2025 net sales operating income depreciation amortization payments for acquisition of property plant equipment diluted shares"
+       }
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01PDs32HXZr6J1N4kJAzB9UZ"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_011oGNNx9D9cdg59W6Dd3Ucb",
+      "content": {
+       "type": "web_search_tool_result_error",
+       "error_code": "invalid_tool_input"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01PDs32HXZr6J1N4kJAzB9UZ"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01PDs32HXZr6J1N4kJAzB9UZ",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDNkDiRPvxcL94avq1BoMkxiR5En0UVmse2b0IjAQU1zEjB1ai1lS/CAG9KDpEPf1VYGLZT6CeA3nfGEBg4KNV7aDPaUvYBCBO7RKrFgqEk8rAIGpMRjTcvAt3M0uLhnVPhgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01PDs32HXZr6J1N4kJAzB9UZ/cell.py\", line 10, in <module>\n    print(x['url']);print(x['content'][:1500]);print('--')\n          ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01NqUDVvkVbfFbRpe9XSfVLZ",
+      "name": "code_execution",
+      "input": {
+       "code": "print(str(r)[:3000])"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01NqUDVvkVbfFbRpe9XSfVLZ",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "[{\"type\": \"error\", \"error_code\": \"invalid_tool_input\"}]\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01AXUApwGWC9DbA2uiztwxtL",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"params\":{\"query\":\"Apple fiscal 2025 10-K net sales operating income cash flow depreciation capex\"}})\nfor x in r[:6]:\n    print(x['url']);print(x['content'][:2000]);print('--')"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01KBkg3qyg2XEQD7hAXF3Tza",
+      "name": "web_search",
+      "input": {
+       "params": {
+        "query": "Apple fiscal 2025 10-K net sales operating income cash flow depreciation capex"
+       }
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01AXUApwGWC9DbA2uiztwxtL"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01KBkg3qyg2XEQD7hAXF3Tza",
+      "content": {
+       "type": "web_search_tool_result_error",
+       "error_code": "invalid_tool_input"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01AXUApwGWC9DbA2uiztwxtL"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01AXUApwGWC9DbA2uiztwxtL",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDD6POzseOXmW3uT1/BoMf/RdewNaLksHdIIQIjA4B5BudJ7tNy6fHJJ8SuJ1moni5/D8Vt7+0IP5Iba+2xRUr3BCdRoozO1aP0BJRmIqEju6U6Ktr4x3uSy368cpX1pmohgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01AXUApwGWC9DbA2uiztwxtL/cell.py\", line 10, in <module>\n    print(x['url']);print(x['content'][:2000]);print('--')\n          ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Ku4DAaeBo2FRewnW3ejxiW",
+      "name": "code_execution",
+      "input": {
+       "code": "print(type(r),str(r)[:1500])"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01Ku4DAaeBo2FRewnW3ejxiW",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "<class 'str'> [{\"type\": \"error\", \"error_code\": \"invalid_tool_input\"}]\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "text",
+      "text": "Try the direct tool."
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_014mTnaH24sAF9GwnPbyKKJg",
+      "name": "web_search",
+      "input": {
+       "query": "Apple 10-K fiscal 2025 net sales operating income depreciation and amortization payments for property plant equipment"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_014mTnaH24sAF9GwnPbyKKJg",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Apple Inc. - 10K - Annual Report - October 31, 2025",
+        "url": "https://fintel.io/doc/sec-apple-inc-320193-10k-2025-october-31-20392-514",
+        "encrypted_content": "[omitted]",
+        "page_age": "374 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "aapl-20250329",
+        "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000057/aapl-20250329.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "556 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "aapl-20251227 - Apple Inc.",
+        "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000006/aapl-20251227.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "283 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Apple Inc. (AAPL) SEC EDGAR Filings, CIK 0000320193 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/AAPL",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s2.q4cdn.com/470004039/files/doc_financials/2025/ar/_10-K-2025-As-Filed.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "374 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TEAM INC - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/318833/000031883326000007/tisi-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ATI INC - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1018963/000162828026010140/ati-20251228.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "SIGNET JEWELERS LTD - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/832988/000083298825000018/sig-20250201.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Apple Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Blue Bird Corp - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1589526/000158952625000100/blbd-20250927.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "text",
+      "text": "Need debt, cash, securities, diluted shares FY2025."
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01LqooGpSavx4SSPZ2ypi3bU",
+      "name": "web_search",
+      "input": {
+       "query": "Apple September 27, 2025 balance sheet cash and cash equivalents marketable securities commercial paper term debt; diluted shares 15,004,697"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01LqooGpSavx4SSPZ2ypi3bU",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Apple Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000006/aapl-20251227.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "aapl-20260926",
+        "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/aapl-20260926.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Apple Inc. CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS (Unaudited)",
+        "url": "https://www.apple.com/newsroom/pdfs/fy2025-q4/FY25_Q4_Consolidated_Financial_Statements.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "772 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Apple Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000073/aapl-20250628.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "aapl-20250927",
+        "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "374 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Apple Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000057/aapl-20250329.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s2.q4cdn.com/470004039/files/doc_financials/2025/ar/_10-K-2025-As-Filed.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "374 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "aapl-20260328",
+        "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://d18rn0p25nwr6d.cloudfront.net/CIK-0000320193/c24e7a28-5254-4dfa-9447-62aaa3c24bb1.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "374 days ago"
+       }
+      ],
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSqAkKEAgTGAI4AUIIdGhpbmtpbmcSDDgSTY5dTucKekyYpxoMR0CC5mqT8bL+Fzj7IjA4YpJHIIa8YV4iZAeuG/AeYELJ9m/TYuYlhAyvCwe6A1//7nPTa9ItiFpr63MUNHcqxQg5QVh7pXEMm+fpDggNL6cFw5SfeNDtgNxsSRcSUDLvNuLcUGYSOh0swk6qQcmtTrXyqAPQ++R7mRTMS6ZZ7NcUOcdqsM08kvu/52nj2MZWpLYHqSYzckKy20euPINAWZ5Q8+dvqnsZE6v2VRpYULAswHq34U51+qmOjl1f4UNw0CdDj7X6+kII2T5B5tKdZZ+Xlf1SRKN3Y9PI31etna5e7Kah9EjQB1EEka1gWIlhsSxfdxGxmIJ13lMQtQdoapATpILp5qb+y5bFYgFrFEp8tB4r3fJp+fR6CKVeUfkYyn8Mia8rrM5GeNI4DpFCxDpumdhk9pNPro1QO6NponjZkma9O6j+bFqwuCZzT1GG2/r5kY7DCN2ZVZ/ZZvVr2qoKSe2H02wv4IZAv7xRQBvjqTLfnCpuiZqhfBoYEb3XqqGT/SYWKOCbRCLTJlgWQSRYRv7lEozgclj1J3ydpZsEcfEfPxKkEJWhJYAK9+TZFvPL3AmlW2pc2zxLAbI9piNeKWfDJWFcz1WpfPobibbWLfqkhSVAZwsqfC6qsmNMQ/QNyBSeWVFvMUTvynAqdILV/c8oCHafWSB/oQ0faIe3tDMvsPzA7OPfuV7gh6h2ryAjIJiudn3tmeOhbl69fsyIOcbTpQwGZdWnxtT2WOwRMHzEbG/8Q8O/WMkGU7SnRI891K/tFkR95BXnH9VY/0fXsLNFRRZ8UeycA3NGmLARWYSnqrmSty/41cldtw9ive3uLG0YX6pf+QedTTaGkspl/OSRzuPf7AEXInlORuF7O0B5/5FGJLZmPgNRU1rStbRVr9ynhF///ZBbpYJT3a0pQkHB4port07RSX0P8CeMok9C9xuedi4MTX5mMdpP3BP3f37WMBsQoQGrmsBSBF+Kex+DR8+DTBn179f2eWzEPxpxMC9t2Qi+sT1LkYKPd2B9NcONUe2SmxiSn1fKdBgN7gt0Klc2wG7UAk95DOBkDNG3U0lXOVpjAQ0HDh0671ZXW9OrGZwZXShbUOfOafID+cKr8gxY1tP95fLy2QREoyLS84IxFvHiPUJal2zgdLiwJP5QWLGYASl6aHy52bAnoq4TVPaPU1VsLcWYz+W5pDzrsuxuvFeaDujgts3EzgG/I16dKAFFnBJVlkvI9ERD7KYxDLI/Po0PJZZM/zlIHAyX/3JIySEqpH9fh5zbOSX+mqQW4XRl30nx8Uk01HpWOGvYFO901elNJICDbySL8A47pVNyWkHPxNeqr3Cp4JtA/oxHwrm0MPQu2lB3v6dOXqaIAseo3mmqtFl+elNjG7daCwwvrzJnYGXoo0PwOuzfrShkqvfv0BzVyxGXxlA+vdz9YfQtDvVsC4phcr0oACJ3u8aF7r2kIiz4GFhV770+wpStTqD/K814CyS5fbkWWoZJ7lACSwxExgDbFG5r1+XsChGvKYiBCcpHYMWoOx0+x6wfGAE="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_013MxoNHnto2Kgc71S7jqUTu",
+      "name": "web_search",
+      "input": {
+       "query": "Apple 10-K fiscal year ended September 26, 2026 total net sales operating income depreciation and amortization payments for acquisition of property, plant and equipment term debt"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_013MxoNHnto2Kgc71S7jqUTu",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "aapl-20260926",
+        "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/aapl-20260926.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Apple reports fourth quarter results",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/apple-reports-fourth-quarter-results-213000353.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "6 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s2.q4cdn.com/470004039/files/doc_earnings/2026/q4/filing/10K-Q4-2026-as-filed.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "5 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Apple Inc. CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS (Unaudited)",
+        "url": "https://www.apple.com/newsroom/pdfs/fy2026q4/FY26_Q4_Consolidated_Financial_Statements.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Apple FY2026 profit rises to $132B on $479B sales",
+        "url": "https://www.stocktitan.net/sec-filings/AAPL/10-k-apple-inc-files-annual-report-e8799a9bf72c.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "5 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Apple Inc. (NASDAQ:AAPL)",
+        "url": "https://www.stock-analysis-on.net/NASDAQ/Company/Apple-Inc/Financial-Statement/Statement-of-Cash-Flows",
+        "encrypted_content": "[omitted]",
+        "page_age": "373 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "aapl-20260627",
+        "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000020/aapl-20260627.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Apple Inc. (NASDAQ:AAPL)",
+        "url": "https://www.stock-analysis-on.net/NASDAQ/Company/Apple-Inc/Financial-Statement/Income-Statement",
+        "encrypted_content": "[omitted]",
+        "page_age": "5 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Apple posts strong Q3 2026 revenue and profit",
+        "url": "https://www.stocktitan.net/sec-filings/AAPL/10-q-apple-inc-quarterly-earnings-report-48f418e98283.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "100 days ago"
+       }
+      ],
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS4QoKEAgTGAI4AUIIdGhpbmtpbmcSDB1usj5fWpjh/l7SahoMXPuFcR4uCYhcGgVQIjDBbrcBH6V8evboK82+FzVxKULQHjWfzkGmzXG2wyjlPLwiGhdecI/ofAHBtbt71ewq/gkJR3Z+JJQYfi6QiM52rv1OeiCxtlamQVKxdKX2D7M4Az4uAvtStGSTFouWGOJXXX+v2UGFB7JVQ9T4zyXkF0zB6ALDfkT6tLKvajsRbmcIpIiTl7WDEcSRaPRaTkDJ3+Fecy3fmawe84OKk1fK9oKEQ3cG5G+arvS4d7rFgx9lc11ZnH1hwGyfUc8YjQCCJNc6Ej+0iHzNznhfiPvY4k0vSTGtdRtD2gCA6iqdufsV4uRbyV/IPZZjQvxYyGJDVihKB1iFLspdFzIMc9RThEvog7ow8vmN0zhjtQ3pRnJ8qJo0LYZBfXYrefEPAjMqvdl/VSZEokKFxKieDXYAKp6LCsvItgXjwFx1xcKhlFpBzDy7Z3V5s28tu0Y+RcMYsoK39PlTx1O05Y+/xWnBE/vE5WXtT8hZyWKRR+x1ZL6hEKckVIZGWcWMxQQAHAi/KpUiVcERYfj17zYxnb1nWr17cAInqTvzFvNuDgRsdKyRZs5sDkZarWj/SipP6hhh6KyQcYjfR1rdFEUIFHNXQ3bEmnHf5L2ElA9N9yw0OwUu6PIypBqYBFRt/P1lBJ8WsvxcAMpZ1PDw4apqcgwN6RFZytYJSUdQuZfjjHGOqMm/4SYAVfPs91uRmpeRVu4ULO/kMxUSbh/b6joA8K8/V0vluBF8bGrYFFwJfTtrZF7HSRGru6owGYCmvq05smDRkq6xsoopgk58mNbwTreljUmShoYVFo99Wpm2kljNHMI9F3PZK39ktIsJ0mT7o8rBLxohJsZFenZ00MMey8mIPPj3SzZL+ZblKSSTsmmXjSDk3BS1cUOg07MBVTheYROGmBiQ3+V0vBO0lYTs1OsRPT1CmPp3CxTKUW7Pcm6WfHj/jOxQRylSAG8XgmSONYoTsVjzOUd+2mZqQSprCnZ0ZgKk7vZx2nTgGgPbnmvm56qFv4eJVw2d2JneRibruGCi8o8+wWEmO8qSsfNFnHsTr10vRzbAWXwGU/yqteSpkVQLW+rqSPgLtKbEBIkXHB1whhYnmaNQdTZfch9zfcUoErghIlhj/DxzOwsGBef27kwJIZlBLVVDat79IHsnR4bb1NU7Ute3WHJgjWwiFwAXUK9RF2uiOOPESfnJ8YMWgTRMsW7jYA+n2fnBl8ECw8riotqY8KPnMHer4ktXWNSpekxdWKnSo+9OJOjT4kuSMxtk5BzejMnTfOv5XiySXz/rF+juE3EkprX20FSVM4uJiusqfTz4dwJ/KbqnC4EM1XAzN2rmz1JenxZ9rY/dOnxwxVT0IAjAG3J6QAJIt8EnJABcppD5Aq/kBbCrV+Q/oyY8g/a3MufYi0TIs6tGGECV5Z7n4ZdQP2RIt9H7F5BlULRmAWnWbxYZWYsBpsKmZ9cquOYZB84XX22LbXKHidTxIWg5TfHbWr3GC4DbpTvAUPl5yGL78OuTpHenWefshRdM4fpS47ZrE9FY0xeTpmX1awiJc0H6zcRZHRlKVL46fPpwBHaLYOTI7zHMpZBIW9JHHHoeUuL1mj0MfzHUAlUVwrA+GSREDbw9gcEU+cHtckQDxLdnLefZxVlN6T+Zh+JYdpFuq5CpGy64I2bM+l4tOgiRMIQ2Ph5HeZoEp9EAPNMOu8Q606uN4xCYVzr2FKPDuM/eGg3r2b5WlfDGuKnNKd0AYyqvr8A7ej2E7JSrn7SLy6CAlAkeBQnWov6rrIMYAQ=="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_011V3Xsk2jCD54ZbpGRnrCYP",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Apple Inc.",
+       "ticker": "AAPL",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2024",
+         "FY2025",
+         "FY2026"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           391035,
+           416161,
+           478834
+          ],
+          "source": "Apple FY2026 Form 10-K (FYE Sep 26, 2026), income statement: total net sales"
+         },
+         "operating_income": {
+          "values": [
+           123216,
+           133050,
+           158063
+          ],
+          "source": "Apple FY2026 Form 10-K income statement (via stocktitan summary of 10-K, and stock-analysis-on.net); FY2024/25 match edgar.tools"
+         },
+         "d_and_a": {
+          "values": [
+           11445,
+           11698,
+           13423
+          ],
+          "source": "Apple FY2026 Form 10-K cash flow statement: depreciation and amortization"
+         },
+         "capex": {
+          "values": [
+           9447,
+           12715,
+           9041
+          ],
+          "source": "Apple FY2026 Form 10-K cash flow statement: payments for acquisition of PP&E (sign flipped to positive)"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030",
+         "FY2031"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.08,
+          0.07,
+          0.06,
+          0.05,
+          0.04
+         ],
+         "source": "Assumption: FY2026 growth was 15% (FY2025 6%, FY2024 2%), judged above trend; fade from 8% to 4%, converging toward terminal growth."
+        },
+        "ebit_margin": {
+         "value": 0.32,
+         "period": "FY2027-FY2031",
+         "source": "Assumption: FY2026 margin 33.0% (158,063/478,834), FY2025 32.0%, FY2024 31.5%; set at 32%, a slight haircut to FY2026 peak for mean reversion."
+        },
+        "tax_rate": {
+         "value": 0.17,
+         "period": "FY2027-FY2031",
+         "source": "Assumption: approx. Apple effective rate in recent years (mid-to-high teens); 21% US statutory rate offset by foreign mix. Not verified against the 10-K tax note."
+        },
+        "da_pct_revenue": {
+         "value": 0.028,
+         "period": "FY2027-FY2031",
+         "source": "Assumption: 3-yr historical average D&A/revenue (2.9%, 2.8%, 2.8%) from 10-K figures above."
+        },
+        "capex_pct_revenue": {
+         "value": 0.025,
+         "period": "FY2027-FY2031",
+         "source": "Assumption: 3-yr historical average capex/revenue (2.4%, 3.1%, 1.9% = ~2.5%)."
+        },
+        "wacc": {
+         "value": 0.09,
+         "period": "FY2027-FY2031",
+         "source": "Assumption: cost of equity ~9% (rf ~4.2% + beta ~1.1-1.2 x ERP ~4.5-5%); debt only ~3% of capital so WACC≈cost of equity. Not sourced from a data provider."
+        },
+        "terminal_growth": {
+         "value": 0.03,
+         "period": "terminal",
+         "source": "Assumption: long-run nominal GDP/inflation-ish growth, below the risk-free rate."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 23389,
+         "period": "FY2026 (Sep 26, 2026)",
+         "source": "Apple FY2026 10-K: term debt 78,114 (total, current+non-current) + commercial paper 1,997 (stocktitan 10-K summary) = 80,111, less cash 36,305 and current marketable securities 20,417 (10-K balance sheet) = 56,722. Excludes leases and non-current marketable securities (~80.2bn; total cash+securities 136,935), per the stated convention; the reviewer may want to include them."
+        },
+        "diluted_shares": {
+         "value": 14720.306,
+         "period": "FY2026",
+         "source": "Apple FY2026 10-K: weighted-average diluted shares 14,720,306 thousand = 14,720.306 million"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 14,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "AAPL",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 391035,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 391035000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 416161,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 416161000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "revenue",
+    "period": "FY2026",
+    "value": 478834,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 478834000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 123216,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 123216000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 133050,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 133050000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "operating_income",
+    "period": "FY2026",
+    "value": 158063,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 158063000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 11445,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 11445000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 11698,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 11698000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "d_and_a",
+    "period": "FY2026",
+    "value": 13423,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 13423000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 9447,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 9447000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 12715,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 12715000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "capex",
+    "period": "FY2026",
+    "value": 9041,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 9041000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "net_debt",
+    "period": "FY2026",
+    "value": 23389,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 23389000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "diluted_shares",
+    "period": "FY2026",
+    "value": 14720.306,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 14720306000,
+    "resolved": "AAPL"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

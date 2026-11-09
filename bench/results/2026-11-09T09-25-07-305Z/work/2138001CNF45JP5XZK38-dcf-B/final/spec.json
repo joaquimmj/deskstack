@@ -1,0 +1,105 @@
+{
+ "kind": "dcf",
+ "company": "KONE OYJ",
+ "ticker": "2138001CNF45JP5XZK38",
+ "currency": "EUR",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     10952.3,
+     11098.4,
+     11245.2
+    ],
+    "source": "ESEF ifrs-full:Revenue, reports 2138001CNF45JP5XZK38-2024-12-31-ESEF-FI-0 and -2025-12-31-ESEF-FI-0"
+   },
+   "operating_income": {
+    "values": [
+     1200.1,
+     1249,
+     1336.2
+    ],
+    "source": "ESEF ifrs-full:ProfitLossFromOperatingActivities, same reports"
+   },
+   "d_and_a": {
+    "values": [
+     269.4,
+     292.2,
+     319.9
+    ],
+    "source": "ESEF ifrs-full:AdjustmentsForDepreciationAndAmortisationExpense, same reports"
+   },
+   "capex": {
+    "values": [
+     148.2,
+     168.4,
+     153.9
+    ],
+    "source": "ESEF ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities (PP&E only), same reports"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.03,
+    0.04,
+    0.04,
+    0.035,
+    0.03
+   ],
+   "source": "Assumption: FY2024 growth 1.3% and FY2025 1.3% were weak; modest recovery toward ~3-4% on service/modernisation growth, fading to 3% toward terminal."
+  },
+  "ebit_margin": {
+   "value": 0.125,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: EBIT margin rose 11.0% (FY23), 11.3% (FY24), 11.9% (FY25) from filed figures; 12.5% assumes continued modest improvement."
+  },
+  "tax_rate": {
+   "value": 0.25,
+   "source": "Assumption: FY2025 effective-tax proxy 26.1% (key_metrics, includes minorities); Finnish statutory 20%; 25% used."
+  },
+  "da_pct_revenue": {
+   "value": 0.028,
+   "source": "FY2025 D&A 319.9 / revenue 11245.2 = 2.84%; held ~flat."
+  },
+  "capex_pct_revenue": {
+   "value": 0.014,
+   "source": "FY2025 capex 153.9 / revenue 11245.2 = 1.37%; 3-yr range 1.3-1.5%."
+  },
+  "wacc": {
+   "value": 0.07,
+   "source": "Assumption: CAPM with Rf 3.266% (ECB 10Y AAA, 2026-11-05) + assumed levered beta ~0.9 x Finland ERP 4.59% (Damodaran, 2026-02-16) = ~7.4% cost of equity; low, cheap debt so WACC ~7.0%. Beta is my assumption, not looked up."
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "source": "Assumption: long-run euro-area inflation ~2%, below Rf of 3.27%."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": -440.5,
+   "period": "FY2025",
+   "source": "PLACEHOLDER, REVIEWER MUST REPLACE: total debt not found (ESEF borrowings null in tool). Value = 0 debt minus cash 440.5M (ifrs-full:CashAndCashEquivalents, FY2025 report). True net debt will be higher once borrowings are added."
+  },
+  "diluted_shares": {
+   "value": 518.6,
+   "period": "FY2025",
+   "source": "Derived, not reported by tool: FY2025 net income attributable to owners 980.1M EUR / diluted EPS 1.89 EUR = ~518.6M shares (approximate; verify)"
+  }
+ }
+}

@@ -5,10 +5,10 @@
  "score": {
   "valid": true,
   "filed": 20,
-  "match": 20,
+  "match": 18,
   "mismatch": 0,
   "other_line": 0,
-  "definition": 0,
+  "definition": 2,
   "not_found": 0,
   "ambiguous": 0,
   "unverifiable": 0,
@@ -78,11 +78,12 @@
     "scale": "millions",
     "currency": "USD",
     "ref": "peers[CAT].net_debt",
-    "status": "match",
+    "status": "definition",
     "hints": [
-     "Computed value: total_debt - cash - short_term_investments."
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
     ],
-    "filed_value": 26230000000,
+    "filed_value": 33350000000,
     "resolved": "CAT"
    },
    {
@@ -238,11 +239,12 @@
     "scale": "millions",
     "currency": "USD",
     "ref": "peers[PH].ebitda",
-    "status": "match",
+    "status": "definition",
     "hints": [
-     "Computed value: operating_income + d_and_a."
+     "Computed value: operating_income + d_and_a (depreciation only) + amortization_intangibles.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
     ],
-    "filed_value": 5421000000,
+    "filed_value": 6005000000,
     "resolved": "PH"
    },
    {

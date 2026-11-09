@@ -1,0 +1,107 @@
+{
+ "kind": "dcf",
+ "company": "The Home Depot, Inc.",
+ "ticker": "HD",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     152669,
+     159514,
+     164683
+    ],
+    "source": "HD 10-K accession 0001628280-26-019436, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, USD millions"
+   },
+   "operating_income": {
+    "values": [
+     21689,
+     21526,
+     20890
+    ],
+    "source": "HD 10-K 0001628280-26-019436, us-gaap:OperatingIncomeLoss"
+   },
+   "d_and_a": {
+    "values": [
+     3061,
+     3336,
+     3514
+    ],
+    "source": "HD 10-K 0001628280-26-019436, us-gaap:DepreciationDepletionAndAmortization"
+   },
+   "capex": {
+    "values": [
+     3226,
+     3485,
+     3679
+    ],
+    "source": "HD 10-K 0001628280-26-019436, us-gaap:PaymentsToAcquireProductiveAssets"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026E",
+   "FY2027E",
+   "FY2028E",
+   "FY2029E",
+   "FY2030E"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.03,
+    0.035,
+    0.04,
+    0.04,
+    0.035
+   ],
+   "source": "Assumption: FY2025 growth was 3.2% and FY2024 4.5%; modest housing-market recovery, then fading toward long-run growth. Analyst judgment."
+  },
+  "ebit_margin": {
+   "value": 0.127,
+   "period": "FY2025",
+   "source": "Assumption: held at FY2025 actual margin 20,890/164,683 = 12.7% (FY2023 14.2%, FY2024 13.5%); no recovery assumed."
+  },
+  "tax_rate": {
+   "value": 0.24,
+   "source": "Assumption: FY2025 effective rate = 1 - 14,156/18,602 = 23.9% (10-K 0001628280-26-019436), rounded to 24%."
+  },
+  "da_pct_revenue": {
+   "value": 0.0213,
+   "period": "FY2025",
+   "source": "FY2025 D&A 3,514 / revenue 164,683 = 2.13%, held flat."
+  },
+  "capex_pct_revenue": {
+   "value": 0.0223,
+   "period": "FY2025",
+   "source": "FY2025 capex 3,679 / revenue 164,683 = 2.23%, held flat."
+  },
+  "wacc": {
+   "value": 0.104,
+   "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06); ERP 4.46% (Damodaran US, 2026-02-16); unlevered beta 1.318 (Damodaran Retail Building Supply, cash-corrected) relevered at industry D/E 0.233 with 24% tax = 1.56; Ke 11.8%; pre-tax Kd 5.29% (Damodaran), after-tax 4.0%; weights 81.1%/18.9% (Damodaran industry; no share price available for HD market cap). WACC ~10.4%."
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "source": "Assumption: below long-run nominal GDP growth and below the 4.86% risk-free rate; mature retailer."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 52472,
+   "period": "FY2025",
+   "source": "Excluding lease liabilities per convention: us-gaap:LongTermDebt 49,397 (incl. current portion) + commercial paper 4,464 - cash 1,389 = 52,472; 10-K 0001628280-26-019436; USD millions. Earlier draft used 54,383 which included ~1.9B of lease obligations."
+  },
+  "diluted_shares": {
+   "value": 995,
+   "period": "FY2025",
+   "source": "Weighted average diluted shares 995,000,000 (us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding, 10-K 0001628280-26-019436), in millions"
+  }
+ }
+}

@@ -1,0 +1,838 @@
+{
+ "company": "UPS",
+ "task": "dcf",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "United Parcel Service, Inc.",
+   "ticker": "UPS",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       90958,
+       91070,
+       88661
+      ],
+      "source": "deskstack financial_statements, 10-K accession 0001628280-26-008432 (RevenueFromContractWithCustomerExcludingAssessedTax)"
+     },
+     "operating_income": {
+      "values": [
+       9141,
+       8468,
+       7867
+      ],
+      "source": "10-K 0001628280-26-008432 (OperatingIncomeLoss)"
+     },
+     "d_and_a": {
+      "values": [
+       2800,
+       3000,
+       3000
+      ],
+      "source": "10-K 0001628280-26-008432 (DepreciationDepletionAndAmortization)"
+     },
+     "capex": {
+      "values": [
+       5158,
+       3909,
+       3685
+      ],
+      "source": "10-K 0001628280-26-008432 (PaymentsToAcquirePropertyPlantAndEquipment)"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      -0.01,
+      0.015,
+      0.025,
+      0.03,
+      0.03
+     ],
+     "source": "Assumption: revenue fell 2.7% in FY2025; modest decline in FY2026, then recovery to GDP-like growth"
+    },
+    "ebit_margin": {
+     "value": 0.09,
+     "period": "FY2026-30",
+     "source": "Assumption: FY2025 margin 8.9% (7,867/88,661), FY2024 9.3%, FY2023 10.0%; hold ~9%"
+    },
+    "tax_rate": {
+     "value": 0.23,
+     "period": "FY2026-30",
+     "source": "Assumption: FY2025 effective rate ~22% (pretax 7,164 vs NI 5,572); 23% blended federal+state"
+    },
+    "da_pct_revenue": {
+     "value": 0.034,
+     "period": "FY2026-30",
+     "source": "FY2025 D&A 3,000/88,661 = 3.4%"
+    },
+    "capex_pct_revenue": {
+     "value": 0.042,
+     "period": "FY2026-30",
+     "source": "Assumption: FY2025 capex/revenue 4.2% (3,685/88,661); above D&A for network upkeep"
+    },
+    "wacc": {
+     "value": 0.08,
+     "period": "FY2026-30",
+     "source": "Assumption: CAPM cost of equity = Rf 4.86% (UST 10Y, 2026-11-06) + beta ~1.0 x ERP 4.46% (Damodaran US) = ~9.3%; pre-tax debt ~5.5%; ~25% debt weight gives ~8%"
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "period": "terminal",
+     "source": "Assumption: below long-run nominal GDP and below Rf 4.86%"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 18240,
+     "period": "FY2025",
+     "source": "financial_statements derived net_debt: total debt 24,127 (LT 23,519 + current 608) - cash 5,887; no ST investments reported; 10-K 0001628280-26-008432"
+    },
+    "diluted_shares": {
+     "value": 850,
+     "period": "FY2025",
+     "source": "Weighted avg diluted shares 850M, 10-K 0001628280-26-008432"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "United Parcel Service, Inc.",
+   "ticker": "UPS",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       90958,
+       91070,
+       88661
+      ],
+      "source": "deskstack financial_statements, 10-K accession 0001628280-26-008432 (RevenueFromContractWithCustomerExcludingAssessedTax)"
+     },
+     "operating_income": {
+      "values": [
+       9141,
+       8468,
+       7867
+      ],
+      "source": "10-K 0001628280-26-008432 (OperatingIncomeLoss)"
+     },
+     "d_and_a": {
+      "values": [
+       2800,
+       3000,
+       3000
+      ],
+      "source": "10-K 0001628280-26-008432 (DepreciationDepletionAndAmortization)"
+     },
+     "capex": {
+      "values": [
+       5158,
+       3909,
+       3685
+      ],
+      "source": "10-K 0001628280-26-008432 (PaymentsToAcquirePropertyPlantAndEquipment)"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      -0.01,
+      0.015,
+      0.025,
+      0.03,
+      0.03
+     ],
+     "source": "Assumption: revenue fell 2.7% in FY2025; modest decline in FY2026, then recovery to GDP-like growth"
+    },
+    "ebit_margin": {
+     "value": 0.09,
+     "period": "FY2026-30",
+     "source": "Assumption: FY2025 margin 8.9% (7,867/88,661), FY2024 9.3%, FY2023 10.0%; hold ~9%"
+    },
+    "tax_rate": {
+     "value": 0.23,
+     "period": "FY2026-30",
+     "source": "Assumption: FY2025 effective rate ~22% (pretax 7,164 vs NI 5,572); 23% blended federal+state"
+    },
+    "da_pct_revenue": {
+     "value": 0.034,
+     "period": "FY2026-30",
+     "source": "FY2025 D&A 3,000/88,661 = 3.4%"
+    },
+    "capex_pct_revenue": {
+     "value": 0.042,
+     "period": "FY2026-30",
+     "source": "Assumption: FY2025 capex/revenue 4.2% (3,685/88,661); above D&A for network upkeep"
+    },
+    "wacc": {
+     "value": 0.08,
+     "period": "FY2026-30",
+     "source": "Assumption: CAPM cost of equity = Rf 4.86% (UST 10Y, 2026-11-06) + beta ~1.0 x ERP 4.46% (Damodaran US) = ~9.3%; pre-tax debt ~5.5%; ~25% debt weight gives ~8%"
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "period": "terminal",
+     "source": "Assumption: below long-run nominal GDP and below Rf 4.86%"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 18240,
+     "period": "FY2025",
+     "source": "financial_statements derived net_debt: total debt 24,127 (LT 23,519 + current 608) - cash 5,887; no ST investments reported; 10-K 0001628280-26-008432"
+    },
+    "diluted_shares": {
+     "value": 850,
+     "period": "FY2025",
+     "source": "Weighted avg diluted shares 850M, 10-K 0001628280-26-008432"
+    }
+   }
+  },
+  "submit_attempts": 2,
+  "requests": 3,
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 2913,
+   "cache_creation_input_tokens": 15475,
+   "cache_read_input_tokens": 21162,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.0720659,
+  "seconds": 18.852,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 1,
+   "submit_model": 2
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a quick unlevered DCF for United Parcel Service, Inc. (identifier: UPS).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7213,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7213,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 196,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0200005,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01KzcYtKbbgExske1B9EBAxJ",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "UPS",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01WDYHwBQY9uR7A2YHnvpKk5",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01JcRbXgnB6UqmTXJjt3dFAY",
+      "name": "valuation_inputs",
+      "input": {
+       "country": "United States"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01KzcYtKbbgExske1B9EBAxJ",
+      "content": "{\"summary\":\"United Parcel Service, Inc. (UPS), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 88.7B USD, net income 5.6B USD. 3 period(s), 3 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"United Parcel Service, Inc.\",\"ticker\":\"UPS\",\"cik\":1090727,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"4210\",\"sic_description\":\"Trucking & Courier Services (No Air)\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"start\":\"2023-01-01\",\"end\":\"2023-12-31\",\"income_statement\":{\"revenue\":{\"value\":90958000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0001628280-26-008432\"},\"gross_profit\":null,\"operating_income\":{\"value\":9141000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001628280-26-008432\"},\"interest_expense\":{\"value\":785000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0001090727-24-000008\"},\"pretax_income\":{\"value\":8573000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001628280-26-008432\"},\"net_income\":{\"value\":6708000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001628280-26-008432\"},\"diluted_shares\":{\"value\":860000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001628280-26-008432\"},\"diluted_eps\":{\"value\":7.8,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001628280-26-008432\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":10238000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001628280-26-008432\"},\"capex\":{\"value\":5158000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001628280-26-008432\"},\"d_and_a\":{\"value\":2800000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001628280-26-008432\"},\"amortization_intangibles\":{\"value\":597000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001628280-26-008432\"}},\"balance_sheet\":{\"cash\":{\"value\":3206000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001090727-25-000019\"},\"short_term_investments\":{\"value\":2866000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0001090727-25-000019\"},\"total_assets\":{\"value\":70857000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001090727-25-000019\"},\"total_equity\":{\"value\":17306000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001090727-25-000019\"},\"ltd_noncurrent\":{\"value\":18916000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0001090727-25-000019\"},\"ltd_total\":{\"value\":21998000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001090727-24-000008\"},\"debt_current\":{\"value\":3348000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0001090727-25-000019\"},\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":3668000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001090727-24-000008\"}},\"derived\":{\"ebitda\":{\"value\":11941000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":5080000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":22264000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":16192000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2024-01-01\",\"end\":\"2024-12-31\",\"income_statement\":{\"revenue\":{\"value\":91070000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0001628280-26-008432\"},\"gross_profit\":null,\"operating_income\":{\"value\":8468000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001628280-26-008432\"},\"interest_expense\":{\"value\":866000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0001628280-26-008432\"},\"pretax_income\":{\"value\":7442000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001628280-26-008432\"},\"net_income\":{\"value\":5782000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001628280-26-008432\"},\"diluted_shares\":{\"value\":856000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001628280-26-008432\"},\"diluted_eps\":{\"value\":6.75,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001628280-26-008432\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":10122000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001628280-26-008432\"},\"capex\":{\"value\":3909000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001628280-26-008432\"},\"d_and_a\":{\"value\":3000000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001628280-26-008432\"},\"amortization_intangibles\":{\"value\":648000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001628280-26-008432\"}},\"balance_sheet\":{\"cash\":{\"value\":6112000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001628280-26-008432\"},\"short_term_investments\":{\"value\":206000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0001090727-25-000019\"},\"total_assets\":{\"value\":70070000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001628280-26-008432\"},\"total_equity\":{\"value\":16718000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001628280-26-008432\"},\"ltd_noncurrent\":{\"value\":19446000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0001628280-26-008432\"},\"ltd_total\":{\"value\":21030000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001090727-25-000019\"},\"debt_current\":{\"value\":1838000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0001628280-26-008432\"},\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":1732000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001090727-25-000019\"}},\"derived\":{\"ebitda\":{\"value\":11468000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":6213000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":21284000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":14966000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":88661000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0001628280-26-008432\"},\"gross_profit\":null,\"operating_income\":{\"value\":7867000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001628280-26-008432\"},\"interest_expense\":{\"value\":1017000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0001628280-26-008432\"},\"pretax_income\":{\"value\":7164000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001628280-26-008432\"},\"net_income\":{\"value\":5572000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001628280-26-008432\"},\"diluted_shares\":{\"value\":850000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001628280-26-008432\"},\"diluted_eps\":{\"value\":6.56,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001628280-26-008432\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":8450000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001628280-26-008432\"},\"capex\":{\"value\":3685000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001628280-26-008432\"},\"d_and_a\":{\"value\":3000000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001628280-26-008432\"},\"amortization_intangibles\":{\"value\":700000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001628280-26-008432\"}},\"balance_sheet\":{\"cash\":{\"value\":5887000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001628280-26-008432\"},\"short_term_investments\":null,\"total_assets\":{\"value\":73090000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001628280-26-008432\"},\"total_equity\":{\"value\":16227000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001628280-26-008432\"},\"ltd_noncurrent\":{\"value\":23519000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0001628280-26-008432\"},\"ltd_total\":{\"value\":23585000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001628280-26-008432\"},\"debt_current\":{\"value\":608000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0001628280-26-008432\"},\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":500000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001628280-26-008432\"}},\"derived\":{\"ebitda\":{\"value\":10867000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":4765000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":24127000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":18240000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-11-04 (period 2026-09-30) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1090727/000109072724000008/0001090727-24-000008-index.htm\",\"accession_or_id\":\"0001090727-24-000008\",\"form\":\"10-K\",\"period\":\"2023-12-31\",\"as_of\":\"2024-02-20\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1090727/000109072725000019/0001090727-25-000019-index.htm\",\"accession_or_id\":\"0001090727-25-000019\",\"form\":\"10-K\",\"period\":\"2024-12-31\",\"as_of\":\"2025-02-18\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1090727/000162828026008432/0001628280-26-008432-index.htm\",\"accession_or_id\":\"0001628280-26-008432\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-17\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":713924267,\"as_of\":\"2010-02-17\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0001193125-10-042908\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1090727/000119312510042908/0001193125-10-042908-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01WDYHwBQY9uR7A2YHnvpKk5",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01JcRbXgnB6UqmTXJjt3dFAY",
+      "content": "{\"summary\":\"Country risk data for \\\"United States\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"country\":[{\"country\":\"United States\",\"region\":\"North America\",\"moodys_rating\":\"Aa1\",\"default_spread\":0.002333679169992019,\"equity_risk_premium\":0.0446,\"country_risk_premium\":0.002333679169992019,\"basis\":\"Moody's sovereign rating\",\"match\":\"exact\",\"mature_market_erp\":0.0423,\"source\":{\"name\":\"Aswath Damodaran, Country Default Spreads and Risk Premiums\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx\",\"accession_or_id\":\"ctryprem/United States\",\"period\":\"2026-02-16\",\"as_of\":\"2026-02-16\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 6736,
+     "cache_read_input_tokens": 7213,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 6736,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1419,
+     "output_tokens_details": {
+      "thinking_tokens": 133
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0324766,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS2QYKEAgTGAI4AUIIdGhpbmtpbmcSDD1eEpqMiK558HI33hoMc/SIq4AL5O7jRo6lIjB4xvc+WtV35LsOg7XVc9L9rtp4jpLyqcxnyIuuzPxnqUasPkaa+XWQLE94hrgla6Uq9gUniJPikJoiynY1aepHD/JcYhMr20ZW8E7PHdYQf99pkpm/gNiAj6f0PwpDPzLI6mkYkeOU165pEf7G7LVRZvjDpp4y/ct/xDtazpALdWmA6IkJj4DSuUs8WhCye8dZNnJYrjPY92VuMI41nKT+LWIZy6LtO58h8v4/SVmJF4h3z+SnFOL2WCdU/bF0uE/Vbnzf2WOIZG4yTghLqcbtYvYXgtL68RvMemqaCsM/g7TSYHsd+vCai3+7K9aoToGYilEpw0Xfr0b/kbqpLR0oD5rSw0+vxeI81h7yNoqGWK3IqbwBCKF88jlI/uGNAz5qODAoxP7lb+ZhnwL4Jpt1kvwAJ9E7X3n6oesMqByo4ZVOO3E80oU5EeqkntmygYkiLCdKtUNgFOBqqxYzML5lfmmptxOrBJzjBhVniEu6gGxFxOCKj7JDwd0xE3r5U8tuX3qbAN+hRizIkq23uvcHM0lfX4lY/Tdt7nsWVxstnnRUrKI0kpzMDlkKXRnDVYahQdrY95ZlOeiFCTH7A4MwiuvnqordEYUj60l+N0LjwKvS9PtfxEVhCLyERdHZN9mq7j43Ru1DxAJg9Zh9pQNPaEo+YQcpjLDCzZcDwanltBi8RWJyG0ji50LI6zaQs5Ye+0ALIocx/kbgYtGs2YQbzKkU0f4wNR6XiEsNJWKoxAFK7pSpWLnIbGifzN1WinwajIDbaBaEc+oRUIjN2Tqw19/rKJpjVac+benC/+V5lZgl5nItOTQFKLDOjHP2mg76PapM1Y7j6qeBsm9tQZczwEwnOA7wSEMcLdEb21+GWKxJDG44LSmpDd/ivOwaxWHvNW6bs/M/wr62ubLIKF/iBJSlD5cffHiNI8S0t6thqZ8qj5TQvx14AbvQOtg9Ds1Z9LVC10Y5pS9SCLaJIGk0YMQ0E7LpsloDKvkGCP3pmqMpnrtf2vIMQ2UkVVsdhJ/EnB1jB/P7eCWtkiod1ISJ70lSsxtneA01LBISG5+tB2BDJdku39SVKRgB"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01VfRZKHEr4mWLrvWhP91wxD",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "United Parcel Service, Inc.",
+       "ticker": "UPS",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           90958,
+           91070,
+           88661
+          ],
+          "source": "deskstack financial_statements, 10-K accessions 0001628280-26-008432 (RevenueFromContractWithCustomerExcludingAssessedTax)"
+         },
+         "operating_income": {
+          "values": [
+           9141,
+           8468,
+           7867
+          ],
+          "source": "10-K 0001628280-26-008432 (OperatingIncomeLoss)"
+         },
+         "d_and_a": {
+          "values": [
+           2800,
+           3000,
+           3000
+          ],
+          "source": "10-K 0001628280-26-008432 (DepreciationDepletionAndAmortization)"
+         },
+         "capex": {
+          "values": [
+           5158,
+           3909,
+           3685
+          ],
+          "source": "10-K 0001628280-26-008432 (PaymentsToAcquirePropertyPlantAndEquipment)"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          -1,
+          1.5,
+          2.5,
+          3,
+          3
+         ],
+         "source": "Assumption: revenue fell 2.7% in FY2025; modest decline in FY2026 then recovery to GDP-like growth. NOTE values are in percent units? No: see decimals below"
+        },
+        "ebit_margin": {
+         "value": 0.09,
+         "period": "FY2026-30",
+         "source": "Assumption: FY2025 margin 8.9% (7,867/88,661), FY2024 9.3%, FY2023 10.0%; hold ~9%"
+        },
+        "tax_rate": {
+         "value": 0.23,
+         "period": "FY2026-30",
+         "source": "Assumption: FY2025 effective rate ~22% (pretax 7,164 vs NI 5,572); 23% blended federal+state"
+        },
+        "da_pct_revenue": {
+         "value": 0.034,
+         "period": "FY2026-30",
+         "source": "FY2025 D&A 3,000/88,661 = 3.4%"
+        },
+        "capex_pct_revenue": {
+         "value": 0.042,
+         "period": "FY2026-30",
+         "source": "Assumption: 3-yr avg capex/revenue ~4.6% (FY2025 4.2%); use 4.2%, above D&A for network upkeep"
+        },
+        "wacc": {
+         "value": 0.08,
+         "period": "FY2026-30",
+         "source": "Assumption: CAPM cost of equity = Rf 4.86% (UST 10Y, 2026-11-06) + beta ~1.0 x ERP 4.46% (Damodaran US) ≈ 9.3%; pre-tax debt ~5.5%; ~25% debt weight gives ~8%"
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "period": "terminal",
+         "source": "Assumption: below long-run nominal GDP and below Rf 4.86%"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 18240,
+         "period": "FY2025",
+         "source": "financial_statements derived net_debt: total debt 24,127 (LT 23,519 + current 608) - cash 5,887; no ST investments reported; 10-K 0001628280-26-008432"
+        },
+        "diluted_shares": {
+         "value": 850,
+         "period": "FY2025",
+         "source": "Weighted avg diluted shares 850M, 10-K 0001628280-26-008432"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01VfRZKHEr4mWLrvWhP91wxD",
+      "content": "Not accepted: assumptions.revenue_growth = -1.0 is outside -0.9 to 2.0. Rates are decimals: 0.09 means 9%.",
+      "is_error": true
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 3,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 1526,
+     "cache_read_input_tokens": 13949,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 1526,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1298,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0195888,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01HhqYAeW9W13cNgosWoSNAz",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "United Parcel Service, Inc.",
+       "ticker": "UPS",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           90958,
+           91070,
+           88661
+          ],
+          "source": "deskstack financial_statements, 10-K accession 0001628280-26-008432 (RevenueFromContractWithCustomerExcludingAssessedTax)"
+         },
+         "operating_income": {
+          "values": [
+           9141,
+           8468,
+           7867
+          ],
+          "source": "10-K 0001628280-26-008432 (OperatingIncomeLoss)"
+         },
+         "d_and_a": {
+          "values": [
+           2800,
+           3000,
+           3000
+          ],
+          "source": "10-K 0001628280-26-008432 (DepreciationDepletionAndAmortization)"
+         },
+         "capex": {
+          "values": [
+           5158,
+           3909,
+           3685
+          ],
+          "source": "10-K 0001628280-26-008432 (PaymentsToAcquirePropertyPlantAndEquipment)"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          -0.01,
+          0.015,
+          0.025,
+          0.03,
+          0.03
+         ],
+         "source": "Assumption: revenue fell 2.7% in FY2025; modest decline in FY2026, then recovery to GDP-like growth"
+        },
+        "ebit_margin": {
+         "value": 0.09,
+         "period": "FY2026-30",
+         "source": "Assumption: FY2025 margin 8.9% (7,867/88,661), FY2024 9.3%, FY2023 10.0%; hold ~9%"
+        },
+        "tax_rate": {
+         "value": 0.23,
+         "period": "FY2026-30",
+         "source": "Assumption: FY2025 effective rate ~22% (pretax 7,164 vs NI 5,572); 23% blended federal+state"
+        },
+        "da_pct_revenue": {
+         "value": 0.034,
+         "period": "FY2026-30",
+         "source": "FY2025 D&A 3,000/88,661 = 3.4%"
+        },
+        "capex_pct_revenue": {
+         "value": 0.042,
+         "period": "FY2026-30",
+         "source": "Assumption: FY2025 capex/revenue 4.2% (3,685/88,661); above D&A for network upkeep"
+        },
+        "wacc": {
+         "value": 0.08,
+         "period": "FY2026-30",
+         "source": "Assumption: CAPM cost of equity = Rf 4.86% (UST 10Y, 2026-11-06) + beta ~1.0 x ERP 4.46% (Damodaran US) = ~9.3%; pre-tax debt ~5.5%; ~25% debt weight gives ~8%"
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "period": "terminal",
+         "source": "Assumption: below long-run nominal GDP and below Rf 4.86%"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 18240,
+         "period": "FY2025",
+         "source": "financial_statements derived net_debt: total debt 24,127 (LT 23,519 + current 608) - cash 5,887; no ST investments reported; 10-K 0001628280-26-008432"
+        },
+        "diluted_shares": {
+         "value": 850,
+         "period": "FY2025",
+         "source": "Weighted avg diluted shares 850M, 10-K 0001628280-26-008432"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 14,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "UPS",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 90958,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 90958000000,
+    "resolved": "UPS"
+   },
+   {
+    "company": "UPS",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 91070,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 91070000000,
+    "resolved": "UPS"
+   },
+   {
+    "company": "UPS",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 88661,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 88661000000,
+    "resolved": "UPS"
+   },
+   {
+    "company": "UPS",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 9141,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 9141000000,
+    "resolved": "UPS"
+   },
+   {
+    "company": "UPS",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 8468,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 8468000000,
+    "resolved": "UPS"
+   },
+   {
+    "company": "UPS",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 7867,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 7867000000,
+    "resolved": "UPS"
+   },
+   {
+    "company": "UPS",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 2800,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2800000000,
+    "resolved": "UPS"
+   },
+   {
+    "company": "UPS",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 3000,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3000000000,
+    "resolved": "UPS"
+   },
+   {
+    "company": "UPS",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 3000,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3000000000,
+    "resolved": "UPS"
+   },
+   {
+    "company": "UPS",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 5158,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 5158000000,
+    "resolved": "UPS"
+   },
+   {
+    "company": "UPS",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 3909,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3909000000,
+    "resolved": "UPS"
+   },
+   {
+    "company": "UPS",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 3685,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3685000000,
+    "resolved": "UPS"
+   },
+   {
+    "company": "UPS",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 18240,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 18240000000,
+    "resolved": "UPS"
+   },
+   {
+    "company": "UPS",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 850,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 850000000,
+    "resolved": "UPS"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

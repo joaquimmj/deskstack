@@ -1,0 +1,667 @@
+{
+ "company": "AMZN",
+ "task": "dcf",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Amazon.com, Inc.",
+   "ticker": "AMZN",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       574785,
+       637959,
+       716924
+      ],
+      "source": "10-K FY2025 acc. 0001018724-26-000004, RevenueFromContractWithCustomerExcludingAssessedTax"
+     },
+     "operating_income": {
+      "values": [
+       36852,
+       68593,
+       79975
+      ],
+      "source": "10-K acc. 0001018724-26-000004, OperatingIncomeLoss"
+     },
+     "d_and_a": {
+      "values": [
+       48663,
+       52795,
+       65756
+      ],
+      "source": "10-K acc. 0001018724-26-000004, DepreciationDepletionAndAmortization"
+     },
+     "capex": {
+      "values": [
+       52729,
+       82999,
+       131819
+      ],
+      "source": "10-K acc. 0001018724-26-000004, PaymentsToAcquireProductiveAssets"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.11,
+      0.1,
+      0.09,
+      0.08,
+      0.07
+     ],
+     "source": "Assumption: FY2025 growth was 12.4% (716,924 vs 637,959); FY24 11.0%. Fade from ~11% to 7% as scale grows."
+    },
+    "ebit_margin": {
+     "value": 0.125,
+     "source": "Assumption: FY2025 margin 11.2% (79,975/716,924), FY2024 10.8%; modest expansion from AWS/advertising mix, tempered by AI depreciation."
+    },
+    "tax_rate": {
+     "value": 0.18,
+     "source": "Assumption: blended effective rate below 21% US statutory given credits; not taken from a filing tool, reviewer should verify against the 10-K tax note."
+    },
+    "da_pct_revenue": {
+     "value": 0.095,
+     "source": "Assumption: FY2025 D&A/revenue 9.2% (65,756/716,924), rising as heavy capex depreciates."
+    },
+    "capex_pct_revenue": {
+     "value": 0.16,
+     "source": "Assumption: FY2025 capex 18.4% of revenue (131,819), FY2024 13.0%; assume gradual normalization to 16% average over the forecast."
+    },
+    "wacc": {
+     "value": 0.097,
+     "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + assumed beta 1.2 x ERP 4.46% (Damodaran US, 2026-02-16) = ~10.2% cost of equity; debt ~$69B is small vs equity so weight ~5% at ~5% pre-tax cost; WACC ~9.7%. Beta is an assumption, not looked up."
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal US GDP growth."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": -54178,
+     "period": "FY2025",
+     "source": "financial_statements derived net_debt = total debt 68,851 - cash 86,810 - short-term investments 36,219 (acc. 0001018724-26-000004); negative = net cash"
+    },
+    "diluted_shares": {
+     "value": 10827,
+     "period": "FY2025",
+     "source": "WeightedAverageNumberOfDilutedSharesOutstanding 10,827,000,000 shares, in millions (acc. 0001018724-26-000004)"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Amazon.com, Inc.",
+   "ticker": "AMZN",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       574785,
+       637959,
+       716924
+      ],
+      "source": "10-K FY2025 acc. 0001018724-26-000004, RevenueFromContractWithCustomerExcludingAssessedTax"
+     },
+     "operating_income": {
+      "values": [
+       36852,
+       68593,
+       79975
+      ],
+      "source": "10-K acc. 0001018724-26-000004, OperatingIncomeLoss"
+     },
+     "d_and_a": {
+      "values": [
+       48663,
+       52795,
+       65756
+      ],
+      "source": "10-K acc. 0001018724-26-000004, DepreciationDepletionAndAmortization"
+     },
+     "capex": {
+      "values": [
+       52729,
+       82999,
+       131819
+      ],
+      "source": "10-K acc. 0001018724-26-000004, PaymentsToAcquireProductiveAssets"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.11,
+      0.1,
+      0.09,
+      0.08,
+      0.07
+     ],
+     "source": "Assumption: FY2025 growth was 12.4% (716,924 vs 637,959); FY24 11.0%. Fade from ~11% to 7% as scale grows."
+    },
+    "ebit_margin": {
+     "value": 0.125,
+     "source": "Assumption: FY2025 margin 11.2% (79,975/716,924), FY2024 10.8%; modest expansion from AWS/advertising mix, tempered by AI depreciation."
+    },
+    "tax_rate": {
+     "value": 0.18,
+     "source": "Assumption: blended effective rate below 21% US statutory given credits; not taken from a filing tool, reviewer should verify against the 10-K tax note."
+    },
+    "da_pct_revenue": {
+     "value": 0.095,
+     "source": "Assumption: FY2025 D&A/revenue 9.2% (65,756/716,924), rising as heavy capex depreciates."
+    },
+    "capex_pct_revenue": {
+     "value": 0.16,
+     "source": "Assumption: FY2025 capex 18.4% of revenue (131,819), FY2024 13.0%; assume gradual normalization to 16% average over the forecast."
+    },
+    "wacc": {
+     "value": 0.097,
+     "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + assumed beta 1.2 x ERP 4.46% (Damodaran US, 2026-02-16) = ~10.2% cost of equity; debt ~$69B is small vs equity so weight ~5% at ~5% pre-tax cost; WACC ~9.7%. Beta is an assumption, not looked up."
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal US GDP growth."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": -54178,
+     "period": "FY2025",
+     "source": "financial_statements derived net_debt = total debt 68,851 - cash 86,810 - short-term investments 36,219 (acc. 0001018724-26-000004); negative = net cash"
+    },
+    "diluted_shares": {
+     "value": 10827,
+     "period": "FY2025",
+     "source": "WeightedAverageNumberOfDilutedSharesOutstanding 10,827,000,000 shares, in millions (acc. 0001018724-26-000004)"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 2,
+  "usage": {
+   "input_tokens": 6,
+   "output_tokens": 1722,
+   "cache_creation_input_tokens": 14170,
+   "cache_read_input_tokens": 7213,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.0540996,
+  "seconds": 12.574,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 1,
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a quick unlevered DCF for Amazon.com, Inc. (identifier: AMZN).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7213,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7213,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 197,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0200105,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01LTDw5aQnckz3BMeJFMuQpL",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "AMZN",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01SssvdrRQk6WvbU5Syx5SrN",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01U33VChDgdS5goY1TeWEp4u",
+      "name": "valuation_inputs",
+      "input": {
+       "country": "United States"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01LTDw5aQnckz3BMeJFMuQpL",
+      "content": "{\"summary\":\"AMAZON.COM, INC. (AMZN), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 716.9B USD, net income 77.7B USD. 3 period(s), 3 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"AMAZON.COM, INC.\",\"ticker\":\"AMZN\",\"cik\":1018724,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"5961\",\"sic_description\":\"Retail-Catalog & Mail-Order Houses\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"start\":\"2023-01-01\",\"end\":\"2023-12-31\",\"income_statement\":{\"revenue\":{\"value\":574785000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0001018724-26-000004\"},\"gross_profit\":null,\"operating_income\":{\"value\":36852000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001018724-26-000004\"},\"interest_expense\":{\"value\":3182000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0001018724-24-000008\"},\"pretax_income\":{\"value\":37557000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments\",\"accession\":\"0001018724-26-000004\"},\"net_income\":{\"value\":30425000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001018724-26-000004\"},\"diluted_shares\":{\"value\":10492000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001018724-26-000004\"},\"diluted_eps\":{\"value\":2.9,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001018724-26-000004\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":84946000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001018724-26-000004\"},\"capex\":{\"value\":52729000000,\"concept\":\"us-gaap:PaymentsToAcquireProductiveAssets\",\"accession\":\"0001018724-26-000004\"},\"d_and_a\":{\"value\":48663000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001018724-26-000004\"},\"amortization_intangibles\":{\"value\":706000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001018724-26-000004\"}},\"balance_sheet\":{\"cash\":{\"value\":73387000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001018724-25-000004\"},\"short_term_investments\":{\"value\":13393000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0001018724-25-000004\"},\"total_assets\":{\"value\":527854000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001018724-26-000004\"},\"total_equity\":{\"value\":201875000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001018724-26-000004\"},\"ltd_noncurrent\":{\"value\":58314000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001018724-25-000004\"},\"ltd_total\":{\"value\":67182000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001018724-25-000004\"},\"debt_current\":null,\"ltd_current\":{\"value\":8494000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0001018724-25-000004\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":147000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0001018724-25-000004\"},\"ltd_due_12m\":{\"value\":8500000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001018724-24-000008\"}},\"derived\":{\"ebitda\":{\"value\":85515000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":32217000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":66955000000,\"formula\":\"ltd_noncurrent + ltd_current + short_term_borrowings\"},\"net_debt\":{\"value\":-19825000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2024-01-01\",\"end\":\"2024-12-31\",\"income_statement\":{\"revenue\":{\"value\":637959000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0001018724-26-000004\"},\"gross_profit\":null,\"operating_income\":{\"value\":68593000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001018724-26-000004\"},\"interest_expense\":{\"value\":2406000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0001018724-26-000004\"},\"pretax_income\":{\"value\":68614000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments\",\"accession\":\"0001018724-26-000004\"},\"net_income\":{\"value\":59248000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001018724-26-000004\"},\"diluted_shares\":{\"value\":10721000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001018724-26-000004\"},\"diluted_eps\":{\"value\":5.53,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001018724-26-000004\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":115877000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001018724-26-000004\"},\"capex\":{\"value\":82999000000,\"concept\":\"us-gaap:PaymentsToAcquireProductiveAssets\",\"accession\":\"0001018724-26-000004\"},\"d_and_a\":{\"value\":52795000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001018724-26-000004\"},\"amortization_intangibles\":{\"value\":838000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001018724-26-000004\"}},\"balance_sheet\":{\"cash\":{\"value\":78779000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001018724-26-000004\"},\"short_term_investments\":{\"value\":22423000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0001018724-26-000004\"},\"total_assets\":{\"value\":624894000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001018724-26-000004\"},\"total_equity\":{\"value\":285970000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001018724-26-000004\"},\"ltd_noncurrent\":{\"value\":52623000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001018724-26-000004\"},\"ltd_total\":{\"value\":58000000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001018724-26-000004\"},\"debt_current\":null,\"ltd_current\":{\"value\":5017000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0001018724-26-000004\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":151000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0001018724-26-000004\"},\"ltd_due_12m\":{\"value\":5000000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001018724-25-000004\"}},\"derived\":{\"ebitda\":{\"value\":121388000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":32878000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":57791000000,\"formula\":\"ltd_noncurrent + ltd_current + short_term_borrowings\"},\"net_debt\":{\"value\":-43411000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":716924000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0001018724-26-000004\"},\"gross_profit\":null,\"operating_income\":{\"value\":79975000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001018724-26-000004\"},\"interest_expense\":{\"value\":2274000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0001018724-26-000004\"},\"pretax_income\":{\"value\":97311000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments\",\"accession\":\"0001018724-26-000004\"},\"net_income\":{\"value\":77670000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001018724-26-000004\"},\"diluted_shares\":{\"value\":10827000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001018724-26-000004\"},\"diluted_eps\":{\"value\":7.17,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001018724-26-000004\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":139514000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001018724-26-000004\"},\"capex\":{\"value\":131819000000,\"concept\":\"us-gaap:PaymentsToAcquireProductiveAssets\",\"accession\":\"0001018724-26-000004\"},\"d_and_a\":{\"value\":65756000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001018724-26-000004\"},\"amortization_intangibles\":{\"value\":817000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001018724-26-000004\"}},\"balance_sheet\":{\"cash\":{\"value\":86810000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001018724-26-000004\"},\"short_term_investments\":{\"value\":36219000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0001018724-26-000004\"},\"total_assets\":{\"value\":818042000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001018724-26-000004\"},\"total_equity\":{\"value\":411065000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001018724-26-000004\"},\"ltd_noncurrent\":{\"value\":65648000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001018724-26-000004\"},\"ltd_total\":{\"value\":68836000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001018724-26-000004\"},\"debt_current\":null,\"ltd_current\":{\"value\":2748000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0001018724-26-000004\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":455000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0001018724-26-000004\"},\"ltd_due_12m\":{\"value\":2752000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001018724-26-000004\"}},\"derived\":{\"ebitda\":{\"value\":145731000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":7695000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":68851000000,\"formula\":\"ltd_noncurrent + ltd_current + short_term_borrowings\"},\"net_debt\":{\"value\":-54178000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-10-30 (period 2026-09-30) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1018724/000101872424000008/0001018724-24-000008-index.htm\",\"accession_or_id\":\"0001018724-24-000008\",\"form\":\"10-K\",\"period\":\"2023-12-31\",\"as_of\":\"2024-02-02\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/0001018724-25-000004-index.htm\",\"accession_or_id\":\"0001018724-25-000004\",\"form\":\"10-K\",\"period\":\"2024-12-31\",\"as_of\":\"2025-02-07\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/0001018724-26-000004-index.htm\",\"accession_or_id\":\"0001018724-26-000004\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-06\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":10813138306,\"as_of\":\"2026-10-21\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0001018724-26-000040\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01SssvdrRQk6WvbU5Syx5SrN",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01U33VChDgdS5goY1TeWEp4u",
+      "content": "{\"summary\":\"Country risk data for \\\"United States\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"country\":[{\"country\":\"United States\",\"region\":\"North America\",\"moodys_rating\":\"Aa1\",\"default_spread\":0.002333679169992019,\"equity_risk_premium\":0.0446,\"country_risk_premium\":0.002333679169992019,\"basis\":\"Moody's sovereign rating\",\"match\":\"exact\",\"mature_market_erp\":0.0423,\"source\":{\"name\":\"Aswath Damodaran, Country Default Spreads and Risk Premiums\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx\",\"accession_or_id\":\"ctryprem/United States\",\"period\":\"2026-02-16\",\"as_of\":\"2026-02-16\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 6957,
+     "cache_read_input_tokens": 7213,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 6957,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1525,
+     "output_tokens_details": {
+      "thinking_tokens": 213
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0340891,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS6AcKEAgTGAI4AUIIdGhpbmtpbmcSDIpbvMAIZEioqjeErBoMg3/rlVtX6Ax8EviQIjDqIznl+svpkIpoAawJWjQuSUqe8lMLKieTxE/tjuJ0c0eMTZ0cUJaWbi1q8Sp0gGEqhQc7Ys+JOgrhjM6KY1dFfSYQpBnKfjtbdSWBcSNbTmOI57FhU5yczsc2ZifqV0O6Mraymu5yX3gHkXfg3j0SBv5mqzrMnkRjR/+uXty5nmjjZFyNQXGFJk1csDlyb3bKK4KbLat3fjhWpubyGpVNOm36yjIXAYtbkVuT4V3TjiVinJqSKCv2q9Jn//RmqFXL0EDrTr4LHH9mUHBrDFRSelDcWEyKLqZXvI9tMUIwd1jmnrVEAym9i6XXI+ZVKBtLs8B5kPppcMQ+3TKheDpKXj4QEjLXFfZeiyOB4X+OSOD1Fd5g+c/klVn3cwpL9aLZN7UumucKcch61wueHMzQOIHX33KMK7tlaZnu4AiEK+xXHYx+kOSlUfbD0Gkt3vcgO/6DPumnUAIDBWuGL5ieG3qmMhvKsriIEF84lJssGiwzzGS1hERJLNvjyoxgGx8vY994LVfFZNPK+vBP9nACuHTpIUFbB8+lsmPPHWIseL9+ooF+229z850w6x6Lu0odUinyz52NkDAG/9AvViElBNMFeJQ+3HWc8gkVXdKWiEHEOge9yCm2koXGp9VWt+ETnWhtdHUuwFe37dkR2WB0SHwd5C0Ho5+2NhtF4GGVzdZwdq2QIAgqO3Os9Kd2wcEW65pcrRYUrkHn4IrnJQJnMJWp6RycNvjOizVzMJUPFMuXcuPDEhWuaPGVRSM5aH6dc3SSZkef1jV7fyhzjJIjQ28ydC9Kfg0qOkQ6IeUQ4QY1QX+RdAdzF3l4yd4V7CABvQbx8+KeifLeQMIMuf+DsA6BjRwfsKrnZTSMmChCcvLWyAlVU+EtF23FLizljC10Uc0vZxunvVkIIWZzgyThpiFoQk07h9kyhy+jXj+31vUGOFIEHtLhUs3LS34xj3Rn633IAT/ek7qHODez9Ea1+5tYnBKFE13m150+9Gifr+4dLdIkSi5INNA9WHDhb+BuESfdvlYNhwJVOvm/L0pFA7ZZLo5YE/qxdtoImiBD3713GqTU1lY3CDhFbOchB2B9tGyfjjpBUGza2XReWbKE9YQGCJNLEQzmUvGSzUvVae0Txmj1BqRWOWXIdSdwAq2NgPUEQUaTjfEkzw6N6/GxVBTu3W7Gny2kiMOHBoitKvOgHg03FfmmMNDH9kRhq6RvJ3Dsn5VQqbIIBej0KxbUmI2w0iArzR26YmDFLeFkwZ1susoT657kGAE="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01Y7Jd9NgCsYzxLNqeL1pjed",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Amazon.com, Inc.",
+       "ticker": "AMZN",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           574785,
+           637959,
+           716924
+          ],
+          "source": "10-K FY2025 acc. 0001018724-26-000004, RevenueFromContractWithCustomerExcludingAssessedTax"
+         },
+         "operating_income": {
+          "values": [
+           36852,
+           68593,
+           79975
+          ],
+          "source": "10-K acc. 0001018724-26-000004, OperatingIncomeLoss"
+         },
+         "d_and_a": {
+          "values": [
+           48663,
+           52795,
+           65756
+          ],
+          "source": "10-K acc. 0001018724-26-000004, DepreciationDepletionAndAmortization"
+         },
+         "capex": {
+          "values": [
+           52729,
+           82999,
+           131819
+          ],
+          "source": "10-K acc. 0001018724-26-000004, PaymentsToAcquireProductiveAssets"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.11,
+          0.1,
+          0.09,
+          0.08,
+          0.07
+         ],
+         "source": "Assumption: FY2025 growth was 12.4% (716,924 vs 637,959); FY24 11.0%. Fade from ~11% to 7% as scale grows."
+        },
+        "ebit_margin": {
+         "value": 0.125,
+         "source": "Assumption: FY2025 margin 11.2% (79,975/716,924), FY2024 10.8%; modest expansion from AWS/advertising mix, tempered by AI depreciation."
+        },
+        "tax_rate": {
+         "value": 0.18,
+         "source": "Assumption: blended effective rate below 21% US statutory given credits; not taken from a filing tool, reviewer should verify against the 10-K tax note."
+        },
+        "da_pct_revenue": {
+         "value": 0.095,
+         "source": "Assumption: FY2025 D&A/revenue 9.2% (65,756/716,924), rising as heavy capex depreciates."
+        },
+        "capex_pct_revenue": {
+         "value": 0.16,
+         "source": "Assumption: FY2025 capex 18.4% of revenue (131,819), FY2024 13.0%; assume gradual normalization to 16% average over the forecast."
+        },
+        "wacc": {
+         "value": 0.097,
+         "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + assumed beta 1.2 x ERP 4.46% (Damodaran US, 2026-02-16) = ~10.2% cost of equity; debt ~$69B is small vs equity so weight ~5% at ~5% pre-tax cost; WACC ~9.7%. Beta is an assumption, not looked up."
+        },
+        "terminal_growth": {
+         "value": 0.03,
+         "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal US GDP growth."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": -54178,
+         "period": "FY2025",
+         "source": "financial_statements derived net_debt = total debt 68,851 - cash 86,810 - short-term investments 36,219 (acc. 0001018724-26-000004); negative = net cash"
+        },
+        "diluted_shares": {
+         "value": 10827,
+         "period": "FY2025",
+         "source": "WeightedAverageNumberOfDilutedSharesOutstanding 10,827,000,000 shares, in millions (acc. 0001018724-26-000004)"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 14,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "AMZN",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 574785,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 574785000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "AMZN",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 637959,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 637959000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "AMZN",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 716924,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 716924000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "AMZN",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 36852,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 36852000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "AMZN",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 68593,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 68593000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "AMZN",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 79975,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 79975000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "AMZN",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 48663,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 48663000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "AMZN",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 52795,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 52795000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "AMZN",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 65756,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 65756000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "AMZN",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 52729,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 52729000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "AMZN",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 82999,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 82999000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "AMZN",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 131819,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 131819000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "AMZN",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": -54178,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": -54178000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "AMZN",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 10827,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 10827000000,
+    "resolved": "AMZN"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

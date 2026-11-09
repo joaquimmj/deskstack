@@ -1,0 +1,1319 @@
+{
+ "company": "MSFT",
+ "task": "dcf",
+ "arm": "A",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Microsoft Corporation",
+   "ticker": "MSFT",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       245122,
+       281724,
+       331839
+      ],
+      "source": "MSFT 10-K FY2025 (accession 0000950170-25-100235) income statement for FY2024/FY2025; FY2026 331,839 from MSFT FY2026 10-K (accession 0001193125-26-323660) / vectorshift data table"
+     },
+     "operating_income": {
+      "values": [
+       109433,
+       128528,
+       155237
+      ],
+      "source": "MSFT 10-K FY2025 and FY2026 (accession 0001193125-26-323660) income statements"
+     },
+     "d_and_a": {
+      "values": [
+       20958,
+       29433,
+       38534
+      ],
+      "source": "'Depreciation, amortization, and other' in cash flow statement as presented in the FY2026 filing/earnings release (edgar.tools, MSFT FY26 Q4 release). Note: FY2025 10-K originally showed 22,287 (FY24) and 34,153 (FY25); the FY2026 presentation is lower for prior years, so latest basis used for consistency"
+     },
+     "capex": {
+      "values": [
+       44477,
+       64551,
+       115948
+      ],
+      "source": "'Additions to property and equipment' in cash flow statements, FY2025 10-K and FY2026 10-K (accession 0001193125-26-323660); finance leases excluded"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.16,
+      0.14,
+      0.12,
+      0.1,
+      0.08
+     ],
+     "source": "Assumption: FY2026 growth was 17.8% (331,839 vs 281,724) and FY2025 15%; fade gradually toward high-single digit as law of large numbers and AI/cloud capacity ramp mature"
+    },
+    "ebit_margin": {
+     "value": 0.45,
+     "source": "Assumption: FY2026 operating margin 46.8% (155,237/331,839), FY2025 45.6%; set slightly lower to reflect rising depreciation from heavy datacenter capex",
+     "period": "FY2027-FY2031"
+    },
+    "tax_rate": {
+     "value": 0.18,
+     "source": "Assumption: FY2025 effective rate ~17.6% (provision 21,795 / pre-tax income 123,627, FY2025 10-K); rounded up modestly",
+     "period": "FY2027-FY2031"
+    },
+    "da_pct_revenue": {
+     "value": 0.12,
+     "source": "Assumption: FY2026 D&A 38,534/331,839 = 11.6%; rising with the capex base",
+     "period": "FY2027-FY2031"
+    },
+    "capex_pct_revenue": {
+     "value": 0.3,
+     "source": "Assumption: FY2026 capex was 34.9% of revenue (115,948) and FY2025 22.9%; assume elevated but moderating intensity, still above D&A to support growth",
+     "period": "FY2027-FY2031"
+    },
+    "wacc": {
+     "value": 0.09,
+     "source": "Assumption: rf ~4.3% + beta ~1.0 x ERP ~5% gives ~9% cost of equity; debt is minimal (~40bn vs trillions market cap) so WACC ≈ cost of equity; rounded 9%",
+     "period": "forecast"
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "source": "Assumption: long-run nominal GDP-like growth, below WACC",
+     "period": "terminal"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": -36549,
+     "source": "MSFT balance sheet 6/30/2026 (FY2026 10-K, accession 0001193125-26-323660, via edgar.tools): current portion of LTD 9,227 + LTD 31,067 = 40,294 total debt (no short-term debt, leases excluded) less cash 20,935 less short-term investments 55,908 = -36,549",
+     "period": "FY2026"
+    },
+    "diluted_shares": {
+     "value": 7453,
+     "source": "Weighted average diluted shares FY2026 of 7,453 million (vectorshift table 7,453,000 thousands; MSFT FY2026 10-K)",
+     "period": "FY2026"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Microsoft Corporation",
+   "ticker": "MSFT",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       245122,
+       281724,
+       331839
+      ],
+      "source": "MSFT 10-K FY2025 (accession 0000950170-25-100235) income statement for FY2024/FY2025; FY2026 331,839 from MSFT FY2026 10-K (accession 0001193125-26-323660) / vectorshift data table"
+     },
+     "operating_income": {
+      "values": [
+       109433,
+       128528,
+       155237
+      ],
+      "source": "MSFT 10-K FY2025 and FY2026 (accession 0001193125-26-323660) income statements"
+     },
+     "d_and_a": {
+      "values": [
+       20958,
+       29433,
+       38534
+      ],
+      "source": "'Depreciation, amortization, and other' in cash flow statement as presented in the FY2026 filing/earnings release (edgar.tools, MSFT FY26 Q4 release). Note: FY2025 10-K originally showed 22,287 (FY24) and 34,153 (FY25); the FY2026 presentation is lower for prior years, so latest basis used for consistency"
+     },
+     "capex": {
+      "values": [
+       44477,
+       64551,
+       115948
+      ],
+      "source": "'Additions to property and equipment' in cash flow statements, FY2025 10-K and FY2026 10-K (accession 0001193125-26-323660); finance leases excluded"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.16,
+      0.14,
+      0.12,
+      0.1,
+      0.08
+     ],
+     "source": "Assumption: FY2026 growth was 17.8% (331,839 vs 281,724) and FY2025 15%; fade gradually toward high-single digit as law of large numbers and AI/cloud capacity ramp mature"
+    },
+    "ebit_margin": {
+     "value": 0.45,
+     "source": "Assumption: FY2026 operating margin 46.8% (155,237/331,839), FY2025 45.6%; set slightly lower to reflect rising depreciation from heavy datacenter capex",
+     "period": "FY2027-FY2031"
+    },
+    "tax_rate": {
+     "value": 0.18,
+     "source": "Assumption: FY2025 effective rate ~17.6% (provision 21,795 / pre-tax income 123,627, FY2025 10-K); rounded up modestly",
+     "period": "FY2027-FY2031"
+    },
+    "da_pct_revenue": {
+     "value": 0.12,
+     "source": "Assumption: FY2026 D&A 38,534/331,839 = 11.6%; rising with the capex base",
+     "period": "FY2027-FY2031"
+    },
+    "capex_pct_revenue": {
+     "value": 0.3,
+     "source": "Assumption: FY2026 capex was 34.9% of revenue (115,948) and FY2025 22.9%; assume elevated but moderating intensity, still above D&A to support growth",
+     "period": "FY2027-FY2031"
+    },
+    "wacc": {
+     "value": 0.09,
+     "source": "Assumption: rf ~4.3% + beta ~1.0 x ERP ~5% gives ~9% cost of equity; debt is minimal (~40bn vs trillions market cap) so WACC ≈ cost of equity; rounded 9%",
+     "period": "forecast"
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "source": "Assumption: long-run nominal GDP-like growth, below WACC",
+     "period": "terminal"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": -36549,
+     "source": "MSFT balance sheet 6/30/2026 (FY2026 10-K, accession 0001193125-26-323660, via edgar.tools): current portion of LTD 9,227 + LTD 31,067 = 40,294 total debt (no short-term debt, leases excluded) less cash 20,935 less short-term investments 55,908 = -36,549",
+     "period": "FY2026"
+    },
+    "diluted_shares": {
+     "value": 7453,
+     "source": "Weighted average diluted shares FY2026 of 7,453 million (vectorshift table 7,453,000 thousands; MSFT FY2026 10-K)",
+     "period": "FY2026"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 1,
+  "usage": {
+   "input_tokens": 20,
+   "output_tokens": 4047,
+   "cache_creation_input_tokens": 77654,
+   "cache_read_input_tokens": 341897,
+   "server_tool_use": {
+    "web_search_requests": 6
+   }
+  },
+  "cost": 0.3630244,
+  "seconds": 53.125,
+  "tool_calls": {
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: web_search (public web pages). No other data source is available.\n\nBuild a quick unlevered DCF for Microsoft Corporation (identifier: MSFT).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 20,
+     "cache_creation_input_tokens": 77654,
+     "cache_read_input_tokens": 341897,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 77654,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 4047,
+     "output_tokens_details": {
+      "thinking_tokens": 1025
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard",
+     "server_tool_use": {
+      "web_search_requests": 6,
+      "web_fetch_requests": 0
+     }
+    },
+    "cost": 0.3630244,
+    "content": [
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01LeFjrXuEqzemEG9ZWtf4RW",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":\"Microsoft FY2025 10-K income statement operating income depreciation amortization additions to property and equipment diluted shares\"})\nfor x in r[:6]:print(x['url'],x['content'][:800].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Kd95d72npBTqwETBZPm5iF",
+      "name": "web_search",
+      "input": {
+       "query": "Microsoft FY2025 10-K income statement operating income depreciation amortization additions to property and equipment diluted shares"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01LeFjrXuEqzemEG9ZWtf4RW"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01Kd95d72npBTqwETBZPm5iF",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Microsoft Corporation - 10K - Annual Report - July 30, 2025",
+        "url": "https://fintel.io/doc/sec-microsoft-corp-789019-10k-2025-july-30-20299-4872",
+        "encrypted_content": "[omitted]",
+        "page_age": "467 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Microsoft 2025 Annual Report",
+        "url": "https://www.microsoft.com/investor/reports/ar25/index.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "384 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY25 Q2 - Press Releases - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2025-q2/press-release-webcast",
+        "encrypted_content": "[omitted]",
+        "page_age": "649 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "MICROSOFT CORP (MSFT) SEC EDGAR Filings, CIK 0000789019 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/MSFT",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY25 Q4 - Press Releases - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2025-q4/press-release-webcast",
+        "encrypted_content": "[omitted]",
+        "page_age": "467 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY25 Q3 - Press Releases - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2025-q3/press-release-webcast",
+        "encrypted_content": "[omitted]",
+        "page_age": "558 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025061046/msft-20250331.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "588 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://microsoft.gcs-web.com/static-files/9640e86d-a99f-4502-934d-1d3c883fa786",
+        "encrypted_content": "[omitted]",
+        "page_age": "467 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Financial analysis of Microsoft, FY2026: capital intensity against a record margin",
+        "url": "https://sec-api.io/insights/financial-analysis-of-microsoft-fy2026-capital-intensity-against-a-record-margin",
+        "encrypted_content": "[omitted]",
+        "page_age": "67 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01LeFjrXuEqzemEG9ZWtf4RW"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01LeFjrXuEqzemEG9ZWtf4RW",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDMlDr99JJP1OfGPAPRoMCQ//N1sdSPgS6malIjDYNu7Kv5fJ2eEv1PwBWeIOK1CasG5nEPnSsFSBO+zV7nmWKFKuD/WCJn95QMIC51YqEiiGghGFnbpSKOhM3/m1Sy5i4RgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01LeFjrXuEqzemEG9ZWtf4RW/cell.py\", line 9, in <module>\n    for x in r[:6]:print(x['url'],x['content'][:800].replace(\"\\n\",\" \"))\n                         ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01GNmw2evDsGi8gMweymp7pv",
+      "name": "code_execution",
+      "input": {
+       "code": "print(str(r)[:3000])"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01GNmw2evDsGi8gMweymp7pv",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "[{\"type\": \"web_search_result\", \"title\": \"Microsoft Corporation - 10K - Annual Report - July 30, 2025\", \"url\": \"https://fintel.io/doc/sec-microsoft-corp-789019-10k-2025-july-30-20299-4872\", \"content\": \"Depreciation, amortization, and other. \\u2026 Additions to property and equipment.\\n\\nOperating income \\u00b7 128,528 \\u00b7 109,433 \\u00b7 17%\\nNet income \\u00b7 101,832 \\u00b7 88,136 \\u00b7 16%\\nDiluted earnings per share \\u00b7 13.64 \\u00b7 11.80 \\u00b7 16%\\n\\nOperating income increased $19.1 billion or 17% with growth across each of our segments.\\n\\nOperating Income \\u00b7 $ \\u00b7 69,773 \\u00b7 $ \\u00b7 59,661 \\u00b7 17%\\n\\nOperating expenses \\u00b7 21,505 \\u00b7 20,040 \\u00b7 7%\\nOperating Income \\u00b7 $ \\u00b7 44,589 \\u00b7 $ \\u00b7 37,813 \\u00b7 18%\\n\\nOperating expenses \\u00b7 15,245 \\u00b7 13,987 \\u00b7 9%\\nOperating Income \\u00b7 $ \\u00b7 14,166 \\u00b7 $ \\u00b7 11,959 \\u00b7 18%\\n\\nOperating expenses \\u00b7 65,365 \\u00b7 61,575 \\u00b7 6%\\nOperating Income \\u00b7 $ \\u00b7 128,528 \\u00b7 $ \\u00b7 109,433 \\u00b7 17%\\n\\nOperating income increased $10.1 billion or 17%.\\n\\nOperating income increased $6.8 billion or 18%.\\n\\nOperating income increased $2.2 billion or 18%.\\n\\nOperating income \\u00b7 128,528 \\u00b7 109,433 \\u00b7 88,523\\n\\nDiluted \\u00b7 $ \\u00b7 13.64 \\u00b7 $ \\u00b7 11.80 \\u00b7 $ \\u00b7 9.68\\nWeighted average shares outstanding:\\n\\nProperty and equipment, net of accumulated depreciation of $93,653 and $76,421 \\u00b7 204,966 \\u00b7 135,591\\n\\nDepreciation, amortization, and other \\u00b7 34,153 \\u00b7 22,287 \\u00b7 13,861\\n\\nAdditions to property and equipment \\u00b7 (64,551 \\u00b7 ) \\u00b7 (44,477 \\u00b7 ) \\u00b7 (28,107 \\u00b7 )\\n\\nDiluted (A/C) \\u00b7 $ \\u00b7 13.64 \\u00b7 $ \\u00b7 11.80 \\u00b7 $ \\u00b7 9.68\\n\\nFurniture and equipment \\u00b7 6,407 \\u00b7 6,532\\n\\nAccumulated depreciation \\u00b7 (93,653 \\u00b7 ) \\u00b7 (76,421 \\u00b7 )\\n\\nNet income \\u00b7 88,308 \\u00b7 71,383\\nDiluted earnings per share \\u00b7 11.82 \\u00b7 9.55\\n\\nIntangible assets amortization expense was $6.0 billion, $4.8 billion, and $2.5 billion for fiscal years 2025, 2024, and 2023, respectively.\", \"page_age\": \"467 days ago\"}, {\"type\": \"web_search_result\", \"title\": \"Microsoft 2025 Annual Report\", \"url\": \"https://www.microsoft.com/investor/reports/ar25/index.html\", \"content\": \"Property and equipment, net of accumulated depreciation of $93,653 and $76,421. \\u2026 services to people and businesses; licensing and supporting an array of software products; delivering relevant online advertising to a global audience; and designing ...\\n\\n# Microsoft Annual Report 2025\\n## Discussion & Analysis\\n### SUMMARY RESULTS OF OPERATIONS\\n|  |  |  |  |\\n| --- | --- | --- | --- |\\n| (In millions, except percentages and per share amounts) | 2025 | 2024 | Percentage Change |\\n| Operating income | 128,528 | 109,433 | 17% |\\n| Diluted earnings per share | 13.64 | 11.80 | 16% |\\n\\n### SEGMENT RESULTS OF OPERATIONS\\nOperating Income \\u00b7 $ 14,166 \\u00b7 $ 11,959 \\u00b7 18%\\n\\\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS0AYKEAgTGAI4AUIIdGhpbmtpbmcSDK4qtuVO1FA6d3ywEBoMHGLrcJ/cHgwaPQYWIjByn/vHj0UBXPUp2M22NrtfzHHfowNmnS3OUJxjKClsEFOdm6qst+2n5WeZmeV3kDoq7QWjNmy7UJw1KmjuHIE4vFwY5mcX+OVmT24L+nijE5ZFvRLJmEISrGM6oWLwRoVL6R39BhIWqI+WPCjQMGJwlejYPAZHjpTMfUyCcMXPfWlor0OSXKPI6muArhW01Esu9nBfgSnNfGIldc++DfFscW7tlqQpmQaMCbKOtfk3+H6Fv5eWXIdPbScyIK01m0anFl+70U0KWh85PZUEVDTXadG6NOEyj3UXY/mADJpIqm0zroibJRBDlu4PNdhlXVQyEF1xaFjURR0Mr7mtNTdKqDrt6eVRIfwEvygypA6+2KneKhOjIV5l/udRN+AgQKtcouKVmdO4FZod5ap+4wWl5oJ6eCxBGpZRwKUVkY954gAxtNH/N8XCalgiLkxK4a9o0Daz4i+2VGG3TaAk9IyPfToAvDqEVUjiD9sKvYGZZ7oeVGRTyEFAjE9M2GDYqrXOXEKi2ur3A+GAN8+6L0LgqAmqr/mlxvip6VK9N5SKspmcL5Kn2ZcbJonp3zZdzEBM5NSiXBseW869iXOzwpN4DVUc4H6Py1nlc55O5UWeHWm2OWs8+fKGaVKV/qBb5wWgBvV6YkPAUURrokK42RQ932xvcH6nR2HR9jHfGgM2bY2OCc1oTMUNwpoiwlb+LHtU9reEueGqUCdBc0Tu3TA/y+Hc4HIemR6ehmebnDpXyWDD3U67YDoKh72tXsnZlg54TCehJTTatLdEEqMPNNuG5K5RzIUjOoQpZE78IpTjzhew4w7Ce1P4YmkGQNcSOZO/6u2/5yCLAjPCdAnUopzTnViL+PgqAtGFdjj3+mHzGdSFpCDQZLdvvObi9kFPK8Oq5VJAOhu5H62jeJGow/Gs6HKAruvwUcxGmFSOcVDLPGa/IMMHZT0QUR8MFYBNm0gF7MRFkFDnKoLIQ91/7aWaixh/+simte3Vd5eba6iL1meCdE8GRSoCqd/1dKcfjNgAk7H26AIw5/Nq4W5dpVyHzZ72IIFQYwG+roQ9OnvIJBgB"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Tt9qHfdnWrfSfNAT15DSBD",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"Microsoft June 30 2025 balance sheet cash short-term investments current portion of long-term debt long-term debt 10-K\",\"Microsoft fiscal 2025 revenue 281,724 weighted average diluted shares 7,465\"]:\n  r=await web_search({\"query\":q})\n  for x in r[:5]:\n    c=x['content']\n    import re\n    for k in ['Long-term debt','Short-term investments','Current portion','Cash and cash equivalents','281,724','7,465']:\n      i=c.find(k)\n      if i>=0:print(x['url'][:50],c[i:i+120].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01XEjFLDCCfbPQVey84t7ttM",
+      "name": "web_search",
+      "input": {
+       "query": "Microsoft June 30 2025 balance sheet cash short-term investments current portion of long-term debt long-term debt 10-K"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01Tt9qHfdnWrfSfNAT15DSBD"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01XEjFLDCCfbPQVey84t7ttM",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "MICROSOFT CORP - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Microsoft 2025 Annual Report",
+        "url": "https://www.microsoft.com/investor/reports/ar25/index.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "384 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY25 Q4 - Balance Sheets - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2025-q4/balance-sheets",
+        "encrypted_content": "[omitted]",
+        "page_age": "132 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312525256321/msft-20250930.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "377 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549",
+        "url": "https://microsoft.gcs-web.com/static-files/3870467c-5877-477c-ac71-167d20612da7",
+        "encrypted_content": "[omitted]",
+        "page_age": "285 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY26 Q2 - Balance Sheets - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q2/balance-sheets",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MICROSOFT CORP (MSFT) SEC EDGAR Filings, CIK 0000789019 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/MSFT",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY25 Q3 - Balance Sheets - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2025-q3/balance-sheets",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY26 Q3 - Balance Sheets - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q3/balance-sheets",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY26 Q1 - Balance Sheets - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q1/balance-sheets",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01Tt9qHfdnWrfSfNAT15DSBD"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01Tt9qHfdnWrfSfNAT15DSBD",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDORQcKXsm9F0ulmudRoMKPAcjHHSMPwc2MTsIjCEq7iYUiWuFsUvFhFaYbRupJiOcvPg8GYnCi7yX/VfEBvEviQIJ3FYAex23iqwe88qEhzTle3LS7rtFp0z+JWnaW0scxgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01Tt9qHfdnWrfSfNAT15DSBD/cell.py\", line 11, in <module>\n    c=x['content']\n      ~^^^^^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "text",
+      "text": "Results seem to be sometimes strings; handle it."
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01UxpdHtsz1CWS47QAMGD7Zd",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"Microsoft June 30 2025 balance sheet cash short-term investments current portion of long-term debt long-term debt 10-K\",\"Microsoft fiscal 2025 revenue 281,724 weighted average diluted shares 7,465\"]:\n  r=await web_search({\"query\":q})\n  print(type(r),len(r))\n  for x in r:\n    if not isinstance(x,dict):print(str(x)[:200]);continue\n    c=x['content']\n    for k in ['Long-term debt','Short-term investments','Current portion','Cash and cash equivalents','281,724','7,465']:\n      i=c.find(k)\n      if i>=0:print(x['url'][:50],c[i:i+120].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Se6uB2QgQEmVHyWiihX7DE",
+      "name": "web_search",
+      "input": {
+       "query": "Microsoft June 30 2025 balance sheet cash short-term investments current portion of long-term debt long-term debt 10-K"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01UxpdHtsz1CWS47QAMGD7Zd"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01Se6uB2QgQEmVHyWiihX7DE",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "MICROSOFT CORP - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Microsoft 2025 Annual Report",
+        "url": "https://www.microsoft.com/investor/reports/ar25/index.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "384 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY25 Q4 - Balance Sheets - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2025-q4/balance-sheets",
+        "encrypted_content": "[omitted]",
+        "page_age": "132 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "10-Q",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312525256321/msft-20250930.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "377 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549",
+        "url": "https://microsoft.gcs-web.com/static-files/3870467c-5877-477c-ac71-167d20612da7",
+        "encrypted_content": "[omitted]",
+        "page_age": "285 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY26 Q2 - Balance Sheets - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q2/balance-sheets",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MICROSOFT CORP (MSFT) SEC EDGAR Filings, CIK 0000789019 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/MSFT",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY25 Q3 - Balance Sheets - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2025-q3/balance-sheets",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY26 Q3 - Balance Sheets - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q3/balance-sheets",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY26 Q1 - Balance Sheets - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q1/balance-sheets",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01UxpdHtsz1CWS47QAMGD7Zd"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Fkt5xBWYFYZsn3JEk65u5a",
+      "name": "web_search",
+      "input": {
+       "query": "Microsoft fiscal 2025 revenue 281,724 weighted average diluted shares 7,465"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01UxpdHtsz1CWS47QAMGD7Zd"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01Fkt5xBWYFYZsn3JEk65u5a",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "MICROSOFT CORP - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312525245177/d61995dars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Microsoft 2025 Annual Report",
+        "url": "https://www.microsoft.com/investor/reports/ar25/index.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "384 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "MICROSOFT CORP - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100226/msft-ex99_1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MICROSOFT CORP - Form DEF 14A - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312525245150/d908201ddef14a1.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MICROSOFT CORP - Form DEF 14A - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312525245150/d908201ddef14a.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY25 Q4 - Press Releases - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2025-q4/press-release-webcast",
+        "encrypted_content": "[omitted]",
+        "page_age": "467 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "MICROSOFT CORP - Form 10-Q - FY2025 (Quarterly Earnings Tables - quarter ended Mar 2025)",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025061046/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MICROSOFT CORP - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312525256321/msft-20250930.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Microsoft Corporation financials — revenue, margin & EBITDA · VectorShift Research",
+        "url": "https://vectorshift.ai/research/companies/microsoft/financials",
+        "encrypted_content": "[omitted]",
+        "page_age": "95 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01UxpdHtsz1CWS47QAMGD7Zd"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01UxpdHtsz1CWS47QAMGD7Zd",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSmAoKEAgTGAI4AUIIdGhpbmtpbmcSDNH5H7UcZg7MXVNA+hoMt+Kxr0pGWY59By8sIjDrIfxjNOlXUikOT1wdkFMriQAEozvRMEKJktwT3lVtAfWKptZ+codqJ9vY+GP1f8kqtQktaDd28GhiePY/xpKMYq5AUAgclKaKLg+NpTeyQE8BwronW9aLrZ+getncEcpNN2hWhdmfXItFqswHj50h+OVe6B3tjAc3GTCkRwBXsGMj++kdxZdJQ3MWF4In/YRxzD3nKgQHvm0Qlx2cbR1tud3wbspUyE8fMwuZ1BB7uG0UVF1zoKu78yqDBrQSPODarYJHwRF9zd9w0x7iyvg3aEmCI4udTZh6PiY5PTXAiu4yVaFxq5qJaMphTKXpDdM0o4vO1cdYuMPipHSTVSOA9MFyFNWV0J3Q9RPvqNDtSfbnledszQFGPM+IXSQxK99RnLwCGddb2jpMuDLxL+WUGLKGEoL2G+rSJZd5r3rZ0lE4d0qSgmcuaun65uiFLtX/LHQg+N13Qgc9FmEJ3nJkWX2xEFG76+JmHqzkVqrHZbnC3e0fnFYmvInj7Q7au8nap+vAJjdfHLiNbKYhPD7HsZFCCmx9iHvFfUg8BAvxO0y5aLVXmbIu4r5/UnoqKiYohyAqxIA+5G6CAEowgysOj04x7qzfooDy4PJHMqQdBWM9HLnfKheot4DIY9EY/yLjPnkFmmRjJOgbSUw2Cj4p1M1gbONrzzLW63mVF7YysgzKb+29YbLmk1UkIJ3ZeN8Sq4mS4+vtjqu+AmRSnIdP10KgPl2K6S1FPAFsrDKI0q1ik/2iAF2stz6P3mLo3R8BalGlBgL1rUeqtIIQTC1XrXbSM1Q70nuQqG2biDsSkcZLTwSitBS3GYmJq/d9hCgM2EjcNG7+yEGceALjBxpWbmHJxhVPHoJ3TNusrSjSkJtTH5tO2ggP8UWl9abWMbjA3bNG8iLGEAQnAOfYNiMHxB4VIRwf1JocLKHqydj2yFFh+HYpefpnTOHUxXMLA3/5C7VotItjO78o7SUK5GWhL08BCi4omGS/+5G/tLsTbc1PbshovdvNNxq19n6RgTk4BZDkZlp6g95kafKSKxUtifl6ZpaiuXmSyFWVBKrHvJI4OQykBu9BJvFKLTUymKtqdxRqPdg2CNFqntdaolejG54/oZpdbgTXtxCHjxzDHiD36yMq02mlU63NgREd1SSCwQk1RdJnF8JqcT0tlBe4AxK3D67PFdn9pPOkkkt+nSU3Iuq2s9rS78XQzF3c/hI5eYfUtbDPOb2goDF/REe8ettIGZ00YHaFKoquhJD2SYVBWySC9KbGHl2c2vUIdUkRd/bKuoVqW/k1aqSCukeNDZHBR8u8qIAy+HDdPcUk/mSUfckAVYNqek4/kfbMQDI7nVHKcx6AKhwf8rCpPzRK+UbA64L/E5U50M6Wr+h5bvrG5iaSB11ZD/qOSJKieU0l/qmAQ3QQiqMLFQZoDco99pad0TmokmhzqD/TtZpH1hjRiO+RoMKnjxrnitM41DeFL7lielhj++ym8omJv36ESa6Hy6FqndF9RVetA+EZ1dOMdbdzMwMYqcCEzJ68xXMe3SRkWJzBKAfFoZdzmYWfrhgcrhAJlWuH64cEnUwTwEtgInhTyxU5JrKn4Y5YLk9SFZhvhC8GPYUwB6iAI92zabup2jRevyvIL0JaTHjIbjEU93AVYT3qFsykdOOYMtQSPMnqH0dOjhgB"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_0115F2HDrbuTdnuNJEuSULYU",
+      "name": "code_execution",
+      "input": {
+       "code": "import json\nr=await web_search({\"query\":\"Microsoft fiscal year 2026 results operating income additions to property and equipment 10-K June 30, 2026\"})\nr=json.loads(r) if isinstance(r,str) else r\nfor x in r[:6]:\n    c=x['content']\n    print(x['url'],x['page_age'],c[:300].replace(\"\\n\",\" \"))\n    for k in ['Operating income','Additions to property']:\n        i=c.find(k)\n        if i>=0:print('   ',c[i:i+150].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01RPcaa3Ct1PgdEBS4FCUG7x",
+      "name": "web_search",
+      "input": {
+       "query": "Microsoft fiscal year 2026 results operating income additions to property and equipment 10-K June 30, 2026"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_0115F2HDrbuTdnuNJEuSULYU"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01RPcaa3Ct1PgdEBS4FCUG7x",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "MICROSOFT CORP - Form 10-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312526323660/msft-20260630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "10-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://microsoft.gcs-web.com/static-files/8a9beeed-0e9e-48e6-b4fb-593d558e2693",
+        "encrypted_content": "[omitted]",
+        "page_age": "103 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Microsoft 2026 Annual Report",
+        "url": "https://www.microsoft.com/investor/reports/ar26/index.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "16 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Financial analysis of Microsoft, FY2026: capital intensity against a record margin",
+        "url": "https://sec-api.io/insights/financial-analysis-of-microsoft-fy2026-capital-intensity-against-a-record-margin",
+        "encrypted_content": "[omitted]",
+        "page_age": "67 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY26 Q3 - Press Releases - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q3/press-release-webcast",
+        "encrypted_content": "[omitted]",
+        "page_age": "10 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY26 Q2 - Press Releases - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q2/press-release-webcast",
+        "encrypted_content": "[omitted]",
+        "page_age": "11 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY26 Q4 - Press Releases - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+        "encrypted_content": "[omitted]",
+        "page_age": "10 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY26 Q2 - Cash Flows - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q2/cash-flows",
+        "encrypted_content": "[omitted]",
+        "page_age": "284 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY26 Q1 - Cash Flows - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q1/cash-flows",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_0115F2HDrbuTdnuNJEuSULYU"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_0115F2HDrbuTdnuNJEuSULYU",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDBS3UswfgVotbJfyCxoMTLcdd/ca4QN3/HbkIjDKwf4PunXiyoZ+YsMwthfROdYXOiRbcqtAnbzd33f3J6p8zSEGi3Kg93xTtaR/fQkqEnkS+c4Viu2JnSd6EP+rRfkt1RgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_0115F2HDrbuTdnuNJEuSULYU/cell.py\", line 13, in <module>\n    print(x['url'],x['page_age'],c[:300].replace(\"\\n\",\" \"))\n                   ~^^^^^^^^^^^^\nKeyError: 'page_age'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_011UvkaRkDHuU2gJjw8t62PT",
+      "name": "code_execution",
+      "input": {
+       "code": "for x in r[:6]:\n    c=x['content']\n    print(x['url'],c[:200].replace(\"\\n\",\" \"))\n    for k in ['Operating income','Additions to property']:\n        i=c.find(k)\n        if i>=0:print('   ',c[i:i+150].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_011UvkaRkDHuU2gJjw8t62PT",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312526323660/msft-20260630.htm As of June 30, 2026 and 2025, the estimated fair value of long-term debt, including the current portion, was $ 36.5 billion and $ 40.4 billion, respectively.  PART II  The following table outlines mat\nhttps://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm For the Fiscal Year Ended June 30 , 2026.  … Property and equipment, net of accumulated depreciation of $ 118,691 and $ 93,653.  For the Fiscal Year Ended June 30, 2026  June 1, 2026 – June 30, 2026 ·\n    Operating income · 155,237 · 128,528 · 21%  Revenue and operating income both included a favorable foreign currency impact of 2%.  Operating income · \n    Additions to property and equipment will continue, including new facilities, datacenters, and computer systems for research and development, sales and\nhttps://microsoft.gcs-web.com/static-files/8a9beeed-0e9e-48e6-b4fb-593d558e2693 For the Fiscal Year Ended June 30, 2026. TRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934. … following sections: “Business” (Part I, Item 1 of this Form 10-K), \n    Operating income |  | 155,237 | 128,528 | 21% | | Net income |  | 133,749 | 101,832 | 31% |  |  |  |  |  |  | | --- | --- | --- | --- | --- |  | Opera\n    Additions to property and equipment will continue, including new facilities, datacenters, and  | Operating income |  | 155,237 | 128,528 | 109,433 |\nhttps://www.microsoft.com/investor/reports/ar26/index.html Condition and Results of Operations (“MD&A”) is intended to help the reader understand the results of operations and financial condition of Microsoft Corporation. MD&A is provided as a supplement to, \n    Operating income | 155,237 | 128,528 | 21% |  ### SEGMENT RESULTS OF OPERATIONS Operating income · $ 83,879 · $ 69,773 · 20%  Operating income · $ 56,\n    Additions to property and equipment · (115,948) · (64,551) · (44,477)  ### NOTE 6 — PROPERTY AND EQUIPMENT - June 30, · 2026 · 2025  - Furniture and e\nhttps://sec-api.io/insights/financial-analysis-of-microsoft-fy2026-capital-intensity-against-a-record-margin # Microsoft Corporation (MSFT), Financial Analysis Base year is FY2026, audited, ended 2026-06-30, 10-K filed 2026-07-29, accession 0001193125-26-323660.  The operating engine improved in FY2026 and t\n    Operating income rose 20.8% to $155,237 million on 17.8% revenue growth, and operating margin reached 46.8%, the highest in the five year window.  | O\n    Additions to property and equipment reached $115,948 million, 34.9% of revenue against 22.9% a year earlier, while reported net income growth of 31% f\nhttps://www.microsoft.com/en-us/investor/earnings/fy-2026-q3/press-release-webcast today announced the following results for the quarter ended March 31, 2026, as compared to the corresponding period of last fiscal year:. Revenue was $82.9 billion and increased 18% (up 15% in constan\n    Operating income was $38.4 billion and increased 20% (up 16% in constant currency)  - Revenue · $82,886 · - · $70,066 · - · 18% · - · $2,067 · 15% · -\n    Additions to property and equipment · (30,876) · (16,745) · (80,146) · (47,472) - Acquisition of companies, net of cash acquired and divestitures, and\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS0wkKEAgTGAI4AUIIdGhpbmtpbmcSDEvNOZecmST9bk2PdRoMZCAx+uGJ0loH7y3xIjBgk6G3QghzlcLfIohgnjFtdPqt9OnCn7kVmV18HdYsJHOQVZ8OIwsWucq4PqiQqH4q8Ajg08CCdLuRpsv1/EoOALjAslORE/w+wz6DEA7TvbUj5owFXrLlcMJIiPdFu9XKF5bmCLdBOzsTwMXkuxCeRaszZ/5RiPOqf5N4D0odawYuMBNScLMYnUwCV47mmU+DkGntUGQpPn2l8o+3vh9V1ngmAPZ1ZYTd/bBb57Utyhhb9zX1ahSsY7O+nSWMYjTS+UisFG2B8X1L6Q/yKpitHWgpsZ6WUi2+QimW25KL9fScfTjzP3Tzv0Y3WeJq9rKZ72YOuaoDr2/2yRbZ+PtSSYSI5m2d3nA4iQMuqdO4dYRS1IUU4O7JVOGcmHX9fHp8YQPbRAW0mfF0Q8iOO2fiTLg8o4d0IrsQS/L7OCgXuytZRMkNhF9Nfq5YgxPQY4RuUPtF2WooFLUCqFBRKA8brgt7nx/5q0ynPaHVURni1QB8+Y7rhSPh8BGe5wwWD9J6n+rYjFlvl9GTvHntiNvYzQS1foJDKwQJWPVSW260OzwGyxDLj4cD4eMqrJ9XXATHuymImWNb/29N3FBUUzb/sktYru4PT1o9eu8aJ/bl/3oAkwGpeGbvgPqLTsYHu0AGFqIia6SxAyqS837HItt/3dN6dmlwNsuVOg8OuitcFuAP+d5MP2d5ueHDx0NhNTSvjmlM+0dZbjvJMxBnNLRcfqau4VkYVFDutCMg3jAf4w4LsnUbW3xzZQ6S+AXi2pCVLlJSD4DrUwxlCco6YS4j+ChY+rCXVQ+1rRNz/JPJdO3gtCUXHR/oSQaaU4h5oknDtlDH23q34KQVi6yL2guwzI4/MehJ6AxAFzbeYOh22NBb7PcZE8bpYkYkabKoB7VHV0qTnyhNQuvkN2gzfWAKTvp/bk07Y6BNGLY4xkMw4BXr24h4xiGWnswkjKTv91EqRb5Y6h1GuMPUvut+4czxe1qVCt2iCj/g7BeTUPBli84OpypoFu77xkjFGIDmYdY/UUGc9ls7sJgi1E9xP8BV5NLMJKysfrGUBxAmCinJEoZ7jizapVfcmwT3ynqvUNHUVQfjAyb6JDWNFrZo3UyDPvQbwQYq0PFCuhJ2Pnbo/sT+mPcwWjapqEPHNgRhLubgf6yu/EwYHuR3aoJ4AdQUlF/r+Yk9px12cGDGe6FZD0O5VeyXFlObplyE/eCoYQDCkqCx7UNj0wH8OcGniFtRaSBR9RNm3VHLbcf4AboXy3MaNe0SxYZRdYMNo1mktTVBsK6kY4MpcaiW2fAwM1tJhP+7Kdns6EPswFZxg4ABdYwPrkIye3Ae4nHyzXh98toPr9WqdVirJA5u3ucKI7OwJR/mXvspBlWirDkGVe02dIfNlqJu4luAfk1TV4LDVtt1bjnQLTQWiidJAzEsaXz5ZQO+8Z7+fX70a3P+we7YljMVgtBI0jgDxZBNbE30iH8J9bRjFattJcwcUFVIF1PIH+9+Uu9XKqeFMVUCBA2vj0WsYkVVa4iSR5trTcYii5dnlRNlnR2mSIP2yVqoGBfbAZrOnRU/ENcge4Q6tlWu55E3MhgB"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01CqPTqvvPZMVtdMJm4nXJXt",
+      "name": "code_execution",
+      "input": {
+       "code": "for x in r[:5]:\n    c=x['content']\n    import re\n    for m in re.finditer(r'Depreciation, amortization, and other[^\\n]{0,120}',c):print(x['url'][-30:],m.group(0))"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01CqPTqvvPZMVtdMJm4nXJXt",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01WBNZNSYiBm1MTJnqD3Uy51",
+      "name": "code_execution",
+      "input": {
+       "code": "r2=await web_search({\"query\":\"Microsoft 10-K fiscal 2026 cash flows \\\"Depreciation, amortization, and other\\\" 2026 2025 34,153\"})\nr2=json.loads(r2) if isinstance(r2,str) else r2\nfor x in r2[:8]:\n    c=x['content']\n    for m in re.finditer(r'Depreciation, amortization, and other[^\\n]{0,100}',c):print(x['url'][-40:],m.group(0))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01JNJ1xQ6q5hEKffMRKXk3FQ",
+      "name": "web_search",
+      "input": {
+       "query": "Microsoft 10-K fiscal 2026 cash flows \"Depreciation, amortization, and other\" 2026 2025 34,153"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01WBNZNSYiBm1MTJnqD3Uy51"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01JNJ1xQ6q5hEKffMRKXk3FQ",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "MICROSOFT CORP - Form 10-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000789019/000119312526323660/msft-20260630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Microsoft 2025 Annual Report",
+        "url": "https://www.microsoft.com/investor/reports/ar25/index.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "384 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Microsoft Corp. (NASDAQ:MSFT)",
+        "url": "https://www.stock-analysis-on.net/NASDAQ/Company/Microsoft-Corp/Financial-Statement/Statement-of-Cash-Flows",
+        "encrypted_content": "[omitted]",
+        "page_age": "102 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "MICROSOFT CORP (MSFT) SEC EDGAR Filings, CIK 0000789019 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/MSFT",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY26 Q3 - Cash Flows - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q3/cash-flows",
+        "encrypted_content": "[omitted]",
+        "page_age": "194 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY25 Q4 - Cash Flows - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2025-q4/cash-flows",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY26 Q4 - Press Releases - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+        "encrypted_content": "[omitted]",
+        "page_age": "10 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY26 Q2 - Cash Flows - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q2/cash-flows",
+        "encrypted_content": "[omitted]",
+        "page_age": "284 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FY26 Q1 - Cash Flows - Investor Relations - Microsoft",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q1/cash-flows",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01WBNZNSYiBm1MTJnqD3Uy51"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01WBNZNSYiBm1MTJnqD3Uy51",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "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"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01THtaWY91QXR6D32EDWttaG",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Microsoft Corporation",
+       "ticker": "MSFT",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2024",
+         "FY2025",
+         "FY2026"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           245122,
+           281724,
+           331839
+          ],
+          "source": "MSFT 10-K FY2025 (accession 0000950170-25-100235) income statement for FY2024/FY2025; FY2026 331,839 from MSFT FY2026 10-K (accession 0001193125-26-323660) / vectorshift data table"
+         },
+         "operating_income": {
+          "values": [
+           109433,
+           128528,
+           155237
+          ],
+          "source": "MSFT 10-K FY2025 and FY2026 (accession 0001193125-26-323660) income statements"
+         },
+         "d_and_a": {
+          "values": [
+           20958,
+           29433,
+           38534
+          ],
+          "source": "'Depreciation, amortization, and other' in cash flow statement as presented in the FY2026 filing/earnings release (edgar.tools, MSFT FY26 Q4 release). Note: FY2025 10-K originally showed 22,287 (FY24) and 34,153 (FY25); the FY2026 presentation is lower for prior years, so latest basis used for consistency"
+         },
+         "capex": {
+          "values": [
+           44477,
+           64551,
+           115948
+          ],
+          "source": "'Additions to property and equipment' in cash flow statements, FY2025 10-K and FY2026 10-K (accession 0001193125-26-323660); finance leases excluded"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030",
+         "FY2031"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.16,
+          0.14,
+          0.12,
+          0.1,
+          0.08
+         ],
+         "source": "Assumption: FY2026 growth was 17.8% (331,839 vs 281,724) and FY2025 15%; fade gradually toward high-single digit as law of large numbers and AI/cloud capacity ramp mature"
+        },
+        "ebit_margin": {
+         "value": 0.45,
+         "source": "Assumption: FY2026 operating margin 46.8% (155,237/331,839), FY2025 45.6%; set slightly lower to reflect rising depreciation from heavy datacenter capex",
+         "period": "FY2027-FY2031"
+        },
+        "tax_rate": {
+         "value": 0.18,
+         "source": "Assumption: FY2025 effective rate ~17.6% (provision 21,795 / pre-tax income 123,627, FY2025 10-K); rounded up modestly",
+         "period": "FY2027-FY2031"
+        },
+        "da_pct_revenue": {
+         "value": 0.12,
+         "source": "Assumption: FY2026 D&A 38,534/331,839 = 11.6%; rising with the capex base",
+         "period": "FY2027-FY2031"
+        },
+        "capex_pct_revenue": {
+         "value": 0.3,
+         "source": "Assumption: FY2026 capex was 34.9% of revenue (115,948) and FY2025 22.9%; assume elevated but moderating intensity, still above D&A to support growth",
+         "period": "FY2027-FY2031"
+        },
+        "wacc": {
+         "value": 0.09,
+         "source": "Assumption: rf ~4.3% + beta ~1.0 x ERP ~5% gives ~9% cost of equity; debt is minimal (~40bn vs trillions market cap) so WACC ≈ cost of equity; rounded 9%",
+         "period": "forecast"
+        },
+        "terminal_growth": {
+         "value": 0.03,
+         "source": "Assumption: long-run nominal GDP-like growth, below WACC",
+         "period": "terminal"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": -36549,
+         "source": "MSFT balance sheet 6/30/2026 (FY2026 10-K, accession 0001193125-26-323660, via edgar.tools): current portion of LTD 9,227 + LTD 31,067 = 40,294 total debt (no short-term debt, leases excluded) less cash 20,935 less short-term investments 55,908 = -36,549",
+         "period": "FY2026"
+        },
+        "diluted_shares": {
+         "value": 7453,
+         "source": "Weighted average diluted shares FY2026 of 7,453 million (vectorshift table 7,453,000 thousands; MSFT FY2026 10-K)",
+         "period": "FY2026"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 11,
+  "mismatch": 2,
+  "other_line": 1,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {
+   "other": 2
+  },
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "MSFT",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 245122,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 245122000000,
+    "resolved": "MSFT"
+   },
+   {
+    "company": "MSFT",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 281724,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 281724000000,
+    "resolved": "MSFT"
+   },
+   {
+    "company": "MSFT",
+    "metric": "revenue",
+    "period": "FY2026",
+    "value": 331839,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 331839000000,
+    "resolved": "MSFT"
+   },
+   {
+    "company": "MSFT",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 109433,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 109433000000,
+    "resolved": "MSFT"
+   },
+   {
+    "company": "MSFT",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 128528,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 128528000000,
+    "resolved": "MSFT"
+   },
+   {
+    "company": "MSFT",
+    "metric": "operating_income",
+    "period": "FY2026",
+    "value": 155237,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 155237000000,
+    "resolved": "MSFT"
+   },
+   {
+    "company": "MSFT",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 20958,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 15200000000,
+    "resolved": "MSFT"
+   },
+   {
+    "company": "MSFT",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 29433,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:WeightedAverageNumberOfSharesOutstandingBasic + us-gaap:Depreciation in the same filing"
+    ],
+    "filed_value": 22000000000,
+    "resolved": "MSFT",
+    "other_line": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic + us-gaap:Depreciation"
+   },
+   {
+    "company": "MSFT",
+    "metric": "d_and_a",
+    "period": "FY2026",
+    "value": 38534,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2026]",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 34300000000,
+    "resolved": "MSFT"
+   },
+   {
+    "company": "MSFT",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 44477,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 44477000000,
+    "resolved": "MSFT"
+   },
+   {
+    "company": "MSFT",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 64551,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 64551000000,
+    "resolved": "MSFT"
+   },
+   {
+    "company": "MSFT",
+    "metric": "capex",
+    "period": "FY2026",
+    "value": 115948,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 115948000000,
+    "resolved": "MSFT"
+   },
+   {
+    "company": "MSFT",
+    "metric": "net_debt",
+    "period": "FY2026",
+    "value": -36549,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": -36549000000,
+    "resolved": "MSFT"
+   },
+   {
+    "company": "MSFT",
+    "metric": "diluted_shares",
+    "period": "FY2026",
+    "value": 7453,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 7453000000,
+    "resolved": "MSFT"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

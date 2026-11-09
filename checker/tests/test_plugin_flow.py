@@ -137,6 +137,19 @@ def test_spec_errors_are_explained(tmp_path):
         build_dcf(bad, tmp_path / "x.xlsx")
 
 
+def test_wrong_shapes_are_spec_errors_not_crashes(tmp_path):
+    # Main run 2026-11-09: a bridge sent as text crashed the build with a TypeError traceback.
+    for mutate, msg in [
+        (lambda b: b.__setitem__("bridge", "net debt 20,000"), "bridge must be an object"),
+        (lambda b: b["bridge"].__setitem__("net_debt", 20000), "bridge.net_debt must be an object like"),
+        (lambda b: b["assumptions"].__setitem__("wacc", 0.09), "assumptions.wacc must be an object like"),
+    ]:
+        bad = json.loads(json.dumps(SPEC))
+        mutate(bad)
+        with pytest.raises(SpecError, match=msg):
+            build_dcf(bad, tmp_path / "x.xlsx")
+
+
 def test_numeric_year_periods_are_labeled_fy(tmp_path):
     spec = json.loads(json.dumps(SPEC))
     spec["history"]["periods"] = [2023, 2024, 2025]

@@ -1,0 +1,107 @@
+{
+ "kind": "dcf",
+ "company": "Exxon Mobil Corporation",
+ "ticker": "XOM",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     344582,
+     349585,
+     332238
+    ],
+    "source": "us-gaap:Revenues, 10-K acc. 0000034088-26-000045 (via financial_statements)"
+   },
+   "operating_income": {
+    "values": [
+     53632,
+     49869,
+     41871
+    ],
+    "source": "Operating income not reported by the tool (null). Proxy = pretax income (52,783/48,873/41,268) + interest expense (849/996/603), us-gaap tags, acc. 0000034088-26-000045. Reviewer should replace with filed figure."
+   },
+   "d_and_a": {
+    "values": [
+     20641,
+     23442,
+     25993
+    ],
+    "source": "us-gaap:DepreciationDepletionAndAmortization, acc. 0000034088-26-000045"
+   },
+   "capex": {
+    "values": [
+     21919,
+     24306,
+     28358
+    ],
+    "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, acc. 0000034088-26-000045"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026E",
+   "FY2027E",
+   "FY2028E",
+   "FY2029E",
+   "FY2030E"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.02,
+    0.02,
+    0.025,
+    0.025,
+    0.02
+   ],
+   "source": "Assumption: FY2025 revenue fell 5% (332,238 vs 349,585); assume modest recovery near inflation with flat commodity prices and volume growth from Permian/Guyana offset by price normalisation."
+  },
+  "ebit_margin": {
+   "value": 0.125,
+   "period": "FY2026E-FY2030E",
+   "source": "Assumption: held at about FY2025 proxy margin 12.6% (41,871/332,238); below FY2023-24 (15.6%/14.3%) given weaker price environment."
+  },
+  "tax_rate": {
+   "value": 0.28,
+   "source": "Assumption: Damodaran US Oil/Gas (Integrated) effective tax rate 28.2% (betas dataset 2026-01-05)."
+  },
+  "da_pct_revenue": {
+   "value": 0.078,
+   "period": "FY2025",
+   "source": "FY2025 D&A 25,993 / revenue 332,238 = 7.8%"
+  },
+  "capex_pct_revenue": {
+   "value": 0.085,
+   "period": "FY2025",
+   "source": "FY2025 capex 28,358 / revenue 332,238 = 8.5%; consistent with elevated investment programme"
+  },
+  "wacc": {
+   "value": 0.075,
+   "source": "Assumption. CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 0.31 (Damodaran unlevered cash-corrected 0.278, D/E 0.138, tax 25%) x ERP 4.46% (Damodaran US) = CoE ~6.2%; blended WACC ~5.9%. Damodaran's integrated-oil beta looks too low for a cyclical commodity business, so 7.5% is used as a conservative judgement; reviewer should sensitise."
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "source": "Assumption: long-run inflation-like growth, below the 4.86% risk-free rate; conservative for an oil major in energy transition."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 32856,
+   "period": "FY2025",
+   "source": "financial_statements derived net_debt = total debt 43,537 (LT 34,241 + current 9,296) - cash 10,681; no short-term investments; acc. 0000034088-26-000045. Note debt tags may include some finance leases."
+  },
+  "diluted_shares": {
+   "value": 4305,
+   "period": "FY2025",
+   "source": "Weighted diluted shares not reported by the tool (null). Derived = net income 28,844M / diluted EPS 6.70 = ~4,305M (acc. 0000034088-26-000045); approximate. Cover shares outstanding 4,144.9M at 2026-03-31 (acc. 0000034088-26-000067)."
+  }
+ }
+}

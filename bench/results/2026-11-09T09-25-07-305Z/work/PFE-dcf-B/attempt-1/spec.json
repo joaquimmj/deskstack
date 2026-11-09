@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "Pfizer Inc.",
+ "ticker": "PFE",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     59553,
+     63627,
+     62579
+    ],
+    "source": "deskstack financial_statements, us-gaap:Revenues, 10-K accession 0000078003-26-000026"
+   },
+   "operating_income": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: operating income is not reported in the deskstack XBRL data for PFE; not estimated"
+   },
+   "d_and_a": {
+    "values": [
+     6290,
+     7013,
+     6592
+    ],
+    "source": "us-gaap:DepreciationDepletionAndAmortization, accession 0000078003-26-000026"
+   },
+   "capex": {
+    "values": [
+     3907,
+     2909,
+     2629
+    ],
+    "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000078003-26-000026"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0,
+    0.01,
+    0.02,
+    0.025,
+    0.025
+   ],
+   "source": "Assumption: flat near term given FY2025 revenue -1.6% and FY2023-25 CAGR 2.5% (key_metrics); patent-expiry headwinds offset by new launches, recovering to about the CAGR"
+  },
+  "ebit_margin": {
+   "value": 0.2,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: historical EBIT not available from the data tool. A proxy of pretax income plus interest expense (FY2025: 7,520+2,671=10,191, 16.3% of revenue) is depressed by intangible amortization, so I assume 20% with cost-savings; reviewer should replace it with the 10-K operating income."
+  },
+  "tax_rate": {
+   "value": 0.15,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: blended effective rate between the US statutory 21% and Pfizer's lower foreign rates; Damodaran industry effective rate is only 3.0%, so I did not use it"
+  },
+  "da_pct_revenue": {
+   "value": 0.105,
+   "period": "FY2026-FY2030",
+   "source": "FY2025 D&A 6,592 / revenue 62,579 = 10.5% (accession 0000078003-26-000026)"
+  },
+  "capex_pct_revenue": {
+   "value": 0.042,
+   "period": "FY2026-FY2030",
+   "source": "FY2025 capex 2,629 / revenue 62,579 = 4.2% (key_metrics capex_to_revenue)"
+  },
+  "wacc": {
+   "value": 0.088,
+   "period": "current",
+   "source": "CAPM: Rf 4.86% (US 10Y, 2026-11-06) + relevered beta 1.02 x ERP 4.46% (Damodaran) = 9.4% cost of equity. Beta is the unlevered cash-corrected 0.915 relevered at D/E 0.145 and a 21% tax rate. Pre-tax cost of debt 6.02%, 4.5% after tax (Damodaran). Weights 87.3% equity and 12.7% debt (Damodaran industry) give about 8.8%."
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "period": "terminal",
+   "source": "Assumption: long-run nominal growth below the 4.86% risk-free rate and in line with inflation; mature pharma"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 54470,
+   "period": "FY2025",
+   "source": "deskstack derived net_debt = total debt 64,795 (LTD noncurrent 61,641 + current debt 3,154) - cash 1,142 - short-term investments 9,183; accession 0000078003-26-000026"
+  },
+  "diluted_shares": {
+   "value": 5713,
+   "period": "FY2025",
+   "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 5,713,000,000 shares, in millions, accession 0000078003-26-000026"
+  }
+ }
+}

@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "Amazon.com, Inc.",
+ "ticker": "AMZN",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     574785,
+     637959,
+     716924
+    ],
+    "source": "Amazon 10-K FY2025 (acc. 0001018724-26-000004), consolidated statements of operations, total net sales"
+   },
+   "operating_income": {
+    "values": [
+     36852,
+     68593,
+     79975
+    ],
+    "source": "Amazon 10-K FY2025 (0001018724-26-000004), statements of operations"
+   },
+   "d_and_a": {
+    "values": [
+     48663,
+     52795,
+     65756
+    ],
+    "source": "Cash flow statement line 'Depreciation and amortization of property and equipment and capitalized content costs, operating lease assets, and other': FY2023 48,663 and FY2024 52,795 from FY2024 10-K (0001018724-25-000004); FY2025 65,756 from Q4 2025 earnings release (ir.aboutamazon.com)"
+   },
+   "capex": {
+    "values": [
+     52729,
+     82999,
+     131819
+    ],
+    "source": "Cash flow statement 'Purchases of property and equipment' (gross, before proceeds from sales/incentives), FY2025 Annual Report / 10-K 0001018724-26-000004"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.11,
+    0.1,
+    0.09,
+    0.08,
+    0.07
+   ],
+   "source": "Assumption: FY2025 growth was 12.4% (716,924 vs 637,959), FY2024 11.0%; AWS/ads mix supports double-digit growth, fading toward maturity as base grows."
+  },
+  "ebit_margin": {
+   "value": 0.12,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 margin 11.2% (79,975/716,924), FY2024 10.8%; modest expansion from AWS and advertising mix, offset by heavy AI/Leo cost and depreciation."
+  },
+  "tax_rate": {
+   "value": 0.19,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 effective rate ~19.6% (provision 19,087 / pre-tax income 97,311 per 10-K); rounded to 19%."
+  },
+  "da_pct_revenue": {
+   "value": 0.095,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 D&A was 9.2% of revenue (65,756/716,924) and rising with capex build-out; 9.5% used."
+  },
+  "capex_pct_revenue": {
+   "value": 0.16,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 gross capex was 18.4% of revenue (131,819/716,924), FY2024 13.0%; assume intensity eases gradually to 16% average as AI buildout normalizes. Flat across years for simplicity; reviewer should consider a declining path."
+  },
+  "wacc": {
+   "value": 0.09,
+   "period": "n/a",
+   "source": "Assumption: CAPM-style estimate, beta ~1.2-1.3, risk-free ~4.2%, ERP ~5% gives cost of equity ~10%; minimal debt weight gives WACC ~9%. Not from a data provider."
+  },
+  "terminal_growth": {
+   "value": 0.03,
+   "period": "n/a",
+   "source": "Assumption: roughly long-run nominal GDP growth, below risk-free rate."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": -54633,
+   "period": "FY2025 (Dec 31, 2025)",
+   "source": "10-K FY2025 balance sheet/debt note: long-term debt 65,648 + current portion 2,748 = 68,396, less cash 86,810, less marketable securities 36,219; excludes lease liabilities. Negative = net cash."
+  },
+  "diluted_shares": {
+   "value": 10827,
+   "period": "FY2025",
+   "source": "FY2025 Annual Report: weighted-average diluted shares 10,827 million"
+  }
+ }
+}

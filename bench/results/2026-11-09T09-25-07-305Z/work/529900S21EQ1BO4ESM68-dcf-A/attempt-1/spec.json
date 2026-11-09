@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "TotalEnergies SE",
+ "ticker": "529900S21EQ1BO4ESM68",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2022",
+   "FY2023",
+   "FY2024"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     263310,
+     218945,
+     195610
+    ],
+    "source": "Revenues from sales, consolidated statement of income: FY2022 from 4Q22 results release (8 Feb 2023); FY2023 and FY2024 from 4Q24/FY2024 results release (5 Feb 2025). USD millions."
+   },
+   "operating_income": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found - TotalEnergies does not report an IFRS operating income line and I could not retrieve the full-year income statements (search limit reached). Reviewer to fill from the URD."
+   },
+   "d_and_a": {
+    "values": [
+     null,
+     13818,
+     13107
+    ],
+    "source": "Depreciation, depletion, amortization and impairment, FY2024 13,107 and FY2023 13,818, TotalEnergies Q4 2024 accounts PDF (cash-flow statement). FY2022 not found."
+   },
+   "capex": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found for full years. Only 9M figures retrieved: additions to intangible assets and PP&E 9M2024 11,229 and 9M2023 12,646 (6-K, Q3 2024 accounts). Reviewer to fill."
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2025",
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029"
+  ],
+  "revenue_growth": {
+   "values": [
+    -0.03,
+    0,
+    0.01,
+    0.015,
+    0.015
+   ],
+   "source": "Assumption: FY2024 revenue fell 10.7% (218,945 to 195,610) on lower oil/gas prices; assume a further mild decline in 2025 on softer prices, then flat and low growth in line with price normalisation and LNG/electricity volume growth."
+  },
+  "ebit_margin": {
+   "value": 0.11,
+   "source": "Assumption, not derived from filed EBIT (not found). Rough placeholder for an integrated major at mid-cycle prices; reviewer to check against FY2024 URD."
+  },
+  "tax_rate": {
+   "value": 0.38,
+   "source": "Assumption: TotalEnergies' effective tax rate is high because of upstream production taxes in high-tax jurisdictions. Not verified against filings."
+  },
+  "da_pct_revenue": {
+   "value": 0.067,
+   "source": "FY2024 D&A 13,107 / revenue 195,610 = 6.7% (Q4 2024 accounts PDF and results release)."
+  },
+  "capex_pct_revenue": {
+   "value": 0.08,
+   "source": "Assumption: 9M2024 capex of 11,229 against 9M2024 revenues of about 148,495 is about 7.6%. Rounded up to 8% for the 2025 investment plan. Full-year capex not found."
+  },
+  "wacc": {
+   "value": 0.085,
+   "source": "Assumption: integrated oil and gas major, beta around 0.9, risk-free rate about 3%, ERP about 5.5%, modest leverage (gearing 8.3% at FY2024), USD cash flows."
+  },
+  "terminal_growth": {
+   "value": 0.01,
+   "source": "Assumption: below long-run inflation to reflect long-term energy transition risk to hydrocarbons."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 11924,
+   "source": "FY2024 year-end from the 4Q24 release net debt table: current borrowings 7,929 + other current financial liabilities 664 + non-current financial debt 35,711 (excludes leases) - cash 25,844 - current financial assets 6,536 = 11,924. The company's reported net debt is 10,930; it also nets non-current financial assets of 1,027 and held-for-sale items of 33.",
+   "period": "FY2024"
+  },
+  "diluted_shares": {
+   "value": 2315,
+   "source": "Weighted average diluted shares for 2024, 2,315 million, from the 4Q24 results release (adjusted diluted EPS $7.77). Millions of shares.",
+   "period": "FY2024"
+  }
+ }
+}

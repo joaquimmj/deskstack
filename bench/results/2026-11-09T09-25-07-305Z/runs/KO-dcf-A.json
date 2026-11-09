@@ -1,0 +1,1738 @@
+{
+ "company": "KO",
+ "task": "dcf",
+ "arm": "A",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "The Coca-Cola Company",
+   "ticker": "KO",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       45754,
+       47061,
+       47941
+      ],
+      "source": "KO 10-K FY2023 (acc. 0000021344-24-000009); FY2025 results release 2/10/26 and 10-K 0001628280-26-010047"
+     },
+     "operating_income": {
+      "values": [
+       11311,
+       9992,
+       13762
+      ],
+      "source": "KO 10-K FY2023/FY2024 (0000021344-25-000011) income statements; FY2025 results release 2/10/26 / 10-K 0001628280-26-010047"
+     },
+     "d_and_a": {
+      "values": [
+       1128,
+       1075,
+       1050
+      ],
+      "source": "KO 10-K FY2025 (0001628280-26-010047) cash flow statement"
+     },
+     "capex": {
+      "values": [
+       1852,
+       2064,
+       2112
+      ],
+      "source": "KO 10-K purchases of property, plant and equipment: FY2024 and FY2025 10-Ks"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.045,
+      0.045,
+      0.04,
+      0.04,
+      0.035
+     ],
+     "source": "Assumption: FY2025 growth 1.9% reported (organic higher, FX/refranchising drag); mid-single-digit organic pricing/mix growth fading toward long-term nominal growth. Analyst judgement, not company guidance."
+    },
+    "ebit_margin": {
+     "value": 0.3,
+     "period": "FY2026-30",
+     "source": "Assumption: FY2025 reported margin 28.7% (13,762/47,941) incl. 1,261 other operating charges; FY2023 24.7%, FY2024 21.2% (large charges). 30% assumes charges normalise, approx. comparable margin level."
+    },
+    "tax_rate": {
+     "value": 0.2,
+     "period": "FY2026-30",
+     "source": "Assumption: KO effective tax rate typically ~18-21%; 20% used. Not taken from a specific filing figure."
+    },
+    "da_pct_revenue": {
+     "value": 0.022,
+     "period": "FY2026-30",
+     "source": "FY2025 D&A 1,050/47,941 = 2.2%; held flat"
+    },
+    "capex_pct_revenue": {
+     "value": 0.044,
+     "period": "FY2026-30",
+     "source": "FY2025 capex 2,112/47,941 = 4.4%; FY2024 4.4%; held flat"
+    },
+    "wacc": {
+     "value": 0.07,
+     "period": "FY2026-30",
+     "source": "Assumption: low-beta (~0.6) staple, rf ~4.2%, ERP ~5%, modest leverage and cost of debt ~4.5-5% pre-tax gives ~6.5-7.5%; 7.0% used."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "period": "terminal",
+     "source": "Assumption: roughly long-run inflation/nominal GDP, below risk-free rate"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 31620,
+     "period": "FY2025 (Dec 31, 2025)",
+     "source": "KO FY2025 balance sheet (Q4 release 2/10/26 / ARS): loans and notes payable 1,551 + current maturities of LTD 1,822 + LTD 42,119 = 45,492, less cash 10,270 and short-term investments 3,602 (13,872). Marketable securities (1,934) excluded per convention."
+    },
+    "diluted_shares": {
+     "value": 4313,
+     "period": "FY2025",
+     "source": "KO Q4/FY2025 earnings release 2/10/26: average shares outstanding assuming dilution, full year 2025 = 4,313 million"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "The Coca-Cola Company",
+   "ticker": "KO",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       45754,
+       47061,
+       47941
+      ],
+      "source": "KO 10-K FY2023 (acc. 0000021344-24-000009); FY2025 results release 2/10/26 and 10-K 0001628280-26-010047"
+     },
+     "operating_income": {
+      "values": [
+       11311,
+       9992,
+       13762
+      ],
+      "source": "KO 10-K FY2023/FY2024 (0000021344-25-000011) income statements; FY2025 results release 2/10/26 / 10-K 0001628280-26-010047"
+     },
+     "d_and_a": {
+      "values": [
+       1128,
+       1075,
+       1050
+      ],
+      "source": "KO 10-K FY2025 (0001628280-26-010047) cash flow statement"
+     },
+     "capex": {
+      "values": [
+       1852,
+       2064,
+       2112
+      ],
+      "source": "KO 10-K purchases of property, plant and equipment: FY2024 and FY2025 10-Ks"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.045,
+      0.045,
+      0.04,
+      0.04,
+      0.035
+     ],
+     "source": "Assumption: FY2025 growth 1.9% reported (organic higher, FX/refranchising drag); mid-single-digit organic pricing/mix growth fading toward long-term nominal growth. Analyst judgement, not company guidance."
+    },
+    "ebit_margin": {
+     "value": 0.3,
+     "period": "FY2026-30",
+     "source": "Assumption: FY2025 reported margin 28.7% (13,762/47,941) incl. 1,261 other operating charges; FY2023 24.7%, FY2024 21.2% (large charges). 30% assumes charges normalise, approx. comparable margin level."
+    },
+    "tax_rate": {
+     "value": 0.2,
+     "period": "FY2026-30",
+     "source": "Assumption: KO effective tax rate typically ~18-21%; 20% used. Not taken from a specific filing figure."
+    },
+    "da_pct_revenue": {
+     "value": 0.022,
+     "period": "FY2026-30",
+     "source": "FY2025 D&A 1,050/47,941 = 2.2%; held flat"
+    },
+    "capex_pct_revenue": {
+     "value": 0.044,
+     "period": "FY2026-30",
+     "source": "FY2025 capex 2,112/47,941 = 4.4%; FY2024 4.4%; held flat"
+    },
+    "wacc": {
+     "value": 0.07,
+     "period": "FY2026-30",
+     "source": "Assumption: low-beta (~0.6) staple, rf ~4.2%, ERP ~5%, modest leverage and cost of debt ~4.5-5% pre-tax gives ~6.5-7.5%; 7.0% used."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "period": "terminal",
+     "source": "Assumption: roughly long-run inflation/nominal GDP, below risk-free rate"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 31620,
+     "period": "FY2025 (Dec 31, 2025)",
+     "source": "KO FY2025 balance sheet (Q4 release 2/10/26 / ARS): loans and notes payable 1,551 + current maturities of LTD 1,822 + LTD 42,119 = 45,492, less cash 10,270 and short-term investments 3,602 (13,872). Marketable securities (1,934) excluded per convention."
+    },
+    "diluted_shares": {
+     "value": 4313,
+     "period": "FY2025",
+     "source": "KO Q4/FY2025 earnings release 2/10/26: average shares outstanding assuming dilution, full year 2025 = 4,313 million"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 1,
+  "usage": {
+   "input_tokens": 18,
+   "output_tokens": 4078,
+   "cache_creation_input_tokens": 20512,
+   "cache_read_input_tokens": 82848,
+   "server_tool_use": {
+    "web_search_requests": 11
+   }
+  },
+  "cost": 0.21866560000000002,
+  "seconds": 56.869,
+  "tool_calls": {
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: web_search (public web pages). No other data source is available.\n\nBuild a quick unlevered DCF for The Coca-Cola Company (identifier: KO).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 18,
+     "cache_creation_input_tokens": 20512,
+     "cache_read_input_tokens": 82848,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 20512,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 4078,
+     "output_tokens_details": {
+      "thinking_tokens": 623
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard",
+     "server_tool_use": {
+      "web_search_requests": 11,
+      "web_fetch_requests": 0
+     }
+    },
+    "cost": 0.21866560000000002,
+    "content": [
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_011Hvwr3C9NjwXnbscEYMq3F",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":\"Coca-Cola 10-K fiscal 2025 net operating revenues operating income depreciation amortization purchases of property plant equipment\"})\nfor x in r[:6]:print(x['url'],x['content'][:800].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01MtDihR8FCC9yuNV335ApbT",
+      "name": "web_search",
+      "input": {
+       "query": "Coca-Cola 10-K fiscal 2025 net operating revenues operating income depreciation amortization purchases of property plant equipment"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_011Hvwr3C9NjwXnbscEYMq3F"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01MtDihR8FCC9yuNV335ApbT",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 20, 2026 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-26-010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "262 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Financials: $47.9B Revenue in 2025",
+        "url": "https://fourweekmba.com/coca-cola-financials/",
+        "encrypted_content": "[omitted]",
+        "page_age": "22 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "2025 Annual Report - Coca-Cola Consolidated",
+        "url": "https://stocklight.com/stocks/us/nasdaq-coke/coca-cola-consolidated/annual-reports/nasdaq-coke-2025-10K-25645602.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "627 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola 10-K Analysis 2026: Dividend Cash Gap",
+        "url": "https://www.geminiq.com/blog/coca-cola-10k-analysis-2026",
+        "encrypted_content": "[omitted]",
+        "page_age": "42 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO SEC 10-K Report — TradingView News",
+        "url": "https://www.tradingview.com/news/tradingview:263d6a121b1a3:0-coca-cola-co-sec-10-k-report/",
+        "encrypted_content": "[omitted]",
+        "page_age": "261 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Coca-Cola Company (via Public) / Annual Report for Fiscal Year Ending December 31, 2025 (Form 10-K)",
+        "url": "https://www.publicnow.com/view/2720FC6181EA09D27E233A77A9C859FE95D852E8?1771602440=",
+        "encrypted_content": "[omitted]",
+        "page_age": "262 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549",
+        "url": "https://investors.coca-colacompany.com/_assets/_aa0e7f50ef267e67c2e0fa7e2f6c4a8b/cocacolacompany/db/1007/11020/document/The+Coca-Cola+Company+2025+10-K.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "262 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola HBC",
+        "url": "https://en.wikipedia.org/wiki/Coca-Cola_HBC",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_011Hvwr3C9NjwXnbscEYMq3F"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_011Hvwr3C9NjwXnbscEYMq3F",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDBNdi3GH5VQf91gudRoMhPlwpwZ2N2qvJ0XIIjBb/SSbCsEUB7qbyflLI3rYTPI762T9f/LdGd8+5TOxB+P482qC0ix03JWHEzk3MpoqElWpQBRSKuep2N7n4Tz9/HtwPxgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_011Hvwr3C9NjwXnbscEYMq3F/cell.py\", line 9, in <module>\n    for x in r[:6]:print(x['url'],x['content'][:800].replace(\"\\n\",\" \"))\n                         ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_018fmYtAQJ7mvEMU6qPEeahR",
+      "name": "code_execution",
+      "input": {
+       "code": "print(str(r)[:1500])"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_018fmYtAQJ7mvEMU6qPEeahR",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "[{\"type\": \"web_search_result\", \"title\": \"COCA COLA CO - Form 10-K - FY2025\", \"url\": \"https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm\", \"content\": \"- United States \\u2014 Property, plant and equipment \\u2014 net \\u2014 as of 2025-12-31: $4,825 million\\n- United States \\u2014 Property, plant and equipment \\u2014 net \\u2014 as of 2024-12-31: $4,364 million\\n- International \\u2014 Property, plant and equipment \\u2014 net \\u2014 as of 2025-12-31: $4,788 million\\n- International \\u2014 Property, plant and equipment \\u2014 net \\u2014 as of 2024-12-31: $5,939 million\\n- Property, plant and equipment \\u2014 net1 \\u2014 as of 2025-12-31: $9,613 million\\n- Property, plant and equipment \\u2014 net1 \\u2014 as of 2024-12-31: $10,303 million\\n\\n1 Property, plant and equipment \\u2014 net in India represented 17% and 13% of consolidated property, plant and equipment \\u2014 net as of December 31, 2025 and 2024, respectively.\\n\\n|  | EMEA | LatinAmerica | NorthAmerica | Asia Pacific | BottlingInvestments | Operating Segments Total | Corporate | Eliminations | Consolidated |\\n\\n| Net operating revenues: |  |  |  |  |  |  |  |  |  |\\n\\n| Total net operating revenues | 11,513 | 6,334 | 19,586 | 5,638 | 5,735 | 48,806 | 144 | (1,009) | 47,941 |\\n\\n| Other operating charges | \\u2014 | 44 | 960 | 41 | \\u2014 | 1,045 | 216 | \\u2014 | 1,261 |\\n| Operating income (loss) | $4,298 | $3,742 | $5,070 | $2,042 | $426 | $15,578 | $(1,816) | $\\u2014 | $13,762 |\\n| Interest inco\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS1AUKEAgTGAI4AUIIdGhpbmtpbmcSDIQJ+Zl9DQIVTqt6nxoMwjEMNgYf66EDoZJtIjBB9rgBVTx+RSd62MildyPIj0g5npm3tqYctkia3mVTyR8Js8bAOCgLdcdVSN02p7gq8QS6/ftfhDshd53vdq4kwmLfp7A/yGt2Ah3o00bvio85/JbrgnDYuVFC97FF1DYlLxjZgfB0HrrTb9rkTZ+n1K8/n4ZBHqELVEW1LzjEBkTwwESiS1Q07xGQDfBmIWuXiTNlLDodHD+o9LSh6KXPK4XG4on1sKasS61oyZhg8e7B2bHflkYnmbYQsEb2ByPn4rzvdWnu6A3WkIVs/aIaslnWN3C/ZHji1tIaiAYD7hMR0a2grxDlBQwEQBKfhQFcDQQg/+yodSY33mB3BcWPMDFxO+I2wkRmeYxCDU+0o+i6ZlSNLnH1k3lYc5lHUWaypGR7w3CGt0BOjLvmQvwASceemNMYejAi42T3g+maxtLY6HDm9YYcG0+XLj/2MoNQkQ7dOGi01PE07fMXEd2yQridhWmzpV4DToPwh/aJ8qu/xjbXFRl5RGDgZaSj06pUH74f6uY+rbiQDcnZuRJrlrynb7trpiSW0EGeI6YFVftQu/EUJNEFdaRDRA2Pnh2SKtuaZWB1UfETn2MHurkxCFPSMs9aoYWRz9mXmUaBMdqnk+wb4kpF5Er2NcBdCVpCp4tHHsNgYqGWjrGSkmyTNPa/lShe+IIr4popDlhtLhHRy86uCjCgRNmT0OsEPfB3Ci3wQOTrq54w4s9Q7RS/OImGKU/93D0KoElUY8VZ2ZkqkzZLHBoxdOXyfvEDWWnmSIHE2n0kVwX04yh3frq+69h2yiuumuulebubcasX3DcyUXV04HB4kEMzbpMFjVstAFUkp9Zgo0egHHmM/KW9ps8v0ZW49u9oDuipjRvfwJGYTdgq0DErLKgvq0R4hXs90sObGAE="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01GNTqFu2S6XgkPJFHRTuuw2",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"Coca-Cola 2025 10-K consolidated statements of cash flows depreciation and amortization purchases of property, plant and equipment 2025 2024 2023\",\"Coca-Cola 10-K 2025 net operating revenues operating income 2024 2023 average shares outstanding diluted\",\"Coca-Cola December 31 2025 balance sheet cash short-term investments marketable securities loans and notes payable long-term debt\"]:\n  r=await web_search({\"query\":q})\n  import re\n  for x in r[:6]:\n    if 'sec.gov' in x['url'] or 'ko' in x['url']:\n      c=x['content']\n      for k in ['Depreciation and amortization','Purchases of property','Net operating revenues','Operating income','diluted','Cash and cash equivalents','Short-term investments','Marketable securities','Loans and notes','Current maturities','Long-term debt']:\n        for m in re.finditer(k,c):\n          print(x['url'][-25:],c[m.start():m.start()+160].replace(\"\\n\",\" \"));break"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01P2UrSJGNbU1GU3JQAY2smK",
+      "name": "web_search",
+      "input": {
+       "query": "Coca-Cola 2025 10-K consolidated statements of cash flows depreciation and amortization purchases of property, plant and equipment 2025 2024 2023"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01GNTqFu2S6XgkPJFHRTuuw2"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01P2UrSJGNbU1GU3JQAY2smK",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/ko-20231231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 20, 2025 - 10-K: Annual report pursuant to Section 13 and 15(d)",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0000021344-25-000011/ko-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "627 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "October 23, 2025 - 10-Q: Quarterly report [Sections 13 or 15(d)]",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-25-046054/ko-20250926.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "382 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 20, 2026 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-26-010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "262 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Consolidated (COKE) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/coke/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0000021344-25-000029/0000021344-25-000029.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "557 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Coca-Cola Company (KO) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/ko/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Coca-Cola Company (TSX:COLA) Cash Flow Statement",
+        "url": "https://stockanalysis.com/quote/tsx/COLA/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01GNTqFu2S6XgkPJFHRTuuw2"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01GNTqFu2S6XgkPJFHRTuuw2",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDMmZ1tgnWifkNJG98BoMkCO396ZYTjYJEYGWIjBV59uY99lkrzXY9Cv8/qNxj0avL/e/J5JWUPRArdt4p9TSZHEAXLeoENBii3wp5L0qEgwlYlJWtJrpLbC7P1I1XIsF6hgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01GNTqFu2S6XgkPJFHRTuuw2/cell.py\", line 12, in <module>\n    if 'sec.gov' in x['url'] or 'ko' in x['url']:\n                    ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "text",
+      "text": "Results are sometimes strings; handle."
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01R1cevi2ovHXpyytMnufiKE",
+      "name": "code_execution",
+      "input": {
+       "code": "import re\nfor q in [\"Coca-Cola 2025 10-K consolidated statements of cash flows depreciation and amortization purchases of property, plant and equipment 2025 2024 2023\",\"Coca-Cola 10-K 2025 net operating revenues operating income 2024 2023 average shares outstanding diluted\",\"Coca-Cola December 31 2025 balance sheet cash short-term investments marketable securities loans and notes payable long-term debt\"]:\n  r=await web_search({\"query\":q})\n  if isinstance(r,str): print(r[:300]);continue\n  for x in r[:6]:\n    if not isinstance(x,dict):continue\n    c=x['content'];print(x['url'])\n    for k in ['Depreciation and amortization','Purchases of property','Net operating revenues','Operating income','diluted','Cash and cash equivalents','Short-term investments','Marketable securities','Loans and notes','Current maturities','Long-term debt']:\n        for m in re.finditer(k,c):\n          print('  ',c[m.start():m.start()+160].replace(\"\\n\",\" \"));break"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01F2MBSt6FoByZxH9o4ESeTc",
+      "name": "web_search",
+      "input": {
+       "query": "Coca-Cola 2025 10-K consolidated statements of cash flows depreciation and amortization purchases of property, plant and equipment 2025 2024 2023"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01R1cevi2ovHXpyytMnufiKE"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01F2MBSt6FoByZxH9o4ESeTc",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/ko-20231231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 20, 2025 - 10-K: Annual report pursuant to Section 13 and 15(d)",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0000021344-25-000011/ko-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "627 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "October 23, 2025 - 10-Q: Quarterly report [Sections 13 or 15(d)]",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-25-046054/ko-20250926.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "382 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 20, 2026 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-26-010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "262 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Consolidated (COKE) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/coke/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0000021344-25-000029/0000021344-25-000029.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "557 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Coca-Cola Company (KO) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/ko/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "coke-20241231",
+        "url": "https://www.sec.gov/Archives/edgar/data/317540/000031754025000025/coke-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "627 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01R1cevi2ovHXpyytMnufiKE"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01RKtzFFgj1kLtLptyNTkRjD",
+      "name": "web_search",
+      "input": {
+       "query": "Coca-Cola 10-K 2025 net operating revenues operating income 2024 2023 average shares outstanding diluted"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01R1cevi2ovHXpyytMnufiKE"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01RKtzFFgj1kLtLptyNTkRjD",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/ko-20231231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 20, 2026 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-26-010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "262 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 20, 2025 - 10-K: Annual report pursuant to Section 13 and 15(d)",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0000021344-25-000011/ko-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "627 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO SEC 10-K Report — TradingView News",
+        "url": "https://www.tradingview.com/news/tradingview:263d6a121b1a3:0-coca-cola-co-sec-10-k-report/",
+        "encrypted_content": "[omitted]",
+        "page_age": "261 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "2025 Annual Report - Coca-Cola Consolidated",
+        "url": "https://stocklight.com/stocks/us/nasdaq-coke/coca-cola-consolidated/annual-reports/nasdaq-coke-2025-10K-25645602.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "627 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Coca-Cola Company (via Public) / Annual Report for Fiscal Year Ending December 31, 2025 (Form 10-K)",
+        "url": "https://www.publicnow.com/view/2720FC6181EA09D27E233A77A9C859FE95D852E8?1771602440=",
+        "encrypted_content": "[omitted]",
+        "page_age": "262 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Company (The) (KO) FY2025 10-K Review",
+        "url": "https://app.dhicapitalgroup.com/research/KO",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01R1cevi2ovHXpyytMnufiKE"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_016TujepfhsVbUeHrWZhHJth",
+      "name": "web_search",
+      "input": {
+       "query": "Coca-Cola December 31 2025 balance sheet cash short-term investments marketable securities loans and notes payable long-term debt"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01R1cevi2ovHXpyytMnufiKE"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_016TujepfhsVbUeHrWZhHJth",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000110465926028252/tm263575d2_ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 20, 2026 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-26-010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "262 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Reports Fourth Quarter and Full Year 2025 Results",
+        "url": "https://investors.coca-colacompany.com/_assets/_113922efea4553381957ab7c133a08d5/cocacolacompany/db/880/11088/earnings_release/Coca-Cola+Q4+2025+Earnings+Release_Full+Release_2.10.26.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "272 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0000021344-25-000054/0000021344-25-000054.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "475 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FINANCIAL STATEMENTS Inside this section 126 Independent auditor's report 141",
+        "url": "https://www.cocacolaep.com/assets/Global/Investors/2025-Annual-Report/Financial-Statements.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "241 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca Cola Co (KO) Annual Balance Sheets Statement - Rolling Periods through Dec 31 2025",
+        "url": "https://csimarket.com/stocks/balance.php?annual=&code=KO",
+        "encrypted_content": "[omitted]",
+        "page_age": "71 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Co. (NYSE:KO)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Coca-Cola-Co/Analysis/Debt",
+        "encrypted_content": "[omitted]",
+        "page_age": "261 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Co.",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Coca-Cola-Co/Common-Size/Liabilities-and-Stockholders-Equity",
+        "encrypted_content": "[omitted]",
+        "page_age": "261 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01R1cevi2ovHXpyytMnufiKE"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01R1cevi2ovHXpyytMnufiKE",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "EpcICioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDKVq2rbToY43t3E8dhoMH6UzrK0fkE8kx9hTIjCgFZJG0Fv5yWQPtQ/2cj6ZzYqvo+4nXd0gvkJbBC8IkID8ufxtTGOaIRXLsiUm9k4qmgehD6xe7Rijk2yCLKiOMIhU8ZHqNHD6Z92Wl2EAL3WxB5tu6dYohQnWwHFkWvnQQfpwFoYZEPInJlPDZj6zA2tZT5gv6ocMJLafY00mKKTX6CvoMUyJjJQRvMXIB/kamYRoEgdC/Yx8I99JeXjrxmCxLnsxgZXYx5PG8tBFtX2igIA8L9mZdjRiwyzumKWs7tVkBOgckB9lid6zdB0wp9zMIlCtp5PSpUQMa4UvCjZ5B/5kYut+9ap4azxvCuRWpZlWQ11I8jhebZoep4LYc6oMKXofcVizB0umUV6sCIuiXjMBRt6yR5R9ftjuzfKYQo5kTVFbFn5mHP3YcvtINS87IvdBN0hw2iofj7tM71fzTyQwKmA3hzpLkXC1jvyB7Xoipemw7d7K6IhYbwZFg/dSTh/km1wjdxJT58e74WKbJZuojWvImBl21eNCL9U8H/3AEYtRSo0PW7M374W+A2lwTBelElfS7oH697wr2GwdZ/6qjqX6XVJFR17cbDUzz4glodzlKipkAoEhHrU1sWEfszWsWOrgXFItKdsEZsC4akn/clNFZA0oZmgKEMz5UY0iANG3Xdox73JC2Xza/sWHxTbzAnanffjy5eWcDJXrhwsOx6nVO8yzzgkVEJX8yb1hJETFkMo5QTiKhUuvAR9IkszS6C156OsLkRAowbWosrBteP2ofZXvjxyljezD0om0a82teH6kBcYf0gs64shv14wB0J6lX/f/sjgXBf117e8EB8ul3V20G/dDgDs2TQQUXfvNpbTOY1ZR6nVsuKVYog5jORuR2dcnr2mWmyQPhfTpMTPztf8L2W2zRiOkzeTynVjs+v5o8t+rHwh8iMmzK3JHjxfP9QjNarafk/ui04VGsm1Cn+YA8PqmOUUmS99QTjAYv8xTtYGwLdeXXVzYneOGpThXiSLppk+lj50WFqAig5RtnQIiPZqIIvBkY13V7vA10INSDXJEeV1yliFrW+WL+M6WQYp9tUKYqO7OjHPLY9jiH5KNyK/K37GC2blkoeHrgMjgW/gxNPtzKLEqwYun8YxUmU8isp2qbpOdQpKP9fxau62Qh/ozERY2P+l0E7JtT7vD9IN+8oItkXODB5I0N/I1b3UkAb7IH0gE4PJF/2+HNJoibxEYWHPJJHi9dgYCMCcoU8U802zKAMsjkNt2dUCjPqnpt4msStXAXjVRbw2tQK1F59v725BY5cOVAGHzUOOXMWXeGAM=",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "text",
+      "text": "Results are strings (JSON). Parse."
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_017X5M34j4Pyyw2Jfvq3Bcwm",
+      "name": "code_execution",
+      "input": {
+       "code": "import json\nout=[]\nfor q in [\"Coca-Cola 2025 10-K consolidated statements of cash flows depreciation and amortization purchases of property, plant and equipment 2025 2024 2023\",\"Coca-Cola 2025 annual report consolidated statements of income net operating revenues operating income average shares outstanding assuming dilution\",\"Coca-Cola December 31 2025 balance sheet cash short-term investments marketable securities loans and notes payable long-term debt\"]:\n  r=json.loads(await web_search({\"query\":q}))\n  for x in r[:6]:\n    c=x['content']\n    for k in ['Depreciation and amortization','Purchases of property','Net operating revenues  ','Operating income','assuming dilution','Cash and cash equivalents','Short-term investments','Marketable securities','Loans and notes','Current maturities','Long-term debt']:\n        for m in re.finditer(k,c):\n          print(x['url'][-22:],c[m.start():m.start()+200].replace(\"\\n\",\" \"));break"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01JwRbb3PehNUyu2UBUibW69",
+      "name": "web_search",
+      "input": {
+       "query": "Coca-Cola 2025 10-K consolidated statements of cash flows depreciation and amortization purchases of property, plant and equipment 2025 2024 2023"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_017X5M34j4Pyyw2Jfvq3Bcwm"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01JwRbb3PehNUyu2UBUibW69",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/ko-20231231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 20, 2025 - 10-K: Annual report pursuant to Section 13 and 15(d)",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0000021344-25-000011/ko-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "627 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 20, 2026 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-26-010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "262 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Consolidated (COKE) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/coke/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0000021344-25-000029/0000021344-25-000029.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "557 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "October 23, 2025 - 10-Q: Quarterly report [Sections 13 or 15(d)]",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-25-046054/ko-20250926.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "382 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Coca-Cola Company (KO) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/ko/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Coca-Cola Company (TSX:COLA) Cash Flow Statement",
+        "url": "https://stockanalysis.com/quote/tsx/COLA/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_017X5M34j4Pyyw2Jfvq3Bcwm"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01TARuuPHi14w2bnscNt3qg6",
+      "name": "web_search",
+      "input": {
+       "query": "Coca-Cola 2025 annual report consolidated statements of income net operating revenues operating income average shares outstanding assuming dilution"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_017X5M34j4Pyyw2Jfvq3Bcwm"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01TARuuPHi14w2bnscNt3qg6",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Consolidated Reports Fourth Quarter and Fiscal Year 2025 Results",
+        "url": "https://cocacolabottlingcoconsolidated.gcs-web.com/news-releases/news-release-details/coca-cola-consolidated-reports-fourth-quarter-and-fiscal-year-4",
+        "encrypted_content": "[omitted]",
+        "page_age": "263 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "October 21, 2025 - EX-99.1 - 8-K: Current report",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-25-045577/a2025q3earningsreleaseex-9.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "384 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "July 22, 2025 - EX-99.1 - 8-K: Current report",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0000021344-25-000054/a2025q2earningsreleaseex-9.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "475 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Reports Third Quarter 2025 Results Global Unit Case Volume Grew 1%",
+        "url": "https://investors.coca-colacompany.com/_assets/_d751f19d2b308b0aaf2006424bb44fad/cocacolacompany/db/880/11074/earnings_release/Coca-Cola+2025+Q3+Earnings+Release+FINAL.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "384 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 10, 2026 - EX-99.1 - 8-K: Current report",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-26-006642/a2025q4earningsreleaseex-9.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "272 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "April 29, 2025 - EX-99.1 - 8-K: Current report",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0000021344-25-000024/a2025q1earningsreleaseex-9.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "559 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://investor.cokeconsolidated.com/static-files/aa47534a-1022-4f7a-84da-1895cb080bb1",
+        "encrypted_content": "[omitted]",
+        "page_age": "558 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0000021344-25-000029/0000021344-25-000029.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "557 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 8-K - FY2016",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000021344/000002134416000046/a2015q4earningsreleaseex-9.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_017X5M34j4Pyyw2Jfvq3Bcwm"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_013Kp91xYLehxMyhrS5ir3yj",
+      "name": "web_search",
+      "input": {
+       "query": "Coca-Cola December 31 2025 balance sheet cash short-term investments marketable securities loans and notes payable long-term debt"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_017X5M34j4Pyyw2Jfvq3Bcwm"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_013Kp91xYLehxMyhrS5ir3yj",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000110465926028252/tm263575d2_ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 20, 2026 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-26-010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "262 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Reports Fourth Quarter and Full Year 2025 Results",
+        "url": "https://investors.coca-colacompany.com/_assets/_113922efea4553381957ab7c133a08d5/cocacolacompany/db/880/11088/earnings_release/Coca-Cola+Q4+2025+Earnings+Release_Full+Release_2.10.26.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "272 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0000021344-25-000054/0000021344-25-000054.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "475 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FINANCIAL STATEMENTS Inside this section 126 Independent auditor's report 141",
+        "url": "https://www.cocacolaep.com/assets/Global/Investors/2025-Annual-Report/Financial-Statements.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "241 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca Cola Co (KO) Annual Balance Sheets Statement - Rolling Periods through Dec 31 2025",
+        "url": "https://csimarket.com/stocks/balance.php?annual=&code=KO",
+        "encrypted_content": "[omitted]",
+        "page_age": "71 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Co. (NYSE:KO)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Coca-Cola-Co/Analysis/Debt",
+        "encrypted_content": "[omitted]",
+        "page_age": "261 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Co.",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Coca-Cola-Co/Common-Size/Liabilities-and-Stockholders-Equity",
+        "encrypted_content": "[omitted]",
+        "page_age": "261 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_017X5M34j4Pyyw2Jfvq3Bcwm"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_017X5M34j4Pyyw2Jfvq3Bcwm",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQStwcKEAgTGAI4AUIIdGhpbmtpbmcSDGyutHX9dZAtjBP2qxoMQEzKlsSZO6MdHSSrIjAXZRocsZGIIgQISRAo4vvvmUQBDX4MIRUatk9/v65myX3hhagXtpxDUCiX76kpSpIq1Aax9TLHB2o+QVWjSdD+lzqFXaPB3nTvNHzHO2jYgFhHwCraAr5JmxWO/tQV6L6aRLzQj9Fw24IS9dbbx6wAnYKC5XecwRUrn766d2qMEUNOpFH7qGN9BLcCoMYc8jPnjeo7r4Nq+KuTApI6s/zdMk1lvGhXIc9nEoL6wnN8rjsDqJuQ/y4w+Ceho0lQ8r/SIw9BdNjM7GjImgFWNfkEV6GcBqO3KSURM5zctZAByMVoKxE9pzeS9KFkdUBLktwU0aiqXxUraf4N6I3xfb5ujOE7lj4+aPONRI7IHGflLyNBy6OLMd9zWFEy8ZK1LyLd3hEz9ywtwXzhUyMnhwT4DjKBcaR/2WG8DRBElE1NpYCotLZ/2T1I1F15xIhS7Rxmr0lju7RZ6lLgx6CYH0lCLIXVibYwpVLCtIJ/EJcyk+oURo9WqC7rWnuXEqa12Ik0DHoiMKTZZtFXuWypWBuawFrkWo1zVaEl/4A3PT8Bo4yNp9VAK+1pl+v/e8O/k8zKUXssvvbSBx8XyFqP9lWCSGATPsDkOeNG14q97V8m+22czsuVIxCTRncO1k9iG0XHPaTVil7XQ/4aDwEvlNQYIjpEmueckKn8Pw856faVN0BwiBRjV2JrsyW6hQH5eB6W57ISGx4POrzxEVKarViBNv7HC6jvnFd/JI0Ot8Kkru46UJvPFd5D4Gu6tYG4dbG4kG7mEpuimEUrzodwc6kLqiA8XBNIM4bpwCXS5LfZMF07ImkBre5OrUd8xuPCs9Cq9JbLsGVYeA6oSzcnJ5rSnmU0KiJMyTCGtx/xkUB3DRX0V5KW3NAitxGNbf0ghee9XcHA2GtNwAKfuX9jpEaxNc5xHhrU2CA+bWml/Zt/GILrnE9XK+4LiqpUM8IIR3gJV2+MfbDly1aSR/fFgUH0FuDqok2gKZBGS/aM9sRP8gxwt67aWhmi7xkmj5WKRz92eh9KilqZ3xo98CCzqPEb1oVrntDUgyHKXeM8ewInkzZ+AdhdjHmhzHju1efMqcTEAeUnAwNjAmLWpzu8gqcFcT5Iu+7WN2o8iSCOrGO+69J1yvxcHuU9gveJoqsz1XAuT5tV3piQD4NZUfCQY4g5lgN3Ic8g57EaMq6h8SLkIUZ5wyIauDQYAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01NhT2QGcFjZjCx8XDHdE7KP",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"Coca-Cola fourth quarter full year 2025 results press release consolidated statements of income net operating revenues operating income average shares outstanding diluted\",\"Coca-Cola 2025 10-K cash flows depreciation and amortization 2025 2024 2023 1,075 1,128\"]:\n  r=json.loads(await web_search({\"query\":q}))\n  for x in r[:6]:\n    c=x['content']\n    if 'Coca-Cola Consolidated' in c[:300]: continue\n    for k in ['Depreciation and amortization','Net Operating Revenues','Net operating revenues','Operating Income','Operating income','Average shares outstanding']:\n        for m in list(re.finditer(k,c))[:2]:\n          print(x['url'][-22:],c[m.start():m.start()+220].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_019hbdMtzSc9EEaqGjzsvQDM",
+      "name": "web_search",
+      "input": {
+       "query": "Coca-Cola fourth quarter full year 2025 results press release consolidated statements of income net operating revenues operating income average shares outstanding diluted"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01NhT2QGcFjZjCx8XDHdE7KP"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_019hbdMtzSc9EEaqGjzsvQDM",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Consolidated Reports Fourth Quarter and Fiscal Year 2025 Results",
+        "url": "https://cocacolabottlingcoconsolidated.gcs-web.com/news-releases/news-release-details/coca-cola-consolidated-reports-fourth-quarter-and-fiscal-year-4",
+        "encrypted_content": "[omitted]",
+        "page_age": "263 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000005/a2024q4earningsreleaseex-9.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Consolidated Reports Fourth Quarter and Fiscal Year 2025 Results",
+        "url": "https://www.nasdaq.com/press-release/coca-cola-consolidated-reports-fourth-quarter-and-fiscal-year-2025-results-2026-02-18",
+        "encrypted_content": "[omitted]",
+        "page_age": "264 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 10, 2026 - EX-99.1 - 8-K: Current report",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-26-006642/a2025q4earningsreleaseex-9.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "272 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Reports Fourth Quarter and Full Year 2025 Results :: The Coca-Cola Company (KO)",
+        "url": "https://investors.coca-colacompany.com/news-events/press-releases/detail/1151/coca-cola-reports-fourth-quarter-and-full-year-2025-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "272 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Document 2 - file: cokeq42025ex-991.htm",
+        "url": "https://www.sec.gov/Archives/edgar/data/317540/000162828026009048/cokeq42025ex-991.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Reports Fourth Quarter and Full Year 2025 Results",
+        "url": "https://www.coca-colacompany.com/media-center/coca-cola-reports-fourth-quarter-and-full-year-2025-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "271 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Reports Fourth Quarter and Full Year 2025 Results",
+        "url": "https://www.businesswire.com/news/home/20260210415728/en/Coca-Cola-Reports-Fourth-Quarter-and-Full-Year-2025-Results",
+        "encrypted_content": "[omitted]",
+        "page_age": "271 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "FOURTH QUARTER 2025 RESULTS INVESTOR RELATIONS",
+        "url": "https://investors.coca-colafemsa.com/assets/files/reportes_trimestrales_en/2025/coca-cola-femsa-results-4q25.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "258 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Q4 Earnings: Operating Income Plunge 32% (2025)",
+        "url": "https://www.metatradingclub.com/coca-cola-q4-2025-earnings/",
+        "encrypted_content": "[omitted]",
+        "page_age": "271 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01NhT2QGcFjZjCx8XDHdE7KP"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_018NA32k6T9qYzAkFF3QhW3m",
+      "name": "web_search",
+      "input": {
+       "query": "Coca-Cola 2025 10-K cash flows depreciation and amortization 2025 2024 2023 1,075 1,128"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01NhT2QGcFjZjCx8XDHdE7KP"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_018NA32k6T9qYzAkFF3QhW3m",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/ko-20231231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 20, 2025 - 10-K: Annual report pursuant to Section 13 and 15(d)",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0000021344-25-000011/ko-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "627 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 20, 2026 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-26-010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "262 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Coca-Cola Company (KO) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/ko/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Consolidated (COKE) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/coke/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Coca-Cola Company (TSX:COLA) Cash Flow Statement",
+        "url": "https://stockanalysis.com/quote/tsx/COLA/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Reports Fourth Quarter and Full Year 2025 Results",
+        "url": "https://investors.coca-colacompany.com/_assets/_aa0e7f50ef267e67c2e0fa7e2f6c4a8b/cocacolacompany/db/880/11088/earnings_release/Coca-Cola+Q4+2025+Earnings+Release_Full+Release_2.10.26.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01NhT2QGcFjZjCx8XDHdE7KP"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01NhT2QGcFjZjCx8XDHdE7KP",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSjwoKEAgTGAI4AUIIdGhpbmtpbmcSDDBz5ZQZ28prRECBChoMI+bfWaz/IijgUH2cIjBo4JWwembgSDJMyjL/1uHqVFfAKpTho0VdxHTuhqVVfIjngYD75e5u4KhA2MMu/LEqrAlMEXACxLMvH9DIBWa2nIRcI1gevTKtZhTBg3IqLg4zIfbiGiEH4BLEPyM7T/OeeANXngt5GpXyn+scbXEmhxaZx4nSdd/YtQtgCsX8uLxyELukqtqwmOWif6E4LS/Oe4V/xNyAb4tpL6j2jNpH/LAaZr+73ZYPlwVJGc+Dpq1DDyIv1I5kJkd0AkU7CjP/f9mJRNxJC+frz9rFgdY/gjuGnkiJISPOk/40j5452c++AMTvGsTm+ZV0NtC4AQk450eCkwBN8CWT3AXRmOckK8CwO6DU3VxR87sojNcxq/du6Rxi1Im8y2uxxBglw/FgzNc0D1azDNjFrR/9hXqf/hG8tLWI1cuZDHyTv0OzDdsfVzvydeDDSdrCetqvxYDnQnoXcQgoJoFAfkzffBwkeyYo5oXRSBE9lDVEwZAy025+FFOHMMwfwLcODgWi69sZ33Z6loIg31Oo0iF4eCD92reaC/OWIkVDrQ2PUM8NE8AHm2jDzn3cYyF9I8zMK798meofWmW6s2/FGab00OBXMQuTIZmsk65lmKXkzr87AeSRZMe7uBGTjQDqPI5TPHPFlgLIhBBrTC4rs/Bp4dtJFZbyLp83tHB02VuJ6dkNbXd4GzNzsYURXYZ8xy/KnCIAObdOVhrivtD1zsehn3piHfLv9PbBo1dQW/veWXNF4Oz9owZxGoavJS1fmfi8cVZoAonjQZX8a6+Ml2dvYzmdqMi0Rq+W5wBPbBXn7qJjn/y65hMcBqihfSeWpIv4Puv2xpYSI9HGvb+DWkkxL0gpLSkJ/RBOQpIsR0GKVAHmcmWnaz0fJHzcUyhkWWd8ZEpsLisUJdsokwwEUTuE9kdawEQBysjkhotMPBY6HRdIo43PRf7kKVRI350/SjLNL6Pz5qxhOQjbA8Y1iF3JE0YlwKqC5qP1GUnrHffDeio8NGaRtGJb4VJbT8EdjHChPUIyJLBs7wgZibdrzNQXYkT8+R3ejrxQBbetjjJfylcTCIlwcdaEG1r1Z7okqNw7oKwiEHoGSFzjZ46L0B/gqAeRofdD4di76AlF3F2hsvjfnnF4DXBvWgrBGJGZmSIVP+bIMVJqeGjW5k15BuifQSywznZG46XGzmF8TdLdNGs43xCulos+baEictzi4j5M3QB273X0/aB3eorgLdmLifYRw0PO6obwxJ+VyrCWOsr9bfvdT6qKazZqCo+kpUTiT1Cllt1Tne+lMAGBqwwZZnV4apX6i3AtDzc25jwtrGtTXGY6TLiyQJFLbR0iqFGvWqvJniD+ZyhFZde0EWBwKy640xZptadbzgamUHU8kzmV42Zh/dkELJW6qSUb6szFOreGPuKlFBSLAAC82VDdkNfILnrlM5ChdEK9b5tkbUB6LNlV7OkDtMwJ1YwWrv5JJ2Vj8Om90bGnDVV5SUGyU7fCI6KbnhPRephhiADwGf9dbK3r/O0zDHFGzQBJNpcuw4X565lPa4hP3AkkVfPqo6uKBZ0bQeHP26SO7dJV1Wg3rGgyWcYrSGCEA8SHEpVeEgHJAgotWPmBaFfnZIDDPX/LFYKqWRKgU9mCxoB/5AGJby+wiZ9mvCJzUw2Xm+AS1xgB"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01TRchveD9XYiSkimAZ6qK7i",
+      "name": "code_execution",
+      "input": {
+       "code": "r=json.loads(await web_search({\"query\":\"Coca-Cola 10-K 2025 consolidated statements of income operating income 2025 2024 2023 average shares outstanding assuming dilution\"}))\nfor x in r[:8]:\n    c=x['content']\n    for k in ['Operating income','Operating Income','assuming dilution','Assuming Dilution']:\n        for m in list(re.finditer(k,c))[:3]:\n          print(x['url'][-25:],c[max(0,m.start()-60):m.start()+200].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01QBgZ9z82dgyEeov9CS9kwz",
+      "name": "web_search",
+      "input": {
+       "query": "Coca-Cola 10-K 2025 consolidated statements of income operating income 2025 2024 2023 average shares outstanding assuming dilution"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01TRchveD9XYiSkimAZ6qK7i"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01QBgZ9z82dgyEeov9CS9kwz",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000011/ko-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134424000009/ko-20231231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "COCA COLA CO - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 20, 2026 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-26-010047/ko-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "262 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "February 10, 2026 - EX-99.1 - 8-K: Current report",
+        "url": "https://investors.coca-colacompany.com/filings-reports/all-sec-filings/content/0001628280-26-006642/a2025q4earningsreleaseex-9.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "272 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Coca-Cola Reports Fourth Quarter and Full Year 2025 Results",
+        "url": "https://investors.coca-colacompany.com/_assets/_aa0e7f50ef267e67c2e0fa7e2f6c4a8b/cocacolacompany/db/880/11088/earnings_release/Coca-Cola+Q4+2025+Earnings+Release_Full+Release_2.10.26.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "2025 Annual Report - Coca-Cola Consolidated",
+        "url": "https://stocklight.com/stocks/us/nasdaq-coke/coca-cola-consolidated/annual-reports/nasdaq-coke-2025-10K-25645602.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "627 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Document 2 - file: cokeq42025ex-991.htm",
+        "url": "https://www.sec.gov/Archives/edgar/data/317540/000162828026009048/cokeq42025ex-991.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://investor.cokeconsolidated.com/static-files/aa47534a-1022-4f7a-84da-1895cb080bb1",
+        "encrypted_content": "[omitted]",
+        "page_age": "558 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01TRchveD9XYiSkimAZ6qK7i"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01TRchveD9XYiSkimAZ6qK7i",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSoQgKEAgTGAI4AUIIdGhpbmtpbmcSDDg/gRkOR7Z4pJXf7hoMKIyrc8r/e/7ZVYG6IjCIxdmjyshJgHvtOk5dHyptX5cGsTzWTGih474OMIvHJPnFa33k8Q+y0iaWcbt+OLoqvge+Eo/ABM/+pVH/0zlnNa7ZAbC3skO44BA3Th2pH2JNgvbfqgCpnkhitdUfiE+CLgiLPJExRwJOkgVaR7pNq6Af7z9lW8LRAdw4SswZSIsRF9ofpjPz0cEKNDnzifobzKAse1TnPyRbisM6Ni3+BspsFjKrSLBbTlhM4ax+v1RAw3gbvXvxt6NRyqU1Pp02iilTJuVWcZej+H0HjCDVlY8z2OxTNwuBbq6tmrT7XIFujDHuQFbPlVSxOTdGPA8OSBgSHs2owNJSwux8g7GRC/PrL+VCfm9hyTHpicSK/FFPcQpSz47WGW+ek7R3J/LtCM1dQ7dDBUKMEKevovlz/TgPfyF6LTQD73omKI9Q++A+k/IKrDPnousCcwGpCqXbBHPj5OB65A3RqMwCa0PGjurTNZ3/sbks6M40Phi4N+26M3amoNtqeK1bUKkGrIKrEzLYiI/uTGX/0ussLMIpHzZFZoM2zf0q+gCJP09ZFct7YzDUgmBhZ1EvcR2qDY/aaPg4cCElDCeAl6kw06hzm206o0Rsvk1FlCFi9TX9wO3uPupjqlQE57IGvLaBLiXJklo6eg/00JNoTIKe06wxg2Hs5WEcPk+TIgrLW21eq+3b3RN5bzGOJScE9PJdA2NRGgxzZFZDlVYayOBUN70Ykdu25gjFz2HbUKuFFyvx4VPi+bP9xOAEeFkwgEV7hFiei6ZKvLCV6BnvACtNDVnsldmBabMT3xAJTwij2N4fQTRYrdcn27ssUt9ZEx89OYva1wX1j9aQG36smRXpHUpycEA/Lrpok8RWsWx1+g6VcMz4WjsR6xv6ycME5TD6Wz83k4e1+nxDZtboBeWs9zSxcdILgRIh1xicFP+tlzjHUM5NPAjdrJv7kPqvXaki4fA4MLQkTVJ3oOurab+fAO1oCMI8p9GXIHwWspWpi7+nzzERPbPueqP18JGw0/ST5QdjA9UJ17hAHLaoeQi7b1IEF9sg3z5VsVIcVDIdcU6eYZ/F9irMO3Gf9bZBFTsQnpwOr/Rc31RWqSdF8kWNJxAtncrkKwp86jZa4fKNcbZFXCkbEa25v9fmB6yr4ynXYoE83c8DDL9Nahh+LT+woLabAweNyphG0+EY1tD9ipSMOVGGXb8GgrNGDp0DLivdsVPNI/WNEEvdOK2/FUGWqmGcpp+O6eBJ1/zYhh4cqD9IfKL6AFQl5zB1pFSmjkq7tbRM6hiuCCb3IL7JBcb9KyVTRHOzpQNrlSZVo7NqP8H/FZdvQmsnu29vOmfePgCqyjBQGAE="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Dg5FSBzMCgeUGUPpDi2FB2",
+      "name": "code_execution",
+      "input": {
+       "code": "print(1551+1822+42119, 1551+1822+42119-13872)"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_013uSTLqF1YPstcxsPVWUZ2u",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "The Coca-Cola Company",
+       "ticker": "KO",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           45754,
+           47061,
+           47941
+          ],
+          "source": "KO 10-K FY2023 (acc. 0000021344-24-000009); FY2025 results release 2/10/26 and 10-K 0001628280-26-010047"
+         },
+         "operating_income": {
+          "values": [
+           11311,
+           9992,
+           13762
+          ],
+          "source": "KO 10-K FY2023/FY2024 (0000021344-25-000011) income statements; FY2025 results release 2/10/26 / 10-K 0001628280-26-010047"
+         },
+         "d_and_a": {
+          "values": [
+           1128,
+           1075,
+           1050
+          ],
+          "source": "KO 10-K FY2025 (0001628280-26-010047) cash flow statement"
+         },
+         "capex": {
+          "values": [
+           1852,
+           2064,
+           2112
+          ],
+          "source": "KO 10-K purchases of property, plant and equipment: FY2024 and FY2025 10-Ks"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.045,
+          0.045,
+          0.04,
+          0.04,
+          0.035
+         ],
+         "source": "Assumption: FY2025 growth 1.9% reported (organic higher, FX/refranchising drag); mid-single-digit organic pricing/mix growth fading toward long-term nominal growth. Analyst judgement, not company guidance."
+        },
+        "ebit_margin": {
+         "value": 0.3,
+         "period": "FY2026-30",
+         "source": "Assumption: FY2025 reported margin 28.7% (13,762/47,941) incl. 1,261 other operating charges; FY2023 24.7%, FY2024 21.2% (large charges). 30% assumes charges normalise, approx. comparable margin level."
+        },
+        "tax_rate": {
+         "value": 0.2,
+         "period": "FY2026-30",
+         "source": "Assumption: KO effective tax rate typically ~18-21%; 20% used. Not taken from a specific filing figure."
+        },
+        "da_pct_revenue": {
+         "value": 0.022,
+         "period": "FY2026-30",
+         "source": "FY2025 D&A 1,050/47,941 = 2.2%; held flat"
+        },
+        "capex_pct_revenue": {
+         "value": 0.044,
+         "period": "FY2026-30",
+         "source": "FY2025 capex 2,112/47,941 = 4.4%; FY2024 4.4%; held flat"
+        },
+        "wacc": {
+         "value": 0.07,
+         "period": "FY2026-30",
+         "source": "Assumption: low-beta (~0.6) staple, rf ~4.2%, ERP ~5%, modest leverage and cost of debt ~4.5-5% pre-tax gives ~6.5-7.5%; 7.0% used."
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "period": "terminal",
+         "source": "Assumption: roughly long-run inflation/nominal GDP, below risk-free rate"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 31620,
+         "period": "FY2025 (Dec 31, 2025)",
+         "source": "KO FY2025 balance sheet (Q4 release 2/10/26 / ARS): loans and notes payable 1,551 + current maturities of LTD 1,822 + LTD 42,119 = 45,492, less cash 10,270 and short-term investments 3,602 (13,872). Marketable securities (1,934) excluded per convention."
+        },
+        "diluted_shares": {
+         "value": 4313,
+         "period": "FY2025",
+         "source": "KO Q4/FY2025 earnings release 2/10/26: average shares outstanding assuming dilution, full year 2025 = 4,313 million"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 13,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 1,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 1,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "KO",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 45754,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 45754000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "KO",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 47061,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 47061000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "KO",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 47941,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 47941000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "KO",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 11311,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 11311000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "KO",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 9992,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 9992000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "KO",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 13762,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 13762000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "KO",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 1128,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1128000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "KO",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 1075,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1075000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "KO",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 1050,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1050000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "KO",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 1852,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1852000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "KO",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 2064,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2064000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "KO",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 2112,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2112000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "KO",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 31620,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 31564000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "KO",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 4313,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4313000000,
+    "resolved": "KO"
+   }
+  ],
+  "unsourced_refs": [
+   "assumptions.terminal_growth"
+  ],
+  "errors": []
+ }
+}

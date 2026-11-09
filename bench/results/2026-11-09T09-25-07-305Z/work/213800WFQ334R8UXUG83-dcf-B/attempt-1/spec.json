@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "VINCI",
+ "ticker": "213800WFQ334R8UXUG83",
+ "currency": "EUR",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     69619,
+     72459,
+     75372
+    ],
+    "source": "financial_statements, ifrs-full:RevenueFromContractsWithCustomers, ESEF reports 213800WFQ334R8UXUG83-2024-12-31-ESEF-FR-0 and -2025-12-31-ESEF-FR-0"
+   },
+   "operating_income": {
+    "values": [
+     8071,
+     8783,
+     9364
+    ],
+    "source": "financial_statements, ifrs-full:ProfitLossFromOperatingActivities, same ESEF reports"
+   },
+   "d_and_a": {
+    "values": [
+     3799,
+     3998,
+     4206
+    ],
+    "source": "financial_statements, ifrs-full:AdjustmentsForDepreciationAndAmortisationExpense, same ESEF reports"
+   },
+   "capex": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: capex not mapped in ESEF data from deskstack; not guessed"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.04,
+    0.04,
+    0.035,
+    0.03,
+    0.03
+   ],
+   "source": "Assumption: history growth 4.1% FY24 and 4.0% FY25 (computed from filed revenue); fade toward 3% as concessions/construction mature"
+  },
+  "ebit_margin": {
+   "value": 0.125,
+   "source": "Assumption: FY2025 EBIT margin 12.4% (9,364/75,372), FY2024 12.1%, FY2023 11.6%; held at ~12.5%"
+  },
+  "tax_rate": {
+   "value": 0.25,
+   "source": "Assumption: approx. French statutory corporate rate 25.8% less mix effects; tax not retrieved from filings"
+  },
+  "da_pct_revenue": {
+   "value": 0.056,
+   "source": "Assumption: FY2025 D&A/revenue 5.6% (4,206/75,372)"
+  },
+  "capex_pct_revenue": {
+   "value": 0.05,
+   "source": "Assumption: capex not found in tool data; set slightly below D&A at 5.0% of revenue, reviewer to verify vs. VINCI cash flow statement"
+  },
+  "wacc": {
+   "value": 0.07,
+   "source": "Assumption: CAPM Rf 3.27% (ECB AAA 10Y, 2026-11-05) + beta ~0.85 x France ERP 5.01% (Damodaran, 2026-02-16) = ~7.5% cost of equity; cost of debt ~4% pre-tax, ~3% after-tax; blended ~7.0% with ~25-30% debt weight. Beta is an assumption, not pulled"
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "source": "Assumption: ~long-run euro-area inflation, below 10Y Rf of 3.27%"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": null,
+   "source": "not found: deskstack reports only short-term borrowings (6,740m) with no non-current borrowings, so total debt is incomplete; cash 17,254m at 2025-12-31 (ifrs-full:CashAndCashEquivalents). Reviewer must add long-term debt from the annual report",
+   "period": "FY2025"
+  },
+  "diluted_shares": {
+   "value": 566.8,
+   "source": "Derived, not directly reported: net income attributable 4,903m / diluted EPS 8.65 (ESEF 2025-12-31); millions of shares",
+   "period": "FY2025"
+  }
+ }
+}

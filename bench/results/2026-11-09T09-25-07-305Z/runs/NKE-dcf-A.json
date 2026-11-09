@@ -1,0 +1,2016 @@
+{
+ "company": "NKE",
+ "task": "dcf",
+ "arm": "A",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "NIKE, Inc.",
+   "ticker": "NKE",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       51362,
+       46309,
+       46398
+      ],
+      "source": "NIKE 10-K FY2026 (acc. 0000320187-26-000088) MD&A revenues table: FY2026 46,398; FY2025 46,309; FY2024 51,362"
+     },
+     "operating_income": {
+      "values": [
+       6539,
+       3778,
+       3850
+      ],
+      "source": "NIKE does not report operating income; used EBIT (earnings before interest and taxes) per 10-K: FY2024 6,539, FY2025 3,778 (FY2025 10-K acc. 0000320187-25-000047). FY2026 = pre-tax income 3,900 less net interest income 50 (Q4 FY26 press release tables / 10-K FY2026) = 3,850, derived"
+     },
+     "d_and_a": {
+      "values": [
+       796,
+       775,
+       747
+      ],
+      "source": "FY2024 and FY2025: cash flow statement in NIKE FY2025 annual report (acc. 0001308179-25-000564). FY2026 747: third-party aggregator (stockanalysis.com NKE cash-flow page), not verified against the 10-K"
+     },
+     "capex": {
+      "values": [
+       812,
+       430,
+       null
+      ],
+      "source": "Additions to PP&E per cash flow statement, FY2025 annual report: FY2024 812, FY2025 430. FY2026 not found (search limit reached); FY2026 investing cash flow was -488 total per 10-K but capex split not retrieved"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      -0.01,
+      0.03,
+      0.05,
+      0.05,
+      0.04
+     ],
+     "source": "Analyst assumption: Q1 FY2027 revenue was down 4% reported (10-Q Aug 2026, acc. 0000320187-26-000193), so FY2027 slightly negative; gradual turnaround recovery in FY2028-FY2030 and fade toward mid-single digit growth by FY2031. FY2026 was flat vs FY2025."
+    },
+    "ebit_margin": {
+     "value": 0.09,
+     "period": "FY2027-FY2031",
+     "source": "Analyst assumption: FY2026 EBIT margin 8.3% (3,850/46,398), FY2025 8.2%, FY2024 12.7%. Assume 9% as partial recovery from trough, below the FY2024 level due to tariffs and wholesale mix. Single flat margin."
+    },
+    "tax_rate": {
+     "value": 0.2,
+     "period": "FY2027-FY2031",
+     "source": "FY2026 effective rate about 20.3% (income tax 792 / pre-tax income 3,900), FY2025 17.1% (666/3,885); assume 20%"
+    },
+    "da_pct_revenue": {
+     "value": 0.016,
+     "period": "FY2027-FY2031",
+     "source": "FY2026 747/46,398 = 1.6%; FY2025 1.7%; FY2024 1.5%"
+    },
+    "capex_pct_revenue": {
+     "value": 0.015,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: FY2024 1.6% (812/51,362), FY2025 0.9% (430/46,309); FY2026 capex not found. 1.5% assumed, roughly in line with D&A."
+    },
+    "wacc": {
+     "value": 0.085,
+     "period": "n/a",
+     "source": "Analyst assumption: large-cap consumer brand, beta about 1.0-1.1, risk-free about 4.2%, ERP about 5%, A+/A1 rated and low leverage, so cost of equity approximately equals WACC at about 8.5%. Not from a data provider."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "period": "n/a",
+     "source": "Analyst assumption: long-run nominal GDP/inflation, below WACC; brand with global growth runway"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": -1308,
+     "period": "FY2026 (May 31, 2026)",
+     "source": "ESTIMATE, needs review (May 31, 2026 balance sheet not retrieved; search limit reached). = debt 7,942 (current portion 2,000 + long-term 5,942, third-party debt analysis page; notes payable ~5 excluded) - cash 7,563 (derived: FY2025 cash 7,464 + FY2026 net cash increase 99) - short-term investments 1,687 (FY2025 value used as proxy; FY2026 not found)."
+    },
+    "diluted_shares": {
+     "value": 1480,
+     "period": "FY2026",
+     "source": "Approximate, derived: FY2026 net income 3,108 / diluted EPS 2.10 (Q4 FY26 press release tables) is about 1,480 million. Not taken from the filing; consistent with Q1 FY27 diluted 1,484.2 and Q1 FY26 1,479.0. Replace with the 10-K weighted average diluted figure."
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "NIKE, Inc.",
+   "ticker": "NKE",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       51362,
+       46309,
+       46398
+      ],
+      "source": "NIKE 10-K FY2026 (acc. 0000320187-26-000088) MD&A revenues table: FY2026 46,398; FY2025 46,309; FY2024 51,362"
+     },
+     "operating_income": {
+      "values": [
+       6539,
+       3778,
+       3850
+      ],
+      "source": "NIKE does not report operating income; used EBIT (earnings before interest and taxes) per 10-K: FY2024 6,539, FY2025 3,778 (FY2025 10-K acc. 0000320187-25-000047). FY2026 = pre-tax income 3,900 less net interest income 50 (Q4 FY26 press release tables / 10-K FY2026) = 3,850, derived"
+     },
+     "d_and_a": {
+      "values": [
+       796,
+       775,
+       747
+      ],
+      "source": "FY2024 and FY2025: cash flow statement in NIKE FY2025 annual report (acc. 0001308179-25-000564). FY2026 747: third-party aggregator (stockanalysis.com NKE cash-flow page), not verified against the 10-K"
+     },
+     "capex": {
+      "values": [
+       812,
+       430,
+       null
+      ],
+      "source": "Additions to PP&E per cash flow statement, FY2025 annual report: FY2024 812, FY2025 430. FY2026 not found (search limit reached); FY2026 investing cash flow was -488 total per 10-K but capex split not retrieved"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      -0.01,
+      0.03,
+      0.05,
+      0.05,
+      0.04
+     ],
+     "source": "Analyst assumption: Q1 FY2027 revenue was down 4% reported (10-Q Aug 2026, acc. 0000320187-26-000193), so FY2027 slightly negative; gradual turnaround recovery in FY2028-FY2030 and fade toward mid-single digit growth by FY2031. FY2026 was flat vs FY2025."
+    },
+    "ebit_margin": {
+     "value": 0.09,
+     "period": "FY2027-FY2031",
+     "source": "Analyst assumption: FY2026 EBIT margin 8.3% (3,850/46,398), FY2025 8.2%, FY2024 12.7%. Assume 9% as partial recovery from trough, below the FY2024 level due to tariffs and wholesale mix. Single flat margin."
+    },
+    "tax_rate": {
+     "value": 0.2,
+     "period": "FY2027-FY2031",
+     "source": "FY2026 effective rate about 20.3% (income tax 792 / pre-tax income 3,900), FY2025 17.1% (666/3,885); assume 20%"
+    },
+    "da_pct_revenue": {
+     "value": 0.016,
+     "period": "FY2027-FY2031",
+     "source": "FY2026 747/46,398 = 1.6%; FY2025 1.7%; FY2024 1.5%"
+    },
+    "capex_pct_revenue": {
+     "value": 0.015,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: FY2024 1.6% (812/51,362), FY2025 0.9% (430/46,309); FY2026 capex not found. 1.5% assumed, roughly in line with D&A."
+    },
+    "wacc": {
+     "value": 0.085,
+     "period": "n/a",
+     "source": "Analyst assumption: large-cap consumer brand, beta about 1.0-1.1, risk-free about 4.2%, ERP about 5%, A+/A1 rated and low leverage, so cost of equity approximately equals WACC at about 8.5%. Not from a data provider."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "period": "n/a",
+     "source": "Analyst assumption: long-run nominal GDP/inflation, below WACC; brand with global growth runway"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": -1308,
+     "period": "FY2026 (May 31, 2026)",
+     "source": "ESTIMATE, needs review (May 31, 2026 balance sheet not retrieved; search limit reached). = debt 7,942 (current portion 2,000 + long-term 5,942, third-party debt analysis page; notes payable ~5 excluded) - cash 7,563 (derived: FY2025 cash 7,464 + FY2026 net cash increase 99) - short-term investments 1,687 (FY2025 value used as proxy; FY2026 not found)."
+    },
+    "diluted_shares": {
+     "value": 1480,
+     "period": "FY2026",
+     "source": "Approximate, derived: FY2026 net income 3,108 / diluted EPS 2.10 (Q4 FY26 press release tables) is about 1,480 million. Not taken from the filing; consistent with Q1 FY27 diluted 1,484.2 and Q1 FY26 1,479.0. Replace with the 10-K weighted average diluted figure."
+    }
+   }
+  },
+  "submit_attempts": 2,
+  "requests": 2,
+  "usage": {
+   "input_tokens": 22,
+   "output_tokens": 7562,
+   "cache_creation_input_tokens": 29109,
+   "cache_read_input_tokens": 158990,
+   "server_tool_use": {
+    "web_search_requests": 12
+   }
+  },
+  "cost": 0.3002345,
+  "seconds": 83.575,
+  "tool_calls": {
+   "submit_model": 2
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: web_search (public web pages). No other data source is available.\n\nBuild a quick unlevered DCF for NIKE, Inc. (identifier: NKE).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 20,
+     "cache_creation_input_tokens": 26039,
+     "cache_read_input_tokens": 132951,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 26039,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 5566,
+     "output_tokens_details": {
+      "thinking_tokens": 1736
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard",
+     "server_tool_use": {
+      "web_search_requests": 12,
+      "web_fetch_requests": 0
+     }
+    },
+    "cost": 0.2673877,
+    "content": [
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01R6UQfWG2aoqi8EEXM1av4x",
+      "name": "code_execution",
+      "input": {
+       "code": "qs=[\"Nike FY2025 10-K revenues income before interest and taxes depreciation capital expenditures fiscal 2025\",\"Nike fiscal 2025 annual report cash short-term investments long-term debt diluted weighted average shares May 31 2025\"]\nfor q in qs:\n    r=await web_search({\"query\":q})\n    for x in r[:5]:\n        print(x['url']);print(x['content'][:1500].replace(\"\\n\",\" \"));print('--')"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_011gMUmrT4VCpG5STrzwZMV6",
+      "name": "web_search",
+      "input": {
+       "query": "Nike FY2025 10-K revenues income before interest and taxes depreciation capital expenditures fiscal 2025"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01R6UQfWG2aoqi8EEXM1av4x"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_011gMUmrT4VCpG5STrzwZMV6",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike Inc. 2025 Annual Report",
+        "url": "https://s1.q4cdn.com/806093406/files/doc_financials/2025/ar/Nike-Inc-2025_10K.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "479 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. Reports Fiscal 2025 Fourth Quarter and Full Year Results :: NIKE, Inc. (NKE)",
+        "url": "https://investors.nike.com/news-events/press-releases/detail/551/nike-inc-reports-fiscal-2025-fourth-quarter-and-full-year-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "74 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike Inc. (via Public) / Annual Report for Fiscal Year Ending MAY 31, 2025 (Form 10-K)",
+        "url": "https://www.publicnow.com/view/DEBD99D911E8788C31B8A483642F0E81A750EC93",
+        "encrypted_content": "[omitted]",
+        "page_age": "480 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Investor Relations - NIKE, Inc. Reports Fiscal 2025 Third Quarter Results",
+        "url": "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2025/NIKE-Inc--Reports-Fiscal-2025-Third-Quarter-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "599 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. SEC 10-K Report — TradingView News",
+        "url": "https://www.tradingview.com/news/tradingview:bb0fd46cfe8ff:0-nike-inc-sec-10-k-report/",
+        "encrypted_content": "[omitted]",
+        "page_age": "479 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Income Statement :: NIKE, Inc. (NKE)",
+        "url": "https://investors.nike.com/financial-information/income-statement",
+        "encrypted_content": "[omitted]",
+        "page_age": "38 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. CONSOLIDATED STATEMENTS OF INCOME (Unaudited) THREE MONTHS ENDED %",
+        "url": "https://investors.nike.com/_assets/_c1ae3c3b1d1d94e474a36d1f679ed34e/nike/db/938/9403/financial_schedules_key_financial_metrics/Q4-FY25_Combined-Tables.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike Inc (NKE) 10-K Annual Report July 2025",
+        "url": "https://last10k.com/sec-filings/nke/0000320187-25-000047.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "479 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Investor Contact: Media Contact: Paul Trussell Virginia Rustique-Petteni",
+        "url": "https://s1.q4cdn.com/806093406/files/doc_financials/2025/q2/Q2-25-Press-Release-FINAL.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "690 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01R6UQfWG2aoqi8EEXM1av4x"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01R6UQfWG2aoqi8EEXM1av4x",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDKt9IXEIA3gJVLREohoM6jdd8P2FguL/pjnyIjA0Wi+hDSnZH5KnsZtx5a6p3lgI7c0HGP5nJNsjKaHsXF2QzRx/tj25lt9IJg+u0XcqEoVCit0wuCRDv2B7k+5M5hujTRgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01R6UQfWG2aoqi8EEXM1av4x/cell.py\", line 12, in <module>\n    print(x['url']);print(x['content'][:1500].replace(\"\\n\",\" \"));print('--')\n          ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01WaM8bWUfU2rWkRRmxkSbwj",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in qs:\n    r=await web_search({\"query\":q})\n    print(type(r), str(r)[:3000])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_017iuGCUgcTTKv8BrjdKahk4",
+      "name": "web_search",
+      "input": {
+       "query": "Nike FY2025 10-K revenues income before interest and taxes depreciation capital expenditures fiscal 2025"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01WaM8bWUfU2rWkRRmxkSbwj"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_017iuGCUgcTTKv8BrjdKahk4",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike Inc. 2025 Annual Report",
+        "url": "https://s1.q4cdn.com/806093406/files/doc_financials/2025/ar/Nike-Inc-2025_10K.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "479 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. Reports Fiscal 2025 Fourth Quarter and Full Year Results :: NIKE, Inc. (NKE)",
+        "url": "https://investors.nike.com/news-events/press-releases/detail/551/nike-inc-reports-fiscal-2025-fourth-quarter-and-full-year-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "74 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike Inc. (via Public) / Annual Report for Fiscal Year Ending MAY 31, 2025 (Form 10-K)",
+        "url": "https://www.publicnow.com/view/DEBD99D911E8788C31B8A483642F0E81A750EC93",
+        "encrypted_content": "[omitted]",
+        "page_age": "480 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Investor Relations - NIKE, Inc. Reports Fiscal 2025 Third Quarter Results",
+        "url": "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2025/NIKE-Inc--Reports-Fiscal-2025-Third-Quarter-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "599 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. SEC 10-K Report — TradingView News",
+        "url": "https://www.tradingview.com/news/tradingview:bb0fd46cfe8ff:0-nike-inc-sec-10-k-report/",
+        "encrypted_content": "[omitted]",
+        "page_age": "479 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Income Statement :: NIKE, Inc. (NKE)",
+        "url": "https://investors.nike.com/financial-information/income-statement",
+        "encrypted_content": "[omitted]",
+        "page_age": "38 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. CONSOLIDATED STATEMENTS OF INCOME (Unaudited) THREE MONTHS ENDED %",
+        "url": "https://investors.nike.com/_assets/_c1ae3c3b1d1d94e474a36d1f679ed34e/nike/db/938/9403/financial_schedules_key_financial_metrics/Q4-FY25_Combined-Tables.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike Inc (NKE) 10-K Annual Report July 2025",
+        "url": "https://last10k.com/sec-filings/nke/0000320187-25-000047.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "479 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Investor Contact: Media Contact: Paul Trussell Virginia Rustique-Petteni",
+        "url": "https://s1.q4cdn.com/806093406/files/doc_financials/2025/q2/Q2-25-Press-Release-FINAL.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "690 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01WaM8bWUfU2rWkRRmxkSbwj"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01CCNnzh6Rb1mwD6EQLMEMZq",
+      "name": "web_search",
+      "input": {
+       "query": "Nike fiscal 2025 annual report cash short-term investments long-term debt diluted weighted average shares May 31 2025"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01WaM8bWUfU2rWkRRmxkSbwj"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01CCNnzh6Rb1mwD6EQLMEMZq",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000130817925000564/nke013950-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000097/nke-20250831.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000016/nke-20250228.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000151/nke-20251130.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "July 17, 2025 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://investors.nike.com/sec-filings/all-sec-filings/content/0000320187-25-000047/nke-20250531.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "480 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://investors.nike.com/sec-filings/all-sec-filings/content/0000320187-25-000097/0000320187-25-000097.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "404 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000034/q4fy25exhibit991er.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. Reports Fiscal 2025 Fourth Quarter and Full Year Results :: NIKE, Inc. (NKE)",
+        "url": "https://investors.nike.com/news-events/press-releases/detail/551/nike-inc-reports-fiscal-2025-fourth-quarter-and-full-year-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "74 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike Inc. (via Public) / Annual Report for Fiscal Year Ending MAY 31, 2025 (Form 10-K)",
+        "url": "https://www.publicnow.com/view/DEBD99D911E8788C31B8A483642F0E81A750EC93",
+        "encrypted_content": "[omitted]",
+        "page_age": "480 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01WaM8bWUfU2rWkRRmxkSbwj"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01WaM8bWUfU2rWkRRmxkSbwj",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Ep4wCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDExKOr6jBqxBEqjRqxoMwtIbgsZvCrRH1NkDIjDdjScgLOyOQuqhYYQzfQ8HNL8/9KpNVCdFcNmS31gVAkRHpM5qh15+klVEFpSgT1kqoS90+xCdDelIWeBnLw4v3vJjDh5GTFi15v7LN49vI254MbB49XlcuNmxtk/n8vOaUTNy39gxah/XLy99gzhSh4nZL0Ash/zixBbsKiwBkbSSECsojrPwVrDs7B9BmbVg5Vu0FJ36MfO7YUFHCceh8wbhFyZi8YAA7M7Wpa67ihq0qB4OtfTcf0OoYPiQTmxl19OBGLcYjHH5Sb3areKpxajg1ZrgQNb066OoMziRY/G1ONHOoArVDJBwYgGdcQ/lakWIt3dPgVFp9eB2wEPUDre4s8IxfaIzkHISnZODQl/bLuC4rQFm7zclWUoCTnwEUgmdizasqvN+7SmG4EG2lWHOBVOEsyl+p7DIaYwTzJAyhaeclVqEOMAgtQZr4tEHi6kyp8i0ZcLqEdD5DxySeTB9ym/pbI2iFzTktowJDZSY54R0MDQM3SenapjHmr+2ayRXNa01bZv1Dl7v7klflugDb6H+zZuYqEI148eurYj2RWgR3Y3eXsEXKn3rtmAAzUuzjqQy8k5GjqBmFTVe5qHA1ni23H3jqW2InZUijexYpR+fPG3wX9a+Zl1n0rQiPdWW0XdNcvbvTYYiBk6R2bjcdWQkRuqadv5XRFSBCabrqtwG2yGR0QtQ52colRJTNw99biN4yFCf75+e900Z2dYFhGwIDBBV5zB91x9Yv6/GwPvvzgxiJE7gUI5iLtpVTi1YqfLzGUWgExPQJyx6Ehq5Y1YlG5tQes6JxTjTyt4suiSJxaaozgqM9QDkI0uBF3tHVemMPdZHhoRglVhRjaDqBcs5+TUa9Dz7BZAljO0B0QVFA1ePkAczdsGN5PLeKLbgAXRM6sffMVmDLeal36oGBbwJi+n3Ki9VjV5csczWwx7gsKYcmXanmsx+5F78xazaw9pGcODDPhHzgxVC4vQfC2dD+fjXsXT12RQUOrPPsR0B5nZV2kWk1YagY1cf6FRyWhcQof+GvFhy/HEgcvaVjs8uuROA7m873kGV5Tggt06vprdVZcU16IcVoVdIdjCFA9M2NA8SzWR2eyP1lGaWBOi0PWCnAGxGeLkLBE0S/wUVjtKEiX5eaeWLyvpGe98XDt29eQsUHiiZnmvs5MW6WxOterJMh7ibcksq2wM6HK7US1RyYE3IzC/nW+DQOjqFxmT19K4vU59HavIHp/6p2ee2ShLtx4rSSf9QlfICs8bKAxW4OL1hzrW3JH8mGuwBMT1UFMtVTDEEo6Xxd4MV16JA/H0jdNWt/YXlBfEacO6N3Dx6w5kr8sQXhmoxRg8OGdGcgKVsz4ieI4l3xppqVx4/ERKKBvE/DZQsEitUy/O8tffkWSbgQoHGDrY1a8rof2x2Ykb80l3CiXdOdOdSUab3q8imQkWRfaCQBt+XPRP0PowYkYYNeHv/VapY4P7LI5AzRzuEw8QkxzNC1fWtv9458xU2bIw8h/Pw4BG/EMI/6B+jRNYU3/kfL+Lwy5b64x3CCd77HQ50OK67dshW/ADPqHvZqbYDbfAcf7OnDAhGGAL0McjE/fSAuBmiB+O0wlnD2WiazAgKNmZq6+mUhlKcLwyp+qLl4VBaK5fUrwFkKhPMpkYAtA1YGjhY6mrr+VgGvQHdD8KGyxbwBjSjDiVlxzBEoOohXVaC+OWJrA/mkBoKcAwlQSFZqPTuy3ruem0lNpEvhwW3nCreFAd3PqLmFPeSb1oGX8AgVea3UsQ1Kfl7PMjIpEFEGdWSwSushZiJU0m8tMwnfQb4mzIt4xeuitpCcFcr0oUp9Sy54QsfnEkxnUIN8LlIb1o1skohrkv2Q2r+HD6Wn3oc+eRqKhM37kCYD2gAziIXFtzXC34btpIPoXk2hFpzOMd8job1ksGGZIHmqldyNkC1YD71St7GpcrUwX4XphFc/KwRyixQN8ctaPRm4BVQZqKgb2p5FQc0wDAKGqCRuaPdqtJUgPLAbabdu3ifjXB0Fo7xuOtgaNrEBJwSaDD+Gho3Lumb7fFBUYp8tt1KIJozDQpworoIwCKkksWdESjvvyhPvUUNa9iGqyw5xhak7lzyAF5xjSbENIKiIIDrwWWSFhSUxeyjQVT0gFtUPiAU5SVwQk7kQoFUjKRBCE+HbLAhDdV+gOKhxQEoddLqEitzRec/5fxC4xD8M2rKwmavsYpaSl4SRgT04GE/ENQt/RzicT/Na80XHqaYBA/bvk0stDel1WF7MPTKHZjmriELIN+REATpMatOafnzccyqmPRHDETyG+ldFXYyhzBbyhgOGZ+6DzrEbAzt6tEFydqwkm5Kxxi2pR/6ze/aFGXt6SRElvBK62+zBytiQtUC4vO++oKFYVPgfEFJREXsmykzoxl1zfDGKZlIGz1DPbrXtFWPV+ElU0nvByNR0fzr/6s3CW/Sn4IHKun0M6QCIdBRFucEhgVCORCoy4yeiFT/XcTLnn3P6cBr/Bi3Da6j8KJCwC3ndBw9DMRVfmdgFtSDCGKIBjOQrCVR8b8LVxg7CnK8dV3FGkca0SddS+KNnVzXUP3IFszoNIloab4WCOds0lfBWda5WM0Ek3GPiNLyifCpyRob95p1HYmIcofvWUxU+gPzCeRlc4DBV1KB5R2pILtXwk4vbiHDY30WlDKlGafqL+qYeRisU2QpqpZtZjNc1rLuJJ1S54iUPpMTQZE+DqJ28jGNNBGOlgdI7CanSQdqMJqqiLleCmUiHBBY9W8T1hmDIFeyHT7zIBeQ/TNje8QZzqH8r/LJ2xMdvH4/gnqqRYyT2pMJOt89R/ZcvwzzgNMf3487Nu55ZRROHWja8Sq9O733MIstPUxxjMRzCN2kFEGgN/zwO9rGnvkRf/3dMVKSxrMryrHibVHWDs9dEENV63s4XqO525ckAI+jEEZRLzhBin9t57ILYalDCZxEYwXBEBGPXgH5vkxo9jTC0QarL+NpXKjC7/Qb6WU/bgHqehUQPiMMrfzKYycKelMhXnkK/vmUc7rs9NcI0Up/ODXDJOsaYe+zCvnCYd7qM8rM5oO9gidc2aWb9VI1Rjn6JvOe2CgOEgCl/JkXOLt4AuFZmlI3U8HCeJNItfWjxr5RU7yJ++Z/eEuALNSEoxQjtYAvy8ZL8pb2FgixK3qjzeYsbUk2yOV6ME5WNuNjd2v+nQxKhK5UZpDLbC76Pq6ZtaluXccEqbdUON+1YyXekjBkUSNnN/QZmtwMc9zJRYNaBsJoS26MjR+GCntcrZfcGvvAE6M591xtmkaJPbn9CTGIUm2TjtUnjNigWT2ljFOXPT6OmOlSUhMH2IxHCXgffkNWdJgPjilBZexGBR+d9Y5Xwc9OipybtuDKUDxSwxfEZyKv8u9hjdcDqgUw8+PeE37hv4JgMTNjvOmTBa5HVGmnYk0sm9xFclfFsxGx7GZ2GqNmZOLloM2HHOi1sfHuhCoA0l+cqsGfHR0/x3gNhSfPNfb6TEKj1acJ6pWkfqm6DvI2C9SYl+D0mKvWCBaRcVbiTIdmdyHs+QLJDGOn18Net9t5KykjV3bcERgGRquSVRJ83ZE6Zn8wvLVDMYZjado/LBiPAdoafoMIOrj+Cjsfhwue1+lnRtY7aerO8wVTZJvbJMgG8gseBCfJNu5DRyLlZmJDGkqUE8olUp4uM1J6q4FwlEd+gxLaqEBOzbJhsjl8ESSnE7d2pqUbwWGPOkHSNHUHa3YYY9ERGUZEPrVXoQMHD0Rv8J+LziZpvYENpu3Ay+/9f2WUeCUppLXxSX9faU1Ape4F55pM3dZYtPtUzyTc7Dt5qYKJQvcS/d8B3Rj+qe4yjBLdEuKxbj3HG2w8veTAvJ/wTW+FH8Hrb3IJS09fJy/bdtu6MhUa2DdF+4kPLmcD3U/9nS4DeqaeFoVPn4raoniCCkMfv5Uyem3FCDi9LhepXIwwkYMIXkzA7Bwd2RMxZ30AodK1W9BBHZCLl0GhAVpA7ffXlj0qLe3TuX/nPVxRtWaObJF3qMF/xwdX2MOhF6EnSB28hWNK8BicNe379dCPdavyhs1xqrlku/8FCFcynKIfeBni0SFkx36n55aVJiwGwflcJRge2LwQJCbdivOlAafxXuiqwoRzlxX/p2TCvmbch6gimcHl+ajAcsU+J9wnL+B6Uz2rzHWUDIEXUyZsz+6ZwcBeKbnLP1GZFNfXb6M3x8iiaPB/rfsVhu3Fu4oGh4yHu/i9/tjsU3mJ6HTXXVZEbWt42grfNdIOKm0WR9H2wbtuzDpHOznybB4faiLtkVWiNrq5aVS396gqf+ybxLe4CwHsOPBT38uILjFOBE/XMzrQ92Md/SxdT3DlMkBbnHsYIsaxUCOKzHg5bxK0dqhfGimXUO617WPC1j+g7FGZA5jBpg7lozH3yWac1HQXTwyydyV3pd5yApAmAgZRiRWNkrjTtqs9vN3Pxh9MBi1WHt+K9lERcBSoAiNlSj5BqxID+5w+LatB4YvDQGmRm5YVJfj6TXXVIPq58gywORwTzlyHARr2TjFqk96i1qSFYHg3aeHO3MHhz2U79kpR8aWgfh8m39L/cmPEMIlETB7Y6ju5tGm/+RVAGvdNGa4KdA6lzyhdBQuEpzqYYuiPhMLBY1FNHFLrWaxTY7L584+7bvb17KJBHIjfaO8zWyeRjob2XoKUFSPQ7wb68u77yWlArbRdLtmPZ8500F9u5ldZFLvey5o4zMZlwsQrZ2ahgfU14pn+/OGA5MRT7c2zZkZDOJdJx6/LRB9n+JAZ9hAWkY++JhEkJO9jVZnQrS3J1WS4chqjU7+I4KGyEiwALDtFZ2JUHr22HpImjXT6C0mh6RxfA4t+oF4raVIg92j1T8drEgHYETDrv3nXbTZoqrBr5Q8X5UFd7k3msgZvValiCU6GJ9Aj9gIR6H91w4+2lsuvNA96/Cxi4dSXK3XN8xhVS6tp7KGd1Ub6uGUxKisbJ+UcqNe6w0RL7z6NeYIVcxffuwy9F5FPP1j3WdjGCO8R8hYQrGF5IpcdzfQIwLdTsV29UwfjjGw3vN/NmH+PQqeDjYbOxVtwKCfOsZB7hWkthnTomB9ugf+rpNqQtNw2Rnd9hz4/sLMVEIArh3sLqLid7H/ryoOfS+59kmPXFOOwlxW+KHhBsm2BUlNBuDq/Ub5dTtEk34w10vdbmTJOWbM/ojUK9Q6yCzRtq/1BwkWreUMs4e+xXCwyxQNDEVT/fFohgKPPMaB6L48peF4MzlJCA0j8bZrH7BCCllfx/r8UOPRYqWfKrcYNXYtPxWCXWnQkwwjFGbAHqwoqx9WUS9aKt5QrmXIbdKALg2iFNOmhVuc95KrECLMBhtCTH95YsFR2uSRLsn4IhPZg9dnyJnjJb0YT16jrHl4IdnlN25yqQTZRGGpYoEe9hVTfimrx2Czhh/3/FEi+X0U0D3ts6fb+saUSh3uzmy0OZg5WKYfYH5w8X5tIZ7g8HvOO23tiL/KFdSNsuAI2rN+T/brB07rCKc2QhvCSRXMqVgs5ZOAn2hYAjUNu65IZxQftb/dsb88s+M8/5yHaxZYguIdzDhBkRFqcNQJBed24gsDRagYMo9qV3Yr/6K0cN+bqh4dcRLW7Lgswsw0XOX3ZQYqkF+41Di2UhWusD85Eg1H6ehYsHL847FuCmSK2pjOJKm4svJQZ9x/Ro5CpnASzcbIFafjjjG36IwJkWQKsnTfk4OotjrIsem4+Lr+n0BNaXpcxV/LbfTuJ/iUGoV8QrG4CdZehMhHJmVlHSLovAY8QWYfFx7Dno/RcFKGtQ0dLSsKM+fMDFsLgSqBJdqxbPMstrfdGsSkY2IDd2U3D/uDxsOZ8wrPWoHNTVIwaJg+qh0BZkh54/f+/hmvI+pilwSGtNfJgdg7ZuBvtTam3KlE14uvARzsCZHldCCeho+WsE3ZHcnEbYcsz/4Bd1QFeWeXCkQixLYVsn9xvg8ojRQwt+4nmFjbZObFcJQA/D1KIyKNpTWr+nWMC6mjsDy2yg8932M36gtuYvfBDIROpz6DWUaLodR5Qc5ylI/bhMMHqav5HmhNaXwVKv2yQFMJNUFD0UKNZ9GvPV64PR1SxKq1TryioLKL+ngs+9AaLd3av3FFn36n2Kf2i1+6BeUY8Y4EBsxMBVULy9nWmkGMRxd9I0HaSMrxc5SneWIO5SsLLdkUGXpoUUeoTB2wzuJaPP6/I05vtKFx3eQJenbO54G8QekxoYmovthCnrETto6rzEYB+d/8a3nJ7Y6bi84ELtk6LV/pvyx77Dv9LVspDTTNjvZr+rXrgj5xkMd7MyoOlQSLaVc73ErKEu0XRtE+Mojlw75VgJlArqMczQ5/IyokF4ayNu6Kreq3buZFYMv7ltH+t2U8e5rI8Zxa5CXGmqu9o+jMr9NsxNuCQ8NJko2Z6uC2NrNLTlkHYb3JxLtjcB8DaZwQ9lKnxnNjpMG3vtn4y5+gOL+9SkAjHsMlG632K0ZG6oVIHpHUAkit2qP9qWrvxlzwKqLjpYURSYgD5k896/t2n1ok3Ta4EpHbqROY29ijBPwLB4RDHQAOruF8kza8n6anVQrOO5srVXBrySUaods6cN63771lOGVyhS6pEzBcf0hY+4WlANypzV8UkgnbYvh+1vJNzuc+Oja7/Zd6hRuoIeSpWvrj+6JSLajEKOI4LS2GwwwBSRso3kHN4GFn1Oc2XLLlIJoZKLAPZHpNUlFEQR3QRohPKC7lpkXJfaiySxzp1jkmTyTZ9Fo6KnEFSH12iFTAzin3Y8Vhn6jankuMXkOutZWC7ReKMZK7RPVltxTOTa23kJjamgJ2OADcWVLnT7KZwxKjNCSyFTxgVhxWxuJI2oKX4fEwBdSHf4ABzhENtv1odiFT+IMZxC1gJpi0jPAVA81R8yLgejWsrg4sudReZWYY7TL87Kse82jOT7ZSWlL6edufzTKTCbtKT3vFlLWfnuB2lLtzYyl92i9IJThzeFf76RsGckv2kpAv/lfC62KxJ3LxwKPD6AbWRgzdScujgwmSm6NJzEGug2S/VsYHxtB2kd+Wumse/9EXd03utqqfpSHdkiHmUVWL8izQIS69Y6uPiBe72n9EK0p38/0rUEklm5jXwCr/pK+OFPe3J9hF978xNH5SVkrGA7xCKzYXhJQ+Njwz1Pp7Buj45dbyPO/mksMj6VYCvN6C1OnoE95ieYWl1/PFnKEPVcIoBfo7gwnWPMVJ9XPVGErFU1TchECeTDgursDxP4ybuWsjxFojbYOUl13B8+WLzpzuPe5rej/k6CnDbMR0OcEbBPgWTY7nXxggOFV1m77iAzCNc3+0NUdPi5qBAqi0BKAyVHnRQ2KizdORNZphlQQ35yjsQDsSjhVm5rJRzEXp7h9O31hG1Ez3fs9CCKaoP2zd/FrMnrNA12f/25WbUyttBuQkxNizXcJYT0oEHU4Bpfxzxec+KJzz0o0Jzu6sXNd1VuI+fKYpgFhususvUlvX7gjXg+hr/EfYTTcF8BQP2YXSSoWI0kfFzE43FCQbu7vk24gJh/7sTxAO89ws10m0Z0V9HnJ43mc/fHoFK2pv53+BkOQC+hvOGkeeMbMUEQ30Rqxqf+QpTIbz0w/mAKErtDbhkML5sT2T8ezMBvlgl+sK930eshXpGgSgVWPaSkaG3Ucd9cTzvSyJbqyg6N8JSUmj1whZ1dxk803TqvetnV/NjZPAn1ENcPAOBmcpG9g6ABHSdBrpKo3wf/ZlpIQo64PVDyzUMYh8zcs3URRaoAWppzIsDpnaSWK8FerQ22dTovM5NYyiy3q59C9pltnAPD68U9DVuL5xH3iWSntbCq8aT6yNKkfBzQvx0vtIEs3awoB7+TKFx5S2NuXOL5V+SgDss0LIcHDp7mBQlmW9ufB6zQsn30tcMeokROALu1omEtak196O44DgH80nQKjrKURFRGeFQarD9bXcCxxk4VT3CHVoiftle/GV6QFTMeBtqSv+K9f8VhKcYsKtVF539euDD6UaC9avuXb6qTXbc0bbEb6l4nkNpHG1hwHDrpOn42O5X2kNEqFasshuj0KtCP10YHbgbfaffAvKH5eh4A/Hi3rS/ujJIV900lWk+S2InL1wIUfjNGAM=",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSmQcKEAgTGAI4AUIIdGhpbmtpbmcSDJpOhro30EEe/IafMBoMAHj5YDN8A6vz0InuIjDie6wKYiY2Fs1fOsf2A7HBcnFucsghA6AmNSEvmsKK0VzW7Z9gg9XA3J3n/CBr7/oqtgbjuM7GEn0zgFy0gYQcca7XNqUHiD6MntRDdDFxp+8eGz2xRxqFJrUV0ZKNNvu1NfwWXHh0mfMmaehTHxGYm2XSxlUvjlnlq4xjeogWGhxFwO0F5uqTLIRCHqssewEl4tNsemCECKKeZdo8d+LziHl0WIL6BkKxPfUbYzZzlqCtA3ZGHglQB5BvF5DEJ42g7R8aiNoHirS6atlZrSAtsd5q/zp5YNLSfcNl4vsfWloG+Y4FbwV2PRlUr0Pp2ngM6ZMY5pxVqWTm7KCtXV72SesUDofJVTOAtGITpZWmpo3Rv87qRFzs+fva9PcTV3RrY68FU5ZnBEFeUA+UH0C2O9njeIr8dJyrb5pBEHxs13iB4mVrFExeghmYJssMGF4tdMNuByYDXihMiyx1WfaCm450Z8oWmqUmKf49fH5qoMhzxkBMAFN974xWtU/Z/M1++ti/FJ3x87ORdc7U9FpgeKNav3jXteoV/jjCDdCL5ozm07MM9WUrDLFn2yi1NRN+2fM2Z5cWbGhfPNB2RHJbhYsO6Dv/illIaur/4cb+PMBJYdpNsjyYk3hCmDCWhfO8YiRgSarz9PG9JcIjGcdiL3QYq23CYw5eYuV6SiAMa3E0SUsT8AxbypDMPZfeZEmFpGV/bAktRdsVWhlDhg7HCeofd0FmXBd4UBSyrei0O4J5ajseyPvzkYtYh1nZFlDkYAQeu2NPfOBtvu7EScMDdj6heCd0V+GAFHRtAMel74DXqE9tcZHCeoRRQTBFOF1IU8HVGiIsOyIg1SxZSc/2fcDJnFNKDnzMh+vF428U1Jnu+tQhTqPauVdX5jAwp72rZ6MVDmwuj/7+bp8wRopfA9TgTJfSOO43EBfJY5hg/i+l1eUCaPIzqj/O+Rj4DuTSdCsR8/2kmCcdtfW7RLXrJXDiyhYX6wkGYTQ6orw2ibGJj+IAelGR8x/TuK2Rs3wgEd+cf1YPZ038hy+SXWVo7Mh8QLehU2J576ktDFO2bylkTy/Qg7KzJL88rnY40w2XUQtfFb9tSGaoKgL9dDcyeUteSxt+ruiyvtgsN3RA4bYnjeHHVt6YWJZdXZfPClwXT7DKQPNEtqoYAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01YRH7VTLJAnXrndmEME57pH",
+      "name": "code_execution",
+      "input": {
+       "code": "import json\nfor q in [\"Nike fiscal 2025 cash flow statement depreciation amortization additions to property plant equipment 2025 2024 2023\",\"Nike May 31 2025 balance sheet cash and equivalents short-term investments long-term debt notes payable current portion\",\"Nike fiscal 2025 diluted weighted average common shares 1,485\"]:\n    r=json.loads(await web_search({\"query\":q}))\n    for x in r[:6]:\n        c=x['content']\n        import re\n        for m in re.finditer(r'(?i)(depreciation|additions to property|long-term debt|diluted|short-term investments|notes payable)',c):\n            print(x['url'][-40:],c[max(0,m.start()-80):m.start()+200].replace(\"\\n\",\" \"));break"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01WYhEeLeEPxW5s4yJoJZ93L",
+      "name": "web_search",
+      "input": {
+       "query": "Nike fiscal 2025 cash flow statement depreciation amortization additions to property plant equipment 2025 2024 2023"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01YRH7VTLJAnXrndmEME57pH"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01WYhEeLeEPxW5s4yJoJZ93L",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000130817925000564/nke013950-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form ARS - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000130817924000659/nke4278571-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018724000044/nke-20240531.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Cash Flow :: NIKE, Inc. (NKE)",
+        "url": "https://investors.nike.com/financial-information/cash-flow",
+        "encrypted_content": "[omitted]",
+        "page_age": "38 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://investors.nike.com/sec-filings/all-sec-filings/content/0000320187-25-000151/0000320187-25-000151.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike (NKE) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/nke/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1325 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000016/nke-20250228.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-K - FY2024 (Annual Financial Statement Tables - full year 2024)",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018724000044/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Depreciation Amortization - Nike Inc (NYSE:NKE) - Alpha Spread",
+        "url": "https://www.alphaspread.com/security/nyse/nke/financials/cash-flow-statement/depreciation-amortization",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-Q - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000004/nke-20241130.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01YRH7VTLJAnXrndmEME57pH"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01UxS1ckjkQsxQsmkFFdmCtp",
+      "name": "web_search",
+      "input": {
+       "query": "Nike May 31 2025 balance sheet cash and equivalents short-term investments long-term debt notes payable current portion"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01YRH7VTLJAnXrndmEME57pH"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01UxS1ckjkQsxQsmkFFdmCtp",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000130817925000564/nke013950-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. Reports Fiscal 2025 Fourth Quarter and Full Year Results :: NIKE, Inc. (NKE)",
+        "url": "https://investors.nike.com/news-events/press-releases/detail/551/nike-inc-reports-fiscal-2025-fourth-quarter-and-full-year-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "74 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, INC. CONSOLIDATED BALANCE SHEETS MAY 31, (In millions) 2025 2024 ASSETS",
+        "url": "https://materials.proxyvote.com/Approved/654106/20250709/FO10K_614373/PDF/nike-10k2025_0061.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike Inc. 2025 Annual Report",
+        "url": "https://s1.q4cdn.com/806093406/files/doc_financials/2025/ar/Nike-Inc-2025_10K.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "479 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Cash Equivalents - Nike Inc (NYSE:NKE) - Alpha Spread",
+        "url": "https://www.alphaspread.com/security/nyse/nke/financials/balance-sheet/cash-equivalents",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE INC - Form 8-K - FY2009",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000320187/000032018709000049/exhibit99er.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "October 1, 2025 - 10-Q: Quarterly report [Sections 13 or 15(d)]",
+        "url": "https://investors.nike.com/sec-filings/all-sec-filings/content/0000320187-25-000097/nke-20250831.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "404 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-K - FY2021 (Annual Financial Statement Tables - full year 2021)",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018721000028/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-K - FY2023 (Annual Financial Statement Tables - full year 2023)",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018723000039/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike Inc (NKE) Annual Balance Sheets Statement - Rolling Periods through May 31 2025",
+        "url": "https://csimarket.com/stocks/NKE-Annual-Balance-Sheets",
+        "encrypted_content": "[omitted]",
+        "page_age": "139 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01YRH7VTLJAnXrndmEME57pH"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01ApgftYcpcfxLUGaNguB1La",
+      "name": "web_search",
+      "input": {
+       "query": "Nike fiscal 2025 diluted weighted average common shares 1,485"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01YRH7VTLJAnXrndmEME57pH"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01ApgftYcpcfxLUGaNguB1La",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000016/nke-20250228.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000097/nke-20250831.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "October 1, 2025 - 10-Q: Quarterly report [Sections 13 or 15(d)]",
+        "url": "https://investors.nike.com/sec-filings/all-sec-filings/content/0000320187-25-000097/nke-20250831.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "404 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. Reports Fiscal 2025 First Quarter Results :: NIKE, Inc. (NKE)",
+        "url": "https://investors.nike.com/news-events/press-releases/detail/16/nike-inc-reports-fiscal-2025-first-quarter-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "172 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "October 2, 2026 - 10-Q: Quarterly report [Sections 13 or 15(d)]",
+        "url": "https://investors.nike.com/sec-filings/all-sec-filings/content/0000320187-26-000193/nke-20260831.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "38 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. Reports Fiscal 2025 Fourth Quarter and Full Year Results :: NIKE, Inc. (NKE)",
+        "url": "https://investors.nike.com/news-events/press-releases/detail/551/nike-inc-reports-fiscal-2025-fourth-quarter-and-full-year-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "74 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://fortune.com/company-assets/1716/quartr/quarterly-report-10-q-ae466-2025-04-03-08-41-25.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "585 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Document",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018724000062/q1fy25exhibit991er.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE (NKE) EPS (Earnings Per Share) (2016-2026 10-K)",
+        "url": "https://app.edgar.tools/companies/NKE/disclosures/earnings-per-share",
+        "encrypted_content": "[omitted]",
+        "page_age": "117 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01YRH7VTLJAnXrndmEME57pH"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01YRH7VTLJAnXrndmEME57pH",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS4QYKEAgTGAI4AUIIdGhpbmtpbmcSDED3NpsqmqJP0bA5uhoMwTsmnGz0l/ulFA5rIjD2K+iZh6xHaVjiOmXyJuOt16izK+JRsvjUIosOeODLsUlXbK1wv7xy2pGczaVNNPYq/gUO6A63nghg77NbebyFQcv1rcloDhHPf/winWJO9S+1oJAZUa4egwvj9x7AMVLDAFimrnnmkdTIHYeuRWaPoYhfgnnkuyBEvkrMTrOVYzFAMSZ2gGVIS/rSy0Uwnluqk+PTuMLSbJzuUPTnI8Slthd0HbLcs7HzJc5+wnKDaRT55te6STnHXztDZnQuVPUt9l5Zd0p2mSgvtdITiN7QpdPqYhLf7fRL87Pn/n+DoONFMBwUSfaS8FeptRMcjmbr9SUxHEe6AvjX25OR+Fr8NdYWQ3DtaV9nH8sHlQMnkBAYgl19v09EzWlCSOrNaklvxUPLiWh5uu4E8PMfhW0oj/TW/U0bm3Q+CigLmsBdEzcMD9peY+JdpoVkOz4KAnCNTD2FUNhHsd9WUliBOI3PeOVqkiQ+fH4rZm09tgCbX9nRmhfOYbtgf/ehVq4NxVz3jcxRr/E1ceY476NJS+5wLTeXEgQHDHrdv7vG8R36R5kYMsebk/Q+XC7uxJTczx+cSa+Lmfx441otAG9ul0zlbbRL7pNpcuve+NN2yWjMrjw0QFXLlXZh7Pukgmc+44A9hplgkN+Rw1YyXoib36m6KA4Jmo8Frhz6LVUY7LYikCRQ2fk2zEyc1qhG/IdOrsQTz1qbkJh2wAzRJliFr8GYNFZgw4ot34pp5HvBo595e+jM/cg8ZmzLoWbPKHO4F7QdGNY3fE9SeyV5gSSvKp10ni1hWWNylcS/Tcrd4WqLhTpx7L+KfmOIxzjNn3BiAwns34OAxOI8Kolgnf8w87wWbn8cqydnuKss/SQFSRVomLVrQCWOdQjMC93lknmluhrrTHd40fmzK1RPxzCWA/F4fLOs02ZaezgbHiOJT9sarJ590zXaLFLgaNFOk8h837vCKpYM9La61UM7f3wvnkTk3yx/WI16Pnpnmdsswp5i/0eh2WsDW4QAjHJdHg/QEAXd2ThKkgrOV/KTGASO2kyXsNRBgY5vOJSQ0z6ORMcRcIrltud5BS2bp3OTIPVPIJ7cGAE="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01VAxjeVE8B4tiATRYkmetBp",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"Nike fiscal 2025 full year results diluted earnings per share $2.16 weighted average diluted shares\",\"Nike 10-K May 31 2025 long-term debt 7,961 notes payable 5\"]:\n    r=json.loads(await web_search({\"query\":q}))\n    for x in r[:8]:\n        c=x['content']\n        for m in re.finditer(r'(?i)(Diluted\\W+1,4\\d\\d|7,96\\d|Long-term debt\\W)',c):\n            print(x['url'][-40:],c[max(0,m.start()-200):m.start()+200].replace(\"\\n\",\" \"));print();break"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01VXLbbkQEHeJUNdRwUpk71x",
+      "name": "web_search",
+      "input": {
+       "query": "Nike fiscal 2025 full year results diluted earnings per share $2.16 weighted average diluted shares"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01VAxjeVE8B4tiATRYkmetBp"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01VXLbbkQEHeJUNdRwUpk71x",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000047/nke-20250531.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000034/q4fy25exhibit991er.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. Reports Fiscal 2025 Fourth Quarter and Full Year Results :: NIKE, Inc. (NKE)",
+        "url": "https://investors.nike.com/news-events/press-releases/detail/551/nike-inc-reports-fiscal-2025-fourth-quarter-and-full-year-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "74 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000097/nke-20250831.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000151/nke-20251130.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000016/nke-20250228.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000130817925000564/nke013950-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike’s net income falls 86% and revenue 12% in Q4 FY25",
+        "url": "https://finance.yahoo.com/news/nike-net-income-falls-86-091240393.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "497 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. Reports Fiscal 2025 Fourth Quarter and Full Year Results",
+        "url": "https://www.nasdaq.com/press-release/nike-inc-reports-fiscal-2025-fourth-quarter-and-full-year-results-2025-06-26",
+        "encrypted_content": "[omitted]",
+        "page_age": "501 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. (NKE) - Weighted-Average Shares Outstanding (Diluted) (Annual)",
+        "url": "https://www.alphaquery.com/stock/NKE/fundamentals/annual/weighted-average-shares-outstanding-diluted",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01VAxjeVE8B4tiATRYkmetBp"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01J6tVubkLu82runakHRwTBF",
+      "name": "web_search",
+      "input": {
+       "query": "Nike 10-K May 31 2025 long-term debt 7,961 notes payable 5"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01VAxjeVE8B4tiATRYkmetBp"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01J6tVubkLu82runakHRwTBF",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "July 17, 2025 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://investors.nike.com/sec-filings/all-sec-filings/content/0000320187-25-000047/nke-20250531.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "480 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, INC. CONSOLIDATED BALANCE SHEETS MAY 31, (In millions) 2025 2024 ASSETS",
+        "url": "https://materials.proxyvote.com/Approved/654106/20250709/FO10K_614373/PDF/nike-10k2025_0061.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://investors.nike.com/sec-filings/all-sec-filings/content/0000320187-25-000097/0000320187-25-000097.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "404 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike Inc. (NYSE:NKE)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Nike-Inc/Analysis/Debt",
+        "encrypted_content": "[omitted]",
+        "page_age": "479 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. CONSOLIDATED STATEMENTS OF INCOME (Unaudited) THREE MONTHS ENDED %",
+        "url": "https://investors.nike.com/_assets/_c1ae3c3b1d1d94e474a36d1f679ed34e/nike/db/938/9403/financial_schedules_key_financial_metrics/Q4-FY25_Combined-Tables.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "2025 Q3 NKE NIKE Excel Financial Data",
+        "url": "https://capedge.com/filing/320187/0000320187-25-000016/NKE-10Q-2025Q3/file/67/data",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike Inc. (NYSE:NKE)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Nike-Inc/Financial-Statement/Liabilities-and-Stockholders-Equity",
+        "encrypted_content": "[omitted]",
+        "page_age": "116 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike Inc. (NYSE:NKE)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Nike-Inc/Ratios/Long-term-Debt-and-Solvency",
+        "encrypted_content": "[omitted]",
+        "page_age": "116 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE Long Term Debt 2012-2026",
+        "url": "https://www.macrotrends.net/stocks/charts/NKE/nike/long-term-debt",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01VAxjeVE8B4tiATRYkmetBp"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01VAxjeVE8B4tiATRYkmetBp",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS7wcKEAgTGAI4AUIIdGhpbmtpbmcSDGPfh59UR1tPKVH2NhoMZjvsOH61W0BMfuMpIjD5HWvqONNXcZUo83s5wnETlo8X7S9Adva2gNKsHVqiquA2T8y6P5ziaW+fu72vMPoqjAcsLoM65fhGHOazqx4Sfj9HkuMxna4cHcty/9l+HyTmLsMapFXSdxFaOvMbS353gZU0o7SS9rhETwEkiyNkfIHckIOW/1A6z7h+5Juihc8Qu6O+aZ8xcJp/1e5b39AiTgzj6qw2N1bh/pX6Sr+3hEurU8dZ4cyKn4LZZNauBEVem7HZ25USzf8HIcX9PUdU9PWaZhycCQR6Nb2iu6TE+akDKKkPydgHYzmOgJ75bwrFwM5tGWxntjeGtJ93o8yTjY9mEgfRW/t3Mqfr0gNkULiyzgg2V0mbPUTuShGgAQTIlxLDFJ7YkUFFNOaN4/DoMXzIohEJ6vWVSGwTFVBZETEjlfsw8VhW8In4+jXS2fUKW4MPubDze+xzqMIdL0OUM0pMbVwfnmLkh2YtMQDXSjloQ7TnEyxm85a3L3GnTz3tQ03ZG0opRKzq8bS0Opd3Uttt+Ev20r2WpOASlg5ygcgZ2AP3LGZebCcRfNtc00rRuIBCTvA5uHq9pg2Qissj9FkV6y9JXn9p3NjvIOj9gwSwz29IV5QWMntV64fOCQ4hPbuNTVXzfX6O/YtvrdSjS2GQHaoD7q7Tra/vuzHCmNGMOCJxEi3QgCugCOW7HNSYQXlYyDvWte1inJZfnPrS8H82W1+sbEEuzdwxXQCfTOWa0tEyjuDfz9/MSjSDe+xAfdsK3sANVrLy2LtqSGuqRt64wZm2lCNVKvc42Y3K2I6AeVZBtVXaDgP0U5FQ8kPszi1a+ZjFPA+uuESi9Rrn8eMrF/AzXS1BtbFHlcxZZ0wVYHqEv4A6k8XJ+R/gFM1jhvP+m7cXTmJnZNlpOjQj55/HxopWzRZJXOm1lQTJO6z9v5HI50NiuAwvmFGE4MQ2g//mOwNm0CWur6GF/R6THZs7UGtyWERQ5oHH79hLOBfyyzJ3OukAoHw3gDrIxN4jCbu9gFr+LFTzzXbGDy4iWT0Xz/Yv0SaEGOwmEYVRngIIBQt10agqsdmcH6euUk1aYRu+FOXInQUiBNqBG4jagtI0UpW6peg5pZF/AGBtZJeNHgKkRs2Zp0vXdyGM4sh6W7Qizn3r6tnUTxPndekN4TOy9id/u/XdguwDhsFtoKNOFKoCaWHsSFMtvm4/5b++9r77TQDhwaEbYYaxoEmSER1N9sE5iiuskiUIToCcGD631/CeDSiwyofhPL3CKJg/0IuekFa4KF3p+coDohgB"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_0159xsa2N9NPyxPxJ4FVj9Hd",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"Nike fourth quarter and full year fiscal 2026 results revenues\",\"Nike 10-K fiscal year ended May 31 2026 earnings before interest and taxes\",\"Nike FY2026 cash flow depreciation additions to property plant equipment diluted shares\"]:\n    r=json.loads(await web_search({\"query\":q}))\n    for x in r[:8]:\n        print(x['url'], x['content'][:300].replace(\"\\n\",\" \"));print()"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_0112ZXpFNJX21qWKoUrCXP2J",
+      "name": "web_search",
+      "input": {
+       "query": "Nike fourth quarter and full year fiscal 2026 results revenues"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_0159xsa2N9NPyxPxJ4FVj9Hd"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_0112ZXpFNJX21qWKoUrCXP2J",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000320187/000032018726000076/q4fy26exhibit991er.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. Reports Fiscal 2026 Fourth Quarter and Full Year Results :: NIKE, Inc. (NKE)",
+        "url": "https://investors.nike.com/news-events/press-releases/detail/571/nike-inc-reports-fiscal-2026-fourth-quarter-and-full-year-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "37 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. Reports Fiscal 2026 Fourth Quarter and Full Year Results —",
+        "url": "https://about.nike.com/en/newsroom/releases/nike-inc-reports-fiscal-2026-fourth-quarter-and-full-year-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "125 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-Q - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018726000037/nke-20260228.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. Reports Fiscal 2026 Fourth Quarter ...",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018726000076/q4fy26exhibit991er.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018726000026/q3fy26exhibit991er.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. Reports Fiscal 2026 Fourth Quarter and Full Year ...",
+        "url": "https://s1.q4cdn.com/806093406/files/doc_financials/2026/q4/Q4-FY26_Press-Release_FINAL.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "132 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-Q - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000320187/000032018726000193/nke-20260831.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. Reports Fiscal 2026 Fourth Quarter and Full Year Results",
+        "url": "https://www.businesswire.com/news/home/20260630156660/en/NIKE-Inc.-Reports-Fiscal-2026-Fourth-Quarter-and-Full-Year-Results",
+        "encrypted_content": "[omitted]",
+        "page_age": "131 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_0159xsa2N9NPyxPxJ4FVj9Hd"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_0139Dqj5A1m3w3y1JoX94Sgw",
+      "name": "web_search",
+      "input": {
+       "query": "Nike 10-K fiscal year ended May 31 2026 earnings before interest and taxes"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_0159xsa2N9NPyxPxJ4FVj9Hd"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_0139Dqj5A1m3w3y1JoX94Sgw",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000320187/000032018726000088/nke-20260531.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "July 15, 2026 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://investors.nike.com/sec-filings/all-sec-filings/content/0000320187-26-000088/nke-20260531.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "117 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "2026 Nike Form 10-K",
+        "url": "https://investors.nike.com/_assets/_237b89c883e362843a679ea837706635/nike/db/950/9550/annual_report/Nike-Inc-2026-10K.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "7 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike-Inc-2026-10K.pdf",
+        "url": "https://s1.q4cdn.com/806093406/files/doc_financials/2026/ar/Nike-Inc-2026-10K.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. Reports Fiscal 2026 Fourth Quarter and Full Year ...",
+        "url": "https://s1.q4cdn.com/806093406/files/doc_financials/2026/q4/Q4-FY26_Press-Release_FINAL.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "132 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "October 2, 2026 - 10-Q: Quarterly report [Sections 13 or 15(d)]",
+        "url": "https://investors.nike.com/sec-filings/all-sec-filings/content/0000320187-26-000193/nke-20260831.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "38 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike details global reach and key risks in 2026",
+        "url": "https://www.stocktitan.net/sec-filings/NKE/10-k-nike-inc-files-annual-report-6a6cb2c67bc3.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "116 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE FY 2026 revenue flat, EPS down 3%",
+        "url": "https://www.stocktitan.net/sec-filings/NKE/8-k-nike-inc-reports-material-event-217c938e5679.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "131 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Why Nike Stock Fell After Its October 2026 Earnings",
+        "url": "https://www.stocktitan.net/articles/nike-q1-fy2027-earnings-outlook-dividend",
+        "encrypted_content": "[omitted]",
+        "page_age": "34 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_0159xsa2N9NPyxPxJ4FVj9Hd"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01GtTPAA4hHd3m1xTxQFuMdV",
+      "name": "web_search",
+      "input": {
+       "query": "Nike FY2026 cash flow depreciation additions to property plant equipment diluted shares"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_0159xsa2N9NPyxPxJ4FVj9Hd"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01GtTPAA4hHd3m1xTxQFuMdV",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-Q - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000320187/000032018726000193/nke-20260831.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form ARS - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000320187/000130817926000376/nke015577-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-Q - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018726000037/nke-20260228.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000320187/000032018726000088/nke-20260531.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://investors.nike.com/sec-filings/all-sec-filings/content/0000320187-26-000037/0000320187-26-000037.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "222 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "October 2, 2026 - 10-Q: Quarterly report [Sections 13 or 15(d)]",
+        "url": "https://investors.nike.com/sec-filings/all-sec-filings/content/0000320187-26-000193/nke-20260831.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "38 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "July 15, 2026 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://investors.nike.com/sec-filings/all-sec-filings/content/0000320187-26-000088/nke-20260531.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "117 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Cash Flow :: NIKE, Inc. (NKE)",
+        "url": "https://investors.nike.com/financial-information/cash-flow",
+        "encrypted_content": "[omitted]",
+        "page_age": "38 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "April 1, 2026 - 10-Q: Quarterly report [Sections 13 or 15(d)]",
+        "url": "https://investors.nike.com/sec-filings/all-sec-filings/content/0000320187-26-000037/nke-20260228.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "222 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_0159xsa2N9NPyxPxJ4FVj9Hd"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_0159xsa2N9NPyxPxJ4FVj9Hd",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS5gYKEAgTGAI4AUIIdGhpbmtpbmcSDLDDMnWPZ3Ses4EiqxoMdWYki/XKKqm1/iL3IjAm2jQ0R5Dq2t3RWnynyBuwMbHv5QOCGmP+doVCf1s5CApnYkrEHlX/aXkl4eGV9ZsqgwaAOF0AOm/fwf7xMM+1ujLIqTanp8gIgerjkV81zlkFA2ytFX2JkV6jMiEqbBMRrL9/2rp3r5/HdnhQePJlo92hQWn5bbGZ6GGCusuHbEwLgmt9DofPWjMsZvOby2MwrJ1ZhtWIck4c5UExQQ+Hf0zyH3TDeuWg4n5vKsGyQTWXExz7/r8+jVML0Rtyn3kog0xT6q17p9l5wTLN49ntj6p/AFNlPEIgfkdzbPeRwAGQzYQ/xNXlvdpMCfsfbVUY8ORV0+4dcVKNvPNjcTLGcTiCNt7OaQcK8l4rCbt3ZS0S/ynm1kr8hTuOKymChGpjNtcfl/KOqjwvvsi57JQSV/Gtl/RXRAY3kuu4kmr7Of9rQXAImlFozu5pUy6rtVYjb2/CNaYaqU+zh3s6TSm04KKi7E3AdJHBYb4FsTlSDPfdHkM028S2/X4OSQb4YaVHhHiWUWfr7A2Tb/sdDNZsg4mFzGJVVBCioF9nMNasEjAVRpxnIabjoTrdPKUbRmTDNKf9yjZXi7OeVL6rabXIa57OHQ6ufY/o0A+yzVMk9SifSJ6YqGeo9VGPOvqnS8mNQ7JvKePKfRW3XlJZ79csdQB1yYJBzo4ns6rrfXcK8Thi6Iy6gfHvf2J1SHJ/B2SifTNtAAyIB1pjsE0nknNHIhniSaMM04Xk/1MvT+ejY02S6xhlFxaU/64hIj9jhOLqbUlvy2Zbi7+8hT+Kuh5aJWWZY5ztcoiioko6TWCJq8qbOd68HneHBbMzXmk7Zujgfyq5m6aJa2NclOULxX+HSCTFzqSJaoNe3b/ojkOIDZMpp9z+SRoumx/dOEnzt6xcfRHzsBhdA+ZWjnOqjWwLf1MVosNeEf2Ak2qDELnYaQRAP23t8N8LSBXHs5jhL0P7/PPfMs4ty1ey/ZscLjtpqDzpZxjXQbsLV7brN+4S4XgZaGgxY26cT38kvElHTRSHrtMEGpRmbjI1OYw/PvETdsQhx57l/PRsAVrQVyw6y9R8bZ3lWkU24q0Wyw4Rjs/I0HXx5ygYAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01FNQYQTxiioakfWDBUkupZ5",
+      "name": "code_execution",
+      "input": {
+       "code": "r=json.loads(await web_search({\"query\":\"Nike 10-K fiscal 2026 consolidated statements of income revenues earnings before interest and taxes income before income taxes diluted shares\"}))\npats=r'(?i)(Revenues\\W|Depreciation|Additions to property|Diluted|Cash and equivalents|Short-term investments|Long-term debt|Notes payable|Interest \\(income\\)|Interest expense)'\ndef scan(r):\n  for x in r:\n    if '2026' in x['url'] or 'nike' in x['url']:\n        c=x['content']\n        for m in list(re.finditer(pats,c))[:6]:\n            print(x['url'][-35:],c[max(0,m.start()-60):m.start()+160].replace(\"\\n\",\" \"))\n        print('==')\nscan(r)"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01AruYf5FHR2kYaiwm4g3t7s",
+      "name": "web_search",
+      "input": {
+       "query": "Nike 10-K fiscal 2026 consolidated statements of income revenues earnings before interest and taxes income before income taxes diluted shares"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01FNQYQTxiioakfWDBUkupZ5"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01AruYf5FHR2kYaiwm4g3t7s",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Form 10-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000320187/000032018726000088/nke-20260531.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "2026 Nike Form 10-K",
+        "url": "https://investors.nike.com/_assets/_237b89c883e362843a679ea837706635/nike/db/950/9550/annual_report/Nike-Inc-2026-10K.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "7 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike-Inc-2026-10K.pdf",
+        "url": "https://s1.q4cdn.com/806093406/files/doc_financials/2026/ar/Nike-Inc-2026-10K.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "July 15, 2026 - 10-K: Annual report [Section 13 and 15(d), not S-K Item 405]",
+        "url": "https://investors.nike.com/sec-filings/all-sec-filings/content/0000320187-26-000088/nke-20260531.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "117 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. - Investor Relations - NIKE, Inc. Reports Fiscal 2026 Second Quarter Results",
+        "url": "https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2025/NIKE-Inc--Reports-Fiscal-2026-Second-Quarter-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "326 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Income Statement :: NIKE, Inc. (NKE)",
+        "url": "https://investors.nike.com/financial-information/income-statement",
+        "encrypted_content": "[omitted]",
+        "page_age": "38 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. Reports Fiscal 2026 Fourth Quarter ...",
+        "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018726000076/q4fy26exhibit991er.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NIKE, Inc. CONSOLIDATED STATEMENTS OF INCOME (Unaudited) THREE MONTHS ENDED %",
+        "url": "https://investors.nike.com/_assets/_082c0a46160d97c30c75eae31f57999c/nike/db/938/9540/financial_schedules_key_financial_metrics/Q4-FY26_Combined-Tables.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nike, Inc. (NKE) Financials FY2026: Revenue $46.4B, Net Income $3.1B",
+        "url": "https://www.stocktitan.net/financials/NKE/",
+        "encrypted_content": "[omitted]",
+        "page_age": "38 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01FNQYQTxiioakfWDBUkupZ5"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01FNQYQTxiioakfWDBUkupZ5",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "EpI6CioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDCe6ODoWQeyxPNgy3BoMsQCI2aGoA/kRect+IjC22iszG+DyMT21Uzk1Gzm+kyCb1dwEPw9jGPlkjEuSUAmADu5BZ2p34QuKG6HoFQQqlTlQBINKpaZUtMBUeH6UcKi+YjJ2bQ7qfBK1K2Zc+y8dDTkTwkMt+H+EuktRxwxDNkmANvPIlRlvjPcxtz6LAlE/Dd/kePmlk0Y66jIJwNNws0fYnTWyZ83oG1M0qwdi2jzvYPeUcIHkqlzQykOLcm+j4Ib9ZC4rZAVFJ3YOT+2CQcnSwWUCDuM3QK3MTlHfjV1/Nfs5CTP634rSzIYV2YIT4+lWvzjIA3+JVAhlL9WfDOIx9RdU0AC2qconAHFE0NfTu14+HnlLtzInI+tgQ1lPbUdl20raTszYwD/nljn2LqQCvcnKgVem0s6nZd0s8ObcSSjxE7JNyuV3GQ6EBtIDJ803yEMYK2IqDS63np+bjcbXXJGo77Fr3ejq+QJqejwUFtVld3k1L32UYTKWslVhSMyP1TVUS8aFcUXC0zsBGxJaUC3uCQSwINTgVJyUoY2n401l/llA+HGIE2bTFpOMDQoBjer6oejooFZuujomkbrwoTL6wrBADBCx3WvcXbstA6KEYAqPOPe9DL9dM6xxeeMFQebkjeqbgWUTJjM2QDxuYIrTceWT4ayVzfI4hDhv1nVEY7ng94gSkSLNSEqfEfpmaSpjQ1U0FUmEOkneOx826cDraAt8CS9Y1yNq1LTFrlbGFaeFcPxynfxDAGP21yQxQF68vg2Eo+rWizJlsCfklOkjsyTDCduG5jXFfw9dlrvtg3/aTrJ0G5ZHVN0x0dtXbX2rs9rN7ZAeBuP9+ws2gYKrO4iggq7BeXRpu7uwZYJ54DigsgGcbbNTS1AMNj9rJYXmAYd1/P3p27wnRhCpXu7R4YHhLMPqS/1z0fwnkUkARgfmKId4yH7Y74umbBJJCELT2cSgMI+D7gImPXP0NId+etDVnuSng5TmJzJk5ah1tKncmLexcg00bxZMjdqQpeaGvmVi1Q2rJpWjJjsZaESc/YKertOtDWR+6/R59x+J8gSXP4B8crU+cwk2xG+yM113cq4fvWtvdEqmtLIQUpx08Cxpl10zZrV/Nh+BCkMkLQpSgJCppXkJIfahz/UldeRxgs3yPmGS+eng2HKIE1O5+xA41DgKv+s9ZtagjdTvy4pTbcuk2YHzk46mA2HZkbS9gzVXKCoUlayo1H+mgZzkwytZBD8Y4OCBJNtwSympMVShsNVfkiLJ/WYiaLbBY/cYSWp0zFwBTzDukR7+D8gOeAc9Q0Zout69h2GW8boGhmL3AjxnXhtwtv5k5VWCv++5ZgS8Q+d62ayfvW+0pPm0jtF0uC2IxXyAp75Mj6a1/2oeLSQTVnFY47tyMSU/AIIkPuz0Gs5sThoyRJT+WUnMg/EHHYvBfseRmykA+mF/xdUd+oAyMaJQhthBPnuLPKttgD4zDeXE5fY97rUZnr+TUpkb8qdZiY7vGOVH2zIR8p8zzTAGjcGjgHd7CPUP41wN823hsI9DImnK8bPaQKxgdmOC7raiW3sp34wj2Hytf8ftFL88HIC36ztt5G9EnQHePw30Os1l1k67rmTgpVuEor5HzVAqsMQyuBipYbR6NSRqJgj+O7raRn8jKaSJPVvdW1vlS1ztQWm0jQ0IHzKkjbK6DqWtkAH9nU7CZEwlnNK/TiEskZUPErjFEB+XQ8oVgyeIIz4XuBGHwqzMU8ypKB9JOl1R11H0Pe9SEjH4akL0WoetQ4LOQrU5zOlZE5IkjQ0VZhChkBXklP9txtRbjK0vWW1RAI11ncdXctWrCJOKk2+7W9igGFvBD+TcWo+B8XfK9jUXTZjN0CFHWNK4YQhlWijj7qssYnKbL+A2KJ+mAZYyAv66cLZz9Yx+yvfJlOi3yJ3WhzSihJjf1j/vwl2u8Kw+H3Vgqz6Yz2Nl32HWbAUnVNVLRzTDlQQuNtUpO2uHPXPMauS1uEUZXZxZFbgFOiBmmsg/c8uov/TeOXC+yfxIE1ykyKLTBcovJilZ32WWpMJVLKtxG9DprvbNnOjWDrXJXoyUyNgVUBm3Vrv334zOhnm7aBI384vOP7JKMGR6B4ywEuMEbUwKq4cG8J3534VXc5yMA2z9y3tdBBYzw5yNuGNurX/J3B/iIOc/z7LyrpPPfeaD+CWZZMMIW7PLS2ikCVIzQwVNTWue33E++LxNBfDNTP2nGD4p4qHQiUQ5LJpUuI7DY+i4y9EDLL69a79cNFs7A20jwR67RaDyGloVjqQRvHM4tofWB1KYSUdz51g0JPM+iEZMBURpFnH91w73i3ksSsYYLgXS21j3Sdk4oOccIqohmjbmTJPlOW/j876VturZDxDNcAThLoeVoJPe5YFOScJ1FOnTfNNDtl2fFkuSyQLd5cq36P3gm9TUxviBOpKprtsawsAUGOiUvljOlhWg+taxHBIe2get++yg5bnwpxbQqjDxlJEz+DcfnuyS93Joud6Z0Lj9Z9DndDsveyv+0NE/6Q/hgWDBIV4Rw5rNoMZ1nKhKySSDEVqYJhoGLuiMiL7f2v6SlQZiefPhA2eXeXSOnBCIgpJG2Wl9KPwoSKRpKcp0M03tz4ByziCz5xINRDQk72yCmw9BPNUQyqrvc4V5O4iSm5VUz7lyFeWELRsxQfBo2dcurF+3hcb5PQk0+9W/yubPTHqe6rwGxBsIXd9TEcJvIccYs/EH1YymEHLYYP6JobVAYbSh06A36NEqCW43lZRRdjS3ptxGTAnHZgOo7gxk1ALUQ4s2hmQWEkw6FAbyyy12lZ9EPvp8RvzkvsFeoyecUkdi7YF4aW66CkMYY17HsOo5KjE2ZE6mAzyEsED+wWk7YEJkTkevRqlrmr7PoSJk81MeUrRfHOya95HMZcya9AsOflxvW8ZNixq+hSsijBND3jV7imb8KVKgzVFJ6qlFd2UIU+SODYsz8HOlyoB2+mRbV5bZ/P30YfuOlWR1AMPT5VbbaPSCSSfT1T+KqMSwwPFFgKAy30hZ80To94RrlejRta2eqte2DXO6iRyOiF9CLKR8wW0lRV00wsiTM2OiCJZFpuStuP96Ok0nlId1ZR7wceNuW2lqraUFgeAkY5GVrHLMU/lvyN6aP3VBo15VSvAvSEbp0qgDqZeMyETUWiUIKXbyjvOSKdjEdVyOBHZ4pqhoy/kRmY9FeJ7B3/uz2vv/L1iZMfqIvaYGOcFkhC08QdEzYj0LuoaTM0lTsIepIAYRQwB9nHPW5cacNUiFa+lZIlM/ccgNCXvnrVa/sq+2ZvP8JOgH+HYoQFl4YcRYXY0gml26v+Fwz5S9rcBTSrxVOX9VDsPoTB12t5YSvQE2UqqFNokQrow7PoJ6QWQ8T1Hxp0mzOE71ijno4tW88Muyih9sbPcr+fcIbAH8qU6uA4f/ti2asb+D7pYAAJYK9KydaXTd6P/Qv2MwVt+cClR0XJGsGaPSpbv0AoDOowFzVdhGR5IDPRyaRo57ODWTLxF9kVkvAg/uJ+ZyaVJPBjTNDoU/vjRAMvGpX/anSGucrvPdk//kO6ryRrLCWbPYIjRmr+GQZ8asZP5J6Cg+w4Owua3Ss5jC2qtErgmbh4MKktbXRZfVY/q2MYPz7og7I3kImf7c5IbrNg/KIc3xeUbeN39vHSt8euTrLBi9odfG2QpU+TIR029Ha7Es4KodnpFz+GDg4vKXS6343Tucmyw11w2olYmzHy/xTJMp8lMABHOhrchrzvKxVRLdR15LiJe8QGApnYZrQZt9dFy9OZcH+5CZtTMCQIWzsNi15mRoRPJyoIc7ogun+ifITNK80jGX+v6vN7gwl/D0h2K5wsKVLGSD/TftEWUjvXst+91nkCmC5muCc4pIQCmi+qxLQLcI51cWhMwx7bAB+axpQO4G3yL4P+fDII5KjjADttoYENPnUzITCTUfsD8mOHYJ2IwyMo/RgOXMZVlvi+UwtcEMjTgtMKZG4Tb+6md6UBoBltJ3ox3oPH88SjbpFq6L+jVoIJhun0DfrxQWr7PMscw1KWkvSsxZSAoJzxsCC32fAYYdQOcs+6yThmv+fDBt0UlgeeO12ayhB5EQbMGtNKdtM/12D3NcfBsh8XWGE9cRA2tTgEmo0qFs8dDYWm4WrY/UpDTjHlwg3e7gJs2dpRGF4k6YKt3EKPt1xGXYSKzvlxKZZh8s27zAgfDyJq5ux6VvJaXrX35QSJzcRfTK1kfNjauiK/NooaCJ++uneyXVUACxDSfqls0C6E1ubIAxHSVdTqJppuaU9waFxR4saYxPaQtoqfZmtar4pCFNYWxExuYlK8NbkYvSgmI/UszgY14QVj83OXySnWPluk8fVoYT4HKNOtcozALaKAjCgu7SWcz0t+qfnOg3kk+799kuEAoMNL9M0LRYviPhLCBdG7SFzfInRm6jJv7toH6c+M0QxzU78sDOOaFzGMvStkJV+8ETWinw1PJcVGcfPLJs/UB+1rJdsud1DEoArjpHQomorN7y3VfRrzUHHUQUDikGTUjD2TLUS1fw9XxvxlU5RYRPMDfWQ+1g3BqB3muy1Svy/acHvD1QNBxQBScEO8syGqca6PWaIlGnYn5CDT+uhJY25kpnFkh2yBWBaRofcPJ0v9K67SMF5d+U/24isKhs/QK/1rzlWjKY3TJn7yvHriOtNT3Aummpa8IILxnP84KGAKIr5xpymhVHA9p557oBcA6alJxee21dqHER/W526O3xMr85TRO+ZIHHpe3jdvEB+hVGOICJSm2EjnmqHzChtyD7sHnM3H2qTG2Kpr5zFAC05D93BZz7POBcwLiy6Ltw2aNW7Nt2hoUXn2dWTdx+xjAG1IvtLKBkbHyGCN2tCEjPI+stiLllUtyDC9QKvwLzTYTfhuspjH6qPYZjzOuaOk+syyhfjuxLyFrA2lJfJSQTU6PM7FwewWO/csfOx5gnq3e6mH99RoTpCnIhwWLZLDIRW0GCGs/by40x5OHUcwEqzt9R9rpz/7w2evrEMc3qaraxiOJkpvcWuyIZ6TG8mu0Rc+QU16jzBvGmNHRyIIQqudQWlfbkqkqRMaydBA+I+rC6TtqAVF/vTIjaGOcaPRF6OnXe3KR3mHnm1OuOuVZl2B7oJFzWK3FIApMq1FU/TrhmukmQDeYQ52ieklbq0JbF3ojMyreKGUDX0886rHLnDfNoa5xkWgux+91+XTwDv00bwiZDv/wmz+LizinTDEVXfE1npAB/Me4ygcVsYuwhmjWpWO8q9B0w3vlrdpDxjy6P8BzpNpMzJUlCm+E1PGHVS+Jjm6Cp2Pm9QazIm7Ea+LJTZLf5qjt86wppfMyKrgisyJrHAzU9ig7q6I8kMtOcZucUN7EpOVxthqQGp4eCHNfwypvT8lcmBs2yKdczcbIqzeWYkyA3WiP4PVZ1TgmUI2voc6cnQX4IdDmbq8YDvHNvGfWSRhP2Q/HZSrxO7DF9BQ3kPK+2ffr1kaPpmDNqBWdVPHTFcUX15pIh39fsQwJanI+OtjWR3Mk2GKew2S0mpffvc+Ev2F5zW+azm0c+ZYO8TMu+30zbtKC8KkPA5vMXSmTLv5XqcYAo+8bwsWIIQIcRYsu7o7cDiF4VGMwOEs2yqUWtAfNRBQl3LBl5PnH3NlGSQKNYtig4X+FpEAeP9BPRr6klnXrqbrT/9w+e0FSz+Y8cJCvZ9jff8ELOuE3RH9a42Wqc/+kd0/r3gyrDdNr5MaXDSQvCUylFEgsvFQa8qmDr4ZKXtfHtcCpiNr40EdB5pVu+v3hMy34J7jo5Tdy/xrcBcVql+TmxQog+q2H9DMOI5T/tyrvQu/yFsSnn+yCzLhN8r9zXo0oyh4aDTHQR3A/xnt8G5CAFRsWbsGBLBb40/nkIBP6cvnrh8bxyP0T5se1/KYj2IKw+r1ITvM1SKkUie3dDwE9/fXHt9mFrNBpGRQ7KjM5bFeA3Jk0Bh+RtIU9bwolyT8+oo5Iz9mhbuOgwZ6w/sJeNSISw3H0Mua8wobbEmAAZ3gRMz5MmZx2tvny5V+QofbrfleDmm22mF/CAMqmITmmYYVvIG8f379WBXBwRpfGvZJ0RDNVNXYCaDkxw9WFkGgESWtqAvxeef4jLC2xPdvq29KA21yc5MdSBnk4DE/hcnbCn4Frh8+lFteWV3QCR3oasAWHAVFuPTHz5l0uwyFpMSEb1hKXqWloacP/tT3b4aMnwvuqDHp+pV4IQam0sAEYGAYoQ3CpGQ9H8F4hDF7Z74lG//lBWVI6PA7lK1322IxWWUzYyL0lxx84C78g3MNaLZffndh9n9YYujiXyehmDP7Ca6zovEv/6dW0z47FcQS+1u7mk9hDXwgOLX535DQ62EHwt0E3q3fAcBV55Y2YODQtwxsoza1UQV44w/4sFV8ycn+6ZOxgDRrr67bf0NL3DMghv1w1aS4dXzw4sjwFgWjgIiplsTnWczTFqsw5f0Bt+UO69VHOjFKPhcgZcoZwV/8Enn1/E48FD3SsibIT9YWeNP4Wa+ERpnV4smjsLZLdWUNdIvFe62IDnmKjNZqAMsmQzd+4ab9zJkKQfUChIO+6YXybX9H9KQh0S7lhznkrxTiJjjEHnEku7CAp0IpB7XedLJ6GPQ0nEfa6R0EquRkYOqUSzo3meHfz6M7hvOVx3zOFLzRa39iaRLkG7P5NUryFft0jLVoA2GdkR2Q5tDYSkBudT5RrA2XBDm84eBifQtuNym9RDN9ZkYG+km30cRz/tny5JYuMZPkQDm2OQOyuTPGguctSbDVjV0qsri4/kp4I62eH3hhpV0Hk/F1enAQU81uSOUUnA662o8N7GxDgBhdZbuEZLj86RH/bOfNikk7hFZE2TB/847Q3zamC0RtodrjkARcCruSGYHT12NAZIE6AmZBKmpUVMlSFJN/7rdLVR1PLxx767FfZZWYkHpxn/OiydJEoiHsy4jb0JVnE0KG/UJtRk7SykRY/SA3l02OkVdy+p1YOvyyJDGGB2nFtimz8nCNS+hYriWmz9f/dsrAdmEQinX9mETbZ4PTvr5pNGAJj/l+8mTU6jNR4LUe/VClFBjPe0IxisNaMlv0mDnO0mStInYD1FsbLZJUlxy/ttldxfv3fQIC35yI9qjiUesShBNM/kvHSkbOFlfVyy1HbdL05GTjuuD2o0p3vkgBp6lL2k4sUnkpz7iN0VvH6TLXGOKRyOSzkJzLxMyM4pZPanGQlOKHxPMJz8ZKZsD00sJmkqXpFdaz/4nz+JH6985MutbuYG5RtY8DirobMJ7dMRTO9A1ArEbHvIHfvpEMu4575QZfl5FRYe2WdA319ofllmZ8LM6koYbNkB0l6bVKhUeaKSTeA7p29NPK8Yca8jUePXRhv891+Glep1h/0LxAka5nsfowKkshNpr0yryFSC/kFls0Y/RkTMGwM2r9mGfhREpSd692VvWFXPWBv53u8fPOADkFiJNcDq8KOJUxr5y8D45pK8AGw2mrXez5TUgucbGhhs4aQvsNAoyQNbRF4uZbMi01p1P2EhoiRsvDurvu+vEiBIJhZpu/us1AVzltJgNkV6wg7ZZuulO0Tl//b8bRNe8aO15uuX0baAg2tguidUfZ8+YIhFVFY+xn3Xt+CybMWggLGAwDkJWO2o6P3ySP8+djkWigbnwhG1ufwnNrvdtf3etTYuIF7TpVxikAajbpgj2UQOn2ctrkUpQC4s+UPw4+I3FZrpYGMQWp17hf1fDf4gz4lGAXTzF+9AqobzaIyb6eY9daD4eUv+NGOQGV6gRe03FzHm0p9OnKojFi5lcKxcJjDsjomOpWqGFrisM/BOIKtsjHNgQPgaMvoX6a1PayzPEVKc7PXVqL0HII5ZstjKwHd7PHLXv/Q/rKXS0dveknl95wST5WiQ0LhI/h1YOhDrNsUx+YYMnxwzRB/A138Znadd6PPAv6wrxLhZIGhcXd+BeJyAo92L/BrzLdNWdYTbnk0epqb9AtSSdsnvvm2Wc55L+D+1zWP3l5ldY3IZntmssZJeiianm4jlpEmKRqQlwdQ3JOM8r6rW5fXAgDv9qd9BF0xVYV00j+goLbWo0c+TKaOu6H+asDV32ZQGaJyWnOgklVrtJuyR/d6wSxkxqehoovAM1yvl1tEC368730Jr+jDvClVz3xM/ipqLV1wQBuIy16oOzXfBCyHBdTX/28376962dme0OGZtuts9Dq829h1zTLe99PxW+KzsmDHGvlMvWM4dh9ej5levKwbOmnOvKyuwL8CKc8sCKDk/8uLhHepnjmrzoOZTQnerd3gUcECrQOkwYZDqiiuXFBmFHb6xyw4HqwFaDL9TmKEZZvJF4dbIfRe6Sh6YzVuu5XH2uPZwCaAj04OH+1xh76Ef8W7WaW2Tl25LXrVFI/a+QeU2uM/viCJCBOQwmnAAOvG9RZBRrrbg3Tzgh3bILl9/XMT9Gtg5tOv8F4gkoOGakJYrHH6BkXYmgEPse+XjkIMsN7J4uz7o4UArGNLo8KmeGrmxLHgVkM1SDKl3PAR2F4pbNDSv9JcGWc8q3/FUf1pUjWmEIZI4XSa6k+4pEeF/n8r+9OPe8mgetfJj4z9Us88nT4/CxzGy+5N6BiPyPXmRDTBFZYflq72o4a3gIvCbdQIFdeIEo6gZ1yfvuRghDVi4nc6m3vLdvnNAKCM7ktSPizoxu04N0CvANU5Qa/YGwDlFkUCBOh7puVkmLmRZcJZ+ivh4/1RmFXZs5D+zZCX8mvLlHR6pEqqygv4/MrwSuJopxQk/AapBvW2IEqDLXVOgEK0CopNLQLBOC7eH8u4xDuJaNy3AH8xrprlO6jUSlQiOn/r+zk2ASPP8vr9GvwuIg3Jz2Tdk24I96DFoN5tN9EHczumyBgd+W0Do7UhCNFj4A7d9qRLbMQHQ4n/eF51JXfYE5Mt9VDsnGDAfow7ZLjAMONcvmLZpdxpNmUEc1ykiGJsY5Trgf+OVfKx+DjOKUi7tp+Ta0EYPFzXSue1Xx/m9/YHp1Fplo2JpT8o6cSQDExtDv14PiCu7psyf4ZokSQDihXVqDvXew7/Q68QMlcVxkc/bhzcKkLQQKX22NDlxTGBqeu7QrmxNgAp6PK7IATRmp2xiZv+Jqr5R7nUOsAaM7q6qypyy9VRrOU5R/AFKqeMtb8YIR3Cx3TGGSS7BivSNLiDMmLpdhgBMG6w+n9j/BLJZxgyGUqKuHh/of+sIR6BXq3qltNtm2aznln/qpqAGu20Yxyq3Sn2p4gR6FWdUFhiY002cZ6MrO0JpkfxwVHGE2+fczBxN2HD+yG88djdtcdNFoEM1bo07MKMCWKrow0KHqhra5vLxNz3M4xm67qXHd+V+lHgZK+fev5a8QXB9AVK6T0IPnQDoz1S0Tc1UW4jReETEfSSgpxEMgchE2yNn87mwZonwA06NVgOfnB+oYnxHG6DjlzE2hQP4dlQaIKSYJCSpjSXmPxRnsjs4vbVsUhWjM0s8Q5iw5dYIeY+IH94xFXIz4DDvdXswKEyx+bBjZekyouH+mXBn8tyFQH5TOW4XfmlaIoBT+sFA0ryoKBAHECun2ln5o0hRSFnpfxJgCOCoyohPd8SmWUfit947QjTYaqik9QRdJxt02pMftAFfRRgypFiIUERb3ahcbAAwb7kAFPzh+0QHa6buDgQLAdBDziue6s188S1taUTG+OmGhguuvnFOpeGeJX9qFB2xGvYZwrFNsKFPGudHUmOl+B/qYWlebII/q1Wu21YY3GFlDkE9vmJBmAnCGsuwlHByFFRIFyh2soyImUGOFwSu7PVHXsk1oayWFiMhWbNnvcuNgxB9MOhWTjL5zeYYAw==",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS5QcKEAgTGAI4AUIIdGhpbmtpbmcSDDZXyiaD0D9bS4BVbhoMjM+FTtZjoRN5ixtzIjDu5DAWAFnoR9jMtGiwfh0yKrxURyRxDdjtRgigHFqCaBp7zdzHkoy611VabOSbAhcqggeq2OUm4aJOg+yvX5V4vnrK6V+AOBJQg/9RNIq/yV8514xdXzRqase8ABV6lXl4VADBtYo68n4JgrAWm6MMymw0n7xJmEFKcLe+Lza0FGnFQLuW4k6tFsZlOihhNy4aA8kHscLlsURMJQvPQ6yzOOJMVnlm85eeAbnjsLklD2nTHrlduQhnAbRyM/ghifN/06yQ1vXe/R8MpLsaeWxekqFsE/mIRS0RsygdYHVzkpPbHZfkd1b8AeysffxqgVVCY0Kko+bBBAvaD8c7rKGpPDOWBmmgBkA2UkxIz2qt35+QUnc2Hn+NJBkrBj+4ArHgySlGGy4QtxmPp2diKIJ/osPzr/YqFHU8fHCBfJylYJrpLjOKz8DCdfQS36Zedccb8gGX2xEfyo8+4/Ao7+BkhAheOlSeShOqKHhHDw2ff+x3W2+ERT2VYnAAiKfZhyNTdOZbQt6AkHU0lXRFO0kZWn8lGwGQDIh7rB1UJsaRUlw0qgqvhU5ck9NHWliIjee0sMyHX+WPCOKjH4Eqk00pV6cjvu8y1uBDzYnxdZ1bO2PlaMohwR0LqmQU4HcynkhjSYbESBsnWJWOAL+gvtQ9paoB3JSuoJSYlZ26tI2oEFzHQDd+YIwDKIPUsldL70Ay02kBGrLGOpkJx1tYlt4wjjRcj4RDhzlBIgS/iSTJ200YwZvLadDC5C5kxz+lF2jcO68Q8isn2qJAAYu5dEcT9SfyRX1gdlegVcikjKlmw4Np8EjCuWOsZls3Wc5zAwIqn1f06ZoQq0cqzQC/bXauBM/vL02eYTR9BGsY2iKRMxc4MwZnGOKT+EIYdUAAiUv2F9XM8RAKkFwqBvi7RW+TZdYwYjUDNRCETKBgUDrGFmtC7ld3yk9C/Eh2qQtkhSFRFw3H2XsDwMTBesJF2VxIr2o4R8yqVRDhYrTte3UL/6Z6fpM0yLawLZ2VVlC4tfVro0kt5TWkztYAgvt+GLS44gDglnkwmIx570N5j4gMkYkN01XqXVAetI90o6DhiO0lZ3RxZm8VthmbOhtRd/RXwI14nJ9DtCAJ6w/3BALFcgmbY8Bb1NsGNOTiWr6ZtBtcunJcMFRMxu7pxYR9P1BENuibMxjYfyMH59uFTB0llcUopXqv0IgNrJ47th1uuJhWbr3vYjkmizL8hp+OgYyMoi56unsqbCU4Q4Uw0lWnVLGpXGyPGAE="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_011RkFA6YLFYpcZy2eZQvGyk",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"Nike May 31 2026 consolidated balance sheet cash and equivalents short-term investments long-term debt current portion\",\"Nike fiscal 2026 full year weighted average diluted shares 2.10 diluted earnings per share reconciliation\",\"Nike fiscal 2026 statement of cash flows depreciation and amortization additions to property plant and equipment year ended May 31 2026\"]:\n  r=json.loads(await web_search({\"query\":q}))\n  for x in r:\n    c=x['content']\n    if '2026' not in x['url'] and 'nike' not in x['url']: continue\n    for m in list(re.finditer(r'(?i)(Depreciation and amort|Additions to property|Diluted \\(in shares|Diluted\\W+1,4|Cash and equivalents \\W|Current portion of long|Long-term debt \\W|Notes payable)',c))[:5]:\n        print(x['url'][-35:],c[max(0,m.start()-50):m.start()+200].replace(\"\\n\",\" \"))\n  print(\"=====\")"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_011RkFA6YLFYpcZy2eZQvGyk",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDPKGkKbOR/Zij7w4/hoMfYhi37ZBr+BbiSCFIjDe25dSANCIz2GFeHc6HVgy2vFKuGp8fCi5pg3pY50jKroZ6FcTQafzRu19mW79MbEqEhtHT+hfcdnM7cjhiIMDS+uSzhgD",
+       "stderr": "Server tool use limit exceeded during code execution.",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSugYKEAgTGAI4AUIIdGhpbmtpbmcSDPjCZWkt4Wyklj63CRoMczBmGu8e4+WL+r2GIjDRz3pnn+fVUV5XafZMZU4XK7Z7GM9jTKQtVnA1yH93YSMtjVReUUFx1rorobL/2xoq1wW+zX75/GclrEgkFSfUK2zdl+bds5g9vlVyu6bD6VR7B9bUtAaPsWHqyjknEmk4FXa8E8aVLvUQTjfWfOOSJ1ScrLdQK3Q4ROs6mBkgbcsDfGuKA61b8xMnflN+gwpFqCFp8u43Illf+nradzZf12NNff6vl2Ou7fUxjnMIsXKwnTewXKId3aWJVFcr/WYt3bjPBxuZgnD4a6vko6scshgqGh0QSg8tRUXLvDu+I30yVtWHagx1ukEeCGeIVvtPmL+edkE6Durc1Ezd7uom3Z/h2v4O+NpKSDFKCiU9CxL9CNby63/boMdm8ca+pcpELNDp9YFDjVhFiy3P0XDeheFo+DfW5YyHu1WKkjAaGiVFN/lyXOMqA//igooV0+Hzjna0XTeo+Bj2S0jY1lXwXVRuNb7TW+2dWnCgck1CMWpZBB8HDZE/1YlWGH5m97z+frn9K2n3XAeSzSU6H4LznYbuGusUkQtDKUkhTtu3OWYFNedvDsHzjZmYgk1onJjjzGUi1LTl7+bLrxLygqHNNE9p/FyHjWPWOa/zV6mS0XzIGsMFyKg/p34R/EjQggF3WJlnNbhHb2STALIEW/sakyazPg7MGyWpBq0Zg9qU+8IIlnblhiZ6CnWrbMaQvjhSWgyRpR7pJHUPpn+iqyH2SKSuNlmdKgpSJ+NxGHIfEnjPnxl+KSGHkNyRAqqhXJ2cpVxHZ2D4SvfWPFY0EwacEfCqqIYDFgAr6C8IxYsIHxEHeDODwdcLZuz3StiUQRz9fLnT4zjd9KaBTe8/YFcUkN7Z1KwLG6Ej7Mg1TrW3bnr3SWaNG6iCo6YzU/fDSgv2fAyXHlkjHzER15Z45JsWjFaOmvaTVuxa3bnDc/fdSzdtG5TbeoBuGzGil//Dutoj+1IsOPH2syPC5uYdvJnA3JfpEwujSaSZKZmXpqzt8PSoiupgfg7DzKaaLrgSq/lE4f9W+6gDoUiBGAE="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01BffENSAkP9ChPBhj9FoYdb",
+      "name": "code_execution",
+      "input": {
+       "code": "r=json.loads(await web_search({\"query\":\"Nike Q4 FY26 combined tables balance sheet May 31 2026 cash short-term investments long-term debt depreciation capex diluted shares\"}))\nfor x in r:\n    c=x['content']\n    for m in list(re.finditer(r'(?i)(Depreciation and amort|Additions to property|Diluted\\W+1,4|Cash and equivalents\\W|Current portion of long|Long-term debt\\W|Notes payable|Short-term investments)',c))[:6]:\n        print(x['url'][-35:],c[max(0,m.start()-50):m.start()+200].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01BffENSAkP9ChPBhj9FoYdb",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDEVt80R2QXmAWjzBKRoMBOuLX0PpqdWkjtgHIjDfgdnWndbACcgFp0HGmnV7ddyWuEYxlJSA3nfbS2sn13LVTnMtRrMN5aomDXANeJEqElGB1TB69J2FuJSHkf6AqLsnIRgD",
+       "stderr": "Server tool use limit exceeded during code execution.",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "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"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_019JjPpN2d27fUxr7qugMR3x",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "NIKE, Inc.",
+       "ticker": "NKE",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2024",
+         "FY2025",
+         "FY2026"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           51362,
+           46309,
+           46398
+          ],
+          "source": "NIKE 10-K FY2026 (acc. 0000320187-26-000088) MD&A revenues table: FY2026 46,398; FY2025 46,309; FY2024 51,362"
+         },
+         "operating_income": {
+          "values": [
+           6539,
+           3778,
+           3850
+          ],
+          "source": "NIKE does not report operating income; used EBIT (earnings before interest and taxes) per 10-K: FY2024 6,539, FY2025 3,778 (FY2025 10-K acc. 0000320187-25-000047). FY2026 = pre-tax income 3,900 less net interest income 50 (Q4 FY26 press release tables / 10-K FY2026) = 3,850, derived"
+         },
+         "d_and_a": {
+          "values": [
+           796,
+           775,
+           747
+          ],
+          "source": "FY2024 and FY2025: cash flow statement in NIKE FY2025 annual report (acc. 0001308179-25-000564). FY2026 747: third-party aggregator (stockanalysis.com NKE cash-flow page), not verified against the 10-K"
+         },
+         "capex": {
+          "values": [
+           812,
+           430,
+           null
+          ],
+          "source": "Additions to PP&E per cash flow statement, FY2025 annual report: FY2024 812, FY2025 430. FY2026 not found (search limit reached); FY2026 investing cash flow was -488 total per 10-K but capex split not retrieved"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030",
+         "FY2031"
+        ],
+        "revenue_growth": {
+         "values": [
+          -0.01,
+          0.03,
+          0.05,
+          0.05,
+          0.04
+         ],
+         "source": "Analyst assumption: Q1 FY2027 revenue was down 4% reported (10-Q Aug 2026, acc. 0000320187-26-000193), so FY2027 slightly negative; gradual turnaround recovery in FY2028-FY2030 and fade toward mid-single digit growth by FY2031. FY2026 was flat vs FY2025."
+        },
+        "ebit_margin": {
+         "value": 0.09,
+         "period": "FY2027-FY2031",
+         "source": "Analyst assumption: FY2026 EBIT margin 8.3% (3,850/46,398), FY2025 8.2%, FY2024 12.7%. Assume 9% as partial recovery from trough, below the FY2024 level due to tariffs and wholesale mix. Single flat margin."
+        },
+        "tax_rate": {
+         "value": 0.2,
+         "period": "FY2027-FY2031",
+         "source": "FY2026 effective rate about 20.3% (income tax 792 / pre-tax income 3,900), FY2025 17.1% (666/3,885); assume 20%"
+        },
+        "da_pct_revenue": {
+         "value": 0.016,
+         "period": "FY2027-FY2031",
+         "source": "FY2026 747/46,398 = 1.6%; FY2025 1.7%; FY2024 1.5%"
+        },
+        "capex_pct_revenue": {
+         "value": 0.015,
+         "period": "FY2027-FY2031",
+         "source": "Assumption: FY2024 1.6% (812/51,362), FY2025 0.9% (430/46,309); FY2026 capex not found. 1.5% assumed, roughly in line with D&A."
+        },
+        "wacc": {
+         "value": 0.085,
+         "period": "n/a",
+         "source": "Analyst assumption: large-cap consumer brand, beta about 1.0-1.1, risk-free about 4.2%, ERP about 5%, A+/A1 rated and low leverage, so cost of equity approximately equals WACC at about 8.5%. Not from a data provider."
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "period": "n/a",
+         "source": "Analyst assumption: long-run nominal GDP/inflation, below WACC; brand with global growth runway"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": null,
+         "period": "FY2026 (May 31, 2026)",
+         "source": "Not found: search limit reached before retrieving the May 31, 2026 balance sheet. Partial data: total debt about 7,942 (current portion 2,000 + long-term 5,942, per third-party debt analysis page); cash about 7,563 derived from FY2025 cash 7,464 + FY2026 net cash increase 99; short-term investments for FY2026 not found. Reviewer must complete."
+        },
+        "diluted_shares": {
+         "value": 1480,
+         "period": "FY2026",
+         "source": "Approximate, derived: FY2026 net income 3,108 / diluted EPS 2.10 (Q4 FY26 press release tables) is about 1,480 million. Not taken from the filing; consistent with Q1 FY27 diluted 1,484.2 and Q1 FY26 1,479.0. Replace with the 10-K weighted average diluted figure."
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_019JjPpN2d27fUxr7qugMR3x",
+      "content": "Not accepted: bridge.net_debt.value must be a number, got None.",
+      "is_error": true
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 3070,
+     "cache_read_input_tokens": 26039,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 3070,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1996,
+     "output_tokens_details": {
+      "thinking_tokens": 120
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0328468,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS9QcKEAgTGAI4AUIIdGhpbmtpbmcSDFVOPk29ESFGCJJ/yBoMMUq/D1WOT01voohoIjARINoCSPfQR1GPO0lxbdpOd2a+epgILcFcZ5oJVMJhVZSqndIfaxUq7VvG07Ps0v4qkgfG8/B5n2pX+dCVjRl95jaVt9kkEb0J2vnLaCxxmthj5st12pp69Ip29Zq8e1Vuf3OJE/kK0UGxgSnd8ysAs7OyfT86cKBOHYPllxIeFDANJum0VA3PoQ6R1Wd+LgE03eyzTZU+CqOvCTkmlt493Tks5MBl7PW4UPXZWA52E2zrm7TSBk9v2kkxIna9LYO8PGgmEwwZJtWxVxd410T2bN9HgLetAEX06szZ8drM5HR+28QZtJ2JkvA0l8nPVnDvA2HhDvHkiM1TJigDfB3DqPjdH92k3kwcI5cmuPmRCMd9z7YQGboh+95OWmAINz3khOBNEynAFlfHsRora8Z77b0UhSJ9UfiJUBDkf1juZKJmmnKLQ/pvg88D5bTeVNcJf2l9EldsLgk3EZp0gLiV32vRI6U7wJt5VY3zDLDQkaya+GmTogvuP6TFrG695TUntHX2lVq7wAyDsy2z6Yb7CyLDoiujOa8S4z5GopCNkQVOoRYkHSY34Q6udx+lrmTZtaqr0Ge7YInzDJv1pLuyGQw5jF7KppJ3teXofNWTCSJxTgqPSvZqWq/ved8i2K6V75NJVmkAdUQVMKZO4WWQCHteVSkd4qr6/xm+Sb/9Pn/FLNrQsU0VQuD8MB69Kh6Se/6m6hrjG72eKFubpNF1o3hWWTlUqyaYd7xnsMbnLY4u0MtIEDAHGtHPg6pE+EWq+bN2aBgnrw1n7xcfnWME5GjIhnyczrBinA3VDQUiFJxdSbNlNNR4C/NwABS1ijZjObDOXmJkHqGTyxyJ5FcCyQWOuslkvDMGLUsKoAWvK8VXO56Aj3B1AWq6XTzAeEaIS83zpsTFiYr1Srnu+8QxyqNEXNF1dgX7z2q2D/OafX3fW5FrIGvZEvCJ1cqMlBSXG2QTOEWJKRy3D0NPuS+NDBUCh4et85c5poWclkQyCjyBgG0INe1Y+0QGWbF0v2Mwx1wIgjdJ0so4js5UW8gjSknQmXUcwyQvv4gwjHK/k5FD0wDDBmyBSwHKsBmgZ6HffZB2wS7+whjKBtsNblhq7wyq42iiWgPncilKaiz1af/hF3piVOmf1BPg/FQCc3DQsdcP+vCyb4cTCYv0yqbz96qDnNlVpCeeHheeFN1DCs9hcHZoX9kFm0n9kTYVCDp9AadOXBoKRVizjinMWFxOk9ntPVrlG3s+fRBckJiuGevu+rVmjaKHIzGC044MOF87geVfkhgB"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_0113BRs5nPaHrzH3d37ZBoCo",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "NIKE, Inc.",
+       "ticker": "NKE",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2024",
+         "FY2025",
+         "FY2026"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           51362,
+           46309,
+           46398
+          ],
+          "source": "NIKE 10-K FY2026 (acc. 0000320187-26-000088) MD&A revenues table: FY2026 46,398; FY2025 46,309; FY2024 51,362"
+         },
+         "operating_income": {
+          "values": [
+           6539,
+           3778,
+           3850
+          ],
+          "source": "NIKE does not report operating income; used EBIT (earnings before interest and taxes) per 10-K: FY2024 6,539, FY2025 3,778 (FY2025 10-K acc. 0000320187-25-000047). FY2026 = pre-tax income 3,900 less net interest income 50 (Q4 FY26 press release tables / 10-K FY2026) = 3,850, derived"
+         },
+         "d_and_a": {
+          "values": [
+           796,
+           775,
+           747
+          ],
+          "source": "FY2024 and FY2025: cash flow statement in NIKE FY2025 annual report (acc. 0001308179-25-000564). FY2026 747: third-party aggregator (stockanalysis.com NKE cash-flow page), not verified against the 10-K"
+         },
+         "capex": {
+          "values": [
+           812,
+           430,
+           null
+          ],
+          "source": "Additions to PP&E per cash flow statement, FY2025 annual report: FY2024 812, FY2025 430. FY2026 not found (search limit reached); FY2026 investing cash flow was -488 total per 10-K but capex split not retrieved"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030",
+         "FY2031"
+        ],
+        "revenue_growth": {
+         "values": [
+          -0.01,
+          0.03,
+          0.05,
+          0.05,
+          0.04
+         ],
+         "source": "Analyst assumption: Q1 FY2027 revenue was down 4% reported (10-Q Aug 2026, acc. 0000320187-26-000193), so FY2027 slightly negative; gradual turnaround recovery in FY2028-FY2030 and fade toward mid-single digit growth by FY2031. FY2026 was flat vs FY2025."
+        },
+        "ebit_margin": {
+         "value": 0.09,
+         "period": "FY2027-FY2031",
+         "source": "Analyst assumption: FY2026 EBIT margin 8.3% (3,850/46,398), FY2025 8.2%, FY2024 12.7%. Assume 9% as partial recovery from trough, below the FY2024 level due to tariffs and wholesale mix. Single flat margin."
+        },
+        "tax_rate": {
+         "value": 0.2,
+         "period": "FY2027-FY2031",
+         "source": "FY2026 effective rate about 20.3% (income tax 792 / pre-tax income 3,900), FY2025 17.1% (666/3,885); assume 20%"
+        },
+        "da_pct_revenue": {
+         "value": 0.016,
+         "period": "FY2027-FY2031",
+         "source": "FY2026 747/46,398 = 1.6%; FY2025 1.7%; FY2024 1.5%"
+        },
+        "capex_pct_revenue": {
+         "value": 0.015,
+         "period": "FY2027-FY2031",
+         "source": "Assumption: FY2024 1.6% (812/51,362), FY2025 0.9% (430/46,309); FY2026 capex not found. 1.5% assumed, roughly in line with D&A."
+        },
+        "wacc": {
+         "value": 0.085,
+         "period": "n/a",
+         "source": "Analyst assumption: large-cap consumer brand, beta about 1.0-1.1, risk-free about 4.2%, ERP about 5%, A+/A1 rated and low leverage, so cost of equity approximately equals WACC at about 8.5%. Not from a data provider."
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "period": "n/a",
+         "source": "Analyst assumption: long-run nominal GDP/inflation, below WACC; brand with global growth runway"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": -1308,
+         "period": "FY2026 (May 31, 2026)",
+         "source": "ESTIMATE, needs review (May 31, 2026 balance sheet not retrieved; search limit reached). = debt 7,942 (current portion 2,000 + long-term 5,942, third-party debt analysis page; notes payable ~5 excluded) - cash 7,563 (derived: FY2025 cash 7,464 + FY2026 net cash increase 99) - short-term investments 1,687 (FY2025 value used as proxy; FY2026 not found)."
+        },
+        "diluted_shares": {
+         "value": 1480,
+         "period": "FY2026",
+         "source": "Approximate, derived: FY2026 net income 3,108 / diluted EPS 2.10 (Q4 FY26 press release tables) is about 1,480 million. Not taken from the filing; consistent with Q1 FY27 diluted 1,484.2 and Q1 FY26 1,479.0. Replace with the 10-K weighted average diluted figure."
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 13,
+  "match": 9,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 1,
+  "not_found": 3,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 24,
+  "unsourced": 5,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "NKE",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 51362,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 51362000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 46309,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 46309000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "revenue",
+    "period": "FY2026",
+    "value": 46398,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 46398000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 6539,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "not_found",
+    "hints": [
+     "operating_income is not reported for FY2024 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 3778,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "not_found",
+    "hints": [
+     "operating_income is not reported for FY2025 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "operating_income",
+    "period": "FY2026",
+    "value": 3850,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2026]",
+    "status": "not_found",
+    "hints": [
+     "operating_income is not reported for FY2026 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 796,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 796000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 775,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 775000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "d_and_a",
+    "period": "FY2026",
+    "value": 747,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 747000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 812,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 812000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 430,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 430000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "net_debt",
+    "period": "FY2026",
+    "value": -1308,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 379000000,
+    "resolved": "NKE"
+   },
+   {
+    "company": "NKE",
+    "metric": "diluted_shares",
+    "period": "FY2026",
+    "value": 1480,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1481000000,
+    "resolved": "NKE"
+   }
+  ],
+  "unsourced_refs": [
+   "history.capex[FY2024]",
+   "history.capex[FY2025]",
+   "bridge.net_debt",
+   "assumptions.capex_pct_revenue",
+   "assumptions.wacc"
+  ],
+  "errors": []
+ }
+}
