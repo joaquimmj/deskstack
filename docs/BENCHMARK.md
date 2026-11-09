@@ -37,5 +37,10 @@ $47.09. Every transcript, submission and score is in
 June when the September 10-Qs were out. The sixteenth is a fourth quarter written as the year. The run also found two
 scorer bugs, in how peers are matched to companies by name; both fixed before the hand check.
 
+**Robustness check, 2026-11-09 ([plan and result](../bench/ROBUSTNESS.md), pre-registered):** web search only, the
+same comps task on 10 companies, at 12 searches/medium effort and at 30 searches/high effort. Both settings still
+wrote one figure that isn't the filing's (an aggregator's rounded revenue; an estimated net income). With 30 searches
+the placeholders disappeared (7 to 0), at more than twice the cost per table. $19.77.
+
 A 5-company pilot ran first ([analysis](../bench/results/2026-11-08T23-43-41-903Z/ANALYSIS.md)). It led to the scorer's "other line" and "other
 definition" categories and to five data fixes.
