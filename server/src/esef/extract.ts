@@ -11,8 +11,10 @@ import { IFRS_DURATION_CONCEPTS, type CompanyFacts, type Namespace, type RawFact
 
 /** One undimensioned numeric ifrs-full fact, compact for the build cache. */
 export interface EsefRow {
-  /** ifrs-full local name, e.g. "Revenue" */
+  /** ifrs-full local name, e.g. "Revenue" (or a synthetic key for a kept extension concept, see x) */
   c: string;
+  /** the issuer's own concept behind a synthetic key, e.g. "tot:PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssets" */
+  x?: string;
   /** "EUR", "USD", "EUR/shares", "shares" */
   u: string;
   /** start date (durations only) */
@@ -65,7 +67,12 @@ export function oimUnit(u: string | undefined): string | null {
 
 const days = (s: string, e: string) => Math.round((Date.parse(`${e}T00:00:00Z`) - Date.parse(`${s}T00:00:00Z`)) / 86_400_000) + 1;
 
-/** Undimensioned numeric ifrs-full facts of one filing, deduplicated, plus what kind of report it is. */
+// "PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssets", "PurchasesOfIntangibleAssetsPropertyPlantAndEquipment...",
+// "InvestmentsInPropertyPlantAndEquipmentAndIntangibleAssets": PP&E and intangibles, both named, bought or invested in.
+const EXT_CAPEX = /^(purchases?of|investmentsin|acquisitionsof)(?=.*propertyplantandequipment)(?=.*intangible)(?!.*(proceeds|sale|disposal|subsidiar|financial))/i;
+export const EXT_CAPEX_KEY = "PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssetsExtension";
+
+/** Undimensioned numeric ifrs-full facts of one filing (plus kept extension capex), deduplicated, and the report kind. */
 export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: string): ExtractedFiling {
   const seen = new Set<string>();
   const rows: EsefRow[] = [];
@@ -76,17 +83,25 @@ export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: s
     const concept = dims.concept ?? "";
     const raw = typeof f.value === "string" ? f.value : null;
     if (raw === null || raw.trim() === "" || !Number.isFinite(Number(raw))) continue;
-    if (!concept.startsWith("ifrs-full:")) {
+    let c: string;
+    let x: string | undefined;
+    if (concept.startsWith("ifrs-full:")) {
+      c = concept.slice("ifrs-full:".length);
+    } else {
       extension++;
-      continue;
+      // Issuers that tag capex only with their own concept (purchases of PP&E and intangible assets).
+      if (!EXT_CAPEX.test(concept.split(":").pop() ?? "")) continue;
+      c = EXT_CAPEX_KEY;
+      x = concept;
     }
     const unit = oimUnit(dims.unit);
     const period = dims.period;
     if (!unit || !period) continue;
     const [a, b] = period.split("/");
     const row: EsefRow = b
-      ? { c: concept.slice("ifrs-full:".length), u: unit, s: oimStart(a!), e: oimEnd(b), v: Number(raw) }
-      : { c: concept.slice("ifrs-full:".length), u: unit, s: null, e: oimEnd(a!), v: Number(raw) };
+      ? { c, u: unit, s: oimStart(a!), e: oimEnd(b), v: Number(raw) }
+      : { c, u: unit, s: null, e: oimEnd(a!), v: Number(raw) };
+    if (x) row.x = x;
     const key = `${row.c}|${row.u}|${row.s}|${row.e}`;
     if (seen.has(key)) continue; // the same fact tagged in several places of the report
     seen.add(key);
@@ -140,6 +155,7 @@ export function toCompanyFacts(name: string, filings: Array<{ meta: EsefFilingMe
       const filed = (meta.published ?? meta.processed).slice(0, 10);
       const row: RawFact = { val: r.v, end: r.e, accn: meta.fxo_id, filed, form, fy: fiscalYear(r.e) };
       if (r.s) row.start = r.s;
+      if (r.x) row.src = r.x;
       (units[r.u] ??= []).push(row);
     }
   }

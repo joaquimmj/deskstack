@@ -41,6 +41,9 @@ Each computed line carries its formula, so a different definition is visible.
   is the two added, and its formula says so (Merck, Microsoft, Keurig Dr Pepper). A company that tags a narrower
   figure as combined D&A keeps it (Cisco's covers property and equipment only).
 - **EBITDA** is operating income + D&A.
+- **Capex from an issuer's own concept:** a European issuer that tags capex only with its own concept for purchases of
+  PP&E and intangible assets (TotalEnergies, Airbus, VINCI, AB InBev, Stellantis) gets that figure; the cell shows the
+  real concept and a note. A standard IFRS capex line always wins.
 - **D&A with impairment:** a European issuer that tags D&A only together with impairment (TotalEnergies, AB InBev,
   Ahold, Iberdrola) gets that figure, with a note; its EBITDA then includes impairment too.
 - **EPS and shares:** with no diluted EPS tagged (Inditex), diluted EPS is the basic figure, with a note. With no share
