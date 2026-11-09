@@ -6,7 +6,7 @@ deskstack's data server is read-only and keeps no user data.
 
 - **Tool arguments:** company identifiers, periods, and the values you send to `verify_value` to be checked. These
   are used to answer the call and are not stored.
-- **Your IP address:** used only for the per-IP rate limit, in memory for about a minute.
+- **Your IP address:** used only for the per-IP rate limit. The server's counters keep it in memory, never on disk, for at most two minutes after your last call. Cloudflare also processes it as the host (see Logs below).
 - **A global request counter:** a daily count with no identifiers, used for the free service's daily cap.
 
 ## What it doesn't receive

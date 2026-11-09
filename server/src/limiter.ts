@@ -6,13 +6,14 @@
 //
 // Cost on Workers Free (docs read 2026-11-09): one object request per MCP request (the daily cap keeps that under
 // 100,000/day), and one object running all day is about 10,800 of the 13,000 GB-s/day. Over a free limit the call
-// errors, and guard.ts falls back to the other two limits. Counts live in memory: losing them on eviction only
-// resets the current minute. Only the Worker can reach this object; it has no public route.
+// errors, and guard.ts falls back to the other two limits. Counts live in memory, and an address is dropped one to two
+// minutes after its window starts (PRIVACY.md). Only the Worker can reach this object; it has no public route.
 
 const MAX_TRACKED = 100_000;
 
 export class IpCounter {
   private windows = new Map<string, { start: number; count: number }>();
+  private lastSweep = 0;
 
   // Durable Objects are constructed with (state, env); neither is needed for an in-memory window.
   constructor(_state?: unknown, _env?: unknown) {}
@@ -25,10 +26,12 @@ export class IpCounter {
     if (!ip || ip.length > 64 || !Number.isInteger(perMinute) || perMinute < 1 || !Number.isFinite(now)) {
       return new Response("bad request", { status: 400 });
     }
-    if (this.windows.size > MAX_TRACKED) {
+    // PRIVACY.md: an address is kept for one to two minutes. Expired windows are swept at most once a minute.
+    if (now - this.lastSweep >= 60_000) {
       for (const [k, w] of this.windows) if (now - w.start >= 60_000) this.windows.delete(k);
-      if (this.windows.size > MAX_TRACKED) this.windows.clear(); // bound memory under a flood of addresses
+      this.lastSweep = now;
     }
+    if (this.windows.size > MAX_TRACKED) this.windows.clear(); // bound memory under a flood of addresses
     const w = this.windows.get(ip);
     if (!w || now - w.start >= 60_000) {
       this.windows.set(ip, { start: now, count: 1 });
@@ -36,5 +39,10 @@ export class IpCounter {
     }
     w.count += 1;
     return w.count <= perMinute ? new Response("ok") : new Response("too many", { status: 429 });
+  }
+
+  /** Tests: whether an address is still held. */
+  tracks(ip: string): boolean {
+    return this.windows.has(ip);
   }
 }
