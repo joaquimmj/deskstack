@@ -1,0 +1,360 @@
+{
+ "company": "NVDA",
+ "task": "comps",
+ "arm": "A",
+ "score": {
+  "valid": true,
+  "filed": 20,
+  "match": 10,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 2,
+  "not_found": 4,
+  "ambiguous": 0,
+  "unverifiable": 4,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 5,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "",
+    "name": "Qualcomm Incorporated",
+    "written": "QCOM",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 44284,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[QCOM].revenue",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "",
+    "name": "Qualcomm Incorporated",
+    "written": "QCOM",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 13957,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[QCOM].ebitda",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "",
+    "name": "Qualcomm Incorporated",
+    "written": "QCOM",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 5541,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[QCOM].net_income",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "",
+    "name": "Qualcomm Incorporated",
+    "written": "QCOM",
+    "metric": "net_debt",
+    "period": "Sep 28 2025",
+    "value": 4656,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[QCOM].net_debt",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "NVDA",
+    "name": "NVIDIA Corporation (target)",
+    "written": "NVDA",
+    "metric": "revenue",
+    "period": "FY2026",
+    "value": 215938,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[NVDA].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 215938000000,
+    "resolved": "NVDA"
+   },
+   {
+    "company": "NVDA",
+    "name": "NVIDIA Corporation (target)",
+    "written": "NVDA",
+    "metric": "ebitda",
+    "period": "FY2026",
+    "value": 133230,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[NVDA].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 133230000000,
+    "resolved": "NVDA",
+    "computed": true
+   },
+   {
+    "company": "NVDA",
+    "name": "NVIDIA Corporation (target)",
+    "written": "NVDA",
+    "metric": "net_income",
+    "period": "FY2026",
+    "value": 120067,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[NVDA].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 120067000000,
+    "resolved": "NVDA"
+   },
+   {
+    "company": "NVDA",
+    "name": "NVIDIA Corporation (target)",
+    "written": "NVDA",
+    "metric": "net_debt",
+    "period": "Jan 25 2026",
+    "value": -54086,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[NVDA].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"Jan 25 2026\". Available: FY2011, FY2012, FY2013, FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, FY2026, LTM to 2026-07-26."
+    ],
+    "filed_value": null,
+    "resolved": "NVDA"
+   },
+   {
+    "company": "AMD",
+    "name": "Advanced Micro Devices",
+    "written": "AMD",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 34639,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMD].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 34639000000,
+    "resolved": "AMD"
+   },
+   {
+    "company": "AMD",
+    "name": "Advanced Micro Devices",
+    "written": "AMD",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 4444,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMD].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 6515000000,
+    "resolved": "AMD",
+    "computed": true
+   },
+   {
+    "company": "AMD",
+    "name": "Advanced Micro Devices",
+    "written": "AMD",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 4335,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMD].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4335000000,
+    "resolved": "AMD"
+   },
+   {
+    "company": "AMD",
+    "name": "Advanced Micro Devices",
+    "written": "AMD",
+    "metric": "net_debt",
+    "period": "Dec 27 2025",
+    "value": -7330,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMD].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"Dec 27 2025\". Available: FY2011, FY2012, FY2013, FY2014, FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, LTM to 2026-09-26."
+    ],
+    "filed_value": null,
+    "resolved": "AMD"
+   },
+   {
+    "company": "AVGO",
+    "name": "Broadcom Inc.",
+    "written": "AVGO",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 63887,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AVGO].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 63887000000,
+    "resolved": "AVGO"
+   },
+   {
+    "company": "AVGO",
+    "name": "Broadcom Inc.",
+    "written": "AVGO",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 34259,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AVGO].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 34120000000,
+    "resolved": "AVGO",
+    "computed": true
+   },
+   {
+    "company": "AVGO",
+    "name": "Broadcom Inc.",
+    "written": "AVGO",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 23126,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AVGO].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 23126000000,
+    "resolved": "AVGO"
+   },
+   {
+    "company": "AVGO",
+    "name": "Broadcom Inc.",
+    "written": "AVGO",
+    "metric": "net_debt",
+    "period": "Nov 2 2025",
+    "value": 48958,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AVGO].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"Nov 2 2025\". Available: FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, LTM to 2026-08-02."
+    ],
+    "filed_value": null,
+    "resolved": "AVGO"
+   },
+   {
+    "company": "INTC",
+    "name": "Intel Corporation",
+    "written": "INTC",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 52853,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[INTC].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 52853000000,
+    "resolved": "INTC"
+   },
+   {
+    "company": "INTC",
+    "name": "Intel Corporation",
+    "written": "INTC",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 9492,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[INTC].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 9492000000,
+    "resolved": "INTC",
+    "computed": true
+   },
+   {
+    "company": "INTC",
+    "name": "Intel Corporation",
+    "written": "INTC",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": -267,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[INTC].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": -267000000,
+    "resolved": "INTC"
+   },
+   {
+    "company": "INTC",
+    "name": "Intel Corporation",
+    "written": "INTC",
+    "metric": "net_debt",
+    "period": "Dec 27 2025",
+    "value": 9169,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[INTC].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"Dec 27 2025\". Available: FY2011, FY2012, FY2013, FY2014, FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, LTM to 2026-09-26."
+    ],
+    "filed_value": null,
+    "resolved": "INTC"
+   }
+  ],
+  "unsourced_refs": [
+   "peers[NVDA].market_cap",
+   "peers[AMD].market_cap",
+   "peers[AVGO].market_cap",
+   "peers[QCOM].market_cap",
+   "peers[INTC].market_cap"
+  ],
+  "errors": []
+ }
+}

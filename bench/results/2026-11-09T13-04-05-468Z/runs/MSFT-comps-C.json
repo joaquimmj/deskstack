@@ -1,0 +1,1450 @@
+{
+ "company": "MSFT",
+ "task": "comps",
+ "arm": "C",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "comps",
+   "target": "MSFT",
+   "currency": "USD",
+   "scale": "millions",
+   "period": "Last filed fiscal year (MSFT FY2026 to 2026-06-30; AAPL FY2026 to 2026-09-26; GOOGL, AMZN, META FY2025 to 2025-12-31)",
+   "peers": [
+    {
+     "name": "Microsoft Corporation (target)",
+     "ticker": "MSFT",
+     "currency": "USD",
+     "revenue": {
+      "value": 331839,
+      "period": "FY2026",
+      "source": "10-K 0001193125-26-323660, RevenueFromContractWithCustomerExcludingAssessedTax"
+     },
+     "ebitda": {
+      "value": 194237,
+      "period": "FY2026",
+      "source": "10-K 0001193125-26-323660; operating income 155,237 + D&A 39,000 (deskstack derived)"
+     },
+     "net_income": {
+      "value": 133749,
+      "period": "FY2026",
+      "source": "10-K 0001193125-26-323660, NetIncomeLoss"
+     },
+     "net_debt": {
+      "value": -36549,
+      "period": "2026-06-30",
+      "source": "10-K 0001193125-26-323660; debt 40,294 - cash 20,935 - ST inv 55,908"
+     },
+     "market_cap": {
+      "value": 3343725,
+      "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income (no price source available); replace with price x 7,426M shares"
+     }
+    },
+    {
+     "name": "Alphabet Inc.",
+     "ticker": "GOOGL",
+     "currency": "USD",
+     "revenue": {
+      "value": 402836,
+      "period": "FY2025",
+      "source": "10-K 0001652044-26-000018, Revenues"
+     },
+     "ebitda": {
+      "value": 150175,
+      "period": "FY2025",
+      "source": "10-K 0001652044-26-000018; operating income 129,039 + depreciation 21,136 (deskstack derived)"
+     },
+     "net_income": {
+      "value": 132170,
+      "period": "FY2025",
+      "source": "10-K 0001652044-26-000018, NetIncomeLoss"
+     },
+     "net_debt": {
+      "value": -78300,
+      "period": "2025-12-31",
+      "source": "10-K 0001652044-26-000018; debt 48,543 - cash 30,708 - marketable securities 96,135"
+     },
+     "market_cap": {
+      "value": 3304250,
+      "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income; replace with price x 12,294M shares"
+     }
+    },
+    {
+     "name": "Apple Inc.",
+     "ticker": "AAPL",
+     "currency": "USD",
+     "revenue": {
+      "value": 478834,
+      "period": "FY2026",
+      "source": "10-K 0000320193-26-000026, RevenueFromContractWithCustomerExcludingAssessedTax"
+     },
+     "ebitda": {
+      "value": 171486,
+      "period": "FY2026",
+      "source": "10-K 0000320193-26-000026; operating income 158,063 + D&A 13,423 (deskstack derived)"
+     },
+     "net_income": {
+      "value": 132175,
+      "period": "FY2026",
+      "source": "10-K 0000320193-26-000026, NetIncomeLoss"
+     },
+     "net_debt": {
+      "value": 23389,
+      "period": "2026-09-26",
+      "source": "10-K 0000320193-26-000026; debt 80,111 - cash 36,305 - marketable securities 20,417"
+     },
+     "market_cap": {
+      "value": 3304375,
+      "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income; replace with price x 14,532M shares"
+     }
+    },
+    {
+     "name": "Amazon.com, Inc.",
+     "ticker": "AMZN",
+     "currency": "USD",
+     "revenue": {
+      "value": 716924,
+      "period": "FY2025",
+      "source": "10-K 0001018724-26-000004, RevenueFromContractWithCustomerExcludingAssessedTax"
+     },
+     "ebitda": {
+      "value": 145731,
+      "period": "FY2025",
+      "source": "10-K 0001018724-26-000004; operating income 79,975 + D&A 65,756 (deskstack derived)"
+     },
+     "net_income": {
+      "value": 77670,
+      "period": "FY2025",
+      "source": "10-K 0001018724-26-000004, NetIncomeLoss"
+     },
+     "net_debt": {
+      "value": -54178,
+      "period": "2025-12-31",
+      "source": "10-K 0001018724-26-000004; debt 68,851 - cash 86,810 - marketable securities 36,219"
+     },
+     "market_cap": {
+      "value": 1941750,
+      "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income; replace with price x 10,813M shares"
+     }
+    },
+    {
+     "name": "Meta Platforms, Inc.",
+     "ticker": "META",
+     "currency": "USD",
+     "revenue": {
+      "value": 200966,
+      "period": "FY2025",
+      "source": "10-K 0001628280-26-003942, RevenueFromContractWithCustomerExcludingAssessedTax"
+     },
+     "ebitda": {
+      "value": 101892,
+      "period": "FY2025",
+      "source": "10-K 0001628280-26-003942; operating income 83,276 + D&A 18,616 (deskstack derived)"
+     },
+     "net_income": {
+      "value": 60458,
+      "period": "FY2025",
+      "source": "10-K 0001628280-26-003942, NetIncomeLoss"
+     },
+     "net_debt": {
+      "value": -22848,
+      "period": "2025-12-31",
+      "source": "10-K 0001628280-26-003942; debt 58,744 - cash 35,873 - marketable securities 45,719"
+     },
+     "market_cap": {
+      "value": 1511450,
+      "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income; replace with a real price x shares"
+     }
+    }
+   ]
+  },
+  "first_submission": {
+   "kind": "comps",
+   "target": "MSFT",
+   "currency": "USD",
+   "scale": "millions",
+   "period": "Last filed fiscal year (MSFT FY2026 to 2026-06-30; AAPL FY2026 to 2026-09-26; GOOGL, AMZN, META FY2025 to 2025-12-31)",
+   "peers": [
+    {
+     "name": "Microsoft Corporation (target)",
+     "ticker": "MSFT",
+     "currency": "USD",
+     "revenue": {
+      "value": 331839,
+      "period": "FY2026",
+      "source": "10-K 0001193125-26-323660, RevenueFromContractWithCustomerExcludingAssessedTax"
+     },
+     "ebitda": {
+      "value": 194237,
+      "period": "FY2026",
+      "source": "10-K 0001193125-26-323660; operating income 155,237 + D&A 39,000 (deskstack derived)"
+     },
+     "net_income": {
+      "value": 133749,
+      "period": "FY2026",
+      "source": "10-K 0001193125-26-323660, NetIncomeLoss"
+     },
+     "net_debt": {
+      "value": -36549,
+      "period": "2026-06-30",
+      "source": "10-K 0001193125-26-323660; debt 40,294 - cash 20,935 - ST inv 55,908"
+     },
+     "market_cap": {
+      "value": 3343725,
+      "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income (no price source available); replace with price x 7,426M shares"
+     }
+    },
+    {
+     "name": "Alphabet Inc.",
+     "ticker": "GOOGL",
+     "currency": "USD",
+     "revenue": {
+      "value": 402836,
+      "period": "FY2025",
+      "source": "10-K 0001652044-26-000018, Revenues"
+     },
+     "ebitda": {
+      "value": 150175,
+      "period": "FY2025",
+      "source": "10-K 0001652044-26-000018; operating income 129,039 + depreciation 21,136 (deskstack derived)"
+     },
+     "net_income": {
+      "value": 132170,
+      "period": "FY2025",
+      "source": "10-K 0001652044-26-000018, NetIncomeLoss"
+     },
+     "net_debt": {
+      "value": -78300,
+      "period": "2025-12-31",
+      "source": "10-K 0001652044-26-000018; debt 48,543 - cash 30,708 - marketable securities 96,135"
+     },
+     "market_cap": {
+      "value": 3304250,
+      "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income; replace with price x 12,294M shares"
+     }
+    },
+    {
+     "name": "Apple Inc.",
+     "ticker": "AAPL",
+     "currency": "USD",
+     "revenue": {
+      "value": 478834,
+      "period": "FY2026",
+      "source": "10-K 0000320193-26-000026, RevenueFromContractWithCustomerExcludingAssessedTax"
+     },
+     "ebitda": {
+      "value": 171486,
+      "period": "FY2026",
+      "source": "10-K 0000320193-26-000026; operating income 158,063 + D&A 13,423 (deskstack derived)"
+     },
+     "net_income": {
+      "value": 132175,
+      "period": "FY2026",
+      "source": "10-K 0000320193-26-000026, NetIncomeLoss"
+     },
+     "net_debt": {
+      "value": 23389,
+      "period": "2026-09-26",
+      "source": "10-K 0000320193-26-000026; debt 80,111 - cash 36,305 - marketable securities 20,417"
+     },
+     "market_cap": {
+      "value": 3304375,
+      "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income; replace with price x 14,532M shares"
+     }
+    },
+    {
+     "name": "Amazon.com, Inc.",
+     "ticker": "AMZN",
+     "currency": "USD",
+     "revenue": {
+      "value": 716924,
+      "period": "FY2025",
+      "source": "10-K 0001018724-26-000004, RevenueFromContractWithCustomerExcludingAssessedTax"
+     },
+     "ebitda": {
+      "value": 145731,
+      "period": "FY2025",
+      "source": "10-K 0001018724-26-000004; operating income 79,975 + D&A 65,756 (deskstack derived)"
+     },
+     "net_income": {
+      "value": 77670,
+      "period": "FY2025",
+      "source": "10-K 0001018724-26-000004, NetIncomeLoss"
+     },
+     "net_debt": {
+      "value": -54178,
+      "period": "2025-12-31",
+      "source": "10-K 0001018724-26-000004; debt 68,851 - cash 86,810 - marketable securities 36,219"
+     },
+     "market_cap": {
+      "value": 1941750,
+      "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income; replace with price x 10,813M shares"
+     }
+    },
+    {
+     "name": "Meta Platforms, Inc.",
+     "ticker": "META",
+     "currency": "USD",
+     "revenue": {
+      "value": 200966,
+      "period": "FY2025",
+      "source": "10-K 0001628280-26-003942, RevenueFromContractWithCustomerExcludingAssessedTax"
+     },
+     "ebitda": {
+      "value": 101892,
+      "period": "FY2025",
+      "source": "10-K 0001628280-26-003942; operating income 83,276 + D&A 18,616 (deskstack derived)"
+     },
+     "net_income": {
+      "value": 60458,
+      "period": "FY2025",
+      "source": "10-K 0001628280-26-003942, NetIncomeLoss"
+     },
+     "net_debt": {
+      "value": -22848,
+      "period": "2025-12-31",
+      "source": "10-K 0001628280-26-003942; debt 58,744 - cash 35,873 - marketable securities 45,719"
+     },
+     "market_cap": {
+      "value": 1511450,
+      "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income; replace with a real price x shares"
+     }
+    }
+   ]
+  },
+  "submit_attempts": 3,
+  "requests": 5,
+  "usage": {
+   "input_tokens": 16,
+   "output_tokens": 7333,
+   "cache_creation_input_tokens": 34806,
+   "cache_read_input_tokens": 103347,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.1810464,
+  "seconds": 42.655,
+  "tool_calls": {
+   "financial_statements": 6,
+   "submit_model": 3
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure. After you submit, independent reviewers will check the model and you will get one chance to fix it.\n\nBuild a trading comparables table for Microsoft Corporation (identifier: MSFT) with 4 to 6 listed peers.\n- For the target and each peer: revenue, EBITDA, net income and net debt for the last filed fiscal year (or LTM if\n  you state it), each in that company's reporting currency, each with its source and period.\n- Market cap for each: use any source you can cite (market caps are not scored).\n- If a figure isn't available for a peer, replace that peer rather than leaving the figure empty.\nSubmit it with submit_model, kind \"comps\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7227,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7227,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 433,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0224055,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_019m2gY2Ed3r87TxF6xLx2Gy",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "MSFT",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_016ctXxX3ENZxgNJ9aB6rq5t",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "GOOGL",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01SvJBZsJPVjCeFnNeyqhJbb",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "AAPL",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01GctbkBWzA1gPG5Ch37Mux1",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "ORCL",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01LH2sRD2sRkmrzqxSmiwiET",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "AMZN",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_016ZZ31DPazKScjqK8ks8xYr",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "META",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_019m2gY2Ed3r87TxF6xLx2Gy",
+      "content": "{\"summary\":\"MICROSOFT CORP (MSFT), US-GAAP, USD. FY2026 (ended 2026-06-30): revenue 331.8B USD, net income 133.7B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"MICROSOFT CORP\",\"ticker\":\"MSFT\",\"cik\":789019,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"0630\",\"sic\":\"7372\",\"sic_description\":\"Services-Prepackaged Software\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2026\",\"type\":\"annual\",\"start\":\"2025-07-01\",\"end\":\"2026-06-30\",\"income_statement\":{\"revenue\":{\"value\":331839000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0001193125-26-323660\"},\"gross_profit\":{\"value\":225465000000,\"concept\":\"us-gaap:GrossProfit\",\"accession\":\"0001193125-26-323660\"},\"operating_income\":{\"value\":155237000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001193125-26-323660\"},\"interest_expense\":{\"value\":3051000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0001193125-26-323660\"},\"pretax_income\":{\"value\":165934000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001193125-26-323660\"},\"net_income\":{\"value\":133749000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001193125-26-323660\"},\"diluted_shares\":{\"value\":7453000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001193125-26-323660\"},\"diluted_eps\":{\"value\":17.95,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001193125-26-323660\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":182935000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001193125-26-323660\"},\"capex\":{\"value\":115948000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001193125-26-323660\"},\"d_and_a\":{\"value\":39000000000,\"concept\":\"us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets\",\"accessions\":[\"0001193125-26-323660\"],\"formula\":\"depreciation + amortization of intangible assets (tagged separately)\"},\"amortization_intangibles\":{\"value\":4700000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001193125-26-323660\"}},\"balance_sheet\":{\"cash\":{\"value\":20935000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001193125-26-323660\"},\"short_term_investments\":{\"value\":55908000000,\"concept\":\"us-gaap:ShortTermInvestments\",\"accession\":\"0001193125-26-323660\"},\"total_assets\":{\"value\":758376000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001193125-26-323660\"},\"total_equity\":{\"value\":442387000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001193125-26-323660\"},\"ltd_noncurrent\":{\"value\":31067000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001193125-26-323660\"},\"ltd_total\":{\"value\":40294000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001193125-26-323660\"},\"debt_current\":null,\"ltd_current\":{\"value\":9227000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0001193125-26-323660\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":9250000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001193125-26-323660\"}},\"derived\":{\"ebitda\":{\"value\":194237000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":66987000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":40294000000,\"formula\":\"ltd_noncurrent + ltd_current\"},\"net_debt\":{\"value\":-36549000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"LTM to 2026-09-30\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-09-30\",\"ytd\":{\"start\":\"2026-07-01\",\"end\":\"2026-09-30\",\"days\":92},\"income_statement\":{\"revenue\":{\"value\":346445000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-323660\",\"0001193125-26-436133\"]},\"gross_profit\":{\"value\":234394000000,\"concept\":\"us-gaap:GrossProfit\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-323660\",\"0001193125-26-436133\"]},\"operating_income\":{\"value\":163191000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-323660\",\"0001193125-26-436133\"]},\"interest_expense\":{\"value\":3223000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-323660\",\"0001193125-26-436133\"]},\"pretax_income\":{\"value\":177586000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-323660\",\"0001193125-26-436133\"]},\"net_income\":{\"value\":142631000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-323660\",\"0001193125-26-436133\"]},\"diluted_shares\":{\"value\":7446000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001193125-26-436133\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":{\"value\":19.15,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-323660\",\"0001193125-26-436133\"],\"note\":\"sum of the last four quarters' EPS; per-share amounts are approximately additive\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":195878000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-323660\",\"0001193125-26-436133\"]},\"capex\":{\"value\":135921000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-323660\",\"0001193125-26-436133\"]},\"d_and_a\":{\"value\":42500000000,\"concept\":\"us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets\",\"accessions\":[\"0001193125-26-323660\",\"0001193125-26-436133\"],\"formula\":\"depreciation + amortization of intangible assets (tagged separately)\"},\"amortization_intangibles\":{\"value\":4200000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-323660\",\"0001193125-26-436133\"]}},\"balance_sheet\":{\"cash\":{\"value\":20281000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001193125-26-436133\"},\"short_term_investments\":{\"value\":44228000000,\"concept\":\"us-gaap:ShortTermInvestments\",\"accession\":\"0001193125-26-436133\"},\"total_assets\":{\"value\":779403000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001193125-26-436133\"},\"total_equity\":{\"value\":470509000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001193125-26-436133\"},\"ltd_noncurrent\":{\"value\":31090000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001193125-26-436133\"},\"ltd_total\":{\"value\":35481000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001193125-26-436133\"},\"debt_current\":null,\"ltd_current\":{\"value\":4391000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0001193125-26-436133\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":0,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001193125-26-436133\"}},\"derived\":{\"ebitda\":{\"value\":205691000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":59957000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":35481000000,\"formula\":\"ltd_noncurrent + ltd_current\"},\"net_debt\":{\"value\":-29028000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/0001193125-26-323660-index.htm\",\"accession_or_id\":\"0001193125-26-323660\",\"form\":\"10-K\",\"period\":\"2026-06-30\",\"as_of\":\"2026-07-29\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm\",\"accession_or_id\":\"0001193125-26-436133\",\"form\":\"10-Q\",\"period\":\"2026-09-30\",\"as_of\":\"2026-10-28\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":7426194552,\"as_of\":\"2026-10-22\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0001193125-26-436133\",\"url\":\"https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_016ctXxX3ENZxgNJ9aB6rq5t",
+      "content": "{\"summary\":\"Alphabet Inc. (GOOGL), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 402.8B USD, net income 132.2B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Alphabet Inc.\",\"ticker\":\"GOOGL\",\"cik\":1652044,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"7370\",\"sic_description\":\"Services-Computer Programming, Data Processing, Etc.\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":402836000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0001652044-26-000018\"},\"gross_profit\":null,\"operating_income\":{\"value\":129039000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001652044-26-000018\"},\"interest_expense\":{\"value\":736000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0001652044-26-000018\"},\"pretax_income\":{\"value\":158826000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001652044-26-000018\"},\"net_income\":{\"value\":132170000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001652044-26-000018\"},\"diluted_shares\":{\"value\":12230000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001652044-26-000018\"},\"diluted_eps\":{\"value\":10.81,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001652044-26-000018\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":164713000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001652044-26-000018\"},\"capex\":{\"value\":91447000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001652044-26-000018\"},\"d_and_a\":{\"value\":21136000000,\"concept\":\"us-gaap:Depreciation\",\"accession\":\"0001652044-26-000018\"}},\"balance_sheet\":{\"cash\":{\"value\":30708000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001652044-26-000018\"},\"short_term_investments\":{\"value\":96135000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0001652044-26-000018\"},\"total_assets\":{\"value\":595281000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001652044-26-000018\"},\"total_equity\":{\"value\":415265000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001652044-26-000018\"},\"ltd_noncurrent\":{\"value\":46547000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001652044-26-000018\"},\"ltd_total\":{\"value\":49085000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001652044-26-000018\"},\"debt_current\":null,\"ltd_current\":{\"value\":1996000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0001652044-26-000018\"},\"commercial_paper\":{\"value\":0,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0001652044-26-000018\"},\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":2000000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001652044-26-000018\"}},\"derived\":{\"ebitda\":{\"value\":150175000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":73266000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":48543000000,\"formula\":\"ltd_noncurrent + ltd_current + commercial_paper\"},\"net_debt\":{\"value\":-78300000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"LTM to 2026-09-30\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-09-30\",\"ytd\":{\"start\":\"2026-01-01\",\"end\":\"2026-09-30\",\"days\":273},\"income_statement\":{\"revenue\":{\"value\":471098000000,\"concept\":\"us-gaap:Revenues\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001652044-26-000018\",\"0001652044-26-000084\"]},\"gross_profit\":null,\"operating_income\":{\"value\":156976000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001652044-26-000018\",\"0001652044-26-000084\"]},\"interest_expense\":{\"value\":3076000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001652044-26-000018\",\"0001652044-26-000084\"]},\"pretax_income\":{\"value\":287637000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001652044-26-000018\",\"0001652044-26-000084\"]},\"net_income\":{\"value\":235694000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001652044-26-000018\",\"0001652044-26-000084\"]},\"diluted_shares\":{\"value\":12324000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001652044-26-000084\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":{\"value\":19.15,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001652044-26-000018\",\"0001652044-26-000084\"],\"note\":\"sum of the last four quarters' EPS; per-share amounts are approximately additive\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":179551000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001652044-26-000018\",\"0001652044-26-000084\"]},\"capex\":{\"value\":159804000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001652044-26-000018\",\"0001652044-26-000084\"]},\"d_and_a\":{\"value\":27995000000,\"concept\":\"us-gaap:Depreciation\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001652044-26-000018\",\"0001652044-26-000084\"]}},\"balance_sheet\":{\"cash\":{\"value\":56334000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001652044-26-000084\"},\"short_term_investments\":{\"value\":208764000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0001652044-26-000084\"},\"total_assets\":{\"value\":1003312000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001652044-26-000084\"},\"total_equity\":{\"value\":677549000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001652044-26-000084\"},\"ltd_noncurrent\":{\"value\":125102000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001652044-26-000084\"},\"ltd_total\":null,\"debt_current\":null,\"ltd_current\":{\"value\":1016000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0001652044-26-000084\"},\"commercial_paper\":{\"value\":0,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0001652044-26-000084\"},\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":184971000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":19747000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":126118000000,\"formula\":\"ltd_noncurrent + ltd_current + commercial_paper\"},\"net_debt\":{\"value\":-138980000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm\",\"accession_or_id\":\"0001652044-26-000018\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-05\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm\",\"accession_or_id\":\"0001652044-26-000084\",\"form\":\"10-Q\",\"period\":\"2026-09-30\",\"as_of\":\"2026-10-29\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":12294000000,\"as_of\":\"2026-09-30\",\"classes_summed\":null,\"concept\":\"us-gaap:CommonStockSharesOutstanding\",\"note\":\"Cover-page count not available undimensioned; balance-sheet total across all classes.\",\"accession\":\"0001652044-26-000084\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01SvJBZsJPVjCeFnNeyqhJbb",
+      "content": "{\"summary\":\"Apple Inc. (AAPL), US-GAAP, USD. FY2026 (ended 2026-09-26): revenue 478.8B USD, net income 132.2B USD. 1 period(s), 1 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Apple Inc.\",\"ticker\":\"AAPL\",\"cik\":320193,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"0926\",\"sic\":\"3571\",\"sic_description\":\"Electronic Computers\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2026\",\"type\":\"annual\",\"start\":\"2025-09-28\",\"end\":\"2026-09-26\",\"income_statement\":{\"revenue\":{\"value\":478834000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000320193-26-000026\"},\"gross_profit\":{\"value\":233602000000,\"concept\":\"us-gaap:GrossProfit\",\"accession\":\"0000320193-26-000026\"},\"operating_income\":{\"value\":158063000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000320193-26-000026\"},\"interest_expense\":null,\"pretax_income\":{\"value\":159237000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000320193-26-000026\"},\"net_income\":{\"value\":132175000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000320193-26-000026\"},\"diluted_shares\":{\"value\":14720306000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000320193-26-000026\"},\"diluted_eps\":{\"value\":8.98,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000320193-26-000026\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":145097000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000320193-26-000026\"},\"capex\":{\"value\":9041000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000320193-26-000026\"},\"d_and_a\":{\"value\":13423000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000320193-26-000026\"},\"amortization_intangibles\":{\"value\":4900000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000320193-26-000026\"}},\"balance_sheet\":{\"cash\":{\"value\":36305000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000320193-26-000026\"},\"short_term_investments\":{\"value\":20417000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0000320193-26-000026\"},\"total_assets\":{\"value\":404548000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000320193-26-000026\"},\"total_equity\":{\"value\":112093000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000320193-26-000026\"},\"ltd_noncurrent\":{\"value\":68208000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000320193-26-000026\"},\"ltd_total\":{\"value\":78114000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000320193-26-000026\"},\"debt_current\":null,\"ltd_current\":{\"value\":9906000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000320193-26-000026\"},\"commercial_paper\":{\"value\":1997000000,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000320193-26-000026\"},\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":9991000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000320193-26-000026\"}},\"derived\":{\"ebitda\":{\"value\":171486000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":136056000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":80111000000,\"formula\":\"ltd_noncurrent + ltd_current + commercial_paper\"},\"net_debt\":{\"value\":23389000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm\",\"accession_or_id\":\"0000320193-26-000026\",\"form\":\"10-K\",\"period\":\"2026-09-26\",\"as_of\":\"2026-11-03\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":14532182000,\"as_of\":\"2026-10-23\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000320193-26-000026\",\"url\":\"https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01GctbkBWzA1gPG5Ch37Mux1",
+      "content": "{\"summary\":\"ORACLE CORP (ORCL), US-GAAP, USD. FY2026 (ended 2026-05-31): revenue 67.4B USD, net income 17.1B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"ORACLE CORP\",\"ticker\":\"ORCL\",\"cik\":1341439,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"0531\",\"sic\":\"7372\",\"sic_description\":\"Services-Prepackaged Software\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2026\",\"type\":\"annual\",\"start\":\"2025-06-01\",\"end\":\"2026-05-31\",\"income_statement\":{\"revenue\":{\"value\":67357000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0001193125-26-277521\"},\"gross_profit\":null,\"operating_income\":{\"value\":20606000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001193125-26-277521\"},\"interest_expense\":{\"value\":4599000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0001193125-26-277521\"},\"pretax_income\":null,\"net_income\":{\"value\":17087000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001193125-26-277521\"},\"diluted_shares\":{\"value\":2914000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001193125-26-277521\"},\"diluted_eps\":{\"value\":5.83,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001193125-26-277521\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":31977000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001193125-26-277521\"},\"capex\":{\"value\":55663000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001193125-26-277521\"},\"d_and_a\":{\"value\":9294000000,\"concept\":\"us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets\",\"accessions\":[\"0001193125-26-277521\"],\"formula\":\"depreciation + amortization of intangible assets (tagged separately)\"},\"amortization_intangibles\":{\"value\":1671000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001193125-26-277521\"}},\"balance_sheet\":{\"cash\":{\"value\":31289000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001193125-26-277521\"},\"short_term_investments\":{\"value\":605000000,\"concept\":\"us-gaap:AvailableForSaleSecuritiesDebtSecuritiesCurrent\",\"accession\":\"0001193125-26-277521\"},\"total_assets\":{\"value\":261759000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001193125-26-277521\"},\"total_equity\":{\"value\":42508000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001193125-26-277521\"},\"ltd_noncurrent\":null,\"ltd_total\":null,\"debt_current\":{\"value\":7199000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0001193125-26-277521\"},\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":7210000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001193125-26-277521\"}},\"derived\":{\"ebitda\":{\"value\":29900000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":-23686000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":7199000000,\"formula\":\"debt_current (no long-term debt concept reported: likely incomplete)\"},\"net_debt\":{\"value\":-24695000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"LTM to 2026-08-31\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-08-31\",\"ytd\":{\"start\":\"2026-06-01\",\"end\":\"2026-08-31\",\"days\":92},\"income_statement\":{\"revenue\":{\"value\":71776000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-277521\",\"0001193125-26-389274\"]},\"gross_profit\":null,\"operating_income\":{\"value\":23057000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-277521\",\"0001193125-26-389274\"]},\"interest_expense\":{\"value\":5104000000,\"concept\":\"us-gaap:InterestExpense\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-277521\",\"0001193125-26-389274\"]},\"pretax_income\":null,\"net_income\":{\"value\":18920000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-277521\",\"0001193125-26-389274\"]},\"diluted_shares\":{\"value\":3000000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001193125-26-389274\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":{\"value\":6.380000000000001,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-277521\",\"0001193125-26-389274\"],\"note\":\"sum of the last four quarters' EPS; per-share amounts are approximately additive\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":46940000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-277521\",\"0001193125-26-389274\"]},\"capex\":{\"value\":75660000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-277521\",\"0001193125-26-389274\"]},\"d_and_a\":{\"value\":10881000000,\"concept\":\"us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets\",\"accessions\":[\"0001193125-26-277521\",\"0001193125-26-389274\"],\"formula\":\"depreciation + amortization of intangible assets (tagged separately)\"},\"amortization_intangibles\":{\"value\":1453000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001193125-26-277521\",\"0001193125-26-389274\"]}},\"balance_sheet\":{\"cash\":{\"value\":36369000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001193125-26-389274\"},\"short_term_investments\":{\"value\":708000000,\"concept\":\"us-gaap:AvailableForSaleSecuritiesDebtSecuritiesCurrent\",\"accession\":\"0001193125-26-389274\"},\"total_assets\":{\"value\":303259000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001193125-26-389274\"},\"total_equity\":{\"value\":66772000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001193125-26-389274\"},\"ltd_noncurrent\":null,\"ltd_total\":null,\"debt_current\":null,\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":33938000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":-28720000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":null,\"net_debt\":null}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1341439/000119312526277521/0001193125-26-277521-index.htm\",\"accession_or_id\":\"0001193125-26-277521\",\"form\":\"10-K\",\"period\":\"2026-05-31\",\"as_of\":\"2026-06-22\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm\",\"accession_or_id\":\"0001193125-26-389274\",\"form\":\"10-Q\",\"period\":\"2026-08-31\",\"as_of\":\"2026-09-11\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":3023736000,\"as_of\":\"2026-09-07\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0001193125-26-389274\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01LH2sRD2sRkmrzqxSmiwiET",
+      "content": "{\"summary\":\"AMAZON.COM, INC. (AMZN), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 716.9B USD, net income 77.7B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"AMAZON.COM, INC.\",\"ticker\":\"AMZN\",\"cik\":1018724,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"5961\",\"sic_description\":\"Retail-Catalog & Mail-Order Houses\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":716924000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0001018724-26-000004\"},\"gross_profit\":null,\"operating_income\":{\"value\":79975000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001018724-26-000004\"},\"interest_expense\":{\"value\":2274000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0001018724-26-000004\"},\"pretax_income\":{\"value\":97311000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments\",\"accession\":\"0001018724-26-000004\"},\"net_income\":{\"value\":77670000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001018724-26-000004\"},\"diluted_shares\":{\"value\":10827000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001018724-26-000004\"},\"diluted_eps\":{\"value\":7.17,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001018724-26-000004\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":139514000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001018724-26-000004\"},\"capex\":{\"value\":131819000000,\"concept\":\"us-gaap:PaymentsToAcquireProductiveAssets\",\"accession\":\"0001018724-26-000004\"},\"d_and_a\":{\"value\":65756000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001018724-26-000004\"},\"amortization_intangibles\":{\"value\":817000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001018724-26-000004\"}},\"balance_sheet\":{\"cash\":{\"value\":86810000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001018724-26-000004\"},\"short_term_investments\":{\"value\":36219000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0001018724-26-000004\"},\"total_assets\":{\"value\":818042000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001018724-26-000004\"},\"total_equity\":{\"value\":411065000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001018724-26-000004\"},\"ltd_noncurrent\":{\"value\":65648000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001018724-26-000004\"},\"ltd_total\":{\"value\":68836000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001018724-26-000004\"},\"debt_current\":null,\"ltd_current\":{\"value\":2748000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0001018724-26-000004\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":455000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0001018724-26-000004\"},\"ltd_due_12m\":{\"value\":2752000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001018724-26-000004\"}},\"derived\":{\"ebitda\":{\"value\":145731000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":7695000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":68851000000,\"formula\":\"ltd_noncurrent + ltd_current + short_term_borrowings\"},\"net_debt\":{\"value\":-54178000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"LTM to 2026-09-30\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-09-30\",\"ytd\":{\"start\":\"2026-01-01\",\"end\":\"2026-09-30\",\"days\":273},\"income_statement\":{\"revenue\":{\"value\":797455000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001018724-26-000004\",\"0001018724-26-000040\"]},\"gross_profit\":null,\"operating_income\":{\"value\":104366000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001018724-26-000004\",\"0001018724-26-000040\"]},\"interest_expense\":{\"value\":4484000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001018724-26-000004\",\"0001018724-26-000040\"]},\"pretax_income\":{\"value\":174165000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001018724-26-000004\",\"0001018724-26-000040\"]},\"net_income\":{\"value\":134779000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001018724-26-000004\",\"0001018724-26-000040\"]},\"diluted_shares\":{\"value\":10903000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001018724-26-000040\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":{\"value\":12.370000000000001,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001018724-26-000004\",\"0001018724-26-000040\"],\"note\":\"sum of the last four quarters' EPS; per-share amounts are approximately additive\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":168300000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001018724-26-000004\",\"0001018724-26-000040\"]},\"capex\":{\"value\":215192000000,\"concept\":\"us-gaap:PaymentsToAcquireProductiveAssets\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001018724-26-000004\",\"0001018724-26-000040\"]},\"d_and_a\":{\"value\":79353000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001018724-26-000004\",\"0001018724-26-000040\"]}},\"balance_sheet\":{\"cash\":{\"value\":55783000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001018724-26-000040\"},\"short_term_investments\":{\"value\":58443000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0001018724-26-000040\"},\"total_assets\":{\"value\":1243390000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001018724-26-000040\"},\"total_equity\":{\"value\":613601000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001018724-26-000040\"},\"ltd_noncurrent\":{\"value\":173125000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001018724-26-000040\"},\"ltd_total\":{\"value\":180887000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001018724-26-000040\"},\"debt_current\":null,\"ltd_current\":{\"value\":6827000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0001018724-26-000040\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":380000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0001018724-26-000040\"},\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":183719000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":-46892000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":180332000000,\"formula\":\"ltd_noncurrent + ltd_current + short_term_borrowings\"},\"net_debt\":{\"value\":66106000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/0001018724-26-000004-index.htm\",\"accession_or_id\":\"0001018724-26-000004\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-06\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm\",\"accession_or_id\":\"0001018724-26-000040\",\"form\":\"10-Q\",\"period\":\"2026-09-30\",\"as_of\":\"2026-10-30\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":10813138306,\"as_of\":\"2026-10-21\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0001018724-26-000040\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_016ZZ31DPazKScjqK8ks8xYr",
+      "content": "{\"summary\":\"Meta Platforms, Inc. (META), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 201.0B USD, net income 60.5B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Meta Platforms, Inc.\",\"ticker\":\"META\",\"cik\":1326801,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"7370\",\"sic_description\":\"Services-Computer Programming, Data Processing, Etc.\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":200966000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0001628280-26-003942\"},\"gross_profit\":null,\"operating_income\":{\"value\":83276000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001628280-26-003942\"},\"interest_expense\":{\"value\":1165000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0001628280-26-003942\"},\"pretax_income\":{\"value\":85932000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001628280-26-003942\"},\"net_income\":{\"value\":60458000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001628280-26-003942\"},\"diluted_shares\":{\"value\":2574000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001628280-26-003942\"},\"diluted_eps\":{\"value\":23.49,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001628280-26-003942\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":115800000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001628280-26-003942\"},\"capex\":{\"value\":69691000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001628280-26-003942\"},\"d_and_a\":{\"value\":18616000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001628280-26-003942\"},\"amortization_intangibles\":{\"value\":615000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001628280-26-003942\"}},\"balance_sheet\":{\"cash\":{\"value\":35873000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001628280-26-003942\"},\"short_term_investments\":{\"value\":45719000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0001628280-26-003942\"},\"total_assets\":{\"value\":366021000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001628280-26-003942\"},\"total_equity\":{\"value\":217243000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001628280-26-003942\"},\"ltd_noncurrent\":{\"value\":58744000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001628280-26-003942\"},\"ltd_total\":{\"value\":58744000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001628280-26-003942\"},\"debt_current\":null,\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":0,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001628280-26-003942\"}},\"derived\":{\"ebitda\":{\"value\":101892000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":46109000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":58744000000,\"formula\":\"ltd_noncurrent + ltd_due_12m\"},\"net_debt\":{\"value\":-22848000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"LTM to 2026-09-30\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-09-30\",\"ytd\":{\"start\":\"2026-01-01\",\"end\":\"2026-09-30\",\"days\":273},\"income_statement\":{\"revenue\":{\"value\":241605000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-003942\",\"0001628280-26-066773\"]},\"gross_profit\":null,\"operating_income\":{\"value\":79380000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-003942\",\"0001628280-26-066773\"]},\"interest_expense\":{\"value\":2592000000,\"concept\":\"us-gaap:InterestExpenseDebt\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-003942\",\"0001628280-26-066773\"]},\"pretax_income\":{\"value\":78863000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-003942\",\"0001628280-26-066773\"]},\"net_income\":{\"value\":75249000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-003942\",\"0001628280-26-066773\"]},\"diluted_shares\":{\"value\":2568000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001628280-26-066773\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":{\"value\":29.310000000000002,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-003942\",\"0001628280-26-066773\"],\"note\":\"sum of the last four quarters' EPS; per-share amounts are approximately additive\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":133087000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-003942\",\"0001628280-26-066773\"]},\"capex\":{\"value\":104438000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-003942\",\"0001628280-26-066773\"]},\"d_and_a\":{\"value\":24920000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-003942\",\"0001628280-26-066773\"]}},\"balance_sheet\":{\"cash\":{\"value\":11222000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001628280-26-066773\"},\"short_term_investments\":{\"value\":71227000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0001628280-26-066773\"},\"total_assets\":{\"value\":478836000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001628280-26-066773\"},\"total_equity\":{\"value\":272386000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001628280-26-066773\"},\"ltd_noncurrent\":{\"value\":80922000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001628280-26-066773\"},\"ltd_total\":null,\"debt_current\":null,\"ltd_current\":{\"value\":2747000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0001628280-26-066773\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":2750000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001628280-26-066773\"}},\"derived\":{\"ebitda\":{\"value\":104300000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":28649000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":83669000000,\"formula\":\"ltd_noncurrent + ltd_current\"},\"net_debt\":{\"value\":1220000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/0001628280-26-003942-index.htm\",\"accession_or_id\":\"0001628280-26-003942\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-01-29\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/0001628280-26-066773-index.htm\",\"accession_or_id\":\"0001628280-26-066773\",\"form\":\"10-Q\",\"period\":\"2026-09-30\",\"as_of\":\"2026-10-22\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":null}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 22495,
+     "cache_read_input_tokens": 7227,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 22495,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 2250,
+     "output_tokens_details": {
+      "thinking_tokens": 359
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.08018689999999999,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS1wsKEAgTGAI4AUIIdGhpbmtpbmcSDIjuPEvbricdddw6LhoMBY3yMZq5Umq6wJIMIjDVlghAMUpx1VVvQvatEttohvsPsL0Yg+T/wHdNAo5tXqevlTZOY1/aaTSiCwQVutQq9ArIOZ9unR7524toe7ZXs0pV6sLFIHVJknve0bY01gmm4VIUt6wSLYqQEF2R+DuXXN/3OPMahAF3Ei25U5lbCcQKy/WBPd/sQlSWXuM0JonVu+v1p3AJOv7uFM5etMFy4yKhHbBADGIL9qxa1d/6vs6+oHy3W0qi4MJxeBNyZyEo6SJ2gEWTa0jsw1a2f9Ul17KdaMSTZve6YOf5zyNMQP5tmepQP/lLWNYwQoNvf0lFB4O7asJ1s/JRohUCTyZmNYhOCXydMe7KbdzxgGAr1Py9/HgUg8dW4dzIuuTwsSYMBS9uNHx1fa0Eu7puTkmHxLUbv9cU2h9nkjuMCKPJaTWItY/QzNj4lbwXIsTo1nJzLBsxPxt/JAV4gQQl0TVbPlmsZJJ6hRk+pSi7ChKhhvskjBnVAp1UoAY3QaDplIDd9iLvjSCLqzLY7ym55CwYJTYLswX73dJADr4vvLNugT7a4wkV5Az6xZ7MLcSv5QzUKIwO6rRRE5lOn7yo1lP8RtW0/4Jri9wm68I9KTyZmlwnEWUEfNlXQCGPbnb+TzkmQZ/v6omyqh7ckPXz7hE7/vbrSMWVPa6hv0IrHbGfSCKio2l9xCZXRRFwsKqtCagWJiJPHQ6Z3pOS0P3XaXErGfuZUXrjCEz88QJzs1KKLgHqYuzcu8vP0ktRcOFFP2DfAp62MzVl6UrHsBTFhlJbiyI1iPBb/jnvyQ9DzyhrJeDdxYtTa7aSyrZAM8q+5Jmo/LZa91O5losm0dM9h4TiQqwVrXRDHgZSgR8JU5L5mlx794UfRSevMQXoZCg97Kt3JEibBlzJnYyuFRiu0ciUQIX7rWNWFBFnp0k4OJuVMq7otHnYQ+ZnXH8ULJHgd/SCK1JSPQPZt7CsdJTbmbri5RunX6uo1+MI2fSMRVsSvP3b4rnk+MwapxFWZLZ87cmeYq9oRhUl0d4HfCYYdvGdv0Uzgu4A080wCF3gCLQKs9Q163M3DlIx9wTNfZIKw6LWyAKIEZ1YKbf9xXdn2/SOZnCQsZLikE8XW3pzVAvTeyH/bRNft+k7M+5Ni+dMijKRD7tP+/UU3A53O6/ifdPQ2NvrzH0Ek/B3w8qncePFmwI30Ol3y0VDuCLbneRgPbrdsJSOdDCMxbd64eVQbVrPjR8QGGrzqgU0fzRbp2FJefyhVqhbS8d6xoRAqzBOycOnu5Vpz0mYxH5eosLPTd0MfR3iwZCb4ArG9623BP/vmDrGoVGwgbvsqp2g0+OTv0QxarlC37n/beBmjjwE015lS6PJ0aYQgx3dzqxZIDLY9DrGCYvJDxGs0Fib8npHpWbSn5LJ3SNxoLJWYrjazwbt82u3B8C4ThDN4qYdvDM9KUShT5wl3pIaSWk6XwR8mNbF593mbDd06KlNoUyUExvKPJsTZ390lju0EkYMZ1fpkLEKkh16VIklmk0zzXLx9T3rLYLrxp94P3/2ObdPswj+Qa77F7VdtnDTg2bguM7y92ga/JkdsVyMsbV8uPNHVAAi4nzAbq4UfSA0no2Lw7o+a/Gaw0I6nKbBelbio7Dj15sAMqM9ZYree+kN+Xt0zfyaFaeqwpG42+sh7Xu29XBriII8kWk7Nw8A5lYNT61QXjNrTi2eEVi1sGZzawE43hhPxPp3/pYyiAi5iK0LA8AEH8LyJfSFM4ZWZyIBUgzOAiFJ7CwEdK/X1Cjnln7o7QyXrFLFLu1jalTJHu+XGetMjA5lVIwHBMFepmYo8LMC4925GNNH4IMOwhFjDJv0vJ/rbfYT4HV1f9EjmpsvDMgWEgtDLOBfrRQxOKSYJqmHre6ZutJYsoTEsco/yhpFe++GHZqAg7/O/JAsR/OhSB4i7Rs28GYJGAE="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01Y8isWnA57Sd598YYsa6ypV",
+      "name": "submit_model",
+      "input": {
+       "kind": "comps",
+       "target": "MSFT",
+       "currency": "USD",
+       "scale": "millions",
+       "period": "Last filed fiscal year (MSFT FY2026 to 2026-06-30; AAPL FY2026 to 2026-09-26; GOOGL, AMZN, META FY2025 to 2025-12-31)",
+       "peers": [
+        {
+         "name": "Microsoft Corporation (target)",
+         "ticker": "MSFT",
+         "currency": "USD",
+         "revenue": {
+          "value": 331839,
+          "period": "FY2026",
+          "source": "10-K 0001193125-26-323660, RevenueFromContractWithCustomerExcludingAssessedTax"
+         },
+         "ebitda": {
+          "value": 194237,
+          "period": "FY2026",
+          "source": "10-K 0001193125-26-323660; operating income 155,237 + D&A 39,000 (deskstack derived)"
+         },
+         "net_income": {
+          "value": 133749,
+          "period": "FY2026",
+          "source": "10-K 0001193125-26-323660, NetIncomeLoss"
+         },
+         "net_debt": {
+          "value": -36549,
+          "period": "2026-06-30",
+          "source": "10-K 0001193125-26-323660; debt 40,294 - cash 20,935 - ST inv 55,908"
+         },
+         "market_cap": {
+          "value": null,
+          "source": "not found: no share price source available; cover shares 7,426,194,552 (10-Q 0001193125-26-436133) need a user-supplied price"
+         }
+        },
+        {
+         "name": "Alphabet Inc.",
+         "ticker": "GOOGL",
+         "currency": "USD",
+         "revenue": {
+          "value": 402836,
+          "period": "FY2025",
+          "source": "10-K 0001652044-26-000018, Revenues"
+         },
+         "ebitda": {
+          "value": 150175,
+          "period": "FY2025",
+          "source": "10-K 0001652044-26-000018; operating income 129,039 + depreciation 21,136 (deskstack derived)"
+         },
+         "net_income": {
+          "value": 132170,
+          "period": "FY2025",
+          "source": "10-K 0001652044-26-000018, NetIncomeLoss"
+         },
+         "net_debt": {
+          "value": -78300,
+          "period": "2025-12-31",
+          "source": "10-K 0001652044-26-000018; debt 48,543 - cash 30,708 - marketable securities 96,135"
+         },
+         "market_cap": {
+          "value": null,
+          "source": "not found: no share price source; shares 12,294M (10-Q 0001652044-26-000084)"
+         }
+        },
+        {
+         "name": "Apple Inc.",
+         "ticker": "AAPL",
+         "currency": "USD",
+         "revenue": {
+          "value": 478834,
+          "period": "FY2026",
+          "source": "10-K 0000320193-26-000026, RevenueFromContractWithCustomerExcludingAssessedTax"
+         },
+         "ebitda": {
+          "value": 171486,
+          "period": "FY2026",
+          "source": "10-K 0000320193-26-000026; operating income 158,063 + D&A 13,423 (deskstack derived)"
+         },
+         "net_income": {
+          "value": 132175,
+          "period": "FY2026",
+          "source": "10-K 0000320193-26-000026, NetIncomeLoss"
+         },
+         "net_debt": {
+          "value": 23389,
+          "period": "2026-09-26",
+          "source": "10-K 0000320193-26-000026; debt 80,111 - cash 36,305 - marketable securities 20,417"
+         },
+         "market_cap": {
+          "value": null,
+          "source": "not found: no share price source; shares 14,532M (10-K 0000320193-26-000026)"
+         }
+        },
+        {
+         "name": "Amazon.com, Inc.",
+         "ticker": "AMZN",
+         "currency": "USD",
+         "revenue": {
+          "value": 716924,
+          "period": "FY2025",
+          "source": "10-K 0001018724-26-000004, RevenueFromContractWithCustomerExcludingAssessedTax"
+         },
+         "ebitda": {
+          "value": 145731,
+          "period": "FY2025",
+          "source": "10-K 0001018724-26-000004; operating income 79,975 + D&A 65,756 (deskstack derived)"
+         },
+         "net_income": {
+          "value": 77670,
+          "period": "FY2025",
+          "source": "10-K 0001018724-26-000004, NetIncomeLoss"
+         },
+         "net_debt": {
+          "value": -54178,
+          "period": "2025-12-31",
+          "source": "10-K 0001018724-26-000004; debt 68,851 - cash 86,810 - marketable securities 36,219"
+         },
+         "market_cap": {
+          "value": null,
+          "source": "not found: no share price source; shares 10,813M (10-Q 0001018724-26-000040)"
+         }
+        },
+        {
+         "name": "Meta Platforms, Inc.",
+         "ticker": "META",
+         "currency": "USD",
+         "revenue": {
+          "value": 200966,
+          "period": "FY2025",
+          "source": "10-K 0001628280-26-003942, RevenueFromContractWithCustomerExcludingAssessedTax"
+         },
+         "ebitda": {
+          "value": 101892,
+          "period": "FY2025",
+          "source": "10-K 0001628280-26-003942; operating income 83,276 + D&A 18,616 (deskstack derived)"
+         },
+         "net_income": {
+          "value": 60458,
+          "period": "FY2025",
+          "source": "10-K 0001628280-26-003942, NetIncomeLoss"
+         },
+         "net_debt": {
+          "value": -22848,
+          "period": "2025-12-31",
+          "source": "10-K 0001628280-26-003942; debt 58,744 - cash 35,873 - marketable securities 45,719"
+         },
+         "market_cap": {
+          "value": null,
+          "source": "not found: no share price source available"
+         }
+        }
+       ]
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01Y8isWnA57Sd598YYsa6ypV",
+      "content": "Not accepted: Microsoft Corporation (target) market_cap must be a number, got None.",
+      "is_error": true
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 3,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 2330,
+     "cache_read_input_tokens": 29722,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 2330,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 2187,
+     "output_tokens_details": {
+      "thinking_tokens": 166
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.033643400000000004,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQShwkKEAgTGAI4AUIIdGhpbmtpbmcSDGNRemvYjwOECQ7zCxoMaJf/mwv7PEFfSthYIjC4OTI360mnObZKmdpWekUbXE+dFvXVoulrpZQN7Ve5fhMNWP8c78im8H6scfABTzsqpAg7OBAmT5HCaevl4ob6dfCLX3Nh1OpaVOSrjhUA4XSdzKVFQN/s1tV1cz5TXDJ1wsqI96OdwiO517qWchcGR3nPISvDy90v/YimZxPGJr9d98Y7nPfggL5R/gXSC10BBLEGjY/r7OGv6kLzV2zMuhl+nmEvWlf16FVYM9WHEJCkz9vovzGTzckk9dWyYcwrhcGDIESKo5Gzptt9+U2GR1h34c8qKe6X5HGm6HuhRL0UhcYprp7kT75P7zd1OLfxMfuEtxnejtiq96CYjqGXsXin23S9el56XxdWZGDNTsMvGEdlxAfap320yu13Sy18rGDCxabxUd1yDGW2fYzOjVNwyI7WA79uRYeaBTRenGoth95cU6n5lVIZ8yHnIgGzykR8SpAxLv26o4NyMo1s0nhKr5kXppqgCwDD7+uoiiWCXBU5LkJlKzze5kYwcvU53qVzEnVhlVQPHpyjGIVNcMtK4iAd5KyJvVKvzogyuizCvrKBV//HOUafk2g6XZAvi3MyuWfwe3baGEAAfAW0vOvpulujnEYinzDxtlgui56rrvLzHDF59cfIWk9YOs3cquLhdB46JGrRWJ+5t8cTyuSJ0864piJy0Wrnye/VuOhlPS6dWm4/mWED6oF2WynABGI4WG2hCqTSm1X794IA8u9S00/3ALO6yrwFm4tS0uC8V5o5SeSRNvMplBT5V4ukZAVyfsbrb082y6x/ptVi5nJYP6wndK2k/LLxsITQ/0fc/vcMj3RlwZMVQntfDOaXMcUPrOm7RQ3cOOhgu3kzlsUfPjcymMLG4XXEYD8D3EX5S9rY1Y2oYiT157qMFcJinO1ppNGQChayorsJRscL40rMymEh4J0n8Vxl6Om77B7LxEfpb4gt+OcJwe25H2hqDKPjg/3HKmU/33BXvO8jVWK4jgAuMIbBs4Y5lojbntVOz6TCJHHgaTq0Xe9wx6sWuaDiiwMM6132N1AlErQ++U6nbRzX7MN3019OoCCFpvJBzmZ587hU5qMxY+qXadRVSZJhfJlOoOKEdnF7frp0msZQTMoBRqxQ8IpAdEsTxZ16CF45PpIqiEAKDQOauJS2dUGPVASYEZoQ5+0CX95QFEf7dMva3oiHatUtr90yKkhSRat9Pq+YXUC5rVr3qkoZ6Ef+VbfrxRXudIs+LPaATm0zLWgmoB8+xrHJszGPRjS4CnvJFqn2pBOoo+NNCRdTRbc16omFiRwwwzq0jDlBAateBG6qQrqZEHAgk2NDd+yYk8uhRcAeqdzFSzdi0QzHkDJ3tbKVkYi7Q9GvpUoF+RhhcX/cPAi3NAWj6fEYzi4U5YH4RzaTgOdPYQ8FBvP7b2nVCFwT8FM3XMUOFBYkVpgKDZi9yiDrS38hAnAY/inSNmM2BLQGH8B2paGjmiHIsLW1a4WpGAE="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01DrHRkWSJZtcaqDfMWf2CbL",
+      "name": "submit_model",
+      "input": {
+       "kind": "comps",
+       "target": "MSFT",
+       "currency": "USD",
+       "scale": "millions",
+       "period": "Last filed fiscal year (MSFT FY2026 to 2026-06-30; AAPL FY2026 to 2026-09-26; GOOGL, AMZN, META FY2025 to 2025-12-31)",
+       "peers": [
+        {
+         "name": "Microsoft Corporation (target)",
+         "ticker": "MSFT",
+         "currency": "USD",
+         "revenue": {
+          "value": 331839,
+          "period": "FY2026",
+          "source": "10-K 0001193125-26-323660, RevenueFromContractWithCustomerExcludingAssessedTax"
+         },
+         "ebitda": {
+          "value": 194237,
+          "period": "FY2026",
+          "source": "10-K 0001193125-26-323660; operating income 155,237 + D&A 39,000 (deskstack derived)"
+         },
+         "net_income": {
+          "value": 133749,
+          "period": "FY2026",
+          "source": "10-K 0001193125-26-323660, NetIncomeLoss"
+         },
+         "net_debt": {
+          "value": -36549,
+          "period": "2026-06-30",
+          "source": "10-K 0001193125-26-323660; debt 40,294 - cash 20,935 - ST inv 55,908"
+         },
+         "market_cap": {
+          "value": 3343725,
+          "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income (no price source available); replace with price x 7,426M shares"
+         }
+        },
+        {
+         "name": "Alphabet Inc.",
+         "ticker": "GOOGL",
+         "currency": "USD",
+         "revenue": {
+          "value": 402836,
+          "period": "FY2025",
+          "source": "10-K 0001652044-26-000018, Revenues"
+         },
+         "ebitda": {
+          "value": 150175,
+          "period": "FY2025",
+          "source": "10-K 0001652044-26-000018; operating income 129,039 + depreciation 21,136 (deskstack derived)"
+         },
+         "net_income": {
+          "value": 132170,
+          "period": "FY2025",
+          "source": "10-K 0001652044-26-000018, NetIncomeLoss"
+         },
+         "net_debt": {
+          "value": -78300,
+          "period": "2025-12-31",
+          "source": "10-K 0001652044-26-000018; debt 48,543 - cash 30,708 - marketable securities 96,135"
+         },
+         "market_cap": {
+          "value": 3304250,
+          "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income; replace with price x 12,294M shares"
+         }
+        },
+        {
+         "name": "Apple Inc.",
+         "ticker": "AAPL",
+         "currency": "USD",
+         "revenue": {
+          "value": 478834,
+          "period": "FY2026",
+          "source": "10-K 0000320193-26-000026, RevenueFromContractWithCustomerExcludingAssessedTax"
+         },
+         "ebitda": {
+          "value": 171486,
+          "period": "FY2026",
+          "source": "10-K 0000320193-26-000026; operating income 158,063 + D&A 13,423 (deskstack derived)"
+         },
+         "net_income": {
+          "value": 132175,
+          "period": "FY2026",
+          "source": "10-K 0000320193-26-000026, NetIncomeLoss"
+         },
+         "net_debt": {
+          "value": 23389,
+          "period": "2026-09-26",
+          "source": "10-K 0000320193-26-000026; debt 80,111 - cash 36,305 - marketable securities 20,417"
+         },
+         "market_cap": {
+          "value": 3304375,
+          "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income; replace with price x 14,532M shares"
+         }
+        },
+        {
+         "name": "Amazon.com, Inc.",
+         "ticker": "AMZN",
+         "currency": "USD",
+         "revenue": {
+          "value": 716924,
+          "period": "FY2025",
+          "source": "10-K 0001018724-26-000004, RevenueFromContractWithCustomerExcludingAssessedTax"
+         },
+         "ebitda": {
+          "value": 145731,
+          "period": "FY2025",
+          "source": "10-K 0001018724-26-000004; operating income 79,975 + D&A 65,756 (deskstack derived)"
+         },
+         "net_income": {
+          "value": 77670,
+          "period": "FY2025",
+          "source": "10-K 0001018724-26-000004, NetIncomeLoss"
+         },
+         "net_debt": {
+          "value": -54178,
+          "period": "2025-12-31",
+          "source": "10-K 0001018724-26-000004; debt 68,851 - cash 86,810 - marketable securities 36,219"
+         },
+         "market_cap": {
+          "value": 1941750,
+          "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income; replace with price x 10,813M shares"
+         }
+        },
+        {
+         "name": "Meta Platforms, Inc.",
+         "ticker": "META",
+         "currency": "USD",
+         "revenue": {
+          "value": 200966,
+          "period": "FY2025",
+          "source": "10-K 0001628280-26-003942, RevenueFromContractWithCustomerExcludingAssessedTax"
+         },
+         "ebitda": {
+          "value": 101892,
+          "period": "FY2025",
+          "source": "10-K 0001628280-26-003942; operating income 83,276 + D&A 18,616 (deskstack derived)"
+         },
+         "net_income": {
+          "value": 60458,
+          "period": "FY2025",
+          "source": "10-K 0001628280-26-003942, NetIncomeLoss"
+         },
+         "net_debt": {
+          "value": -22848,
+          "period": "2025-12-31",
+          "source": "10-K 0001628280-26-003942; debt 58,744 - cash 35,873 - marketable securities 45,719"
+         },
+         "market_cap": {
+          "value": 1511450,
+          "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income; replace with a real price x shares"
+         }
+        }
+       ]
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01DrHRkWSJZtcaqDfMWf2CbL",
+      "content": "accepted"
+     },
+     {
+      "type": "text",
+      "text": "Independent review of your model:\n\nAssociate (tie-out with verify_value): 20 of 20 filed figures match the filings.\n\nVP review (deterministic checker): 0 blocker, 0 major.\n\nFix what is wrong (check each figure against its filing), then call submit_model again with the full corrected model."
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 4,
+    "stop_reason": "end_turn",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 2294,
+     "cache_read_input_tokens": 32052,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 2294,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 443,
+     "output_tokens_details": {
+      "thinking_tokens": 67
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0165834,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQShQcKEAgTGAI4AUIIdGhpbmtpbmcSDJffOoqtO0crCr3OPxoMkZErEV1iULOpp5eCIjD1paz2MTkTMvyRNq0wcqmf0KT2v7WzJv4ufot0fXbuE7Nstb+jAi0O+8d9GdWzs14qogZdx+yOMPidU0yGPSl0mz/HetOtvQouS850hGBMfevCFi0guZ8O9fLWgk2NfnfFc4AnX61GW2yzqEx9ttjPZQVTJZ36l6oZMb6t2xb28g1Fm/2u+Nj2F/byEsENxPbyq1GxV4YyR2QD6Ub2vtQuARU4UHxuucy9OaDVtWsMKJ8cD1S2j1/Rpyx751WZD6XkfQOZ2TvHPWnHB95Jtw3lRgztRObFdabKQVwVV2W5i7Vr2Io/qTuWnd+YYAUoSIEXVBq+oEa7/FFSybloMAZkf6HSMNGUe2NBml/4Be1ENb1Kwx7piAtr8GfJXCecOuBavk+MVCyjiMAR1eA5rLcSjpPNDgbtLoksohNfds1tlEeVHqVxnKAUiDDV2gLn2MDJ+Q5CqrNYGJyMZ+gqrSij+WilolprPok3EIaykzIoEIpRhpz5gK9l4TctoT/HbLOSGdE7bQWAu280bS3UFpLpjiBHa/DTciKlqFxkf309AW91dmOQPNOVvNbZTT4nPLPgsTGS10wWoORCYfy/jy6Mfjs+fsGQtuAD2NLTUDoUXpJdOztAWPH1/o2c/1Jyumn62pLtCa4G0zd+Oe+gLeAy2qWJf6eGXluO1+BJ1uj8+6uKTme7V33lAQravskg3HhuZjWUYg5PDkPfoXjubka6YwDD+PNnrNIBo/SKC0UhbNkgcIloZGpJd/1TF9SPpQDNml6wetzoVIumnjHrf2uaIENKHQ+v1SJbJaDaY+47ZuqH+Qsejk2+R2D/Euq2Hl4yzui+Sn7NREi1TgTjy9KkAVSJtujEYbuKTtbHe0KhgtlYpJmVESX29vLbSngUcl3w/HI27LrA+OrYwKf7aNjN7T+AhKlvyMgxufM2XsjfrkOKDcEW4MEw0IhCrxjhMFbfl4ageB2XMj9oaqL7X5f0Bh1yH/qbusfaXHgLRdyPyDEFvyaySsYMZN6KLcDUkg185pzQ5uYiLmcXYUUYQFmnBGQNwtU4nBliwsysjpjE5d3FHVt4v+MfnLdOnRIWThRTazZCJnAAajkfxGWSapXgRC/k6+QeBA4IkHjTLdXKV3DqH3aDGAE="
+     },
+     {
+      "type": "text",
+      "text": "I haven't resubmitted the model, because the review found nothing to correct. All 20 filed figures tied out to the filings, and the checker raised no blocker or major issues.\n\nThe main weakness is the market caps. Deskstack has no share prices and I had no price source I could cite. Each market cap is therefore a placeholder of 25 times fiscal-year net income, and each is labelled that way in its source field. These figures aren't real quotes, and any multiple built on them (EV/EBITDA, P/E) would be unreliable. To fix this, a reviewer should replace them with a cited share price multiplied by the shares outstanding listed in each source note. I would rather leave them labelled as placeholders than invent prices.\n\nTwo other choices to know about:\n- **Peer set:** I used Alphabet, Apple, Amazon and Meta, and left out Oracle. Its filing data reports only current debt, so I couldn't compute a reliable net debt for it.\n- **Periods:** Each company uses its last filed fiscal year, so the periods don't line up. Microsoft and Apple are FY2026, and Alphabet, Amazon and Meta are FY2025."
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": "Call submit_model now with the complete model."
+   },
+   {
+    "role": "assistant",
+    "request": 5,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 460,
+     "cache_read_input_tokens": 34346,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 460,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 2020,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0282272,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_011bHKxBxEszptALnt5coibj",
+      "name": "submit_model",
+      "input": {
+       "kind": "comps",
+       "target": "MSFT",
+       "currency": "USD",
+       "scale": "millions",
+       "period": "Last filed fiscal year (MSFT FY2026 to 2026-06-30; AAPL FY2026 to 2026-09-26; GOOGL, AMZN, META FY2025 to 2025-12-31)",
+       "peers": [
+        {
+         "name": "Microsoft Corporation (target)",
+         "ticker": "MSFT",
+         "currency": "USD",
+         "revenue": {
+          "value": 331839,
+          "period": "FY2026",
+          "source": "10-K 0001193125-26-323660, RevenueFromContractWithCustomerExcludingAssessedTax"
+         },
+         "ebitda": {
+          "value": 194237,
+          "period": "FY2026",
+          "source": "10-K 0001193125-26-323660; operating income 155,237 + D&A 39,000 (deskstack derived)"
+         },
+         "net_income": {
+          "value": 133749,
+          "period": "FY2026",
+          "source": "10-K 0001193125-26-323660, NetIncomeLoss"
+         },
+         "net_debt": {
+          "value": -36549,
+          "period": "2026-06-30",
+          "source": "10-K 0001193125-26-323660; debt 40,294 - cash 20,935 - ST inv 55,908"
+         },
+         "market_cap": {
+          "value": 3343725,
+          "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income (no price source available); replace with price x 7,426M shares"
+         }
+        },
+        {
+         "name": "Alphabet Inc.",
+         "ticker": "GOOGL",
+         "currency": "USD",
+         "revenue": {
+          "value": 402836,
+          "period": "FY2025",
+          "source": "10-K 0001652044-26-000018, Revenues"
+         },
+         "ebitda": {
+          "value": 150175,
+          "period": "FY2025",
+          "source": "10-K 0001652044-26-000018; operating income 129,039 + depreciation 21,136 (deskstack derived)"
+         },
+         "net_income": {
+          "value": 132170,
+          "period": "FY2025",
+          "source": "10-K 0001652044-26-000018, NetIncomeLoss"
+         },
+         "net_debt": {
+          "value": -78300,
+          "period": "2025-12-31",
+          "source": "10-K 0001652044-26-000018; debt 48,543 - cash 30,708 - marketable securities 96,135"
+         },
+         "market_cap": {
+          "value": 3304250,
+          "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income; replace with price x 12,294M shares"
+         }
+        },
+        {
+         "name": "Apple Inc.",
+         "ticker": "AAPL",
+         "currency": "USD",
+         "revenue": {
+          "value": 478834,
+          "period": "FY2026",
+          "source": "10-K 0000320193-26-000026, RevenueFromContractWithCustomerExcludingAssessedTax"
+         },
+         "ebitda": {
+          "value": 171486,
+          "period": "FY2026",
+          "source": "10-K 0000320193-26-000026; operating income 158,063 + D&A 13,423 (deskstack derived)"
+         },
+         "net_income": {
+          "value": 132175,
+          "period": "FY2026",
+          "source": "10-K 0000320193-26-000026, NetIncomeLoss"
+         },
+         "net_debt": {
+          "value": 23389,
+          "period": "2026-09-26",
+          "source": "10-K 0000320193-26-000026; debt 80,111 - cash 36,305 - marketable securities 20,417"
+         },
+         "market_cap": {
+          "value": 3304375,
+          "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income; replace with price x 14,532M shares"
+         }
+        },
+        {
+         "name": "Amazon.com, Inc.",
+         "ticker": "AMZN",
+         "currency": "USD",
+         "revenue": {
+          "value": 716924,
+          "period": "FY2025",
+          "source": "10-K 0001018724-26-000004, RevenueFromContractWithCustomerExcludingAssessedTax"
+         },
+         "ebitda": {
+          "value": 145731,
+          "period": "FY2025",
+          "source": "10-K 0001018724-26-000004; operating income 79,975 + D&A 65,756 (deskstack derived)"
+         },
+         "net_income": {
+          "value": 77670,
+          "period": "FY2025",
+          "source": "10-K 0001018724-26-000004, NetIncomeLoss"
+         },
+         "net_debt": {
+          "value": -54178,
+          "period": "2025-12-31",
+          "source": "10-K 0001018724-26-000004; debt 68,851 - cash 86,810 - marketable securities 36,219"
+         },
+         "market_cap": {
+          "value": 1941750,
+          "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income; replace with price x 10,813M shares"
+         }
+        },
+        {
+         "name": "Meta Platforms, Inc.",
+         "ticker": "META",
+         "currency": "USD",
+         "revenue": {
+          "value": 200966,
+          "period": "FY2025",
+          "source": "10-K 0001628280-26-003942, RevenueFromContractWithCustomerExcludingAssessedTax"
+         },
+         "ebitda": {
+          "value": 101892,
+          "period": "FY2025",
+          "source": "10-K 0001628280-26-003942; operating income 83,276 + D&A 18,616 (deskstack derived)"
+         },
+         "net_income": {
+          "value": 60458,
+          "period": "FY2025",
+          "source": "10-K 0001628280-26-003942, NetIncomeLoss"
+         },
+         "net_debt": {
+          "value": -22848,
+          "period": "2025-12-31",
+          "source": "10-K 0001628280-26-003942; debt 58,744 - cash 35,873 - marketable securities 45,719"
+         },
+         "market_cap": {
+          "value": 1511450,
+          "source": "PLACEHOLDER ASSUMPTION, not a market quote: 25x FY net income; replace with a real price x shares"
+         }
+        }
+       ]
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ],
+  "review": "Associate (tie-out with verify_value): 20 of 20 filed figures match the filings.\n\nVP review (deterministic checker): 0 blocker, 0 major.\n\nFix what is wrong (check each figure against its filing), then call submit_model again with the full corrected model."
+ },
+ "score": {
+  "valid": true,
+  "filed": 20,
+  "match": 20,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 5,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "MSFT",
+    "name": "Microsoft Corporation (target)",
+    "written": "MSFT",
+    "metric": "revenue",
+    "period": "FY2026",
+    "value": 331839,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MSFT].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 331839000000,
+    "resolved": "MSFT"
+   },
+   {
+    "company": "MSFT",
+    "name": "Microsoft Corporation (target)",
+    "written": "MSFT",
+    "metric": "ebitda",
+    "period": "FY2026",
+    "value": 194237,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MSFT].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 194237000000,
+    "resolved": "MSFT"
+   },
+   {
+    "company": "MSFT",
+    "name": "Microsoft Corporation (target)",
+    "written": "MSFT",
+    "metric": "net_income",
+    "period": "FY2026",
+    "value": 133749,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MSFT].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 133749000000,
+    "resolved": "MSFT"
+   },
+   {
+    "company": "MSFT",
+    "name": "Microsoft Corporation (target)",
+    "written": "MSFT",
+    "metric": "net_debt",
+    "period": "2026-06-30",
+    "value": -36549,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MSFT].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": -36549000000,
+    "resolved": "MSFT"
+   },
+   {
+    "company": "GOOGL",
+    "name": "Alphabet Inc.",
+    "written": "GOOGL",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 402836,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[GOOGL].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 402836000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "GOOGL",
+    "name": "Alphabet Inc.",
+    "written": "GOOGL",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 150175,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[GOOGL].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 150175000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "GOOGL",
+    "name": "Alphabet Inc.",
+    "written": "GOOGL",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 132170,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[GOOGL].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 132170000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "GOOGL",
+    "name": "Alphabet Inc.",
+    "written": "GOOGL",
+    "metric": "net_debt",
+    "period": "2025-12-31",
+    "value": -78300,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[GOOGL].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": -78300000000,
+    "resolved": "GOOGL"
+   },
+   {
+    "company": "AAPL",
+    "name": "Apple Inc.",
+    "written": "AAPL",
+    "metric": "revenue",
+    "period": "FY2026",
+    "value": 478834,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AAPL].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 478834000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "name": "Apple Inc.",
+    "written": "AAPL",
+    "metric": "ebitda",
+    "period": "FY2026",
+    "value": 171486,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AAPL].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 171486000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "name": "Apple Inc.",
+    "written": "AAPL",
+    "metric": "net_income",
+    "period": "FY2026",
+    "value": 132175,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AAPL].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 132175000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "name": "Apple Inc.",
+    "written": "AAPL",
+    "metric": "net_debt",
+    "period": "2026-09-26",
+    "value": 23389,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AAPL].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 23389000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AMZN",
+    "name": "Amazon.com, Inc.",
+    "written": "AMZN",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 716924,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMZN].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 716924000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "AMZN",
+    "name": "Amazon.com, Inc.",
+    "written": "AMZN",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 145731,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMZN].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 145731000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "AMZN",
+    "name": "Amazon.com, Inc.",
+    "written": "AMZN",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 77670,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMZN].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 77670000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "AMZN",
+    "name": "Amazon.com, Inc.",
+    "written": "AMZN",
+    "metric": "net_debt",
+    "period": "2025-12-31",
+    "value": -54178,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMZN].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": -54178000000,
+    "resolved": "AMZN"
+   },
+   {
+    "company": "META",
+    "name": "Meta Platforms, Inc.",
+    "written": "META",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 200966,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[META].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 200966000000,
+    "resolved": "META"
+   },
+   {
+    "company": "META",
+    "name": "Meta Platforms, Inc.",
+    "written": "META",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 101892,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[META].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 101892000000,
+    "resolved": "META"
+   },
+   {
+    "company": "META",
+    "name": "Meta Platforms, Inc.",
+    "written": "META",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 60458,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[META].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 60458000000,
+    "resolved": "META"
+   },
+   {
+    "company": "META",
+    "name": "Meta Platforms, Inc.",
+    "written": "META",
+    "metric": "net_debt",
+    "period": "2025-12-31",
+    "value": -22848,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[META].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": -22848000000,
+    "resolved": "META"
+   }
+  ],
+  "unsourced_refs": [
+   "peers[MSFT].market_cap",
+   "peers[GOOGL].market_cap",
+   "peers[AAPL].market_cap",
+   "peers[AMZN].market_cap",
+   "peers[META].market_cap"
+  ],
+  "errors": []
+ }
+}

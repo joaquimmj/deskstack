@@ -1,0 +1,165 @@
+{
+ "company": "724500Y6DUVHQD6OXN27",
+ "task": "comps",
+ "arm": "A",
+ "score": {
+  "valid": true,
+  "filed": 8,
+  "match": 3,
+  "mismatch": 0,
+  "other_line": 1,
+  "definition": 3,
+  "not_found": 1,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 10,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "name": "ASML Holding (target)",
+    "written": "ASML",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 32667,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "peers[ASML].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 32667300000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "name": "ASML Holding (target)",
+    "written": "ASML",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 12326.9,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "peers[ASML].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 13486800000,
+    "resolved": "724500Y6DUVHQD6OXN27",
+    "computed": true
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "name": "ASML Holding (target)",
+    "written": "ASML",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 9609.4,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "peers[ASML].net_income",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:NetIncomeLoss in the same filing"
+    ],
+    "filed_value": 10213000000,
+    "resolved": "724500Y6DUVHQD6OXN27",
+    "other_line": "us-gaap:NetIncomeLoss"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "name": "ASML Holding (target)",
+    "written": "ASML",
+    "metric": "net_debt",
+    "period": "31 Dec 2025",
+    "value": -8902.9,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "peers[ASML].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"31 Dec 2025\". Available: FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025."
+    ],
+    "filed_value": null,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "AMAT",
+    "name": "Applied Materials",
+    "written": "AMAT",
+    "metric": "revenue",
+    "period": "LTM",
+    "value": 30840,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMAT].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 30837000000,
+    "resolved": "AMAT"
+   },
+   {
+    "company": "AMAT",
+    "name": "Applied Materials",
+    "written": "AMAT",
+    "metric": "ebitda",
+    "period": "LTM",
+    "value": 10160,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMAT].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 9668000000,
+    "resolved": "AMAT",
+    "computed": true
+   },
+   {
+    "company": "AMAT",
+    "name": "Applied Materials",
+    "written": "AMAT",
+    "metric": "net_income",
+    "period": "LTM",
+    "value": 9270,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMAT].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 9267000000,
+    "resolved": "AMAT"
+   },
+   {
+    "company": "AMAT",
+    "name": "Applied Materials",
+    "written": "AMAT",
+    "metric": "net_debt",
+    "period": "LTM",
+    "value": -1887,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMAT].net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": -1490000000,
+    "resolved": "AMAT",
+    "computed": true
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

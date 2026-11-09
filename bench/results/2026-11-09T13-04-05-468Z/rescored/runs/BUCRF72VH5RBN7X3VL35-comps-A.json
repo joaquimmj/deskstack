@@ -1,0 +1,165 @@
+{
+ "company": "BUCRF72VH5RBN7X3VL35",
+ "task": "comps",
+ "arm": "A",
+ "score": {
+  "valid": true,
+  "filed": 8,
+  "match": 4,
+  "mismatch": 0,
+  "other_line": 1,
+  "definition": 1,
+  "not_found": 2,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 10,
+  "unsourced": 2,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "BUCRF72VH5RBN7X3VL35",
+    "name": "Eni SpA (target)",
+    "written": "ENI.MI",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 83629,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "peers[ENI.MI].revenue",
+    "status": "other_line",
+    "hints": [
+     "equals eni:RevenueAndOtherIncome in the same filing"
+    ],
+    "filed_value": 82151000000,
+    "resolved": "BUCRF72VH5RBN7X3VL35",
+    "other_line": "eni:RevenueAndOtherIncome"
+   },
+   {
+    "company": "BUCRF72VH5RBN7X3VL35",
+    "name": "Eni SpA (target)",
+    "written": "ENI.MI",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 12359,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "peers[ENI.MI].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 12359000000,
+    "resolved": "BUCRF72VH5RBN7X3VL35",
+    "computed": true
+   },
+   {
+    "company": "BUCRF72VH5RBN7X3VL35",
+    "name": "Eni SpA (target)",
+    "written": "ENI.MI",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 2608,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "peers[ENI.MI].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2608000000,
+    "resolved": "BUCRF72VH5RBN7X3VL35"
+   },
+   {
+    "company": "BUCRF72VH5RBN7X3VL35",
+    "name": "Eni SpA (target)",
+    "written": "ENI.MI",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 9386,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "peers[ENI.MI].net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 20402000000,
+    "resolved": "BUCRF72VH5RBN7X3VL35",
+    "computed": true
+   },
+   {
+    "company": "TTE",
+    "name": "TotalEnergies SE",
+    "written": "TTE.PA",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 201196,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[TTE.PA].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 201196000000,
+    "resolved": "TTE"
+   },
+   {
+    "company": "TTE",
+    "name": "TotalEnergies SE",
+    "written": "TTE.PA",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 40555,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[TTE.PA].ebitda",
+    "status": "not_found",
+    "hints": [
+     "ebitda is not reported for FY2025 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "TTE"
+   },
+   {
+    "company": "TTE",
+    "name": "TotalEnergies SE",
+    "written": "TTE.PA",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 13127,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[TTE.PA].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 13127000000,
+    "resolved": "TTE"
+   },
+   {
+    "company": "TTE",
+    "name": "TotalEnergies SE",
+    "written": "TTE.PA",
+    "metric": "net_debt",
+    "period": "31 Dec 2025",
+    "value": 20215,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[TTE.PA].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"31 Dec 2025\". Available: FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025."
+    ],
+    "filed_value": null,
+    "resolved": "TTE"
+   }
+  ],
+  "unsourced_refs": [
+   "peers[ENI.MI].market_cap",
+   "peers[TTE.PA].market_cap"
+  ],
+  "errors": []
+ }
+}

@@ -1,0 +1,239 @@
+{
+ "company": "XOM",
+ "task": "comps",
+ "arm": "A",
+ "score": {
+  "valid": true,
+  "filed": 12,
+  "match": 3,
+  "mismatch": 2,
+  "other_line": 1,
+  "definition": 3,
+  "not_found": 3,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {
+   "other": 2
+  },
+  "typed": 15,
+  "unsourced": 5,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "XOM",
+    "name": "Exxon Mobil Corporation (target)",
+    "written": "XOM",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 323905,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[XOM].revenue",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 332238000000,
+    "resolved": "XOM"
+   },
+   {
+    "company": "XOM",
+    "name": "Exxon Mobil Corporation (target)",
+    "written": "XOM",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 67864,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[XOM].ebitda",
+    "status": "not_found",
+    "hints": [
+     "ebitda is not reported for FY2025 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "XOM"
+   },
+   {
+    "company": "XOM",
+    "name": "Exxon Mobil Corporation (target)",
+    "written": "XOM",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 28844,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[XOM].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 28844000000,
+    "resolved": "XOM"
+   },
+   {
+    "company": "XOM",
+    "name": "Exxon Mobil Corporation (target)",
+    "written": "XOM",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 32819,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[XOM].net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 32856000000,
+    "resolved": "XOM",
+    "computed": true
+   },
+   {
+    "company": "CVX",
+    "name": "Chevron Corporation",
+    "written": "CVX",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 184432,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CVX].revenue",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax in the same filing"
+    ],
+    "filed_value": 189031000000,
+    "resolved": "CVX",
+    "other_line": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+   },
+   {
+    "company": "CVX",
+    "name": "Chevron Corporation",
+    "written": "CVX",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 41092,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CVX].ebitda",
+    "status": "not_found",
+    "hints": [
+     "ebitda is not reported for FY2025 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "name": "Chevron Corporation",
+    "written": "CVX",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 12299,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CVX].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 12299000000,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "name": "Chevron Corporation",
+    "written": "CVX",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 22224,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CVX].net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 43414000000,
+    "resolved": "CVX",
+    "computed": true
+   },
+   {
+    "company": "COP",
+    "name": "ConocoPhillips",
+    "written": "COP",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 58944,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[COP].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 58944000000,
+    "resolved": "COP"
+   },
+   {
+    "company": "COP",
+    "name": "ConocoPhillips",
+    "written": "COP",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 25011,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[COP].ebitda",
+    "status": "not_found",
+    "hints": [
+     "ebitda is not reported for FY2025 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "COP"
+   },
+   {
+    "company": "COP",
+    "name": "ConocoPhillips",
+    "written": "COP",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 0,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[COP].net_income",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 7988000000,
+    "resolved": "COP"
+   },
+   {
+    "company": "COP",
+    "name": "ConocoPhillips",
+    "written": "COP",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 16947,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[COP].net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 16463000000,
+    "resolved": "COP",
+    "computed": true
+   }
+  ],
+  "unsourced_refs": [
+   "peers[XOM].market_cap",
+   "peers[CVX].market_cap",
+   "peers[COP].net_income",
+   "peers[COP].net_debt",
+   "peers[COP].market_cap"
+  ],
+  "errors": []
+ }
+}
