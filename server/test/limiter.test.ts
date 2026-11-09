@@ -3,7 +3,7 @@
 // calls from one address got through in 70 s (security check, 2026-11-09). One shared IpCounter fixes it.
 
 import { afterEach, describe, expect, it } from "vitest";
-import { allowIp, resetCounter } from "../src/guard";
+import { allowIp, isolateTracks, resetCounter } from "../src/guard";
 import { IpCounter } from "../src/limiter";
 
 const ask = (c: IpCounter, ip: string, perMinute: number, now: number) =>
@@ -28,6 +28,15 @@ describe("IpCounter (shared per-IP window)", () => {
     expect(await ask(c, "203.0.113.1", 3, t + 60_000)).toBe(true); // a new minute
   });
 
+  it("forgets an address within about two minutes, as PRIVACY.md says (not only when memory fills up)", async () => {
+    const c = new IpCounter();
+    const t = 5_000_000;
+    await ask(c, "203.0.113.50", 60, t);
+    expect(c.tracks("203.0.113.50")).toBe(true);
+    await ask(c, "203.0.113.51", 60, t + 121_000); // any later call sweeps expired windows
+    expect(c.tracks("203.0.113.50")).toBe(false);
+  });
+
   it("rejects malformed requests instead of counting them", async () => {
     const c = new IpCounter();
     expect((await c.fetch(new Request("https://counter/hit?n=3&now=1"))).status).toBe(400);
@@ -36,6 +45,14 @@ describe("IpCounter (shared per-IP window)", () => {
 });
 
 describe("allowIp with the shared counter", () => {
+  it("the per-isolate window also forgets an address within about two minutes", async () => {
+    const t = 9_000_000;
+    await allowIp({} as never, "198.51.100.60", t);
+    expect(isolateTracks("198.51.100.60")).toBe(true);
+    await allowIp({} as never, "198.51.100.61", t + 121_000);
+    expect(isolateTracks("198.51.100.60")).toBe(false);
+  });
+
   it("follows the shared counter even when the Cloudflare limiter would allow", async () => {
     const refuseAll = { fetch: async () => new Response("", { status: 429 }) };
     const env = { IP_COUNTER: ns(refuseAll), IP_LIMITER: { limit: async () => ({ success: true }) } } as never;

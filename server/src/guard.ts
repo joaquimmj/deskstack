@@ -17,8 +17,19 @@ export const RATE_MESSAGE =
 // ---- per-IP window (fallback when no Rate Limiting binding) --------------------
 
 const windows = new Map<string, { start: number; count: number }>();
+let lastSweep = 0;
+
+/** Tests: whether this isolate still holds an address. */
+export function isolateTracks(ip: string): boolean {
+  return windows.has(ip);
+}
 
 function isolateLimit(ip: string, perMinute: number, now: number): boolean {
+  // PRIVACY.md: an address is kept for one to two minutes. Expired windows are swept at most once a minute.
+  if (now - lastSweep >= 60_000) {
+    for (const [k, w] of windows) if (now - w.start >= 60_000) windows.delete(k);
+    lastSweep = now;
+  }
   const w = windows.get(ip);
   if (!w || now - w.start >= 60_000) {
     if (windows.size > 10_000) windows.clear(); // bound memory
@@ -75,6 +86,7 @@ export function utcDay(now = Date.now()): string {
 export function resetCounter(): void {
   Object.assign(counter, { day: "", pending: 0, total: 0, lastFlush: 0 });
   windows.clear();
+  lastSweep = 0;
 }
 
 async function flush(db: D1Database, day: string, n: number): Promise<number | null> {
