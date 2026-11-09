@@ -553,6 +553,9 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false): voi
   if (!row.capex && otherCapex && row.capex_other_productive) {
     row.capex = withNote(row.capex_other_productive, otherCapex);
   }
+  // Inputs to the adjustments above, not metrics of their own.
+  delete row.capex_other_productive;
+  delete row.net_income_ordinary;
   const sh = row.diluted_shares;
   const ni = row.net_income;
   if (sh && ni && eps && eps.value !== 0) {
