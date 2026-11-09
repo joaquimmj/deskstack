@@ -10,7 +10,7 @@ import type { Connector } from "../bench/connector";
 import { Budget, cost } from "../bench/pricing";
 import { summarize, toMarkdown, type ScoredRun } from "../bench/report";
 import { findInFiling, esefFactsFor, secFactsFor, tolerance } from "../bench/filing-facts";
-import { sameName, scoreSubmission, secondReading } from "../bench/score";
+import { resolvePeer, sameName, scoreSubmission, secondReading } from "../bench/score";
 import { resetCounter } from "../src/guard";
 import { resetMemos } from "../src/repo";
 import { secFetch } from "./helpers";
@@ -245,6 +245,23 @@ describe("deskstack-bench (offline)", () => {
     spec.peers = [COMPS.peers[0], { ...COMPS.peers[1], name: "Apple Hospitality REIT", ticker: "APLE" }];
     const s = await scoreSubmission(connector(), spec, AAPL, mkdtempSync(join(tmpdir(), "bench-")));
     expect(s.items.filter((x) => x.ref.startsWith("peers[APLE]")).every((x) => x.company !== "AAPL")).toBe(true);
+  });
+
+  it("a peer resolves to the hit with its ticker or its exact name, not a longer name that contains it (comps run: KO scored as Coca-Cola Consolidated)", async () => {
+    const hits = [
+      { name: "Coca-Cola Consolidated, Inc.", ticker: "COKE", cik: 317540 },
+      { name: "COCA COLA CO", ticker: "KO", cik: 21344 },
+    ];
+    const fake = (results: unknown[]): Connector => ({
+      instructions: async () => "", listTools: async () => [], close: async () => {},
+      call: async () => ({ isError: false, text: JSON.stringify({ results }) }),
+    } as unknown as Connector);
+    expect(await resolvePeer(fake(hits), "Coca-Cola Co", "KO", new Map(), {})).toBe("KO");
+    expect(await resolvePeer(fake(hits), "Coca-Cola Co", "", new Map(), {})).toBe("KO"); // exact name, no ticker
+    // Only longer names that contain it, more than one: ambiguous, not resolved.
+    expect(await resolvePeer(fake([hits[0], { name: "Coca-Cola Europacific Partners", ticker: "CCEP" }]), "Coca-Cola", "", new Map(), {})).toBeNull();
+    // A single longer name is still found ("LVMH" is LVMH Moet Hennessy Louis Vuitton).
+    expect(await resolvePeer(fake([{ name: "LVMH MOET HENNESSY LOUIS VUITTON", ticker: "MC.PA" }]), "LVMH", "", new Map(), {})).toBe("MC.PA");
   });
 
   it("items are normalised like the builder, and one bad item doesn't sink the batch", async () => {
