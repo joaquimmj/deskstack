@@ -1,0 +1,1250 @@
+{
+ "company": "KO",
+ "task": "comps",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "comps",
+   "target": "KO",
+   "currency": "USD",
+   "scale": "millions",
+   "period": "Last filed fiscal year (KO FY2025; PG FY2026 ended 2026-06-30)",
+   "peers": [
+    {
+     "name": "Coca-Cola Co (target)",
+     "ticker": "KO",
+     "currency": "USD",
+     "revenue": {
+      "value": 47941,
+      "period": "FY2025",
+      "source": "deskstack financial_statements, 10-K acc 0001628280-26-010047, us-gaap:Revenues"
+     },
+     "ebitda": {
+      "value": 14812,
+      "period": "FY2025",
+      "source": "deskstack derived: operating income 13,762 + D&A 1,050; acc 0001628280-26-010047"
+     },
+     "net_income": {
+      "value": 13107,
+      "period": "FY2025",
+      "source": "10-K acc 0001628280-26-010047, us-gaap:NetIncomeLoss"
+     },
+     "market_cap": {
+      "value": 301133,
+      "period": "2026-10-26 shares",
+      "source": "ASSUMPTION: shares outstanding 4,301.9M (10-Q acc 0001628280-26-067844) x placeholder price $70 (not sourced; reviewer to replace)"
+     },
+     "net_debt": {
+      "value": 31564,
+      "period": "FY2025-12-31",
+      "source": "deskstack derived: debt 45,436 - cash 10,270 - ST inv 3,602; acc 0001628280-26-010047"
+     }
+    },
+    {
+     "name": "PepsiCo",
+     "ticker": "PEP",
+     "currency": "USD",
+     "revenue": {
+      "value": 93925,
+      "period": "FY2025",
+      "source": "10-K acc 0000077476-26-000007, us-gaap:Revenues"
+     },
+     "ebitda": {
+      "value": 14949,
+      "period": "FY2025",
+      "source": "deskstack derived: op income 11,498 + D&A 3,451; acc 0000077476-26-000007"
+     },
+     "net_income": {
+      "value": 8240,
+      "period": "FY2025",
+      "source": "10-K acc 0000077476-26-000007"
+     },
+     "market_cap": {
+      "value": 204411,
+      "period": "2026-10-01 shares",
+      "source": "ASSUMPTION: shares 1,362.7M (10-Q acc 0000077476-26-000048) x placeholder price $150 (not sourced)"
+     },
+     "net_debt": {
+      "value": 39652,
+      "period": "FY2025-12-27",
+      "source": "deskstack derived: debt 49,182 - cash 9,159 - STI 371; acc 0000077476-26-000007"
+     }
+    },
+    {
+     "name": "Keurig Dr Pepper",
+     "ticker": "KDP",
+     "currency": "USD",
+     "revenue": {
+      "value": 16603,
+      "period": "FY2025",
+      "source": "10-K acc 0001418135-26-000016"
+     },
+     "ebitda": {
+      "value": 4168,
+      "period": "FY2025",
+      "source": "deskstack derived: op income 3,575 + D&A 593; acc 0001418135-26-000016"
+     },
+     "net_income": {
+      "value": 2079,
+      "period": "FY2025",
+      "source": "10-K acc 0001418135-26-000016"
+     },
+     "market_cap": {
+      "value": 38103,
+      "period": "2026-08-10 shares",
+      "source": "ASSUMPTION: shares 1,360.8M (10-Q acc 0001418135-26-000051) x placeholder price $28 (not sourced)"
+     },
+     "net_debt": {
+      "value": 15115,
+      "period": "FY2025-12-31",
+      "source": "deskstack derived: debt 16,141 - cash 1,026; acc 0001418135-26-000016"
+     }
+    },
+    {
+     "name": "Mondelez International",
+     "ticker": "MDLZ",
+     "currency": "USD",
+     "revenue": {
+      "value": 38537,
+      "period": "FY2025",
+      "source": "10-K acc 0001628280-26-005345"
+     },
+     "ebitda": {
+      "value": 4906,
+      "period": "FY2025",
+      "source": "deskstack derived: op income 3,548 + D&A 1,358; acc 0001628280-26-005345"
+     },
+     "net_income": {
+      "value": 2451,
+      "period": "FY2025",
+      "source": "10-K acc 0001628280-26-005345"
+     },
+     "market_cap": {
+      "value": 75950,
+      "period": "2026-10-26 shares",
+      "source": "ASSUMPTION: shares 1,265.8M (10-Q acc 0001628280-26-068256) x placeholder price $60 (not sourced)"
+     },
+     "net_debt": {
+      "value": 19010,
+      "period": "FY2025-12-31",
+      "source": "deskstack derived: debt 21,205 - cash 2,195; acc 0001628280-26-005345"
+     }
+    },
+    {
+     "name": "Procter & Gamble",
+     "ticker": "PG",
+     "currency": "USD",
+     "revenue": {
+      "value": 87032,
+      "period": "FY2026 (ended 2026-06-30)",
+      "source": "10-K acc 0000080424-26-000103"
+     },
+     "ebitda": {
+      "value": 22908,
+      "period": "FY2026",
+      "source": "deskstack derived: op income 19,748 + D&A 3,160; acc 0000080424-26-000103"
+     },
+     "net_income": {
+      "value": 16046,
+      "period": "FY2026",
+      "source": "10-K acc 0000080424-26-000103"
+     },
+     "market_cap": {
+      "value": 347667,
+      "period": "2026-09-30 shares",
+      "source": "ASSUMPTION: shares 2,317.8M (10-Q acc 0000080424-26-000256) x placeholder price $150 (not sourced)"
+     },
+     "net_debt": {
+      "value": 24196,
+      "period": "FY2026-06-30",
+      "source": "deskstack derived: debt 34,138 - cash 9,942; acc 0000080424-26-000103"
+     }
+    },
+    {
+     "name": "Colgate-Palmolive",
+     "ticker": "CL",
+     "currency": "USD",
+     "revenue": {
+      "value": 20382,
+      "period": "FY2025",
+      "source": "10-K acc 0000021665-26-000006"
+     },
+     "ebitda": {
+      "value": 3936,
+      "period": "FY2025",
+      "source": "deskstack derived: op income 3,306 + D&A 630; acc 0000021665-26-000006"
+     },
+     "net_income": {
+      "value": 2132,
+      "period": "FY2025",
+      "source": "10-K acc 0000021665-26-000006"
+     },
+     "market_cap": {
+      "value": 63594,
+      "period": "2026-09-30 shares",
+      "source": "ASSUMPTION: shares 794.9M (acc 0000021665-26-000048) x placeholder price $80 (not sourced)"
+     },
+     "net_debt": {
+      "value": 6591,
+      "period": "FY2025-12-31",
+      "source": "deskstack derived: debt 7,986 - cash 1,288 - securities 107; acc 0000021665-26-000006"
+     }
+    }
+   ]
+  },
+  "first_submission": {
+   "kind": "comps",
+   "target": "KO",
+   "currency": "USD",
+   "scale": "millions",
+   "period": "Last filed fiscal year (KO FY2025; PG FY2026 ended 2026-06-30)",
+   "peers": [
+    {
+     "name": "Coca-Cola Co (target)",
+     "ticker": "KO",
+     "currency": "USD",
+     "revenue": {
+      "value": 47941,
+      "period": "FY2025",
+      "source": "deskstack financial_statements, 10-K acc 0001628280-26-010047, us-gaap:Revenues"
+     },
+     "ebitda": {
+      "value": 14812,
+      "period": "FY2025",
+      "source": "deskstack derived: operating income 13,762 + D&A 1,050; acc 0001628280-26-010047"
+     },
+     "net_income": {
+      "value": 13107,
+      "period": "FY2025",
+      "source": "10-K acc 0001628280-26-010047, us-gaap:NetIncomeLoss"
+     },
+     "market_cap": {
+      "value": 301133,
+      "period": "2026-10-26 shares",
+      "source": "ASSUMPTION: shares outstanding 4,301.9M (10-Q acc 0001628280-26-067844) x placeholder price $70 (not sourced; reviewer to replace)"
+     },
+     "net_debt": {
+      "value": 31564,
+      "period": "FY2025-12-31",
+      "source": "deskstack derived: debt 45,436 - cash 10,270 - ST inv 3,602; acc 0001628280-26-010047"
+     }
+    },
+    {
+     "name": "PepsiCo",
+     "ticker": "PEP",
+     "currency": "USD",
+     "revenue": {
+      "value": 93925,
+      "period": "FY2025",
+      "source": "10-K acc 0000077476-26-000007, us-gaap:Revenues"
+     },
+     "ebitda": {
+      "value": 14949,
+      "period": "FY2025",
+      "source": "deskstack derived: op income 11,498 + D&A 3,451; acc 0000077476-26-000007"
+     },
+     "net_income": {
+      "value": 8240,
+      "period": "FY2025",
+      "source": "10-K acc 0000077476-26-000007"
+     },
+     "market_cap": {
+      "value": 204411,
+      "period": "2026-10-01 shares",
+      "source": "ASSUMPTION: shares 1,362.7M (10-Q acc 0000077476-26-000048) x placeholder price $150 (not sourced)"
+     },
+     "net_debt": {
+      "value": 39652,
+      "period": "FY2025-12-27",
+      "source": "deskstack derived: debt 49,182 - cash 9,159 - STI 371; acc 0000077476-26-000007"
+     }
+    },
+    {
+     "name": "Keurig Dr Pepper",
+     "ticker": "KDP",
+     "currency": "USD",
+     "revenue": {
+      "value": 16603,
+      "period": "FY2025",
+      "source": "10-K acc 0001418135-26-000016"
+     },
+     "ebitda": {
+      "value": 4168,
+      "period": "FY2025",
+      "source": "deskstack derived: op income 3,575 + D&A 593; acc 0001418135-26-000016"
+     },
+     "net_income": {
+      "value": 2079,
+      "period": "FY2025",
+      "source": "10-K acc 0001418135-26-000016"
+     },
+     "market_cap": {
+      "value": 38103,
+      "period": "2026-08-10 shares",
+      "source": "ASSUMPTION: shares 1,360.8M (10-Q acc 0001418135-26-000051) x placeholder price $28 (not sourced)"
+     },
+     "net_debt": {
+      "value": 15115,
+      "period": "FY2025-12-31",
+      "source": "deskstack derived: debt 16,141 - cash 1,026; acc 0001418135-26-000016"
+     }
+    },
+    {
+     "name": "Mondelez International",
+     "ticker": "MDLZ",
+     "currency": "USD",
+     "revenue": {
+      "value": 38537,
+      "period": "FY2025",
+      "source": "10-K acc 0001628280-26-005345"
+     },
+     "ebitda": {
+      "value": 4906,
+      "period": "FY2025",
+      "source": "deskstack derived: op income 3,548 + D&A 1,358; acc 0001628280-26-005345"
+     },
+     "net_income": {
+      "value": 2451,
+      "period": "FY2025",
+      "source": "10-K acc 0001628280-26-005345"
+     },
+     "market_cap": {
+      "value": 75950,
+      "period": "2026-10-26 shares",
+      "source": "ASSUMPTION: shares 1,265.8M (10-Q acc 0001628280-26-068256) x placeholder price $60 (not sourced)"
+     },
+     "net_debt": {
+      "value": 19010,
+      "period": "FY2025-12-31",
+      "source": "deskstack derived: debt 21,205 - cash 2,195; acc 0001628280-26-005345"
+     }
+    },
+    {
+     "name": "Procter & Gamble",
+     "ticker": "PG",
+     "currency": "USD",
+     "revenue": {
+      "value": 87032,
+      "period": "FY2026 (ended 2026-06-30)",
+      "source": "10-K acc 0000080424-26-000103"
+     },
+     "ebitda": {
+      "value": 22908,
+      "period": "FY2026",
+      "source": "deskstack derived: op income 19,748 + D&A 3,160; acc 0000080424-26-000103"
+     },
+     "net_income": {
+      "value": 16046,
+      "period": "FY2026",
+      "source": "10-K acc 0000080424-26-000103"
+     },
+     "market_cap": {
+      "value": 347667,
+      "period": "2026-09-30 shares",
+      "source": "ASSUMPTION: shares 2,317.8M (10-Q acc 0000080424-26-000256) x placeholder price $150 (not sourced)"
+     },
+     "net_debt": {
+      "value": 24196,
+      "period": "FY2026-06-30",
+      "source": "deskstack derived: debt 34,138 - cash 9,942; acc 0000080424-26-000103"
+     }
+    },
+    {
+     "name": "Colgate-Palmolive",
+     "ticker": "CL",
+     "currency": "USD",
+     "revenue": {
+      "value": 20382,
+      "period": "FY2025",
+      "source": "10-K acc 0000021665-26-000006"
+     },
+     "ebitda": {
+      "value": 3936,
+      "period": "FY2025",
+      "source": "deskstack derived: op income 3,306 + D&A 630; acc 0000021665-26-000006"
+     },
+     "net_income": {
+      "value": 2132,
+      "period": "FY2025",
+      "source": "10-K acc 0000021665-26-000006"
+     },
+     "market_cap": {
+      "value": 63594,
+      "period": "2026-09-30 shares",
+      "source": "ASSUMPTION: shares 794.9M (acc 0000021665-26-000048) x placeholder price $80 (not sourced)"
+     },
+     "net_debt": {
+      "value": 6591,
+      "period": "FY2025-12-31",
+      "source": "deskstack derived: debt 7,986 - cash 1,288 - securities 107; acc 0000021665-26-000006"
+     }
+    }
+   ]
+  },
+  "submit_attempts": 1,
+  "requests": 3,
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 3482,
+   "cache_creation_input_tokens": 36160,
+   "cache_read_input_tokens": 38253,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.13288660000000002,
+  "seconds": 24.926,
+  "tool_calls": {
+   "financial_statements": 8,
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a trading comparables table for The Coca-Cola Company (identifier: KO) with 4 to 6 listed peers.\n- For the target and each peer: revenue, EBITDA, net income and net debt for the last filed fiscal year (or LTM if\n  you state it), each in that company's reporting currency, each with its source and period.\n- Market cap for each: use any source you can cite (market caps are not scored).\n- If a figure isn't available for a peer, replace that peer rather than leaving the figure empty.\nSubmit it with submit_model, kind \"comps\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7199,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7199,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 429,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0222955,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_015K1PZQBU7AiGjTSurmGau9",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "KO",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_018t3j4Fqs2oizkeczVcvwRV",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "PEP",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01T7WVcB2NBBG6DkgiX1uEnK",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "KDP",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01GoVQD1Pv9wvwdqwwTUUrwH",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "MDLZ",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01BGzHTQVYQYobdnr5JDgTc4",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "MNST",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01Ri48bUipzpXZk3vbk3dtoc",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "PG",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_015K1PZQBU7AiGjTSurmGau9",
+      "content": "{\"summary\":\"COCA COLA CO (KO), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 47.9B USD, net income 13.1B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"COCA COLA CO\",\"ticker\":\"KO\",\"cik\":21344,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2080\",\"sic_description\":\"Beverages\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":47941000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0001628280-26-010047\"},\"gross_profit\":{\"value\":29544000000,\"concept\":\"us-gaap:GrossProfit\",\"accession\":\"0001628280-26-010047\"},\"operating_income\":{\"value\":13762000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001628280-26-010047\"},\"interest_expense\":{\"value\":1654000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0001628280-26-010047\"},\"pretax_income\":{\"value\":15998000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001628280-26-010047\"},\"net_income\":{\"value\":13107000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001628280-26-010047\"},\"diluted_shares\":{\"value\":4313000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001628280-26-010047\"},\"diluted_eps\":{\"value\":3.04,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001628280-26-010047\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":7408000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001628280-26-010047\"},\"capex\":{\"value\":2112000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001628280-26-010047\"},\"d_and_a\":{\"value\":1050000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001628280-26-010047\"}},\"balance_sheet\":{\"cash\":{\"value\":10270000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001628280-26-010047\"},\"short_term_investments\":{\"value\":3602000000,\"concept\":\"us-gaap:OtherShortTermInvestments\",\"accession\":\"0001628280-26-010047\"},\"total_assets\":{\"value\":104816000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001628280-26-010047\"},\"total_equity\":{\"value\":32169000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001628280-26-010047\"},\"ltd_noncurrent\":{\"value\":42119000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0001628280-26-010047\"},\"ltd_total\":{\"value\":43941000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities\",\"accession\":\"0001628280-26-010047\"},\"debt_current\":null,\"ltd_current\":{\"value\":1822000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent\",\"accession\":\"0001628280-26-010047\"},\"commercial_paper\":{\"value\":1495000000,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0001628280-26-010047\"},\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":1822000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001628280-26-010047\"}},\"derived\":{\"ebitda\":{\"value\":14812000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":5296000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":45436000000,\"formula\":\"ltd_noncurrent + ltd_current + commercial_paper\"},\"net_debt\":{\"value\":31564000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"LTM to 2026-10-02\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-10-02\",\"ytd\":{\"start\":\"2026-01-01\",\"end\":\"2026-10-02\",\"days\":275},\"income_statement\":{\"revenue\":{\"value\":51054000000,\"concept\":\"us-gaap:Revenues\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-010047\",\"0001628280-26-067844\"]},\"gross_profit\":{\"value\":31816000000,\"concept\":\"us-gaap:GrossProfit\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-010047\",\"0001628280-26-067844\"]},\"operating_income\":{\"value\":15337000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-010047\",\"0001628280-26-067844\"]},\"interest_expense\":{\"value\":1529000000,\"concept\":\"us-gaap:InterestExpense\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-010047\",\"0001628280-26-067844\"]},\"pretax_income\":{\"value\":17881000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-010047\",\"0001628280-26-067844\"]},\"net_income\":{\"value\":14629000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-010047\",\"0001628280-26-067844\"]},\"diluted_shares\":{\"value\":4313000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001628280-26-067844\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":{\"value\":3.3900000000000006,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-010047\",\"0001628280-26-067844\"],\"note\":\"sum of the last four quarters' EPS; per-share amounts are approximately additive\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":16227000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-010047\",\"0001628280-26-067844\"]},\"capex\":{\"value\":1945000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-010047\",\"0001628280-26-067844\"]},\"d_and_a\":{\"value\":1019000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-010047\",\"0001628280-26-067844\"]}},\"balance_sheet\":{\"cash\":{\"value\":13454000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001628280-26-067844\"},\"short_term_investments\":{\"value\":231000000,\"concept\":\"us-gaap:OtherShortTermInvestments\",\"accession\":\"0001628280-26-067844\"},\"total_assets\":{\"value\":107950000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001628280-26-067844\"},\"total_equity\":{\"value\":37372000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001628280-26-067844\"},\"ltd_noncurrent\":{\"value\":36623000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0001628280-26-067844\"},\"ltd_total\":{\"value\":41546000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities\",\"accession\":\"0001628280-26-067844\"},\"debt_current\":null,\"ltd_current\":{\"value\":4923000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent\",\"accession\":\"0001628280-26-067844\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":16356000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":14282000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":41546000000,\"formula\":\"ltd_noncurrent + ltd_current\"},\"net_debt\":{\"value\":27861000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/21344/000162828026010047/0001628280-26-010047-index.htm\",\"accession_or_id\":\"0001628280-26-010047\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-20\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/21344/000162828026067844/0001628280-26-067844-index.htm\",\"accession_or_id\":\"0001628280-26-067844\",\"form\":\"10-Q\",\"period\":\"2026-10-02\",\"as_of\":\"2026-10-28\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":4301902335,\"as_of\":\"2026-10-26\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0001628280-26-067844\",\"url\":\"https://www.sec.gov/Archives/edgar/data/21344/000162828026067844/0001628280-26-067844-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_018t3j4Fqs2oizkeczVcvwRV",
+      "content": "{\"summary\":\"PEPSICO INC (PEP), US-GAAP, USD. FY2025 (ended 2025-12-27): revenue 93.9B USD, net income 8.2B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"PEPSICO INC\",\"ticker\":\"PEP\",\"cik\":77476,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1226\",\"sic\":\"2080\",\"sic_description\":\"Beverages\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2024-12-29\",\"end\":\"2025-12-27\",\"income_statement\":{\"revenue\":{\"value\":93925000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000077476-26-000007\"},\"gross_profit\":{\"value\":50859000000,\"concept\":\"us-gaap:GrossProfit\",\"accession\":\"0000077476-26-000007\"},\"operating_income\":{\"value\":11498000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000077476-26-000007\"},\"interest_expense\":{\"value\":1121000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0000077476-26-000007\"},\"pretax_income\":{\"value\":10244000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000077476-26-000007\"},\"net_income\":{\"value\":8240000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000077476-26-000007\"},\"diluted_shares\":{\"value\":1373000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000077476-26-000007\"},\"diluted_eps\":{\"value\":6,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000077476-26-000007\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":12087000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000077476-26-000007\"},\"capex\":{\"value\":4415000000,\"concept\":\"us-gaap:PaymentsToAcquireProductiveAssets\",\"accession\":\"0000077476-26-000007\"},\"d_and_a\":{\"value\":3451000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000077476-26-000007\"},\"amortization_intangibles\":{\"value\":83000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000077476-26-000007\"}},\"balance_sheet\":{\"cash\":{\"value\":9159000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000077476-26-000007\"},\"short_term_investments\":{\"value\":371000000,\"concept\":\"us-gaap:ShortTermInvestments\",\"accession\":\"0000077476-26-000007\"},\"total_assets\":{\"value\":107399000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000077476-26-000007\"},\"total_equity\":{\"value\":20406000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000077476-26-000007\"},\"ltd_noncurrent\":{\"value\":42321000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000077476-26-000007\"},\"ltd_total\":{\"value\":46351000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000077476-26-000007\"},\"debt_current\":{\"value\":6861000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000077476-26-000007\"},\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":14949000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":7672000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":49182000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":39652000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"LTM to 2026-09-05\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-09-05\",\"ytd\":{\"start\":\"2025-12-28\",\"end\":\"2026-09-05\",\"days\":252},\"income_statement\":{\"revenue\":{\"value\":98241000000,\"concept\":\"us-gaap:Revenues\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000077476-26-000007\",\"0000077476-26-000048\"]},\"gross_profit\":{\"value\":53216000000,\"concept\":\"us-gaap:GrossProfit\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000077476-26-000007\",\"0000077476-26-000048\"]},\"operating_income\":{\"value\":15053000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000077476-26-000007\",\"0000077476-26-000048\"]},\"interest_expense\":{\"value\":1106000000,\"concept\":\"us-gaap:InterestExpense\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000077476-26-000007\",\"0000077476-26-000048\"]},\"pretax_income\":{\"value\":13726000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000077476-26-000007\",\"0000077476-26-000048\"]},\"net_income\":{\"value\":10896000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000077476-26-000007\",\"0000077476-26-000048\"]},\"diluted_shares\":{\"value\":1369000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000077476-26-000048\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":{\"value\":7.949999999999999,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000077476-26-000007\",\"0000077476-26-000048\"],\"note\":\"sum of the last four quarters' EPS; per-share amounts are approximately additive\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":14569000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000077476-26-000007\",\"0000077476-26-000048\"]},\"capex\":{\"value\":4098000000,\"concept\":\"us-gaap:PaymentsToAcquireProductiveAssets\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000077476-26-000007\",\"0000077476-26-000048\"]},\"d_and_a\":{\"value\":3667000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000077476-26-000007\",\"0000077476-26-000048\"]}},\"balance_sheet\":{\"cash\":{\"value\":10675000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000077476-26-000048\"},\"short_term_investments\":{\"value\":488000000,\"concept\":\"us-gaap:ShortTermInvestments\",\"accession\":\"0000077476-26-000048\"},\"total_assets\":{\"value\":111976000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000077476-26-000048\"},\"total_equity\":{\"value\":22292000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000077476-26-000048\"},\"ltd_noncurrent\":{\"value\":42658000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000077476-26-000048\"},\"ltd_total\":null,\"debt_current\":null,\"ltd_current\":null,\"commercial_paper\":{\"value\":4800000000,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000077476-26-000048\"},\"short_term_borrowings\":{\"value\":9223000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000077476-26-000048\"},\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":18720000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":10471000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":56681000000,\"formula\":\"ltd_noncurrent + commercial_paper + short_term_borrowings\"},\"net_debt\":{\"value\":45518000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/77476/000007747626000007/0000077476-26-000007-index.htm\",\"accession_or_id\":\"0000077476-26-000007\",\"form\":\"10-K\",\"period\":\"2025-12-27\",\"as_of\":\"2026-02-03\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/0000077476-26-000048-index.htm\",\"accession_or_id\":\"0000077476-26-000048\",\"form\":\"10-Q\",\"period\":\"2026-09-05\",\"as_of\":\"2026-10-08\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":1362741092,\"as_of\":\"2026-10-01\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000077476-26-000048\",\"url\":\"https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/0000077476-26-000048-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01T7WVcB2NBBG6DkgiX1uEnK",
+      "content": "{\"summary\":\"Keurig Dr Pepper Inc. (KDP), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 16.6B USD, net income 2.1B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Keurig Dr Pepper Inc.\",\"ticker\":\"KDP\",\"cik\":1418135,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2080\",\"sic_description\":\"Beverages\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":16603000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0001418135-26-000016\"},\"gross_profit\":{\"value\":8999000000,\"concept\":\"us-gaap:GrossProfit\",\"accession\":\"0001418135-26-000016\"},\"operating_income\":{\"value\":3575000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001418135-26-000016\"},\"interest_expense\":null,\"pretax_income\":{\"value\":2687000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001418135-26-000016\"},\"net_income\":{\"value\":2079000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001418135-26-000016\"},\"diluted_shares\":{\"value\":1362800000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001418135-26-000016\"},\"diluted_eps\":{\"value\":1.53,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001418135-26-000016\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":1991000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001418135-26-000016\"},\"capex\":{\"value\":486000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001418135-26-000016\"},\"d_and_a\":{\"value\":593000000,\"concept\":\"us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets\",\"accessions\":[\"0001418135-26-000016\"],\"formula\":\"depreciation + amortization of intangible assets (tagged separately)\"},\"amortization_intangibles\":{\"value\":138000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001418135-26-000016\"}},\"balance_sheet\":{\"cash\":{\"value\":1026000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001418135-26-000016\"},\"short_term_investments\":null,\"total_assets\":{\"value\":55459000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001418135-26-000016\"},\"total_equity\":{\"value\":25516000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001418135-26-000016\"},\"ltd_noncurrent\":{\"value\":13036000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001418135-26-000016\"},\"ltd_total\":null,\"debt_current\":{\"value\":3105000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0001418135-26-000016\"},\"ltd_current\":{\"value\":895000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0001418135-26-000016\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":4168000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":1505000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":16141000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":15115000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"LTM to 2026-06-30\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-06-30\",\"ytd\":{\"start\":\"2026-01-01\",\"end\":\"2026-06-30\",\"days\":181},\"income_statement\":{\"revenue\":{\"value\":20090000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001418135-26-000016\",\"0001418135-26-000051\"]},\"gross_profit\":{\"value\":9923000000,\"concept\":\"us-gaap:GrossProfit\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001418135-26-000016\",\"0001418135-26-000051\"]},\"operating_income\":{\"value\":3260000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001418135-26-000016\",\"0001418135-26-000051\"]},\"interest_expense\":null,\"pretax_income\":{\"value\":1971000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001418135-26-000016\",\"0001418135-26-000051\"]},\"net_income\":{\"value\":1427000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001418135-26-000016\",\"0001418135-26-000051\"]},\"diluted_shares\":{\"value\":1364200000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001418135-26-000051\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":{\"value\":0.99,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001418135-26-000016\",\"0001418135-26-000051\"],\"note\":\"sum of the last four quarters' EPS; per-share amounts are approximately additive\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":2527000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001418135-26-000016\",\"0001418135-26-000051\"]},\"capex\":{\"value\":557000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001418135-26-000016\",\"0001418135-26-000051\"]},\"d_and_a\":{\"value\":791000000,\"concept\":\"us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets\",\"accessions\":[\"0001418135-26-000016\",\"0001418135-26-000051\"],\"formula\":\"depreciation + amortization of intangible assets (tagged separately)\"},\"amortization_intangibles\":{\"value\":231000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001418135-26-000016\",\"0001418135-26-000051\"]}},\"balance_sheet\":{\"cash\":{\"value\":1517000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001418135-26-000051\"},\"short_term_investments\":null,\"total_assets\":{\"value\":87619000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001418135-26-000051\"},\"total_equity\":{\"value\":25032000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001418135-26-000051\"},\"ltd_noncurrent\":{\"value\":21586000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001418135-26-000051\"},\"ltd_total\":null,\"debt_current\":{\"value\":8394000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0001418135-26-000051\"},\"ltd_current\":{\"value\":3231000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0001418135-26-000051\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":4051000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":1970000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":29980000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":28463000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1418135/000141813526000016/0001418135-26-000016-index.htm\",\"accession_or_id\":\"0001418135-26-000016\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-24\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1418135/000141813526000051/0001418135-26-000051-index.htm\",\"accession_or_id\":\"0001418135-26-000051\",\"form\":\"10-Q\",\"period\":\"2026-06-30\",\"as_of\":\"2026-08-10\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":1360826038,\"as_of\":\"2026-08-10\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0001418135-26-000051\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1418135/000141813526000051/0001418135-26-000051-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01GoVQD1Pv9wvwdqwwTUUrwH",
+      "content": "{\"summary\":\"Mondelez International, Inc. (MDLZ), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 38.5B USD, net income 2.5B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Mondelez International, Inc.\",\"ticker\":\"MDLZ\",\"cik\":1103982,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2000\",\"sic_description\":\"Food and Kindred Products\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":38537000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0001628280-26-005345\"},\"gross_profit\":{\"value\":10935000000,\"concept\":\"us-gaap:GrossProfit\",\"accession\":\"0001628280-26-005345\"},\"operating_income\":{\"value\":3548000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001628280-26-005345\"},\"interest_expense\":{\"value\":599000000,\"concept\":\"us-gaap:InterestExpenseDebt\",\"accession\":\"0001628280-26-005345\"},\"pretax_income\":{\"value\":3014000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments\",\"accession\":\"0001628280-26-005345\"},\"net_income\":{\"value\":2451000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001628280-26-005345\"},\"diluted_shares\":{\"value\":1298000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001628280-26-005345\"},\"diluted_eps\":{\"value\":1.89,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001628280-26-005345\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":4514000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001628280-26-005345\"},\"capex\":{\"value\":1279000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001628280-26-005345\"},\"d_and_a\":{\"value\":1358000000,\"concept\":\"us-gaap:DepreciationAndAmortization\",\"accession\":\"0001628280-26-005345\"},\"amortization_intangibles\":{\"value\":142000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001628280-26-005345\"}},\"balance_sheet\":{\"cash\":{\"value\":2195000000,\"concept\":\"us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents\",\"accession\":\"0001628280-26-005345\"},\"short_term_investments\":null,\"total_assets\":{\"value\":71487000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001628280-26-005345\"},\"total_equity\":{\"value\":25838000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001628280-26-005345\"},\"ltd_noncurrent\":{\"value\":17222000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0001628280-26-005345\"},\"ltd_total\":{\"value\":18517000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities\",\"accession\":\"0001628280-26-005345\"},\"debt_current\":null,\"ltd_current\":{\"value\":1295000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent\",\"accession\":\"0001628280-26-005345\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":2688000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0001628280-26-005345\"},\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":4906000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":3235000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":21205000000,\"formula\":\"ltd_noncurrent + ltd_current + short_term_borrowings\"},\"net_debt\":{\"value\":19010000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"LTM to 2026-09-30\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-09-30\",\"ytd\":{\"start\":\"2026-01-01\",\"end\":\"2026-09-30\",\"days\":273},\"income_statement\":{\"revenue\":{\"value\":39898000000,\"concept\":\"us-gaap:Revenues\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-005345\",\"0001628280-26-068256\"]},\"gross_profit\":{\"value\":13669000000,\"concept\":\"us-gaap:GrossProfit\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-005345\",\"0001628280-26-068256\"]},\"operating_income\":{\"value\":5464000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-005345\",\"0001628280-26-068256\"]},\"interest_expense\":{\"value\":593000000,\"concept\":\"us-gaap:InterestExpenseDebt\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-005345\",\"0001628280-26-068256\"]},\"pretax_income\":{\"value\":5314000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-005345\",\"0001628280-26-068256\"]},\"net_income\":{\"value\":4078000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-005345\",\"0001628280-26-068256\"]},\"diluted_shares\":{\"value\":1284000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001628280-26-068256\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":{\"value\":3.1799999999999997,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-005345\",\"0001628280-26-068256\"],\"note\":\"sum of the last four quarters' EPS; per-share amounts are approximately additive\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":5003000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-005345\",\"0001628280-26-068256\"]},\"capex\":{\"value\":1345000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-005345\",\"0001628280-26-068256\"]},\"d_and_a\":{\"value\":1392000000,\"concept\":\"us-gaap:DepreciationAndAmortization\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-005345\",\"0001628280-26-068256\"]},\"amortization_intangibles\":{\"value\":114000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001628280-26-005345\",\"0001628280-26-068256\"]}},\"balance_sheet\":{\"cash\":{\"value\":1666000000,\"concept\":\"us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents\",\"accession\":\"0001628280-26-068256\"},\"short_term_investments\":null,\"total_assets\":{\"value\":71776000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001628280-26-068256\"},\"total_equity\":{\"value\":26608000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001628280-26-068256\"},\"ltd_noncurrent\":{\"value\":16351000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0001628280-26-068256\"},\"ltd_total\":null,\"debt_current\":null,\"ltd_current\":{\"value\":1739000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent\",\"accession\":\"0001628280-26-068256\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":3653000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0001628280-26-068256\"},\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":6856000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":3658000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":21743000000,\"formula\":\"ltd_noncurrent + ltd_current + short_term_borrowings\"},\"net_debt\":{\"value\":20077000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1103982/000162828026005345/0001628280-26-005345-index.htm\",\"accession_or_id\":\"0001628280-26-005345\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-04\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1103982/000162828026068256/0001628280-26-068256-index.htm\",\"accession_or_id\":\"0001628280-26-068256\",\"form\":\"10-Q\",\"period\":\"2026-09-30\",\"as_of\":\"2026-10-29\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":1265838379,\"as_of\":\"2026-10-26\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0001628280-26-068256\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1103982/000162828026068256/0001628280-26-068256-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01BGzHTQVYQYobdnr5JDgTc4",
+      "content": "{\"summary\":\"Monster Beverage Corp (MNST), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 8.3B USD, net income 1.9B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Monster Beverage Corp\",\"ticker\":\"MNST\",\"cik\":865752,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2086\",\"sic_description\":\"Bottled & Canned Soft Drinks & Carbonated Waters\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":8294343000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0001104659-26-020831\"},\"gross_profit\":{\"value\":4632195000,\"concept\":\"us-gaap:GrossProfit\",\"accession\":\"0001104659-26-020831\"},\"operating_income\":{\"value\":2419354000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001104659-26-020831\"},\"interest_expense\":null,\"pretax_income\":{\"value\":2482529000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001104659-26-020831\"},\"net_income\":{\"value\":1905432000,\"concept\":\"us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic\",\"accession\":\"0001104659-26-020831\"},\"diluted_shares\":{\"value\":984451000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001104659-26-020831\"},\"diluted_eps\":null},\"cash_flow\":{\"operating_cash_flow\":{\"value\":2098177000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001104659-26-020831\"},\"capex\":{\"value\":132275000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001104659-26-020831\"},\"d_and_a\":{\"value\":114441000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001104659-26-020831\"},\"amortization_intangibles\":{\"value\":19300000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001104659-26-020831\"}},\"balance_sheet\":{\"cash\":{\"value\":2088117000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001104659-26-020831\"},\"short_term_investments\":{\"value\":677084000,\"concept\":\"us-gaap:ShortTermInvestments\",\"accession\":\"0001104659-26-020831\"},\"total_assets\":{\"value\":9988945000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001104659-26-020831\"},\"total_equity\":{\"value\":8254108000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001104659-26-020831\"},\"ltd_noncurrent\":null,\"ltd_total\":null,\"debt_current\":null,\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":2533795000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":1965902000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":null,\"net_debt\":null}},{\"label\":\"LTM to 2026-09-30\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-09-30\",\"ytd\":{\"start\":\"2026-01-01\",\"end\":\"2026-09-30\",\"days\":273},\"income_statement\":{\"revenue\":{\"value\":9584870000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001104659-26-020831\",\"0001104659-26-123503\"]},\"gross_profit\":{\"value\":5297051000,\"concept\":\"us-gaap:GrossProfit\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001104659-26-020831\",\"0001104659-26-123503\"]},\"operating_income\":{\"value\":2731752000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001104659-26-020831\",\"0001104659-26-123503\"]},\"interest_expense\":null,\"pretax_income\":{\"value\":2840181000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001104659-26-020831\",\"0001104659-26-123503\"]},\"net_income\":{\"value\":2171642000,\"concept\":\"us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001104659-26-020831\",\"0001104659-26-123503\"]},\"diluted_shares\":{\"value\":1978204000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001104659-26-123503\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":null},\"cash_flow\":{\"operating_cash_flow\":{\"value\":2050250000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001104659-26-020831\",\"0001104659-26-123503\"]},\"capex\":{\"value\":128816000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001104659-26-020831\",\"0001104659-26-123503\"]},\"d_and_a\":{\"value\":122305000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001104659-26-020831\",\"0001104659-26-123503\"]},\"amortization_intangibles\":{\"value\":14500000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001104659-26-020831\",\"0001104659-26-123503\"]}},\"balance_sheet\":{\"cash\":{\"value\":2148401000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001104659-26-123503\"},\"short_term_investments\":{\"value\":1555851000,\"concept\":\"us-gaap:ShortTermInvestments\",\"accession\":\"0001104659-26-123503\"},\"total_assets\":{\"value\":11922267000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001104659-26-123503\"},\"total_equity\":{\"value\":9838915000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001104659-26-123503\"},\"ltd_noncurrent\":null,\"ltd_total\":null,\"debt_current\":null,\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":2854057000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":1921434000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":null,\"net_debt\":null}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/865752/000110465926020831/0001104659-26-020831-index.htm\",\"accession_or_id\":\"0001104659-26-020831\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-27\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/865752/000110465926123503/0001104659-26-123503-index.htm\",\"accession_or_id\":\"0001104659-26-123503\",\"form\":\"10-Q\",\"period\":\"2026-09-30\",\"as_of\":\"2026-11-06\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":1957511922,\"as_of\":\"2026-10-30\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0001104659-26-123503\",\"url\":\"https://www.sec.gov/Archives/edgar/data/865752/000110465926123503/0001104659-26-123503-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01Ri48bUipzpXZk3vbk3dtoc",
+      "content": "{\"summary\":\"PROCTER & GAMBLE Co (PG), US-GAAP, USD. FY2026 (ended 2026-06-30): revenue 87.0B USD, net income 16.0B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"PROCTER & GAMBLE Co\",\"ticker\":\"PG\",\"cik\":80424,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"0630\",\"sic\":\"2840\",\"sic_description\":\"Soap, Detergents, Cleang Preparations, Perfumes, Cosmetics\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2026\",\"type\":\"annual\",\"start\":\"2025-07-01\",\"end\":\"2026-06-30\",\"income_statement\":{\"revenue\":{\"value\":87032000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000080424-26-000103\"},\"gross_profit\":null,\"operating_income\":{\"value\":19748000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000080424-26-000103\"},\"interest_expense\":{\"value\":877000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000080424-26-000103\"},\"pretax_income\":{\"value\":20377000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000080424-26-000103\"},\"net_income\":{\"value\":16046000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000080424-26-000103\"},\"diluted_shares\":{\"value\":2422500000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000080424-26-000103\"},\"diluted_eps\":{\"value\":6.62,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000080424-26-000103\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":19556000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000080424-26-000103\"},\"capex\":{\"value\":4409000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000080424-26-000103\"},\"d_and_a\":{\"value\":3160000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000080424-26-000103\"},\"amortization_intangibles\":{\"value\":308000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000080424-26-000103\"}},\"balance_sheet\":{\"cash\":{\"value\":9942000000,\"concept\":\"us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents\",\"accession\":\"0000080424-26-000103\"},\"short_term_investments\":null,\"total_assets\":{\"value\":126521000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000080424-26-000103\"},\"total_equity\":{\"value\":54311000000,\"concept\":\"us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest\",\"accession\":\"0000080424-26-000103\"},\"ltd_noncurrent\":{\"value\":22842000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000080424-26-000103\"},\"ltd_total\":null,\"debt_current\":{\"value\":11296000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000080424-26-000103\"},\"ltd_current\":{\"value\":6457000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000080424-26-000103\"},\"commercial_paper\":{\"value\":4837000000,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000080424-26-000103\"},\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":6457000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000080424-26-000103\"}},\"derived\":{\"ebitda\":{\"value\":22908000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":15147000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":34138000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":24196000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"LTM to 2026-09-30\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-09-30\",\"ytd\":{\"start\":\"2026-07-01\",\"end\":\"2026-09-30\",\"days\":92},\"income_statement\":{\"revenue\":{\"value\":87922000000,\"concept\":\"us-gaap:Revenues\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000080424-26-000103\",\"0000080424-26-000256\"]},\"gross_profit\":null,\"operating_income\":{\"value\":19829000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000080424-26-000103\",\"0000080424-26-000256\"]},\"interest_expense\":{\"value\":903000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000080424-26-000103\",\"0000080424-26-000256\"]},\"pretax_income\":null,\"net_income\":{\"value\":16027000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000080424-26-000103\",\"0000080424-26-000256\"]},\"diluted_shares\":{\"value\":2407200000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000080424-26-000256\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":{\"value\":6.64,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000080424-26-000103\",\"0000080424-26-000256\"],\"note\":\"sum of the last four quarters' EPS; per-share amounts are approximately additive\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":19915000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000080424-26-000103\",\"0000080424-26-000256\"]},\"capex\":{\"value\":4575000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000080424-26-000103\",\"0000080424-26-000256\"]},\"d_and_a\":{\"value\":3209000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000080424-26-000103\",\"0000080424-26-000256\"]},\"amortization_intangibles\":{\"value\":304000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000080424-26-000103\",\"0000080424-26-000256\"]}},\"balance_sheet\":{\"cash\":{\"value\":15365000000,\"concept\":\"us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents\",\"accession\":\"0000080424-26-000256\"},\"short_term_investments\":null,\"total_assets\":{\"value\":133132000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000080424-26-000256\"},\"total_equity\":{\"value\":55337000000,\"concept\":\"us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest\",\"accession\":\"0000080424-26-000256\"},\"ltd_noncurrent\":{\"value\":21897000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000080424-26-000256\"},\"ltd_total\":null,\"debt_current\":{\"value\":17028000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000080424-26-000256\"},\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":23038000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":15340000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":38925000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":23560000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/80424/000008042426000103/0000080424-26-000103-index.htm\",\"accession_or_id\":\"0000080424-26-000103\",\"form\":\"10-K\",\"period\":\"2026-06-30\",\"as_of\":\"2026-08-04\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/80424/000008042426000256/0000080424-26-000256-index.htm\",\"accession_or_id\":\"0000080424-26-000256\",\"form\":\"10-Q\",\"period\":\"2026-09-30\",\"as_of\":\"2026-10-22\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":2317783143,\"as_of\":\"2026-09-30\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000080424-26-000256\",\"url\":\"https://www.sec.gov/Archives/edgar/data/80424/000008042426000256/0000080424-26-000256-index.htm\"}}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 23855,
+     "cache_read_input_tokens": 7199,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 23855,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 414,
+     "output_tokens_details": {
+      "thinking_tokens": 219
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.06522130000000001,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSzQkKEAgTGAI4AUIIdGhpbmtpbmcSDJpwuAZnoBk+E+dehhoMx+WMbhfQA/BLqf5hIjBUa20IEWAmJfrZ5MkEfjXYQu+GKK0Yufax1eHDTGBCIR0rcgzlCNNAY8W5AEsFeZUq6gjts/uGcZPWIduuaN5MysrD6z2apnvm2Fd3F1s3i3E39Q0a3S6AEISH6TbQS94NVtthbyTwUZQ+IlsaXGu3x7h9ONhDf6T4AYhxSt4Rkjms09kgfmWlOFIu0OcQkgtc2eRsF40d1VkPfEP6KUEA4x/PJD2N9fJlPtpu+LHmVv0DajoO3TTFVXHJyP0MGzPOowJGkYuZg4bWlMiN5EYUkHNTM4s401x3eyRgaHPkjMr36Xyxwn1LlquCJUl8TqtVUb2+EPTD3zBmNdp0ge2mbZGYJUFdc3SN5Rz9e59AeWkijJiJB9gkKY1Pj9AYkdQbR2s0+6MI7CgMP8ihBPic+tNp7AWqxCcGZOKoimJLsVPwJW8Vxw7IZOyaUWeaS2cY9WcxXfEhCki1hVNCEYjQUK3iK0W3y1luvlOAyZV7uWdt0cd/tWJ+0cq1dG4Or7Qp9znEyRZaLwBf0JzjOVSlOuY7dIR+S6tlnUdqQrR9L53XYJw6GfyH7h+WeJMst0Ylm3Hr5LJjUc819sVxvzx6Qewi2qKLJQSPCAl5atI2IUnyh4dvx/m4p9Yo38fEjZICzEjPdCCDlKQtCPkuV9AaiFMm54ylnFIlD4znL4pnGwWR3tQZ+Qa0uMUHDJA96nuU5DOpPZmyhdQD6FSTEuFdg0mwYzTjy2/8vJ3hPaMAtNjnngY36aaKFmv4Baf+w0sss5kgDK5ZCzw5/K6DkEHC2j3r0zOomKxaJ46CgWRsvKs5wwVkuHbM0S15jz13T3eOtFWtKiItKeJ58ua2SpmriohvFkpTe31rNQB3l0g6KhQJRoBS8j3mnh60IoDFe0/slkjTqIZWEf+HbqfP9StCW1agqGKFRgWuaW0D96H11dBj7eoJu3rg4FcOhN0HfwF0dID4RENnJzF9wCLpnFCFsQwI/V1O5tbx6TBcZxvf4dDPB+nitofs7ut9EXihmW6RpQl9w1l1VkpxyJAE/uurJIdLRNYth5L/apx2o60zCTTbaPFQv5hUf6ThYobFgiPaIninYPMB0Mt0lZ9C9ByLmEhHzMDbPGvk4l2FD2wHWkDe5HomE4VWgZ5iCPe+KyITrLqeeeaX25sg7aDxx2oJ4OWMBHbYBvO+sQY5jgkjIUHZySjEhFDNn9o3TAiXyXsb7e76+sL06/sIpjyLQ9f+IcKZo04O04K7vGxopiBw9g59CyZE8wIMU8y+KNI2aSw9z9O0FXH6DSG3Eaw3iP4v1I8xsA3DeEwd4K6ps55iaqZoLi1SRCmio1wsoWuD6dVX51No1kcfAditrx1JdG7KxIXKDqcVgkQWC0VtUVZkOc8/gab3Du3p5KFoAWFtLf7JlKTYMqWchFw2sv7YMWiCF9wiDlfCKOr88qmixiYiyPOfwCElV6SJJa1Pf7YN2m3rCowBogcjspf9QFwJGFHCVtgYskK3MS22azlRU6GlTyuGePvsVxI7EM0DoYKYGNn7RzZWd/1Su5TIdZqDNBTshWHpFhV70hJLPzLDlRgB"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01P6Ccgqo33RxDLf3wKPqbMr",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "CL",
+       "years": 1,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01TyeB62P4ESpQJ1Xh7Hxnr7",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "KHC",
+       "years": 1,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01P6Ccgqo33RxDLf3wKPqbMr",
+      "content": "{\"summary\":\"COLGATE-PALMOLIVE COMPANY (CL), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 20.4B USD, net income 2.1B USD. 1 period(s), 1 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"COLGATE-PALMOLIVE COMPANY\",\"ticker\":\"CL\",\"cik\":21665,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2844\",\"sic_description\":\"Perfumes, Cosmetics & Other Toilet Preparations\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":20382000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000021665-26-000006\"},\"gross_profit\":{\"value\":12251000000,\"concept\":\"us-gaap:GrossProfit\",\"accession\":\"0000021665-26-000006\"},\"operating_income\":{\"value\":3306000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000021665-26-000006\"},\"interest_expense\":{\"value\":267000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000021665-26-000006\"},\"pretax_income\":{\"value\":3059000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000021665-26-000006\"},\"net_income\":{\"value\":2132000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000021665-26-000006\"},\"diluted_shares\":{\"value\":811100000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000021665-26-000006\"},\"diluted_eps\":{\"value\":2.63,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000021665-26-000006\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":4198000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000021665-26-000006\"},\"capex\":{\"value\":564000000,\"concept\":\"us-gaap:PaymentsToAcquireProductiveAssets\",\"accession\":\"0000021665-26-000006\"},\"d_and_a\":{\"value\":630000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000021665-26-000006\"},\"amortization_intangibles\":{\"value\":78000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000021665-26-000006\"}},\"balance_sheet\":{\"cash\":{\"value\":1288000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000021665-26-000006\"},\"short_term_investments\":{\"value\":107000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0000021665-26-000006\"},\"total_assets\":{\"value\":16330000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000021665-26-000006\"},\"total_equity\":{\"value\":54000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000021665-26-000006\"},\"ltd_noncurrent\":{\"value\":6871000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000021665-26-000006\"},\"ltd_total\":{\"value\":7839000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000021665-26-000006\"},\"debt_current\":null,\"ltd_current\":{\"value\":1115000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000021665-26-000006\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":1115000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000021665-26-000006\"}},\"derived\":{\"ebitda\":{\"value\":3936000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":3634000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":7986000000,\"formula\":\"ltd_noncurrent + ltd_current\"},\"net_debt\":{\"value\":6591000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-10-30 (period 2026-09-30) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/21665/000002166526000006/0000021665-26-000006-index.htm\",\"accession_or_id\":\"0000021665-26-000006\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-23\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":794920513,\"as_of\":\"2026-09-30\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000021665-26-000048\",\"url\":\"https://www.sec.gov/Archives/edgar/data/21665/000002166526000048/0000021665-26-000048-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01TyeB62P4ESpQJ1Xh7Hxnr7",
+      "content": "{\"summary\":\"Kraft Heinz Co (KHC), US-GAAP, USD. FY2025 (ended 2025-12-27): revenue 24.9B USD, net income -5.8B USD. 1 period(s), 1 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Kraft Heinz Co\",\"ticker\":\"KHC\",\"cik\":1637459,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1226\",\"sic\":\"2030\",\"sic_description\":\"Canned, Frozen & Preservd Fruit, Veg & Food Specialties\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2024-12-29\",\"end\":\"2025-12-27\",\"income_statement\":{\"revenue\":{\"value\":24942000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax\",\"accession\":\"0001637459-26-000009\"},\"gross_profit\":{\"value\":8309000000,\"concept\":\"us-gaap:GrossProfit\",\"accession\":\"0001637459-26-000009\"},\"operating_income\":{\"value\":-4669000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001637459-26-000009\"},\"interest_expense\":{\"value\":947000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0001637459-26-000009\"},\"pretax_income\":{\"value\":-5445000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001637459-26-000009\"},\"net_income\":{\"value\":-5846000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001637459-26-000009\"},\"diluted_shares\":{\"value\":1187000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001637459-26-000009\"},\"diluted_eps\":{\"value\":-4.93,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001637459-26-000009\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":4462000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001637459-26-000009\"},\"capex\":{\"value\":801000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001637459-26-000009\"},\"d_and_a\":{\"value\":968000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001637459-26-000009\"},\"amortization_intangibles\":{\"value\":246000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001637459-26-000009\"}},\"balance_sheet\":{\"cash\":{\"value\":2615000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001637459-26-000009\"},\"short_term_investments\":null,\"total_assets\":{\"value\":81786000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001637459-26-000009\"},\"total_equity\":{\"value\":41664000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001637459-26-000009\"},\"ltd_noncurrent\":{\"value\":19311000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0001637459-26-000009\"},\"ltd_total\":{\"value\":21219000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities\",\"accession\":\"0001637459-26-000009\"},\"debt_current\":null,\"ltd_current\":{\"value\":1908000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent\",\"accession\":\"0001637459-26-000009\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":1879000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001637459-26-000009\"}},\"derived\":{\"ebitda\":{\"value\":-3701000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":3661000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":21219000000,\"formula\":\"ltd_noncurrent + ltd_current\"},\"net_debt\":{\"value\":18604000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-11-04 (period 2026-09-26) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1637459/000163745926000009/0001637459-26-000009-index.htm\",\"accession_or_id\":\"0001637459-26-000009\",\"form\":\"10-K\",\"period\":\"2025-12-27\",\"as_of\":\"2026-02-12\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":1183828946,\"as_of\":\"2026-10-31\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0001637459-26-000081\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1637459/000163745926000081/0001637459-26-000081-index.htm\"}}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 3,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 5106,
+     "cache_read_input_tokens": 31054,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 5106,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 2639,
+     "output_tokens_details": {
+      "thinking_tokens": 378
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0453698,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSzgsKEAgTGAI4AUIIdGhpbmtpbmcSDMCc95XHlWZ4PQr4oRoM3cwiK2DcU1s9vau5IjBg8J4fpww186qM8jITV6J6mhivLPiBAng/lmTQl2rPh6THw/D8l7zc7A7S5QraVScq6wr9/7rK5ibqNtN6W9vQ1FpnvfptcH5V6g0Ww64TjeO3zEF3d0C+5oh26L0xH8dRBkWiyTVdmL7q9UFurY/948JF1CENKknpODbUWHaVYP9jI/UUNXeSm/DbdFlzVrco4JTIzgGmzYsI/d4QrL/r0GZ7Xo3Kp1HQopxjQPoO/r6/lWR/fPBpSAKPN0oXRnAcm2kzQr6+Fh2kxQGZYfzmp5J+meVGq+YtXUMVkZxBg854bbiktbmw/sKYBa83r3HfGFn67QgqelZoSEe5DKdb0dzvAgSTQ9CffrzqbMBdYufHSpB5No6TRMV0ZejfAaSzhMSiKzone7ejXiNMI/7QoKDSUUUnISLxdyA9mT/kGcNud6Z7m+k1VT5NZ1tta4vxdO800HUrpIl6jDu3xPwPY7AAK4knyFjAmvpfxZJae3AkCAkpzxDn9xiavikIyg8mKUOPtFwxSR1C4S71UZT0Nzit5mdZ/C23137FVZevtlMac/o/Lc5y0WpoDSja2coJl6ML+mGnq1BungwYHGzYV5zCeSj0O95EognFlNLEJjPaWOtUTjHnPp5YoObNoy0Ug8bn5NCLgVLIVv8/TtKi+ijbrnKGPueJ0cp8Yw1E25Nvu2MTpnKHTQx//P/Dr6iay5TG1+5TA1s2LpchTtBpFHkdCT+T/Xdi2IUIEipm6s9y4G/gjqBqtonbsZ3ufZTcpcn66+8spQGOBGZDTHXh6BQW97MSpS+m5VO3We3LuxBA6Nwq/5bjmHFUD0bhVLIfZL0kNtr94nDBToJ+59FsyqNVOXtg+8NURQbvIzwt5rqEnbWLh4eF0Hz/rFSxpljlC4qh6ZY09XK2qjCUnSQCL4WLDeMYITZBQ74k0in0p41q+QqAqQ9AEX8DT15bxImLUl+Ccz1iRi0/VMfhJ9SyqktQvCWcH1dGfc0KkLDUdLzlUlT0u3g6VOBd7jmP9jsq+fSjOP+7ywaiGQwBsZF/bKayH4KJAgiu7HH7nsgZeHrVQT3IVUQMEjuqQAYaHUg+9Hg38+3kkk/+FTuR+i9rpKUehy+NxIeRkYcYsmhtAfNnXlHbenSxqGT7IGMAnfZtoiQiZhopvlg1paFKK9sEFnDVzQ3lYYQukFZ9U1phz/ST/MDjJWfnhNox9O7HAd8L3dtZnZGH6rjhj17UfBeZCPEBM9Nwxep7goJ7V8ovAOEodiEf0i/qzzn/N6pX+y/+OwWyVycMZaKNdo1RFtNv54rgQP0wGhuhmJqCsLDlUJjBEfO+Wb9Pa2RPr5zNaZekFEhNc9uSqpDsaJIsyG/FdQQszwNBycNR+lQYoIvz9olIqA3qOVX+oJoVQI20RHMdk90d7pub7acqtfUZ1aLwLdLLDMnLnK2uc97kJpYt77nU3oOcwiizVdzZqmkie1luTdhrXnwhG9ebrEl4WNFyL8twkKL+pp7aulXSlf1gbjAgLTcnh7z8+qRqQbQE9IjfCYEVV7ALNS4wD7WBIyHzLdKSqxdWGssHXX0zNGTYKg9tRoqfMFISuJmFLPnBmGdIJhMafd2OaEXNdDLUX35Im6uVt3PqUU7pVFnvpPgKasc0AVzAX8vPc0axufXuOqKSm2erGRYZpK4r9L1K2AZzOAHX2iTvUs+QCPP2a+c4Bd2vxIl4Vlcr+L+az7h4D2gVjtg7XI7wJI93kIMtxuxSVt4Q1744Kd76QPNpGqeGm/9qe3JD0/5WtWGIo8uKhf9RmlROMBiTbS0q1tXQ40uhqgZlq9bdbA0Vbf08eKdVidB9xd2LOKjyFvEoxLAwwUagqjvH7Jdhw5UDV0tDWydiyJYCxXA+TNc/cVMsEUY5HyYfpR3VZuVmyw9KhRhBGAE="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_012CcgFrEMkWNxdDJHN8om5W",
+      "name": "submit_model",
+      "input": {
+       "kind": "comps",
+       "target": "KO",
+       "currency": "USD",
+       "scale": "millions",
+       "period": "Last filed fiscal year (KO FY2025; PG FY2026 ended 2026-06-30)",
+       "peers": [
+        {
+         "name": "Coca-Cola Co (target)",
+         "ticker": "KO",
+         "currency": "USD",
+         "revenue": {
+          "value": 47941,
+          "period": "FY2025",
+          "source": "deskstack financial_statements, 10-K acc 0001628280-26-010047, us-gaap:Revenues"
+         },
+         "ebitda": {
+          "value": 14812,
+          "period": "FY2025",
+          "source": "deskstack derived: operating income 13,762 + D&A 1,050; acc 0001628280-26-010047"
+         },
+         "net_income": {
+          "value": 13107,
+          "period": "FY2025",
+          "source": "10-K acc 0001628280-26-010047, us-gaap:NetIncomeLoss"
+         },
+         "market_cap": {
+          "value": 301133,
+          "period": "2026-10-26 shares",
+          "source": "ASSUMPTION: shares outstanding 4,301.9M (10-Q acc 0001628280-26-067844) x placeholder price $70 (not sourced; reviewer to replace)"
+         },
+         "net_debt": {
+          "value": 31564,
+          "period": "FY2025-12-31",
+          "source": "deskstack derived: debt 45,436 - cash 10,270 - ST inv 3,602; acc 0001628280-26-010047"
+         }
+        },
+        {
+         "name": "PepsiCo",
+         "ticker": "PEP",
+         "currency": "USD",
+         "revenue": {
+          "value": 93925,
+          "period": "FY2025",
+          "source": "10-K acc 0000077476-26-000007, us-gaap:Revenues"
+         },
+         "ebitda": {
+          "value": 14949,
+          "period": "FY2025",
+          "source": "deskstack derived: op income 11,498 + D&A 3,451; acc 0000077476-26-000007"
+         },
+         "net_income": {
+          "value": 8240,
+          "period": "FY2025",
+          "source": "10-K acc 0000077476-26-000007"
+         },
+         "market_cap": {
+          "value": 204411,
+          "period": "2026-10-01 shares",
+          "source": "ASSUMPTION: shares 1,362.7M (10-Q acc 0000077476-26-000048) x placeholder price $150 (not sourced)"
+         },
+         "net_debt": {
+          "value": 39652,
+          "period": "FY2025-12-27",
+          "source": "deskstack derived: debt 49,182 - cash 9,159 - STI 371; acc 0000077476-26-000007"
+         }
+        },
+        {
+         "name": "Keurig Dr Pepper",
+         "ticker": "KDP",
+         "currency": "USD",
+         "revenue": {
+          "value": 16603,
+          "period": "FY2025",
+          "source": "10-K acc 0001418135-26-000016"
+         },
+         "ebitda": {
+          "value": 4168,
+          "period": "FY2025",
+          "source": "deskstack derived: op income 3,575 + D&A 593; acc 0001418135-26-000016"
+         },
+         "net_income": {
+          "value": 2079,
+          "period": "FY2025",
+          "source": "10-K acc 0001418135-26-000016"
+         },
+         "market_cap": {
+          "value": 38103,
+          "period": "2026-08-10 shares",
+          "source": "ASSUMPTION: shares 1,360.8M (10-Q acc 0001418135-26-000051) x placeholder price $28 (not sourced)"
+         },
+         "net_debt": {
+          "value": 15115,
+          "period": "FY2025-12-31",
+          "source": "deskstack derived: debt 16,141 - cash 1,026; acc 0001418135-26-000016"
+         }
+        },
+        {
+         "name": "Mondelez International",
+         "ticker": "MDLZ",
+         "currency": "USD",
+         "revenue": {
+          "value": 38537,
+          "period": "FY2025",
+          "source": "10-K acc 0001628280-26-005345"
+         },
+         "ebitda": {
+          "value": 4906,
+          "period": "FY2025",
+          "source": "deskstack derived: op income 3,548 + D&A 1,358; acc 0001628280-26-005345"
+         },
+         "net_income": {
+          "value": 2451,
+          "period": "FY2025",
+          "source": "10-K acc 0001628280-26-005345"
+         },
+         "market_cap": {
+          "value": 75950,
+          "period": "2026-10-26 shares",
+          "source": "ASSUMPTION: shares 1,265.8M (10-Q acc 0001628280-26-068256) x placeholder price $60 (not sourced)"
+         },
+         "net_debt": {
+          "value": 19010,
+          "period": "FY2025-12-31",
+          "source": "deskstack derived: debt 21,205 - cash 2,195; acc 0001628280-26-005345"
+         }
+        },
+        {
+         "name": "Procter & Gamble",
+         "ticker": "PG",
+         "currency": "USD",
+         "revenue": {
+          "value": 87032,
+          "period": "FY2026 (ended 2026-06-30)",
+          "source": "10-K acc 0000080424-26-000103"
+         },
+         "ebitda": {
+          "value": 22908,
+          "period": "FY2026",
+          "source": "deskstack derived: op income 19,748 + D&A 3,160; acc 0000080424-26-000103"
+         },
+         "net_income": {
+          "value": 16046,
+          "period": "FY2026",
+          "source": "10-K acc 0000080424-26-000103"
+         },
+         "market_cap": {
+          "value": 347667,
+          "period": "2026-09-30 shares",
+          "source": "ASSUMPTION: shares 2,317.8M (10-Q acc 0000080424-26-000256) x placeholder price $150 (not sourced)"
+         },
+         "net_debt": {
+          "value": 24196,
+          "period": "FY2026-06-30",
+          "source": "deskstack derived: debt 34,138 - cash 9,942; acc 0000080424-26-000103"
+         }
+        },
+        {
+         "name": "Colgate-Palmolive",
+         "ticker": "CL",
+         "currency": "USD",
+         "revenue": {
+          "value": 20382,
+          "period": "FY2025",
+          "source": "10-K acc 0000021665-26-000006"
+         },
+         "ebitda": {
+          "value": 3936,
+          "period": "FY2025",
+          "source": "deskstack derived: op income 3,306 + D&A 630; acc 0000021665-26-000006"
+         },
+         "net_income": {
+          "value": 2132,
+          "period": "FY2025",
+          "source": "10-K acc 0000021665-26-000006"
+         },
+         "market_cap": {
+          "value": 63594,
+          "period": "2026-09-30 shares",
+          "source": "ASSUMPTION: shares 794.9M (acc 0000021665-26-000048) x placeholder price $80 (not sourced)"
+         },
+         "net_debt": {
+          "value": 6591,
+          "period": "FY2025-12-31",
+          "source": "deskstack derived: debt 7,986 - cash 1,288 - securities 107; acc 0000021665-26-000006"
+         }
+        }
+       ]
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 24,
+  "match": 24,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 30,
+  "unsourced": 6,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "KO",
+    "name": "Coca-Cola Co (target)",
+    "written": "KO",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 47941,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[KO].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 47941000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "KO",
+    "name": "Coca-Cola Co (target)",
+    "written": "KO",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 14812,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[KO].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 14812000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "KO",
+    "name": "Coca-Cola Co (target)",
+    "written": "KO",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 13107,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[KO].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 13107000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "KO",
+    "name": "Coca-Cola Co (target)",
+    "written": "KO",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 31564,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[KO].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 31564000000,
+    "resolved": "KO"
+   },
+   {
+    "company": "PEP",
+    "name": "PepsiCo",
+    "written": "PEP",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 93925,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[PEP].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 93925000000,
+    "resolved": "PEP"
+   },
+   {
+    "company": "PEP",
+    "name": "PepsiCo",
+    "written": "PEP",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 14949,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[PEP].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 14949000000,
+    "resolved": "PEP"
+   },
+   {
+    "company": "PEP",
+    "name": "PepsiCo",
+    "written": "PEP",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 8240,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[PEP].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 8240000000,
+    "resolved": "PEP"
+   },
+   {
+    "company": "PEP",
+    "name": "PepsiCo",
+    "written": "PEP",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 39652,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[PEP].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 39652000000,
+    "resolved": "PEP"
+   },
+   {
+    "company": "KDP",
+    "name": "Keurig Dr Pepper",
+    "written": "KDP",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 16603,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[KDP].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 16603000000,
+    "resolved": "KDP"
+   },
+   {
+    "company": "KDP",
+    "name": "Keurig Dr Pepper",
+    "written": "KDP",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 4168,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[KDP].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 4168000000,
+    "resolved": "KDP"
+   },
+   {
+    "company": "KDP",
+    "name": "Keurig Dr Pepper",
+    "written": "KDP",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 2079,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[KDP].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2079000000,
+    "resolved": "KDP"
+   },
+   {
+    "company": "KDP",
+    "name": "Keurig Dr Pepper",
+    "written": "KDP",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 15115,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[KDP].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 15115000000,
+    "resolved": "KDP"
+   },
+   {
+    "company": "MDLZ",
+    "name": "Mondelez International",
+    "written": "MDLZ",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 38537,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MDLZ].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 38537000000,
+    "resolved": "MDLZ"
+   },
+   {
+    "company": "MDLZ",
+    "name": "Mondelez International",
+    "written": "MDLZ",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 4906,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MDLZ].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 4906000000,
+    "resolved": "MDLZ"
+   },
+   {
+    "company": "MDLZ",
+    "name": "Mondelez International",
+    "written": "MDLZ",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 2451,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MDLZ].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2451000000,
+    "resolved": "MDLZ"
+   },
+   {
+    "company": "MDLZ",
+    "name": "Mondelez International",
+    "written": "MDLZ",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 19010,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MDLZ].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 19010000000,
+    "resolved": "MDLZ"
+   },
+   {
+    "company": "PG",
+    "name": "Procter & Gamble",
+    "written": "PG",
+    "metric": "revenue",
+    "period": "FY2026",
+    "value": 87032,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[PG].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 87032000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "PG",
+    "name": "Procter & Gamble",
+    "written": "PG",
+    "metric": "ebitda",
+    "period": "FY2026",
+    "value": 22908,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[PG].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 22908000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "PG",
+    "name": "Procter & Gamble",
+    "written": "PG",
+    "metric": "net_income",
+    "period": "FY2026",
+    "value": 16046,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[PG].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 16046000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "PG",
+    "name": "Procter & Gamble",
+    "written": "PG",
+    "metric": "net_debt",
+    "period": "FY2026",
+    "value": 24196,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[PG].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 24196000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "CL",
+    "name": "Colgate-Palmolive",
+    "written": "CL",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 20382,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CL].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 20382000000,
+    "resolved": "CL"
+   },
+   {
+    "company": "CL",
+    "name": "Colgate-Palmolive",
+    "written": "CL",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 3936,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CL].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 3936000000,
+    "resolved": "CL"
+   },
+   {
+    "company": "CL",
+    "name": "Colgate-Palmolive",
+    "written": "CL",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 2132,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CL].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2132000000,
+    "resolved": "CL"
+   },
+   {
+    "company": "CL",
+    "name": "Colgate-Palmolive",
+    "written": "CL",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 6591,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CL].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 6591000000,
+    "resolved": "CL"
+   }
+  ],
+  "unsourced_refs": [
+   "peers[KO].market_cap",
+   "peers[PEP].market_cap",
+   "peers[KDP].market_cap",
+   "peers[MDLZ].market_cap",
+   "peers[PG].market_cap",
+   "peers[CL].market_cap"
+  ],
+  "errors": []
+ }
+}

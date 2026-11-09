@@ -1,0 +1,298 @@
+{
+ "company": "2138001CNF45JP5XZK38",
+ "task": "comps",
+ "arm": "A",
+ "score": {
+  "valid": true,
+  "filed": 16,
+  "match": 5,
+  "mismatch": 0,
+  "other_line": 1,
+  "definition": 0,
+  "not_found": 2,
+  "ambiguous": 0,
+  "unverifiable": 8,
+  "causes": {},
+  "typed": 20,
+  "unsourced": 6,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "",
+    "name": "Schindler Holding",
+    "written": "SCHP",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 10947,
+    "scale": "millions",
+    "currency": "CHF",
+    "ref": "peers[SCHP].revenue",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "",
+    "name": "Schindler Holding",
+    "written": "SCHP",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 1718,
+    "scale": "millions",
+    "currency": "CHF",
+    "ref": "peers[SCHP].ebitda",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "",
+    "name": "Schindler Holding",
+    "written": "SCHP",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 1073,
+    "scale": "millions",
+    "currency": "CHF",
+    "ref": "peers[SCHP].net_income",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "",
+    "name": "Schindler Holding",
+    "written": "SCHP",
+    "metric": "net_debt",
+    "period": "31 Dec 2025",
+    "value": -3946,
+    "scale": "millions",
+    "currency": "CHF",
+    "ref": "peers[SCHP].net_debt",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "2138001CNF45JP5XZK38",
+    "name": "KONE Oyj (target)",
+    "written": "KNEBV",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 11245.2,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "peers[KNEBV].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 11245200000,
+    "resolved": "2138001CNF45JP5XZK38"
+   },
+   {
+    "company": "2138001CNF45JP5XZK38",
+    "name": "KONE Oyj (target)",
+    "written": "KNEBV",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 1656.1,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "peers[KNEBV].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 1656100000,
+    "resolved": "2138001CNF45JP5XZK38",
+    "computed": true
+   },
+   {
+    "company": "2138001CNF45JP5XZK38",
+    "name": "KONE Oyj (target)",
+    "written": "KNEBV",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 991.9,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "peers[KNEBV].net_income",
+    "status": "other_line",
+    "hints": [
+     "equals ifrs-full:ProfitLoss in the same filing"
+    ],
+    "filed_value": 980100000,
+    "resolved": "2138001CNF45JP5XZK38",
+    "other_line": "ifrs-full:ProfitLoss"
+   },
+   {
+    "company": "2138001CNF45JP5XZK38",
+    "name": "KONE Oyj (target)",
+    "written": "KNEBV",
+    "metric": "net_debt",
+    "period": "31 Dec 2025",
+    "value": -699.8,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "peers[KNEBV].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"31 Dec 2025\". Available: FY2020, FY2021, FY2022, FY2023, FY2024, FY2025."
+    ],
+    "filed_value": null,
+    "resolved": "2138001CNF45JP5XZK38"
+   },
+   {
+    "company": "OTIS",
+    "name": "Otis Worldwide",
+    "written": "OTIS",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 14431,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[OTIS].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 14431000000,
+    "resolved": "OTIS"
+   },
+   {
+    "company": "OTIS",
+    "name": "Otis Worldwide",
+    "written": "OTIS",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 2308,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[OTIS].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 2308000000,
+    "resolved": "OTIS",
+    "computed": true
+   },
+   {
+    "company": "OTIS",
+    "name": "Otis Worldwide",
+    "written": "OTIS",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 1384,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[OTIS].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1384000000,
+    "resolved": "OTIS"
+   },
+   {
+    "company": "OTIS",
+    "name": "Otis Worldwide",
+    "written": "OTIS",
+    "metric": "net_debt",
+    "period": "31 Dec 2025",
+    "value": 6860,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[OTIS].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"31 Dec 2025\". Available: FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, LTM to 2026-09-30."
+    ],
+    "filed_value": null,
+    "resolved": "OTIS"
+   },
+   {
+    "company": "1253493",
+    "name": "Assa Abloy",
+    "written": "ASSA B",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 152409,
+    "scale": "millions",
+    "currency": "SEK",
+    "ref": "peers[ASSA B].revenue",
+    "status": "unverifiable",
+    "resolved": "1253493",
+    "hints": [
+     "ASSA ABLOY AB (CIK 1253493) has no usable annual XBRL financials: no XBRL company facts published for this registrant. If you know a predecessor registrant's CIK, call again with it as the ticker (e.g"
+    ]
+   },
+   {
+    "company": "1253493",
+    "name": "Assa Abloy",
+    "written": "ASSA B",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 28796,
+    "scale": "millions",
+    "currency": "SEK",
+    "ref": "peers[ASSA B].ebitda",
+    "status": "unverifiable",
+    "resolved": "1253493",
+    "hints": [
+     "ASSA ABLOY AB (CIK 1253493) has no usable annual XBRL financials: no XBRL company facts published for this registrant. If you know a predecessor registrant's CIK, call again with it as the ticker (e.g"
+    ]
+   },
+   {
+    "company": "1253493",
+    "name": "Assa Abloy",
+    "written": "ASSA B",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 15939,
+    "scale": "millions",
+    "currency": "SEK",
+    "ref": "peers[ASSA B].net_income",
+    "status": "unverifiable",
+    "resolved": "1253493",
+    "hints": [
+     "ASSA ABLOY AB (CIK 1253493) has no usable annual XBRL financials: no XBRL company facts published for this registrant. If you know a predecessor registrant's CIK, call again with it as the ticker (e.g"
+    ]
+   },
+   {
+    "company": "1253493",
+    "name": "Assa Abloy",
+    "written": "ASSA B",
+    "metric": "net_debt",
+    "period": "31 Dec 2025",
+    "value": 64277,
+    "scale": "millions",
+    "currency": "SEK",
+    "ref": "peers[ASSA B].net_debt",
+    "status": "unverifiable",
+    "resolved": "1253493",
+    "hints": [
+     "ASSA ABLOY AB (CIK 1253493) has no usable annual XBRL financials: no XBRL company facts published for this registrant. If you know a predecessor registrant's CIK, call again with it as the ticker (e.g"
+    ]
+   }
+  ],
+  "unsourced_refs": [
+   "peers[KNEBV].net_debt",
+   "peers[KNEBV].market_cap",
+   "peers[OTIS].market_cap",
+   "peers[SCHP].market_cap",
+   "peers[ASSA B].net_income",
+   "peers[ASSA B].market_cap"
+  ],
+  "errors": [
+   "verify_value 1253493: ASSA ABLOY AB (CIK 1253493) has no usable annual XBRL financials: no XBRL company facts published for this registrant. If you know a predecessor registrant's CIK, call again with it as the ticker (e.g"
+  ]
+ }
+}
