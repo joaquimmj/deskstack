@@ -238,6 +238,9 @@ describe("deskstack-bench (offline)", () => {
     expect(sameName("Coca-Cola Europacific Partners plc", "COCA COLA CO")).toBe(false);
     expect(sameName("LVMH", "LVMH MOET HENNESSY LOUIS VUITTON")).toBe(true);
     expect(sameName("Apple", "Apple Inc.")).toBe(true);
+    expect(sameName("Industria de Diseño Textil (Inditex) [target]", "Industria de Diseno Textil")).toBe(true); // asides are dropped
+    expect(sameName("Coca-Cola Co - target", "COCA COLA CO")).toBe(true);
+    expect(sameName("Apple Inc. (target)", "Apple Inc.")).toBe(true);
     const spec = structuredClone(COMPS);
     spec.peers = [COMPS.peers[0], { ...COMPS.peers[1], name: "Apple Hospitality REIT", ticker: "APLE" }];
     const s = await scoreSubmission(connector(), spec, AAPL, mkdtempSync(join(tmpdir(), "bench-")));

@@ -76,7 +76,8 @@ const words = (s: string) => new Set(s.toLowerCase().normalize("NFD").replace(/[
 /** The name a model wrote matches an official name when every distinctive word of it is in the official one: "LVMH"
  *  is LVMH Moet Hennessy Louis Vuitton, but "Coca-Cola Europacific Partners" is not The Coca-Cola Company. */
 export function sameName(written: string, official: string): boolean {
-  const W = words(written), O = words(official);
+  // Asides the model adds are not part of the name: "(Inditex)", "[target]", "- target".
+  const W = words(written.replace(/\([^)]*\)|\[[^\]]*\]|\s[-–—]\s*target\b.*$/gi, " ")), O = words(official);
   if (W.size === 0) return false;
   for (const w of W) if (!O.has(w)) return false;
   return true;
