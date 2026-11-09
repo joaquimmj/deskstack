@@ -37,8 +37,14 @@ The deskstack connector is a remote MCP server, with no sign-in. Every tool is r
 
 Each computed line carries its formula, so a different definition is visible.
 
-- **EBITDA** is operating income + D&A. When a company tags depreciation and intangible amortization separately (no
-  combined D&A line), both are added, and the formula says so.
+- **D&A:** when a company tags depreciation and intangible amortization separately (no combined line), the D&A line
+  is the two added, and its formula says so (Merck, Microsoft, Keurig Dr Pepper). A company that tags a narrower
+  figure as combined D&A keeps it (Cisco's covers property and equipment only).
+- **EBITDA** is operating income + D&A.
+- **Operating income** is the tagged line, except for a short list of filers that tag something else as operating
+  income: Disney tags its segment total, so its operating income is revenue − costs and expenses, with a note.
+- **Diluted shares** off by a thousand or a million in a filer's XBRL (McDonald's tags 716.4) are rescaled only when
+  net income ÷ diluted EPS confirms the corrected figure within 3%, with a note giving the filed value.
 - **Total debt** excludes leases. If no current-debt line is tagged, the 12-month maturity of long-term debt stands
   in for the current portion, and the formula names it.
 - **Net debt** is total debt − cash − short-term investments. Short-term investments are marketable securities and
@@ -46,6 +52,8 @@ Each computed line carries its formula, so a different definition is visible.
   financial assets are left out: they mix derivatives and receivables.
 - **A new holding company** with no 10-K yet (ExxonMobil since July 2026) gets its predecessor's filings, with a
   `predecessor_note` that names both registrants.
+- **Dual filers:** a European issuer that also files a 20-F on another basis (ASML: US GAAP) gets a `basis_note`
+  pointing to it. Both sets of figures are right; say which one a number comes from.
 
 ## Limits
 

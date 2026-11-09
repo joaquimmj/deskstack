@@ -22,6 +22,8 @@
 // ifrs-full with their own concept map, in their reporting currency. A filer
 // with both taxonomies (Sony) is read from whichever has the latest fiscal year.
 
+import { OPERATING_INCOME_FROM_COSTS } from "../config";
+
 export const DURATION_CONCEPTS: Record<string, string[]> = {
   revenue: [
     "Revenues",
@@ -45,8 +47,10 @@ export const DURATION_CONCEPTS: Record<string, string[]> = {
     "DepreciationAmortizationAndOther",
     "Depreciation",
   ],
-  // Added to EBITDA only when d_and_a is depreciation alone (filers that tag the two separately, e.g. KDP).
+  // Added to d_and_a when that is depreciation alone (filers that tag the two separately: KDP, Merck, Microsoft).
   amortization_intangibles: ["AmortizationOfIntangibleAssets"],
+  // Operating income for filers in OPERATING_INCOME_FROM_COSTS (revenue - costs and expenses).
+  costs_and_expenses: ["CostsAndExpenses"],
   operating_cash_flow: ["NetCashProvidedByUsedInOperatingActivities"],
   capex: ["PaymentsToAcquirePropertyPlantAndEquipment", "PaymentsToAcquireProductiveAssets"],
   diluted_shares: ["WeightedAverageNumberOfDilutedSharesOutstanding"],
@@ -220,6 +224,7 @@ interface Ctx {
   tx: Taxonomy;
   facts: Namespace;
   currency: string;
+  cik?: number;
 }
 
 // ---- helpers ---------------------------------------------------------------
@@ -455,18 +460,64 @@ export function ifrsTotalDebt(inst: Inst): [number | null, string] {
   return [(lt ?? 0) + (cur ?? 0), formula];
 }
 
+const accs = (...cells: Cell[]) => [...new Set(cells.flatMap((c) => c.accessions ?? (c.accession ? [c.accession] : [])))].sort();
+
+/**
+ * Fixes for how some filers tag a line, each stated on the cell (formula, note) so a reader sees it:
+ * - D&A tagged as depreciation alone, with intangible amortization on its own line: the two are added;
+ * - operating income for filers in OPERATING_INCOME_FROM_COSTS: revenue - costs and expenses;
+ * - a diluted share count off by a thousand or a million (McDonald's FY2025: 716.4), rescaled only when
+ *   net income / diluted EPS confirms the corrected figure within 3%.
+ */
+function adjustRow(row: Record<string, Cell | null>, ctx: Ctx): void {
+  const dep = row.d_and_a;
+  const am = row.amortization_intangibles;
+  if (dep && am && dep.concept === "us-gaap:Depreciation") {
+    row.d_and_a = {
+      value: dep.value + am.value,
+      concept: "us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets",
+      accessions: accs(dep, am),
+      formula: "depreciation + amortization of intangible assets (tagged separately)",
+    };
+  }
+  const why = ctx.cik !== undefined ? OPERATING_INCOME_FROM_COSTS[ctx.cik] : undefined;
+  const rev = row.revenue;
+  const ce = row.costs_and_expenses;
+  if (why && rev && ce) {
+    row.operating_income = {
+      value: rev.value - ce.value,
+      concept: `${rev.concept} - us-gaap:CostsAndExpenses`,
+      accessions: accs(rev, ce),
+      formula: "revenue - costs_and_expenses",
+      note: why,
+    };
+  }
+  const sh = row.diluted_shares;
+  const ni = row.net_income;
+  const eps = row.diluted_eps;
+  if (sh && ni && eps && eps.value !== 0) {
+    const implied = ni.value / eps.value;
+    if (implied > 0 && Math.abs(sh.value / implied - 1) > 0.5) {
+      for (const k of [1e3, 1e6]) {
+        if (Math.abs((sh.value * k) / implied - 1) < 0.03) {
+          row.diluted_shares = {
+            ...sh,
+            value: sh.value * k,
+            note: `filed as ${sh.value}, a scale error in the filer's XBRL: net income / diluted EPS gives ${Math.round(implied).toLocaleString("en-US")}, so multiplied by ${k.toLocaleString("en-US")}`,
+          };
+          break;
+        }
+      }
+    }
+  }
+}
+
 function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | null>, tx: Taxonomy): Record<string, Derived | null> {
   const v = (src: Record<string, Cell | null>, k: string): number | null => src[k]?.value ?? null;
   const out: Record<string, Derived | null> = {};
   const oi = v(row, "operating_income");
   const da = v(row, "d_and_a");
-  const amort = row.d_and_a?.concept === "us-gaap:Depreciation" ? v(row, "amortization_intangibles") : null;
-  out.ebitda =
-    oi !== null && da !== null
-      ? amort !== null
-        ? { value: oi + da + amort, formula: "operating_income + d_and_a (depreciation only) + amortization_intangibles" }
-        : { value: oi + da, formula: "operating_income + d_and_a" }
-      : null;
+  out.ebitda = oi !== null && da !== null ? { value: oi + da, formula: "operating_income + d_and_a" } : null;
   const cfo = v(row, "operating_cash_flow");
   const capex = v(row, "capex");
   out.free_cash_flow =
@@ -566,7 +617,7 @@ function ltmColumn(ctx: Ctx, lastFy: Period): Column | null {
     type: "ltm",
     ytd: { start: ytd[0], end: ytd[1], days: daysBetween(ytd[0], ytd[1]) + 1 },
     values: row,
-    balance_sheet: inst,
+    balance_sheet: (adjustRow(row, ctx), inst),
     derived: derive(row, inst, ctx.tx),
   };
 }
@@ -647,6 +698,7 @@ export function standardize(cf: CompanyFacts, years = 5, includeLtm = true, opts
   const cik = Math.trunc(Number(cf.cik));
   const urlFor = opts.filingUrl ?? ((a: string) => filingUrl(cik, a));
   const [ctx, allPeriods] = choose(cf);
+  ctx.cik = cik;
   const periods = allPeriods.slice(-years);
   const columns: Column[] = [];
 
@@ -655,6 +707,7 @@ export function standardize(cf: CompanyFacts, years = 5, includeLtm = true, opts
     for (const m of Object.keys(ctx.tx.duration)) row[m] = cell(ctx, durationValue(ctx, m, p.start, p.end, ANNUAL_FORMS));
     const inst: Record<string, Cell | null> = {};
     for (const m of Object.keys(ctx.tx.instant)) inst[m] = cell(ctx, instantValue(ctx, m, p.end, ANNUAL_FORMS));
+    adjustRow(row, ctx);
     columns.push({ ...p, type: "annual", values: row, balance_sheet: inst, derived: derive(row, inst, ctx.tx) });
   }
 
