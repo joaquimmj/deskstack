@@ -72,6 +72,14 @@
   <p class="after">Reviewers report; they never edit your file. In Claude Code and Cowork they run as separate agents that don't see how the model was built. They also review workbooks made with Anthropic's financial-analysis plugin.</p>
 </section>
 
+<section aria-labelledby="demo-t">
+  <h2 class="title" id="demo-t">See it catch a typo</h2>
+  <p class="intro">The review scripts on Apple's FY2025 DCF with one planted typo: the model review can't see it, the tie-out to the 10-K can. Real scripts, real filing, no AI in this loop.</p>
+  <figure class="demo">
+    <img src="media/demo.gif" width="1080" height="608" loading="lazy" alt="Terminal recording: /associate finds 13 of 14 figures match Apple's 10-K and flags revenue FY2024 391,053 against a filed 391,035 as swapped digits; /vp-review finds the model clean; after the fix 14 of 14 match; /sign-off shows every check passed and waits for approval.">
+  </figure>
+</section>
+
 <section aria-labelledby="bench-t">
   <h2 class="title" id="bench-t">The benchmark</h2>
   <p class="intro">Claude Sonnet 5.5 built a DCF for each of 50 companies (35 US, 15 European), three ways. Every reported figure was scored against the filing, and every one flagged as wrong was read by hand.</p>
