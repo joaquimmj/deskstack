@@ -53,7 +53,7 @@ builder's reasoning. Details: [docs/ROLES.md](docs/ROLES.md).
 | Data | Source | Coverage |
 |---|---|---|
 | Financial statements (US) | SEC EDGAR XBRL (10-K, 10-Q, 20-F) | US-listed companies, including IFRS foreign filers; annual years plus LTM |
-| Financial statements (EU) | ESEF annual reports via [filings.xbrl.org](https://filings.xbrl.org) | About 30 large issuers in France, the Netherlands, Spain, Finland, Italy and Belgium; annual |
+| Financial statements (EU) | ESEF annual reports via [filings.xbrl.org](https://filings.xbrl.org) | About 100 large issuers in 13 countries (France, the Netherlands, Spain, Italy, Finland, Belgium, Denmark, Sweden, Norway, Austria, Portugal, Ireland and Luxembourg); annual |
 | Risk-free rates | U.S. Treasury par yield curve; ECB euro area par yields | Daily, 1 month to 30 years |
 | Exchange rates | ECB reference rates | 30+ currencies, latest, on a date or as a period average |
 | Valuation inputs | Aswath Damodaran's public datasets (NYU Stern) | ERP and country risk by country; betas and cost of capital by industry |
