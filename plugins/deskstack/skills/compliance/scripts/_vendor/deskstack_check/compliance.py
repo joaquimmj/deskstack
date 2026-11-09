@@ -117,7 +117,7 @@ def check(path: str, memo: str | None = None) -> dict:
 
     hidden = []
     try:
-        from openpyxl import load_workbook
+        from .xlsxio import safe_load_workbook as load_workbook
 
         raw = load_workbook(path, read_only=False)
         hidden = [ws.title for ws in raw.worksheets if ws.sheet_state != "visible" and ws.title != LAYOUT_SHEET]
