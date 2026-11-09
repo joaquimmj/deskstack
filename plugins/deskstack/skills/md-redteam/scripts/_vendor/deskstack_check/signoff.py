@@ -23,7 +23,7 @@ import tempfile
 import zipfile
 from pathlib import Path
 
-from openpyxl import load_workbook
+from .xlsxio import safe_load_workbook as load_workbook
 from openpyxl.cell.cell import ILLEGAL_CHARACTERS_RE
 from openpyxl.styles import Font
 
