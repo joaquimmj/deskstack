@@ -37,6 +37,11 @@ fails when they are stale).
 | DS013 | major | A sheet reads another declared in different units without converting |
 | DS014 | major | Capex or D&A changes sign across periods |
 | DS015 | major / minor | Discount factors don't match the stated mid-year / end-of-year convention |
+| DS016 | major / minor | A typed number whose label or source says it wasn't found: a placeholder 0, "NOT FOUND", "TBD" (minor for "estimate" with no filing cited) |
+| DS017 | minor | Four or more typed figures on a row that grow at one exact rate, or are all round thousands |
+| DS018 | major | A non-zero line labeled as a plug or balancing item |
+| DS019 | major / minor | Interest typed or not computed from debt and cash (major); debt flat with no repayment schedule (minor) |
+| DS020 | minor | A share count flat across periods while the model has buybacks |
 
 Value-based rules (DS008–DS015) read the results Excel cached when it last saved the file. A file
 written by a script and never opened in Excel has none, and the report says so (DS000, info).
