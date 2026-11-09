@@ -1,0 +1,1770 @@
+{
+ "company": "CAT",
+ "task": "dcf",
+ "arm": "A",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Caterpillar Inc.",
+   "ticker": "CAT",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       67060,
+       64809,
+       67589
+      ],
+      "source": "FY2025 Form 10-K (cat-20251231.htm / ARS cat015318-ars.pdf): total sales and revenues 2025 $67.589bn, 2024 $64.809bn; 2023 $67.06bn (reported as $67.1bn in 4Q23 release; exact figure from prior 10-K, not re-verified in this session)"
+     },
+     "operating_income": {
+      "values": [
+       12966,
+       13072,
+       11151
+      ],
+      "source": "FY2025 Form 10-K ARS cat015318-ars.pdf, consolidated results of operations: Operating profit 11,151 / 13,072 / 12,966 (2025/2024/2023)"
+     },
+     "d_and_a": {
+      "values": [
+       2144,
+       2153,
+       2262
+      ],
+      "source": "FY2025 10-K Statement 5 cash flow: Depreciation and amortization 2,262 / 2,153 / 2,144 (2025/2024/2023)"
+     },
+     "capex": {
+      "values": [
+       3092,
+       3215,
+       4286
+      ],
+      "source": "FY2025 10-K Statement 5: Capex excl. equipment leased to others (1,597/1,988/2,821 for 2023/24/25) PLUS expenditures for equipment leased to others (1,495/1,227/1,465); gross of disposal proceeds; included leased since D&A includes leased-asset depreciation"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026E",
+     "FY2027E",
+     "FY2028E",
+     "FY2029E",
+     "FY2030E"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.05,
+      0.05,
+      0.045,
+      0.04,
+      0.035
+     ],
+     "source": "Assumption: FY2025 growth was 4.3%; Q3'25 +10% and management commentary points to higher volumes (data-center power, services); fades to GDP-plus levels over cycle."
+    },
+    "ebit_margin": {
+     "value": 0.17,
+     "source": "Assumption: FY2025 operating margin 16.5% (11,151/67,589) depressed by tariffs; FY2023-24 were 19.3%/20.2%; assume modest recovery to 17% held flat, below the cycle peak."
+    },
+    "tax_rate": {
+     "value": 0.22,
+     "source": "Assumption: approximate normalized effective rate near the 21% US statutory plus state/foreign mix; not verified against FY2025 10-K effective rate."
+    },
+    "da_pct_revenue": {
+     "value": 0.033,
+     "source": "FY2025 actual 2,262/67,589 = 3.3%; held flat."
+    },
+    "capex_pct_revenue": {
+     "value": 0.06,
+     "source": "Assumption: FY2025 gross capex 6.3% of revenue (4,286/67,589); management guides higher 2026 capex (~$3.5bn for MP&E, per 4Q25 call) so stays elevated, trending slightly lower."
+    },
+    "wacc": {
+     "value": 0.085,
+     "source": "Assumption: cost of equity ~9.5% (beta ~1.1, rf ~4.3%, ERP ~5%) and after-tax cost of debt ~4%, with mid-single-digit-% debt weight of mkt cap; rounded to 8.5%. Not from a data provider."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: long-run nominal GDP/inflation-ish growth, below WACC."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 33344,
+     "source": "FY2025 10-K / 4Q25 release balance sheet at 12/31/2025: short-term borrowings 5,514 + LT debt due within one year 7,120 + LT debt due after one year 30,696 = 43,330 consolidated (includes Financial Products debt), less cash, cash equivalents and restricted cash 9,986 (Statement 5; ~$10.0bn enterprise cash). No separate short-term investments found. Note: consolidated net debt incl. captive finance debt; reviewer may prefer ME&T-only.",
+     "period": "FY2025"
+    },
+    "diluted_shares": {
+     "value": 472.3,
+     "source": "Derived, not directly read: FY2025 profit $8,884m / diluted profit per share $18.81 = ~472.3m shares (millions). Weighted-average diluted share count from the 10-K not retrieved (search limit hit); reviewer should confirm.",
+     "period": "FY2025"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Caterpillar Inc.",
+   "ticker": "CAT",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       67060,
+       64809,
+       67589
+      ],
+      "source": "FY2025 Form 10-K (cat-20251231.htm / ARS cat015318-ars.pdf): total sales and revenues 2025 $67.589bn, 2024 $64.809bn; 2023 $67.06bn (reported as $67.1bn in 4Q23 release; exact figure from prior 10-K, not re-verified in this session)"
+     },
+     "operating_income": {
+      "values": [
+       12966,
+       13072,
+       11151
+      ],
+      "source": "FY2025 Form 10-K ARS cat015318-ars.pdf, consolidated results of operations: Operating profit 11,151 / 13,072 / 12,966 (2025/2024/2023)"
+     },
+     "d_and_a": {
+      "values": [
+       2144,
+       2153,
+       2262
+      ],
+      "source": "FY2025 10-K Statement 5 cash flow: Depreciation and amortization 2,262 / 2,153 / 2,144 (2025/2024/2023)"
+     },
+     "capex": {
+      "values": [
+       3092,
+       3215,
+       4286
+      ],
+      "source": "FY2025 10-K Statement 5: Capex excl. equipment leased to others (1,597/1,988/2,821 for 2023/24/25) PLUS expenditures for equipment leased to others (1,495/1,227/1,465); gross of disposal proceeds; included leased since D&A includes leased-asset depreciation"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026E",
+     "FY2027E",
+     "FY2028E",
+     "FY2029E",
+     "FY2030E"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.05,
+      0.05,
+      0.045,
+      0.04,
+      0.035
+     ],
+     "source": "Assumption: FY2025 growth was 4.3%; Q3'25 +10% and management commentary points to higher volumes (data-center power, services); fades to GDP-plus levels over cycle."
+    },
+    "ebit_margin": {
+     "value": 0.17,
+     "source": "Assumption: FY2025 operating margin 16.5% (11,151/67,589) depressed by tariffs; FY2023-24 were 19.3%/20.2%; assume modest recovery to 17% held flat, below the cycle peak."
+    },
+    "tax_rate": {
+     "value": 0.22,
+     "source": "Assumption: approximate normalized effective rate near the 21% US statutory plus state/foreign mix; not verified against FY2025 10-K effective rate."
+    },
+    "da_pct_revenue": {
+     "value": 0.033,
+     "source": "FY2025 actual 2,262/67,589 = 3.3%; held flat."
+    },
+    "capex_pct_revenue": {
+     "value": 0.06,
+     "source": "Assumption: FY2025 gross capex 6.3% of revenue (4,286/67,589); management guides higher 2026 capex (~$3.5bn for MP&E, per 4Q25 call) so stays elevated, trending slightly lower."
+    },
+    "wacc": {
+     "value": 0.085,
+     "source": "Assumption: cost of equity ~9.5% (beta ~1.1, rf ~4.3%, ERP ~5%) and after-tax cost of debt ~4%, with mid-single-digit-% debt weight of mkt cap; rounded to 8.5%. Not from a data provider."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: long-run nominal GDP/inflation-ish growth, below WACC."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 33344,
+     "source": "FY2025 10-K / 4Q25 release balance sheet at 12/31/2025: short-term borrowings 5,514 + LT debt due within one year 7,120 + LT debt due after one year 30,696 = 43,330 consolidated (includes Financial Products debt), less cash, cash equivalents and restricted cash 9,986 (Statement 5; ~$10.0bn enterprise cash). No separate short-term investments found. Note: consolidated net debt incl. captive finance debt; reviewer may prefer ME&T-only.",
+     "period": "FY2025"
+    },
+    "diluted_shares": {
+     "value": 472.3,
+     "source": "Derived, not directly read: FY2025 profit $8,884m / diluted profit per share $18.81 = ~472.3m shares (millions). Weighted-average diluted share count from the 10-K not retrieved (search limit hit); reviewer should confirm.",
+     "period": "FY2025"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 1,
+  "usage": {
+   "input_tokens": 16,
+   "output_tokens": 4171,
+   "cache_creation_input_tokens": 30256,
+   "cache_read_input_tokens": 94554,
+   "server_tool_use": {
+    "web_search_requests": 12
+   }
+  },
+  "cost": 0.2562928,
+  "seconds": 58.764,
+  "tool_calls": {
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: web_search (public web pages). No other data source is available.\n\nBuild a quick unlevered DCF for Caterpillar Inc. (identifier: CAT).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 16,
+     "cache_creation_input_tokens": 30256,
+     "cache_read_input_tokens": 94554,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 30256,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 4171,
+     "output_tokens_details": {
+      "thinking_tokens": 1038
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard",
+     "server_tool_use": {
+      "web_search_requests": 12,
+      "web_fetch_requests": 0
+     }
+    },
+    "cost": 0.2562928,
+    "content": [
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_0146rhg8JZGvPfWURW8N9cGR",
+      "name": "code_execution",
+      "input": {
+       "code": "qs=[\"Caterpillar 2024 annual results full year sales and revenues operating profit 2024 2023 2022\",\"Caterpillar 10-K 2024 depreciation and amortization capital expenditures excluding equipment leased to others\",\"Caterpillar 2024 10-K total debt cash weighted average diluted shares\"]\nfor q in qs:\n    r=await web_search({\"query\":q})\n    for x in r[:5]:\n        print(x['url']);print(x['content'][:800].replace(\"\\n\",\" \"));print()"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01KS4z16SZ31fWAQm8EAkPuS",
+      "name": "web_search",
+      "input": {
+       "query": "Caterpillar 2024 annual results full year sales and revenues operating profit 2024 2023 2022"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_0146rhg8JZGvPfWURW8N9cGR"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01KS4z16SZ31fWAQm8EAkPuS",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823024000005/cat_exx991x4qx2023xearning.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823023000005/cat_exx991x4qx2022xearning.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2022",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823022000014/cat_exx991x4qx2021xearning.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000008/cat-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form ARS - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000130817925000531/cat013434-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form ARS - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000130817924000625/lcat2023_ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form ARS - FY2022",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000130817923000832/lcat2022_ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form DEF 14A - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000130817924000623/lcat2024_def14a.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Full Year 2024 Earnings: EPS Beats Expectations",
+        "url": "https://finance.yahoo.com/news/caterpillar-full-2024-earnings-eps-185043024.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "643 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Inc. - Caterpillar Reports Fourth-Quarter and Full-Year 2025 Results",
+        "url": "https://investors.caterpillar.com/news/news-details/2026/Caterpillar-Reports-Fourth-Quarter-and-Full-Year-2025-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "283 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_0146rhg8JZGvPfWURW8N9cGR"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_0146rhg8JZGvPfWURW8N9cGR",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDMkiFVIo7ebaqZ8L3BoM/UaSTajTBel3SOg9IjB+u8grwbyBu1ontKxOjEmEEt71rcb6dk1JtAtai1FU6OhLBYvBc87QpF73bNhQdFkqEsklleepoWWHjAdtde+dPSvNRRgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_0146rhg8JZGvPfWURW8N9cGR/cell.py\", line 12, in <module>\n    print(x['url']);print(x['content'][:800].replace(\"\\n\",\" \"));print()\n          ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01QAoFMnQsSaKdP3Y7gqL1jG",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":qs[0]})\nprint(type(r),str(r)[:1500])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01LE2MB3KCPWkW3GsjtwfsB4",
+      "name": "web_search",
+      "input": {
+       "query": "Caterpillar 2024 annual results full year sales and revenues operating profit 2024 2023 2022"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01QAoFMnQsSaKdP3Y7gqL1jG"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01LE2MB3KCPWkW3GsjtwfsB4",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823024000005/cat_exx991x4qx2023xearning.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823023000005/cat_exx991x4qx2022xearning.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2022",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823022000014/cat_exx991x4qx2021xearning.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000008/cat-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form ARS - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000130817925000531/cat013434-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form ARS - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000130817924000625/lcat2023_ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form ARS - FY2022",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000130817923000832/lcat2022_ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form DEF 14A - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000130817924000623/lcat2024_def14a.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Full Year 2024 Earnings: EPS Beats Expectations",
+        "url": "https://finance.yahoo.com/news/caterpillar-full-2024-earnings-eps-185043024.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "643 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Inc. - Caterpillar Reports Fourth-Quarter and Full-Year 2025 Results",
+        "url": "https://investors.caterpillar.com/news/news-details/2026/Caterpillar-Reports-Fourth-Quarter-and-Full-Year-2025-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "283 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01QAoFMnQsSaKdP3Y7gqL1jG"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01QAoFMnQsSaKdP3Y7gqL1jG",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_015NXjxcdAuXA2P52Qt1sggh",
+      "name": "code_execution",
+      "input": {
+       "code": "import json,re\nfor q in [\"Caterpillar Reports Fourth-Quarter and Full-Year 2025 Results\",\"Caterpillar fourth-quarter full-year 2024 results operating profit sales and revenues $64.8 billion\"]:\n    for x in json.loads(await web_search({\"query\":q}))[:5]:\n        c=x['content'];print(x['url'],len(c))\n        for k in ['Operating profit','Depreciation and amortization','Capital expenditures','diluted','Total debt','Cash and cash equivalents','Short-term borrowings','Long-term debt due']:\n            for m in re.finditer(k,c):\n                print('  ',c[m.start():m.start()+200].replace(\"\\n\",\" \"));break"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01FhXiPQ1dC4zvkMRFCoRfbu",
+      "name": "web_search",
+      "input": {
+       "query": "Caterpillar Reports Fourth-Quarter and Full-Year 2025 Results"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_015NXjxcdAuXA2P52Qt1sggh"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01FhXiPQ1dC4zvkMRFCoRfbu",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000043/ex991toformcat3q2025earnin.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000037/ex991toformcat2q2025earnin.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Inc. press release dated",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000003/cat_exx991x4qx2025xearning.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000013/ex991toformcat1q2025earnin.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Reports Fourth-Quarter and Full-Year 2025 Results",
+        "url": "https://www.nasdaq.com/press-release/caterpillar-reports-fourth-quarter-and-full-year-2025-results-2026-01-29",
+        "encrypted_content": "[omitted]",
+        "page_age": "283 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Reports Record Sales and Earnings Boosted by Data Center Demand - Alpha Spread",
+        "url": "https://www.alphaspread.com/market-news/earnings/caterpillar-reports-record-sales-and-earnings-boosted-by-data-center-demand",
+        "encrypted_content": "[omitted]",
+        "page_age": "283 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Reports Fourth-Quarter and Full-Year 2025 Results",
+        "url": "https://www.prnewswire.com/news-releases/caterpillar-reports-fourth-quarter-and-full-year-2025-results-302673883.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "283 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Reports Fourth-Quarter and Full-Year 2025 Results",
+        "url": "https://longbridge.com/en/news/274142800",
+        "encrypted_content": "[omitted]",
+        "page_age": "283 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Cat generator",
+        "url": "https://www.caterpillar.com/en/news/corporate-press-releases/h/4q25-results-caterpillar-inc.html",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_015NXjxcdAuXA2P52Qt1sggh"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_019HcKTsoaWhsvvXzAvT4bD6",
+      "name": "web_search",
+      "input": {
+       "query": "Caterpillar fourth-quarter full-year 2024 results operating profit sales and revenues $64.8 billion"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_015NXjxcdAuXA2P52Qt1sggh"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_019HcKTsoaWhsvvXzAvT4bD6",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823024000005/cat_exx991x4qx2023xearning.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form ARS - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000130817925000531/cat013434-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823024000016/ex991toformcat1q2024earnin.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823024000042/ex991toformcat2q2024earnin.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000008/cat-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823024000050/ex991toformcat3q2024earnin.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-Q - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823024000053/cat-20240930.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Reports Fourth-Quarter and Full-Year 2024 Results",
+        "url": "https://www.gurufocus.com/news/2673212/caterpillar-reports-fourthquarter-and-fullyear-2024-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "647 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "4q24-caterpillar-inc-financial-results",
+        "url": "https://www.scribd.com/document/847763179/4q24-caterpillar-inc-financial-results",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_015NXjxcdAuXA2P52Qt1sggh"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_015NXjxcdAuXA2P52Qt1sggh",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSkwYKEAgTGAI4AUIIdGhpbmtpbmcSDMhTJcvIXzplpUftNRoMhOID0Tvmgs9YJf0IIjBD+FA4CPASfnrYQu8pm88YaXpCP9X+phzihDXKHtdWrMRqrRZNnHM7no6APIIvkyUqsAVkjNPX3pJew3cU13dQGt+yvHYnM6Etcu2S4Rl1bGeWlvn1O+NlVxlmXfhxgoMTxmj3wBjAEuQEsf9dqMmXUeogI9+DX83vRMCyIRgB8LQszyyVXF3yPw8TBUUsL1fU3Sj8K5uqn0NYFuW05pIuSx32g2AqZjncLFbTf3v7DSd4gcC62vHnwye60DMg5+9Gn8DyPHFiDgmy1/ANqQ2MYius4xAsX9ybpH6U9uQMJtdD7Ep4CK+q4M8AgpMkMhbvOB38xk7/uI8+FsQSypJf8RTPDan/r8gk57kIEqJPga1SUpuhQZLTsaPb3tk6E7cBPBPWObg/ch1kfD5DcXqRzAwaoYMfkiQt4nxZSTNr4sjfnYGBMQp0KT+laCafq9/ZX0F2w6vRXpsYLsFEQbQbHREAgwWwnMmATV1yTVOmqXmMocA4dzak4cf98g5C15WhHWsxy+vuxTX0PcTSVzGkmIsz0ZqqopCcTaQWtDuEWuTUpINXUr9BC89pRYNVKl9veAWAXCO8dRiSE92oBDbVhRS7dn4qeQYEfBULIg3X52JteMlwynhS7wWPuJXVQwGcNKBFZg3t0YIjHF5pKIdIfsCeDgr6iRmIJOR3HR4wyr08R3WR0IZ1YGIRf3LRCwy0rygSceJbCTD+CKPXCnt2F7EJGzvw+1GMZTD9MshBA5B3GCm60zCTsmUJP863pwitPHw++Y8U2lJLWEsBJYD71rOd4Bu37QXN5c8WMrTMxf7Fs/aWhphWf7LJ6m/aWsADKLnL7IjlGqDDjx4O1KvSVLihvR3iqxbz0BwBkaqPOZ6eczGR1x0PbgkJLUo3Za5OPV0cJRCpmy52MJM5wsA29EvB25u8JWMXYzj5tQd7/EckS2rTTSV4cRiSp5KmNkSFfs/PEYQ4IDDYI2I6uwyNjwPrGAE="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01DQkkT6gW738MB7rovpQnik",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"Caterpillar full-year 2025 sales and revenues operating profit 2025 results\",\"Caterpillar 2025 full year operating profit $ billion sales revenues $67.6 billion\",\"Caterpillar 2025 depreciation and amortization capital expenditures free cash flow full year\",\"Caterpillar 2025 consolidated statement of cash flow depreciation capital expenditures excluding equipment leased to others purchases\"]:\n    for x in json.loads(await web_search({\"query\":q}))[:6]:\n        print(x['url']);print(x['content'][:1500].replace(\"\\n\",\" \"));print()"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_017m1rPFeQtYcZzP4DXogwTM",
+      "name": "web_search",
+      "input": {
+       "query": "Caterpillar full-year 2025 sales and revenues operating profit 2025 results"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DQkkT6gW738MB7rovpQnik"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_017m1rPFeQtYcZzP4DXogwTM",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000018230/000130817926000360/cat015318-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000004/cat_exx991x4qx2024xearning.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000040/cat-20250630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000016/cat-20250331.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000013/ex991toformcat1q2025earnin.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000037/ex991toformcat2q2025earnin.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000043/ex991toformcat3q2025earnin.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar (CAT) Q4 2025 Summary",
+        "url": "https://quartr.com/events/caterpillar-inc-cat-q4-2025_oj6aAIzM",
+        "encrypted_content": "[omitted]",
+        "page_age": "278 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DQkkT6gW738MB7rovpQnik"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01MbMak33E4nCMP1NBZeypxY",
+      "name": "web_search",
+      "input": {
+       "query": "Caterpillar 2025 full year operating profit $ billion sales revenues $67.6 billion"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DQkkT6gW738MB7rovpQnik"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01MbMak33E4nCMP1NBZeypxY",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000018230/000130817926000360/cat015318-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000004/cat_exx991x4qx2024xearning.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000016/cat-20250331.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000048/cat-20250930.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000043/ex991toformcat3q2025earnin.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar’s Q4 sales hit record high and build momentum for 2026",
+        "url": "https://www.manufacturingdive.com/news/caterpillar-q4-2025-sales-record-high-build-momentum-2026/810963/",
+        "encrypted_content": "[omitted]",
+        "page_age": "282 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC. ANNUAL REPORT 2O25 -AN • 0 • • 0 • -40111.1• 1r37181 a V",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000130817926000360/cat015318-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "268 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Inc. - Caterpillar Inc. Releases 2025 Annual and Sustainability Reports",
+        "url": "https://investors.caterpillar.com/news/news-details/2026/Caterpillar-Inc--Releases-2025-Annual-and-Sustainability-Reports/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "180 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DQkkT6gW738MB7rovpQnik"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_017QtgdCWpSUXaa52gLB37gh",
+      "name": "web_search",
+      "input": {
+       "query": "Caterpillar 2025 depreciation and amortization capital expenditures free cash flow full year"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DQkkT6gW738MB7rovpQnik"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_017QtgdCWpSUXaa52gLB37gh",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000018230/000130817926000360/cat015318-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000048/cat-20250930.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000040/cat-20250630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000016/cat-20250331.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Free Cash Flow - Caterpillar Inc (NYSE:CAT) - Alpha Spread",
+        "url": "https://www.alphaspread.com/security/nyse/cat/financials/cash-flow-statement/free-cash-flow",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TRANSCRIPT 1",
+        "url": "https://s25.q4cdn.com/358376879/files/doc_financials/2025/q4/updated/4Q-2025-Caterpillar-Inc-Earnings-Conference-Call_Transcript.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Financial Statements 2021-2025",
+        "url": "https://bullfincher.io/companies/caterpillar/financial-statements",
+        "encrypted_content": "[omitted]",
+        "page_age": "272 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Depreciation Amortization - Caterpillar Inc (NYSE:CAT) - Alpha Spread",
+        "url": "https://www.alphaspread.com/security/nyse/cat/financials/cash-flow-statement/depreciation-amortization",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Total Depreciation and Amortization - Cash Flow 2012-2026",
+        "url": "https://www.macrotrends.net/stocks/charts/CAT/caterpillar/total-depreciation-amortization-cash-flow",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DQkkT6gW738MB7rovpQnik"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01NJkHcLCahTAL6mLwap7awG",
+      "name": "web_search",
+      "input": {
+       "query": "Caterpillar 2025 consolidated statement of cash flow depreciation capital expenditures excluding equipment leased to others purchases"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DQkkT6gW738MB7rovpQnik"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01NJkHcLCahTAL6mLwap7awG",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000018230/000130817926000360/cat015318-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000040/cat-20250630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000048/cat-20250930.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000016/cat-20250331.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000043/ex991toformcat3q2025earnin.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000037/ex991toformcat2q2025earnin.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000013/ex991toformcat1q2025earnin.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Exhibit 99.1 Caterpillar Inc. 1Q 2025 Earnings Release FOR IMMEDIATE RELEASE",
+        "url": "https://fortune.com/company-assets/1662/quartr/earnings-release-8-k-ceeb3-2025-04-30-10-22-33.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "557 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Reports First-Quarter 2025 Results",
+        "url": "https://www.prnewswire.com/news-releases/caterpillar-reports-first-quarter-2025-results-302442518.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "557 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DQkkT6gW738MB7rovpQnik"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01DQkkT6gW738MB7rovpQnik",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eu+sAgoqCBUYAiIkMjA2YzliNWEtYjZlYi00ZWNjLTg4NjUtMzgxYmNiMWRjNTRiEgx7URfFoLpvrVqrDUIaDKW1Li+KOTX6SR5WDiIw40EqrJIJJBtkRO1JY3qlRrdNaJjYbf68wXccPQ2y5sNVjPgBQG6/cGu08udEOtbYKvGrAqAKsm4WshPYhx/jjPso+gGalZJhRxb/Lsf2Go3XCkkYZpEjA5q5sNJhp0c6GEU7E1Et0Ck/E4q1ckk4KsC3nt6cHhWURYZk/pjr7Zxj3ml9RrZJpeR1To7Xjy5O8KlIarMSGwyKFBYRpoI5QFtdRqRlHmPXkr1ZbvafYth8mAH0YVXk2hXEUkEhldQ5yNaqLTJO0//4g4sozEaXc/OI9Wd/96rtWmRXrgEIFu+AGPC6+odAT44NDmj+NduGdoc0ZcWjaToDsXpj0TVE5xBJ6L1BKd68STkfyhKkCxnpySphTpezvMruwiUsKDCLSjwVu1Bx/kcqJuuwmkYgO16T/5218drX8ZFJOsfTe3oCyGtdl9c6I8hMOi7Oa0Mtm1isLMdpsjsg6gJuYDjWiLpaKCP2rV3XZNh0mvJln1Q96M3XwDsKDmae7+ZLXHMZ/DfOmwkM4hE1l721J8LUFjGUgwhzG02ihuF1mgfywn4JTOl4lAx0KKoU+BtIDUJKFgxpPNUgQXYac9ZZP3P3j/631qOCyBTutYpOlOXL+9AzU2jWo/JiPtC0SLcPqtmL5jDMk7m+xybjdkXj7VRRJhUgO1aJ2GhSb7JBjQ+3cMdenAy0bNM6lnVN2GIJgE+/sOdUEkJNvrcb7VMxrSX181QF0MY8bpeZZgiB6/FTCXDCqYpQnJdRnJdBtRYj4nhqmzcr8YY6LVmvMVtXAmq8ct1Po2NG27cEXAPOc/xARTTf/lXX303mhLRHHlJdQtAyMRgPwtEsDfmdWpDOI5djHKyyr7IzTSeFGStW/A3q8E2KeVipummmuIyvc5TpoHIunRk8v8jq4sdbXrW0kEd8DGnUbG6KCKIWg+Dzr0eyXhv/nUgfSTqL2VxVh7mCQ5bf1JQaJzg6WwD02DBzhs+1mS+YULnfdv5ABDaJ+yo62Wy9/Eb4NfkhFvYmlljQAjigrevq6WbBKa+Ft3MtE9XQzQYWHMmnuUrjPJamhPyJXyEgf/UuoVplaOzr9TsQBls14Jpf4qK7fEQdIYAFpNaVHQ/R7oWLQr2wbVDJczFhj3AGkc7B0cF96fE/xaUCZZl+Uo8uWwuOZv5B8hYZb+hG9TSrH7+0KARJwiKOaoUebjSf1/p47H0+R3sKCdlbXJBQwhGCOdha+TRAf3Vx6QmvzSTp+i9FSg0DguUrPe7pVnvLxjPeo6fcwBNVnoy7XbVNRpVqQRRjQJWwOlwGKGwtrfcBUsjwCLrsUk1rq42Oa8x5P0nBWr6GBwwaNqenoDpt/w5yDUcZ59WTlWwZJfWnbl/UK0ommjzrZsJ3490pwqz/UOe/FKSnK+jDlk1I/Zp3am6zJ3W+5FsQ0ne7VgW/JDB1oRCx8k74HdGWXA3T+Z5TqDJWDnFsuTJ+DNjr3pIsDJ1REd/xrfDT6ddQnHnRRTQpY+b0c7G8iAgW+tdL3G0HpRTtpomnVIFleKao7VdEQ4R1qvhqJ4NqQejFRfjrUmk9FN39jAw+cspkwFlb3QH0Jp7qetdUl0a/hH1vw8DDZ/IN2mF6LRpM5Gp15lo5oDFW3wiV9rjGRwChFxI3OZEOY7QW4WjG/mBzV8f2q5elthcrbZ67EPG240KpnQSJtD9Rxr142PBDYEE9hwKkUaUhPdGhMW6enraRJ8BkJtPiGqH+bptm8JUnFD4gNiHBulxTegndSNcThRD6kf8cib5ckp/Jmiz0deseX4O2g31PUo5ksFHcGKUpD50WIhjbVDF1UYiQjlj1W62YKMCYjRTyYw9PfECdIqnyeZgBEEIU2NBKkR+noz2+fW+O33HitjVjm2eNMq6BBeL11fyWa8njUhraF/mm7n4m8twG9n97jud964XnpsTbPEaLk+Pndtwh07Fkg//K1K3xFSADGyr/zOzMNKi2GyT80K2lQgA8zh21+Bgek66qWloFaTu2UvKcuLpEQshj61zp1CEo4sfUeCfP3CGZacsbLm65K8ws4+sWbo8iyHPdsXYEkwZ6MQH413gAAt+W0O72SBLIIPndkXe84CdRsj18+1zcIdyeJrUmkz+YLLi1MwMlkH813/yy53dvd2dcRyxL/Rs1/BqGJUWsgUfpQOSqLVXaVIWMoiBwO2CygN2xtjiVDyG8IMdH2vKL/xhslrzYNScE85RhVSaM6WGMtHVJB260fHFYpnqOZ774QlZYG7VdA1doDqA075VUWgU6EzEvgYr2x4GAcMgu0qW8L5noThnIjC4NlgwZJCB/sAdtTPSSSGNwCzaWSzokLd+Li8WlsOInzOwMucXdR8sd/KRRyP/wi2hDOUFLdwPAFH2SnIIBdAVcdnPM71QtNrkyzqm/cBeJbGgNlUSEUxsLXLx4M4O4WhvMpshnXKrUMB8ZQsZSpWdyBYmAGVbdR3RSSKDxyKFHH3o5UBPLeKovmakTNCAoYSrQKOAGSyPxOjwvlY9J3keKLrvb7h9nfRMmk7WCElHfxBnJBO2QdL8OaTgaLA0INmA7I4ShYLmHnOuVfpy/6Q3VPbs+DU01N/bFHRHXcecwuR6Qhuin3z2Lv4vm3NZpu9csFeGx2SqcnOi+lCZzHmSaMSoB2SUBAZDZA6352W+LxhyiZ8rxRiVsytv/LpJcHWVcsJZU+NJ5b9P/djlQOW4lXfYdBu5nEIE471qWuZwR2yTCPbRWVq0S9hGMYoWnO04zNNcSNa5unusorRCMy5VBM2hpsNsTZZTiTIR68JjOaJFddIiyhexuzLj34JfXnnDh+1rPQ36G2Sm9F1vPEoWTvvnBPABZLKtbulFcPb4aXAfswUl0SuFzcI6xkr4qitJEOV4Z0aPI+nokCZVp03J6PiJg4bUy9TlCQ88Ib6s1A0mA21gGZYXZkaWxI+Q57IkWv1ZDPm4F+giwX8INu3nucE2upwV3+7A7M1tr0lNUZh26OMhDh8Ieb7J8ECPXDeRE3ddMzSlTJ6i/OnbO+udVxJZnXJ27pygsi5fQ/DLy9vXHwXRgZIfvOSoiARLgMv2weQg448vDKCWbHcBC1Bx8G5BUH54x9tfxglUmB38l6o87iOK1xpCFT5CURwK4IiYHscs+ylNvbahfK8MMDMM41L/oj+AKepgvdKzNsgGgWC9qjAPI+zPTZF9re1bAT+RofQqTYYO130v4V29DnYM07qNAXrH3Be1sAo2ublpRbl4vZWaD2b72Y6aFyz1K1o0qpKAEkRppPRT/UykChauqUVAWNLI3auJhjkZvQbnGoDhKijBnUDmQToTsKL8hwXBYjliGYxFhivvrcb2MVoff3veBr/jKnmezChJDbN2hZ0mudFaxgPr5xSGixR4u2MYaDIzJDFmygrMB9XMU2nfZygFvV3iJSUXoow7J+RAO7Agzp5Lf1hjEqtgoOJiJHEpcsL/tEWvJ5kCBzE0+SdqoXENipEcJZPfF8giWEW8ZYXt1h9nLzklmuL9KFQCi0MxeUCI+YAH8G9J+iaLFQc/u63+azNFHA2qWTit40GUTRNi0pA5MQO1dsyOQ7bXX5pkX0mhBWBB+AXoKf2s33c4rzx/QW4icQNAcIUbhjQplcRjhi0eL9U9o4YtDV/tw8qLrd2CExGdfP56ayD3Z7aGdtj61WfcgmoyAYtxJhDnN3qCar2ZrgfcupVIR1ZSlza/RkJ8nGMPwSPAFPM4WsVIixXzdT6Y9gdEUdJIfuHViIhOtBT5c1tiL5EkZVIFzpK+ciWidnj/iZf9AVFgk7k8G7rgGUkXKR8cn5bRgkYI3Zm6dGJo8J1fIBVo+x3sFyz7aRnXXhGsw2H6PEmkEJI0DTKRATsT68fY8nP1fqFuozNyFzoDRtF2XwcpVqu2wJ5QnmukMO+fA88HX/N729YBztLyqUQ1ukGsC7C4tLNzU6oINE8te/GW+Q35ghsDkAHMQju64sDSsYq/VjkPF8t6IJMhWYE26B59Sc9XUHMeVgXomsOTe4LmVpDjXCL1rYj4ZbqKGsdKnMhEIDox+UwLr/o8HnW5flmDrl0lAg1GgxTQw08t8FL6mJp9o4LIXn8LhBXXIW01z/4P83m+EY+XldXQzxyzFnYJlI5ryM1bLuyRpNe2VL/cvDP3BVNoRq9uEtQP7DRpaNc6gSkKrrn27Iye9D5IPBhE+J3u2toShII1c2sVqpp+upBmWZGDa+UdOa7/aRG1vs7Vb8oOucP+++jL/CMBJ8gV7/pHtfE+6advfvsGYeYJj0f2lBUWE3BZBNwyRPtSoQmae2nkf0foyFNZ6ktXEN8RtIzgQ/QFJFfxApxdoDI4dRwbxPXZk6+70CCjwRQvCgSXLjwUIfnovN06QiCYWcK0kAAA3my1mSXzLSp2P0st0ZH5R+T5WHIMyCpGBivhrKZVzYnxlAfuTqQU9lHxZqRdAETYRHwuvxkfvW6koc301p5q33IWVZF9N7g/HXnGoUj+uRAG8qWuTg45vkMktul1A7gkKAOjIciX9vuhfXG3PcPtBGDL6LK0YsJ39ntNk0HITvrf9tICFLegu166IZBv+ZpYnn89Z6m8XVXSTXASfoSZwOUAIpAF36Skz/RxUBp7sF7RumTZa7zUHZQwdW3l3zghDBHlEz48mN1nYRphXSI9a+Cb9pPQXwQFzfs4AAac67YlMMxZeIuJNL5TlY21kWteaa/CI8bDZGSstQiB/e4IOIwU/FXr5zaU1iiG2QSnq4D3C0TE5YVwNzzxn59jk8Yv25IIeVPRN4hcmUbg73NfzO7DwrKYpkx1b2sQ7eZlTIfdg6VosLzpZxKJJVkVJybF/WMJ52g2lRvTsI5meRrUg2B5LYMEBxcLhlyncViDU78OqP4yV2H1/xhGUacHEghd29Twg3YeCrbk9+3EfOnd6Uc0cJLaZzdMFuu8z6q+hTmvNXD+i706a5nXdaF6LhnNOIrTx1B/Acb7nAkF49sH0x0mmBD9O0w4b8g5AcZYOin9sHtkwy+e7HCmOGaI7/QeFgI2BWuX3NZXVkUAHK0cOsRdXpioLi2dboMEYpKnq+2lTHDUvVtQVlCYQwyHVLejFLe4x1FKC/DZu1UyMF8/50Rmp2yvcAZ/Ivsff3wejT42S//+wGcbDUy5qLZhOEpMuLZDtrtXRMg/6dyB0u3T/1d5csJGRErGaVy/Nb+iau9b8yvJ2KPdCBvokqShme4R3igskehvv18sFiK1B+Onit0sM1pNnIAALUwATiq5tNXg6rjeqQCFwJRtncS7LXoaBhcNptSrEkrG2oQgdAeEXij5fsH+0dlZGylsEA1OpmPmw2Gemst+wxSEe2yCTTXn9Qk4kg1xyOGHU8cnrjtb0P2iooPdYy0Zwa2wjakgBQbNam6bjQ1TdoK0TtPVbZlOb0qtFOB4TXC7lzsHEuVg4CZbMR3GB2zNs3ZQypcGf6nLxKDa9XlD4U4GNPUNquaGyryaz0lb38me580hp4lowGNOFnnzh6Fvs5YKKXFz4tKJHBoH+1TehWLqwCUfHdjp+/4DGZ0eqR4nMlS10CMxqR80FUYZJ2mDYwOv3z59g5hArFiTGfOS4wvkKwmuOV//fzrYICSNuw97wCSA9u6YHEnJksium61ZpFqRj9tp4fqr9mwbA3aT1RMQeJbQqX9DES3s8fNhdG5S8gc8GK7fKPiaRh11y8CIWFSbghga/fkEzF181ANLVMNiFQQNnNRUUxEDRZtmdE+dQAfMjxEOZ/QkzLB6U8YpQXiZtPvaDXaYzDBEud+zDI6YhUUWV0YTGqBI8wZkcrWsvMhk20ASvHa5SqolGRwgfzY/bowLAqdFirPh/SdxvLMfpr1X84toOH76req/Qwq8sGAAbMVmztz3fGL6YPViZSThAclgbLDxCf5UM2WRzBVAtV7lZAX84BHDBrnnBcsBVenYcJ2PWMsGT63anqifEI2HiUY21o8ysWXvru9aHhU/2zR4L9DdHevcIPfGBzFmXBaAnupR1JhzsHkDLjdn6tms5kK+CkeaGIY/qOVq+mVsKVt3iRIMLq4bJODdf9Ztbkhuu4gMhpbkOVwrzk2DaE9WTjF3r6vTy/j2Unj+mPaaxcj1OauaqmQCYN/Ae3FjesrkvmYScHf8Ch5OyStGnlibvtMt8cQ7RpMYvhdrRoW+A5yE0D558ubXn/BAi5PRIExqXgln272cE2pwSqa/VBQmMaCJoq//1Hz+zB6AiRcR3RlrRT/Wj7soB9XU9YxczNFNB+t50546dNbLGJF9eqg1Q+4j94LwWkDcjEJN1UNSmjrCbKNlP/ci/MaZOPtAa7X7dhfqAysA0fC4oyvo9LINbai0yYhpvYMbjB8DEn5dnZgRD/PDU0lbbaTeNbKOBhgsaILHax+/PqBwnwEf8yFuVpjmXpJZAVZt11HqpYKS2qKPNNjH0G1HNaFT6vBoE1zssDYzPqwQiUsP901mtJaNMTh+vLQqps4F7BPvhidI5l9sfcMi/sBZx+/yhznOh39+Jcy8Xc4yD2J2+nLh4LD+CqKQMmdAy4Pehn8NisaVHUhT2wAMbdAOnYIK0oOoBOmqXBG/QyIHQ6Ku1HcqIc4PuCwDSYpzXQKaVfNc7kgUniYUiFdVhPQG63W5/pQGk6zCVhUt1rmfXGw8oW9TJPq5CJWvqwav2FzsGBr5NQqlpua2iKmBlCs9GRrYE2ONhSANO93jKwZgSwm50pW0G1YiVmJV/bbTO0brEJk00wRvn8u8RorFeRfm2x/GTYDoirZsfFD29szRWQhkkFkdG0Jvl7lSVTbgshHeg1EsV5EwiHnMUlSU8GYv8tG3n+Y4kppRqoGLWycR6WXR4OEeSCzNFv4WeTo+gOHnHov+jhATIDlQKQ6h15K29Aj8+bTYgDDcnFWCc1VnLv1FJbii8j4H0NSsH20vTw9ppccwvp1AeJbN1H7fqUfPiDYbtWA3OgJRg1Bs5fVlizonAi1BDthDm+G6vYC5A84aWGfvZaTCorOsw4+2rv7Zw6iTy07aEbSMqroVo9D5O5Gbmq6PZyp7uHj9CFOis09Yv3u7nbXVivbUhpep65KOVKXw+hrr1KInWe3b6p5iuBqFL7uh+bWfCqwFTVNsmbNUq34mapYWGoS9lA7M8pkzWFIB0PDreNZbV8N4KsPiogWbKaFvXBdjrGJv8b5UWo2+U8JSl7Kj1j+IZNbhaA76aaZ2H0huU7+s4QUFWJQ++qdxsqYIrHkvHghGX5sShqyxeqJIvAeWYfW3LA/DS/ThqW+mqAhdl/AlMMdMq9OzfaqLgyAc3S3WXmH1cZB/sOUp6C/36B2z2LtD3K7wl53NPwy6apOLFMulr/bDlWkgZpKJxEaVwcBjXN7U+zMxMmMArLY+wajyH4EziPy/uRke08R829VlQTfY6AkVT7MBLuPATYL6L45q62sTbU9/R+iy7Shp0PPYGfblAijohPiZiC86CFOsVpqo+wzqezGQ1sFsZbH4mrO7HGHuBJVn1nWFbevLsaKOboi7OWPyE8+CRAImvaKOfY1IesjAzRD5pNqhFEIaawJa1eUJ2q2ugHgGATlmc0OpucsA6yGpgvkxgCz3h4ETleMwGziTgh3XIEjk5XZY7Sj0eFTB+4JaKmIB7Y+hm61VwCaebD/1tGkE8t1UEMK4iCRiu2seu/CBhxmHtTQHodOdF2fyNfAJVXACOBo+jY46qvzxhj/YbhfHmwKCdz13QmSuju2wjKtjAZLfgtci08BNu0pflZKFDAA/XVKJxFcKzqitTlnwHLHYj4J72VzFwm1STJ5rWNJIB8FrvdkLMWI1AHxcA3/ag+ZywBz1ukztEc0Ki93zQ4eCvfzbOiXxBQXOs6yM+3ABwZ0Svl3TOP2pqMVKFKUuNBsp+6vaU2TZosiQqGYRmZ9oJpiOJsvrhrVfKo6ImBs5Uv6p+fVH6SGxZn6DakpUR9hE3EJjViJTOzF2Gnn4217rKxL1hCqA0bKOTu7dyntEao3JVFr34MlGRye5ox+0AbJbGH19h7wYUYkCnDLUQCjb9Z6gmXuVCtbf2rQodjRO3I8kaLqCOTfIcIwF88i329uv4oI+mYa8JTgBhtvS00SrMm+vysUras25+9FV1tLvcX8peNuFacHWazXMevKn1s6ScFjGtenUV/3U5AYJ5/tDCmS0oatrJhl5RxPTyKL8QcUeO7u9KKHVIMicbo8wWldDiqdKvqNiZ12c6WQnuWgO1xWE5u16hOjHlWYs5CwFpv4BIRHpt6HMEwV5qUaXyhPks8BL6H3c9yn3H9KJjXm3ZtLzT3/ofibyPtNwhm4G+iICnds50HAd0QVGGBc+L+EXmba5EoR6vjAVcVviuIUZLw9h01a05Mjl/YjAniHAIJWOKddToxji7RLg77SG5Gr3VNm2lWrElPFH6GtVwoHVjbDeY+2Bf/1WQarDCoTN3+XJvrYDAqN7r2S2ZjEvX+glJqWUnC+Ys670Hj0yMNGyqecunoDo84FudLDr6hjifmwoLiP4RQnxLNVRqSIbvnhh6YxRNkReMMW3jOCwzPCuyqBpTnNU/7sqsKhzQhRO0eFNKbiiNNj+spQBzbUjRSxDsSifEmGdtTmLBEYFzbR0MKYhN2J4YlWWEOKKHyaufC6dDooFRWuKrTuvgKnqBP1KOdH5HmJtuK5Z5A9QNpGO30ZU7j7jilPIRiRhbq7XWGyyaMenBlF4xYT0ByrJnNJle5mIFT49d88trnz0uPh8Em0SL5ztrLXRVZoDo1UD6DLohwAlfvIKf0m5mWEOPxs6xN0evLhi4I7xW3S0b8RVQOvdTUDVjlBzC4H3AunJgig0se4nbL9YoOkG8QkE4hjYYGikfltXWy2TPaPCwqvIx3jUnMokdWe8Q1p444ZZgGmd+NLnPpZ8NqQoIcuPSE2UAcpdozxM2XTnitSNjv4sOeqmr/DThhuomiVQXoNHV2/i322nalX0uOgAuDxRtdOSm0pwO7nG5L27aK+/vj+ua/EjNh8F9LJ8Q7kUdhV8sg6Vk+0uprRJJ3CDmhds/DIc7mmXqMqc5TuDZqZ1AdjItcUAlRQpwlbG28Q56cPsfV4XJOkUv7xaAms0xA/8DyjyKI/+k4hraI/iwExjKqpH4d0CjHsbwu0H5zEJCWmh+4fWxqZydIaxHNwUUQzNi3hgAjINarWflG5uVxF7YgwAAaL6tHfK1dNTbx7k8eCu3X+Pc5kQAq/VSeJK7zWm87KwlUDlzNJX8Ch8UxGPC98nCDfUWsS+V0uRFN3iGsRsWJIljJTLxaHFTHSbmW4ZV89vLVbFjl9rYthHZQ83f4i6L4zeF/apLW4gO2vofqX8cmz650rQFBMSeyX/sbIkPjSd92ezh4KOlqSEELjcVEgDib8EPiiWWiCEGV+9a9F/h7W/uxV/LwhcsMbqKvBRsd3cTf5vVPgVb9AKmvDXLiQWteEbj/UGH4qyFiUW1HQc0FNuUURuQRbsQkWPYMckhzRDFAy4x9DS25v7Oj60uCZQW3Z4BNNjEHXpKU9I3DlH03BpWkezyfmI4rwMs5g4jTt/bbRCuYokcpi+B1uxpqBBx8+lYYYx2zPlelEMx6jTc6P0fqRyz4GjlaXgtl911CNfNOJq1RpxQQHTpbPy0Y4O4qR9QgH4zcXvbLYORX4CEVnf5KplUJOslhwhWsjWroTgaLcsSZl7z/WrHPN+PvYxRULzRGnbS1O1W1oQ0C/IF+GetYMj9HTuFLRM7pjdg6hNCDCiFjIE1moUYzPzM+r5r3eyfW9p9hVgRW9NVVcfCTPaWOyVXMSPUjrzccC6Ct67B/HROl3A1Kz3pdvBdHF0ZaWTTXlba5ucva6Kbos0/lXlibhTThy66/s+GpEXwd/vViYKkdmCtOeR2LjsbHBOEcL+l3Up/sPmX7NMRL4TUF7tYiX8lgcI1VJDi0S7x0SMlHRwc6TmzjUsoKewPmpz+5l7PN8+KKjqcFwIjeLFBu6FKRSN7jt0IDsfCndgPhc+O70Ti1N7hdMEUo1edxfBMtyjDh5AU7D6EPE8du9huiWYYMrI3EVaZX7+RdYFLmFZc7v7BTQgvtxHYvofIr9L5lnp2Xuf29b0rHR3k1haBDgD2OjmEHgjBPGaAV4sal5L500J36xnaGvdnXOOrd90/xU8Jr6F1tBivYR6tKD9pBotlwut6xfDETYO5nZoF8SaFppYywbxSE04IheNzpZEOjpIzDwrsL82ldQgGy+w1kZ9v45DDxIrb+dbK5RI6zFpFHe9hjBzPdO770W31WiGuG/C/ogkUt9YMtei0TUhXPE0qr+q9fTMz6HA2XylPGA4A73+sriMT9zN7MRh8C78q07uVDmUw+TGPHk5cHIx4x4TUuAwRygm9EG52bNAKncs16D282MAMDn6eFYgcmhJjgDeBhyqjXlk48qaW0LdABz3D4UquhCof4pR+OWQ0JBz7BiiJcUAllV033gHElq48vtlYEe1VC7rBZAo2dO0R56S42Jp197THmKK8XJp4CSNmTGKzbu34veK+BYF4s76rLR8QSrVrFQnjMKepmCecM0STwUiam80XoqzJPz+yYxWsNQjcLoviZWwcwApK0MpXIRcnOmMrOI2JQu155p+XUwvst7n6C21VVGt7Qn0EAwfCZs3zlauaXCGTN5rcOs6cSX/PvWjVn7yff+zbBHUdyO7mVN0p9diRaG50goxj0lhlV4gl9ditSSX7If9uRzgv5GacrXaykJIY1zEbUloGU0Z/18bLrfoD6mmXSjxS+IHvOykKFnQs8IenlajO35paH/Ls5mcZiH+N9mwQerADR4msX1Or8DE6LegOZNnBpJQsMsA4r28o9QpaEbUcW8SjfoFDsEtpQFuKXCxmhLcX3KDm7HS1hvfbUD0qh+XgNh7sYCDVdcZOhiqNDqcToiImUraBBvm575KBlst6XWk9nFJdjnOKSrstr2bpUVzjOP3k7+Rh+M5iZL0AM45eZVqGsS8Z5+Mht9Yu8d/XkQJKaEVAskFSz4vvF2Ny2vryVRBz+WT4hCympxRzgLamIzCJ39D8lOAhp2TJWunk5Z3ZZQvPNCVVe3K0KtcYZswfX+yO3rsWAGq+jruhJ/4L2Mu5iwjqKSao5yNoBr0amz+bfD/YvGtI4RJsran41L/aIZ4ktUtvOUOVIUTuZ+C6mTG1VM6czsYuvgKF5tBio2D9fpVaGoC9wO6hM5351+YY5pQM/SZ4f/FfluwHsjBb/W/yw0fcAI098eERCBlTgBszfrEOlPpUdX/HhBeesHO1XN0K7iU87fSS59ol1+6NPD+2BxdF3FFJ7bbP5KHXqhTfcHst/Qt6UwjoOFu7Yi8StrITNtD7pDJdpDKQp0hQJmdGUHUi7fvdjR6mpZCUHJLcDOrJKJkVgjzjfopd8i8KWWsQe2eSNw6GEQdjYaKplVzrlLukujHGjJs51aSeTS2Y4HQC5x3f0d4OZI/3JfMjaOO+0SA4ZUoGZz7dV1kSckcp8FV7apLh+lwl8m/O4yI/tP3MFXxyaOyGAT1bxbXoeltRgAs2esLXUoXOUt69gLUygmMxah/fTs6vDBJ9pwkI+okiGfjoJCR0f3xrySLF5F+muSUC1rye5aPYkX4xhVkDpJY7nKWzDdBgrsDRNPuW+FntS3j77ZGGxXJ+HIhu1HAwKOXissuHRPVul7xFdukDHJBdLWtUF3D3S8N+o7vqEu98KuXhe9efexI6+4NxTXJ4FK/0+08EDageBNGtIMObOAnPOKmc8Ma2fDomUksCE5ubXoL90I034sBqyGWG5ifSQxp8lCLu6eqgBZIzqxH94MapR0eouHETSUyAp5bkXDbrBW71kSZOQnAcLq5dUg9HjR4c2W3P8dxbamb2V4JloDSEjkJatEwSGSPv171TF0T0cmfIDRhl7YkVPoaxpq9U1A2Uo7xAHNBhElKBlkQ6dGj9sp1JYufyuWOX98yz1BvavRp4mnRL5nciMTENNQlVmkjq+H1uelWFizUtmSJTQcrd/w8hPirpK74aMf660Ria0I5Wu+f5EA5PcYFrKTOmzyeiAWOeWfVWIVOY3akstnWF9RIhnZrXWIOIb+H+y5CGzfCCFVB1twVXurY2pRhZiWpM4WuN7b9Pp/F1hl2CoyKx68//SqBpBs0rl3NEMylaQJeKHYFZYHwBJV7WYmQ7gQtnF39aWr3CXgeXFKvgRt3OzJtccSsJILjMl9VTyAEmA4HZ+DofvXCE09uKLQ9EEIgal01e7vWUpm3TveGNJPXG4zI3awpHtNbDdoyLq7Q6b4yykg8+vlF4cCDh3aJZ/NEsN2jfpCQE+xV3Q6/9ZdeKIT33wfT6M2v1O0WFBBUT0zsktyx+/YWilEom6kiK+XTU6mRayJ6x2mNvhaw3VckulT6JlkBBa7Q1d+MlxGjwDLidaN/vfw9bIRmUYdXlaea4LlStEqWrUtZ1XHZjHsHk91FkoCuoPirrV3cQOa/qlnBBMji9Nb5vSjajfHS2wYIBfq2GUpLSpuN2Csu8oQpojEA66M533OMuOa/eap71Y0IAXRe4JvBvTKaYO+wogRNoIvSDmf3x7sRDyr9o127AEXTSn3J6UVA9Npm4mek9Cs/iYhaf7rP1BoPtcBby+/SEmr1WhmB+XT01uWOp59HPhy8ay7OV3xXufKjBatWaBLznNzZXTSwsdz9BFWC5JNNgoEeA6vrBpqy8L9qB+rgNfy5zBagMFh+eEp54gn/SOMxxyXSOWiffjx4B+jHL34X4gJCKATRlJMZGIg9Dhh2ZFAyvCqWrzjQz72CXX/mKMpryKxTqUsw+q2TAXox+bb220pvHiinq4P1J4HRqjejl/XkUx/4rdTfFVQm6bvdlGCUVD1wn1EytmrhHy2O6Pq8Vll2KcHQvniY38byYXYizseabo66vf0OI3fE1ApamRjQgWuBV4u1Wxqx34nkCXExUP6f2SAcGCjQ4tlFjv0/fM+DbaQn8L8EINjIUnNnGGRVmx2HD4RJNvp5QP/mhDtAp96Zm1ouhQ4458vy5d+lBq7gGJK75N4FbK2d0CsbSpdCv3rJuaHp3x13nDPW1xJfFb9rU2sEzZI8cVCpj0HiKkxvYoR3HFCJtAw1SmyzkKMoGJichUgwwU0HTE1hCE/u+BUNBVzXCYMvToK87051ezx/hihnitDAJTllBbIusjGX2SbtQm+OrnTnJxJq75z5OotkTlesAHWYI10xqctxxR1aCNQMaT8x7+DJUvfOvn/YiyJ68u8SR6FrtBLFxHJb7H5/xr2jjwpI/81rJvsbG5V8HH6uRXp3yiPSscaW8Fhj+G8Z2MnpcIF4cRWPiMMfcmWLt/bxeJfGMXd45gA0W7Swei/qdPYEKSHylIASAfGMRtDxJKJlTGanma0/xYoQP2q6/GZf/goXpv5+w3IFtg1LwtkQlDSUwCc1wwwvUlDXbkAuLeWVGTDLoAN4uVsjSXVfZQDHY4y9moSPwR+ut/kFx5jqf+MizSwPj5aet5ZdmnVtpkzmmg6o3K/rT8OcSVeYB/I1pFQchSIZ4LgOwPQpLAMK1BD+LRbdK5YUQ/cHlCTnSHB8dm46okjEIpemmxPtcOBmze49ezCXLeu8sQW2RgX8ZAMIhH4vFDNgs5BgUogmKNBcdqedCSGepacsEb8lUq04bdV4y2qmqtGXHu7+FtoAUDB3vbi93Aj0jviRUZJrAubMnHZwWB1VArQSGe4Dm3kxzGp3xW8YIt826CUgFiqeBYnlJf0KJTawjTs7qtSTQY4B7qW1bf87i+uHI28IiESF3gTMFEjwkIyxMPV6nGGOhHybanbyq+o9dnkFNzdJqQuIVFkCrsNKJFJgIWQ/q22sCatbUYl4klEZ7vdqHj0wSd4p22jOKXUO054YsLwTpZ53YXeEsYJC2oG9tyFiLxPEPsD0OvbYhNDVrDFPsqh5UJFK7AV9PSrBJx/COghx5F1zgSdIBT5IcbariAHnMtioPvFY3jvWuoSGWhA0ARIp8WUoF9QssMG5GOw0xoCT+AHfDApUJu7Kk5BJ6/jBntp349raylrXNlxxPtGP1pXdHdUCmQLZSv75394mF8ZPueMh4iHDrQGRiaeTX2JyoCxN9EMIj/O95IvBgROoeGLogd0rVDy5LWwwi8l0nTfJcfUVOJfS8jBveCDQzTHapxLQZ8zDTECGUifIqItmvKM6OUgDUIVNjl7uhVNe7YqIqKg4IBHRblqMdP7H21IwktZBRusU03FmgWJiuhNbEKuC+fi3BtQihHsXqLRxKol+VbQDYpujU5V+Wa7b+jLd4LwtY04VgLg57NfnMSqvZU48oFXwCkTal0xFp0wLOzoLCLbggJ6wSK4zON/8n79GjKxf2gG5yBy+cWE0Xol6qDtXPyCgfP94W5EPr01CyQSoMrSPoe6GkQUc2XdqII/S/u1wuUgkRmUCqn3jEIBdd/DBnrmxdVDdYFWPdstGdiQZ4w5ERcvEnC8Ww5Dq+jt/4JdE1KnGDiO8yi/xfpZ/UiGKF6h+zwURSUtE1+yCsnLs7o1mcOTK63/y6c3SminG12Uxj004yJxPTE++K+TVIESJyroYKu6BryLG5Fm1JG0gM07qkRQenKktG7Bv4GUwbawCBwmrHZw54I6rp/P8//fEFddDDSAgUG8sniKdg1YffSZhrYQ5x58kykYejCzTRTpeJtQLuaieqnPX06DNbgsL4BnC7i4TRvNbd4Uax8wlPlnP8PdvKYzyycwjkHJ44hdMNasgxiPsH5K+SHXBX1ZX0kRxHnAxighMmUaPKnCn5p+jSBg2Bw0og/iMImvX2VndPHOrlxDm47OxP4sHyiq1k5DCgd/4a/0CkrYZNuulAQUqiP3S5GTwOGQ8V/m3IxZMeVhF3jJKI/hCqu7jhU8VZiGHW3/PGIUNCcMd9SO19jVEGx5oQu2ocRHI+1QzbergmzLXawL2Br/TOFGdwwg5dZSyM8SmDzWe5S3USCLN3YW+9LiUBsGhBVA8mMAroRSWIEeYTfG2XOdebrsj9oYKiAlVi0kHuGyTJ7npVzZiGXGQrrAwVDWxuYk3UB509l2R/c/UYy9ESi24bl7Q9y6iqR+rKaUr7U71r1J5mNU5I2mJcmjXdDnPqU1Gf7a6Fnr10qLes0WnoUXwNcH77DsZmiu/bRskBnw8w6ZZmif1trO5D6n7NbER6ybeUT/UrPwoz6BQIakgi2nzmUEapxikmxLeP3l6kdXAvAEtJprZuONRe8dY5seO1iGEJBn9e8tay2tzmvEf32cUlgwEiMAs83PE7Wx8QdbSLH4UUcP0K7jmBZCsjWCx7Kg+VisIaJJDyVC1gKEpw3lpwIz0Ai0OXL+UmJUn569UqvvJm+MOL8NcD3D6VAP2wFOT4H3oNbIsqyvUcaWnA7gBndTv1Qg7BXnTgvpk0uMH/ttmEaiiI0WGz9vGZUWWTfcPxPxVo2tyTzjr6f7A8lA+xNlN4Pudp7AbmZP7AY3IU+vb1bnavA/+uycHWFljjDyZ+C6fKTI9nbR5d1QBKlMPcabA1z29fwgnFp1wdK7muzvw7P9Ke8EGTcH/3VX/cWv+Bo2y3GF5POwiges8vXp6JjimhncO56rSSpekAG/zDM690CIVVLN1LbHhikkaXto/29ZnC7HMLpIH6xdHbfrUQbhOR1sZD5pkw59FuCVaSx1/6V7bCKMt3pW4RJVxTQ+cpbgN53ti3mvCrnJGTHKxk6Zk3gGfkWiEcQr4GFZmH3Bbs26gssdAK91Tg8lNVBNOCHwIKlyB1VhcodGt6OWim+RtzUV0Wim+qIisKKve6e8jH8g6XtIdqWv6gjngtSj9ETrKP8Dotzc18j+7KJUuIalZ3RuWiWhc57oItBxO3/YZwijKzIeTogvIZfiFZYHN66moLpX2Zo0qW1zID5reY4jNE/VEhO6mCu/FleE6g+Ebs1ICVP62OGjzo1aGttoqDMIJ23locdYMFypHg7t9E9af8u1VIEXMxUr1+oZWv2L1CTV2EX8sw2fQlMZy0UMYu36GVBBJMUzv7avMWZvzLF4lh6vRgE7SOKOEYkYgagL1dHQBdcJ2OkjO81o3zeBpBrhlQbVhsaxHyRTrl1/n0aDSF8gGllKyE/nymgdwyxwnrL6iwlSm5Gdm8MnbC1pXqugrFtO7+YpdthJ2/2i+zZ++I980w9bWV3ud6OR3C/25jEw3JJb0xRQU4UhMHD9zHJreGp893yFuIMeqnc/zGaoTrS7ALtC/veoiUi1WiPswEYltI5TaVtrkTov0ag9gcZGh+JKGClbrVT8dhlCgMt4OykL25az//vAv/y7ZDFg+GbR0QsGMwJerzRSQgpEHDn556J2jlz7zquZCqJZUkwtWee9ANegwaEzbGXJ44s1ws4uyaxmKgtQaH63VgDAnUqgG7Wx///md9xmOOo88K5pc2dHIKWrFB8TpzOMDBPZiX1B6GYQY03OiusQEu5MJMYQz7fxgqjVdLwZ6VYIDtu2KsJ+yHtXFNddpOQjAvLvEgZUnxH0by3L6BfxF5yqosc+AWygxx4LFUbLLPeGpZ3n9NupABenktAP32y8FLPUB7Lnwx4pCRZ9VulIrH77etuY9dLvQakuuIQhQtDj9n35tD0FaMCInkWcRCxemI6DWbkj4Ia/5GJ4LN7jpgVohrODP91uG0xe8kiAy8YTNgMHLuwm+QSDZvnlYCpgguqo9anl2gV4X12zNU2p5sml9HIhbrEgnC6opNCxovKkHJk0aFL41c81JIUAU7V1lssy2Fer8h88qUx00utmw1SzHl7hRipyPE0WavLPfLjKXeA2h01ze5iV4cExIhIWC57Z6FPNsg2XOtJtSvjVbfXCtb1R3wCYYa+NRY9kchIxmn8SWH6QdG8FcseB99xtTWbMWUboGSfpc8yVMFMrGCNR36m/bAoNDcihRsELY3F9GIs9Lb0mQgLBeMJqN7sMKsWwt6jfGa30MUK/L7jgphQtxj9nLXjLkvU+6vYCeGKIIcSogBn+mXc/Nl/w61g0bkor1qdYPF75NPBXK4hIDjyfy6PWvUe25PORunxbziuuVP8rUmnB2GY55UIhqKQ9wzGZ7aQTFh/HPGPD8YNBVi0CtHEnGN53ONTqmd/oSgiovQDVxHRgiuCMshV3N/wVXXWqEcyXweJW6d8Cq0OFOCDoJzl/WTN0jsfQy5eXEbVS6s/MNBCxloXxLuxOQ2pNcvyL2hyWh5uNUxXh97NIaEpiEWawR8X0LuD1Xy08OO0R8fIqvVNIR51VpLgZpJbirpZMgfMcxuUFIto2f0JsoQueoyqyy9I67x4FgY35jc4SwjjdxRf3PA6SqIlnmuSrXpip616PNtJJNyz4sgnydtPUgjt+ijlPYBNsBbtBX59M4bZgvcZ3zBgfR2cp/Fmw/2mq/Iv4y3EXCs+S2FfBynyx8KFcBt+LtvUhM1i9qm9pg/WaN5ggW7erSMktPE1lyFOkIVwGNGJd8jaKenjVM1bU1z0mR1KzbMakhmyJb97CA3cp+UZ44DKnYlDEdLjG3olUsvVxfWxJHKCPN+UpVUZmiJzp5oS8Kqi1IrSR8q341C7old5TbzQkg2rJlxqFynOYpeC1bhJ9KJWNy2hFcILPCSK/je0L6mPj/4d/qj/enqjemDgPPNJVRmnB1stft9cu8YyXFsK/7iJfuqzH5jFH/F4Kor3KwnS7elhy8mcZETlpOUWPE5WlC+u3kef4ug3IoNkZq67F7Ktp5LjuDg0LPWjwZ5UzDzajtBESL0aUe5zyeZ2ZK0ft6gRQG2SgcWpOxof8QQ0PR16XbYtcJgW9OURTmqNCifuc/L9zYKLbiVhmb0kRmwvqqT4UzP+HJK3SYGBZ4ymu8xmG2woc7FyBnni6eXM1Dff04v3vWS5yxePdXFg4b6A5YsPL14zd5vYpc5jvxRMr1E2PVSjFI6NHxMGSOINFSgrh4Q4Bo4g8IrsyZkCMDNtvSz/cZ+OldJaey7BKcYVx6q+p9sUElMUgHAnGvGyWJE+BNk4BIpCK1RU86h1f8/gyy7XFNhpktUINtmFE6/N1aQBQ6+QxhOx/zNdHTkFa4mcXEnBW/ezMoSqfEGO+mavlMcwAW1YN0clR0BSYfQSS9jdCk/AYchYphy0w98G/QKaODEHKBSVrU4k+S3qdyt4wlol23yZC36mpADKPpnXHiXhecMw99i3BHnKma4Qpghl6lMeDiQnmpH01dczvsp17JJiSf22VVxwPfRyNrzfltHEvQQYh8+h2Qmz0XLns64FwF7u5TXarIUAWlcKmQlYzKVl1v6//z0HiFrxA8Acor2uKZKZ3ubiPAl4u1aDbVY4XoPJOKt52LpO0ne6rqVJa0T+Gwc5L2MJIrgusihkeIzcCbOKswx5n/C9B6ZjlvL1jEEPMAz3Gv/eUHvBZbyeUpS5dMgaeHlklneXh+d9vyoBIsdTOCkSVcsqWNn0BFR2Haa80U5hWB9mO0FhTkkITJAG7gpicr5Dj4jTeC3qHjqxQGcXfmlAb8qBEJFZbClj5OTvhnDnQorFbtKEIDTdRp0t3Urjm/i4AIdUdSTtmbhHF0uCtbUcGfAAbugTmiNFnQFu8YSciTCHDaN7Dg5ZrLWMpY/cWTA+Wj0b7gcvMEB6guAKOFIgGC31XceDKjSzdZKOoMMDAZeLi6wrz9WACh+8SgCjJrSIpiN+EXU9n6w2KG/Sk4YIb3PYLVdhitIO/KkT3k2Q7hKZgKswhGHQR0XfKC1RIYaoA5UIX4s/axGbEwav/4840ZOH94GnnF30TCkKJR8JcThmcUvubStlxG36B1HWggKnav1rE3qy0IL7cNiyrUCcTOKgK67SXhcXTGkoPurXxNxIggGm1gOWTKrDlsuSd1g66+UsaFfvS59KdWeemORxYsgjmIFwNU6lfgLBWyKIkES5wugX5NkfXKD1YAl4O/o5F8iLmpEbGV770WZLTuRoBrihvruRzb5xBJtdvuRKCOOqyNWBrpU+LLvC0hrcd/TQ/VaWXSFKhwhDL0QdCowWbAI2mb80YmZSUbQpTZ42sh5aO/kl2HGUbYhPXU7qfZX2eyP/iWbnkPrRfKgRD4k7dB/NGIhxu30roTSsv0X894JDsP0xUZaWMzLU4VZSDioYt2MS1GLfUA5AvpqgBFBNBtcFvlRAMWpQDyMBa2GqNuRUc46bA3RfVtJWubk9xb/ZAbVWBqHDvDonl8e5/sRmtPmAOpjr7TGkqzi39liHw+7A2sg1tXAfvV4nHakedhVFhjgM5j6zLQZMW+CZS5Yqg7PKAsjVg6AZbATKBJm6E/Re+NimcVgImVusagcBva7fbVCsgpHlvRDu0kuATplS7BhRol0/PKaG8RHqbyhtUF0q0stnUZvDFopB1BSuXDDMZ6LmKbpgPGeGctkjpWML1kxZJUlaqXAp3CPEUnsm83hjJWELfLzdNVmW8PLaTZiFsOVpP+pi8xagHI5yWM4G6bM0OOOCVFORkzAxFHb44JjchDW590jgaWzImXAt9N+vjdvAlv3VV8q0vERNkdUkGgghw/V2x5HuxrGAYtsv6X8g5gBVhrjugvgFq9f5RkTcIiXiKpVGIxnhaYY1LQYdNRvg/ScoDuVJArwjRJ8pBCRChDMeLvQfksi3Zg6sGJEjp3SpCzFcYhPi9HPU7qojrM4nKf/u5M9eRcG/H/yGCL5jf2CwlavCjQoneacFcUVMM2xDIErtkHC/EvHqCmiOCM6SokkIclGe+ljrFOrCsn/eZu62gKD2til+0mFe1U11V+QEXLsj7D9u2FwlKyczInBkIzsNxweB8x0oNBuvyUQ+Jbn4kE3f1JX9I92slzh99jEmUM01ssNWq77HlKFYCqxr62WDVKRpelmXOoi4SF94NxmUfbiuSr2FqQiCWSyP5b21IdPoYV75j58FKtbgQZU6V+k+VSontPhsbsSDTtFKflZzh3oM1cV70VmBziTC8bjwpxumL3uFaV+d/z13QvoSrUtAFpbBtiaYnsb35dk15WTCisbg16rSwdNyzhuRah6/ixYH0JyI+QD7RqBms1rm14DRKnCsu8reUTZ9YJOY5/E6b4wn3n7admHjF+Rw3pSDkCCzVCCkPdH6UtSmlpx30LqaqRiUZmYobV4j+au20QnaQ6pjZ2F2Xb2Dw3mGHnT3wRssr3pPdGWpIDj6XAK3+UxdrB5fw85gm79SA19/y7dWifwzvqBycnomprltfrDCG5RJG9YHTIe15D7BzPxi9bf3N+wDFoDuQlkePB1TD293fE1kZ7vjZzEpLuqdBYCJAe6fV7RYf12YuCprq3JInd5aKR7Jc6sEfB5ifBisbyOyaGnNAyPdBjxXLzwfrHaa6Wqi7IIXE9uXlkUNtvgQR4cepWctb8d5V5tny495lQxfoJ82XBGQIv/FbUJwcNHm8FONYx9Dc6c5h9hGWPGVxJqrYsGSqvpFMwfv2WUdE55pvEG2PzyqLXCh5KNv/feJVlpn8I6OYVpgaGm+sczLqHDxdi20Ub4RE/25SkfZB22Hes5vGvKqMiGyCvljHa1lX3m0pXsm+/D+Bo8tV9p2WETsWbwRM7krhfznItz67coaVokBKZSN/r7SF5jWwMCxB/fyf++LhAKkwau64Cmt8tvtHV+RreOqGDNRK/AxHoJLDR06EeYrYd1O9I998dVDdwv4xlcB1NrahGBEjRLHsgoTUMuhY0ySp0QeWljnEgOFvAfNlZk9DrGPF7lbQedtJc3XBrK+svGzS6SBpBRACj6GKiar0+pYIRnFVv1qPgv0KnFnMp9LD/qllJN4YKN97+FhJHNTazPuGkYOsJSdr8yxM5Tthf795bo5eyYLe8eMblMa0cym3oqLOZuy4J3ZVOZllnGKhhu1SCph35N2f21//R2DZwJsELxDMlWAdqml1Tpq5B5DrN0/9vF53l55HkSGAqngZcowglq/8mZdVLuGLpXLXq7Dzo+X8nM/lzTHA7+oRJXcXuNknTdrJe2emWi+VNlJZt5i/AJdrF8dMhLE0sZP7xBB+Io0xLunMoWzRht49XJZjwTiP/J2kHnp+NeOC++g8HWVwa0DsdMf4SxaUsDZwwITihkGNdYUUlCA2a3uO1BJgVCYBYWNNa7fR7gYmh5pnKeTyXtpaGMhtm45hqdXHkAo0JDYvNK4AkCAEceeGyBRONiQfNJynLpkBV7nsCqauuw0GhFibUwv1RWwGJq8Q0zM7ZY9/ZXodQ5lIn0zz2V1B6HZJRrpjEd8MRlDsxzHjwZ+ix/tlY5YHoAtIcyM2UDo56ekzmhiOmoL9A2JiYqnV+vh+bekjfVJ/h2R1TZurfhQblojPCwN/SDkmZcef6Dt8JqHaqWy+68LzUSWiHSW3QgWU/wOvCqsl+sGDFskhcz0mxHH5E1WeDLgXlHqq6Kp0mtgiitCmN8QinY3EoGuwUa2WfNdPauKYKJ4vwE73HhX0FiE2W4L3vOksLu7p/ivcZ6rO1ule8MZ2HH5ZpaNPoXjWKJQ7vpKYMGhdpcKwXqMoXfkwChNMvwvcrUt1I62vmsMA4SYkHQTRF9JGL9w47DdmT/tAz38IFUcWTOxGX2oZ2YapVO7JFVdaoPKBbAUOfW9xArI6ZjNHkXa9wIPp3MlS4ad5R2uscLohKneWYeQZCz09fm+yCcuBZg1dJKcX4vyDkpShR8X0OE/lFgsr5W206yd6JR6cxuC97GrP1VyCjVAButScMWcfjZFnl6FSHK9gfqmtGR1ku5HpWRRGkQtLb4CKwOO+u4qKE4MiA9KVI1p7X5+/PtrPOJZtQHarJuwUwUK0GlQKh6S65sMIe6I/pS8SoYER0pAhafMNBaDQjjEZJvLi9916OJ96qXzfw9A1LOyzfl01jLwtcIpCJP/An2QKYnUVIRZPH02EHJuwh61yLV3LJ0KPK9kc37tizdG8lUAiF19q+bSCz7OzESMaIsc5sPes2BT0xY2ZB+hVSS90mfV9cd9C5Y00yStJf65oxJtpm43HpyapddkvsvNRWQthRYfLFyf6EoeSj2SXUfso019WyfsmHK4n7aRS/TCHBYzADvoLxiCyVHH0ovcgxLMIzHC1cPm1ABtsDIeyZM4vFlVPe11ALWWWpX2xW/WpEZ1OXOULiTxu+r4KxddEqnt+cexyhWa3b63wtwxhiSpSmtt9iuQaPMvpdKxfRb0TgJXeOGL0bSTZgVJxEihAarmGopV/lakwKiFbE9LsabKd4jyDKmnXdlE8+HT0SvookRBBA77DOc3lRM+iU2o93/PteZikOsReTmplJ4BikvBTuIdxWvI8gMKHudkeGs0beyovnLTw6KBLWZU6iSq4/XeYlzQIV+F6K+Xx5VVahbu4WPnvKTgTN98n3i5WNezSb+wm59qbHVE5O2Fck1G03PHPc4wTqtNVd20SUvdYnqN/Z65UJrd70BHxdSImdoJFunw/icAkXbq0mCYn+OAtKmpnnONrp+Xyewh4myhGsegujvU+oBFXdiktUC3EWdsft9OfyibHNaD5/nsi38Fi8rujFIDK0fZg4r9AdjJ57LSgfFgLSgBmpwygd9FvFRCScDgbMbKu/+Zag1b0SIcrUV4yHBzyg6M30zQClE6wks4Hpkj5jqUbJRZLQz0Mq9GCyPymiDTrsqA75LxCAuhcx+O+17DM1D2Y3ip8Ez4On8RrVWi79zpUpfJTMnGxmRPRNGxO2JamOk+d4i7W8jyjx6r0Pa4Zy4894tXHPvIj75WPip/N4cvaU1adGwskRodnGJzKfmu2Ku9XalZWqqA8BOPTQxDp5KPj07FqP4SBA/nobNCatXVYn54Lw5bJxUCBuQOrwyLR5XZ9K6xvUp1HGBbqCbp4f6nQd7mX1JnSXQDVQf8KlMzGZuRGCBt4QRLVdwozEixE6LXaCrXwqqlCHnjNarm/WbGcKhEdrLEXyMAUbgxre+Vlw1Tb3b8po77TujFgQqqSXpFsUev6EnacSQJPrqZpi0RgFvyhQ5feyzhSYc3OByyCha3K0vlEuKiFFa4gvB/2CNVdIv2IRbIJJeqo+MsYonbKalVSaaEpwbay3rQXprO80/QOZVZmPc3M828g5kjZ1wopfZafX6yyQvR6dabLFxfeTCl8bDjo+U4pCUO4fn+nwdfgqD3qYheMcjlBHjtblabFDYdDb1z4KBzEV50qL+KCuJR+gO6e3sm09OFj+ySeYjJkawa1Ys6ZfyA8nPl8lVVi9uObkiq3tFjYTeGZ965JCQGOkBQZMFp+4dao1GU2XFzcLGvWajQRq9CuuaTYb7yXWmMNb2g+jgM5UMZ3lHIWdqXK/dyqCdcvps3tSF+p/ocR8Og+Z1/tmZU1gy2Ty0DVRJGd1a4dKtXpX6r99PjFr8TAMH9uzoBsdb99ke4xraaAVheG/nhCMEdbuk5rA0ugGVWBN1LPpo67fQmKJ23VopxWoxJBtYmsYTLmN03ByWs7oYuR3miL5GyfxFyTI8qPBDlbolKAOfwsl6Emue3r/MJHEk2TX6GHiqsj6T+UDXnf435JKesUMgv/AUFUrtJNY1cEbdmV/X08haxnvC33gHR3OJAzEWZcbBw3eJ1nxrjx53pJ0OSYyMACAkW/YWlPvoMPoprIIwxLGSXRNUXb/QA7ctmQcfYKzPuJPxuIBynIyWBCmro1QHk10FdMVbEliGSPuLThshHKydx6HAxUNFS4jCIMv4SwhEY4a4KJuFBpFSubSqAVSg4V1Qog1oybbX3L6wh9zUfSxLp5sVD4HK9JszpzGnrjV8NukIWOrZtBymRQS8JL5LZjw0ZqQS7sL2j+kMFaERXlp6J92i9jt3qMWvecQkFJSN6JxOd5NCJs/hJja8lYcF3HbpCQJ9I5l+0016sWc9//3LFCDcHU22WKCP/D78v6Kz0zxUQgUCMHeFNG+fA5RW/2PsqddxnL1NujBGZu/gGN0Ch1TQYDMYa5JfBml0HtsqnXZXCJ18ibXhcLdyl4K9UA3vqWd6dBPhfXnA9/Vq8B62yOCYWZ2jSthgDgQXezuBbv0EpOkG0CdK3DI805Cyo4SDsxLbgnSsHx+aLz1pmlmhau2BrBOdPSaMZyfqYW4mPRFbM0lPSnsbhJbjKRo+xXxMZskg3NtOwBjpM+VIJODtL7y44m6uu0BtAf7aD83eudzHfX/O8eju0zSgT8au+9iDw1oJjRC16qN4B10fqHP55dSdNhJNGZT0QJ3wMjSoBTBsKrBQOPUYMHfW3zYQ0Cb4mfhgyid38dejjiRBrpfDYVQ8SGrQP0wQ3iqnjvlfDK9sejOdj5/n0ZIj0+ghZGtussVdzzGCPnOCJzLp2HSHsBmeBAVf/FrSRQUcUroG4iPd2sRjhFoezfRC7JRZwbZPiKv1O2NCDlOHuv1OOOWCCpnvvFYolza4Iw0QXaFTFndg/gS55khIpT2uzR/jcADM4dgkKbrthVhunt6yVD3pFg+2XUdSxo3i+7QAyGuemckR7f5qGFk8D1/28YkaYI1udTySGj7+1ht3tYP7AKYwLZ2t9vdTtJYFqxNW+BFExil/lJigFe2YvrHoMRZN7wLIBHQl89DgAfs+Lp/KNgClEtCjmBcRiEg/kPLGlQzPuqi0AYkO8djpCuFm1v8si7kcnapdQV1hnYnMVaJ/ohMAWi9EUC2Wk7Ul9/lmYXwJapN9XKpflPoql19r0G5qf5Ca2GcZ/o+FxUtZDQ+ZgvhyDPVV1rCeCMjXSYFKpBK4ZiRuuXrSZh6WtyZdzX1KuZqNzjAfdLJ44m8Fw+QaEpQrpaKyT9Oyq3CbMnMuj4m+OWPWiTX3CuynHHE7ZTjImV6in0VpThyK5ahX/ztcucCA7o5SFfrhX+zweMJ3X4srFnn/dOTNj/JREYum6bWpmolStYLXymEef652jFMIg9Dh6MncX7+VxvPTPr3k+0ldQF74iiiZRnAauM15NN6OCEPqa7ABpzuQ2dRMxefJLljHVSWtTPgI5GekYbcIKNJlR3/uOts+B4ZEeNIlilQwImSlJghbqXLd0+SzZORim7p2nbu++XfTSTFvU3PBUnQVCAFvIq66os/29fT8Nroc9Y3N3Ieu5/PuWA7sxSBUbkrQMAbl+JU7oBmaMA4mlJlaEq4ahfnhlu4HEtqV1brdzQbK3fHeikI/gmplTtrAQpLLy6oLYqRf2gez4OniXFR77OWtpkNBlDmlMD5EE+C0eTxmN025xhTnoDD/r2W8PCvQ91aBZe5WvHsvyueHy8AWXDLe6PLe75V1YHwY0C+EmAYrXx50QvRL/g73AoHemqgo/EcGfm5iwV+vnZdIjGADFGtSha2mMjHmZSaoRfro18qS8HHmWjs785bdconi8yy7dDgKvw6tgKaWassFIxuyCbYu9ZkNpGudvq69dgJk0vfIPw3YNAveiWo+RsKMmdCOO+vNf/c9RXIdOAovxm02l6/ymeGRCbUuNg9yUSkDLTTg1SVGi0241aj6m+B073NtQdHxNTuhZFGWRXIrLPbD+IDCzIlUNNbfrI3obZeCEs/d/9qoYjTTnokuFRaBVg7kspgi49e6JLZ8T0l6fdxrYvmjCpcyws99i3PytMhAplqEtLqg6Oujx24Vq0aQa4Gt0uNZJsaItTymJcrAZIHqpHJJO0731oPdqLqFV1U4e+BlMfKioeVHS8FR5ttQ1HYQ9c1MWtVQSseZjOqw/GGLzWhTvRrl/FO5UeH7fMzgK3/ib3dRvAVnKgLqVJvqd3g6ZRqXO+znS9KpHJhPCdng0ozxytHqYremhZ7GIlckoVTGEtr1DQol9WI9971aioRVqn532Z099pQaNtqTa20IkUmteQlPtUsbwDopk+BfVRm0wJ4F0Ki0jxQpj6kP9i8QlLS/aIpRaWPXt3DTFj0wqnbhF/yqFx0uzaPD6SYapmCwZFBm9YF6kqJc8ZSeiG28eaN5PgIDZfPi9unM6mpoyD0J43+3LeMTn7cpgiljhp4QC4puy++JS5A/PRUA1thxWTboFvEdNbrYOimHJoahLrM+XKS4azQVlHvyx62ev7Q/+1+EUwJCcZxjehpB/FG/hstAxCFIFK9AHgCgckiyFfMP8pOrR3gBw4zXFy5aP87Lwsv/yrpDJ1hRdTf+rG1cHaRJcxyxruWR4p0WoQCr2YfzDPFQSSJ5OgbdjzoHUvo19pvbvSoWcmBtVzlVnSSW+tJ647GGx/YIr+ROYcob/CvkwyC0R4BKogezSfo5gZlhuJIaFEKEXdtWVM5n1Amd33WKuMhRtsMHQCLw/BCQc+PKGkAjg5ViZsYZ+5N0J/F6N7Ih/VqgKYLlMiT2EU+ldmDnvN8pr2gfi7WbK/0VhpN1HAKXrZYruNYUJZMWHaPxH1olsra7O3sMtTUFTtyllZKfS4QkblLxuCMEynLv0J1b3Jz8v8ZY7jaU22FoO78/6sYT9llPB+dCIp6V6Aoa9b16NqzdCnspTfJV48ptwiSK7hYb8lm4tY6ccruquY+S1IeFB+zdlMOVPMqU/RYFcFexZ+2N6OBpikOP/DQOz03fd+++17wv7Rd2o3Wlpq+jeGxF7ipnz+E1YfpGthC5VJwSG9TTep9RR/rB6GYzJDDwbmQGOo73LVhqLNQ+hWO06vygMAhGlIwuMm3xCsE2/FIiTmETUtKfFB2k4StRO6HWaFiAYnxsDNLJpn3Ir6pL8h7JbHi2/9vcvKBZaiqmYjlkKGxrkm6q3UxamnupZAwRcSqG5dkkFsj58R1o8daiI/u5se8/c7ZsHiRfoZa7f+aOE14a0aEzyjk/qX7bXi7JtNyiHD+SaKQKe10Z1wrfltTX6hSNYW21/ug5qHkoMUyWjiPyEIqU4x+rR56G/Sj3mg85ept5gB59xGlzXWfOLbZ7AxnBRVvj6+mdlcn9AeX2VfSi9G9EqcPFxGTQzZkiTAjG3GJrDOQ1PhmkIHnxXMcIpZQi6C3IxZBc1IeisglEYNF1wor/w27VQnHX1AQuRAbLYMKcgpxXO92XZWiqn+RSA6+6G8q6DufHi4ALbHUh+W+V3JJEj26369qefQPM/BX+VvSWIr+qbeAmKBAuaRbr/P0I1n07sKN81jUMD/IFBeG13PrLm3ZIuOFwlQu+p0JSmgOPFJxPjQTTJdcTV1/b+uhqQLf+a/z/+dts7ZCFp7P9EG7Pv8rXBCJ73/eZ68LNzZULxE2FdZfgvMN/V//GdzEdUG2frnZl9A3LO6+jV7bIeyuz8eUmn99ZKohGuA41piYfQ3Y3qUBGLUSGy0/fqgzP88+HMMSzU6fZDb4C21raNnSIgOt26RrXrk7GtiaNm9ZofIEtdnza+rPGJTCwVFK9Dcdv+zUz9UlKML5yRSv+yzjPDxcnaNMgVfHfnydA9uvUkYygvsSwyflefUc+vaM1qAuocl/4qambA4FIuIkaiPlF2JfKhXnIYJpi/XfK63kj/K4rE3OIYK5nyZFqC/baAiGTiUwUAHi6vG1K1M2agYJSuxHnwX1p/NvHMhqe3adlptD/mRJHFW4M9jOLrW4kCWax/vgL9SuEL09r86T0/UsraZNQrVTQFs631mzygy+4v4WQue40a7/ESEPEA8ihsK0XDI9/8KB96qxg+7SAOE0yj1PAFV2Bn81b6Qwco/HVs9eQ5kmzO/zme5+AHAUOWgCSEPDge0dHOQQyt11daC/5TBhKKNSYr5oM0EMsKOTifSLwUCTL8YDEWedJGBbl8z9DMIvSmPXS2h37WsdLgLsIKDM5JuTCMjno7/brVEN9mdUFflNnNEgdOcka23l/FZx8K7y9KOTCpEBQSwcn7KC32+xJyrXTWZJtYUjKG6GL7HglJluWsDcslVx1aMSSDgYIqhmGfo2a5CeNKX0GtVEoEalanT8yVd6SMKqSR4iqv4IItMG9X9D0mOKlRVp1opBkfAolmvrkVbVnJK5vEAnW0lzgOij8mK+0sMpFkHOXtK7q7zjjyzhexp/5a52Prd7WDNhcaMMbNewLkvjZX1wR4jr/THZ13eg4DztrtKo0rHRYgZjffcw9llgiHjjaPNLIAO2Q0FoSJkyVIG3DM4FBxKjLaRrrm8ZkmT27NizvulcTFc6iR9AnUFn99eJlkzRvPO/ZP80F5F9x2f5G4XIeW1Rl40UFzox1ZsUdjGg+jTdQfHj1XrMiPc8UNRj3NdFQECEam6ZKrc+ERzGHFILah+qs/ZQJMR8A/rgACCKpVWSfIvBT9wdnW4aok5N/ck/pOxsdqDdTkzos1qQyUqJVqb3RXon3BiB1OVR8l73J31SUPhH9p/jZfzTklPQWC9tUgQcX6k05AJl1V66JvbNqJOAFVkljpr0lhGsrnppeoPM9R+h3z/y8KPE84/aXusKrcTI/b+bsodiF6ByTSHlWso3XEmQXmBDCfOzdyJ+6pLQ7n5+aB1b2pVJFRiIJlD7Eqq3MaFkG72b9Tm5mzcwBoR6Se8fx9WBVQuGIHnPGownnpeRsBBtcv8PVZC+wO4D5b+ak4KTG+akhUhos5JudyTD3PgFSF7ht3MYPqK6nGpwhLQjqaTJ77v3Z5pA6MVXWYb8xw4JlD+fvDNwOcwCWoAYXgc4Dl+vApeIz3ILEFf69IoOwDNcu8EJi910x1dRvGen1P3tlmly4ybtQri/jFgqwOtdtqQacMA4eYgPe146OJ5BnbcJiB3NHf6l9BnHb+p7Wfqxf93WLgMoExm7t2Doib8bgO6d+pIxi+8+bmwcE9SA/FdpeevT49Cuz60DLjDZZp8fBhOuAV75XFhThxuS3xr/8UJfIJhk/pG9ehIheeFXJ52Zs6138I5Kb4k323yh/wuH9gk/IA4ibvG+3Kn9q96x0377g2Dj9rcCQPo9iqnoI3LguSUT5KB39kLqAsq2Hh1qBOBxkB7yLRzIVrzUg6+4lv0rC+W1Zjnwtp0FxMZfxcrFNJch4+ykI2gFm4LesILAtEGYKkFfHoy62JohHDz6kgj0yLQX5mDcnydP3+OrRESPsaOB+F+2LSfeoyBwyPZCWo3+JCWKVzRlcJH3pvTmLoywLLXo4AZE99qGXxr1hjjO7KmcTPIi41G53pN4OXOepvqM9MXNbHnyhUAQrDiLas7eEJfT/dpFglC6XjbPsHnZg0Ik7zQTvFBJ9nAtYpdMi/9vRmVMNUZq6Kq0+JGgYwIFbcQXzJbybLgWi59PRnKdz3JiMwQqEwm/RJpQFf0WL3Anxvm5c5xcWVtj88hv6iJvReOtdmr5wMrtNjbiOv0//vtWQH4We0XfBTMhccRbz0xX2dYrRQklVj/zHu4tt7LJMaCTFGjl9RUd3qtoj3Lf4nWhIt6RkgwEvA9Touvsr3vg+5bacHY+K6hdXdPaj6bXXfxqsr5sV1Fhsc1XVvnk4VHM6YAswHcSOe32dW1U0cg2YKbc1cKwNXvLOEdZL/1lAD79P1gjDwedF+AIb5D9BlCZMKRbvnBEdtHRn+bHysNLPKyZ3aS6x/F9EsgplIp/RB5bhfJIajnogiQ9xGzRHNkOzpBMFBPaliqBh66Rc2QHktWFnUxH4lcrLDKJ36bUFd/VD9sGnqFB0qvsz8y6ZnBvsaOObYO4taa1E79LLoo7pAUv25UXPq2E+sUq1fge8H/L37mxXZQa5GjuJdIXgpa1iLzV22nsRGC3Tf7pimp7JUoUaC8Cb+h9Mxp4eJtxU1fQXpmGot5KM/d6Ra7RDL8rZOoxkNqZbHziSSvJsL9Z/Lt0fs1oq/fo6zVghcLFS64scGyJxIxx14AVEcbugb3uDTXDNCxfscAmlgwMBk2cCqdv8ndpl0no56eDVbDodJB80vOnzQcqvfzb14qBytNkTvNQjrBd4uG8sAmUfC8AWFFjQWeeB9fk859kqDRlgWw8975KsWoM0PVuvu1hxBgQC2ulHrubW/QaSwJJo1FEIE/vNtTcOw0U8eBh8xwifo1IMd8NymVksKed11fO75mYAuAU0QnsJG3RKWcPCMXGlcLumY+vOiOAnQeaoztYHZx8otBpy5cgP3g2wHYk4dMyGo1B8sQetLZC1HKX2qk0JFVIQHGTntQxy9jatmc3cT/CbEOf3gZygu81zaax02OATxibtrSaMLxsO5v+z8cJlvoF7iLosLusQJae/MmBHS8elI2HTERBZCgZzM6HKZ/PX+WEHA8dtppkWcnBmjnGj7rqGr35TahfGkKJQQnZ/DP++j9rNp/vJGjGlC7MlUUvVPn4bcPhWYXrSJrFg0k/Vk80zl25ag4SNGnp7uyWj8tMMVXuvlV2lZhlE6BFkfcZFSPWlITZB4ZssVARWl4BbpD5PKTVvC2spEf+vdwPVj1Z026CpPwcn7BKzVEr1BOMNtpd8t5GbY3DSjjPs24oQv19YNaQ/g3d6BuN5dUJ2Q0Rn5P5Qqw6ynlP/uRnKBiOX6AXYD7l36KxsFlfwU31ESY6/H/CYPnPSMfeV8R2lAtPF0E6XnC3m183B3XCIAXz0oCI/ej38LenVSP8sLzpsTLtk1XpTwr3zkf0nnWwmq+pWOvc+FTEh6w6St0Q+K8xlYUfUXIfyUIcKHirPi5gUuPtbmojjCiUplTOSWM/qoxVvx4sEqwRPtw0zUjVDK0EWf/5pWL1RDG9PgWux9hIM0TyelozQ+/N/g2Ks5qVpXSNCoRamWgyfxFTnaOuMAdKWo7Qiw8jBo697ebJQNWzZ8R+KtGEYxhLAP/clErcW2Juu6KGU727OTigDpyOLSPL/yNzKIx2UEyaiGsi7UoWFc9n06y61YFJqLS50F6PMlZMCJxmYj+41RBVfIFu3+uVvEdgFl/RWGaywFMj3k56x5Cuzgfkfekde4q0VEh76Yp4J1RnzRBtjMyJx+/Wd2XpWz5VPGKDtVC7uEkg7eiobLXbzCVeNDAwK/uR1fjWT+FqHGbc27Z/tDHD4IBfWHAa4WxwMgoBznel+wEN7yYYr2ZYz+S/cwKipiEpkeiUCJSSUviR7pt+Gm6kVhNyGyAWdYH/7ifssDaw4FIsXvX/sm/uqXysW1dDYRYGFKZ7z2j0M0DAwO1R1Wdr6+aa59qsd7pruYskcMAIsK1qD6268Fn+pTC/PnnIsPreZEOlL2R4OBPmGJLt9cVWA3hOEuZi7kYHFkwsAuSAn7zdU5fsj6pv20uohrDU5aGdMDIZ20rCsUz8WBYLqISQTjqvuV+e2NdsNgVk9/+IRoDAEMHb6IXsSyT9/IAbX4Z44uHhv21XNhq/GpNe6xQAdUDF4Q72BiVZva9R4u+SXywQ8rsO8UWhi45UflX1U3xMWuUbLHsn4Idc3NeC668rlKExZ2+j7k4KUr7+CZwgGdDqaZTy0MiX8xpYIXO0ysOcXTFtKsSmvcfNduarzsz+2vbvcx3wsVfUcJ4YrVkWmFJ+HB5UfKLu9XStPAeJkgNwhIEsC00fWLKbw/HJoDEQF7EuexjTfM/DKT432TBLTfaekY7e/maXzptaRXR9bKZcom4ATRvpsi7n2AxG84oB2MYdaNFLH/0m5Z/sPnj7vofhEPttawWGxmhRtkkVj4Jy+SGG+pC5r2XBph+8bcDbftB6Y2mJZJi4Wi1TKynOHq+hPjALb2lJedAGHVnre7zcSFVCoG/CFysSvGi83KKMIADoZ0QYkXaLOxRUU739aoLgt1QomXttDeFZuF66MNOR4E8zV/crSBPb0lPahRFBoK9pEWIOTWb/6uC81h70GNT08+oPubD1bvdDMZWXrqO7iazRvSwkCpubjyndUMJi9b9kigHyq71+6w2QNKRLR/eK9Kft3f3U4XMmHEf4ez+RA8Hoz/O+TNUjofbLe2ea7bzMvfNKyxAL18qRc2lpuC6rQ3NfoXD5BUUTSoB8RWhgfz8Pn0OmaKZCD/4+Jlju2hacTA5XEuWEt/QklztxflJ95hDH7+8KzwptAkyqjfEccfLg/iwiB5GX1A3N5PqN+GMAka9PDKzguoWTwZCQE2m6unq2+MUrYpZSWfsq1SoparF10L/f0f6CsUbz9fEd5lDbJ1NahriYF8sSy3vTE+exMa0phQ+pXfseJz1V/ECiRVjdqX03b9lNXYlL9mwcR6dDM6JAgFSno4tjYCr1+GZd6h92TeW9J/mlsMqBxqvlKTbDbUcGsaFnMQpYEON5hhG16FYhKIByZqUEMZjnZjy1ggFwXOOGA9kvd2Uzp/r5H/B6ezy5biPCFF8h7d3a0YkEApAR0YJhnVxlJQlDEUob0Kc3K/kVLverhHRHPD/+WE8/w01yQKGs/k7A1/fApzOz7995qxg9HoSQrbliijUJ17vTXmXxolfUyMeoGN1KGonWh6ujfWC9HJ3ezJ8Zg3m5oTKZI+eEDYaFjvrpcw55FF6l8ABzawDXMnYafJbAGv3NVsji+qF6nAY+IVZzfLDbdYR8yEWeGiEuTKRflD7SbAkf3FaDG+QfSuAja2GVuYtG+dpxlMjJsb2Ybur9YC5k+w1Ii8q5hrYBYnv66EuntGEJh70hslw/xZEY2SQWC9hDKRT0ehBVPQvZY/fYHiChtOol5XgCT3zNgM79IYu8pdhtkxnHuitMNxQ0jXmY6HzHTHzHChjxRUVwoK+6xrCK6MZXAqPGZ8DEHozJpkZVSve6AugocGLnRmA8p/r2UPt9LoK3EsfZPoOnkgpIBx9q+YN1Rl8y9VvLz/WghF3tNAXLcLI8CgK5BGJe6Cr3SL6cB1ZyQqhcHB/WOL/kaISKmd68IxwyXDoANqzHqry9H2OPbk3+rkTcx1l6WdohO+ObLnkzjo9pWasroKO1kZ0rm7rQyH4BBHImc4+5MCIATnpvEyk/UXrQEUWoPM2VO6PbgDTQbVx6QNmLFDlV8m3ujN3lIquHtTNnIpAhguJQPZgCUcQSMOnknn/bcQo39jpdwZO7xKU7OrYvFmTXNGyMxB0mUxAIXUDwlGYv3MuTOgkqrhsefdNoU1HG5APPhmhDlc9oWYO50w/nCtk5fmyCrM1G0wMTlRLETTiD7VDZhdAn0bSxIo39w8KIRdQK75/w5AmI84+ZU0xMZ45h+oRMCKucjuj1HS9KH4nlxNpLIKnhWklSxB6tNz/cwkO4Ci/U8F/mmT3UNB9aAJ7EqukxSBP0IyLlRGBe1Us2xjGNzHAP1JCjAR98/o8Q63qFsJAbryco5IVSNA5AootfM/667NWzX62mU87x/V3+HLovhDSQ7I9PnE25Wgov7Soj72goGDdmVmJA3inktew8E98JuWufGbGfXrtsvm5nqoefYc6gZ0wzDaYgZoaw79mh8snmfaTLtmxYQ4mey2l1DJI1tszodRDAn174DiLmdQeNLC0WN705bbBH4Rbq3hp/aBNQOHkOY4sBga4ji0epLs4oqXPNFoszChJuuhbysH6/oUwHeULSQl2onZfendXUhF+ZvpLODO+YlKvP8uAfEQKhBN8gJWpl4Wp2gJUtWhHtxIG7A33ck4QLv4QaRRvR1SCbIfEZFVIXb8EQ+xed5XigSgekV7+yNUbrU8b6mVHpDNUxxVcDmxqVMSbjvzyhmeMNfTq7gqtPyAWHKl1yj672YR99++kOJTgEulogJbkR/XYV+WtH62lUALBjTmpBnsSauJfFIZInjCfHqIqZerXGiWhzq5o/TagE2Mz3mAIJxmFi7HUDnQXbMXPEqIZH8Q1Mqr6GB/C1qgRJLbRsOocyXb1PNVwia0Ad8T5iukaNm0eitrm1ABnS+8pCq2+LK0NJICPq0LZNsrIwmbVjXjJSxyOHtGrmiveQDMxprbBI/B+tyfcJ0MGldAAjiHQY/9eAcD/Lxc1v3ooeGOwgLtYhbnJ2AsRf+PdyNjNPTo+T4e2At7JjJ3K1r4NIfinDxu0zJvJemWkjqeEsG5isQc/vwuWiY72y995xm8EFaSN1RgYyVKOEblkKY+xzbTwgd4618lepJMd7Q4UGEcBoMx5hY7yoLtcifuMnvjb3VisdR0lkNBTlDL/gTHs+w5cSeQpSgZFG9Cq/VHtGx1eYNiy+ZSSyYYn5Dvx2aSWpXCL8a72EOxFVMx6tbXPJIytMYxEHTtDNnBDdDuZVO2Z5hUCbmEV79FXF0DCZg8Y4wNHNJYokTX9LryOXYPS87HWYiB8I/7jn1zs81qzlj6KJs77F5sjwc1iISmRXoPkRunqqOlsh6lsVUMyW3kvzKZF8WBgcyurn4RwZUD9ckbLp2x4IJVPOKd/eXv9Gn6RW+XCiVT2jjg0Bi/gQcRsdWegdOYRcTHiii9uS7ili6hfYrQlYvLoNssn0BZ0aXYBhk/O4hBOfhWBazeBupj5yIdr8gMnRN8cobFWUsBXT43JGWN2LeQhEhapwOb41sdBpx5zUk8LMQAh4VQjpZKdxV6/nJbQ57uTSRpMU2UesjDtRS8O7grPCJGKi7g+V271yQdcSOTtPqH+Gqr+W0KnF7W/5p4RFsE1FzqNH1hxuVJ5MBMZ8x4Fh6I7cTu0rGvAKzIJPdopfmLlJyjFbz3MRV1aAKtG1w7dxJkiU2oFCUrcubN3YrY+hRnS/oI5MCjEldjsfQPUP9LdaKJeW7bsAj524HffH4p+DBhep9p49zxN7YeRj7NJ4zHf15ZuvHFaEm+elGdp3pLeecfNJUQxZPf11ogGJ3YeKpmyDeKCsbJmMXeSzt5SR47mg73eZ4DmCfdZNp7YNPtz47csTTktfkUFOIK/hpV2HyryNTuJgPDqXWmE19g1DqM51c5X/fvvlBuUFRePOthJJJ2f7wYTbyScwTTq3K+6xSW9SQ5G+4iGhk7HTTL9Ss2++/fEMKG8MP4+xzg3NWeZuEhwlLIkJipJgGlLX/Kx/DLBibbM7Di4lmD3nS0Pvs0PUII3z2V3uu0LbtgKVLcf1z7iORtgDWPVtxYVm3UlIL/f8/BSa221KeWM24hF/aVq3RKuPZhxicXPzRqQX/aNliq+m59ZYpzDNvX67ub1JT04FAzFoCVsAwJjraVFzkFEJScz3SNmUaHuSP1OMgbVNzBGyEPJOpMBtScd7Ud0DrZ472I+TK0eE+cg1vd7hqk1zXkEE97vfM9ho9DpzwyjXbnOFpi8sxf2ne2XP8/k4zk9yPbfqrGrHDdaVrLArMvV0svBx8pDTHFRJZnk9EP+ezvPwYx7QpVORSNQ0yupzSZ6lF9Uy6wojcqyfOHsi8MGtLj2i806CrO5P23ft37SAKFvaYXEsEjLfxmFcNToY7hQCsIoPLycwRfvkW0Sfe94JU4SUp83j4UCXVfblndUBHKgqXuVexYWQNi40wJj9/Tv4Zmc4X6IWRaIApiYmmBmHik9qpyp39NnI0zqBtwQIijmVnwTCMUUZxH/PXfRFg/BqETTbPh0oaBiURGrsVFT4kod6X5ak8AqYRM0MQVXDt54U13jCJQaNagNo5eZBXiKTVKwNJKD99HoMb1hfkp+SOPsDtloQpn/lEP5Ao3s/FMZ86iLQqltbs9iuprWDjMB9eqz/IpVZ46E0iWmE0D3PAAxd00lblKKtXWla+Af0fpfhyCmXab8XsC/IF0tL94UD0Jna061xDU7s2C/PoRsuBb9NTZJqXTEckgvwSBuuRbEl43Lvh4MytwFoPh/MHWTG7HWQQbnMIb/NANFJSIftH59NaoaKrtvcm6EmzmRxlrEnw7Xtcl9WgbfhaLHYFK4hFR/gsLCMyMnjKiFNnTvCT8+cF/xPqQO44jba9bxZSrQXTlixSofDVl8FLZXM8j3zBcUHlgV8zvixZnBNf9CpBSR/FfE4sh7UgjeePvB5fQeJZ0IG3HD9A6FGXNUbcNP11KueYn8m6x0rQP3+wrjkCQ6SoB361EsP2cUItQkB7D0C9n6RIhT86tgMYau2+AhG6YJ2nBe8UrTY7uQGzkGUi53j162xGNK4Dnhvd2FUDHEE0LpnFmC2K1lgcHxMxMR6yOQhxN6AOT7dmyh4AHZxo5ngRE2QTGEJoJ8DdQmKhtCvubNfLlsF8jXD4d6MG1rJaKCLL/o992/vKgJaT2Ay7HumnPQJRuiwd8Z0mtHQHWb2x2TLmLLp3k8Qbx6G36+HTK7hoh/+l0mP9YDSLaxN+DmgEKxQA3DBzTnTosGiqVOralU2C3eiTXRLy6Q3j23vKrBsuHOj/DTbpyzXHA6N6szBaXf3mS0GDrF/rxmaGhInzv2yOtOZoA5jc+sziUJB6O2FjJYErk6X5KASfQ0qmhPtY4Kd8UToWVZOVE1plodvZJ4l5mhrjVLKC0J5ePl8aH1FhovQAIl7m3g1b6KzQ6ricCxhy3xBBhDWdwmL3ERTK9k+Gjvk6+69C6wyYKtCt2jO+6wbqIs8W3TgUA/piQBj8ATiZx/vc5cJSJh0wgsxIpOd0+Z085zN2lyMS6t1jTCf4nGEMWJuRvCgDzrq0N7O5Fa4eEtfKH27XSxrCrG29fB6X1EODmicGXrdobxgraaI18gfRc+7//sMU0upJaiULcEUMUZPLxLIO9ckXEbFQe8jNXvcHG21ojEY1YJRyO+kbYarkWAzjt9YZeE9rIvFW6r/ti8/UfiEe/IpCqv62QZ2KXv5xSL2A5BwluYxrLxnGsvnIy3wFkYcAtUFOIdKoGXE310CIs4Bb/ckFOt2mwbJ+6SmQTg4gqyUeJ10M32/YELa5bD4/d8XfFcqRdPGFggqqCCxY6kCefHtkJbDmJr/Gd3OT286y4sZ4srMn3EcWXwyx08EG9tW3Me8TFz0eNjoEApmk1cLz7Cfk4xLYjyCoG7xJsD/NRGfAVMV3dlJHm4Qc+05XpXqzfOnZ7dSgTuoFB843klbM8615XSn11JcYvcC+WmOPMpUzqZfUegB4qVgrfHd62LuEtzZ8bD81bMu9cUmnOClfzgCfIzSzU13gBRsBzgOSWFsFPYokXdAbMD9EpFhP5/dKhaivhmTGEmbAKXNihf8tdL0ganrFuLh6CSzxSTljYWcxknUChXRcSa9kVhFxQRsqDqR8dYOPavYHMgWRM339E85vR/sQMEZZVJqRua38PxR74fBazV76cAVTyeRJu+7D7PbyZlf+4XhFQlyHUC2/XSkLZFINa6zOc/9RZR6yfzR6cgO2MMrByBS1r98T02XxOj6zX3mZZktD8S3kDMIFmEog7hxKhChMR59bekscPok27RLJdQotyZ29dtukncMLH4rQtvUulwh1VM7yZAMkbwjt+2UovCsIm1xDClSMkrJRsAcY6If9DpRuOR8DdZchePMUpDBapL5MbNpEN6OLs/kLf7BFaaUXtPMHY3DZzL2A5VTNB13cmo7YZC4B6hXp0nqznwztYmxAE+8I3oZ/MZbPqBCi2pbHwcmU2boPmdPPkkA7OdY/6XNzYUPQbJOOBt9VpyqrgC8Mcy0e4rWnaj69yd6T02qUGlEkpJL19IEsN6hnwSGcbUojaN3FesII774kHF6MeesI3EHio8/vq+4pEzFpAM/rYeO82r9P4yFB4quPgI64cVoQZjpjW+GV2P0g4wtFWkVOn63PgNSzdnkesGqdQWLgBO2dgGHZ4Jcj1Xe96QT7OsL6DUt4B0KEX5qFJy9oYDxUawfZDvuRj3IKz+D95fSiOXNIaldCA+Ilq4QC1yUrI19EAc14w6fPMI3ABG++rDzAZ2EM5aq0zcAtxhmk6Ue7IWI3RySDarZDvXGZPxJyCeJBPEtmBJi3ODLUHqs7UzHLolZmSmTu3vp/KXZ80uczKnT89iT5tz3AXNzCEoLlZqfxCSb/gjes3o/oS4vswaUYwaYG/2HjcbuS+KylYhGwd5BmswacwX3NtpCr+uTLOozJVd211JavK4jiq4aal8f5D0n0lsn+DSakg2opzqZ+gUgz+t5M7zfjA6REJXJDtuhXP/g9vg41Ga3vYT4lvPyXZzQIUx+WMroEhXB5r9rGE0bZGmm9BddXY7s5zVKRBQuByKedQzSVdBNZrOlgg+XeydktTfxoR163JkXWHcomKpYlduw3PacEn1LE9utWEHm7E8pA3I0YNPXmB/9/RbODdWdg8rFJaVyrv6Nh+BreuaUQc0+wmrcupOj9lGHbu1F72G3ub1gDjv537IMynB4YTVFMeDX9JEmWAJuE2IJMQKGe9eIeo4gzTwWWJdWqVGxDivT6fcpbsoKmOh/xL2YGSRdf9xVAMi6nBGbE2HPuf5iw8Ca22qbIQOTwfl4O3Na1fmC4zq8vNdqw+UEUFLgb/xSnlgh/aDoQBdXxMOamG1m0xEm+j+GMwAsNgmSqzDaJ0SbT/44ubJquBFGoFuEQW12JdJVQXo1iSDWoWRyly50YMgy/SEhTA/OfSxX5rDOxKrAu57g9i3w3eaY4Cw69ZFRkeds6F2srKrtgxoKfxXNCnQzROMJScHjc3UvLl+QNrrT2bTOdubO/l27fnTDjRvYp4d8UEfZJfucjSUYhDx9uI974vjEQGPFmdT6GOcWhT3OP360iG/NuDnbofE75OJTy8sGe7Gj5Z2L6TRhlMp3o8XEjQGC6OSZuVBFTXVJHuXV0mQv6kzOIEswC0y67NI3v8z0mONCpCEN36ph3hA9xUIcrSNFPMYnek87e7D3ICQ3NzDJUfWWF4rYj3IaVjB1UIUceL8LUvaLLAEAv7gqMZeNMa89HecHDmYT2BB7E79BtfmJ6mtCVPPoOm3v5YqF+TIFwQNjfiiit1446CeQRUwAZAJm4QYN4JwJ49n+8FOYIjjz2MEgtog7SM8UNvXGAWys3mf6oGbMo0RdZmdA9Y0Mbvs0RDyCWblg0+kM4GtzadCTkw86JByMD1leBRN4fLnG+aru9UiLm/5SFq2RoJzCa8cOKDUL7Ww1DSBUlNxLkDoatzM9UPCH56Iz4w+hXM0wJv9uGfgY8oZFGX3QhyJXF3eiMWDDiZW2pPZnyq2wCjN41cS3GM1aWMdBsIsXCdpxD2paZBTWi9Gn+YBaKqprUlV29++MRiAdaoXCJdlxu5zdEOZoyM6f/uI3l9if211BzhG0S/wEEipjEq4Jgedl/FXrjxO124TCkTPcGNT1A0r4obY3Bb6bYqJvkgFNmWF3GdUGMZCG3fZ1hfyi01WTER4kYT0YnGYV95rarqCxCpnQ8yS6wKHx/eJJ7yiroVzUWh8GPoLeXq+W3yWElEazZuM3bkg9tF0URS/UipeKSC6ZxGpT40JDx1oHGnYFuwKUL+VOZ6Dxb8h3HMsbyLU4wECR7+QJ32u0j7Lr5EYe5ZGSGHZbL0l/asBu7DceTvqMWjwLL/cWsmRM0o3vKkG9lNw925R10EZbegtRCEgMdSX83GDX9wGWd6LvU/Pq4kdSOy5WDhsbnPDQhdsGD+b6c004MglME8Ix5MHSTiLC1b+9HYis+QQc1LuxjJfCGYdj4vBF+lEllxX5XakHKHuLetdbjlyz8I7Bq2tukSz7UTf0RvTmEl7QXomXwLyFBVUyzKl1O1+gfRpkBtkwkrfjoANPrOL4FU8kBj/J1WZn6FjLElIVrAcGCZfGBRDznf74osHQQZypWwnI8czA5AxTjcLgsAZRxg03A58dkNugxBkATAeSMU6DNVsAkiLNoLjUNUPDKeVOv/gyznu36oXhzSlXmEOAEmEiFZjXvDKV4E8KRdGGRWoCyCI5LAc1ZqmD5Qv/ijnUSISQWzTv6c3z7Fr8fYpN4yJnpXgMyGA+Xwu1WY2ych+8NAqTNRE2mSNbahAjOsF4iTNLXroXpe4FvUAC/kZVAsGTs715/AGnHwi9u4IKTdaN84jgitf2ja/Jb1TTMXtqj06Diw4nlwXG8ilSW6Msnwg8Hl4cntF+cJD0B73wQQEB/fpRcEihrDrCFCOQh1IPW5Nc6L9euYLR0rOt9cHLBp0Na2g3Cz1JpWT0xi2/3t31lWb6fYDAL2pZkDmh+kpQ9G9QK9UDFqVhcykcLVymiJeIWh/62jBJSYNkWT2+E9kHSFsn3K5DOXejKYrw2CyPbhnJtJKgFr4NY8Sxl/iqsRabjjh48/tuJ9qZDg9hvjfLiE2q7XpiH4bLqLsT27Ww+Gp1P1UAIB9cVZOE4Zws8xdvbMMIgfZsymhgybqQpAQUhus8aPt0C5ad+yxWgM6FBqine3uqhJ5H3m8ItGQ3m2tbVEOPtJ86CDGNi+V8IoQ/LCI5b2CFLoXRZXknniYnl3u1bMSLQnN5zjLUWKe9fMS3to5Z1TemKdBvef6oMOq7/7KshfIAUYmJH7PeeGBDMmEWH3GQq4e2/eSXYMb1IdX++B7fQkIZ/ipzTLRRtfVL9t+MbWEYttFGngYNg+Qd11WT3II5nC3Q0jBLDaJoE14kIRm3gxwmjOh6f+wZ86J5gkQ8XMeIA+d9n7uaDB58KwHUW+ZHRHpib/lNST6eg36IkIiDUfh1N+IfRcNxUM9iz8ad7mwoOuRDPmVIjxPu+TYCKKQs3qilZCMXkHpD72eB9yq24zCZXqY3ygnCclYxahuCsAQrgUKEDAFiYxM2BML7EMKkM8rzD1saG1NUMGQAMw4aBLNAPJX8x7NbDD0EyfwriMApCZ4aU4xts76DnkMyqX1zyQNSnvRKeSqdbTDMc7rRyhCAznJkvlI0kN6uSbNi8ekjbMVhZ8QNz7OTVo48nzMjtqXXTukISJ1k4V4L2nNmmw+YRbM19gsTvvnbQnf5mUp2ct8i9y7AE5F/UAm6rXy6fm1yBw8o0+MxLSGaABt9GCIvx2CVkezqLxkA8A0Z+E9WllvdAwhrETCMQkCJ3lk6SnOw/Br5ifndtR4lyq92g5axY4d2eM4g52+mABWztPK/Lhof/809twMVCLtSFJ70CgGbtiBKxqUR4JbyD0UgbK5rFvhP6K7LUPgiyCMsz1464zRZUS2zt3Npd6OR8kkhFNViEQlTBcI4QVrIqCT9F0s6VtpmPBw2HK91/Gj7al2bHWH6tZ1U0cRCgQMrgQVvzxypPJhhQ0hD4sm7S566jGEQ2NN7IpM/YyAXoG+dLOjil4Tli/7rY8NAetUnHYwQGt2ZCicGAWx42n50cJckhqwUdq5u1AuqlVkxMGsNPZgJKMyxopFSPXu3TROUqS0D4OI1+SNDWEDO+t+UQNAWcyNudP1DvSygXDLKgY5RNujzFkds1sHVgX1eXr0/YhLIiOiFxzv1OQ3AwM5D9LDxU8MCgWS0iUSm9sbj53m8gW1WRnQ3T67uzcMVA/tCoR/GD6tvXEIKIm89d/1e9moj7ntkgsJdg6pzWfwuRCP41sA7m54I09mgmfIgaVJzOFaa8VCBX6JmLrU5qBUqFF7rr3BNZIX7Nj58Qo8O5qf76FkZrD/tcT/ZSKsiLv1ZzpLe/z9UVFQjZZCuiC9/vMAo4VRt1kDKa4oNcpItkCvuwSyyMbHTqoAzRy3YM4OnjWK34Z6qoc0Rfj3EjBnTRMTuO0iO/aqiMgQp5EqYhCm4YndGR16f9hSy2KRJd4+ppn6CFxnZfgnp02WQcbL2eTizHwtqmpTGeX3rCqOZvcPsvpWBS4YemkxrgJGli2mbrDcqD+BLIbZiX3Ya2D00p0Fjkrsf/esLtc7Xqldf3UvEWD0rMa2Qogay5jggST6ui0zlYGT4OYJ7LSy1OOw1mbe9R8EZ/0jAbUqMlG28SDkTmDg6cTtTA4vKQ7A3Rzm0BG4g+E4zuuek55U2OuXLLYpYt/ZeBbLkx3D/yTCiTC3CdqYW6GjykHu04g/zsrjNpav6yvFx41g7GFHGjXbCm6gJznKgNJa6gRJJ+hwRC0Yb90dZsacCVZbxdxi4LHLX0ZL4KkonseLFeVS0csGYQEwNKVzrq6txDd1TJg1HFm443iDmkQgObbtz3+eme0IWg1aK5zrEjRj8L9qa9zLCYPqKyF01XxkU2kO6WWzA4kr+R/UKK0Id79F5ipzJFGFbX/e/h+ZEN0k+rL+IKdivoZXkxMDjQPfaTM1XMFRStJdKs7n1YaDddrWum7twfnvlEaxhrmZyW/78qfTX6pFM4wr1TtYuuxHz99eLekCbOtLwJeyLL2Kxz1LD1+EkZvnbZbqV0kWhfl2+ikNh/fD3X3eoibYLqBbrUmfET9+4Ai+lW8gHGahv+rA0py4CKZrnTPdo4s6s4R5ATGxwwzMNUDbyRRxUZG35pg8jgP6jo37Yq5DRAoXNA6aiRP1dzaMDVBPZlGbYo/WTn7GWcaLsjYSHetRW3qV/EcSbU7XNT4DTmzU+HuFwuEbEPMydl75IqDuf0Y+Av6EqEPE7aUBD89cDvcCCPTdXc29qQZKcLDseiptZeWyElT/WlHplRR7aETYjmTIXSq+SK2hIaSjpqjGnYqLzAqkuaTqlmhkqOqZlC1TOIn8H//TtiUQCpE3YWMIM38kgGLDlBvz/UHpXO0lM6eBGntWIt03OI8unWzqQqALW/vlvsOgCrz/A+CtCBHaIEMIc8zxufjiM97wAaefO0bnYnksIRIi9dZGdqfK1gICbyR5KdlAdmI1HXUT6RknxvvWLlP2DG4uLU8Pz1k6TpJ805JguumgNSTi0QQ/9bKKU1QeskzZg5jMx3VUSj2FLEjd7MvmvNIZtMTrU3p65mnSn2uZ7hH7/8pucy/Yp3K4BL9ctIQ2czMRLf17zerE8rLFX0IMy+MNa0E/oC+S64hxWM1KPSWf6KB4xygSnw11eit10xCcjWOhiHoa3VHxcn3dyooaN9+zh4aTE3W/pdCwBacRorDEdlpbWClgx3MQ38mDblZ8tM13Sh/bJEWZoeRS5akm8ZREueqMA4gFXHv6gi4uaX72MNVR2RpEUkWosYUd3SbdGR3AxORPWj1uc1h2qywNncLoNLJhh3a57zUTpcTxPs8c2Y9qxt6MdP8udUHkAqelFa+4L4tqN3MdTrJF0zCCcrGOGuJUNzDTVjIBxM/7YlbTsLAVN34IRHNs6osWCbil8tFpq3t/zA2BlWqU8xLtKX+GmeI2ES4HnnOb0vap8JX/dW6opQ45GD4XS0imwAC5km127tqQXADEAlXOicZFGiSPeSV++jr+u1exxp5IV7A0RgmJREd/ZF6j2iY+SEyqsAVi03dzpAlzcDlHADrVPISBhDB/nljNyL5mY6q3PGfZzxR/kAth5t9O8UHb/ed+XwE5w8hNJJFARYGEHpD1BSV/bIMW3txgYi+LUnAovoNHdUeWkNQaAFmuo/F1Erjrd3bW4h+u6Mf6SRaxQH9K/a5a6Pg0l99u9DocDoq/+1KYvYuDaJGRC14Bg/G3G0nuPtTQrJf9gMb+A0ieLhHPN/5ItAghpAbivaD7DyEIFp73qbA9if8BHdMS6HPdu0trKLalymIYj4YALXCjCN1RaOj2FLgHuMZifjW+6eFAgrpOUFUzVnKBBVLBsjep6Hb4kCTWlULAGs2PAc5H0sO10ZSNsxYbtw57EDlFVk7yZLUyS1LTn+9aJBpLPlbNHwCAySiOAr0senp/13dboyLBGGnlHYTpRj59/wLNNXLljw+xjJ9KiFlmctpKsDkt9LDEGNSCjdMkMq4fffEm2qHJcXEe22fNAV7B8sobJI96kh22qZXaTeukrfKdF/eDeGMHI7dHcFFvNLSUYv5ayHYzluIn9NNRuVS8lPZJqEqUF8cEQHtbXTrBYi78OaM095rTcMyeSvkPLHYfcIMf9z/PDeGZwb41aRuJRa425eO9gB+OhyIi/OF1UUp1TYpD83fZgubLfdV5vtTWR14cv4K1oDQ+GXx/COkl0tkxyDb+qD+bWTTla73Ob9c4/yEWwg9qEJAi9+CFZEmbLjHQ4z1npacvsQ/KmhB9dJbmUF6x6qENeFo+niSl55gITYJZS5EiZIZ0Dq7nqsEe3yKHL+bnSN+bX5aUvccJC9CbICv2L619wqX5G5e4z9t7tkzrDG/VSxh7UoDdorE4kOx4woH5GpSvdUwUVLJjfEXkybObq9bhzx7lYzzehqzHVBJrY6yAYX9ZHGfx2YqgmS1Z+IWSzF4FNXY6Ed1ayz/qD6aUelmPq0QV5OMbcUDEcqeQiT0L1X8dhnqprMj65IgWwz0fUjZfRxErpSH/7toLeyoGlCACYcI2UBGrGjsAfcQOzr05TQoXroZhOqn+9jT3HRdAk81aqlfOrJndzQhIGiBpA37fjGc8HrC6P7TcNEo4GL0VS6CsQA9ikRy29ssABgRPwDHIFR3y3J1u8RLsfsAmH00Khs92Qo5/vOYb6+Bshxj+dPptjXXdJCq3Mfdr7FLmAbJvsmljavGpcWbvL94KubIRva31fJEMMRV6msrBBu0i6qaW0DuVhxBkifEn2G6vqrJkaeMtYT+fUALM17jE+Cl3kU5dWxZ1m/BEh8sZV4U8Om4bPyxnljxakIxNLvM7YzqWCwSlvqP/NJQ8ydKE7rhKsLbdipFGlXG2RWcb5G8md0XQ3lWLeNGQ3dAs8pgD+JY27p5uzGjPugceAoJNBZoV1Nncx4SMC3Ql4Kz11Ws48uyM99PtRFnTmvqbmFCjntg3rXOgPNexorNf4z2Z7i2aGES9pq7Lzk66d2g3loXT1vw2rvEdE6BBsu0ud++oZINWVv40anjvEIhsbRC06BTT7zd3NjNZhzvvKgV7bARlJxrStaTA7qJJkTX81P/sGdIxXN23DNKWE5hGwUOUfT/cY2kYUdv+DJJpFjJODGzSNKusF4ZPtTqR2FDahB5QmOFCkcTGW2OUGlPWrsWMIcTwGXcn4LNnoaL4eLGrH1RzCN1YIyRTH05XKytmPyce79qIV/qG4WZfAq2oXTiDhGXN/vZss2wmkwl8kYnB0HbVv7mbdchshn11vnxIV/XSjD30IIr6iWwNBPdEzUUiStcWgHKw8cdY1CzgoT2gsty/6X+4+oynswpe8j4kSQ4WCL2bV1eAqFaSXDfVeLeqc4xDsBNgO8M3nDSEHNphB78unRBIYiJZAMNNqvIII6HTYPALw//zDOS4z3VGKSQ7RmG5ayKvlzkoFoAWryaQlY+d2nIyhV1yWVjTXX6q9cn0AuRdLsPkuh9NHKFb8/AbOQZLKkoEiVsiUh9SQaVKXm7rDv3pAy84UGFjmzb6gxTfdUuaEDhVHECvph0y+vFVEB8/Xt1nuFjLtA0UblltimYgcv9JnZYZazC2SzILwRg3jZHUybFXht4e8aN2PdY6zMv+rdVGGeAFzSypj3ukdjWNv7kvmZlGCr0WgwOFYI1Cm56ec0upyg+L+gDH9bg7TT3GjVsiFKbcRYtHUQ4C6S5eW7zpAUJJsq5WESRtqJdRI+z987tya2hCmC5rDmcmM3u9AmuBigUbks3gd1A5r1ee1GkW7IMCRV1DnWQxV7MVwJKljaO6jhWIggrjQqc3RMHVuK4xk0lEeXTo/U8CIXSarWaoPbOz1Eaihphr6bRxfiJif+i9EI0i6tcv6ZVfGQYZkn2G7OuaAWCwFfP3iv+n5ppRjIX99Ax17tEQI6DsuOVxF501w3YkCf6a0Jz5XG9ms+FJruw+9/hRHy9/JssGjv9R6m/m14XQ4Vcy3l4cGu8UHm3yEJpCAS2XSBWilRM15hbFbX0VafJqHRK+Q6DBxa6iS/7P0P668gwan2OgHxIQ/gkGgNAHOm6/GGOFERfV47M3pn1VOuF8WqrtPXABo1RF3DrD0udNbHsdidJDrbVKykCZGKFiu/dYHwYghJc62KiX+7vdXBypxl0KCM4F0TTqyP9zjtCg0lOa/Oin9yMYOmi7lPSPmBXH1RRVP7sy1z1gtP4KLu8PbeX8iYS5ValPS61uxdhbNKiC/RsCSWRK49NDHp83SrWcVhhTbnyn+HtWBVIisSpCXkmYIyxzc0D5EfndFKTE3oMw7bVtyuy0BAYLHp3FKjr+8rqNkiEDAEN+wCE6d6IbdaMC5f66nCcsuvPG9sTUdkE/oEFl/xlOvgsWoJlTNFd/kxUqGG4DO9mhF5ATYf5o/Nt+AeU/GoIUHe9i2l/LQEe5iC8rxngTVZesK1mR1DteuZNXmFDyfNKd4GXISscD4HntEIntTDk0OwBlCPw1GVSPufWdmSwKsSEYs7TIdXCiVe9VQk1TboCv8Teyu95DlqWwmIol7lYOh4ZuSv4nQeopCsKErpp5qPv9/qduFu/KDqdDIBlt9ai7Ue1DX/ifwRjpwUk30ijBRfcCChNEDjppgsuO9xtNmon6bqjH44T1ru7e9QcWj2fMojka8s2DgZ/tNo3fVFed3MmYiVhcP0Gq9Ib/SbprItinuf+8Jg/lZ/7s942WoubH6lQxxoxKyJ9br5m1Pyvay55NqAHAZMkh8gMUb9foSnWXlbCN+oATHe0zfKWwdkFtvDF5v1nIz0RX/AWLhntTr34TrYGclQbf44D3mcnlo6MlWJR1ahpV2/uRl+vT3Mr8YgZLRRA/yxcm4e84v6Gc+TbkW8mS2PzA9W5fRRAM+Z4v1o3O4PhDVHIqORPeVt9n9NqyQZB19kJLtqavHJctHlNtTJk8Pkp5/zETZuLDTMXTC1zzgsBQZUoZ0yt3oJ3WZR0ys9N/ty9tzVcG+yzJ1cWyb9fQrhranoglujFORgvCOJnpUu63Cx/Df7RqQos2qzon3tSUHWgHShMPdFKbToDX/4S3eohcD4z8LDJPQa1MK8s6VJRTuYQ7/PooLtTpUMrUy+n+9m9lZVu2amc1q6SCRPE+M2VVwOnvqF+d7JCyQdLaPRaWUeTNIQeUxLoqs5JT8oOmFZKiwCgaE7+MqIVR+TA7939jcCHvdxeiz7JF7EV8cSSJBxfAGbdO6wWbi3nJkNFKQXjbR1MljoL0rk+vxUc+eKiinmHHeI4ywGwirilJaOs8DAJ3ONMB5dGrSMCeuu5CLFBoj2b2a2iScfUwDSP8VSo8ZLz4jRUU+wGJpPaUj1OI4YO6c96vlOJjTFD/hF1doKkVb992VdESQ+S/JUiUaeYuc0vkRmKSHhGuLM4d9EDn+dxjgbKiG6BOhyG7Q1b/GOmb4fFlWuAEDWOJG4D5KZc6gdcxfDcQ5qz76im+MxQuFDW5mPb3414RxbmPWFIdBQAQBPlG6pZbS7ob180o/YJeT9H58dnNkn3CFkBOURSEAn+ZZV0O57feqHA66lKlDYY+OgcmY8OHh26AT4qlG+7kwpWq6rsxvV1G+SXphOj9Vsf5/h7xLsAlocne1k8cc1qvy7aRPYZzirLPRynlvaSJ6ZN0ZIfqYnPSFFpicN6p+ZGdUAJVjxRwc89m9pravuBTu+VcY1k8kRS1V8D6EYLynXpBMW9fZKj2m01b8Jgxo8Pa9blPd7BsTi57g0g0qLRTKlpnr+Z1g2enevLqek4DP0NDBmyJuag+FyqQcUhdxgPhMWYBozNBaN8aUwd+yX9j2f1Z3+fMAYgNZ6UDOAOOAKqYjZ48pMcK+uVh2mZYWkvXc4JtYHo3rPiCEOO1Ul68C7v0iShDGrL0SDfytCi2YjIpFAIeot6Mc3LJjEr2toDE/VVER1c823WHhXDsv0VqQXm/jV5yRd3iIBLBu4DEuk/ZkJeVL6i2e743YUZZ13abepxX+aNbfflhiIyRIVYRB0hO1o6ALIqtKTZl8mkiNqnx9cjc1UAABwKe1Sjm90W+X1+Oercspb7MXY7kbhc3bT9acHZ5T7bt0frX/bPFPc5tu1CjbhhisenLQDgII7MvO5PC1uE76YsaI3NxmLXIfLm+ZWG4ARwXWW5hTVzh2O6kn4kZkqqHMcBKvViJBX7BBG8Zh9v6erzS1ar9lGaqfBuhKz+Mc+vSktfwM2P2mrR/D1bfOe2OVARJtdFGdg9/bbgiDS3atAg+4TxT9D7iopJ0LbQXQXqTMY1x7RxnArNS4857w2C9ydHbkT6JFn375RLmMwkzs4O7rlTa6uWDQevzxehZJpPbW5+WzbQekfxF5aYklpYyCJwsXbRwjF9wTXnWGWMCkFGHsEh5KS3gxBnUTqysoQT+TXOJgifb4Oo/rSoSmb4ylS0syIDFYwuVIAo3kYK0irIPaBc/MQJ+6hQIRg3NWLDQcp8Cipt+0SdLL+rwiqnRq1oHY5egDymZwfF/HvYo7h+Qr9GEyOIpU+hPq2k/2fg4l1taziGFnbi+rkr+RKrN9672yhoHyVeJN9DNte+bhMURJM9pSy0lBB9dtS1xlk5j4kSLshzKxUUolzj9nCdDPlJT5P9gY6DobBb3iFqMTHqF6+tkmnQoLXqaDU+or1ZA0HLO8na61WQXZIm1aujrTlRlbpFmZCdtrYiTE+NShLyvPRE0GADkw28Al3PzHw9tze33/eBT9gLwe+mFSgCQj/NVSJn57SYMN0GyzFr3LhbhhcvKqWYX0gqKW0srQhUejV5i+xBfnF4Br0q1AwkRiV1e/22nT7500eGoBrCm6S771B/P5jchkaoXEBBosSfx2UNOOv20vPTcOLWbJMv3X7FkLVhfqpighBaye6vlcjEzpvuNlIAipikc/w2P7JdR6ZatpdQwDE6Zqx6yKugG6QmuLTwJoqH2mPVfCqBzbQvSXAE/iwILaUwpJr1f2D3oYycfa12UhW4ABvUV2DVn4x8DZScfYv2W6Nh/tMX7NbdMQQOtnQwF2QF4WeZ0WqBQXsFGqP75xjtIBmQMgE6/PzDz9uo1UDNku1ECJF7BPWbznRublDP7SsoKhB8JDpaFj+/tBGUSPQ0iViRaijuEwanBvO1iQtsPPGWALmffOGy+Rqhx+4E6QkWdoAUL1MpJv+eBPLRVRVBv3Iv4qrTx1mAsGxTleU+3RD9QHHkaMsIdzl32LIwAfbQMa5f0lWrwMB0se85q1Du6M7+eQfE4EnbQMXl28vM3EyxALZENUZJijLlRpjkVj75DDRaEagZOcBXL11NJma5CbrFJyh8X2bqcijEf1oNOU4Yyo5MUtyF3wb/4zcR6IuO1dJoh1hyfu3Ac0JWlel5DxnaWhbYbFoOchNVOOflt5V+Lt0jLa2FPp600qKqvMaO9nnU5azL0V6pxwNRdvGK5N4xrZsZcKoqvRkil/DVMAkZig3v9MSvF2jvQf1g3ykglp0M+WSACQCUnQA/dmaBgIURQ90ze6VJQQgXXsPIpatUQELxTCxHM5Y64BvGmUpMqt1m8gGDi2MIW4p2Pf8McDhIHySH9RF2+7XD/AeUi7ipsSzboSO3g9vkfjQRgqq+kyNmB7XISHIn+S9NnIdGABg1dj5e/iZjUPpV4O4Bs24oLEXM4jYPY2G+iZv6vFqJrFSc+wPJI3LU7Q0tnTQLQf4MA+ureWz3l80p3ZWAwD+uzKLNzdV5UWa2fDvKVGYL6cp9yt+iPf+e0Zu88AKeen0SA/M0BeZ0hnXtF6nMaFauiRqk/sw/D/aZAwQjJ8U6ArDUTXE40uKNuLDpc81EeMgcK1u7zFl1KpW3dzdz1W0INzQJZRdgMNnGotdvZiZySJlpsI8t0ky0Vg3QlHNDqWc19y/1JN0uTqbTW17dAqT32DEuy/eHMN6n+2gYbwX8rnij7sNXIBF54HB+pyfxB6zmbQsVJ+//m0j+lDstCA2K7P1RsqM4LyA4PZ80uQ9qLClPcGtAACKOwx+g/Ri30eVkIW80BXOiDKZSrypuLuzXmeD96odydR6iYFUa4eEZZTEq0Vd6MtTXCHrA9KhncOCU8wEzETTVuHhXKGjTMvzfCV9YODI5cbC+r4KsTirm8eBET91AfuW+af2CRY3HW0unxt2fMlPjfxG4ObSeWxSyJucELRgBp3OgMopEUCQfBxXbJxtvXkRCop3zFczQ71Ifq+vPwrOSxn1cCyZJGPrIUeln7S/gFp5IvDWwU1c3z251tTCItPt5IoEVxGPmkTwqxzHGqN5j+gozHzhbHppaVusHTgwi3KlJRdGCPaUhq9do2DTBTU2Upo9Dgp7vRelG3cthUshaQlqNpdHowIBHJvUMCnmoFRCRBmKfNloP6Ou2oO448PqjvlbluNPQ87OlzVDketLqXQinBeOxMXWGiwQwsvBDc32fuVAsaSc9qM4SWsgOdIEj1YBxVj7AmKyB6QC/sC0/PxJ72v7v0eNztA/CSXw2d+K3SV7zCm9s9XNqiwhEffbVHwxe5ddvCtselfvVms23UbUNVphjFcTa50blJYFqAhuze/rvnO9V6W9J0X2dIV+EQrz09muppfldAJEN0WytW2XxLtDWTXC/l5fMda6sQ17nxKkdsvUiWh3AhZQv09Hv+jHwlWnKnqrC+Xj1YIT6Xg+jNlnxZqoOWwHTrT0GveI3sZtgDcGupK43GOeVFV44vXKEtxu3yL51az39dHGbAVppr5T8bCfzAFJBKVNB1eF2zlzmdWjtTVDdVMAajnoLEQxg1sAjoVkU3hjhqTWq8D9RFwrU13Won8iJbf09P4i2fD/SAhMfClryLAvhGuWVPHnEi9xJBrYJZICOqo8/IeWXeENJgh6Jkw+xFk+7RGsxHYHAgaaEiCaUqkWJdYveDk9C7Gr5bhjIdxTtvHpCtmqmbV3x/Tvn0siDGcJFnl26pqgQIeeYwDwg4zNlV3riClIsrIthQ2kepuet8YmN9znx8fgUxz2BZiVHidn/xMYY246P+UZo/jchN91SIqeISNHLv+dC7+YlgqSLHgny0i5QV9PmN0TtWM8EDAFdD+YuG1yjVv9l5HTRr0OiZ2xFKVWsZtpTOt5dSHy2gD/u2aUzjpyTKWNtkB8DV9trkuBY+FhuzXc1vicVqVh1zwuQuzJliWrRyVET8dNS+QHRWhuK1WMYpZtX9HlxFQmpWj/PL4ezEok9gJ95jW8sGgQgrwSJJV0TMBlfOjLQ/mjm56Nq5FW66dqsGF27Zq2jmsJQ0iUU7zsI+yJLLneFazR1aOHWeWq3fdCB/hx5k5bt4tLsc8yMZNkVOQd2ZvX7WK4HW7YzmbZMvpuwV19i5jOrEFVQZZ1+Sy5hfQQ/k173hWxE7BRNFOClXyoWecP7eDiK02PJE6YEMRuIEKY4MTbrRXYXsyIiz2w9hTnO+VSd8upu5owSDv13Jg6Y+FnU/KPFECtPzKCFIvMC8vtTP4w3LUFaX0YxYeMETwHm63BuQmb431hTw132EiD89tSjbz5eL0oz5udZnrYFza+PUEcVdqSdgDik6N8mF0wRXoGOp6q4Y3E0ayfGajYCRnvwVItIf5fWMvjrx+89ecjrNzgf4fNVJGylDzNhPQfBEE443ZWEehITfm41fbiJuA6HcxrovP33rCO8DmiowXkV6EIjs9UgJl3/ushBuhI+fai1CYwopFB5Wo8Qn8z+88+09AxReU0weMrHlRyaP4HraYeSEhiuRw3sAFD9U8hNVeBf5EMflMMztKSEANI1HK3wcwbJa3mVsZQbAjUBLRvepWZ02S6XNsYdkxQvpoJvtBoUrlWok3IyBgD",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSnQsKEAgTGAI4AUIIdGhpbmtpbmcSDM1V+Rfzpkuba7mh+RoMH8Wi173ZXi+A3WcjIjA/sFj1rl0Cf54fy4ESwn2OmSvdHgPOie1g8y243molesPfu3Q8pKUVKqj4zyeCi/cqugqjOedFvfqpMnQ9WvshjShg3MX5tWxrtOLnCqt5Df29I4ACDDyuTSpeSc7n8a8kCLwkCNMycZBtRdfE9WbteV7WHydtARaUvqNf6PI09I0dOCqLx/yN3TBHFNgzknmIqJYP7Pe95oMo97SSG8uGmKG4DfOXG0zZ61foXFisPTe16DjTyaIL187MYb8gw1BwsBZ0tAfyUYqSitVl4oJTaWd6aLzR6zFIyDAnRpMV+uVto7HJgwUAAyRjbXjMmTXSjlAD6ysDKCy4orc1Djx5iPe7zi0a4/mwn7Z+SeQ/RDlTPTVtpbq4CqIhFq86ponwdcQKbAakIm1EeFhjyNcTHxbDVm85M74g2Uo94czBeN57g0SX0MP1VeF/SWWNpszkIXW2vL6aoNt2J2PD80h1jBVkwQ5SZSXWnnXFv1w5USXgusAoqwisMXyg/K1bP0Zn5JoWNhcurv04lpKe3OcLfpFPn06T986WWB5f8an22k4UT2BcLpeQeWb7J6A+yEDGkL0gqanqS8WTMQYLq+mZyy/yk26CZBZmcygFy8Q/ccsb/gU4m5o1fXDocp5tqJ3UgrWOlfZyBVKTcjafqJDbd6hyN6FK9gVZ898iBVCvXNkTznqSeqROk9CrSDGjlAA2pvil+YLgfqBfX6XwAYszsuTuECBwo6AGmJS68ddbk8UCw86BZiiDuYCfUMDe0i5H2fSmCPiLFQvG6Ec8DrWnW6RPhKIikt0MFHHLMOvdQXpmGOIWFsuwM9NtxAkb/mToYkjp/KRJ1OgihEXO0d8MbmBCAamNyJrLRexhOg8noaXAKDMb5FwvNg5OFS/biPxAifwDa4eqwbhiVTJRRplLp8HwCDJcSqZ7PmwtVeeQ5BWaaWmPxvqwjSrBA6e6LYgnZUPwSRWplF15KWqkHj2gJwaOrl95UEG8ycJJ+FiHxW7tcHvWpLdzpYcVVqs+/0ZN+86eK9YCE9hbkYc4XjHvtjffAVJJvBKXxgc79/tQiD9Nw/f+X2446OQQoaEAlrcPX6AViEsO5hLppS06+pdcNpBz36Edw4fGCKVJ4aSoKYnpv6Vkp2bvyCl0hbCMYk/cXa63Am0LB3hYBjjHggmcoFO+cbLZ4JTT28+epujZQ4i0stNyZ8xuy4vK/XFaIlFcrbfVwwIM1+6Rnh938qFCP26rc5ynMoDrmhqb1RWBaJEcsuoFR3NY1wx0rYmH/XAk1Sqd0IIJ9qTZ53PhsSpJ9pkvRByOD1Yo6wFEa2tBoAq2zs2jRNlI/+xMUwAXLtox9t86CvGPKrQsZ27ZFZbEH1yiRc8T4BVVGR+09a+RbdfenBIMT5jCcIil9kwUev3dxVo9pP4FvZBy2eQFEWPat2RKpd8rcCZP0aNWifznUx4LdtcZ3H4i7QwgCZ82lpOndwKpZq03gRy4Oit5/rwU8jPUlg74UlWd3qFdBOboxfC44mY7x1NowRONdDj4s2Xlmv//GCrh2kIkGHs2lzzeV10+i816/+dxTd7I61JgLK33+iLtOkdHIl9/Le02D16AtOyh85IChYEbZ3YfuQpnE4nqj5pDZi5QvcoLYrf1D/86MphpjbYSxe5DTVSW9mDOq5QOlFUA9HNyh6V/ZX6O+BS+lWj9EHu5JZw2ctjHPbkYJO8WtsE3COMb5sm7bI+Ki+joXDU4iEP3v8D0Ji9wGugSGMxZx/aPnuX5/EcDQM6ENwACMBewNfb4zEGyt3KrDmOAhRw9mlu/KKpBMXen2hs+jmwWws+HQ9skymXMLg7FY1TGmqTMT0PVAb8YAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_011LMv6rQ3wrxnE846vspau4",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"Caterpillar 2025 10-K consolidated results of operations operating profit total sales and revenues 67,589 64,809 67,060\",\"Caterpillar December 31 2025 balance sheet short-term borrowings long-term debt due within one year long-term debt due after one year\",\"Caterpillar 2025 weighted-average number of common shares outstanding diluted\"]:\n    for x in json.loads(await web_search({\"query\":q}))[:8]:\n        c=x['content']\n        for k in ['Operating profit','Short-term borrowings','Long-term debt due','diluted','Diluted']:\n            for m in list(re.finditer(k,c))[:3]:\n                s=c[m.start():m.start()+250].replace(\"\\n\",\" \")\n                if re.search(r'\\d,\\d{3}',s):print(x['url'][-40:],'|',s)"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01ERuWHqsd5c6qDnp5PQeMdv",
+      "name": "web_search",
+      "input": {
+       "query": "Caterpillar 2025 10-K consolidated results of operations operating profit total sales and revenues 67,589 64,809 67,060"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_011LMv6rQ3wrxnE846vspau4"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01ERuWHqsd5c6qDnp5PQeMdv",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Table of Contents UNITED STATES SECURITIES AND EXCHANGE COMMISSION",
+        "url": "https://fortune.com/company-assets/1662/quartr/annual-report-10-k-eb5ef-2026-02-13-03-49-19.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "268 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Reports Fourth-Quarter and Full-Year 2025 Results",
+        "url": "https://www.nasdaq.com/press-release/caterpillar-reports-fourth-quarter-and-full-year-2025-results-2026-01-29",
+        "encrypted_content": "[omitted]",
+        "page_age": "283 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Inc. press release dated",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000003/cat_exx991x4qx2025xearning.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC. ANNUAL REPORT 2O25 -AN • 0 • • 0 • -40111.1• 1r37181 a V",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000130817926000360/cat015318-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "268 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar 2025 results: sales reach $67.6B",
+        "url": "https://www.stocktitan.net/sec-filings/CAT/10-k-caterpillar-inc-files-annual-report-fa3bcbb38074.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "268 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "CAT 10-K FY2025 Annual Report — Revenue, Net Income, EPS",
+        "url": "https://www.analystlens.com/stocks/cat/10k/fy2025",
+        "encrypted_content": "[omitted]",
+        "page_age": "261 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "- Third-quarter 2025 sales and revenues increased 10% to $17.6 billion",
+        "url": "https://seekingalpha.com/pr/20283749",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Reports First-Quarter 2025 Results",
+        "url": "https://seekingalpha.com/pr/20084260-caterpillar-reports-first-quarter-2025-results",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "www.sec.gov",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823024000005/0000018230-24-000005.txt",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_011LMv6rQ3wrxnE846vspau4"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01PwPKYPwMSkWHoeSBLev16B",
+      "name": "web_search",
+      "input": {
+       "query": "Caterpillar December 31 2025 balance sheet short-term borrowings long-term debt due within one year long-term debt due after one year"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_011LMv6rQ3wrxnE846vspau4"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01PwPKYPwMSkWHoeSBLev16B",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Inc. - Caterpillar Reports Fourth-Quarter and Full-Year 2025 Results",
+        "url": "https://investors.caterpillar.com/news/news-details/2026/Caterpillar-Reports-Fourth-Quarter-and-Full-Year-2025-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "283 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Inc. - Caterpillar Reports Third-Quarter 2025 Results",
+        "url": "https://investors.caterpillar.com/news/news-details/2025/Caterpillar-Reports-Third-Quarter-2025-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "375 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Inc. - Caterpillar Reports Second-Quarter 2025 Results",
+        "url": "https://investors.caterpillar.com/news/news-details/2025/Caterpillar-Reports-Second-Quarter-2025-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "460 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-K - FY2023 (Annual Financial Statement Tables - full year 2023)",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823024000009/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-K - FY2022 (Annual Financial Statement Tables - full year 2022)",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823023000011/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Inc. 4Q 2025 Earnings Release FOR IMMEDIATE RELEASE",
+        "url": "https://www.caterpillar.com/content/dam/caterpillarDotCom/releases/4q25/4q25-caterpillar-inc-financial-results.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "283 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar (CAT) Balance Sheet",
+        "url": "https://stockanalysis.com/stocks/cat/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-K - FY2020 (Annual Financial Statement Tables - full year 2020)",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823021000063/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-K - FY2017 (Annual Financial Statement Tables - full year 2017)",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000018230/000001823018000042/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_011LMv6rQ3wrxnE846vspau4"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_015XFHYyhtTmXtb9VEep6NdC",
+      "name": "web_search",
+      "input": {
+       "query": "Caterpillar 2025 weighted-average number of common shares outstanding diluted"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_011LMv6rQ3wrxnE846vspau4"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_015XFHYyhtTmXtb9VEep6NdC",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000040/cat-20250630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000048/cat-20250930.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000016/cat-20250331.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000018230/000130817926000360/cat015318-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Table of Contents UNITED STATES SECURITIES AND EXCHANGE COMMISSION",
+        "url": "https://s25.q4cdn.com/358376879/files/doc_financials/2025/q3/cat-20250930.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "404 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000037/ex991toformcat2q2025earnin.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823025000013/ex991toformcat1q2025earnin.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Inc. 4Q 2025 Earnings Release FOR IMMEDIATE RELEASE",
+        "url": "https://www.caterpillar.com/content/dam/caterpillarDotCom/releases/4q25/4q25-caterpillar-inc-financial-results.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "283 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Inc. 2Q 2025 Earnings Release FOR IMMEDIATE RELEASE",
+        "url": "https://www.caterpillar.com/content/dam/caterpillarDotCom/releases/2q25/2q25-caterpillar-inc-financial-results.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "460 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_011LMv6rQ3wrxnE846vspau4"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_011LMv6rQ3wrxnE846vspau4",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSuAgKEAgTGAI4AUIIdGhpbmtpbmcSDEV8FjcDkq0lLRnQYRoMRNSK54mh8fPMwmF1IjAFI2xXVD/lMzB7VMyh2aEbRQQBcSIfq6G5xEwGEfQ+1edW2deAjp1eKx2cITGp5G4q1QcdT4uido2GXStUQzLwS1mN1Ni+0/dbBfEyPBZsIDFgrgqtD4AGEkcMJykAHwmm6nkWmc2jRHj5N093WBLrMOnlzd35c5vsLWrAizn9kLkxOmmZUIvVUJDS7IP1a+Mlp4eAsalP7bJ6RQMpcMue+yZVwmvZvgLQKuliS8j30vT7g+uVAa668flTJZLwcWbpPG336amKL2fFJFSNuIuKDdTo97f8ERxoBl3epCmm1A+1RahNfaJGga6tC6/WgkYm/6qfQLK7gKNqRvAfunFKYJ3gIRvL/Uw3jLRC7fcIcxId+/vZBMaaC+dlFafdseYDgt52MW+EQF/D7hJbnRaHEh/Cb7080fpjTKjJQRAGuaAdMElDhangeZW0HF2HQP9u5x5ujQcxtOftyVj8xUD/w1VqGVG/RQljaEjECGrDamaHndBHB6UKfUUeROOtQNn28uEavPOQBfpGDUEQg2anX0Ng/Ix8zL7FzTqOHVRhshausEwGzurk1b2h+K6fyS2wKTD/seuCX51fFHNdKE/oruuR9fzBPu38+lYDEPy17j3AuBoJlmYs1JfGAYXQMekI3X4mPCWsptgWM/6wIBuWXyP3jcbRO9iZa4javQoM66DYNy0H4+lQiN1vtSGuCI0y9sLA2G2Q2GJ3RKsYsq2KS1EwXTE+UCzt8WSYRwF00fB8/ehnC6J9yBNeUSQ6CEcS+vPW43+M9Zu5diSBNs8xJrRbT+6IqD3+69iGFqZsFYZxV+1fePqIIfFStMmbPpVz1MMgwmIW3zVHWuMZQgCK8bxfL4FefhigJnoUG1YYSoLxJmze7Sk1N4wsxkOyFLhlcttQ7wTgydXupSEJON404IoqdSArxokOuv1s9IG6xEizel69tkdQe/AnBjG3BYexf9covKI9F3bnMTKzBXKsw68+9ipLQzn/b7ii+MqT+Y99CtUreWNQYlHb9OUNaW+9wk9JKcIJetA4p39fbYjALNs0H5rp4uEwhEfyuSJhbMX5VxawGgE8iUy4J8zYktfTmvySBK2zi8KrkCUnwud751rN8dCO1Vg4Ny8HQ+vnT6mj3OE3e0kx9rpSUjkeWBIFz3jA6iGihKnn5k1JGMHux4vHWJj1IzRczyPrT42oNRxdwjcF5pd2doPCp0iX/rYbDM7eszrhApahueP3ptAF2v2InTdknVk+h/uJaKBo4Eptc5a1QGWqPAYPjpYjQZIqUfz2U3w4CgPHLeExRWS0+BNWx3Sy7LGhotnAbq96aPsHhcqzS6q5Uc20TaCh1WgLr2vc18KwAi8oD9XZUFA5Ux1n4GRzA0EYAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01EF3AmoLmwBVCDZ5B46wMze",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"Caterpillar Reports Fourth-Quarter and Full-Year 2025 Results balance sheet cash and cash equivalents December 31 2025\",\"Caterpillar 2025 weighted average common shares outstanding diluted effect of stock compensation 2025 2024 2023\"]:\n    for x in json.loads(await web_search({\"query\":q}))[:8]:\n        c=x['content']\n        for k in ['Cash and cash equivalents','Diluted','diluted','Short-term investments']:\n            for m in list(re.finditer(k,c))[:3]:\n                s=c[m.start():m.start()+200].replace(\"\\n\",\" \")\n                if re.search(r'\\d,\\d{3}|\\d{3}\\.\\d',s):print(x['url'][-40:],'|',s)"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01KFADyE3GZpkskqRNXrBwkK",
+      "name": "web_search",
+      "input": {
+       "query": "Caterpillar Reports Fourth-Quarter and Full-Year 2025 Results balance sheet cash and cash equivalents December 31 2025"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01EF3AmoLmwBVCDZ5B46wMze"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01KFADyE3GZpkskqRNXrBwkK",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Reports Fourth-Quarter and Full-Year 2025 Results",
+        "url": "https://finance.yahoo.com/news/caterpillar-reports-fourth-quarter-full-113000897.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "283 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Inc. press release dated",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000003/cat_exx991x4qx2025xearning.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Reports Fourth-Quarter and Full-Year 2025 Results",
+        "url": "https://www.morningstar.com/news/pr-newswire/20260129cg73217/caterpillar-reports-fourth-quarter-and-full-year-2025-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "283 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Reports Fourth-Quarter and Full-Year 2025 Results",
+        "url": "https://www.nasdaq.com/press-release/caterpillar-reports-fourth-quarter-and-full-year-2025-results-2026-01-29",
+        "encrypted_content": "[omitted]",
+        "page_age": "283 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000018230/000130817926000360/cat015318-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000001823026000008/cat-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CATERPILLAR INC. ANNUAL REPORT 2O25 -AN • 0 • • 0 • -40111.1• 1r37181 a V",
+        "url": "https://www.sec.gov/Archives/edgar/data/18230/000130817926000360/cat015318-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "268 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Cat excavator",
+        "url": "https://www.caterpillar.com/en/news/corporate-press-releases/h/4q24-results-caterpillar-inc.html",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Caterpillar Reports Fourth-Quarter and Full-Year 2024 Results",
+        "url": "https://www.nasdaq.com/press-release/caterpillar-reports-fourth-quarter-and-full-year-2024-results-2025-01-30",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01EF3AmoLmwBVCDZ5B46wMze"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01EF3AmoLmwBVCDZ5B46wMze",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDL8FzotwIorDKkPtyRoMPdCLnleWAzmrEqxAIjC/dyqTHppUKJ2FkUNdwUYMHoBlH0wF3x7rKQt6B3F/yiHlBxaWwOgL/5bPI0HU12AqEhpfcVzt7fsGQQdVGrT+xFFsLRgD",
+       "stderr": "Server tool use limit exceeded during code execution.",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "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"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01UuEb1WJtBTrW7TsarV4TvP",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Caterpillar Inc.",
+       "ticker": "CAT",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           67060,
+           64809,
+           67589
+          ],
+          "source": "FY2025 Form 10-K (cat-20251231.htm / ARS cat015318-ars.pdf): total sales and revenues 2025 $67.589bn, 2024 $64.809bn; 2023 $67.06bn (reported as $67.1bn in 4Q23 release; exact figure from prior 10-K, not re-verified in this session)"
+         },
+         "operating_income": {
+          "values": [
+           12966,
+           13072,
+           11151
+          ],
+          "source": "FY2025 Form 10-K ARS cat015318-ars.pdf, consolidated results of operations: Operating profit 11,151 / 13,072 / 12,966 (2025/2024/2023)"
+         },
+         "d_and_a": {
+          "values": [
+           2144,
+           2153,
+           2262
+          ],
+          "source": "FY2025 10-K Statement 5 cash flow: Depreciation and amortization 2,262 / 2,153 / 2,144 (2025/2024/2023)"
+         },
+         "capex": {
+          "values": [
+           3092,
+           3215,
+           4286
+          ],
+          "source": "FY2025 10-K Statement 5: Capex excl. equipment leased to others (1,597/1,988/2,821 for 2023/24/25) PLUS expenditures for equipment leased to others (1,495/1,227/1,465); gross of disposal proceeds; included leased since D&A includes leased-asset depreciation"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026E",
+         "FY2027E",
+         "FY2028E",
+         "FY2029E",
+         "FY2030E"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.05,
+          0.05,
+          0.045,
+          0.04,
+          0.035
+         ],
+         "source": "Assumption: FY2025 growth was 4.3%; Q3'25 +10% and management commentary points to higher volumes (data-center power, services); fades to GDP-plus levels over cycle."
+        },
+        "ebit_margin": {
+         "value": 0.17,
+         "source": "Assumption: FY2025 operating margin 16.5% (11,151/67,589) depressed by tariffs; FY2023-24 were 19.3%/20.2%; assume modest recovery to 17% held flat, below the cycle peak."
+        },
+        "tax_rate": {
+         "value": 0.22,
+         "source": "Assumption: approximate normalized effective rate near the 21% US statutory plus state/foreign mix; not verified against FY2025 10-K effective rate."
+        },
+        "da_pct_revenue": {
+         "value": 0.033,
+         "source": "FY2025 actual 2,262/67,589 = 3.3%; held flat."
+        },
+        "capex_pct_revenue": {
+         "value": 0.06,
+         "source": "Assumption: FY2025 gross capex 6.3% of revenue (4,286/67,589); management guides higher 2026 capex (~$3.5bn for MP&E, per 4Q25 call) so stays elevated, trending slightly lower."
+        },
+        "wacc": {
+         "value": 0.085,
+         "source": "Assumption: cost of equity ~9.5% (beta ~1.1, rf ~4.3%, ERP ~5%) and after-tax cost of debt ~4%, with mid-single-digit-% debt weight of mkt cap; rounded to 8.5%. Not from a data provider."
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "source": "Assumption: long-run nominal GDP/inflation-ish growth, below WACC."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 33344,
+         "source": "FY2025 10-K / 4Q25 release balance sheet at 12/31/2025: short-term borrowings 5,514 + LT debt due within one year 7,120 + LT debt due after one year 30,696 = 43,330 consolidated (includes Financial Products debt), less cash, cash equivalents and restricted cash 9,986 (Statement 5; ~$10.0bn enterprise cash). No separate short-term investments found. Note: consolidated net debt incl. captive finance debt; reviewer may prefer ME&T-only.",
+         "period": "FY2025"
+        },
+        "diluted_shares": {
+         "value": 472.3,
+         "source": "Derived, not directly read: FY2025 profit $8,884m / diluted profit per share $18.81 = ~472.3m shares (millions). Weighted-average diluted share count from the 10-K not retrieved (search limit hit); reviewer should confirm.",
+         "period": "FY2025"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 10,
+  "mismatch": 4,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {
+   "other": 4
+  },
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "CAT",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 67060,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 67060000000,
+    "resolved": "CAT"
+   },
+   {
+    "company": "CAT",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 64809,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 64809000000,
+    "resolved": "CAT"
+   },
+   {
+    "company": "CAT",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 67589,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 67589000000,
+    "resolved": "CAT"
+   },
+   {
+    "company": "CAT",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 12966,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 12966000000,
+    "resolved": "CAT"
+   },
+   {
+    "company": "CAT",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 13072,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 13072000000,
+    "resolved": "CAT"
+   },
+   {
+    "company": "CAT",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 11151,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 11151000000,
+    "resolved": "CAT"
+   },
+   {
+    "company": "CAT",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 2144,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2144000000,
+    "resolved": "CAT"
+   },
+   {
+    "company": "CAT",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 2153,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2153000000,
+    "resolved": "CAT"
+   },
+   {
+    "company": "CAT",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 2262,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2262000000,
+    "resolved": "CAT"
+   },
+   {
+    "company": "CAT",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 3092,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 1597000000,
+    "resolved": "CAT"
+   },
+   {
+    "company": "CAT",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 3215,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 1988000000,
+    "resolved": "CAT"
+   },
+   {
+    "company": "CAT",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 4286,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 2821000000,
+    "resolved": "CAT"
+   },
+   {
+    "company": "CAT",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 33344,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 26230000000,
+    "resolved": "CAT"
+   },
+   {
+    "company": "CAT",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 472.3,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 472300000,
+    "resolved": "CAT"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}
