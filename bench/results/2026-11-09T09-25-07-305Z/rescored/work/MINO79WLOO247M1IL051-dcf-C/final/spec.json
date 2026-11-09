@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "Airbus SE",
+ "ticker": "MINO79WLOO247M1IL051",
+ "currency": "EUR",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     65446,
+     69230,
+     73420
+    ],
+    "source": "ESEF ifrs-full:Revenue, reports MINO79WLOO247M1IL051-2024-12-31-ESEF-NL-0 and -2025-12-31-ESEF-NL-0"
+   },
+   "operating_income": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: operating income null in the ESEF data; not filled from memory"
+   },
+   "d_and_a": {
+    "values": [
+     2242,
+     2853,
+     3133
+    ],
+    "source": "ESEF ifrs-full:AdjustmentsForDepreciationAndAmortisationExpense, same reports"
+   },
+   "capex": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: capex null in the ESEF data; not filled from memory"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.06,
+    0.06,
+    0.05,
+    0.045,
+    0.04
+   ],
+   "source": "Assumption: FY2023-25 growth was 5.8-11.4% (revenue CAGR 5.9% per key_metrics); fading toward 4% as delivery ramp matures."
+  },
+  "ebit_margin": {
+   "value": 0.085,
+   "period": "FY2026-FY2030",
+   "source": "Assumption (placeholder): historical EBIT not available from the tool; assumed margin for a commercial aerospace OEM. Reviewer to replace with filed figure."
+  },
+  "tax_rate": {
+   "value": 0.25,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: approx. Dutch/French statutory rate (25-25.8%)."
+  },
+  "da_pct_revenue": {
+   "value": 0.043,
+   "period": "FY2026-FY2030",
+   "source": "FY2025 D&A 3,133 / revenue 73,420 = 4.3% (ESEF FY2025 report)"
+  },
+  "capex_pct_revenue": {
+   "value": 0.045,
+   "period": "FY2026-FY2030",
+   "source": "Assumption (placeholder): capex not found in the data; set slightly above D&A. Reviewer to replace with filed figure."
+  },
+  "wacc": {
+   "value": 0.085,
+   "period": "current",
+   "source": "CAPM: Rf 3.266% (ECB 10Y AAA, 2026-11-05) + relevered beta 1.32 (Damodaran Europe Aerospace/Defense cash-corrected unlevered 1.243, D/E 0.084, tax 25%) x ERP 4.23% (Damodaran Netherlands) = 8.85% cost of equity; debt weight 7.8%, after-tax cost of debt 4.1% gives about 8.5%."
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "period": "terminal",
+   "source": "Assumption: long-run euro-area inflation/nominal growth, below the 3.27% risk-free rate"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": -14128,
+   "period": "FY2025",
+   "source": "NOT A FILED NET DEBT: borrowings not found in ESEF data, so this is minus cash and equivalents only (14,128 EUR m, ifrs-full:CashAndCashEquivalents, FY2025 report). Reviewer must add total debt."
+  },
+  "diluted_shares": {
+   "value": 791.1,
+   "period": "FY2025",
+   "source": "NOT A FILED FIGURE: derived as net income attributable 5,221 EUR m / diluted EPS 6.60 (ESEF FY2025 report); weighted diluted shares not in data. Reviewer to replace."
+  }
+ }
+}

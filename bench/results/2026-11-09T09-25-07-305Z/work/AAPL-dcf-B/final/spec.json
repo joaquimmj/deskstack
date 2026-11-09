@@ -1,0 +1,109 @@
+{
+ "kind": "dcf",
+ "company": "Apple Inc.",
+ "ticker": "AAPL",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2024",
+   "FY2025",
+   "FY2026"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     391035,
+     416161,
+     478834
+    ],
+    "source": "deskstack financial_statements, 10-K accessions 0000320193-26-000026 (us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax)"
+   },
+   "operating_income": {
+    "values": [
+     123216,
+     133050,
+     158063
+    ],
+    "source": "deskstack financial_statements, accession 0000320193-26-000026 (us-gaap:OperatingIncomeLoss)"
+   },
+   "d_and_a": {
+    "values": [
+     11445,
+     11698,
+     13423
+    ],
+    "source": "deskstack financial_statements, accession 0000320193-26-000026 (us-gaap:DepreciationDepletionAndAmortization)"
+   },
+   "capex": {
+    "values": [
+     9447,
+     12715,
+     9041
+    ],
+    "source": "deskstack financial_statements, accession 0000320193-26-000026 (us-gaap:PaymentsToAcquirePropertyPlantAndEquipment)"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030",
+   "FY2031"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.07,
+    0.065,
+    0.06,
+    0.05,
+    0.045
+   ],
+   "source": "Assumption: fades from 7% toward ~4.5%; FY2026 growth was 15.1% (478,834 vs 416,161) but is not sustainable, FY2025 was 6.4%, so growth converges toward mid-single digits as the base grows."
+  },
+  "ebit_margin": {
+   "value": 0.33,
+   "period": "FY2027-FY2031",
+   "source": "Assumption: FY2026 EBIT margin 33.0% (158,063/478,834), up from 32.0% in FY2025 and 31.5% in FY2024; held flat at the latest level, no further expansion."
+  },
+  "tax_rate": {
+   "value": 0.17,
+   "source": "Assumption: approximate Apple effective rate. Not computed from tool output (pretax and net income were reported, so the FY2026 implied rate is 1-132,175/159,237 = 17.0%)."
+  },
+  "da_pct_revenue": {
+   "value": 0.028,
+   "period": "FY2027-FY2031",
+   "source": "Assumption: FY2026 D&A/revenue 2.8% (13,423/478,834); FY2024-26 range 2.8-2.9%."
+  },
+  "capex_pct_revenue": {
+   "value": 0.025,
+   "period": "FY2027-FY2031",
+   "source": "Assumption: FY2024-26 capex/revenue was 2.4%, 3.1% and 1.9%; the 3-year average is about 2.5%."
+  },
+  "wacc": {
+   "value": 0.095,
+   "period": "forward",
+   "source": "CAPM: risk-free 4.86% (US Treasury 10Y par yield, 2026-11-06) + assumed levered beta 1.1 (my assumption, not retrieved from a tool) x US ERP 4.46% (Damodaran, 2026-02-16) = 9.8% cost of equity. Debt is about 80B against a much larger market cap, so equity weight is above 95%. Blended WACC is about 9.5%."
+  },
+  "terminal_growth": {
+   "value": 0.03,
+   "period": "terminal",
+   "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal US GDP growth; it also sits below the final-year growth of 4.5%."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 23389,
+   "period": "FY2026 (2026-09-26)",
+   "source": "deskstack financial_statements derived net_debt = total debt 80,111 (LT debt non-current 68,208 + current 9,906 + commercial paper 1,997) - cash 36,305 - marketable securities 20,417; accession 0000320193-26-000026"
+  },
+  "diluted_shares": {
+   "value": 14720.306,
+   "period": "FY2026",
+   "source": "Weighted average diluted shares 14,720,306,000 (us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding), accession 0000320193-26-000026, in millions"
+  }
+ }
+}

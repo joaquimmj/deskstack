@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "The Procter & Gamble Company",
+ "ticker": "PG",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2024",
+   "FY2025",
+   "FY2026"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     84039,
+     84284,
+     87032
+    ],
+    "source": "P&G FY2026 Annual Report/10-K (accession 0000080424-26-000103), Consolidated Statements of Earnings"
+   },
+   "operating_income": {
+    "values": [
+     18545,
+     20451,
+     19748
+    ],
+    "source": "P&G FY2026 10-K (0000080424-26-000103), Statements of Earnings, operating income"
+   },
+   "d_and_a": {
+    "values": [
+     2896,
+     2847,
+     3160
+    ],
+    "source": "P&G FY2026 10-K, Consolidated Statements of Cash Flows"
+   },
+   "capex": {
+    "values": [
+     3322,
+     3773,
+     4409
+    ],
+    "source": "P&G FY2026 10-K, Cash Flows, capital expenditures (shown as outflow; entered positive)"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030",
+   "FY2031"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.035,
+    0.035,
+    0.035,
+    0.03,
+    0.03
+   ],
+   "source": "Assumption: FY26 growth 3.3%, FY25 0.3%; organic growth ~2-4% with pricing/volume; fades to 3% toward long-run staples growth."
+  },
+  "ebit_margin": {
+   "value": 0.225,
+   "source": "Assumption: FY2026 margin 22.7% (19,748/87,032), FY2025 24.3%, FY2024 22.1%; held near FY26 level, slightly below for cost/tariff pressure."
+  },
+  "tax_rate": {
+   "value": 0.21,
+   "source": "Assumption: approx. P&G effective tax rate ~21-22% in recent years; not verified against filing in this session."
+  },
+  "da_pct_revenue": {
+   "value": 0.036,
+   "source": "Assumption: FY2026 D&A 3,160/87,032 = 3.6%; FY25 3.4%, FY24 3.4%."
+  },
+  "capex_pct_revenue": {
+   "value": 0.05,
+   "source": "Assumption: P&G guides capital spending 4.5-5.5% of FY2027 net sales (Q4 FY26 release); FY26 actual 5.1%."
+  },
+  "wacc": {
+   "value": 0.07,
+   "source": "Assumption: low-beta (~0.5-0.6) staples, risk-free ~4.3%, ERP ~5%, modest leverage; ~7%."
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "source": "Assumption: long-run nominal growth below GDP/inflation; staples mature."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 24196,
+   "source": "P&G FY2026 balance sheet at June 30, 2026: debt due within one year 11,296 + long-term debt 22,842 = 34,138, minus cash 9,942; no separate short-term investments found.",
+   "period": "FY2026"
+  },
+  "diluted_shares": {
+   "value": 2422.5,
+   "source": "P&G FY2026 Statements of Earnings / Q4 FY26 release: diluted weighted average common shares outstanding (millions)",
+   "period": "FY2026"
+  }
+ }
+}

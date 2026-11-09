@@ -1,0 +1,1520 @@
+{
+ "company": "JNJ",
+ "task": "dcf",
+ "arm": "A",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Johnson & Johnson",
+   "ticker": "JNJ",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       85159,
+       88821,
+       94193
+      ],
+      "source": "Sales to customers, JNJ FY2025 10-K (accession 0000200406-26-000016) / app.edgar.tools/companies/JNJ"
+     },
+     "operating_income": {
+      "values": [
+       21207,
+       20804,
+       25287
+      ],
+      "source": "Derived: pretax earnings (15,062/16,687/32,581) + interest expense (772/755/971) - interest income (1,261/1,332/1,056) + other (income) expense, net (6,634/4,694/-7,209); J&J reports no operating income line, so non-operating other items (incl. litigation charges, FY2025 gains) are excluded. Inputs from app.edgar.tools/companies/JNJ and FY2025 10-K."
+     },
+     "d_and_a": {
+      "values": [
+       7486,
+       7339,
+       7503
+      ],
+      "source": "Depreciation and amortization of property and intangibles, cash flow statement, app.edgar.tools/companies/JNJ (FY2023, FY2024, FY2025 10-K)"
+     },
+     "capex": {
+      "values": [
+       4543,
+       4424,
+       4832
+      ],
+      "source": "Additions to property, plant and equipment, cash flow statement, app.edgar.tools/companies/JNJ; FY2025 4,832 confirmed in JNJ 2025 Annual Report (FCF 24,530-4,832... = 19,698)"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.055,
+      0.05,
+      0.05,
+      0.045,
+      0.04
+     ],
+     "source": "Assumption: FY2025 growth was 6.0% (94,193 vs 88,821); FY2024 4.3%. Fade from ~5.5% toward 4% as large products (Stelara) face LOE/biosimilar pressure, offset by pipeline and MedTech growth. Not company guidance."
+    },
+    "ebit_margin": {
+     "value": 0.27,
+     "source": "Assumption: derived FY2025 margin 26.8% (25,287/94,193), FY2024 23.4%, FY2023 24.9%; held ~27% on operating leverage, offset by R&D and amortization of acquisitions."
+    },
+    "tax_rate": {
+     "value": 0.16,
+     "source": "Assumption: approx. J&J historical effective tax rate mid-teens to ~17% (e.g. 17.8% H1 2025 per Q2 2025 release); rounded to 16%, with Pillar Two upside risk."
+    },
+    "da_pct_revenue": {
+     "value": 0.08,
+     "source": "Assumption: FY2025 D&A 7,503/94,193 = 8.0%; FY2024 8.3%; FY2023 8.8%."
+    },
+    "capex_pct_revenue": {
+     "value": 0.052,
+     "source": "Assumption: FY2025 capex 4,832/94,193 = 5.1%; FY2024 5.0%; modest rise for US manufacturing investment."
+    },
+    "wacc": {
+     "value": 0.075,
+     "source": "Assumption: low-beta (~0.5-0.6) mega-cap pharma/medtech, rf ~4.3%, ERP ~5%, AAA credit with ~10% debt weight; WACC approx 7-7.5%. Not computed from a data provider."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: long-run nominal GDP/inflation-ish growth, below WACC; healthcare demand supports 2-3%."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 27800,
+     "source": "JNJ FY2025 10-K (accession 0000200406-26-000016), MD&A: net debt (debt less cash and current marketable securities) of $27.8bn at Dec 28, 2025 (debt $47.9bn, cash $19.7bn)",
+     "period": "FY2025"
+    },
+    "diluted_shares": {
+     "value": 2429.4,
+     "source": "Average shares outstanding diluted FY2025, JNJ FY2025 10-K / Q4 2025 earnings release (millions)",
+     "period": "FY2025"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Johnson & Johnson",
+   "ticker": "JNJ",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       85159,
+       88821,
+       94193
+      ],
+      "source": "Sales to customers, JNJ FY2025 10-K (accession 0000200406-26-000016) / app.edgar.tools/companies/JNJ"
+     },
+     "operating_income": {
+      "values": [
+       21207,
+       20804,
+       25287
+      ],
+      "source": "Derived: pretax earnings (15,062/16,687/32,581) + interest expense (772/755/971) - interest income (1,261/1,332/1,056) + other (income) expense, net (6,634/4,694/-7,209); J&J reports no operating income line, so non-operating other items (incl. litigation charges, FY2025 gains) are excluded. Inputs from app.edgar.tools/companies/JNJ and FY2025 10-K."
+     },
+     "d_and_a": {
+      "values": [
+       7486,
+       7339,
+       7503
+      ],
+      "source": "Depreciation and amortization of property and intangibles, cash flow statement, app.edgar.tools/companies/JNJ (FY2023, FY2024, FY2025 10-K)"
+     },
+     "capex": {
+      "values": [
+       4543,
+       4424,
+       4832
+      ],
+      "source": "Additions to property, plant and equipment, cash flow statement, app.edgar.tools/companies/JNJ; FY2025 4,832 confirmed in JNJ 2025 Annual Report (FCF 24,530-4,832... = 19,698)"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.055,
+      0.05,
+      0.05,
+      0.045,
+      0.04
+     ],
+     "source": "Assumption: FY2025 growth was 6.0% (94,193 vs 88,821); FY2024 4.3%. Fade from ~5.5% toward 4% as large products (Stelara) face LOE/biosimilar pressure, offset by pipeline and MedTech growth. Not company guidance."
+    },
+    "ebit_margin": {
+     "value": 0.27,
+     "source": "Assumption: derived FY2025 margin 26.8% (25,287/94,193), FY2024 23.4%, FY2023 24.9%; held ~27% on operating leverage, offset by R&D and amortization of acquisitions."
+    },
+    "tax_rate": {
+     "value": 0.16,
+     "source": "Assumption: approx. J&J historical effective tax rate mid-teens to ~17% (e.g. 17.8% H1 2025 per Q2 2025 release); rounded to 16%, with Pillar Two upside risk."
+    },
+    "da_pct_revenue": {
+     "value": 0.08,
+     "source": "Assumption: FY2025 D&A 7,503/94,193 = 8.0%; FY2024 8.3%; FY2023 8.8%."
+    },
+    "capex_pct_revenue": {
+     "value": 0.052,
+     "source": "Assumption: FY2025 capex 4,832/94,193 = 5.1%; FY2024 5.0%; modest rise for US manufacturing investment."
+    },
+    "wacc": {
+     "value": 0.075,
+     "source": "Assumption: low-beta (~0.5-0.6) mega-cap pharma/medtech, rf ~4.3%, ERP ~5%, AAA credit with ~10% debt weight; WACC approx 7-7.5%. Not computed from a data provider."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: long-run nominal GDP/inflation-ish growth, below WACC; healthcare demand supports 2-3%."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 27800,
+     "source": "JNJ FY2025 10-K (accession 0000200406-26-000016), MD&A: net debt (debt less cash and current marketable securities) of $27.8bn at Dec 28, 2025 (debt $47.9bn, cash $19.7bn)",
+     "period": "FY2025"
+    },
+    "diluted_shares": {
+     "value": 2429.4,
+     "source": "Average shares outstanding diluted FY2025, JNJ FY2025 10-K / Q4 2025 earnings release (millions)",
+     "period": "FY2025"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 1,
+  "usage": {
+   "input_tokens": 18,
+   "output_tokens": 5030,
+   "cache_creation_input_tokens": 21237,
+   "cache_read_input_tokens": 81830,
+   "server_tool_use": {
+    "web_search_requests": 9
+   }
+  },
+  "cost": 0.2097945,
+  "seconds": 59.39,
+  "tool_calls": {
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: web_search (public web pages). No other data source is available.\n\nBuild a quick unlevered DCF for Johnson & Johnson (identifier: JNJ).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 18,
+     "cache_creation_input_tokens": 21237,
+     "cache_read_input_tokens": 81830,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 21237,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 5030,
+     "output_tokens_details": {
+      "thinking_tokens": 1557
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard",
+     "server_tool_use": {
+      "web_search_requests": 9,
+      "web_fetch_requests": 0
+     }
+    },
+    "cost": 0.2097945,
+    "content": [
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01CiwEPVJm7hr41BwDXgnkHw",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":\"Johnson & Johnson fiscal 2025 annual results sales operating income depreciation amortization capital expenditures diluted shares cash debt\"})\nfor x in r[:6]:print(x['url'],x['content'][:1500].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Mz444k911Tmf37TMGifpNP",
+      "name": "web_search",
+      "input": {
+       "query": "Johnson & Johnson fiscal 2025 annual results sales operating income depreciation amortization capital expenditures diluted shares cash debt"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01CiwEPVJm7hr41BwDXgnkHw"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01Mz444k911Tmf37TMGifpNP",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Annual Report 2025",
+        "url": "https://www.jnj.com/download/johnson-johnson-2025-annual-report",
+        "encrypted_content": "[omitted]",
+        "page_age": "244 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000130817926000046/jnj014992-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson : Annual Report for Fiscal Year Ending December 28, 2025 (Form 10-K)",
+        "url": "https://www.marketscreener.com/news/johnson-johnson-annual-report-for-fiscal-year-ending-december-28-2025-form-10-k-ce7e5ad2d98bf12c",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s203.q4cdn.com/636242992/files/doc_financials/2025/q3/3Q-10Q-09-28-25-5.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "407 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000110/a2025q1exhibit991.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson reports Q4 and Full-Year 2025 results",
+        "url": "https://www.investor.jnj.com/investor-news/news-details/2026/Johnson--Johnson-reports-Q4-and-Full-Year-2025-results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "292 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000170/a2025q2exhibit991.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "JNJ-Earnings-Presentation-Q4-2025-Final.pdf",
+        "url": "https://s203.q4cdn.com/636242992/files/doc_events/2026/Jan/JNJ-Earnings-Presentation-Q4-2025-Final.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "292 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01CiwEPVJm7hr41BwDXgnkHw"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01CiwEPVJm7hr41BwDXgnkHw",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDHEs3hvUyC79OM6SehoMi6qsAl9Jq5Auph4lIjDHXrMzeZBcjWWTj7EfKm2UP03Z7Cg/fOXc9Jk0Q/4HSIWWq25Nr8EVAwIzOpx/8JYqEul/cKsWclhVI2W5r7eLL2GYlhgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01CiwEPVJm7hr41BwDXgnkHw/cell.py\", line 9, in <module>\n    for x in r[:6]:print(x['url'],x['content'][:1500].replace(\"\\n\",\" \"))\n                         ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01UigmVJ13vDXX4CLgLhpjee",
+      "name": "code_execution",
+      "input": {
+       "code": "print(str(r)[:1500])"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01UigmVJ13vDXX4CLgLhpjee",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "[{\"type\": \"web_search_result\", \"title\": \"Annual Report 2025\", \"url\": \"https://www.jnj.com/download/johnson-johnson-2025-annual-report\", \"content\": \"Company\\u2019s compliance with these requirements is not expected to have a material effect upon its capital expenditures, cash. \\u2026 In 2025, Johnson & Johnson delivered strong operational.\\n\\nsales growth of 5.3%^(1).\\n\\nFull year adjusted net earnings were $26.2 billion^(1).\\n\\nAdjusted diluted net earnings per share were $10.79^(1).\\n\\nAdjusted Net Earnings, after tax\\n\\n**$ 26,215** **$ 24,242**\\n\\nAverage shares outstanding (Diluted)\\n\\n2,429.4 2,429.4\\n\\nAdjusted net earnings per share (Diluted)\\n\\n**$ 10.79** **$** **9.98**\\n\\n**Free Cash Flow (Dollars in Millions)** **2025**\\n\\nNet cash flows from operating activities\\n\\n$ 24,530\\n\\nFree cash flow\\n\\n$ 19,698\\n\\nrelated to CAPLYTA and Shockwave and a positive impact of 0.5% in 2024 primarily related to Shockwave.\\n\\nSales by U.S.\\u00a0companies were $53.8\\u00a0billion in 2025 and $50.3\\u00a0billion in 2024.\\n\\nCash flow from operations of $24.5\\u00a0billion was the result of:\\n\\n**(Dollars In billions)**\\n\\n$26.8 Net Earnings\\n\\n10.4 non-cash expenses and other adjustments primarily for depreciation and amortization, stock-based compensation,\\n\\nAs of December\\u00a028, 2025, the Company's notes payable and long-term debt was in excess of cash, cash equivalents and\\n\\nAs of December\\u00a028, 2025, the net debt position was $27.8 billion as compared to the prior year of $\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSigUKEAgTGAI4AUIIdGhpbmtpbmcSDB0C4Q3ysWJ/fhiBphoMZEgTGi1ByS1bAWZTIjDKjuBHX01LwNymtS2E/TtDfuTj9gUo648Vhc1cTGol78ITrrXx0mSiz8g69Rxw9WcqpwR+1nntwqBMvHbc7opJs7m/Ho1S6SlFnvbD5vzuNoVNnHsYB2dw+MaLJYw0hocc2RzJLUBK1dvVThqBux8M6IxqIHupOnND3/xv3hfY7MVUps99B5R+GYUYcRuISd2K3QQRkMOf/sk9iL4Jg/as2pGh6hfPFVXJ6fmfFMpQf+vFSIv3guV8q7RojKCaJiNZmh2uCBypCc/L/Db7AuykdKDoMAIi6NdmfmDUWS3YA8Ult85EfhkszjmuMXskDWmAWtj354urbA2J/W24YIdUShnD1wRBJAGMuyAAsQeU44njnEMfDn+TjFETpruVYUGOAXy2G3XMuUxhUridPLmWjNr1ZcDlyzN2qcHp0zZKA0pBViYm5wqkR41vNPtpt2o2F2VIMlxr2zRDNMYNSBeZVF8RmefrwyHPVCRXqGHcNrLVQGV4xznXDK6dD0QVC7SkzDY8NtZL8EeoB1BT9vGetBSPgizlFNhJ2XbQ0raifxUUH4HI3ldiUqJLxs5hd9l9AY2FgevVviOFKBXR16YdBc2jSWKPJF+nr2VxnlewW9RpoMlkIxqVW9bMH57k5772cnawc88CIN8n5nZlec29SH/bXOcpMJ3N44exGtW9EqO8mLli4AIWW6CFSg34++YO6lvicDaiCft5V+Bd+f3Qh3mp137kw0xneNAOSD0r98Og9uK5J0TOBcnkmQPhAVZHei1QbmLUatrw4L+34q2ky8zvbUoyatOP3xgB"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Q6hcRNFEGDCwbVXqmRfxS2",
+      "name": "code_execution",
+      "input": {
+       "code": "import re\nfor q in [\"Johnson & Johnson 2025 10-K consolidated statement of earnings sales to customers earnings before provision for taxes depreciation and amortization additions to property plant equipment\",\"Johnson & Johnson fourth quarter 2025 results balance sheet cash marketable securities loans and notes payable long-term debt\"]:\n  r=await web_search({\"query\":q})\n  for x in r[:6]:\n    c=x['content']\n    print(x['url'])\n    for k in ['Depreciation and amortization','Additions to property','Sales to customers','Cash and cash equivalents','Marketable securities','Long-term debt','Loans and notes','Diluted','Net debt','Earnings before']:\n      for m in list(re.finditer(k,c))[:2]:print('  ',c[m.start():m.start()+160].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01EzDwXv6nKXsyXNHfeEi5RY",
+      "name": "web_search",
+      "input": {
+       "query": "Johnson & Johnson 2025 10-K consolidated statement of earnings sales to customers earnings before provision for taxes depreciation and amortization additions to property plant equipment"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01Q6hcRNFEGDCwbVXqmRfxS2"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01EzDwXv6nKXsyXNHfeEi5RY",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson : Annual Report for Fiscal Year Ending December 28, 2025 (Form 10-K)",
+        "url": "https://www.marketscreener.com/news/johnson-johnson-annual-report-for-fiscal-year-ending-december-28-2025-form-10-k-ce7e5ad2d98bf12c",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Annual Report 2025",
+        "url": "https://www.jnj.com/download/johnson-johnson-2025-annual-report",
+        "encrypted_content": "[omitted]",
+        "page_age": "244 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "For immediate release Johnson & Johnson reports",
+        "url": "https://s203.q4cdn.com/636242992/files/doc_financials/2025/q4/4Q25-Earnings-Press-Release-Final-Draft-01-20-26-6PM-With-Attachments.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "293 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON (JNJ) SEC EDGAR Filings, CIK 0000200406 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/JNJ",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson Reports Q3 2025 Results; Raises 2025 Sales Outlook",
+        "url": "https://www.investor.jnj.com/investor-news/news-details/2025/Johnson--Johnson-Reports-Q3-2025-Results-Raises-2025-Sales-Outlook/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "391 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson reports Q4 and Full-Year 2025 results",
+        "url": "https://www.investor.jnj.com/investor-news/news-details/2026/Johnson--Johnson-reports-Q4-and-Full-Year-2025-results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "292 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://fortune.com/company-assets/1570/quartr/annual-report-10-k-a72dd-2025-02-13-09-26-10.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "634 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON Segments (2025 10-K) - edgar.tools",
+        "url": "https://app.edgar.tools/companies/JNJ/disclosures/segments",
+        "encrypted_content": "[omitted]",
+        "page_age": "271 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "JNJ-Earnings-Presentation-Q4-2025-Final.pdf",
+        "url": "https://s203.q4cdn.com/636242992/files/doc_events/2026/Jan/JNJ-Earnings-Presentation-Q4-2025-Final.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "292 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01Q6hcRNFEGDCwbVXqmRfxS2"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01Q6hcRNFEGDCwbVXqmRfxS2",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDI07xrio3eu+L/USdxoMdNkhzXQkXKZoNLvUIjDPE95Nz67ep4W8UXO//th18zxr3zFcP3K2FeHOhfSszkDNqBW51/mBssj5e20lPQUqEtklh2dsB0o8uGNzUpgv3hAKdhgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01Q6hcRNFEGDCwbVXqmRfxS2/cell.py\", line 12, in <module>\n    c=x['content']\n      ~^^^^^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "text",
+      "text": "Results seem to be a string sometimes."
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_013QsDG2vshbDnzPJjzFsHPf",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"Johnson & Johnson 2025 10-K consolidated statement of earnings sales to customers earnings before provision for taxes depreciation and amortization additions to property plant equipment\",\"Johnson & Johnson fourth quarter 2025 results balance sheet cash marketable securities loans and notes payable long-term debt\"]:\n  r=await web_search({\"query\":q})\n  if isinstance(r,str):print(r[:300]);continue\n  for x in r[:6]:\n    c=x['content']\n    print(x['url'])\n    for k in ['Depreciation and amortization','Additions to property','Sales to customers','Cash and cash equivalents','Marketable securities','Long-term debt','Loans and notes','Diluted','Net debt','Earnings before']:\n      for m in list(re.finditer(k,c))[:2]:print('  ',c[m.start():m.start()+160].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01KNDucuiBvsh6Vk6Up3sVHx",
+      "name": "web_search",
+      "input": {
+       "query": "Johnson & Johnson 2025 10-K consolidated statement of earnings sales to customers earnings before provision for taxes depreciation and amortization additions to property plant equipment"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_013QsDG2vshbDnzPJjzFsHPf"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01KNDucuiBvsh6Vk6Up3sVHx",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Annual Report 2025",
+        "url": "https://www.jnj.com/download/johnson-johnson-2025-annual-report",
+        "encrypted_content": "[omitted]",
+        "page_age": "244 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson : Annual Report for Fiscal Year Ending December 28, 2025 (Form 10-K)",
+        "url": "https://www.marketscreener.com/news/johnson-johnson-annual-report-for-fiscal-year-ending-december-28-2025-form-10-k-ce7e5ad2d98bf12c",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "For immediate release Johnson & Johnson reports",
+        "url": "https://s203.q4cdn.com/636242992/files/doc_financials/2025/q4/4Q25-Earnings-Press-Release-Final-Draft-01-20-26-6PM-With-Attachments.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "293 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON (JNJ) SEC EDGAR Filings, CIK 0000200406 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/JNJ",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson Reports Q3 2025 Results; Raises 2025 Sales Outlook",
+        "url": "https://www.investor.jnj.com/investor-news/news-details/2025/Johnson--Johnson-Reports-Q3-2025-Results-Raises-2025-Sales-Outlook/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "391 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson reports Q4 and Full-Year 2025 results",
+        "url": "https://www.investor.jnj.com/investor-news/news-details/2026/Johnson--Johnson-reports-Q4-and-Full-Year-2025-results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "292 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON Segments (2025 10-K) - edgar.tools",
+        "url": "https://app.edgar.tools/companies/JNJ/disclosures/segments",
+        "encrypted_content": "[omitted]",
+        "page_age": "271 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "JNJ-Earnings-Presentation-Q4-2025-Final.pdf",
+        "url": "https://s203.q4cdn.com/636242992/files/doc_events/2026/Jan/JNJ-Earnings-Presentation-Q4-2025-Final.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "292 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson (NYSE:JNJ)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Johnson-Johnson/Financial-Statement/Income-Statement",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_013QsDG2vshbDnzPJjzFsHPf"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01UUZLDwwNHTAcsWH41Snzss",
+      "name": "web_search",
+      "input": {
+       "query": "Johnson & Johnson fourth quarter 2025 results balance sheet cash marketable securities loans and notes payable long-term debt"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_013QsDG2vshbDnzPJjzFsHPf"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01UUZLDwwNHTAcsWH41Snzss",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000130817926000046/jnj014992-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000178/jnj-20250629.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000209/jnj-20250928.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Annual Report 2025",
+        "url": "https://www.jnj.com/download/johnson-johnson-2025-annual-report",
+        "encrypted_content": "[omitted]",
+        "page_age": "244 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s203.q4cdn.com/636242992/files/doc_financials/2025/q3/3Q-10Q-09-28-25-5.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "407 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson's Balance Sheet - JNJ",
+        "url": "https://stockanalysis.com/stocks/jnj/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": "2515 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Q4 2025 Johnson & Johnson Earnings Call on January 21 ...",
+        "url": "https://s203.q4cdn.com/636242992/files/doc_financials/2025/q4/JNJ-USQ_Transcript_2026-01-21.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "292 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson : 2025 Fourth-Quarter Infographic & Earnings Presentation",
+        "url": "https://www.marketscreener.com/news/johnson-johnson-2025-fourth-quarter-infographic-earnings-presentation-ce7e58ddd18bf220",
+        "encrypted_content": "[omitted]",
+        "page_age": "291 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_013QsDG2vshbDnzPJjzFsHPf"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_013QsDG2vshbDnzPJjzFsHPf",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "EuoFCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDIFWumw/Oh1DV6mnGhoMrC0qmZ9Y5d5j6fNIIjAFd7QgkaoCDGqlEcskdq4xgMtBLGVNspCv3Gq81UruLLLjR1CrF4MvXcvbZq65SMsq7QTc+ijr5sATePL5kzszZO2xnyEjAcY1PrkVoPMyKLyS7cyc2dXtH2ykvpBvYvwN1gcqvp5Z2010t11BL1TPYrRTs7dZDpA0EDy9Nxxzy/2046y+BAoQ09wmz/wwzvV/DkzmevsoEFUN6Hukuf2NQ3MBv4yIU0F0E2rns/SecDCqIuFd/K//LtdXZ6IAn9rCskL13Ipv7o1v0G4o2gPL8HBQetsAE8DDpDM1Sj3N774y5E+yqUWukOOrVRpLJIybBUJr9WJyEdVDaPkOD7YQFNvapHfxG148yGsbkDtncctDa3l6d2Ar6Sdio9FflHS1L4uIc0E5H/PzYrRN5VX56/PSW4HUaFdJOTV+R2Zz9ExgFWOx/pIBb158Qbs+nZVlO3Tqjj74an+jAaXixznoQmSFhx6NrR17YXsZqZpDdzeCmRyQS7RreqPz9byIUQ5zxyMs3Kd2LJePMGvu61jLWEnjnEYXzwsZ541L2kdLdjcp/+55Dchn/Ukh7oB/vLphKM9K5RbR4H3Y5FoL/auh2N26IfHyO6il4E2yNIC6JXenlZAIZZTWrB9TzoXk8jyGrOCeDlo/I/nFfNw4Ro1jopVauvNJBW0M1Q85sTWoBXD0dMCrgZ5z+8vF4BOdQEVye8q8FaVz7tBh3zlLs80lZdmQwYyakuNnZW31RrAe6U8ipWnMdOyfYky8gFvrmsXfgU7Gc8yR5LhFFcQFRsCBh7Tt9nEnGdx8U8aOyN2Lpsdp02SWvyT4WPW7rgFK3QwhsQI9t29VSZpX+5glg7KdQmuvjbWM+L1zVafwrVUapBpzv/N3yOwWZnYVI0isIOoYAw==",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01VTjAaP76MvjvtudsRrYScW",
+      "name": "code_execution",
+      "input": {
+       "code": "import json\nfor q in [\"Johnson & Johnson 2025 10-K consolidated statement of earnings sales to customers earnings before provision for taxes depreciation and amortization additions to property plant equipment\",\"Johnson & Johnson fourth quarter 2025 results balance sheet cash marketable securities loans and notes payable long-term debt\"]:\n  r=await web_search({\"query\":q})\n  r=json.loads(r) if isinstance(r,str) else r\n  for x in r[:6]:\n    c=x['content']\n    print(x['url'],len(c))\n    for k in ['Depreciation and amortization','Additions to property','Sales to customers','Cash and cash equivalents','Marketable securities','Long-term debt','Loans and notes','Diluted','net debt','Earnings before']:\n      for m in list(re.finditer(k,c))[:2]:print('  ',c[m.start():m.start()+160].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01HE3UQVTnGYzivPYspwCFhC",
+      "name": "web_search",
+      "input": {
+       "query": "Johnson & Johnson 2025 10-K consolidated statement of earnings sales to customers earnings before provision for taxes depreciation and amortization additions to property plant equipment"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01VTjAaP76MvjvtudsRrYScW"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01HE3UQVTnGYzivPYspwCFhC",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson : Annual Report for Fiscal Year Ending December 28, 2025 (Form 10-K)",
+        "url": "https://www.marketscreener.com/news/johnson-johnson-annual-report-for-fiscal-year-ending-december-28-2025-form-10-k-ce7e5ad2d98bf12c",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Annual Report 2025",
+        "url": "https://www.jnj.com/download/johnson-johnson-2025-annual-report",
+        "encrypted_content": "[omitted]",
+        "page_age": "244 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "For immediate release Johnson & Johnson reports",
+        "url": "https://s203.q4cdn.com/636242992/files/doc_financials/2025/q4/4Q25-Earnings-Press-Release-Final-Draft-01-20-26-6PM-With-Attachments.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "293 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON (JNJ) SEC EDGAR Filings, CIK 0000200406 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/JNJ",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson reports Q4 and Full-Year 2025 results",
+        "url": "https://www.investor.jnj.com/investor-news/news-details/2026/Johnson--Johnson-reports-Q4-and-Full-Year-2025-results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "292 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson Reports Q3 2025 Results; Raises 2025 Sales Outlook",
+        "url": "https://www.investor.jnj.com/investor-news/news-details/2025/Johnson--Johnson-Reports-Q3-2025-Results-Raises-2025-Sales-Outlook/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "391 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson Reports Q1 2025 Results",
+        "url": "https://www.investor.jnj.com/investor-news/news-details/2025/Johnson--Johnson-Reports-Q1-2025-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "573 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON Segments (2025 10-K) - edgar.tools",
+        "url": "https://app.edgar.tools/companies/JNJ/disclosures/segments",
+        "encrypted_content": "[omitted]",
+        "page_age": "271 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "JNJ-Earnings-Presentation-Q4-2025-Final.pdf",
+        "url": "https://s203.q4cdn.com/636242992/files/doc_events/2026/Jan/JNJ-Earnings-Presentation-Q4-2025-Final.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "292 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01VTjAaP76MvjvtudsRrYScW"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Bk5iTxLFEk7SFw6btYPpep",
+      "name": "web_search",
+      "input": {
+       "query": "Johnson & Johnson fourth quarter 2025 results balance sheet cash marketable securities loans and notes payable long-term debt"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01VTjAaP76MvjvtudsRrYScW"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01Bk5iTxLFEk7SFw6btYPpep",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000130817926000046/jnj014992-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000178/jnj-20250629.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000209/jnj-20250928.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Annual Report 2025",
+        "url": "https://www.jnj.com/download/johnson-johnson-2025-annual-report",
+        "encrypted_content": "[omitted]",
+        "page_age": "244 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s203.q4cdn.com/636242992/files/doc_financials/2025/q3/3Q-10Q-09-28-25-5.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "407 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson's Balance Sheet - JNJ",
+        "url": "https://stockanalysis.com/stocks/jnj/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": "2515 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Q4 2025 Johnson & Johnson Earnings Call on January 21 ...",
+        "url": "https://s203.q4cdn.com/636242992/files/doc_financials/2025/q4/JNJ-USQ_Transcript_2026-01-21.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "292 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson : 2025 Fourth-Quarter Infographic & Earnings Presentation",
+        "url": "https://www.marketscreener.com/news/johnson-johnson-2025-fourth-quarter-infographic-earnings-presentation-ce7e58ddd18bf220",
+        "encrypted_content": "[omitted]",
+        "page_age": "291 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01VTjAaP76MvjvtudsRrYScW"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01VTjAaP76MvjvtudsRrYScW",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS8QcKEAgTGAI4AUIIdGhpbmtpbmcSDKBd8Tq2HSZ1s92vfBoMsqnjn+CsgiddLVm/IjA6L47FdWs7ieW3tD7FJHcRWjRa+ixCouXkvfX5SsUIdHrowuW2BtNDT9VS0ZhVobUqjgfX0sDr29SBN/x2VMf57lcLMKbOYbEMIpIP4ujEfBVAXpTd6WlE6pOepyM4nydDYEZOOYWQM+9tcZoLixELE3Te6DrwV1PNNrgAd0lz8NQZ8gdOt1vU5V331NibmGADQ8/vXNedXlIhXx+zXm7ZFF4karFB2Pvxop4oxEPasEzW3coVtK0tDzCD3VmMTaJ/9vNXgUdfklOXyqkj7tvichFgXnbBtsGAztj5Nz+a2Cm4Sd09hUrfSQNkCfgDnXARtvckZXXIYSvehSlDiz17ojqnJzTUaSwWxVYVxXg8YQjNEvhV7EsMFn49SRpHlB8sszyctRAHJrBRwXLDB29uQGaIGlYt/Zlyq1Kx80MVIf3Xkhwz6qbhoOAHtqtHNsAjn0zgZJeMYhGE4qh+UPgEJkbaNSGU2HS0jJ7SRi+Miz6Ptg0xlKJwkMfiv78w7Kzjt5HXrp1ZgGIeLWnO5JJ2wsk1eketeMwBfVgV9JYaLaZqrikhbmPhZdKlQSsFZUMclb7JWUcYbkQgzruwzJ8VfimSkhJGAHdQNGMmZUFd93CcSP0XY2XO9pur2vgpG2WbT1wz8qJ5gegeA2l5OUmhl/WJGI5YqaKp1lhN4hDH8bXLmJB8gNd+yW/EoIX5waafz+J585dcgCsVHUJvuBsLs055gB2KcrOvcpqr8bIKB7XL/CTtoLXhyaJOmAz2xxB7UU3QGZqKc+KbkVYzrqVjv7ZBA246B0RXH//DqhV2uqeWIo6UxGpFpug78aBCTN+ItVg5SLt90A9rXceX/T0VvoCDN1LFgHS/Xr0Ujrz27xqlNoZK8CQzYmz1mSC045QuRNGWKz5A/t49fAOMYZ0uGP7OSafghsuF7N+H3kaPrMSzrucP89aQ/bZcpL/YbfgNQmIBVxj0puZRynfRD+I4QNo2hmskueMbudQlr9C2+vxyImY+xVw8pJdpz4OkQVMV6kHUwGTzR0G09t3dJCfRfQ6pv/Mlt6vMwvV0sRrefRlTfaD5LpER0+kMCZZ0TRfcsg+XFDOqbYj/aADE2EfkpID9HvfGZMSokb5z1BWp/4upKzdwbTFYofJTa01/qGuXUGpKrfAUAUsTdG6K9MiA7n2qNplqCUmrI1O3lM1zsRsicnAOMFyf0M1J2/szkHBlDICX7vmsUtlJdK/aSSZbS/BvfqVahiesXyGsHFJbNdqCjrDbjrSlPagjpiO0vcIaGAE="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01MWHA6V5M4dsYMjSLk3S8pW",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":\"edgar.tools JNJ Johnson & Johnson income statement interest expense interest income other (income) expense net diluted shares\"})\nr=json.loads(r) if isinstance(r,str) else r\nfor x in r[:6]:\n  c=x['content'];print(x['url'])\n  for k in ['Interest income','Interest expense','Diluted','Cost of products sold','Selling, marketing','Research and development expense','Other \\(income\\)','Acquired in-process','Amortization of intangible']:\n    for m in list(re.finditer(k,c))[:2]:print('  ',c[m.start():m.start()+170].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_0133twAPmpEcEatkzywibWxA",
+      "name": "web_search",
+      "input": {
+       "query": "edgar.tools JNJ Johnson & Johnson income statement interest expense interest income other (income) expense net diluted shares"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01MWHA6V5M4dsYMjSLk3S8pW"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_0133twAPmpEcEatkzywibWxA",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "jnj-20230101",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040623000016/jnj-20230101.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "1368 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON (JNJ) SEC EDGAR Filings, CIK 0000200406 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/JNJ",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson (JNJ) income statement",
+        "url": "https://au.finance.yahoo.com/quote/JNJ/financials/",
+        "encrypted_content": "[omitted]",
+        "page_age": "3423 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "jnj-20211003",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040621000070/jnj-20211003.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson (JNJ) Income Statement - Yahoo Finance",
+        "url": "https://finance.yahoo.com/quote/JNJ/financials/",
+        "encrypted_content": "[omitted]",
+        "page_age": "3482 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson (JNJ) Income Statement",
+        "url": "https://stockanalysis.com/stocks/jnj/financials/income-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson (JNJ) - Financials, income statement (annual)",
+        "url": "https://twelvedata.com/markets/248828/stock/vse/jnj/financials",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson (NYSE:JNJ)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Johnson-Johnson/Financial-Statement/Income-Statement",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson Company Financials and Reports",
+        "url": "https://www.fidelity.co.uk/factsheet-data/factsheet/US4781601046USD-johnson-&-johnson/financials",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "EX-99.2O OTH FIN ST 4 exhibit992o.htm exhibit992o.htm",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040610000068/exhibit992o.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01MWHA6V5M4dsYMjSLk3S8pW"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01MWHA6V5M4dsYMjSLk3S8pW",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS5RkKEAgTGAI4AUIIdGhpbmtpbmcSDPiwACilu4AavQtlxxoMAp9Tvn/twdbgeEbTIjBftgkk1EU5zZ80HIahAnZ46haXZG645RZYYyblOBEBKRiwAvRDDQUCfwOG70TnmjYqghmZFVDVLD/TmrUZPJBtUCBCxTWgEDt8E87L3Xcv4kNCDOecyPi+Vt4BzIoKjwWMoJ5G4mNDzvKWQFZjFAbi15TOwjKkvhyM/7l4exIqwEFnkYJ4Z3Jf3IX+uHo/XkkpHRMt8aPq/jsOHZJmHwrsQRzsWKkkoN3QswQp+/RDITvMPKDvDpn5dHG2XHo0CEA55sF14Bs6dM6dGTPPGY0B/8uwSSuPlwERTVCy6TZk9zkdz0+ZobQWGqeAuVeqMeE9VzAwbTUMmb/aCSL/K4a+C28r3lvJUfpsIe0FZir1Wm0DeZlvCFP0s/reKORoIQqLWWQG1HShOoeh0hK2H+bYgsfbzESTKa1KtXzSgZPdZ/V/KbJ4qHPCMIpDwWBCCzdDuR38vaA9z/XflxNdhNRyVKzNbM2jR3Onkk04UfhgXHBlH3p9W0mrco7hzAXFMg8nCrL65p2zuQMLmVlMVg37A+nu459ik2EOqWp5WGvBY/IRhHD6UpWNPsKH/awloHl32OrCNbyvL/2qnRMCWodIxL0OV04pa8YRMFp8pK3uoBJ1bvl1hc+PBsQIWXpTOjT6GgHXqzjpZ/1b/+NkWUtaLKgEp9rP0EiSdM+c5Th/EWnziNdHCXDb9gQfYl90MuFmgDG6N9dVgfcQCTYh5fVoIBoos3HWUSn7vacKsFipf98UJTNeEK7FhlhbwRQAlSqXqinP3T4l/DNq8bOIiVyGBdOhJfpkoIWA8ZcsXg3VQ0DhXPbhC4ng8XVN4+Ds8tgdaOFYkPSwJZ121TduRwGjFQs3QFbNA4so8ykBmgva7jb4CuohKjvZDNe9QkqEvom8tpF8Mm+lVEl2sC/0spD8PtVTWMGx/TnvcEBqh0zmSk8YOcZ2uQGbe64o1UwVTXYHOWfBBMnSzG5uwNCKUiEFvcDJQGnait4+o2Q/SCOqD0EisMUO9c2BTRPhHBo8H3Eg44FMXUWhnyqeGDqsoad9p/VooslK3hdUoi5hlw2lbNB2/3U90MlimnJ9JLUp1O2BuxIKfnScLRvPx4GZonxa2S/v+FWEqKPd/EZz15clJ4HnQNggo3BdeYIReif8dwvCnSvggzT9hBRtWvdq+nwiY2Frf4qCz4Z7N7PImrZa/pYSyqSbdMDBdfMI1U35cTs/PO2WiPRkQtNgsuIupIsw+QRdav6lTFqRSb4Y6CiCNG51sUp9DRv8hWur/jNh1HGyVhf9r64KyhgKP4bLbJqD4AUhcKgyhVebYsJnbcEmuNmdk36FqOzUDHxEBBH8tfYJ4qGFLFpx7Qmr2i/IJ2FDSvwJPbcZg3LZNjXdfIxq79Ra11a8/4Ho4rsR7TFqePSEXjjyxC9uXtHd+nGHlcc8NpX2yModNM34NgRMRC+849r2uNf8UEFY5Wh+5/A847zWi5z0YIzjgEAcR44lzOhR0k9sgVkjiUqxhfA8GOx+8GqLvmjg5iruPbU/q5Ubuv5nQIF1SMyJ1z6yx5lV2BJMDW6TFYBx6VPznp29ilOMxd7NptzzN9IYN6kiwdlx5fU4IDrb6SDgxUGEbeDPciFFbQduw3G/IIiHlAVpqzjnYpkSdi7BdBHvDH5pcgAnUAv4013zeXPlsWMcgeCvL91SGzLw28VD1KscNkRYDZPp/BBJEj4WqVNCNbnXIUrBLfyb+KA1dL0M0KxYiD4lZIPONeC4BMjfXP2E1OZgi5yvvvex7WXEAbT7DuzMK/BbL+4E4+lVREIB8zIhjAb/yu2aU1yGlxLGntK5kb2y8cme9+OKz2NSOf1zrIDAmDeNZ3cPZdOJvrCaky/ODEj9I3O8Feq9kZQ/8hk3G6/ta0LxRv7UDg0oDJnjzGHOB3jLaS5n68XbmDz2kiWwtEEDt4icuZmfowpic7UmO+oJsDyHXzLzZD6/E5fMsJbTW82B6izB/dx47San69dDHV6u5RxurOsbID9x/76MpLLQ9Ug7DQ3o1wbKWdY5Nu3Nk2npLm7eg10MZIMwOkISiVz3pb3Yc8dloVec4gnF26mE1HrNct1GSfb5qCbYlSclVfDenbNRSiFPsWPmZsV2mYLl7zJo1aMUK+FKa7wJluOfUp2EajyRAYf7w6ukAI4p58rYEIrEC+jeRtYP6ackDVopZe5HFyvIQ2WlMUarBtalz4ioQP9RXOEx3AudQEeIhB3XmEhBPceGlw9qPb5ZsbyF/u6lLhyLX/AZE2tBdQNHLO+7jnozQYBwFSpejX2fXlsqtI/F3Z4gm19KbbuBKGZlUjJnPfkcFszyoipSNLipe2KPobeZXcf/VAyFt8Zf6EC7zEcyLDd0vWvrM9qLzcwLpa8OtuJFJMYdY76FhSn6ZGyaTjaKZwYDnaFs9H3xqX2vH3nWJDgwUShvG74nT/0EOpCuz4cpPLPPMMdY+VsSx+tJ9SY2OhawsLiXBFVagWXc94UkdwPBMS5+ei3YPtRXvk/5uBbE7Rm6aVRy5KEojIoqZcLqpsrwwWj3mfl2PBG9RT1WU5ApgWyJEpgG2gJ+Qu//Yb6FtMwTNE4fUNCyo7U3srLYOveSxrGAka81M3R2lCu93kMl3k7y51JjCVtWgvcFrETYQzv1cuF7ygxOIjx8YY6vrree/MlD1LX7d/6AZiuvBsoyVI6PBii6qTjy65jCaMAhRV7AlUm1ZVNTXXyx+TgdI0bkNS/1zfDm/5EDubJV6E2gvxcxPlfQAOhvWBQI+o4ESpl86YpIPfZxry/OsP8wj1E4qGQdCCjrc4ukpfzCxWKx6T0kMaYVtlKwfeoSD5UazfJocaUGdwDmXQu7rw/6J5XMqYLvxNEvrBWR6tLbOzhnXiMfZEJICMCHDrhUal2dvtLdD89edSzgmu/OcqLhpy6eWiIf16+597b4YKt8w7xJg7rTP6hECQY/dVJrqXNkvIUD5RHWxCcOHcDVDd4gd7ceBH/OJs3coajiRKipA64rY+2FJLXMnr8qcD2Af5jxdIFBRGNqUBkbyjtOq9frb/EcGzGqITnjrPfVX4LVT4PzJXIpa/Ty/yw3u0L9zLdi9ya1069+Hz2h7yMCNVcJCJawHV//GJ4WYtAf/qjQnDC3PAOAxacfD8R1Zcwh9jp3l0LgOdeGw1d4H1JF6OKG0XYFxgHGFMyIpuw0codCuWAPL9DDS6eGeuK+qtwL5ccgazdB5X0fAbc3Yx5asHRnHpr8qxkwe84u5zp8XDHG9XO/ouNQbaPsY0h+IRkc8xvNEGNF2eOdzB6orf+EOBa3OiGiFMb/266FrCvg5wDN17GwDKtMo0cfYI9T+owa4GrvIPH7YPR+0G0OuIHnqdrsSsfY+u0XxJPnkzmJz28MAOEyo7wbhcP86FDtrxWrIijl/61ZApkyUAoVKg/hCbaZ3xH0FaLjvPmeJnhSvfC//CgbxhqYbsijL0Mou7FL4dgThKzvPEEKrFU31I4i1DPiTQwDfXJ32/G5DUxJRJitnLVFgJCgM0dnO3hiwNaiqqKpvY2wlRjJ2IM4zKoozNOTVJ5rrog0OY+JQ7EmCt61rchM4dG77+TdhovzsXtKcexCY+fgYxyq8SszXPfX0FsNvuP0TQDVOvFX2lv4NQDRU6dcDQG7itMM4gr1xR1mvjtfHFI8BnnYpWGB6eI3Ycpa45I6Kb1Jo8VfVxc5jc9fXbBFMaetSBNGAmMd/geruPRarhp7LSCkCCIrlbZgH7dacDRq/IOzGgdx8d+LS9aXAg+CF1kgEUpJMPRGL6oHKzcefUkXRc4QL9Tw5h20t4HwI1we1m9CJAOsUkfBIobwrZaeCJuqlHxt9kGr1nbBoo/YnoEpAozGyeCCHIMvny0QqBQfE3dibgk2Z9UWfhR7gJnpE+qxpiRhkMEyFOeGuZ85SmSeJCE0re1Yg29eYKkmo/NoJEah1/voaA0W2hWxazye5IDLPsIoe71fzVcjmXjwOwlkDZvPLa7BbScssGmW7vO0QZcVorLAiBOINpRJURUnHGxbEChakAt5qNgqVFVoDaWX7vZtwYca2Xqh6znZJ1m9b6IpJxojFxUA7I21MZ9Pps6gOTlC90+j2dufEjQYwRGOMT4sOA1NEJ53eiE+pi86/gpNKndmJM/OdeMabu/pQBOPquI81ntKJSP9tbLJvFK35hTcrRjNoh5qpCnyRW6Lo9YW6NQQi0w8kpRkgiGaaQQU7mrYjdStht3fCYngixmLftV4McVQoeC5dJQ5AoBmNtSnxvwOWkY3+59xa+D84Nq/jb2Q08GY918HorTu6Ip4byhUGDDEokEvlB7AGclCGAE="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01KpcgUegMoCm9gYDg9Nqarc",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":\"Johnson & Johnson full year 2025 average shares outstanding diluted GAAP diluted EPS 2025 twelve months\"})\nr=json.loads(r) if isinstance(r,str) else r\nfor x in r[:6]:\n  c=x['content'];print(x['url'])\n  for m in list(re.finditer('[Aa]verage shares outstanding',c))[:3]:print('  ',c[m.start():m.start()+200].replace(\"\\n\",\" \"))\nr=await web_search({\"query\":\"Johnson & Johnson December 28 2025 balance sheet loans and notes payable long-term debt marketable securities\"})\nr=json.loads(r) if isinstance(r,str) else r\nfor x in r[:6]:\n  c=x['content'];print(x['url'])\n  for m in list(re.finditer('Loans and notes|Long-term debt|Marketable securities',c))[:4]:print('  ',c[m.start():m.start()+150].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_011rPVTA8Kj24w3y6bYbeqNx",
+      "name": "web_search",
+      "input": {
+       "query": "Johnson & Johnson full year 2025 average shares outstanding diluted GAAP diluted EPS 2025 twelve months"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01KpcgUegMoCm9gYDg9Nqarc"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_011rPVTA8Kj24w3y6bYbeqNx",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000130817926000046/jnj014992-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NEWS RELEASE Johnson & Johnson reports Q4 and Full-Year 2025 results 2026-01-21",
+        "url": "https://s203.q4cdn.com/636242992/files/doc_news/Johnson--Johnson-reports-Q4-and-Full-Year-2025-results-2026.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "292 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson reports Q4 and Full-Year 2025 results",
+        "url": "https://www.investor.jnj.com/investor-news/news-details/2026/Johnson--Johnson-reports-Q4-and-Full-Year-2025-results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "292 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NEWS RELEASE Johnson & Johnson Reports Q2 2025 Results; Raises 2025 Outlook",
+        "url": "https://s203.q4cdn.com/636242992/files/doc_news/Johnson--Johnson-Reports-Q2-2025-Results-Raises-2025-Outlook-2025.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000110/a2025q1exhibit991.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "For immediate release Johnson & Johnson reports",
+        "url": "https://s203.q4cdn.com/636242992/files/doc_financials/2025/q4/4Q25-Earnings-Press-Release-Final-Draft-01-20-26-6PM-With-Attachments.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "293 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson reports Q4 and Full-Year 2025 results",
+        "url": "https://www.jnj.com/media-center/press-releases/johnson-johnson-reports-q4-and-full-year-2025-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "291 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson reports Q4 and Full-Year 2025 results",
+        "url": "https://www.1stoncology.com/blog/johnson-johnson-reports-q4full-year-2025-results1234662132/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01KpcgUegMoCm9gYDg9Nqarc"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01XeMxxowdMzyAByiXNJA2uE",
+      "name": "web_search",
+      "input": {
+       "query": "Johnson & Johnson December 28 2025 balance sheet loans and notes payable long-term debt marketable securities"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01KpcgUegMoCm9gYDg9Nqarc"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01XeMxxowdMzyAByiXNJA2uE",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000130817926000046/jnj014992-ars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "JOHNSON & JOHNSON - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson : Annual Report for Fiscal Year Ending December 28, 2025 (Form 10-K)",
+        "url": "https://www.marketscreener.com/news/johnson-johnson-annual-report-for-fiscal-year-ending-december-28-2025-form-10-k-ce7e5ad2d98bf12c",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s203.q4cdn.com/636242992/files/doc_financials/2026/q1/2026-Q1-Form-10-Q-29Mar2026-04222026.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "225 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Annual Report 2025",
+        "url": "https://www.jnj.com/download/johnson-johnson-2025-annual-report",
+        "encrypted_content": "[omitted]",
+        "page_age": "244 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson's Balance Sheet - JNJ",
+        "url": "https://stockanalysis.com/stocks/jnj/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": "2515 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Johnson-Johnson/Common-Size/Liabilities-and-Stockholders-Equity",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson (NYSE:JNJ)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Johnson-Johnson/Analysis/Debt",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Johnson & Johnson (NYSE:JNJ)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Johnson-Johnson/Financial-Statement/Liabilities-and-Stockholders-Equity",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01KpcgUegMoCm9gYDg9Nqarc"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01KpcgUegMoCm9gYDg9Nqarc",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS8wgKEAgTGAI4AUIIdGhpbmtpbmcSDP6SBzd8WEqGPmv8TRoMqenm2bZ1wbUNfSYVIjCniT57/sBUGGwvtYHMmAAWBXml9BpWQoVSW/+g4j26wuV5EvmN2NJreUKm2J0+7YwqkAi6gEiwJLZ31PWubtPd2zxsAOnFqGCUwgvkx2S1KKrRWKRV0YE3OQSYx8fVKtTshQc7Sfeso+J7cFpkfD7iB4/irTkNXS3heVP2HShH4NBAw/CoXkiwSyIB1LZmxAIgwYcEZpA+Yo4pxcNq9jSI1lpiHJdrPajwAUAjuxQndXu1qIjnx3CXmUcfcnJnQ3Ya3sm3u5pDIu0A/uWjv+7+ocRlvbBu20ydhPM0zh56L5IbR+PfrLup6nmFZLbpyItr4F+4OqdAhqZsbr2hSeXIHUsB3CC9drLZvVwLq/OWj5U6vnanBF9khFJZXPHdpvz6LaUG6T1B10i0MHuWEajm5SDRrKdaHdHsqgqTmAYagOF3Cl4RZPr82YPcArjb8t2Sd6xhQSKaro57B5R1fCliBB+fhS9t11aWLTlO1azJp23G+64abL6q7wHWIgP9bYKXQ8i+IUnTbFoPuCsuAfcu64yKABjxffpZ17SQVRrbdIzuE9o2R1tieCjM/tm2HBiIwG4Y/zmFFO1ZcSCpBFzZOYVu6v6kB5T6H39Ince8tRD8bnGT88wyiVAvDRZuUbZkVAIqTD1lio3f5I7DekL+Edv2LFfPh8G+MMx4EpyZuRTE4j7io0uYblwHrfW+JNPMxCRqnkLlL4a/xr8LunTueQ5d1ztSg6kkwltChaSfOm18U/wRAPR9fZyZw9Wh0XAoGO+GjNMMeqISMM1ed/ngmEKaENuPm1gdcIdf53tucJ+tU0FNkPpqYX3ssjl0hlRDpWRMzoCGfKmBAsCLdKzFy8b2gocX0xXtqkII5CYFpBYO9DMYvs4nRQW489KsVoN8ojahPOxchwQeBTCk9hD2Wy+6/YgjQ9GC3TZvLmhOEHQ/piXyD6n0qhtZ6WbS5ZM8NHUkcYmrmtv5M12CmV2PblclD/VH+GsByCojeE8EBIw2jLc/A4XlkUpgpgRwgXa1bVp2lsl5BsS/zev08O71pmDKf3oASOtNj0JqHoMm8wHOAVUPHbeEv11W5I/nj+OqzLYToPzcDPiQgCv3qvFJzxm6EQd8e0Jh7uk8muATIe6sXuN9e1DtglnJutMC034LWzwmTX18iQfUhNDa9jg+X+TyDg5E6IrBeJGHlznOnOYI5KhTlRak4SrOJpkbZunRw6U9iD2ZXTqOTmeQH6iAUAQOGVM6maVieYMdPNDwSmfqLmrYdC82Mmkb+UxfYYRjBzDd4WBlVf7RfI48l7NISFR7KgKZ2ufCCg/R2IY94zPgMDetdp5YRrlwdzQ7/ZFHfK6GEHlaB1a1KZGtXDi5RR5XLGY/EKJrFuelkiwQdLaiNajEFQ9Qns0nGbXpV9BoGhNJ00v3vso+9jr8QkqOa6cRftBQOPwE/2Yovls+7ZhoqhgB"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01XyYEsaVPr8Bv5bpBYSgp79",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Johnson & Johnson",
+       "ticker": "JNJ",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           85159,
+           88821,
+           94193
+          ],
+          "source": "Sales to customers, JNJ FY2025 10-K (accession 0000200406-26-000016) / app.edgar.tools/companies/JNJ"
+         },
+         "operating_income": {
+          "values": [
+           21207,
+           20804,
+           25287
+          ],
+          "source": "Derived: pretax earnings (15,062/16,687/32,581) + interest expense (772/755/971) - interest income (1,261/1,332/1,056) + other (income) expense, net (6,634/4,694/-7,209); J&J reports no operating income line, so non-operating other items (incl. litigation charges, FY2025 gains) are excluded. Inputs from app.edgar.tools/companies/JNJ and FY2025 10-K."
+         },
+         "d_and_a": {
+          "values": [
+           7486,
+           7339,
+           7503
+          ],
+          "source": "Depreciation and amortization of property and intangibles, cash flow statement, app.edgar.tools/companies/JNJ (FY2023, FY2024, FY2025 10-K)"
+         },
+         "capex": {
+          "values": [
+           4543,
+           4424,
+           4832
+          ],
+          "source": "Additions to property, plant and equipment, cash flow statement, app.edgar.tools/companies/JNJ; FY2025 4,832 confirmed in JNJ 2025 Annual Report (FCF 24,530-4,832... = 19,698)"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.055,
+          0.05,
+          0.05,
+          0.045,
+          0.04
+         ],
+         "source": "Assumption: FY2025 growth was 6.0% (94,193 vs 88,821); FY2024 4.3%. Fade from ~5.5% toward 4% as large products (Stelara) face LOE/biosimilar pressure, offset by pipeline and MedTech growth. Not company guidance."
+        },
+        "ebit_margin": {
+         "value": 0.27,
+         "source": "Assumption: derived FY2025 margin 26.8% (25,287/94,193), FY2024 23.4%, FY2023 24.9%; held ~27% on operating leverage, offset by R&D and amortization of acquisitions."
+        },
+        "tax_rate": {
+         "value": 0.16,
+         "source": "Assumption: approx. J&J historical effective tax rate mid-teens to ~17% (e.g. 17.8% H1 2025 per Q2 2025 release); rounded to 16%, with Pillar Two upside risk."
+        },
+        "da_pct_revenue": {
+         "value": 0.08,
+         "source": "Assumption: FY2025 D&A 7,503/94,193 = 8.0%; FY2024 8.3%; FY2023 8.8%."
+        },
+        "capex_pct_revenue": {
+         "value": 0.052,
+         "source": "Assumption: FY2025 capex 4,832/94,193 = 5.1%; FY2024 5.0%; modest rise for US manufacturing investment."
+        },
+        "wacc": {
+         "value": 0.075,
+         "source": "Assumption: low-beta (~0.5-0.6) mega-cap pharma/medtech, rf ~4.3%, ERP ~5%, AAA credit with ~10% debt weight; WACC approx 7-7.5%. Not computed from a data provider."
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "source": "Assumption: long-run nominal GDP/inflation-ish growth, below WACC; healthcare demand supports 2-3%."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 27800,
+         "source": "JNJ FY2025 10-K (accession 0000200406-26-000016), MD&A: net debt (debt less cash and current marketable securities) of $27.8bn at Dec 28, 2025 (debt $47.9bn, cash $19.7bn)",
+         "period": "FY2025"
+        },
+        "diluted_shares": {
+         "value": 2429.4,
+         "source": "Average shares outstanding diluted FY2025, JNJ FY2025 10-K / Q4 2025 earnings release (millions)",
+         "period": "FY2025"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 11,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 3,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "JNJ",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 85159,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 85159000000,
+    "resolved": "JNJ"
+   },
+   {
+    "company": "JNJ",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 88821,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 88821000000,
+    "resolved": "JNJ"
+   },
+   {
+    "company": "JNJ",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 94193,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 94193000000,
+    "resolved": "JNJ"
+   },
+   {
+    "company": "JNJ",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 21207,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "not_found",
+    "hints": [
+     "operating_income is not reported for FY2023 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "JNJ"
+   },
+   {
+    "company": "JNJ",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 20804,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "not_found",
+    "hints": [
+     "operating_income is not reported for FY2024 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "JNJ"
+   },
+   {
+    "company": "JNJ",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 25287,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "not_found",
+    "hints": [
+     "operating_income is not reported for FY2025 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "JNJ"
+   },
+   {
+    "company": "JNJ",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 7486,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 7486000000,
+    "resolved": "JNJ"
+   },
+   {
+    "company": "JNJ",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 7339,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 7339000000,
+    "resolved": "JNJ"
+   },
+   {
+    "company": "JNJ",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 7503,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 7503000000,
+    "resolved": "JNJ"
+   },
+   {
+    "company": "JNJ",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 4543,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4543000000,
+    "resolved": "JNJ"
+   },
+   {
+    "company": "JNJ",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 4424,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4424000000,
+    "resolved": "JNJ"
+   },
+   {
+    "company": "JNJ",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 4832,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4832000000,
+    "resolved": "JNJ"
+   },
+   {
+    "company": "JNJ",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 27800,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 27836000000,
+    "resolved": "JNJ"
+   },
+   {
+    "company": "JNJ",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 2429.4,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2429400000,
+    "resolved": "JNJ"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

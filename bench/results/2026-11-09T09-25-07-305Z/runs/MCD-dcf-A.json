@@ -1,0 +1,1736 @@
+{
+ "company": "MCD",
+ "task": "dcf",
+ "arm": "A",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "McDonald's Corporation",
+   "ticker": "MCD",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       25494,
+       25920,
+       26885
+      ],
+      "source": "MCD 10-K FY2024 (acc. 0000063908-25-000012) and FY2025 (acc. 0000063908-26-000035); FY2025 from stock-analysis-on.net income statement"
+     },
+     "operating_income": {
+      "values": [
+       11647,
+       11712,
+       12393
+      ],
+      "source": "MCD 10-K FY2024/FY2025 and Q4-25 Exhibit 99.1"
+     },
+     "d_and_a": {
+      "values": [
+       1978,
+       2097,
+       2199
+      ],
+      "source": "MCD cash flow statement via edgar.tools/companies/MCD, consistent with 10-K"
+     },
+     "capex": {
+      "values": [
+       2357,
+       2775,
+       3365
+      ],
+      "source": "MCD cash flow statement via edgar.tools/companies/MCD, consistent with 10-K"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.05,
+      0.045,
+      0.04,
+      0.04,
+      0.035
+     ],
+     "source": "Assumption: FY2025 growth was 3.7%; comps +3.1%, unit growth of ~2,100 net openings/yr supports mid-single-digit growth fading toward 3.5%"
+    },
+    "ebit_margin": {
+     "value": 0.46,
+     "source": "Assumption: FY2025 operating margin 46.1% per 10-K, held flat (FY2024 45.2%)"
+    },
+    "tax_rate": {
+     "value": 0.21,
+     "source": "Assumption: approx. US statutory 21% plus state/foreign, near MCD's recent effective rate; rationale only, not filing-verified"
+    },
+    "da_pct_revenue": {
+     "value": 0.082,
+     "source": "Computed: FY2025 D&A 2,199 / revenue 26,885 = 8.2%"
+    },
+    "capex_pct_revenue": {
+     "value": 0.115,
+     "source": "Assumption: FY2025 12.5% (3,365/26,885) elevated by opening push; FY2024 10.7%; blended 11.5% as openings plan moderates"
+    },
+    "wacc": {
+     "value": 0.075,
+     "source": "Assumption: beta ~0.6-0.7, rf ~4.3%, ERP ~5% gives cost of equity ~7.5-8%; after-tax cost of debt ~4%, ~10% debt weight; rounded 7.5%"
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: long-run nominal growth below rf/GDP; 2.5%"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 39199,
+     "source": "FY2025 10-K: debt obligations $39,973m (balance sheet) less cash and equivalents $774m; no short-term investments found",
+     "period": "FY2025"
+    },
+    "diluted_shares": {
+     "value": 716.4,
+     "source": "FY2025 10-K / Q4-25 press release: weighted-average diluted shares 716.4m",
+     "period": "FY2025"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "McDonald's Corporation",
+   "ticker": "MCD",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       25494,
+       25920,
+       26885
+      ],
+      "source": "MCD 10-K FY2024 (acc. 0000063908-25-000012) and FY2025 (acc. 0000063908-26-000035); FY2025 from stock-analysis-on.net income statement"
+     },
+     "operating_income": {
+      "values": [
+       11647,
+       11712,
+       12393
+      ],
+      "source": "MCD 10-K FY2024/FY2025 and Q4-25 Exhibit 99.1"
+     },
+     "d_and_a": {
+      "values": [
+       1978,
+       2097,
+       2199
+      ],
+      "source": "MCD cash flow statement via edgar.tools/companies/MCD, consistent with 10-K"
+     },
+     "capex": {
+      "values": [
+       2357,
+       2775,
+       3365
+      ],
+      "source": "MCD cash flow statement via edgar.tools/companies/MCD, consistent with 10-K"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.05,
+      0.045,
+      0.04,
+      0.04,
+      0.035
+     ],
+     "source": "Assumption: FY2025 growth was 3.7%; comps +3.1%, unit growth of ~2,100 net openings/yr supports mid-single-digit growth fading toward 3.5%"
+    },
+    "ebit_margin": {
+     "value": 0.46,
+     "source": "Assumption: FY2025 operating margin 46.1% per 10-K, held flat (FY2024 45.2%)"
+    },
+    "tax_rate": {
+     "value": 0.21,
+     "source": "Assumption: approx. US statutory 21% plus state/foreign, near MCD's recent effective rate; rationale only, not filing-verified"
+    },
+    "da_pct_revenue": {
+     "value": 0.082,
+     "source": "Computed: FY2025 D&A 2,199 / revenue 26,885 = 8.2%"
+    },
+    "capex_pct_revenue": {
+     "value": 0.115,
+     "source": "Assumption: FY2025 12.5% (3,365/26,885) elevated by opening push; FY2024 10.7%; blended 11.5% as openings plan moderates"
+    },
+    "wacc": {
+     "value": 0.075,
+     "source": "Assumption: beta ~0.6-0.7, rf ~4.3%, ERP ~5% gives cost of equity ~7.5-8%; after-tax cost of debt ~4%, ~10% debt weight; rounded 7.5%"
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: long-run nominal growth below rf/GDP; 2.5%"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 39199,
+     "source": "FY2025 10-K: debt obligations $39,973m (balance sheet) less cash and equivalents $774m; no short-term investments found",
+     "period": "FY2025"
+    },
+    "diluted_shares": {
+     "value": 716.4,
+     "source": "FY2025 10-K / Q4-25 press release: weighted-average diluted shares 716.4m",
+     "period": "FY2025"
+    }
+   }
+  },
+  "submit_attempts": 2,
+  "requests": 2,
+  "usage": {
+   "input_tokens": 20,
+   "output_tokens": 4394,
+   "cache_creation_input_tokens": 19440,
+   "cache_read_input_tokens": 102620,
+   "server_tool_use": {
+    "web_search_requests": 10
+   }
+  },
+  "cost": 0.21310400000000002,
+  "seconds": 56.395,
+  "tool_calls": {
+   "submit_model": 2
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: web_search (public web pages). No other data source is available.\n\nBuild a quick unlevered DCF for McDonald's Corporation (identifier: MCD).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 18,
+     "cache_creation_input_tokens": 17972,
+     "cache_read_input_tokens": 84648,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 17972,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 3160,
+     "output_tokens_details": {
+      "thinking_tokens": 499
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard",
+     "server_tool_use": {
+      "web_search_requests": 10,
+      "web_fetch_requests": 0
+     }
+    },
+    "cost": 0.19349560000000002,
+    "content": [
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_018kayC9XjeWKyLdeWbHHWgF",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":\"McDonald's 2024 annual results revenue operating income depreciation capital expenditures diluted weighted-average shares 10-K\"})\nfor x in r[:5]:print(x['url'],x['content'][:1500],'\\n')"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_011uSRKnxc6sQcQm8AF6uzoV",
+      "name": "web_search",
+      "input": {
+       "query": "McDonald's 2024 annual results revenue operating income depreciation capital expenditures diluted weighted-average shares 10-K"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_018kayC9XjeWKyLdeWbHHWgF"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_011uSRKnxc6sQcQm8AF6uzoV",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "10-K: McDonald's",
+        "url": "https://moomoo.com/news/notice/303877490/mcdonald-s-10-k-annual-report",
+        "encrypted_content": "[omitted]",
+        "page_age": "621 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "10-K: McDonald's",
+        "url": "https://www.moomoo.com/news/notice/303877490/mcdonald-s-10-k-fy2024-annual-report",
+        "encrypted_content": "[omitted]",
+        "page_age": "621 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000012/mcd-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's Corporation Annual Report 2024 Form 10-K ( ...",
+        "url": "https://stocklight.com/stocks/us/nyse-mcd/mcdonald-s-corporation/annual-reports/nyse-mcd-2024-10K-24663493.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "991 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, DC 20549 FORM 10-K",
+        "url": "https://fortune.com/company-assets/713/quartr/annual-report-10-k-01ec7-2025-02-25-06-30-21.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "622 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDONALD'S REPORTS FOURTH QUARTER AND FULL YEAR 2024 RESULTS",
+        "url": "https://www.prnewswire.com/news-releases/mcdonalds-reports-fourth-quarter-and-full-year-2024-results-302371484.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "636 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-K - FY2024 (Annual Financial Statement Tables - full year 2024)",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000012/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's Corporation (MCD) Income Statement - Yahoo Finance",
+        "url": "https://finance.yahoo.com/quote/MCD/financials/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald - 10-K annual report 2024",
+        "url": "https://companiesmarketcap.com/mcdonald/sec-reports-10k/0000063908-25-000012/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's (MCD) 10-K: McDonald's said net income for 2024…",
+        "url": "https://www.chickstockfi.com/en/disclosures/MCD:0000063908-25-000012",
+        "encrypted_content": "[omitted]",
+        "page_age": "29 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_018kayC9XjeWKyLdeWbHHWgF"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_018kayC9XjeWKyLdeWbHHWgF",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDOL3uzlm738hQi0pqRoM6jebMeF3HMThGPWRIjDNsEy5nfaxoLMVgQ70G6BrQp8bG0VW7LubMIXoG7w/b1FLb6DBqs1JCJV44cPHIW0qEg8gZ9Ch/sJN26J6dkSczxEXMRgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_018kayC9XjeWKyLdeWbHHWgF/cell.py\", line 9, in <module>\n    for x in r[:5]:print(x['url'],x['content'][:1500],'\\n')\n                         ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01R6EMd6Ee199sR6brhYaXxa",
+      "name": "code_execution",
+      "input": {
+       "code": "print(str(r)[:3000])"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01R6EMd6Ee199sR6brhYaXxa",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "[{\"type\": \"web_search_result\", \"title\": \"10-K: McDonald's\", \"url\": \"https://moomoo.com/news/notice/303877490/mcdonald-s-10-k-annual-report\", \"content\": \"growth of 2% to $25.9 billion in 2024, while global comparable sales decreased 0.1%. Operating income rose 1% to $11.7 billion, with an operating margin of 45%. Net income declined 3% to $8.2 billion, and diluted earnings per share decreased ...\\n\\n# 10-K: McDonald's \\\\| 10-K: FY2024 Annual Report\\nMCD -0.08%\\n\\nMcDonald's Corporation reported annual revenue growth of 2% to $25.9 billion in 2024, while global comparable sales decreased 0.1%. Operating income rose 1% to $11.7 billion, with an operating margin of 45%.\", \"page_age\": \"621 days ago\"}, {\"type\": \"web_search_result\", \"title\": \"10-K: McDonald's\", \"url\": \"https://www.moomoo.com/news/notice/303877490/mcdonald-s-10-k-fy2024-annual-report\", \"content\": \"growth of 2% to $25.9 billion in 2024, while global comparable sales decreased 0.1%. Operating income rose 1% to $11.7 billion, with an operating margin of 45%. Net income declined 3% to $8.2 billion, and diluted earnings per share decreased ...\\n\\n# 10-K: McDonald's \\\\| 10-K: FY2024 Annual Report\\nMCD -0.84%\\n\\n Operating income rose 1% to $11.7 billion, with an operating margin of 45%.\\n\\nNet income declined 3% to $8.2 billion, and diluted earnings per share decreased 1% to $11.39.The company continued expanding its global footprint, opening 2,116 new restaurants while closing 461 locations, bringing the total to 43,477 restaurants worldwide. Capital expenditures increased 18% to $2.8 billion, primarily directed toward new restaurant development.\", \"page_age\": \"621 days ago\"}, {\"type\": \"web_search_result\", \"title\": \"MCDONALDS CORP - Form 10-K - FY2024\", \"url\": \"https://www.sec.gov/Archives/edgar/data/63908/000006390825000012/mcd-20241231.htm\", \"content\": \"#### McDonald's Corporation2024 Annual Report7\\n\\n### 2024 FINANCIAL PERFORMANCE\\nIn 2024, global comparable sales decreased 0.1%.\\n\\n\\u2022 Comparable sales in the U.S. increased 0.2%, benefiting from average check growth, partly offset by negative comparable guest counts.\\n\\n\\u2022 Comparable sales in the International Operated Markets segment decreased 0.2%, reflecting mixed results across the markets.\\n\\nEarnings and cash flow growth rates presented below were impacted in 2024 by restructuring charges associated with Accelerating the Organization and net charges primarily consisting of transaction costs, property sale gains and non-cash impairment charges associated with the sale of McDonald's business in South Korea and transaction costs associated with the acquisition of McDonald's business in Israel.\\n\\nCurrent year and prior year charges and gains are detailed along with reconciliations to the non-GAAP measures in the Net Income and Diluted Earnings Per Share section on page 13 and Operating Income section on page 18 in this Form 10-K.\\n\\nIn addition to the comparable sales results above, the Company had the following financial resul\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSygUKEAgTGAI4AUIIdGhpbmtpbmcSDAyyLSbFFdV2I1606hoMtMkUnmiK8GYZS9e/IjBvXaUgTQaWeeoLHy+41Kq7Z0Mt+/kG5We69RnIuSB3/rzNE354yXIAdZOO10WkXHYq5wTjG5R3nEMaRKz3+wUxL4/O+N1M0oot6BZe4bm80q/s043TzwG5wGCRK6jH2oaplH3FQojcHmNa/FCQNE74PVxW1BSuKamUsMqBujdxeVCzt/Ua7t71TJnAfg6nCN7isbiA75La4ZYiNZPLwMa9cLu1JpMIYJjf4GDMHgxEmTElpbPWyEDm2yqZSfZq+nlmG2lU4T7ESqbk9XZOLLPTv/5T4hHJgFLyCLv7fUSQBmFugYQoUd1VxcD/TDh02iFxOJe7BViT+aoQrjYUggh5JdqycY4NEFcEbZfy9vtAOYllSEZehHQbHA193Wl1y2x25keC0jsXWTtYoEfS7CiK0i86QnO/NkLVOQi70THgbIO3/f5XCuaeZPkZ6kw4nKqm71gcYpiNb/uCem5GqPZbK5MPkvechJIJd42qscy204C9oYKkdy2k8iux8Uvcolcr7MRwKcP4ijibHpBhjeORutE3tNYq2slsEpB86V+67tnNdCP6yDrYxnJwdHMXo6FP3MvhFl0TkZp/dSJc5y+FSdih6i4bCMqfIUJOAA50r8IL35z1g97O+CtnDS1ywQi8tG2VfzYETzU8gYlc0Qm5lEbCh8aRY5Itw7E+txIFfjAYiK1/dW18j6vD9HHxR9ZnG9358aXgwYpAJzDMVVYAIghSHmEmP/tOOGJ6ENqU1GZh/6HR8atlEKshNzDf6y0EtGqKAmBOoYdFoy1rbjD91yGmCCzloPpEOSI32st5TfRvK6aC1TGDCYhmPouZQZWdn1+h7PI1yEvn2XbSyE5mKmsJeoHMYaOZhzeQswufw5jl6/FXbCiC5DsYAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01V3PRhkCjSLPkb15fNz1JyG",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"McDonald's fourth quarter full year 2025 results revenues operating income diluted shares\",\"McDonald's 2025 10-K depreciation and amortization capital expenditures total debt cash\"]:\n  r=await web_search({\"query\":q})\n  for x in r[:6]:\n    print(x['url']);c=x['content']\n    import re\n    for m in re.finditer(r'(?i)(depreciation|capital expenditures|weighted|total revenues|operating income)',c):\n        print('  ',c[max(0,m.start()-80):m.start()+200].replace('\\n',' '));break"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_0127xQMjHntmKu1iQfiWSML2",
+      "name": "web_search",
+      "input": {
+       "query": "McDonald's fourth quarter full year 2025 results revenues operating income diluted shares"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01V3PRhkCjSLPkb15fNz1JyG"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_0127xQMjHntmKu1iQfiWSML2",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "McDonald's Reports Fourth Quarter and Full Year 2025 Results",
+        "url": "https://corporate.mcdonalds.com/content/mcdonalds/corpmcd/our-stories/article/Q4-full-year-2025-results.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "271 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDONALD'S REPORTS FOURTH QUARTER AND FULL YEAR 2025 RESULTS",
+        "url": "https://www.nasdaq.com/press-release/mcdonalds-reports-fourth-quarter-and-full-year-2025-results-2026-02-11",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Exhibit 99.1 FOR IMMEDIATE RELEASE FOR MORE INFORMATION CONTACT: 2/11/2026",
+        "url": "https://corporate.mcdonalds.com/content/dam/sites/corp/nfl/pdf/MCD%20Q4-25%20-%20Exhibit%2099.1%20-%20vF.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "271 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's Q4 Earnings & Revenues Beat Estimates, Rise Y/Y",
+        "url": "https://finance.yahoo.com/news/mcdonalds-q4-earnings-revenues-beat-175100097.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "269 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000006/exhibit991-12312024.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDONALD'S REPORTS FOURTH QUARTER AND FULL YEAR 2025 RESULTS",
+        "url": "https://www.prnewswire.com/news-releases/mcdonalds-reports-fourth-quarter-and-full-year-2025-results-302685288.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald’s Q4 2025 Earnings: Revenue Hits $7B With 10% Growth",
+        "url": "https://www.tikr.com/blog/mcdonalds-q4-2025-earnings-revenue-hits-7b-with-10-growth",
+        "encrypted_content": "[omitted]",
+        "page_age": "200 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's (MCD) Q4 2025 Earnings: Results, Market Reaction & History",
+        "url": "https://247wallst.com/companies/mcd/earnings/2025/Q4/",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Infographic: How McDonald’s (MCD) performed in Q4 2025 - Alphastreet",
+        "url": "https://news.alphastreet.com/infographic-how-mcdonalds-mcd-performed-in-q4-2025/",
+        "encrypted_content": "[omitted]",
+        "page_age": "269 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01V3PRhkCjSLPkb15fNz1JyG"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01V3PRhkCjSLPkb15fNz1JyG",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDEtHKcSOKwvdabXLBxoMe4rq1RYGD/V2zX3JIjCZlQyEx/HGIgB0z8tfasffIqDGzRiRrcc+Wu2ei0P2BO2H+xO3i841wYuDtt7B9PcqEl2223voJ/6VFp7ZcxxRJ9MukBgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01V3PRhkCjSLPkb15fNz1JyG/cell.py\", line 11, in <module>\n    print(x['url']);c=x['content']\n          ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "text",
+      "text": "Odd; results sometimes strings."
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01P5ougSSQvpqPpcu2ywnyLq",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"McDonald's fourth quarter full year 2025 results revenues operating income diluted shares\",\"McDonald's 2025 10-K depreciation and amortization capital expenditures total debt cash\"]:\n  r=await web_search({\"query\":q})\n  print(type(r), str(r)[:2500])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01BV6WzEmmKXKbCS4aqn1ZDB",
+      "name": "web_search",
+      "input": {
+       "query": "McDonald's fourth quarter full year 2025 results revenues operating income diluted shares"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01P5ougSSQvpqPpcu2ywnyLq"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01BV6WzEmmKXKbCS4aqn1ZDB",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "McDonald's Reports Fourth Quarter and Full Year 2025 Results",
+        "url": "https://corporate.mcdonalds.com/content/mcdonalds/corpmcd/our-stories/article/Q4-full-year-2025-results.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "271 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDONALD'S REPORTS FOURTH QUARTER AND FULL YEAR 2025 RESULTS",
+        "url": "https://www.nasdaq.com/press-release/mcdonalds-reports-fourth-quarter-and-full-year-2025-results-2026-02-11",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Exhibit 99.1 FOR IMMEDIATE RELEASE FOR MORE INFORMATION CONTACT: 2/11/2026",
+        "url": "https://corporate.mcdonalds.com/content/dam/sites/corp/nfl/pdf/MCD%20Q4-25%20-%20Exhibit%2099.1%20-%20vF.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "271 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's Q4 Earnings & Revenues Beat Estimates, Rise Y/Y",
+        "url": "https://finance.yahoo.com/news/mcdonalds-q4-earnings-revenues-beat-175100097.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "269 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000006/exhibit991-12312024.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDONALD'S REPORTS FOURTH QUARTER AND FULL YEAR 2025 RESULTS",
+        "url": "https://www.prnewswire.com/news-releases/mcdonalds-reports-fourth-quarter-and-full-year-2025-results-302685288.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald’s Q4 2025 Earnings: Revenue Hits $7B With 10% Growth",
+        "url": "https://www.tikr.com/blog/mcdonalds-q4-2025-earnings-revenue-hits-7b-with-10-growth",
+        "encrypted_content": "[omitted]",
+        "page_age": "200 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's (MCD) Q4 2025 Earnings: Results, Market Reaction & History",
+        "url": "https://247wallst.com/companies/mcd/earnings/2025/Q4/",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Infographic: How McDonald’s (MCD) performed in Q4 2025 - Alphastreet",
+        "url": "https://news.alphastreet.com/infographic-how-mcdonalds-mcd-performed-in-q4-2025/",
+        "encrypted_content": "[omitted]",
+        "page_age": "269 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01P5ougSSQvpqPpcu2ywnyLq"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01X3twRfYYKQ4Z1hophkpy77",
+      "name": "web_search",
+      "input": {
+       "query": "McDonald's 2025 10-K depreciation and amortization capital expenditures total debt cash"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01P5ougSSQvpqPpcu2ywnyLq"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01X3twRfYYKQ4Z1hophkpy77",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, DC 20549 FORM 10-K",
+        "url": "https://fortune.com/company-assets/713/quartr/annual-report-10-k-f1fce-2026-02-24-04-55-13.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "258 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's Corporation Annual Report 2025 Form 10-K ( ...",
+        "url": "https://stocklight.com/stocks/us/nyse-mcd/mcdonald-s-corporation/annual-reports/nyse-mcd-2025-10K-25661333.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "622 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "mcd-20241231",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000012/mcd-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "678 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald’s Corporation Investor Overview",
+        "url": "https://corporate.mcdonalds.com/content/dam/sites/corp/nfl/pdf/Investor%20Overview%20Deck%20v2025.6.2.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "525 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "RED ROBIN GOURMET BURGERS INC - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1171759/000162828026011733/rrgb-20251228.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "DARDEN RESTAURANTS INC - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/940944/000094094425000038/dri-20250525.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000035/mcd-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Wendy's Co - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/30697/000003069726000009/wen-20251228.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "3M CO - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000014/mmm-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Portillo's Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1871509/000187150926000012/ptlo-20251228.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01P5ougSSQvpqPpcu2ywnyLq"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01P5ougSSQvpqPpcu2ywnyLq",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSrwYKEAgTGAI4AUIIdGhpbmtpbmcSDBlSl/zimM1K0mj04xoMlP2Uqin4NsTsuDSRIjAt6JQUeo610JFVsHgIoGS6AYtZFG29mIoGzwrf4JVhz0sjn9S896vUWS0Rh92lDY0qzAWkUhDuBY62Y1gddLFfyXw2oMCUilHodpiZ+wVqsnqqoXkqvFgh8uQVlVdcdwsuQdDvYnhF2VgBgqoF5AAOuAJGwdBDtRBFCItu0DnsbJw7g0Q9kicr2CSPqef7jFOo93muOXxyEAAMW+0AhlR3Kx1aj404wc0jA0itkI4vqgr0y+7Qa20JYBZz3pyYN05qVl64stkV2Kqwpl/WXcL1aYJJZbzyUdQ3SSKbhjeM9Up8Zf5in4md+M1A+fVeTvO1UeQokHMn/w5q2/ADH5i2FWL6NiRcpbXAApeH3BWU+nq2+xVUKemSQ2K643y4p/PSrVzPFOtaq/Nt0x7pt6plxuyZ99F/CCtNbawcn5B2kImBYvnl589elXqjD8Ltf5V/tIge8rESpV+yJxHAr1syVYe5A9T2OaSF6pbYRJJujwr/ovQk3RYX7fazuIsKZTz4ff3FGOSg2Sn7DEfimnBr7iv/QrSClkVLr/itP9qoT30vODD2r4sPNDXUG/vCfK0ks5O5Oj0SDFXxZoJgj1ZThhn1uo9Pe+2OIZ7x/qqmk56Bcz4jYXwXcgvTwR40p3VyldVRX1Lrakxpg5iDKE9xRSEOM4vxAGI9JyZDfiZzbsTGuAB9NWZJRMZ5YE6nt7w2oemvs2eQVhAVxVyf+6HzgGuBXk1mbFFi+MdOTPz7sXzwDujea95GRHnP/obFgwohPjGsbw+YjJgx7wZbkZQ38P7+ZX/44Q6v2sWJdCQObWBjr/kTAeCie7EmQKWMJVC8kfuZz5ik/r1hVhnFVYAVMj4KGRxNCOtMGE08VbZovq5Ws94+1Cspj4ZHt/piWwJ6Fu7Y1l753rvENMEubouGVdKdcXLcu6S67nOyllXthH5pbVWF04NHkPOLadA0e9paAKTiNsG2vbvTXW1NzNKnt967JiYEB/t3N2vgcskYU9dGPWiMtbs2zi6BI7U2zhgB"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_015xXTgHPeZVqUfrx6Uvp1Fw",
+      "name": "code_execution",
+      "input": {
+       "code": "import re\ndef s(q,pats):\n  r=eval(await_r) if False else None\nasync def g(q):\n  r=await web_search({\"query\":q})\n  import json\n  return json.loads(r) if isinstance(r,str) else r\nfor q in [\"McDonald's 2025 10-K consolidated statement of cash flows depreciation and amortization capital expenditures 2025 2024 2023\",\"McDonald's 2025 consolidated statement of income total revenues operating income weighted-average diluted shares 2025 2024 2023\",\"McDonald's December 31 2025 balance sheet long-term debt current maturities cash and equivalents\"]:\n  for x in (await g(q))[:6]:\n    c=x['content'];print(x['url'])\n    for m in re.finditer(r'(?i)(\\| *(Total revenues|Operating income|Depreciation and amortization|Capital expenditures|Weighted-average shares|Diluted|Long-term debt|Current maturities)[^\\n]*|Total debt obligations[^\\n]*)',c):\n        print('  ',m.group(0)[:200])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_019hyVE3XCtgBJR2WBXKzWbW",
+      "name": "web_search",
+      "input": {
+       "query": "McDonald's 2025 10-K consolidated statement of cash flows depreciation and amortization capital expenditures 2025 2024 2023"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_015xXTgHPeZVqUfrx6Uvp1Fw"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_019hyVE3XCtgBJR2WBXKzWbW",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "mcd-20251231",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000035/mcd-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "313 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000012/mcd-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390824000072/mcd-20231231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP (MCD) SEC EDGAR Filings, CIK 0000063908 — 10-K, 8-K",
+        "url": "https://app.edgar.tools/companies/MCD",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's Corporation Annual Report 2025 Form 10-K ( ...",
+        "url": "https://stocklight.com/stocks/us/nyse-mcd/mcdonald-s-corporation/annual-reports/nyse-mcd-2025-10K-25661333.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "622 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's (MCD) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/mcd/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's Corporation Annual Report 2026 Form 10-K ( ...",
+        "url": "https://stocklight.com/stocks/us/nyse-mcd/mcdonald-s-corporation/annual-reports/nyse-mcd-2026-10K-26668393.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "258 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000035/mcd-ex99110xk.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-K - FY2024 (Annual Financial Statement Tables - full year 2024)",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000012/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Restaurant Brands International Inc. - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1618756/000161875626000017/qsr-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_015xXTgHPeZVqUfrx6Uvp1Fw"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01CgWyuw17KZ1yaWsB7GAwpz",
+      "name": "web_search",
+      "input": {
+       "query": "McDonald's 2025 consolidated statement of income total revenues operating income weighted-average diluted shares 2025 2024 2023"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_015xXTgHPeZVqUfrx6Uvp1Fw"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01CgWyuw17KZ1yaWsB7GAwpz",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000035/mcd-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390824000072/mcd-20231231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000012/mcd-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000021/exhibit991-33125xq1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's Corporation (MCD) Income Statement - Yahoo Finance",
+        "url": "https://finance.yahoo.com/quote/MCD/financials/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's Corporation Annual Report 2025 Form 10-K ( ...",
+        "url": "https://stocklight.com/stocks/us/nyse-mcd/mcdonald-s-corporation/annual-reports/nyse-mcd-2025-10K-25661333.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "622 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "mcd-20250630",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000039/mcd-20250630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Exhibit 99.1 FOR IMMEDIATE RELEASE FOR MORE INFORMATION CONTACT: 2/11/2026",
+        "url": "https://corporate.mcdonalds.com/content/dam/sites/corp/nfl/pdf/MCD%20Q4-25%20-%20Exhibit%2099.1%20-%20vF.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "271 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald’s Corp. (NYSE:MCD)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/McDonalds-Corp/Financial-Statement/Income-Statement",
+        "encrypted_content": "[omitted]",
+        "page_age": "257 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_015xXTgHPeZVqUfrx6Uvp1Fw"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Biz4YuV6JPm9iboG8FjLy8",
+      "name": "web_search",
+      "input": {
+       "query": "McDonald's December 31 2025 balance sheet long-term debt current maturities cash and equivalents"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_015xXTgHPeZVqUfrx6Uvp1Fw"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01Biz4YuV6JPm9iboG8FjLy8",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "mcd-20251231",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000035/mcd-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "313 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's Corporation (MCD) - Financials, balance sheet (quarterly)",
+        "url": "https://twelvedata.com/markets/858875/stock/nyse/mcd/financials/balance-sheet?period=quarterly",
+        "encrypted_content": "[omitted]",
+        "page_age": "254 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's (MCD) Financials 2026 - Income Statement and Balance Sheet $MCD",
+        "url": "https://www.marketbeat.com/stocks/NYSE/MCD/financials/",
+        "encrypted_content": "[omitted]",
+        "page_age": "94 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-Q - FY2025 (Quarterly Earnings Tables - quarter ended Mar 2025)",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000025/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Arcos Dorados Holdings Inc. - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1508478/000095010325005977/dp228772_6k.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Arcos Dorados Holdings Inc. - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1508478/000095010325014570/dp237216_6k.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Exhibit 99.1 FOR IMMEDIATE RELEASE FOR MORE INFORMATION CONTACT: 2/11/2026",
+        "url": "https://corporate.mcdonalds.com/content/dam/sites/corp/nfl/pdf/MCD%20Q4-25%20-%20Exhibit%2099.1%20-%20vF.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "271 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Ryerson Holding Corp - Form 10-Q - FY2025 (Quarterly Earnings Tables - quarter ended Mar 2025)",
+        "url": "https://www.sec.gov/Archives/edgar/data/1481582/000095017025061080/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald’s Corp. (NYSE:MCD)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/McDonalds-Corp/Common-Size/Assets",
+        "encrypted_content": "[omitted]",
+        "page_age": "257 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Arcos Dorados Holdings Inc. - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/1508478/000095010325003298/dp226103_6k.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_015xXTgHPeZVqUfrx6Uvp1Fw"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_015xXTgHPeZVqUfrx6Uvp1Fw",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS4wcKEAgTGAI4AUIIdGhpbmtpbmcSDC+7EFDbfnJJFx28SRoMydNcyHGM+ZrsjaC6IjDXXbTLmEt1IONhwzX1tm+yIMGucpnMsa9vB6OKbFoe4tB6RmPE7V/0APSiBM8d28IqgAdDwm5SU0WC9q65VPd2H+RGsr8H2auHPD40PR11Tj/oRFP5V1pz6B7aRPtwxLwWgonKpudm3eCOjpeqKui70mL8FFL/Ae7sZAYRMpZDYzY/4g89pI2qT5OMxrjpG4O9XhbfCSr+XCB9AFuIXBbpxiogLnzvLOxH845yG8Mo98A+Wc9TFtS8EYxxlgJrRmr+0QTN5CWsDlW0GpyfqoKEJF+bdSMq9v5aYpeMMtqMVL1GYJW5gsP3A5dnpVDnMigMmji5TcO2RcOAvruKMF7Xnzk/dLEUHIjY8FWGBLV1WTBqsMO8Z7XRqcwDZrObxz6kU1d2HORx8Suz8ugxY6/50DkxV5IQOyUn4sixMqQZ7QCChUF7RrwyskVgzVpuqUT4Q2eXp4s44ffqDspwsKN6GjjUBtD3xLFYpjs9qNHF+2MYCkYyjJkvNl/uKFeuYQEZ69ovdu0o0WACoRhHxV/WU/Ey2GqdF8x5tAhjIOoprM2L6S/uriXdPpnjATwz8gQWQQfk1QpZQhaSlW8HlNGh7CGKHLDaHROZTtqaViYlvsksoYWzx3j4+LgDY8K32uibLnwSgT92S8LEvpUmu9Bf2/rdhe0ucJnt8yfikcZoYpQUz36zAGeQnOizubC0zs0bG/7Q0rgjU74Epg+W64CBWddoc1o27XJIs/iUnL2N6EOAGFuB3Fje8JfAepFapWRIkMo9YAup1WvxsJpmHKoKTRnn8vmpb4ZyAXBsDYzq7v2V69yxgb5/Mb8Yqp9h3C6nCY9VH8+CpN2s5L675HlolrChEzGVg835P6XDXOwJN1busIoc8/QicHbj+bMbozYOi/hyYsafwatNIOWQTwjpq6cKIDk2vxSzA/5ccf2Q6IOM+/FYDDk/KXCVCJW2qyp35zsgrI6WrOUbyoSRfrvhe6xZEYLOBfiITJYQxbRXoUQFJBj14qf7sO8tGgLfDGtNx+MPdklTGMI1b71GeaTZCzFV9Owv95piANGYRrH8HTuQzxfhNJUXvgYJnEb1At+Jtu8VrjTLgvYj6cwyYP6pyJQKyaYf769FVMxPUjsB+HT5gLLl7M6xJwHPlQSSLiCaIDZPvD0uNjJljzNAvaPUyqRx2bVOzKTCgO93348taKUIkfAanYycotLrssKtE9AWQUoKPZ2YJjsuWv2Gs7qD8V1P2ZKCksEaTW9XRtkFe/u/lBgB"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01PvKxPA8femtYYgYJYJgWpv",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"McDonald's full year 2025 total revenues $26.9 billion operating income $12.4 billion\",\"McDonald's 2025 annual report weighted-average shares diluted 716 total debt obligations December 31 2025\"]:\n  for x in (await g(q))[:6]:\n    c=x['content'];print(x['url'])\n    for m in re.finditer(r'(?i)(total revenues[^\\n]{0,120}|operating income[^\\n]{0,120}|diluted[^\\n]{0,100}|debt obligations[^\\n]{0,120}|long-term debt[^\\n]{0,100}|current maturities[^\\n]{0,100})',c):\n        print('  ',m.group(0)[:160])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01JZsQWyMhBR2VsUrZsifKXt",
+      "name": "web_search",
+      "input": {
+       "query": "McDonald's full year 2025 total revenues $26.9 billion operating income $12.4 billion"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01PvKxPA8femtYYgYJYJgWpv"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01JZsQWyMhBR2VsUrZsifKXt",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "McDonald's Annual Revenue 2026: $26.9B in 2025, 2007–2025 History - FourWeekMBA",
+        "url": "https://fourweekmba.com/mcdonalds-revenue/",
+        "encrypted_content": "[omitted]",
+        "page_age": "26 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald%27s",
+        "url": "https://en.wikipedia.org/wiki/McDonald%27s",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Chipotle Mexican Grill",
+        "url": "https://en.wikipedia.org/wiki/Chipotle_Mexican_Grill",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000035/mcd-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000025/mcd-20250331.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCD Revenue: $26.9B (FY2025) & 10-Year History — stockrow",
+        "url": "https://stockrow.com/MCD/metrics/revenue",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonalds (MCD) Stock Analysis 2026: Rent, Royalties and Franchisees",
+        "url": "https://www.openbookanalytics.com/news/insights/mcdonald-mcd-stock-analysis-share-price-fundamentals-earnings-valuation-2026",
+        "encrypted_content": "[omitted]",
+        "page_age": "20 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's Revenue Breakdown & Financial Statements (2025)",
+        "url": "https://corpdigest.com/company/mcdonalds/financials",
+        "encrypted_content": "[omitted]",
+        "page_age": "38 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCD Revenue by Year and Quarter · McDonald's Corporation",
+        "url": "https://www.investmentvisual.com/stocks/mcd/financials/revenue",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01PvKxPA8femtYYgYJYJgWpv"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_013SWjeo76Rm18tppNAGtDCB",
+      "name": "web_search",
+      "input": {
+       "query": "McDonald's 2025 annual report weighted-average shares diluted 716 total debt obligations December 31 2025"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01PvKxPA8femtYYgYJYJgWpv"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_013SWjeo76Rm18tppNAGtDCB",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "mcd-20251231",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000035/mcd-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "313 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Exhibit 99.1 FOR IMMEDIATE RELEASE FOR MORE INFORMATION CONTACT: 2/11/2026",
+        "url": "https://corporate.mcdonalds.com/content/dam/sites/corp/nfl/pdf/MCD%20Q4-25%20-%20Exhibit%2099.1%20-%20vF.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "271 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDONALD'S REPORTS FOURTH QUARTER AND FULL YEAR 2025 RESULTS",
+        "url": "https://www.prnewswire.com/news-releases/mcdonalds-reports-fourth-quarter-and-full-year-2025-results-302685288.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's Corporation (MCD) - Total Assets (Annual)",
+        "url": "https://www.alphaquery.com/stock/MCD/fundamentals/annual/total-assets",
+        "encrypted_content": "[omitted]",
+        "page_age": "297 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's Corporation (MCD) - Weighted-Average Shares Outstanding (Diluted) (Annual)",
+        "url": "https://www.alphaquery.com/stock/MCD/fundamentals/annual/weighted-average-shares-outstanding-diluted",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald's (MCD) Income Statement, Balance Sheet, Cash Flow",
+        "url": "https://tickerscout.ai/mcd/financials/",
+        "encrypted_content": "[omitted]",
+        "page_age": "38 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-Q - FY2025 (Quarterly Earnings Tables - quarter ended Mar 2025)",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000025/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000025/mcd-20250331.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald - 10-K annual report 2025",
+        "url": "https://companiesmarketcap.com/mcdonald/sec-reports-10k/0000063908-26-000035/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01PvKxPA8femtYYgYJYJgWpv"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01PvKxPA8femtYYgYJYJgWpv",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS1wYKEAgTGAI4AUIIdGhpbmtpbmcSDLD3WfjiHdGc7iCRWBoMRbDntnkwdrenFRs2IjC9xqm/nUNmdaOM4dlyKiNRszINjKgN3+WMCYxE0dWFKPiHTazTq2B+fQL3oeXETxcq9AVz6C1HXVxVKHBYpyXyA1GoYCggvgmqJFWBd9NMJrbsa4A7/mtozKtKGC8GUGNx3gOl1mg8Pthk2dVeB//5V42VdLyCCBuGM72VbYkT8Sy/j+bg/eltBZ3tnbOD7Yrm3wy4WT0teYhrK7gs2B5CgF+UeY5mSPkeJALuCymm1sbNcFWKM5YF7RWZrEWHO8DnhCFvOpFtIUz44avUO1dLA28409n0+JLpsQCwZ67deIY9ksRR6u14q3u3FDF6zzqNaFdVvtO3OkPWnXVTOJZg4MlVXvDSMh2Gky0ril2NrzXFgWDT3IXR7zvGXqz6mOuQLxZlelou4LWCpuyj+BmR4JSXACT4BvX0P4Ua5fSzD5DumeFDt6hQxtNjmOwyZoIkUVSQ+2388GN0DvPAEjgO5ax8Ss8S4i0xF6MwBRJZ8HUwIJPs3/oPkXP+JOnHeogED5WldE+Z/iWUV+xy7DpEM7pCHZn4gNyvD+ghdGeZ0zGONXWUsjKtyzAkVrqpiheFp2uC+tNwoK//j0dFUIWVc1D0bhCQC2y+0FAjbVo+TZQ7sKdEzEAxKILL1m7Qa4ILZmmUiRTe31hubv72VIijwsDQ4DM5XmAik4GqYFaqac1SQVQgoUCwzRkIRYLIav4Dtnrx/AMXZG/3FuFXmo/oUi389Lomc8Y3nZn1ytz+vHTdR+rE2qrYBb+IFBjmiJt4GefxrzLmxb/Da/W3fZDS0YSegT2ohOFGqbKkbpCOsP8eD+B2N4bpmmtk7L+fwbRtA1ro/CvKxcpbp0tvVvYqlvCOWJAaEdI7/e3OUYJEPt9UfK80/+J0empUmegNTkAK/Tr/D8xxl8XiSXlk1U8C+8oXrAXtvmAcE+kt/7mDiIT2bHza/f6G8QqBqtHUtTgCVH+TV2rHjuZwUx8+ULoZKS8IN4eewlGFXigfmgjQVCPMtFMPUeN9fykBhWzrBQaUZMXFuDuCOg2hSbxMuxQvNXmOC77mTX/rBbmtl45HD8rcbJ5FBnoYAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01EVWwD93wg8Y66eHJAtFncz",
+      "name": "code_execution",
+      "input": {
+       "code": "for x in (await g(\"McDonald's 2025 total revenues 26,885 OR 26,9 million consolidated statement of income 2025 operating income 12,393\"))[:6]:\n    c=x['content'];print(x['url'])\n    for m in re.finditer(r'(?i)(total revenues[^\\n]{0,100}|12,393[^\\n]{0,60})',c):print('  ',m.group(0)[:150])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01T9wFs4VniXH9pDND3hZPvF",
+      "name": "web_search",
+      "input": {
+       "query": "McDonald's 2025 total revenues 26,885 OR 26,9 million consolidated statement of income 2025 operating income 12,393"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01EVWwD93wg8Y66eHJAtFncz"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01T9wFs4VniXH9pDND3hZPvF",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000035/mcd-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 10-Q - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000025/mcd-20250331.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald%27s",
+        "url": "https://en.wikipedia.org/wiki/McDonald%27s",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Exhibit 99.1 FOR IMMEDIATE RELEASE FOR MORE INFORMATION CONTACT: 2/11/2026",
+        "url": "https://corporate.mcdonalds.com/content/dam/sites/corp/nfl/pdf/MCD%20Q4-25%20-%20Exhibit%2099.1%20-%20vF.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "271 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "MCDONALDS CORP - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000036/exhibit992-6302025.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDonald’s Corp. (NYSE:MCD)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/McDonalds-Corp/Financial-Statement/Income-Statement",
+        "encrypted_content": "[omitted]",
+        "page_age": "257 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Document",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000032/exhibit992-12312025.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "McDONALD'S REPORTS FOURTH QUARTER AND FULL YEAR 2025 RESULTS",
+        "url": "https://www.prnewswire.com/news-releases/mcdonalds-reports-fourth-quarter-and-full-year-2025-results-302685288.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "270 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Document 2 - file: exhibit991-12312025.htm",
+        "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390826000032/exhibit991-12312025.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "271 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01EVWwD93wg8Y66eHJAtFncz"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01EVWwD93wg8Y66eHJAtFncz",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "EvwICioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDB2XDmjZ51uzu33BvBoMxoCvbB4PX6mzFN91IjDVuaUSdBNgslrb4TKA+9JuhPypF3dCsxEt2Us1px8s7wuLN6SOaakltK5Ymp3ARH0q/weBShMhDgY3DfFYCtNsOKkyP6KQ8eW4iYCjthSii8sXWuTBcRDJa7lzGRYp9vrZ2FTo4rpqWj9uwgRb9pLvn+LJl1KZb2XaEBeCdSXtSuzTOvNStntTnffSAcZteV9XEYMNncBQQdc3lMz5W4PjszQLspjv+++vebsaGeALuydLNpTGkBUCQQ+JvEWidaQNaW+HIyeX71Yhjl1WpUM1xy9IIX8tsNDqHojICG5y57yoYVFYTUlNnE6jbZF8+VfEZwK17PJkF88xtfsBdV7Cm/ekYSbUUrANxUG+sBhkSHgLA7MI7Mch6n+d2IXu2ZJgFTWWxTw8VzcwFChJZSqP7R0EkBsKn43yxFhEwrS0+CCGIYzsJjMcnRxlp5zje1lhfUlQdPbtdqf8GUAUq+zhyfFqnS2NRj+yU8sJRxbnOGUEbq1PaepRInKlVj2dy9+kbdwKA864KBdPi3oiOHUGhMw/Z8b7kDrEJVvZsK8/5yJmKldvfswFfYGdywBzTnCtc949dewOEOqQ0f0sgb5rFwN2chc7idcWWMivesXcAhNParfl2A0YYHGxELWONvQ/4/tS392oljKM3mwrWTFuqdI/eXJtGXIx7eTdBcggmetD0xQ+aImLfQ72BAOBq4P0FiCtI5ugXI6mBTuSlH8MT1ku4HR+slPAhYWVC4az5XGSNBYBWS/hXISjE+jch+DIfa0/HF/xCkrJS2MwAcVuAFWdkoBMjC3/BPjrwnL0JnReewQY1zy/7zb3lAcNo6zwYnDG42Z8XEunWbvRH/aqppKv/p66DvARXhhkSKDb+sZJpkZjdYT55/7VvvSPQNgLTILTgSXCM8dbz1ENW2MQ9gSAe7ZaItBfdCd1585v3dF4l65DcYibfO7OxPV5CFHonWcQJhNOnUSyzXQZ50HyVpCsyYbPiK/Pc9lm5ojMDH9u4c4imYYgU0j9K+u9QyBChFSHLnq9rW2kf7MIuZyicnKe1vFt9SC+kmk1eyDMbuI1flKJF2lURFi+3R342l6xAJG18s7EgM2EHXefNzKMxXWKIl3I5ov8cRTrKGZIn3hKfea9u5GXBMZSj+NvaVcjysuiLb9jgS8CnbJSC/TtISr3eKdgxT+2qQV6rbsFqmjENJ23rReLYJCixVDIa68eVkaEcT2LgeSYISGucJHYHN5pJ9POwjZa6c/9OByurvN6GCC7f4I8061GWMiMVkzu5szS9dki9+nHdAdwNwd/VEGhbnz9Pc4RI/U8n7XLn6S+TnjRdBLUGeS208+73nZmdhb/xjx4mKYtItuYRpbMwLEqyW/w0ZNgcVW4TDguNV4I4Ox9Lg/xmRXr9gpyzbxSMhCZ0mN4j7mnOKwoSdZu8QkYAw==",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQShgkKEAgTGAI4AUIIdGhpbmtpbmcSDEwi6fVCmDVJq7/aZxoMwlbGrRQe2jCFWNiGIjDyoPuDUZNz/ZL10Ow2H5rMJC6mjy3hnbSl41fioD59mPc6XCAaVVY5B+1cq7wxnZwqowjKPHphqL//QWhGXAAGGeFb97YKUATGbsaLP+bzU+y5V3yfqZQGnStWXgLVOXSKgS0FbEOHL52k6B3weeF/fj4csEOduhQUehl3n8dN2Wgt8BaO+gR3eHHplimPppinz6FJ6fsCpQCxopRRNJDJAMuNhADdFmWmUPcB17MkEBtOos9/gd4CdVNUtL3lohn+P5EN1YViIyRJADntNOKGKewE5oLHPGGVdPunEXTm1xGEjb5H4GCmyRGaCPYdzZnstZCTCREewGccR2HOhPRYC1eGBFc88ptvHzveTMzLOpvGRytkrjeA/hrmuHTCaaV3U0wvA3Wx11sBSipjDHRN1CuqFT3UTrq5eF6ugJgZzvwexR4LEDE+T8Jw7tXmXhLUAANN0m6mTPGvEBONgx4gkzsHsaWXOgYv5IPibP7j8NlqqbzYfWhTrPYGY4HCrzvTLHZQV1HyBEnjHZZnCuCk6vSok6iq9XK/QwWf2/02iRindRdXmQdJ49feXA5naugE9nN0CWKWzeebvf7I6PllclmnO4XtrFNFKOcn8Dy0AxEVAZbOQSXdFMXaOk+3q1ntr4W6Phjr7RYGNo1DLmC3aKyeQLkKz3J/bKqa+39kFArtviH5ztTqfk1N/DmMZcDYuBHDOc/SjhoZ1x/Rt/HxrFiIjpGX66zC9CCahqnl/qmLKOFrBY+IRDd3jU3jLUeyrAUUeKkjCXkZxTvXUnS6GcOgUdozYlJcdGPJ2gCG+I6DJZPgyJRMeg7BKb2OL+/o+9kFLYsZw+Pc4rZNGW2j1Zm1VX7jklBZI0AS8wqjTAgZJuMfowDs8PhAdvVt0Y8wBviRsA1NCcPS+i8Z6s3wsa7ZzbfHrBXh0LlDYYgeZ+S2VEUlwx9t5H+NOR8YulN9NVcrOBqY0UlVIa4Wk4yVZU8o9FQLg3ralZDwK6bTBuPzCjQC7nq4mqRcE+nAReo5zhr2R9SgF6v7uVq6qsD/5GF955Htxfoq8MTpqvkbGLoVZKqSH46Ik5EwwrR1YlPaJRfNDe+0xDCcVYZRFhW8h1+wKW9lxA/GFn76CM1HcXv4JEJ/o4XWc3tsI1KX3ByuciDY4K6sCGNAr3sJDVZn76OPLXc2tZh1qCvoCMDGmJ7YSGTdq4iWGSrUUuM/byp5Eil/n6CR+1H9Y5bfyE2TiIv5IKWspq16E8fTumttGFZt32lNJ19YhtZqRCPLwQgw/C6sCCnt93kIXfpYtJDwjqF7rxJCxZqW0RJSP+GGIU34D+m+Pal6O5L4CyqTxuvG/BWXtmk8Wgl667nS3pTRUL+FRcaEACZhHfK4NGn7t8i/Qm/+XhDTzAGoWEStU3UT6fJgFLYSJq65ziT2wDlGT3hDoKWl2SymvuB67GBwChwFYGhgk8jTiFHHIawg1Ks2TCzoTwAYAQ=="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01UL956mJPm7c1auSm8Jt4Z5",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "McDonald's Corporation",
+       "ticker": "MCD",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           25494,
+           25920,
+           26885
+          ],
+          "source": "MCD 10-K FY2024 (acc. 0000063908-25-000012) and FY2025 (acc. 0000063908-26-000035); FY2025 from stock-analysis-on.net income statement"
+         },
+         "operating_income": {
+          "values": [
+           11647,
+           11712,
+           12393
+          ],
+          "source": "MCD 10-K FY2024/FY2025 and Q4-25 Exhibit 99.1"
+         },
+         "d_and_a": {
+          "values": [
+           1978,
+           2097,
+           2199
+          ],
+          "source": "MCD cash flow statement via edgar.tools/companies/MCD, consistent with 10-K"
+         },
+         "capex": {
+          "values": [
+           2357,
+           2775,
+           3365
+          ],
+          "source": "MCD cash flow statement via edgar.tools/companies/MCD, consistent with 10-K"
+         }
+        }
+       },
+       "assumptions": "{\"projection_labels\":[\"FY2026\",\"FY2027\",\"FY2028\",\"FY2029\",\"FY2030\"],\"revenue_growth\":{\"values\":[0.05,0.045,0.04,0.04,0.035],\"source\":\"Assumption: FY2025 growth was 3.7%; comps +3.1%, unit growth of ~2,100 net openings/yr supports mid-single-digit growth fading toward 3.5%\"},\"ebit_margin\":{\"value\":0.46,\"source\":\"Assumption: FY2025 operating margin 46.1% per 10-K, held flat (FY2024 45.2%)\"},\"tax_rate\":{\"value\":0.21,\"source\":\"Assumption: approx. US statutory 21% plus state/foreign, near MCD's recent effective rate; rationale only, not filing-verified\"},\"da_pct_revenue\":{\"value\":0.082,\"source\":\"Computed: FY2025 D&A 2,199 / revenue 26,885 = 8.2%\"},\"capex_pct_revenue\":{\"value\":0.115,\"source\":\"Assumption: FY2025 12.5% (3,365/26,885) elevated by opening push; FY2024 10.7%; blended 11.5% as openings plan moderates\"},\"wacc\":{\"value\":0.075,\"source\":\"Assumption: beta ~0.6-0.7, rf ~4.3%, ERP ~5% gives cost of equity ~7.5-8%; after-tax cost of debt ~4%, ~10% debt weight; rounded 7.5%\"},\"terminal_growth\":{\"value\":0.025,\"source\":\"Assumption: long-run nominal growth below rf/GDP; 2.5%\"},\"mid_year\":true},\"bridge\">{\"net_debt\":{\"value\":39199,\"source\":\"FY2025 10-K: debt obligations $39,973m (balance sheet) less cash and equivalents $774m; no short-term investments found\",\"period\":\"FY2025\"},\"diluted_shares\":{\"value\":716.4,\"source\":\"FY2025 10-K / Q4-25 press release: weighted-average diluted shares 716.4m\",\"period\":\"FY2025\"}}"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01UL956mJPm7c1auSm8Jt4Z5",
+      "content": "Not accepted: Missing 'bridge' in the DCF spec.",
+      "is_error": true
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 1468,
+     "cache_read_input_tokens": 17972,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 1468,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1234,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0196084,
+    "content": [
+     {
+      "type": "text",
+      "text": "Typo in my call; resubmitting."
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_012zyCFcuJY7d7irhqDqhMXT",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "McDonald's Corporation",
+       "ticker": "MCD",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           25494,
+           25920,
+           26885
+          ],
+          "source": "MCD 10-K FY2024 (acc. 0000063908-25-000012) and FY2025 (acc. 0000063908-26-000035); FY2025 from stock-analysis-on.net income statement"
+         },
+         "operating_income": {
+          "values": [
+           11647,
+           11712,
+           12393
+          ],
+          "source": "MCD 10-K FY2024/FY2025 and Q4-25 Exhibit 99.1"
+         },
+         "d_and_a": {
+          "values": [
+           1978,
+           2097,
+           2199
+          ],
+          "source": "MCD cash flow statement via edgar.tools/companies/MCD, consistent with 10-K"
+         },
+         "capex": {
+          "values": [
+           2357,
+           2775,
+           3365
+          ],
+          "source": "MCD cash flow statement via edgar.tools/companies/MCD, consistent with 10-K"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.05,
+          0.045,
+          0.04,
+          0.04,
+          0.035
+         ],
+         "source": "Assumption: FY2025 growth was 3.7%; comps +3.1%, unit growth of ~2,100 net openings/yr supports mid-single-digit growth fading toward 3.5%"
+        },
+        "ebit_margin": {
+         "value": 0.46,
+         "source": "Assumption: FY2025 operating margin 46.1% per 10-K, held flat (FY2024 45.2%)"
+        },
+        "tax_rate": {
+         "value": 0.21,
+         "source": "Assumption: approx. US statutory 21% plus state/foreign, near MCD's recent effective rate; rationale only, not filing-verified"
+        },
+        "da_pct_revenue": {
+         "value": 0.082,
+         "source": "Computed: FY2025 D&A 2,199 / revenue 26,885 = 8.2%"
+        },
+        "capex_pct_revenue": {
+         "value": 0.115,
+         "source": "Assumption: FY2025 12.5% (3,365/26,885) elevated by opening push; FY2024 10.7%; blended 11.5% as openings plan moderates"
+        },
+        "wacc": {
+         "value": 0.075,
+         "source": "Assumption: beta ~0.6-0.7, rf ~4.3%, ERP ~5% gives cost of equity ~7.5-8%; after-tax cost of debt ~4%, ~10% debt weight; rounded 7.5%"
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "source": "Assumption: long-run nominal growth below rf/GDP; 2.5%"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 39199,
+         "source": "FY2025 10-K: debt obligations $39,973m (balance sheet) less cash and equivalents $774m; no short-term investments found",
+         "period": "FY2025"
+        },
+        "diluted_shares": {
+         "value": 716.4,
+         "source": "FY2025 10-K / Q4-25 press release: weighted-average diluted shares 716.4m",
+         "period": "FY2025"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 9,
+  "mismatch": 1,
+  "other_line": 3,
+  "definition": 1,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {
+   "scale": 1
+  },
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "MCD",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 25494,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 25494000000,
+    "resolved": "MCD"
+   },
+   {
+    "company": "MCD",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 25920,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 25920000000,
+    "resolved": "MCD"
+   },
+   {
+    "company": "MCD",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 26885,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 26885000000,
+    "resolved": "MCD"
+   },
+   {
+    "company": "MCD",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 11647,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 11647000000,
+    "resolved": "MCD"
+   },
+   {
+    "company": "MCD",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 11712,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 11712000000,
+    "resolved": "MCD"
+   },
+   {
+    "company": "MCD",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 12393,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 12393000000,
+    "resolved": "MCD"
+   },
+   {
+    "company": "MCD",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 1978,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:DepreciationAndAmortization in the same filing"
+    ],
+    "filed_value": 382000000,
+    "resolved": "MCD",
+    "other_line": "us-gaap:DepreciationAndAmortization"
+   },
+   {
+    "company": "MCD",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 2097,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:DepreciationAndAmortization in the same filing"
+    ],
+    "filed_value": 447000000,
+    "resolved": "MCD",
+    "other_line": "us-gaap:DepreciationAndAmortization"
+   },
+   {
+    "company": "MCD",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 2199,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:DepreciationAndAmortization in the same filing"
+    ],
+    "filed_value": 457000000,
+    "resolved": "MCD",
+    "other_line": "us-gaap:DepreciationAndAmortization"
+   },
+   {
+    "company": "MCD",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 2357,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2357000000,
+    "resolved": "MCD"
+   },
+   {
+    "company": "MCD",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 2775,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2775000000,
+    "resolved": "MCD"
+   },
+   {
+    "company": "MCD",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 3365,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3365000000,
+    "resolved": "MCD"
+   },
+   {
+    "company": "MCD",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 39199,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 40722000000,
+    "resolved": "MCD"
+   },
+   {
+    "company": "MCD",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 716.4,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "mismatch",
+    "cause": "scale",
+    "hints": [
+     "Scale: the value matches if it is in units, not millions (filed 716.4 = 716.4 units)."
+    ],
+    "filed_value": 716.4,
+    "resolved": "MCD"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

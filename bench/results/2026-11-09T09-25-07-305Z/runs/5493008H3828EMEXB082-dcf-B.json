@@ -1,0 +1,678 @@
+{
+ "company": "5493008H3828EMEXB082",
+ "task": "dcf",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Anheuser-Busch InBev",
+   "ticker": "5493008H3828EMEXB082",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       59380,
+       59768,
+       59320
+      ],
+      "source": "ESEF ifrs-full:Revenue, reports 5493008H3828EMEXB082-2024-12-31-ESEF-BE-0 (FY2023) and -2025-12-31-ESEF-BE-0 (FY2024, FY2025)"
+     },
+     "operating_income": {
+      "values": [
+       13966,
+       15487,
+       15405
+      ],
+      "source": "ESEF ifrs-full:ProfitLossFromOperatingActivities, same reports"
+     },
+     "d_and_a": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found: D&A not mapped in deskstack ESEF data (null)"
+     },
+     "capex": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found: capex not mapped in deskstack ESEF data (null)"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.03,
+      0.035,
+      0.035,
+      0.03,
+      0.03
+     ],
+     "source": "Assumption: revenue was flat FY2023-25 (59.4B, 59.8B, 59.3B); modest recovery via pricing/premiumisation, fading toward terminal growth"
+    },
+    "ebit_margin": {
+     "value": 0.26,
+     "period": "FY2026-30",
+     "source": "Assumption: FY2025 margin 26.0% (15,405/59,320), FY2024 25.9%, FY2023 23.5%; held at recent level"
+    },
+    "tax_rate": {
+     "value": 0.27,
+     "period": "FY2026-30",
+     "source": "Assumption: FY2025 effective rate ~ 1-6,837/11,328 is distorted by minorities/associates; 27% chosen as approximate blended statutory rate; Damodaran Europe industry effective rate 14.7% is lower, so conservative"
+    },
+    "da_pct_revenue": {
+     "value": 0.055,
+     "period": "FY2026-30",
+     "source": "Assumption: D&A not found in the tool data; placeholder from general knowledge of brewers, reviewer must verify against the annual report"
+    },
+    "capex_pct_revenue": {
+     "value": 0.055,
+     "period": "FY2026-30",
+     "source": "Assumption: capex not found in the tool data; placeholder set equal to D&A (steady state), reviewer must verify"
+    },
+    "wacc": {
+     "value": 0.065,
+     "period": "current",
+     "source": "CAPM in USD: Rf 4.86% (US Treasury 10Y, 2026-11-06); Damodaran Europe Beverage (Alcoholic) unlevered beta cash-corrected 0.432 relevered at D/E 0.594 and tax 15% gives beta ~0.65; ERP 4.46% (Damodaran US, 2026-02-16); Ke ~7.8%; pre-tax Kd 5.18% (Damodaran) after tax ~3.9%; weights 62.7/37.3 give ~6.3%, rounded up to 6.5%"
+    },
+    "terminal_growth": {
+     "value": 0.02,
+     "period": "terminal",
+     "source": "Assumption: long-run inflation-like growth, below the USD risk-free rate of 4.86%"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 61375,
+     "period": "FY2025",
+     "source": "deskstack derived net_debt = total debt 73,013 (borrowings_noncurrent 72,128 + current portion 885) - cash 11,638; ESEF 5493008H3828EMEXB082-2025-12-31-ESEF-BE-0; lease liabilities excluded, other current borrowings not mapped"
+    },
+    "diluted_shares": {
+     "value": 2017,
+     "period": "FY2025",
+     "source": "Weighted diluted shares not reported in tool (null); derived as net income attributable 6,837M / diluted EPS 3.39 = ~2,017M; reviewer should verify against the annual report"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Anheuser-Busch InBev",
+   "ticker": "5493008H3828EMEXB082",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       59380,
+       59768,
+       59320
+      ],
+      "source": "ESEF ifrs-full:Revenue, reports 5493008H3828EMEXB082-2024-12-31-ESEF-BE-0 (FY2023) and -2025-12-31-ESEF-BE-0 (FY2024, FY2025)"
+     },
+     "operating_income": {
+      "values": [
+       13966,
+       15487,
+       15405
+      ],
+      "source": "ESEF ifrs-full:ProfitLossFromOperatingActivities, same reports"
+     },
+     "d_and_a": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found: D&A not mapped in deskstack ESEF data (null)"
+     },
+     "capex": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found: capex not mapped in deskstack ESEF data (null)"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.03,
+      0.035,
+      0.035,
+      0.03,
+      0.03
+     ],
+     "source": "Assumption: revenue was flat FY2023-25 (59.4B, 59.8B, 59.3B); modest recovery via pricing/premiumisation, fading toward terminal growth"
+    },
+    "ebit_margin": {
+     "value": 0.26,
+     "period": "FY2026-30",
+     "source": "Assumption: FY2025 margin 26.0% (15,405/59,320), FY2024 25.9%, FY2023 23.5%; held at recent level"
+    },
+    "tax_rate": {
+     "value": 0.27,
+     "period": "FY2026-30",
+     "source": "Assumption: FY2025 effective rate ~ 1-6,837/11,328 is distorted by minorities/associates; 27% chosen as approximate blended statutory rate; Damodaran Europe industry effective rate 14.7% is lower, so conservative"
+    },
+    "da_pct_revenue": {
+     "value": 0.055,
+     "period": "FY2026-30",
+     "source": "Assumption: D&A not found in the tool data; placeholder from general knowledge of brewers, reviewer must verify against the annual report"
+    },
+    "capex_pct_revenue": {
+     "value": 0.055,
+     "period": "FY2026-30",
+     "source": "Assumption: capex not found in the tool data; placeholder set equal to D&A (steady state), reviewer must verify"
+    },
+    "wacc": {
+     "value": 0.065,
+     "period": "current",
+     "source": "CAPM in USD: Rf 4.86% (US Treasury 10Y, 2026-11-06); Damodaran Europe Beverage (Alcoholic) unlevered beta cash-corrected 0.432 relevered at D/E 0.594 and tax 15% gives beta ~0.65; ERP 4.46% (Damodaran US, 2026-02-16); Ke ~7.8%; pre-tax Kd 5.18% (Damodaran) after tax ~3.9%; weights 62.7/37.3 give ~6.3%, rounded up to 6.5%"
+    },
+    "terminal_growth": {
+     "value": 0.02,
+     "period": "terminal",
+     "source": "Assumption: long-run inflation-like growth, below the USD risk-free rate of 4.86%"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 61375,
+     "period": "FY2025",
+     "source": "deskstack derived net_debt = total debt 73,013 (borrowings_noncurrent 72,128 + current portion 885) - cash 11,638; ESEF 5493008H3828EMEXB082-2025-12-31-ESEF-BE-0; lease liabilities excluded, other current borrowings not mapped"
+    },
+    "diluted_shares": {
+     "value": 2017,
+     "period": "FY2025",
+     "source": "Weighted diluted shares not reported in tool (null); derived as net income attributable 6,837M / diluted EPS 3.39 = ~2,017M; reviewer should verify against the annual report"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 3,
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 2292,
+   "cache_creation_input_tokens": 15515,
+   "cache_read_input_tokens": 21246,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.0659727,
+  "seconds": 16.834,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 2,
+   "valuation_inputs": 2,
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a quick unlevered DCF for Anheuser-Busch InBev (identifier: 5493008H3828EMEXB082).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7223,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7223,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 216,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0202255,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01MDiqde9eJyhQfVGYN8juZq",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "5493008H3828EMEXB082",
+       "years": 3
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_0157xo4fhQ1NxpFE2JTboRLR",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "EUR"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01A3dLzZNyamQY4VeTttUfJb",
+      "name": "valuation_inputs",
+      "input": {
+       "industry": "Beverage (Alcoholic)",
+       "region": "Europe"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01MDiqde9eJyhQfVGYN8juZq",
+      "content": "{\"summary\":\"ANHEUSER-BUSCH INBEV (LEI 5493008H3828EMEXB082, BE), IFRS, USD. FY2025 (ended 2025-12-31): revenue 59.3B USD, net income 6.8B USD. 3 period(s), 2 cited ESEF report(s). Every value cites its IFRS concept and report; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"ANHEUSER-BUSCH INBEV\",\"ticker\":null,\"lei\":\"5493008H3828EMEXB082\",\"country\":\"BE\",\"region\":\"EU\",\"reporting_standard\":\"IFRS\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"financial_company\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"start\":\"2023-01-01\",\"end\":\"2023-12-31\",\"income_statement\":{\"revenue\":{\"value\":59380000000,\"concept\":\"ifrs-full:Revenue\",\"accession\":\"5493008H3828EMEXB082-2024-12-31-ESEF-BE-0\"},\"gross_profit\":{\"value\":31984000000,\"concept\":\"ifrs-full:GrossProfit\",\"accession\":\"5493008H3828EMEXB082-2024-12-31-ESEF-BE-0\"},\"operating_income\":{\"value\":13966000000,\"concept\":\"ifrs-full:ProfitLossFromOperatingActivities\",\"accession\":\"5493008H3828EMEXB082-2024-12-31-ESEF-BE-0\"},\"interest_expense\":{\"value\":5808000000,\"concept\":\"ifrs-full:FinanceCosts\",\"accession\":\"5493008H3828EMEXB082-2024-12-31-ESEF-BE-0\"},\"pretax_income\":{\"value\":9124000000,\"concept\":\"ifrs-full:ProfitLossBeforeTax\",\"accession\":\"5493008H3828EMEXB082-2024-12-31-ESEF-BE-0\"},\"net_income\":{\"value\":5341000000,\"concept\":\"ifrs-full:ProfitLossAttributableToOwnersOfParent\",\"accession\":\"5493008H3828EMEXB082-2024-12-31-ESEF-BE-0\"},\"diluted_shares\":null,\"diluted_eps\":{\"value\":2.6,\"concept\":\"ifrs-full:DilutedEarningsLossPerShare\",\"accession\":\"5493008H3828EMEXB082-2024-12-31-ESEF-BE-0\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":13265000000,\"concept\":\"ifrs-full:CashFlowsFromUsedInOperatingActivities\",\"accession\":\"5493008H3828EMEXB082-2024-12-31-ESEF-BE-0\"},\"capex\":null,\"d_and_a\":null},\"balance_sheet\":{\"cash\":{\"value\":10332000000,\"concept\":\"ifrs-full:CashAndCashEquivalents\",\"accession\":\"5493008H3828EMEXB082-2024-12-31-ESEF-BE-0\"},\"short_term_investments\":null,\"total_assets\":{\"value\":219340000000,\"concept\":\"ifrs-full:Assets\",\"accession\":\"5493008H3828EMEXB082-2024-12-31-ESEF-BE-0\"},\"total_equity\":{\"value\":81848000000,\"concept\":\"ifrs-full:EquityAttributableToOwnersOfParent\",\"accession\":\"5493008H3828EMEXB082-2024-12-31-ESEF-BE-0\"},\"borrowings\":null,\"borrowings_noncurrent\":{\"value\":74163000000,\"concept\":\"ifrs-full:LongtermBorrowings\",\"accession\":\"5493008H3828EMEXB082-2024-12-31-ESEF-BE-0\"},\"borrowings_current\":null,\"short_term_borrowings\":null,\"current_portion_of_longterm_borrowings\":{\"value\":3987000000,\"concept\":\"ifrs-full:CurrentPortionOfLongtermBorrowings\",\"accession\":\"5493008H3828EMEXB082-2024-12-31-ESEF-BE-0\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":null,\"total_debt\":{\"value\":78150000000,\"formula\":\"borrowings_noncurrent + current_portion_of_longterm_borrowings\"},\"net_debt\":{\"value\":67818000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2024-01-01\",\"end\":\"2024-12-31\",\"income_statement\":{\"revenue\":{\"value\":59768000000,\"concept\":\"ifrs-full:Revenue\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"gross_profit\":{\"value\":33024000000,\"concept\":\"ifrs-full:GrossProfit\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"operating_income\":{\"value\":15487000000,\"concept\":\"ifrs-full:ProfitLossFromOperatingActivities\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"interest_expense\":{\"value\":5100000000,\"concept\":\"ifrs-full:FinanceCosts\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"pretax_income\":{\"value\":10568000000,\"concept\":\"ifrs-full:ProfitLossBeforeTax\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"net_income\":{\"value\":5855000000,\"concept\":\"ifrs-full:ProfitLossAttributableToOwnersOfParent\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"diluted_shares\":null,\"diluted_eps\":{\"value\":2.86,\"concept\":\"ifrs-full:DilutedEarningsLossPerShare\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":15055000000,\"concept\":\"ifrs-full:CashFlowsFromUsedInOperatingActivities\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"capex\":null,\"d_and_a\":null},\"balance_sheet\":{\"cash\":{\"value\":11174000000,\"concept\":\"ifrs-full:CashAndCashEquivalents\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"short_term_investments\":null,\"total_assets\":{\"value\":206637000000,\"concept\":\"ifrs-full:Assets\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"total_equity\":{\"value\":78237000000,\"concept\":\"ifrs-full:EquityAttributableToOwnersOfParent\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"borrowings\":null,\"borrowings_noncurrent\":{\"value\":70720000000,\"concept\":\"ifrs-full:LongtermBorrowings\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"borrowings_current\":null,\"short_term_borrowings\":null,\"current_portion_of_longterm_borrowings\":{\"value\":1449000000,\"concept\":\"ifrs-full:CurrentPortionOfLongtermBorrowings\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":null,\"total_debt\":{\"value\":72169000000,\"formula\":\"borrowings_noncurrent + current_portion_of_longterm_borrowings\"},\"net_debt\":{\"value\":60995000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":59320000000,\"concept\":\"ifrs-full:Revenue\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"gross_profit\":{\"value\":33179000000,\"concept\":\"ifrs-full:GrossProfit\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"operating_income\":{\"value\":15405000000,\"concept\":\"ifrs-full:ProfitLossFromOperatingActivities\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"interest_expense\":{\"value\":4933000000,\"concept\":\"ifrs-full:FinanceCosts\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"pretax_income\":{\"value\":11328000000,\"concept\":\"ifrs-full:ProfitLossBeforeTax\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"net_income\":{\"value\":6837000000,\"concept\":\"ifrs-full:ProfitLossAttributableToOwnersOfParent\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"diluted_shares\":null,\"diluted_eps\":{\"value\":3.39,\"concept\":\"ifrs-full:DilutedEarningsLossPerShare\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":14883000000,\"concept\":\"ifrs-full:CashFlowsFromUsedInOperatingActivities\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"capex\":null,\"d_and_a\":null},\"balance_sheet\":{\"cash\":{\"value\":11638000000,\"concept\":\"ifrs-full:CashAndCashEquivalents\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"short_term_investments\":null,\"total_assets\":{\"value\":218808000000,\"concept\":\"ifrs-full:Assets\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"total_equity\":{\"value\":87287000000,\"concept\":\"ifrs-full:EquityAttributableToOwnersOfParent\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"borrowings\":null,\"borrowings_noncurrent\":{\"value\":72128000000,\"concept\":\"ifrs-full:LongtermBorrowings\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"},\"borrowings_current\":null,\"short_term_borrowings\":null,\"current_portion_of_longterm_borrowings\":{\"value\":885000000,\"concept\":\"ifrs-full:CurrentPortionOfLongtermBorrowings\",\"accession\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":null,\"total_debt\":{\"value\":73013000000,\"formula\":\"borrowings_noncurrent + current_portion_of_longterm_borrowings\"},\"net_debt\":{\"value\":61375000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\",\"ESEF report (IFRS as adopted in the EU), from the issuer's tagged consolidated statements. Lines the issuer tagged only with its own (extension) concepts are not mapped and come back null.\",\"No LTM column: the issuer's half-year report is not available in ESEF format.\"],\"sources\":[{\"name\":\"ANHEUSER-BUSCH INBEV, ESEF annual financial report (filings.xbrl.org)\",\"url\":\"https://filings.xbrl.org/5493008H3828EMEXB082/2024-12-31/ESEF/BE/0/5493008H3828EMEXB082-2024-12-31-en/reports/ixbrlviewer.html\",\"accession_or_id\":\"5493008H3828EMEXB082-2024-12-31-ESEF-BE-0\",\"form\":\"ESEF annual report\",\"period\":\"2024-12-31\",\"as_of\":\"2025-02-26\",\"license_note\":\"ESEF report filed under the EU Transparency Directive, via filings.xbrl.org (XBRL International); the repository states no restrictions on use. Cite the report.\"},{\"name\":\"ANHEUSER-BUSCH INBEV, ESEF annual financial report (filings.xbrl.org)\",\"url\":\"https://filings.xbrl.org/5493008H3828EMEXB082/2025-12-31/ESEF/BE/0/5493008H3828EMEXB082-2025-12-31-1-en/reports/ixbrlviewer.html\",\"accession_or_id\":\"5493008H3828EMEXB082-2025-12-31-ESEF-BE-0\",\"form\":\"ESEF annual report\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-12\",\"license_note\":\"ESEF report filed under the EU Transparency Directive, via filings.xbrl.org (XBRL International); the repository states no restrictions on use. Cite the report.\"}],\"data_as_of\":\"2026-11-09T09:23:34.355Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_0157xo4fhQ1NxpFE2JTboRLR",
+      "content": "{\"summary\":\"EUR 10Y government yield: 3.266% (decimal 0.03266) on 2026-11-05 (European Central Bank, Data Portal, euro area yield curves).\",\"region\":\"EUR\",\"tenor\":\"10Y\",\"rate_pct\":3.2663886346,\"rate_decimal\":0.032663886346,\"date\":\"2026-11-05\",\"basis\":\"ECB euro area par yield, 10Y, AAA-rated euro area central government bonds (ECB series title: Svensson model, continuous compounding)\",\"series\":\"YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y\",\"warnings\":[],\"source\":{\"name\":\"European Central Bank, Data Portal, euro area yield curves\",\"url\":\"https://data.ecb.europa.eu/data/datasets/YC/YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y\",\"accession_or_id\":\"YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y/2026-11-05\",\"period\":\"2026-11-05\",\"as_of\":\"2026-11-05\",\"license_note\":\"Source: ECB statistics. Reuse allowed with attribution; figures unmodified.\"},\"sources\":[{\"name\":\"European Central Bank, Data Portal, euro area yield curves\",\"url\":\"https://data.ecb.europa.eu/data/datasets/YC/YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y\",\"accession_or_id\":\"YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y/2026-11-05\",\"period\":\"2026-11-05\",\"as_of\":\"2026-11-05\",\"license_note\":\"Source: ECB statistics. Reuse allowed with attribution; figures unmodified.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01A3dLzZNyamQY4VeTttUfJb",
+      "content": "{\"summary\":\"Europe industry data for \\\"Beverage (Alcoholic)\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"industry\":[{\"region\":\"Europe\",\"industry\":\"Beverage (Alcoholic)\",\"firms\":52,\"beta\":0.6086750464249411,\"de_ratio\":0.5936776971644342,\"effective_tax_rate\":0.14678759741927233,\"unlevered_beta\":0.4206520286550585,\"cash_to_firm_value\":0.026368857380652793,\"unlevered_beta_cash_corrected\":0.43204454977003287,\"cost_of_equity\":0.0715771749465944,\"equity_weight\":0.6274794469291121,\"cost_of_debt_pretax\":0.051806000000000005,\"after_tax_cost_of_debt\":0.038564386400000004,\"debt_weight\":0.37252055307088794,\"cost_of_capital\":0.05927923269880477,\"match\":\"exact\",\"sources\":[{\"name\":\"Aswath Damodaran, Betas by Sector (Europe)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/betaEurope.xls\",\"accession_or_id\":\"betas/Europe/Beverage (Alcoholic)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"},{\"name\":\"Aswath Damodaran, Cost of Capital by Industry (Europe)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/waccEurope.xls\",\"accession_or_id\":\"wacc/Europe/Beverage (Alcoholic)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}],\"note\":\"cost_of_equity and cost_of_capital are Damodaran's US$ estimates using his own risk-free rate (0.0395) and ERP (0.0527) at the update date. For a current WACC, prefer unlevered_beta_cash_corrected, relevered at the company's D/E, with today's risk_free_rate.\"}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 6800,
+     "cache_read_input_tokens": 7223,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 6800,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 272,
+     "output_tokens_details": {
+      "thinking_tokens": 171
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0211686,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSiQgKEAgTGAI4AUIIdGhpbmtpbmcSDCzKRGGFbgOkc1/mFRoMbh4sDyVNyQyOMSACIjBs/uQ98H3DoRXH5UexNHVQDJxhM6VLw5hMQvAWI6ZJUCNVVBs6hJEl8o+LbUNRn4AqpgdFetVPSQTuqJ0rTtg14tW6hmvq9xvnrtgAeaeaeIpzPPFaA7/50jK0UOz+Hv4ZyYrROrONEtJdD8ZvP2RIBbpJ0oMTeeTgbuKi8CSvzTyrln9K7MLP9q/57jJTtPmXOzEKJxp7Tg/W/xoBFL1S8LvzUC1r7fmUB/cbGK8xjhD4VOkjU26e3unDtnJNEORqWmcvZ7Zstt5QLqGQho9pywQVzrqU65xUy1TMrFMtnAQlkxafgy26vUhMJZQLWIAYEn97Tvf8wC9QgXmDhtP8fkb6XRWU0hV1RhEQFiX8MqB7iedRY9SSMY5i+hQh0nYBf+7NUlXGGUE5InFD9sf53ybyw/fOw0W0QXf70r3hmc62dIDLMrWyg9S8WleZoRxBfVKpl1RlqdR2FtrITSgmtr1mofwFWPaF/qcqEwoFaVkjVK/xi5kY3SfwyvSNNiObwh3t6PhUSj9yTi7BMyZCtdXf49C6kZiAWdpoBe23FNevypHvf69JOdzJ+wFcZlxUw347pLF/tST15eqav4r1BwL8+i1H3PntRAtvuwK9JraONBOJew0+76EvtFqfL3v+ohU/MWwBSgQSfBAQ1M3x+54vVmjlg9IyISoagDzgiDh9Z9tU3A7cakakiG/07wvcfV2y7HIgianIKMGP5lgWj28zll9DpuNdfz6Mra/kMtzBvjaaus1tHXVQXZmyRojfrEN6/QFAW7WU5Rcb7L8+uGWFhh3em/GLgT7OAR+YMorK+fV7DwQonEpBc9lvbDdDqZyAoMpNv/H5+qsB1QMwk2d/IyPeP1G262WHzEgw/YKEx/0euDkd/fu73LYTY0Gl74QI8hhFQv54oewxi406QrCGBwktSdYE4Nw50dumwnqQXZH7fIouvvfz9FSdadlJh7KWhI5G1RQMuXrG3x5+YuzTIYktJz+SZRDaJHldsnyNRMKnspQTXC6B9NPGIXgie3+twjTS+BFhAtaofCURkeg+z14WELTEOt1KCO8K7vslTNOjqcYcEyvqYy1syFrhQ+V7rGvfVS6Z9fwBkmszCf4TH8nzbu8McW+x23/pmhnv+s1goh4VL9K/Uobpfg1TzAWVorHFVZxchqx6+bnOuPJuWgxIlSmG8nhDXpLSKVKERE/gqYGNng0WS/ZcFyO3bhzbCN33L7KeQ9Z+Gs56AooCioY0glnxu/B1A/96EhsSKb2CTQaeMzVZnVe4NzAo9hi0tjq82OOevzrRC9r4s2HFs6KTP1dkGAE="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01MdYrDWSRyGqZVnE5W24oGB",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01U4E42CznPMbHkmwZ19MVNa",
+      "name": "valuation_inputs",
+      "input": {
+       "country": "United States"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01MdYrDWSRyGqZVnE5W24oGB",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01U4E42CznPMbHkmwZ19MVNa",
+      "content": "{\"summary\":\"Country risk data for \\\"United States\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"country\":[{\"country\":\"United States\",\"region\":\"North America\",\"moodys_rating\":\"Aa1\",\"default_spread\":0.002333679169992019,\"equity_risk_premium\":0.0446,\"country_risk_premium\":0.002333679169992019,\"basis\":\"Moody's sovereign rating\",\"match\":\"exact\",\"mature_market_erp\":0.0423,\"source\":{\"name\":\"Aswath Damodaran, Country Default Spreads and Risk Premiums\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx\",\"accession_or_id\":\"ctryprem/United States\",\"period\":\"2026-02-16\",\"as_of\":\"2026-02-16\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 3,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 1492,
+     "cache_read_input_tokens": 14023,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 1492,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1804,
+     "output_tokens_details": {
+      "thinking_tokens": 294
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0245786,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSuQkKEAgTGAI4AUIIdGhpbmtpbmcSDGY4aBlgSpRbRB5GtRoM+p4y+NyxeUJ5eQa2IjDN1szGf6V/DeA+xjFiPoSYCLpVJMSqozXuObcotcOv5uOKB6oEdHkcMOq0snHNWiUq1gjm05WzY4IcOABBQmAD4HjALUpf8O476TxOhPzMFTBDvefaYl7KLKVkSlLgOzK+6wY+MSJRggq0uWkjIfOOfrzLbQHcXJPKVzepPNuitrCM7a/y3mZmdFag/Gk4T2D66yAAIVhlV5aarhVwLCn6QrKEBKrnrqxphfaQJqXLo/eIPM+gOb668KqvtrKx2cwGGEaioMnNvDkLpo9Tk+vJly+dcgKH+fHhmoD4hBTiPZ66f/RUbOK4J8xlY5VJ1G3L1iAdYMwfSNYSNd2StXP/TBE6eaEg8rOw+OX6of9DWCNbMY3aKPMRUUQjfPTyEYjFhWmqFLbYwPNeB83XtYxzq1rYV8AjJZPLnHc5SklWLsQN/A88athPPPHbAmRIQE1aaIAKLW9DmpFwf9/DQtQy7xTE/nO9DIezwNDlRjJKArza+eufbqWVKAIHBIhpCvGgYclP+hgQ2+YvDyADDoMSemgDpRj++VPj5ZtSRDZqvFKo+GQX/o7Lv9qpPstMXo34Eu9++RMyUQmbDON9Gvcf7AGOUBd5ZPRoJfL1TGRTOJf5yHBL3uooj56Z1BcxIIMYpLE3z5cPV4ztnOvjxp1RfcZptq7meVPwNHqdXzheGYbrhmXxDcVkiPwNoQ0DYop0eirfLrY9YH5H2K4mZqlzNpsXe7+VpoYhCIj7SXRC4KDGw7U6q6XUQg5/DFifCCgpHatJhyUBS0Zgk5/Poxh6eCfMsC+fYX0I48ys2Z/sD7h3CpdVFHk9d6Gq1ZO53hqhbd+jSPd66LpZfsPExVMWTSd6nZ344OmMOswWHTwfC6UscwCRwkP0JRqs8i2bul9v6tTKvQFGElIpp+nXw12wh0itoKmN6p9ttdWIf5DmwRGFXt29zgpb689z1B1BY7BYNg/hBqA7UYiUsKNB0QkMGvlP9pJ6YNCC3/XE8rSO5SB7LYXr87lLnQI5E1G81k+MhF/m/7gL9azLb387v6BrSWhZUgiN46NPuwXfHzr7kbSmU2oj4y3Rv2MErPQMwXX/KV5IBbn0Y0lzu262QY0E5hGMk8mbIMfKZjvVvdXyvG4SNjT1WOf7J9FWKfrVo8dp0CKTDeOVJswF7AMUGCkrrkf4j/etTPNioxy1VzTHuvo3fyo3mzDAG6jeTpd3S63w6pm7lyu5M08HORysDC6jD64n45AfCPxMR67eCRf/zIsLNlcqxevqzlZuPZiGveN6cocvfeedR4G5rbSsy4H9JdGlubxmOqKC5vVwd6yiibLJfvmsrYxeYrUum5PwL09LYSKJzAArjMbv8TLBFk8fzGwg1ZhuyOS/1iJQBDS+/vOPl3ZGDAJnJMgQCIW3b2GZR7BHEuNyeXSR0hBWX9fbYCoV0xUYpsXQCObdcI45VXFB00cq8FOY9d3eEtRRym46k0m9ByfBt6SFYs1o7mSjU7vi1fJH9Ln331VdHm7e2H8E1AFsUyg1+HW/0hC3MC2FmRu2Jmhw6ZQYAQ=="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_0162AGsPRKMTqgK1LABaMeQ5",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Anheuser-Busch InBev",
+       "ticker": "5493008H3828EMEXB082",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           59380,
+           59768,
+           59320
+          ],
+          "source": "ESEF ifrs-full:Revenue, reports 5493008H3828EMEXB082-2024-12-31-ESEF-BE-0 (FY2023) and -2025-12-31-ESEF-BE-0 (FY2024, FY2025)"
+         },
+         "operating_income": {
+          "values": [
+           13966,
+           15487,
+           15405
+          ],
+          "source": "ESEF ifrs-full:ProfitLossFromOperatingActivities, same reports"
+         },
+         "d_and_a": {
+          "values": [
+           null,
+           null,
+           null
+          ],
+          "source": "not found: D&A not mapped in deskstack ESEF data (null)"
+         },
+         "capex": {
+          "values": [
+           null,
+           null,
+           null
+          ],
+          "source": "not found: capex not mapped in deskstack ESEF data (null)"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.03,
+          0.035,
+          0.035,
+          0.03,
+          0.03
+         ],
+         "source": "Assumption: revenue was flat FY2023-25 (59.4B, 59.8B, 59.3B); modest recovery via pricing/premiumisation, fading toward terminal growth"
+        },
+        "ebit_margin": {
+         "value": 0.26,
+         "period": "FY2026-30",
+         "source": "Assumption: FY2025 margin 26.0% (15,405/59,320), FY2024 25.9%, FY2023 23.5%; held at recent level"
+        },
+        "tax_rate": {
+         "value": 0.27,
+         "period": "FY2026-30",
+         "source": "Assumption: FY2025 effective rate ~ 1-6,837/11,328 is distorted by minorities/associates; 27% chosen as approximate blended statutory rate; Damodaran Europe industry effective rate 14.7% is lower, so conservative"
+        },
+        "da_pct_revenue": {
+         "value": 0.055,
+         "period": "FY2026-30",
+         "source": "Assumption: D&A not found in the tool data; placeholder from general knowledge of brewers, reviewer must verify against the annual report"
+        },
+        "capex_pct_revenue": {
+         "value": 0.055,
+         "period": "FY2026-30",
+         "source": "Assumption: capex not found in the tool data; placeholder set equal to D&A (steady state), reviewer must verify"
+        },
+        "wacc": {
+         "value": 0.065,
+         "period": "current",
+         "source": "CAPM in USD: Rf 4.86% (US Treasury 10Y, 2026-11-06); Damodaran Europe Beverage (Alcoholic) unlevered beta cash-corrected 0.432 relevered at D/E 0.594 and tax 15% gives beta ~0.65; ERP 4.46% (Damodaran US, 2026-02-16); Ke ~7.8%; pre-tax Kd 5.18% (Damodaran) after tax ~3.9%; weights 62.7/37.3 give ~6.3%, rounded up to 6.5%"
+        },
+        "terminal_growth": {
+         "value": 0.02,
+         "period": "terminal",
+         "source": "Assumption: long-run inflation-like growth, below the USD risk-free rate of 4.86%"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 61375,
+         "period": "FY2025",
+         "source": "deskstack derived net_debt = total debt 73,013 (borrowings_noncurrent 72,128 + current portion 885) - cash 11,638; ESEF 5493008H3828EMEXB082-2025-12-31-ESEF-BE-0; lease liabilities excluded, other current borrowings not mapped"
+        },
+        "diluted_shares": {
+         "value": 2017,
+         "period": "FY2025",
+         "source": "Weighted diluted shares not reported in tool (null); derived as net income attributable 6,837M / diluted EPS 3.39 = ~2,017M; reviewer should verify against the annual report"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 8,
+  "match": 7,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 1,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 19,
+  "unsourced": 2,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "5493008H3828EMEXB082",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 59380,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 59380000000,
+    "resolved": "5493008H3828EMEXB082"
+   },
+   {
+    "company": "5493008H3828EMEXB082",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 59768,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 59768000000,
+    "resolved": "5493008H3828EMEXB082"
+   },
+   {
+    "company": "5493008H3828EMEXB082",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 59320,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 59320000000,
+    "resolved": "5493008H3828EMEXB082"
+   },
+   {
+    "company": "5493008H3828EMEXB082",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 13966,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 13966000000,
+    "resolved": "5493008H3828EMEXB082"
+   },
+   {
+    "company": "5493008H3828EMEXB082",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 15487,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 15487000000,
+    "resolved": "5493008H3828EMEXB082"
+   },
+   {
+    "company": "5493008H3828EMEXB082",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 15405,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 15405000000,
+    "resolved": "5493008H3828EMEXB082"
+   },
+   {
+    "company": "5493008H3828EMEXB082",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 61375,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 61375000000,
+    "resolved": "5493008H3828EMEXB082"
+   },
+   {
+    "company": "5493008H3828EMEXB082",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 2017,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "not_found",
+    "hints": [
+     "diluted_shares is not reported for FY2025 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "5493008H3828EMEXB082"
+   }
+  ],
+  "unsourced_refs": [
+   "assumptions.da_pct_revenue",
+   "assumptions.capex_pct_revenue"
+  ],
+  "errors": []
+ }
+}

@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "McDonald's Corporation",
+ "ticker": "MCD",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     25494,
+     25920,
+     26885
+    ],
+    "source": "MCD 10-K FY2025, accession 0000063908-26-000035, us-gaap:Revenues"
+   },
+   "operating_income": {
+    "values": [
+     11647,
+     11712,
+     12393
+    ],
+    "source": "MCD 10-K FY2025, accession 0000063908-26-000035, us-gaap:OperatingIncomeLoss"
+   },
+   "d_and_a": {
+    "values": [
+     382,
+     447,
+     457
+    ],
+    "source": "MCD 10-K FY2025, accession 0000063908-26-000035, us-gaap:DepreciationDepletionAndAmortization (as returned by deskstack)"
+   },
+   "capex": {
+    "values": [
+     2357,
+     2775,
+     3365
+    ],
+    "source": "MCD 10-K FY2025, accession 0000063908-26-000035, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.05,
+    0.05,
+    0.045,
+    0.04,
+    0.035
+   ],
+   "source": "Assumption: FY2025 growth was 3.7% and FY2024 1.7%; net unit expansion plus pricing suggest ~5% fading to 3.5% toward terminal growth."
+  },
+  "ebit_margin": {
+   "value": 0.46,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 EBIT margin 46.1% (12,393/26,885), FY2023-25 range 45.7-46.1%; held flat at 46%."
+  },
+  "tax_rate": {
+   "value": 0.21,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: US federal statutory rate 21%; Damodaran industry effective rate 9.9% is not used as it is low and not MCD-specific; state and foreign taxes ignored."
+  },
+  "da_pct_revenue": {
+   "value": 0.017,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 D&A/revenue 457/26,885 = 1.7% (as reported by deskstack; likely understates total D&A)."
+  },
+  "capex_pct_revenue": {
+   "value": 0.12,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 capex/revenue 12.5% (3,365/26,885), FY2024 10.7%; 12% reflects continued new restaurant openings."
+  },
+  "wacc": {
+   "value": 0.08,
+   "period": "current",
+   "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 0.95 (Damodaran Restaurant/Dining unlevered cash-corrected 0.783, D/E 0.272, tax 21%) x ERP 4.46% (Damodaran US, 2026-02-16) = 9.1% cost of equity; pre-tax Kd 5.07% (Damodaran) -> 4.0% after tax; weights 78.6/21.4 (industry) => ~8.0%. MCD's own market weights not used (no price available)."
+  },
+  "terminal_growth": {
+   "value": 0.03,
+   "period": "terminal",
+   "source": "Assumption: long-run nominal US GDP/inflation-ish growth, below the 4.86% risk-free rate."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 40722,
+   "period": "FY2025 (2025-12-31)",
+   "source": "deskstack derived net_debt = LT debt noncurrent 39,973 + current LTD 725 + commercial paper 798 - cash 774; 10-K accession 0000063908-26-000035. Excludes leases."
+  },
+  "diluted_shares": {
+   "value": 716.4,
+   "period": "FY2025",
+   "source": "Weighted average diluted shares 716.4 million, us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding, accession 0000063908-26-000035"
+  }
+ }
+}

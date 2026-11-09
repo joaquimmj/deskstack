@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "AbbVie Inc.",
+ "ticker": "ABBV",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     54318,
+     56334,
+     61160
+    ],
+    "source": "AbbVie 10-K FY2025 (acc. 0001551152-26-000008) total net revenues"
+   },
+   "operating_income": {
+    "values": [
+     12757,
+     9137,
+     15075
+    ],
+    "source": "AbbVie 10-K FY2025 consolidated statements of earnings, operating earnings (GAAP)"
+   },
+   "d_and_a": {
+    "values": [
+     8698,
+     8386,
+     8139
+    ],
+    "source": "Depreciation (752/764/762) + amortization of intangibles (7,946/7,622/7,377) from 10-K cash flow statement via stock-analysis-on.net"
+   },
+   "capex": {
+    "values": [
+     777,
+     974,
+     1214
+    ],
+    "source": "Purchases of PP&E, cash flow statement per stockanalysis.com (derived from 10-K)"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.09,
+    0.08,
+    0.06,
+    0.05,
+    0.04
+   ],
+   "source": "Assumption: FY2025 grew 8.6%; growth from Skyrizi/Rinvoq offsetting Humira erosion, fading as the base grows. Not taken from company guidance."
+  },
+  "ebit_margin": {
+   "value": 0.33,
+   "source": "Assumption: FY2025 GAAP margin 24.6% was depressed by $6.5B contingent consideration FV change, $0.8B impairment; excluding those it is ~37%. 33% allows for amortization of $7.4B and ongoing IPR&D costs."
+  },
+  "tax_rate": {
+   "value": 0.15,
+   "source": "Assumption: approximate AbbVie normalized/adjusted effective tax rate mid-teens; GAAP rate is distorted by non-deductible items."
+  },
+  "da_pct_revenue": {
+   "value": 0.125,
+   "source": "Assumption: FY2025 D&A 13.3% of revenue (8,139/61,160); slight decline as intangible amortization is flat against growing revenue."
+  },
+  "capex_pct_revenue": {
+   "value": 0.02,
+   "source": "Assumption: FY2025 capex 2.0% of revenue (1,214/61,160), rising trend from 1.4% in FY2023."
+  },
+  "wacc": {
+   "value": 0.08,
+   "source": "Assumption: large-cap pharma, beta ~0.6-0.7, risk-free ~4.3%, ERP ~5% gives cost of equity ~7.5-8%; cost of debt ~5% pre-tax with heavy leverage; ~8% blended."
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "source": "Assumption: below long-run nominal GDP; allows for patent-cliff risk."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 62239,
+   "source": "At 31 Dec 2025: total LT debt and finance lease obligations 64,997 (10-K FY2025 debt note) + short-term borrowings 2,499 (Q2 2026 balance sheet Dec-25 column) − cash 5,229 − ST investments 28 (stockanalysis.com balance sheet). Finance leases are not separable, so slightly overstated.",
+   "period": "FY2025"
+  },
+  "diluted_shares": {
+   "value": 1773,
+   "source": "Weighted-average diluted shares FY2025, millions, AbbVie annual report/earnings release",
+   "period": "FY2025"
+  }
+ }
+}

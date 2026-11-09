@@ -1,0 +1,713 @@
+{
+ "company": "MRK",
+ "task": "dcf",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Merck & Co., Inc.",
+   "ticker": "MRK",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       60115,
+       64168,
+       65011
+      ],
+      "source": "financial_statements MRK, us-gaap:Revenues, 10-K accession 0000310158-26-000063"
+     },
+     "operating_income": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found: operating income is null in deskstack data for FY2023-FY2025 (verify_value also not_found); not filled from memory"
+     },
+     "d_and_a": {
+      "values": [
+       3828,
+       4504,
+       5845
+      ],
+      "source": "Computed: us-gaap:Depreciation (1828/2104/3045) + us-gaap:AmortizationOfIntangibleAssets (2000/2400/2800), accession 0000310158-26-000063; amortization values appear rounded in source"
+     },
+     "capex": {
+      "values": [
+       3863,
+       3372,
+       4112
+      ],
+      "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000310158-26-000063"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.06,
+      0.05,
+      0.02,
+      0.01,
+      0.03
+     ],
+     "source": "Assumption: FY23-25 growth was 6.7% and 1.3%; near-term growth from the current portfolio, slowing 2028-29 for expected Keytruda patent expiry (general knowledge, not from a filing) and recovering as newer products launch."
+    },
+    "ebit_margin": {
+     "value": 0.33,
+     "source": "Assumption: operating income not reported in data. Proxy FY2025 (pretax income 21,067 + interest expense 1,357)/revenue 65,011 = 34.5%, which includes other income/expense. Haircut to 33% for margin pressure and R&D/acquisition charges."
+    },
+    "tax_rate": {
+     "value": 0.15,
+     "source": "Assumption: approximate effective rate for a global pharma with an FY2025 ratio of (21,067-18,254)/21,067 = 13.4% from filed pretax and net income; rounded up for conservatism."
+    },
+    "da_pct_revenue": {
+     "value": 0.09,
+     "source": "Assumption: FY2025 D&A 5,845/65,011 = 9.0% (computed from filed depreciation and amortization)."
+    },
+    "capex_pct_revenue": {
+     "value": 0.063,
+     "source": "Assumption: FY2025 capex 4,112/65,011 = 6.3%, with FY2023-25 range 5.3-6.4%."
+    },
+    "wacc": {
+     "value": 0.088,
+     "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 1.02 x ERP 4.46% (Damodaran US, 2026-02-16) = 9.4% cost of equity; beta = cash-corrected unlevered 0.915 relevered at D/E 0.145 and 21% tax (Damodaran Drugs industry; company market D/E not available since there is no price). Weights 87.3/12.7 with after-tax cost of debt 4.5% (Damodaran) give about 8.8%."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: below the long-run nominal US GDP growth and below the 10Y Treasury yield of 4.86%; mature pharma."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 34774,
+     "period": "FY2025",
+     "source": "financial_statements derived net_debt = total debt 49,339 (LT debt noncurrent 46,750 + current debt 2,589) - cash 14,565 - short-term investments 0; accession 0000310158-26-000063"
+    },
+    "diluted_shares": {
+     "value": 2507,
+     "period": "FY2025",
+     "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 2,507M, accession 0000310158-26-000063"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Merck & Co., Inc.",
+   "ticker": "MRK",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       60115,
+       64168,
+       65011
+      ],
+      "source": "financial_statements MRK, us-gaap:Revenues, 10-K accession 0000310158-26-000063"
+     },
+     "operating_income": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found: operating income is null in deskstack data for FY2023-FY2025 (verify_value also not_found); not filled from memory"
+     },
+     "d_and_a": {
+      "values": [
+       3828,
+       4504,
+       5845
+      ],
+      "source": "Computed: us-gaap:Depreciation (1828/2104/3045) + us-gaap:AmortizationOfIntangibleAssets (2000/2400/2800), accession 0000310158-26-000063; amortization values appear rounded in source"
+     },
+     "capex": {
+      "values": [
+       3863,
+       3372,
+       4112
+      ],
+      "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000310158-26-000063"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.06,
+      0.05,
+      0.02,
+      0.01,
+      0.03
+     ],
+     "source": "Assumption: FY23-25 growth was 6.7% and 1.3%; near-term growth from the current portfolio, slowing 2028-29 for expected Keytruda patent expiry (general knowledge, not from a filing) and recovering as newer products launch."
+    },
+    "ebit_margin": {
+     "value": 0.33,
+     "source": "Assumption: operating income not reported in data. Proxy FY2025 (pretax income 21,067 + interest expense 1,357)/revenue 65,011 = 34.5%, which includes other income/expense. Haircut to 33% for margin pressure and R&D/acquisition charges."
+    },
+    "tax_rate": {
+     "value": 0.15,
+     "source": "Assumption: approximate effective rate for a global pharma with an FY2025 ratio of (21,067-18,254)/21,067 = 13.4% from filed pretax and net income; rounded up for conservatism."
+    },
+    "da_pct_revenue": {
+     "value": 0.09,
+     "source": "Assumption: FY2025 D&A 5,845/65,011 = 9.0% (computed from filed depreciation and amortization)."
+    },
+    "capex_pct_revenue": {
+     "value": 0.063,
+     "source": "Assumption: FY2025 capex 4,112/65,011 = 6.3%, with FY2023-25 range 5.3-6.4%."
+    },
+    "wacc": {
+     "value": 0.088,
+     "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 1.02 x ERP 4.46% (Damodaran US, 2026-02-16) = 9.4% cost of equity; beta = cash-corrected unlevered 0.915 relevered at D/E 0.145 and 21% tax (Damodaran Drugs industry; company market D/E not available since there is no price). Weights 87.3/12.7 with after-tax cost of debt 4.5% (Damodaran) give about 8.8%."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: below the long-run nominal US GDP growth and below the 10Y Treasury yield of 4.86%; mature pharma."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 34774,
+     "period": "FY2025",
+     "source": "financial_statements derived net_debt = total debt 49,339 (LT debt noncurrent 46,750 + current debt 2,589) - cash 14,565 - short-term investments 0; accession 0000310158-26-000063"
+    },
+    "diluted_shares": {
+     "value": 2507,
+     "period": "FY2025",
+     "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 2,507M, accession 0000310158-26-000063"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 3,
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 2495,
+   "cache_creation_input_tokens": 15496,
+   "cache_read_input_tokens": 21934,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.06809280000000001,
+  "seconds": 19.525,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 2,
+   "verify_value": 1,
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a quick unlevered DCF for Merck & Co., Inc. (identifier: MRK).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7212,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7212,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 258,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.020618,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_017StCcUfHCDDUQFH1io4C41",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "MRK",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01J3BioivpgJwHRazR4AQnZy",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_012PF6RQXMHpKYwNdC4E8JGV",
+      "name": "valuation_inputs",
+      "input": {
+       "industry": "Drugs (Pharmaceutical)"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_013WqwoiuthPw3CjCSTop6NT",
+      "name": "valuation_inputs",
+      "input": {
+       "country": "United States"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_017StCcUfHCDDUQFH1io4C41",
+      "content": "{\"summary\":\"Merck & Co., Inc. (MRK), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 65.0B USD, net income 18.3B USD. 3 period(s), 3 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Merck & Co., Inc.\",\"ticker\":\"MRK\",\"cik\":310158,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2834\",\"sic_description\":\"Pharmaceutical Preparations\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"start\":\"2023-01-01\",\"end\":\"2023-12-31\",\"income_statement\":{\"revenue\":{\"value\":60115000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000310158-26-000063\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":1146000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0001628280-24-006850\"},\"pretax_income\":{\"value\":1889000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000310158-26-000063\"},\"net_income\":{\"value\":365000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000310158-26-000063\"},\"diluted_shares\":{\"value\":2547000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000310158-26-000063\"},\"diluted_eps\":{\"value\":0.14,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000310158-26-000063\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":13006000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000310158-26-000063\"},\"capex\":{\"value\":3863000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000310158-26-000063\"},\"d_and_a\":{\"value\":1828000000,\"concept\":\"us-gaap:Depreciation\",\"accession\":\"0000310158-26-000063\"},\"amortization_intangibles\":{\"value\":2000000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000310158-26-000063\"}},\"balance_sheet\":{\"cash\":{\"value\":6841000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001628280-25-007732\"},\"short_term_investments\":{\"value\":252000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0001628280-25-007732\"},\"total_assets\":{\"value\":106675000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001628280-25-007732\"},\"total_equity\":{\"value\":37581000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001628280-25-007732\"},\"ltd_noncurrent\":{\"value\":33683000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001628280-25-007732\"},\"ltd_total\":null,\"debt_current\":{\"value\":1372000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0001628280-25-007732\"},\"ltd_current\":{\"value\":1300000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0001628280-25-007732\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":1400000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001628280-24-006850\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":9143000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":35055000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":27962000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2024-01-01\",\"end\":\"2024-12-31\",\"income_statement\":{\"revenue\":{\"value\":64168000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000310158-26-000063\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":1271000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000310158-26-000063\"},\"pretax_income\":{\"value\":19936000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000310158-26-000063\"},\"net_income\":{\"value\":17117000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000310158-26-000063\"},\"diluted_shares\":{\"value\":2541000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000310158-26-000063\"},\"diluted_eps\":{\"value\":6.74,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000310158-26-000063\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":21468000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000310158-26-000063\"},\"capex\":{\"value\":3372000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000310158-26-000063\"},\"d_and_a\":{\"value\":2104000000,\"concept\":\"us-gaap:Depreciation\",\"accession\":\"0000310158-26-000063\"},\"amortization_intangibles\":{\"value\":2400000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000310158-26-000063\"}},\"balance_sheet\":{\"cash\":{\"value\":13242000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000310158-26-000063\"},\"short_term_investments\":{\"value\":447000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0000310158-26-000063\"},\"total_assets\":{\"value\":117106000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000310158-26-000063\"},\"total_equity\":{\"value\":46313000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000310158-26-000063\"},\"ltd_noncurrent\":{\"value\":34462000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000310158-26-000063\"},\"ltd_total\":null,\"debt_current\":{\"value\":2649000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000310158-26-000063\"},\"ltd_current\":{\"value\":2500000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000310158-26-000063\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":2600000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001628280-25-007732\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":18096000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":37111000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":23422000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":65011000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000310158-26-000063\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":1357000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000310158-26-000063\"},\"pretax_income\":{\"value\":21067000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000310158-26-000063\"},\"net_income\":{\"value\":18254000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000310158-26-000063\"},\"diluted_shares\":{\"value\":2507000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000310158-26-000063\"},\"diluted_eps\":{\"value\":7.28,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000310158-26-000063\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":16472000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000310158-26-000063\"},\"capex\":{\"value\":4112000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000310158-26-000063\"},\"d_and_a\":{\"value\":3045000000,\"concept\":\"us-gaap:Depreciation\",\"accession\":\"0000310158-26-000063\"},\"amortization_intangibles\":{\"value\":2800000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000310158-26-000063\"}},\"balance_sheet\":{\"cash\":{\"value\":14565000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000310158-26-000063\"},\"short_term_investments\":{\"value\":0,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0000310158-26-000063\"},\"total_assets\":{\"value\":136866000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000310158-26-000063\"},\"total_equity\":{\"value\":52606000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000310158-26-000063\"},\"ltd_noncurrent\":{\"value\":46750000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000310158-26-000063\"},\"ltd_total\":null,\"debt_current\":{\"value\":2589000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000310158-26-000063\"},\"ltd_current\":{\"value\":2300000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000310158-26-000063\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":2600000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000310158-26-000063\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":12360000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":49339000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":34774000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-11-04 (period 2026-09-30) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/310158/000031015826000063/0000310158-26-000063-index.htm\",\"accession_or_id\":\"0000310158-26-000063\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-24\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/310158/000162828024006850/0001628280-24-006850-index.htm\",\"accession_or_id\":\"0001628280-24-006850\",\"form\":\"10-K\",\"period\":\"2023-12-31\",\"as_of\":\"2024-02-26\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/310158/000162828025007732/0001628280-25-007732-index.htm\",\"accession_or_id\":\"0001628280-25-007732\",\"form\":\"10-K\",\"period\":\"2024-12-31\",\"as_of\":\"2025-02-25\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":2465245688,\"as_of\":\"2026-10-31\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000310158-26-000248\",\"url\":\"https://www.sec.gov/Archives/edgar/data/310158/000031015826000248/0000310158-26-000248-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01J3BioivpgJwHRazR4AQnZy",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_012PF6RQXMHpKYwNdC4E8JGV",
+      "content": "{\"summary\":\"US industry data for \\\"Drugs (Pharmaceutical)\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"industry\":[{\"region\":\"US\",\"industry\":\"Drugs (Pharmaceutical)\",\"firms\":228,\"beta\":0.9828330980612211,\"de_ratio\":0.14537075884184583,\"effective_tax_rate\":0.029938702770438724,\"unlevered_beta\":0.8862112018778732,\"cash_to_firm_value\":0.031607075278297876,\"unlevered_beta_cash_corrected\":0.915135973481584,\"cost_of_equity\":0.08333435617353047,\"equity_weight\":0.8730797362167346,\"cost_of_debt_pretax\":0.060195,\"after_tax_cost_of_debt\":0.04514625,\"debt_weight\":0.12692026378326537,\"cost_of_capital\":0.07848751166460263,\"match\":\"exact\",\"sources\":[{\"name\":\"Aswath Damodaran, Betas by Sector (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls\",\"accession_or_id\":\"betas/US/Drugs (Pharmaceutical)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"},{\"name\":\"Aswath Damodaran, Cost of Capital by Industry (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/wacc.xls\",\"accession_or_id\":\"wacc/US/Drugs (Pharmaceutical)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}],\"note\":\"cost_of_equity and cost_of_capital are Damodaran's US$ estimates using his own risk-free rate (0.0395) and ERP (0.0446) at the update date. For a current WACC, prefer unlevered_beta_cash_corrected, relevered at the company's D/E, with today's risk_free_rate.\"}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_013WqwoiuthPw3CjCSTop6NT",
+      "content": "{\"summary\":\"Country risk data for \\\"United States\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"country\":[{\"country\":\"United States\",\"region\":\"North America\",\"moodys_rating\":\"Aa1\",\"default_spread\":0.002333679169992019,\"equity_risk_premium\":0.0446,\"country_risk_premium\":0.002333679169992019,\"basis\":\"Moody's sovereign rating\",\"match\":\"exact\",\"mature_market_erp\":0.0423,\"source\":{\"name\":\"Aswath Damodaran, Country Default Spreads and Risk Premiums\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx\",\"accession_or_id\":\"ctryprem/United States\",\"period\":\"2026-02-16\",\"as_of\":\"2026-02-16\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 7510,
+     "cache_read_input_tokens": 7212,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7510,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 192,
+     "output_tokens_details": {
+      "thinking_tokens": 97
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.022141400000000002,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQShAcKEAgTGAI4AUIIdGhpbmtpbmcSDFGa5edBn6D0AlSGMBoMfU74yicZB2joFmTAIjCt0oofVD0Bx/sK7jnTlA0yQOiMeH6xQHJ4v/VZ6nPRCA5g5jixnyalqeFWCZygyqUqoQYp4z8XUGMnV9ZICQ1L9p26XiWjn4lfryWvigujbXEoLPfd0z9Nx3YdtYpokRpUtGAlkxgzGFUGBx0nzkBkXIlGBh5ZgGoibX23iz9Yc02yCDSE/qlUiRKPWoFRkuCK0kQn3VK3RsStjXNRuCQp4jbwvikmLqTpSH8UyGFF7iV9RlTuhwZAtNhYRasTITghhHlWd57ePJzXaY5gPpSyn0Wv0L3xVVyw6tzj/aR/RlsCVkLiEtZsnCVkWhPT4w6lnmOoA17VqE/yw2i0dNLpmmUITzqJS4R9SkoEc//bknA0MLsmyMERmGg7nFd97dW5MP7HmqOm3XESUfrsV3+CR/QUc3CqA448tXhRDD02Li9JwQhwLMHrnkwIIXhxtVRnV6Ejtg5gqgGJyZwvjJ3XJhCPsFprCOTlH2tKk9VbtaS7oanIWcFWvopX+2hOz7KUkUTDeQJAxCFzFpw4m1gUKIQxZ8QOcP9Y/Esg2iuRlll+8OqBF/BCIHz/sMgC9YCqnFiBctAvgFHBQmA/QMmOcRazyJSd5yQsGKsZxt9eNFNLHutkcCMmiQLg+dVln+kxWCLrpyfxmThl1gGdVSJdKgH5VwzR2XTxe38IeXuHCUXoj8Z/lipIb4kaNiUkd8JtQ2/qtVwMOvwUc2iDVlwh33dSQg8q7Y/6B7DwLAAgV6BN23ktj6UU8i56zFil3yUnrpSwraFmSAXXjoigJKkyRsZlsMW/0ZKh3ZxtAqt1xH0VQN1tdi87VtxMZ2lmL8ZxrM/6/p5F4kP5UUrhonjb2p/BayRnALtOYk//ShhH/LNXrxRjvF2vNUrk3LzMKEidZD1SD9ApPMjQIaNpZX8833TZPKG7Ld2RMC7staZgv1harGyRwvsx+Fb0YMNX7cm39GFyL1VG9P08Cz90iGyHWPk0+0P8+aiX2vT0diPK7qRuus2wg6k3VV9HEg5uhyDnWpoL6redS+XbvnTMcHJ/I7cvXxe6VLJEpBITe+OdMOMftzVoSM+QxJA9myz0bnB8+/a58gMGm3gD1YIFBWMwY6N1nM0sPXgqdKZp4N0PK2uZijAYAQ=="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01P5cyGEiKrhST3ZMW2P27ko",
+      "name": "verify_value",
+      "input": {
+       "company": "MRK",
+       "items": [
+        {
+         "metric": "operating income",
+         "period": "FY2025",
+         "value": 0
+        }
+       ]
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01P5cyGEiKrhST3ZMW2P27ko",
+      "content": "{\"summary\":\"Merck & Co., Inc.: 0 of 1 value(s) match the filings, 1 not found. Read each item's hints before changing a number.\",\"company\":{\"name\":\"Merck & Co., Inc.\",\"ticker\":\"MRK\",\"cik\":310158,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2834\",\"sic_description\":\"Pharmaceutical Preparations\",\"financial_company\":false,\"foreign_private_issuer\":false},\"currency\":\"USD\",\"counts\":{\"total\":1,\"match\":0,\"mismatch\":0,\"not_found\":1,\"ambiguous\":0},\"results\":[{\"ref\":null,\"metric\":\"operating income\",\"resolved_metric\":\"operating_income\",\"period\":\"FY2025\",\"resolved_period\":\"FY2025 (ended 2025-12-31)\",\"status\":\"not_found\",\"claimed\":0,\"claimed_units\":0,\"filed\":null,\"difference\":null,\"relative_difference\":null,\"concept\":null,\"computed\":false,\"accessions\":[],\"allowance\":{\"units\":0,\"basis\":\"\"},\"hints\":[\"operating_income is not reported for FY2025 (null in the filing data). Do not use a figure from memory.\"]}],\"sources\":[],\"note\":\"Computed lines (EBITDA, free cash flow, total debt, net debt) are checked against deskstack's own formula from the filed inputs, shown in the hints. A match means the number agrees with the filing; it does not validate assumptions or forecasts.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 3,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 774,
+     "cache_read_input_tokens": 14722,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 774,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 2045,
+     "output_tokens_details": {
+      "thinking_tokens": 543
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.025333400000000002,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "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"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01AdCNAVXJPjBm86VZ37xojA",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Merck & Co., Inc.",
+       "ticker": "MRK",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           60115,
+           64168,
+           65011
+          ],
+          "source": "financial_statements MRK, us-gaap:Revenues, 10-K accession 0000310158-26-000063"
+         },
+         "operating_income": {
+          "values": [
+           null,
+           null,
+           null
+          ],
+          "source": "not found: operating income is null in deskstack data for FY2023-FY2025 (verify_value also not_found); not filled from memory"
+         },
+         "d_and_a": {
+          "values": [
+           3828,
+           4504,
+           5845
+          ],
+          "source": "Computed: us-gaap:Depreciation (1828/2104/3045) + us-gaap:AmortizationOfIntangibleAssets (2000/2400/2800), accession 0000310158-26-000063; amortization values appear rounded in source"
+         },
+         "capex": {
+          "values": [
+           3863,
+           3372,
+           4112
+          ],
+          "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000310158-26-000063"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.06,
+          0.05,
+          0.02,
+          0.01,
+          0.03
+         ],
+         "source": "Assumption: FY23-25 growth was 6.7% and 1.3%; near-term growth from the current portfolio, slowing 2028-29 for expected Keytruda patent expiry (general knowledge, not from a filing) and recovering as newer products launch."
+        },
+        "ebit_margin": {
+         "value": 0.33,
+         "source": "Assumption: operating income not reported in data. Proxy FY2025 (pretax income 21,067 + interest expense 1,357)/revenue 65,011 = 34.5%, which includes other income/expense. Haircut to 33% for margin pressure and R&D/acquisition charges."
+        },
+        "tax_rate": {
+         "value": 0.15,
+         "source": "Assumption: approximate effective rate for a global pharma with an FY2025 ratio of (21,067-18,254)/21,067 = 13.4% from filed pretax and net income; rounded up for conservatism."
+        },
+        "da_pct_revenue": {
+         "value": 0.09,
+         "source": "Assumption: FY2025 D&A 5,845/65,011 = 9.0% (computed from filed depreciation and amortization)."
+        },
+        "capex_pct_revenue": {
+         "value": 0.063,
+         "source": "Assumption: FY2025 capex 4,112/65,011 = 6.3%, with FY2023-25 range 5.3-6.4%."
+        },
+        "wacc": {
+         "value": 0.088,
+         "source": "CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 1.02 x ERP 4.46% (Damodaran US, 2026-02-16) = 9.4% cost of equity; beta = cash-corrected unlevered 0.915 relevered at D/E 0.145 and 21% tax (Damodaran Drugs industry; company market D/E not available since there is no price). Weights 87.3/12.7 with after-tax cost of debt 4.5% (Damodaran) give about 8.8%."
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "source": "Assumption: below the long-run nominal US GDP growth and below the 10Y Treasury yield of 4.86%; mature pharma."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 34774,
+         "period": "FY2025",
+         "source": "financial_statements derived net_debt = total debt 49,339 (LT debt noncurrent 46,750 + current debt 2,589) - cash 14,565 - short-term investments 0; accession 0000310158-26-000063"
+        },
+        "diluted_shares": {
+         "value": 2507,
+         "period": "FY2025",
+         "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 2,507M, accession 0000310158-26-000063"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 11,
+  "match": 8,
+  "mismatch": 0,
+  "other_line": 3,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 22,
+  "unsourced": 1,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "MRK",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 60115,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 60115000000,
+    "resolved": "MRK"
+   },
+   {
+    "company": "MRK",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 64168,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 64168000000,
+    "resolved": "MRK"
+   },
+   {
+    "company": "MRK",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 65011,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 65011000000,
+    "resolved": "MRK"
+   },
+   {
+    "company": "MRK",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 3828,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets in the same filing"
+    ],
+    "filed_value": 1828000000,
+    "resolved": "MRK",
+    "other_line": "us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets"
+   },
+   {
+    "company": "MRK",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 4504,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:Depreciation + us-gaap:AdvertisingExpense in the same filing"
+    ],
+    "filed_value": 2104000000,
+    "resolved": "MRK",
+    "other_line": "us-gaap:Depreciation + us-gaap:AdvertisingExpense"
+   },
+   {
+    "company": "MRK",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 5845,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:AmortizationOfIntangibleAssets + us-gaap:Depreciation in the same filing"
+    ],
+    "filed_value": 3045000000,
+    "resolved": "MRK",
+    "other_line": "us-gaap:AmortizationOfIntangibleAssets + us-gaap:Depreciation"
+   },
+   {
+    "company": "MRK",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 3863,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3863000000,
+    "resolved": "MRK"
+   },
+   {
+    "company": "MRK",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 3372,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3372000000,
+    "resolved": "MRK"
+   },
+   {
+    "company": "MRK",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 4112,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4112000000,
+    "resolved": "MRK"
+   },
+   {
+    "company": "MRK",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 34774,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 34774000000,
+    "resolved": "MRK"
+   },
+   {
+    "company": "MRK",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 2507,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2507000000,
+    "resolved": "MRK"
+   }
+  ],
+  "unsourced_refs": [
+   "assumptions.wacc"
+  ],
+  "errors": []
+ }
+}

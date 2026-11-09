@@ -1,0 +1,105 @@
+{
+ "kind": "dcf",
+ "company": "The Boeing Company",
+ "ticker": "BA",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     77794,
+     66517,
+     89463
+    ],
+    "source": "BA 10-K FY2025 acc. 0001628280-26-004357, us-gaap:Revenues"
+   },
+   "operating_income": {
+    "values": [
+     -773,
+     -10707,
+     4281
+    ],
+    "source": "BA 10-K FY2025 acc. 0001628280-26-004357, us-gaap:OperatingIncomeLoss"
+   },
+   "d_and_a": {
+    "values": [
+     1861,
+     1836,
+     1953
+    ],
+    "source": "acc. 0001628280-26-004357, us-gaap:DepreciationDepletionAndAmortization"
+   },
+   "capex": {
+    "values": [
+     1527,
+     2230,
+     2942
+    ],
+    "source": "acc. 0001628280-26-004357, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.1,
+    0.12,
+    0.08,
+    0.06,
+    0.05
+   ],
+   "source": "Assumption: FY2025 rebounded +34% from the FY2024 strike-depressed base; growth fades as 737/787 production rates ramp, then normalizes toward mid-single digits. Not from a filing."
+  },
+  "ebit_margin": {
+   "value": 0.08,
+   "period": "FY2026-FY2030 flat",
+   "source": "Assumption: FY2025 margin was 4.8% (4,281/89,463), FY2023 -1.0%. A flat 8% is a simplification for a margin that ramps from about 5% toward low double digits as rates and free cash flow recover. It is below pre-2019 levels. This tool takes one margin value, not a path."
+  },
+  "tax_rate": {
+   "value": 0.21,
+   "source": "Assumption: US federal statutory rate. Damodaran Aerospace/Defense effective rate is 11.6%, but Boeing has large loss carryforwards, so 21% is the conservative choice."
+  },
+  "da_pct_revenue": {
+   "value": 0.022,
+   "source": "FY2025 D&A 1,953 / revenue 89,463 = 2.18%, from the 10-K acc. 0001628280-26-004357"
+  },
+  "capex_pct_revenue": {
+   "value": 0.032,
+   "source": "FY2025 capex 2,942 / revenue 89,463 = 3.3%. FY2023-25 range is about 2.0-3.4%. Set at 3.2% for continued capacity investment."
+  },
+  "wacc": {
+   "value": 0.085,
+   "source": "CAPM. Risk-free 4.86% (US 10Y Treasury, 2026-11-06). ERP 4.46% (Damodaran US, 2026-02-16). Unlevered beta 0.869 (Damodaran Aerospace/Defense, cash-corrected) relevered at industry D/E 0.156 and 11.6% tax gives beta 0.99, so cost of equity is 9.3%. Pre-tax cost of debt 5.29% (Damodaran), 3.97% after tax. Industry weights 86.5% equity and 13.5% debt give about 8.5%. Boeing's market-cap weights were not computed because no share price was available."
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "source": "Assumption: long-run nominal US growth, below the 4.86% risk-free rate."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 24698,
+   "period": "FY2025",
+   "source": "Derived in financial_statements, acc. 0001628280-26-004357: total debt 54,098 (ltd_noncurrent 45,637 + debt_current 8,461) less cash 10,921 less short-term investments 18,479"
+  },
+  "diluted_shares": {
+   "value": 762.3,
+   "period": "FY2025",
+   "source": "Weighted average diluted shares 762,300,000, us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding, acc. 0001628280-26-004357. Shown in millions."
+  }
+ }
+}

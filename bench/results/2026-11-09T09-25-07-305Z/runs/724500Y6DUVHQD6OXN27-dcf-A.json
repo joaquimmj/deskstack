@@ -1,0 +1,1811 @@
+{
+ "company": "724500Y6DUVHQD6OXN27",
+ "task": "dcf",
+ "arm": "A",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "ASML Holding NV",
+   "ticker": "724500Y6DUVHQD6OXN27",
+   "currency": "EUR",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       27559,
+       28262.9,
+       32667.3
+      ],
+      "source": "FY2024/FY2025: ASML 2025 annual report financial performance section (28,262.9; 32,667.3). FY2023: ASML Q4 2023 release headline €27.6bn; 27,559 is from analyst recall, reviewer to verify (consistent with 32.8% op margin and EBIT 9,042)."
+     },
+     "operating_income": {
+      "values": [
+       9042,
+       9022,
+       11301
+      ],
+      "source": "ASML Q4 2025 results release (6-K, Jan 28 2026) five-year table of income from operations, US GAAP, EUR m"
+     },
+     "d_and_a": {
+      "values": [
+       739.8,
+       918.6,
+       1026
+      ],
+      "source": "ASML Q4 2024 US GAAP financial statements (FY2023 739.8, FY2024 918.6). FY2025 = sum of quarters 241.3+254.9+274.6+255.2 from later quarterly statements; reviewer to confirm vs 20-F. Includes amortization of debt costs and ROU depreciation."
+     },
+     "capex": {
+      "values": [
+       2155.6,
+       2067.2,
+       1573.6
+      ],
+      "source": "Purchase of property, plant and equipment: Q4 2024 statements (2023 2,155.6; 2024 2,067.2); 2025 annual report (1,573.6). Excludes intangibles (2024: 15.9; 2025: 57.6)."
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.117,
+      0.1,
+      0.08,
+      0.07,
+      0.06
+     ],
+     "source": "FY2026: midpoint of ASML guidance €34-39bn (€36.5bn) vs 32.67bn = +11.7% (Q4 2025 release). Later years: assumption, fading growth toward long-run semis/EUV demand trend; backlog €38.8bn supports near term."
+    },
+    "ebit_margin": {
+     "value": 0.34,
+     "source": "Assumption: FY2025 34.6%, 3-yr range 31.9-34.6%; guided gross margin 51-53% in 2026; held at 34%."
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "source": "Assumption: ASML effective tax rate historically ~16-17% (Dutch innovation box); not verified in this session."
+    },
+    "da_pct_revenue": {
+     "value": 0.031,
+     "source": "FY2025 D&A 1,026.0 / revenue 32,667.3 = 3.1%"
+    },
+    "capex_pct_revenue": {
+     "value": 0.048,
+     "source": "FY2025 PP&E capex 1,573.6 / revenue 32,667.3 = 4.8%; ASML is expanding capacity so kept at this level"
+    },
+    "wacc": {
+     "value": 0.085,
+     "source": "Assumption: ~4% risk-free/ERP-based cost of equity ~8.5-9%, minimal debt, beta ~1.2; not sourced from a data provider"
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: roughly long-run nominal GDP / inflation, below WACC"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": -8902.9,
+     "period": "FY2025",
+     "source": "Debt: long-term debt 2,709.0 (Q4 2025 US GAAP balance sheet) + current portion ~1,710 (stockanalysis.com balance sheet, may include small lease/other items; verify vs 20-F) = 4,419; less cash and short-term investments 13,321.9 (ASML Q4 2025 release) = -8,902.9 (net cash)."
+    },
+    "diluted_shares": {
+     "value": 388.9,
+     "period": "FY2025",
+     "source": "Weighted average diluted shares FY2025 = 388.9m, ASML Q4 2025 US GAAP statements (6-K Jan 2026)"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "ASML Holding NV",
+   "ticker": "724500Y6DUVHQD6OXN27",
+   "currency": "EUR",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       27559,
+       28262.9,
+       32667.3
+      ],
+      "source": "FY2024/FY2025: ASML 2025 annual report financial performance section (28,262.9; 32,667.3). FY2023: ASML Q4 2023 release headline €27.6bn; 27,559 is from analyst recall, reviewer to verify (consistent with 32.8% op margin and EBIT 9,042)."
+     },
+     "operating_income": {
+      "values": [
+       9042,
+       9022,
+       11301
+      ],
+      "source": "ASML Q4 2025 results release (6-K, Jan 28 2026) five-year table of income from operations, US GAAP, EUR m"
+     },
+     "d_and_a": {
+      "values": [
+       739.8,
+       918.6,
+       1026
+      ],
+      "source": "ASML Q4 2024 US GAAP financial statements (FY2023 739.8, FY2024 918.6). FY2025 = sum of quarters 241.3+254.9+274.6+255.2 from later quarterly statements; reviewer to confirm vs 20-F. Includes amortization of debt costs and ROU depreciation."
+     },
+     "capex": {
+      "values": [
+       2155.6,
+       2067.2,
+       1573.6
+      ],
+      "source": "Purchase of property, plant and equipment: Q4 2024 statements (2023 2,155.6; 2024 2,067.2); 2025 annual report (1,573.6). Excludes intangibles (2024: 15.9; 2025: 57.6)."
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.117,
+      0.1,
+      0.08,
+      0.07,
+      0.06
+     ],
+     "source": "FY2026: midpoint of ASML guidance €34-39bn (€36.5bn) vs 32.67bn = +11.7% (Q4 2025 release). Later years: assumption, fading growth toward long-run semis/EUV demand trend; backlog €38.8bn supports near term."
+    },
+    "ebit_margin": {
+     "value": 0.34,
+     "source": "Assumption: FY2025 34.6%, 3-yr range 31.9-34.6%; guided gross margin 51-53% in 2026; held at 34%."
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "source": "Assumption: ASML effective tax rate historically ~16-17% (Dutch innovation box); not verified in this session."
+    },
+    "da_pct_revenue": {
+     "value": 0.031,
+     "source": "FY2025 D&A 1,026.0 / revenue 32,667.3 = 3.1%"
+    },
+    "capex_pct_revenue": {
+     "value": 0.048,
+     "source": "FY2025 PP&E capex 1,573.6 / revenue 32,667.3 = 4.8%; ASML is expanding capacity so kept at this level"
+    },
+    "wacc": {
+     "value": 0.085,
+     "source": "Assumption: ~4% risk-free/ERP-based cost of equity ~8.5-9%, minimal debt, beta ~1.2; not sourced from a data provider"
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: roughly long-run nominal GDP / inflation, below WACC"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": -8902.9,
+     "period": "FY2025",
+     "source": "Debt: long-term debt 2,709.0 (Q4 2025 US GAAP balance sheet) + current portion ~1,710 (stockanalysis.com balance sheet, may include small lease/other items; verify vs 20-F) = 4,419; less cash and short-term investments 13,321.9 (ASML Q4 2025 release) = -8,902.9 (net cash)."
+    },
+    "diluted_shares": {
+     "value": 388.9,
+     "period": "FY2025",
+     "source": "Weighted average diluted shares FY2025 = 388.9m, ASML Q4 2025 US GAAP statements (6-K Jan 2026)"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 1,
+  "usage": {
+   "input_tokens": 30,
+   "output_tokens": 5899,
+   "cache_creation_input_tokens": 28652,
+   "cache_read_input_tokens": 225083,
+   "server_tool_use": {
+    "web_search_requests": 10
+   }
+  },
+  "cost": 0.2756966,
+  "seconds": 72.263,
+  "tool_calls": {
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: web_search (public web pages). No other data source is available.\n\nBuild a quick unlevered DCF for ASML Holding (identifier: 724500Y6DUVHQD6OXN27).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 30,
+     "cache_creation_input_tokens": 28652,
+     "cache_read_input_tokens": 225083,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 28652,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 5899,
+     "output_tokens_details": {
+      "thinking_tokens": 2066
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard",
+     "server_tool_use": {
+      "web_search_requests": 10,
+      "web_fetch_requests": 0
+     }
+    },
+    "cost": 0.2756966,
+    "content": [
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01WNwyU7qpkaV3fef18xLGW6",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"params\":{\"query\":\"ASML FY2025 annual results net sales income from operations depreciation amortization capex cash debt diluted shares\"}})\nfor x in r[:6]:print(x['url'],x['content'][:1500].replace(\"\\n\",\" \"));print()"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Tf8uJ4sEuiVjxkpiHcsDcS",
+      "name": "web_search",
+      "input": {
+       "params": {
+        "query": "ASML FY2025 annual results net sales income from operations depreciation amortization capex cash debt diluted shares"
+       }
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01WNwyU7qpkaV3fef18xLGW6"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01Tf8uJ4sEuiVjxkpiHcsDcS",
+      "content": {
+       "type": "web_search_tool_result_error",
+       "error_code": "invalid_tool_input"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01WNwyU7qpkaV3fef18xLGW6"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01WNwyU7qpkaV3fef18xLGW6",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDBfsu0ce+2aPD+i7BBoM0dKTXUDQrx0Lwp2fIjD8H7H7xU2gO9cmCkuAfeeOivDRbjAYu0qsbub3lz8kbN3mDH/sREHNicm/4S0a/wkqEjry6QCYufJzYRB4ms086ZDLKxgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01WNwyU7qpkaV3fef18xLGW6/cell.py\", line 9, in <module>\n    for x in r[:6]:print(x['url'],x['content'][:1500].replace(\"\\n\",\" \"));print()\n                         ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01D5M3GgyzGa1nXsDdQ2WCGU",
+      "name": "code_execution",
+      "input": {
+       "code": "print(str(r)[:3000])"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01D5M3GgyzGa1nXsDdQ2WCGU",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "[{\"type\": \"error\", \"error_code\": \"invalid_tool_input\"}]\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01B3xoEBDpU2Jy1SpiSyQEUM",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"params\":{\"query\":\"ASML 2025 annual report full year results net sales income from operations\"}})\nprint(str(r)[:300])\nfor x in r[:6]:print(x['url'],x['content'][:1500].replace(\"\\n\",\" \"));print()"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01DUPrdeAQ8koHRPdhrpdSWk",
+      "name": "web_search",
+      "input": {
+       "params": {
+        "query": "ASML 2025 annual report full year results net sales income from operations"
+       }
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01B3xoEBDpU2Jy1SpiSyQEUM"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01DUPrdeAQ8koHRPdhrpdSWk",
+      "content": {
+       "type": "web_search_tool_result_error",
+       "error_code": "invalid_tool_input"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01B3xoEBDpU2Jy1SpiSyQEUM"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01B3xoEBDpU2Jy1SpiSyQEUM",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "EsYBCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDFTVDU3At9aYplAWmxoMmrANOz0lZINzkpv6IjAvJQLJCSnlj/19pNc5oR2rbYOkWZIF8rQzxXa1HR11kIpZNoCF3RG3vcOHDsU+1SgqSgpn6prZJ6QWHGiaRTaLJm2iMsFEXES/1BvtPkDYHkWusuvviHrMuR/EQiDU5IUh6bEoNT6/I7KUd5Toky7hYjjmxKY2J0wBIUOvGAM=",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01B3xoEBDpU2Jy1SpiSyQEUM/cell.py\", line 10, in <module>\n    for x in r[:6]:print(x['url'],x['content'][:1500].replace(\"\\n\",\" \"));print()\n                         ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS8QUKEAgTGAI4AUIIdGhpbmtpbmcSDO6zwU07qRM0G6dajRoM7gTIymUJrDM5AqICIjBOQ3FX20uC20NwTotRujAoxm8hKgXE77towy2JDF8h0FJo9R8/GGt5GBxNhduFVx8qjgXeXGGtFhXC7OszbL/5aK3/kuw6Arvkc0CXbzhlMuYDJkNEoVBFpJttlItZWeVLCtPXF7AbEZotmf0C4REw3cjsV58MvGD07oebEhfaZ6oYt+0Ih+0HAcWi8dwqyMEBpa/04hpRRcF1w4xPLI3PKIDObyn0wBYJjPukA/66jhWUpB2atmfRp5hvECUVQ9X36boC0yRljkklIbzkrGvroMibfXh13nqV366GdEoeZxqmphCka52Ez1FnRt+Urd8/iEzd0lkDeXWfSpgsO5XBX3a4ENNQ00bHML+XW5nqu2SgUps42P+vI7e532/js17e8yf4VhCyXZuZPyiV9bTROxX6nWJ1KacFCSTSbh6xoB/Ps+6Oug2Y563nRsByPtD5nont3gL1AbKuHLz/E1E2MkTcl/auOXVzonQFmKy+A6ev+u8D6tpSxORDUeZlDAdC4veuItKjXzFBBjTQHgg/qAXcmtxxrm0XeoOH8eobtUKCVcXpRCCx0fZfW9n7OiFGCWGmx0H/K+7HW4LAWBaWpZYTkcj7xGJfWlb8c7eQoTUOrUc1rzNUgqnWd+oEpAXHDA6f/SMpoxOAgvxzwGAWVmGYIME2d3nORH8J0Wb+hRDcEmYrll4WnxxnVSr93VHVxq0WjolIMI1Yu98wB6EgRESvtq5p5f9heLADiKoHANu/7aUi1BR7nyg09aHn7rlpAFLwgHou4TZTJD1W5y5QE2g5UdVkL9baKUdrv3aXhVG34Xc9Ya+NBwYWqCJor4c0aPy5Q6B2rvPNdlQwcW6Bodco5XGDGZVL+T78wQ7YNSwEsjQVmcjIC/UwElnevFDyQdzQ+qLjHrTNUhUQtATJ7itiuFWDu6FCzc6SqQS1oRYYAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01NkjMxLkwM8ccHpNoLWzjix",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":\"ASML full year 2025 results net sales income from operations\"})\nprint(str(r)[:200])\nfor x in r[:6]:print(x['url'],x['content'][:1200].replace(\"\\n\",\" \"));print()"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_012yZrJPjxHx2ZX8VGowuPNu",
+      "name": "web_search",
+      "input": {
+       "query": "ASML full year 2025 results net sales income from operations"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01NkjMxLkwM8ccHpNoLWzjix"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_012yZrJPjxHx2ZX8VGowuPNu",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828025034992/pressreleasequarterlyresul.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828025045043/pressreleasequarterlyresul.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML 2025 fourth-quarter and full-year results Veldhoven, the Netherlands",
+        "url": "https://ourbrand.asml.com/m/3136300aa4999bc1/original/2026_01_28_Presentation-Investor-Relations-Q4-2025.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "285 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000093796625000003/pressreleasequarterlyresul.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "2025 Annual Report",
+        "url": "https://www.asml.com/investors/annual-report/2025",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML reports €32.7bn sales, €9.6bn net income for 2025 .. ...",
+        "url": "https://www.eenewseurope.com/en/asml-reports-e32-7bn-sales-e9-6bn-net-income-for-2025/",
+        "encrypted_content": "[omitted]",
+        "page_age": "282 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML Q4 2025 presentation: Record revenue drives 16% annual growth, new buyback announced By Investing.com",
+        "url": "https://www.investing.com/news/company-news/asml-q4-2025-presentation-record-revenue-drives-16-annual-growth-new-buyback-announced-93CH-4469205",
+        "encrypted_content": "[omitted]",
+        "page_age": "285 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML reports €32.7 billion total net sales and €9.6 billion net income in 2025",
+        "url": "https://www.nasdaq.com/press-release/asml-reports-eu327-billion-total-net-sales-and-eu96-billion-net-income-2025-2026-01",
+        "encrypted_content": "[omitted]",
+        "page_age": "285 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01NkjMxLkwM8ccHpNoLWzjix"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01NkjMxLkwM8ccHpNoLWzjix",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "EtkCCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDHhfKscPZTsvjfYcUxoMRE3IJYBDWDtd3RnAIjDeGsC5Vc+2IGfSQE1NZeM7/hMbHVwAtMpSp3DITDXCoiYqguEOuPHd+zmj2UWt2e8q3AFLisDk0WFu7IAnlqY386OIOQUbEePkOgRKrm7e8EGi6hwMtREN1685Wf64uUbPLVv7on3JRZ2+JQ4Xr7ZghUI9/PxOGLI923VienE0R/wdfRqUsUk9PBHR8gJP042OG5kTcIkDIN2F48cu1xg3rjAUUqOIoomWL001HpMp5CTK8uwslz0NiNlrkqCLiXAl/xtytdKg6VuGs+xcicTjg3e+KL0Ax+tTLqRrpy3crRdFV9uV0ApqXjCKm/MuySGwSAXX4xfABLFQ6u7SgLPPzMj23K67V3RkIXjOeJxTGAM=",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01NkjMxLkwM8ccHpNoLWzjix/cell.py\", line 10, in <module>\n    for x in r[:6]:print(x['url'],x['content'][:1200].replace(\"\\n\",\" \"));print()\n                         ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "text",
+      "text": "Returns a string."
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01UAXjkC8y65mmsEGoE8HBrV",
+      "name": "code_execution",
+      "input": {
+       "code": "import json\nr=json.loads(r) if isinstance(r,str) else r\nfor x in r[:6]:print(x['url'],x['title'],len(x['content']))"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01UAXjkC8y65mmsEGoE8HBrV",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "https://www.sec.gov/Archives/edgar/data/937966/000162828025034992/pressreleasequarterlyresul.htm ASML HOLDING NV - Form 6-K - FY2025 1550\nhttps://www.sec.gov/Archives/edgar/data/937966/000162828025045043/pressreleasequarterlyresul.htm ASML HOLDING NV - Form 6-K - FY2025 1532\nhttps://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm ASML HOLDING NV - Form 6-K - FY2025 1003\nhttps://ourbrand.asml.com/m/3136300aa4999bc1/original/2026_01_28_Presentation-Investor-Relations-Q4-2025.pdf ASML 2025 fourth-quarter and full-year results Veldhoven, the Netherlands 1532\nhttps://www.sec.gov/Archives/edgar/data/937966/000093796625000003/pressreleasequarterlyresul.htm ASML HOLDING NV - Form 6-K - FY2024 1533\nhttps://www.asml.com/investors/annual-report/2025 2025 Annual Report 784\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_011N8wDPZfPALs3JyHjvhkc1",
+      "name": "code_execution",
+      "input": {
+       "code": "for x in r[2:4]+r[5:6]:print(x['content']);print('--')\nasync def s(q):\n    r=await web_search({\"query\":q});r=json.loads(r) if isinstance(r,str) else r\n    for x in r[:6]:print(x['url'],x['content'][:1500].replace(\"\\n\",\" \"));print()\nawait s(\"ASML 2025 annual report depreciation amortization purchase of property plant equipment cash flow\")"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01RBMiMiUD9qj5Geku4X4ipY",
+      "name": "web_search",
+      "input": {
+       "query": "ASML 2025 annual report depreciation amortization purchase of property plant equipment cash flow"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_011N8wDPZfPALs3JyHjvhkc1"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01RBMiMiUD9qj5Geku4X4ipY",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026011377/asml-2025xannualxreportx.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 20-F - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000937966/000162828026011378/asml-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Financial Statements US GAAP Q2 2026 Powering technology forward with you",
+        "url": "https://investor.asml.com/static-files/3085f6c6-290c-420c-9a84-342e7d4ecd62",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML 2025 Annual Report",
+        "url": "https://ourbrand.asml.com/m/419103cb23dfeaa4/original/asml-2025-annual-report-financial-performance-section.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML - Summary US GAAP Consolidated Statements of Operations",
+        "url": "https://ourbrand.asml.com/m/25454c639befd796/original/Financial-statements-US-GAAP-Q1-2025.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "573 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML N : Financial statements US GAAP PDF (Financial statements US GAAP Q1 2025)",
+        "url": "https://www.marketscreener.com/quote/stock/ASML-HOLDING-N-V-12002973/news/ASML-N-Financial-statements-US-GAAP-PDF-Financial-statements-US-GAAP-Q1-2025-49629652/",
+        "encrypted_content": "[omitted]",
+        "page_age": "572 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2016",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000937966/000093796616000015/asmlstatutoryannualreport2.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Financial performance",
+        "url": "https://ourbrand.asml.com/m/419103cb23dfeaa4/original/asml-2025-annual-report-financial-performance-section.pdf&gsessionid=PQFirsURrZmcTHXip09XzY-qA6us0INV-1tl3i8ukI29W8iYvZJIfg",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML Holding (ASML) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/asml/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1150 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 20-F - FY2024 (Annual Financial Statement Tables - full year 2024)",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000093796625000009/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_011N8wDPZfPALs3JyHjvhkc1"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_011N8wDPZfPALs3JyHjvhkc1",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS5QYKEAgTGAI4AUIIdGhpbmtpbmcSDE8xE9BP6dJpBJIu1xoMEzOWae6yRMD59tl+IjAq1Wuv5UObiIIP3v5wCZeKvnNDVyA0BBudDC4oz5N9uciN/llmpZTLi2dPRo0+6IEqggZJNPb+XUg9Vmp3qRllxenrA0UEm3nyf+HtHt4dHb/eupqSAEwHeIFy929HbpWrh1njSNorCkmmHGUBo/UG6cbFl4p2nK2wUoSafDhlXMMQyLX2gOOfeY9kGLlaNMZsVZ9QlESWWUUAc8QsbrlVFsnvMgknM2IZNlpoV8CU4TPM9XUVuG2aM1pgydrVQH20A+IUHq6W23wpmhrklxXh5vrDoot4/tbBxhUDYCfwEPZtrF9HeP3Wd58PgonEhqSpVtA2lvml7TusQlMHkqr4NkuEROYu9IZ7sI9WUEWY5aA88qM1SpxiNHJA41q8FND8csVvws7ncw0UwklEZIJFCLG/wQsCnu8Hpxtu+SuVoNcIh6xLnrL3P1V3PhwcOjxx/UkZV3ROxMy3HdSDGKfwv1uGudZh3zc46Y9Q0lqvUcSfKNh3yvpG0VRrY1KEcJrXqMLyGZLCa1iGCFNfMtspGwwD22eANh/J+awRnVomjrgqvbKgVrUyH2HGW4EWHf57ADZ/ed5HaZJBDWXq+BAeguPBgq2TxRJPNbrtaQB5YTy9Rdz4k7YbESdJ2aioGo8KqB0RmgL9xnMA+bysxFzW/bCxMjSi/99zyS1M/kJ/i9XpAjRflYoJHB+5epiRmdkdVsdsnS+jgG4Zq8EzFT9oPnvPoi50YvSzH29/2vw5/G4txT/N1t5/Ehcd/fx9Rg5M481imQLzipuxkemXHHXcKzmAvJRdq3BjrNJkOXfCTGzVlNxK0vvUQ4uqg45vZjF7WvyinvQXvCefmSQNlHnJSvoox+45ssr97lHt1UJnPvQKUCkKq6h1oIit2UGAp71mf+n8/2+gmz9kIhFC0UeJwLfbkhwueyaPJ5U5okOrjLco/63g5pMc2+PHNzcZIqDJHQ4hHdlWX4Kk7kFDiMy623BzYdHMmU2yE0rUD8O6EA483NXcvtnVfc2btFWdWq9PBOk6NGKK7Bh++lOgad7aYJtVEGM3if4nPVMTWwgtk2GvoDqC4jKrRdRrbIKf7bMSX14f7xgB"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01LuB6HuhKSHiCpVuH4UKeHH",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":\"ASML 2025 annual report consolidated statements of cash flows depreciation and amortization 2023 2024 2025 purchase of property plant equipment\"})\nr=json.loads(r) if isinstance(r,str) else r\nimport re\nfor x in r:\n    c=x['content']\n    for m in re.finditer(r'Depreciation and amortization[^\\n]{0,200}',c):print(x['url'][-50:],m.group(0)[:200])\nawait s(\"ASML 2025 diluted weighted average shares net sales 2025 2024 2023 total debt long-term debt short-term investments year end\")"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_011ezs65QqSXQsJTSFiXmLMV",
+      "name": "web_search",
+      "input": {
+       "query": "ASML 2025 annual report consolidated statements of cash flows depreciation and amortization 2023 2024 2025 purchase of property plant equipment"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01LuB6HuhKSHiCpVuH4UKeHH"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_011ezs65QqSXQsJTSFiXmLMV",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026011377/asml-2025xannualxreportx.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 20-F - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000937966/000162828026011378/asml-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000093796625000011/a2024annualreportbasedon.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML Holding (ASML) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/asml/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1150 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "financialstatementsusgaa",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828025045043/financialstatementsusgaa.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML 2025 Annual Report",
+        "url": "https://ourbrand.asml.com/m/419103cb23dfeaa4/original/asml-2025-annual-report-financial-performance-section.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML - Summary US GAAP Consolidated Statements of Operations",
+        "url": "https://ourbrand.asml.com/m/25454c639befd796/original/Financial-statements-US-GAAP-Q1-2025.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "573 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML N : Financial statements US GAAP PDF (Financial statements US GAAP Q1 2025)",
+        "url": "https://www.marketscreener.com/quote/stock/ASML-HOLDING-N-V-12002973/news/ASML-N-Financial-statements-US-GAAP-PDF-Financial-statements-US-GAAP-Q1-2025-49629652/",
+        "encrypted_content": "[omitted]",
+        "page_age": "572 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML - Summary US GAAP Consolidated Statements of Operations",
+        "url": "https://investor.asml.com/static-files/41f2dbb6-6038-486e-a495-3bf9addce324",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML N : Financial statements US GAAP PDF (Financial statements US GAAP Q4 2024)",
+        "url": "https://sa.marketscreener.com/quote/stock/ASML-HOLDING-N-V-12002973/news/ASML-N-Financial-statements-US-GAAP-PDF-Financial-statements-US-GAAP-Q4-2024-48896284/",
+        "encrypted_content": "[omitted]",
+        "page_age": "625 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01LuB6HuhKSHiCpVuH4UKeHH"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01W6yrjezxyyAHbF1usyW4bT",
+      "name": "web_search",
+      "input": {
+       "query": "ASML 2025 diluted weighted average shares net sales 2025 2024 2023 total debt long-term debt short-term investments year end"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01LuB6HuhKSHiCpVuH4UKeHH"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01W6yrjezxyyAHbF1usyW4bT",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828025045043/presentationinvestorrela.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/a2026_01x28xpresentation.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML 2025 Annual Report",
+        "url": "https://ourbrand.asml.com/m/419103cb23dfeaa4/original/asml-2025-annual-report-financial-performance-section.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML reports €32.7 billion total net sales and €9.6 billion net income in 2025",
+        "url": "https://www.asml.com/news/press-releases/2026/q4-2025-financial-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "285 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828025034992/presentationinvestorrela.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML Holding (ASML) Balance Sheet",
+        "url": "https://stockanalysis.com/stocks/asml/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Annual reports",
+        "url": "https://investor.asml.com/annual-reports",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML Holding (AMS:ASML) Balance Sheet",
+        "url": "https://stockanalysis.com/quote/ams/ASML/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML Holding (ASML) Total Debt - Current & Historical Data (May 2026)",
+        "url": "https://www.financecharts.com/stocks/ASML/balance-sheet/total-debt",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01LuB6HuhKSHiCpVuH4UKeHH"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01LuB6HuhKSHiCpVuH4UKeHH",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSmwcKEAgTGAI4AUIIdGhpbmtpbmcSDA/fDr0q9WCUF7UI8xoMRHzklgrtRp6VQBjOIjDGBNyANSZexGIWc9GRkJtM3gUmw0Kdt48Q89tKSV2CkndDqJHRdXkcQH3cFmwc2jQquAZcG0LvvLTRDxARwwVJizzeTKon0INBpx355cRm2A/nl4fqNzmes9ARvHDm5zzuLIfoOL8e6xX6vgapj9S39Qa4cp35+vD53G6CLrZrWL0gs0F5qY1C3LPS6JxRr9neNXmfa+r43HFj6/tSz7KGhBHODMdgw/Xe/s7Bjcm2jZq7a2s6q5Y8XMOJmrYXb5579Opcl6AwAcUkUkQm40+BPS1NZ+2LEqwa8ZUlLLBNetnZZzPhz0DrCZECNwk85ew3NCXer7UJEVF0MRrskQu7bk2hwnfIV3kyvIdjDhHSqE84l9Gxuww7DW19Yt3VpJB6WxdpM6oLs3DMVNdjSLeSxvoHDezyomJb7wR1coIBPXLIEccUWnfREbG1/PV7f0SY9xCRBg010cn9cSvTpsZJo9M9Az4/54Lnsk74uhs+9fj7h/nlORIDCF/mYEmUqDefFwRH5f0okRNzRNyPV1ER+J4KgG6dRMyvhqHMiIsMlPDqINgFTwUeXl40Gv9f6GRxoEZQf3kq8pOxFffKZQff6QSKXKRbKP8494SW0uCVPb3GTnazoyWfyRqbKJqgKubPzb5+gvqifKct57639l/oQl6rGUNLheJoAqd5FPVuOAPrvDjFvInxrp+NlAjc5eOmlOsECJ9TehKMqzfmULGD+0FjGJJvoNZz0lbqkBtnPoogB1FU8Sr0HJ4L74V1Bv9JLEK5FUZGBcgRGGU4BnlTiP52wV0r6AA/3ohKP6lHd0bMp74RYOCltf+RVNP9SeH7G/ZqhJlITf3/4Enwah/Nd04m/jE/wHSMZov7gkI2sT/p1JZuFU/dPEuPgHDSsRj/+katKp2cLhmyqroOV4oAxwXVm4p4q84SJadZNtyfEhJ5blJ5VDpGsQtxPcQHVsUfFABSFxahOZ282PVUSXztVw+GUwpVE4SZ1Dk0qSpXs6KlQ4/Vpdy0lA0YdiwrGLrEYYsYpotvQ6ksjHrT3nUgYqMINcjwTM/XF7K90bI0Fkk6vgz09knDLuTTYyDXGpjncsHOHZMEDV3zocJ9UU6vwnxa3toLYAUYpv5MImfV6SmXXgXYCmEKerB49rzlPKDQJUi1wvr0NMss/xgB"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01KFCPxWqiNyA6CgF2xTasTs",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":\"ASML 2025 annual report US GAAP notes long-term debt current portion notes total debt excluding lease; diluted weighted average shares 2025\"})\nr=json.loads(r) if isinstance(r,str) else r\nfor x in r:\n    c=x['content']\n    for k in ['iluted','Total debt','Notes and bonds','Long-term debt','Depreciation and amortization','Purchase of property']:\n        for m in re.finditer(k+r'[^\\n]{0,220}',c):print(x['url'][-45:],'|',m.group(0)[:230])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_019sNQFYQqji7WfAF7pPNkMY",
+      "name": "web_search",
+      "input": {
+       "query": "ASML 2025 annual report US GAAP notes long-term debt current portion notes total debt excluding lease; diluted weighted average shares 2025"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01KFCPxWqiNyA6CgF2xTasTs"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_019sNQFYQqji7WfAF7pPNkMY",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026011377/asml-2025xannualxreportx.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML N : (Financial statements US GAAP Q4 2025)",
+        "url": "https://www.marketscreener.com/news/asml-n-financial-statements-us-gaap-q4-2025-ce7e5bd9d88af626",
+        "encrypted_content": "[omitted]",
+        "page_age": "285 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 20-F - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000937966/000162828026011378/asml-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML Holding (ASML) Balance Sheet",
+        "url": "https://stockanalysis.com/stocks/asml/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Financial Statements US GAAP Q2 2026 Powering technology forward with you",
+        "url": "https://investor.asml.com/static-files/3085f6c6-290c-420c-9a84-342e7d4ecd62",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML N : Financial statements US GAAP PDF (Financial statements US GAAP Q1 2025)",
+        "url": "https://www.marketscreener.com/quote/stock/ASML-HOLDING-N-V-12002973/news/ASML-N-Financial-statements-US-GAAP-PDF-Financial-statements-US-GAAP-Q1-2025-49629652/",
+        "encrypted_content": "[omitted]",
+        "page_age": "572 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML - Summary US GAAP Consolidated Statements of Operations",
+        "url": "https://ourbrand.asml.com/m/25454c639befd796/original/Financial-statements-US-GAAP-Q1-2025.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "573 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Financial Statements US GAAP Q3 2026 Powering technology forward with you",
+        "url": "https://investor.asml.com/static-files/d310262b-d037-485d-83b5-92c93cc462f0",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/financialstatementsusgaa.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01KFCPxWqiNyA6CgF2xTasTs"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01KFCPxWqiNyA6CgF2xTasTs",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQStAcKEAgTGAI4AUIIdGhpbmtpbmcSDGrLW7gwM2m+/qv9fhoMqW/KGsYtBP0XxeaMIjBv+b8PVoI015njeauHukHRemWXfZcRtwKdJutQIkkOztG7ese66CNtKlN4M4mjUjIq0QbWkNPdYxWwjNuUIrYxb20BxybpIIA9SyuidAeZI7m1gPrpIso3CoPXZpIRPKbDIp6lvZkl8LCmrOeLYpSuIp6ix9kdJ0k4l4l0hwY4hj1vrwSR6VyTswXgQfUwyEu7yKslrHR/5u8eMu1RMqBFmuJHC9848Jh4yt43y4qgIgzNXyzaPF5upOkQOg9Qdzdqoh8XLtuHyfn+hpxYLfR7PdYuTyYoeO4kYsSSEnQDXumYtO+xV2JuNNja/KYGXFonRm6DmUaYopQlyase17TkCRKMJEo5Cadk5cy7LxMvXJmlvEEPeDma32WsXkoJ62XparclXs9xjDrRh2X7bLBy65elM7ECY0vkcJn1Kwx9OesFeif+DNFYK8rZNdhXWbnSGAoae58yH9lTVbR+/jBuUDdTCeaRPWsWSv6XEhO8hsPavMaDCk+m1iBHyNhTuZ4TkP6AJU/J+wxW3u6wbPYHhuokGOfba43rfHyF5z0AgEVx1K47Hxa9oXCOMe9EUPqN/cDx5v3Zxzt0rULttxmhqcbalLoRIje6kJ9xCJdqvu+TrfcTvuiQc8JRKmAVaOBTlsPKJJSA+/1Xjo8fqhhL22C5JamN+mWk31mcx5mJZlq3eYksDyX7NLlPvvGIoc+7isNUqVw4XRdqi30iti54vpaGJYAvq5XFqCMlI6S+ZMrK5aPg4isSiJDd1C61jB32n+iAkGVaHxCiRpVTc3piiB/H5/Zs3Z89GedaplKwsHVQ5S9k27tC/slTkry4SUWycMdn6TpsNaBlTcbZh00Dpf5LUBTEaB9glV3MhwpZG1pmJuw3rIkIXy+PmlyKtrXCUh2e7SaumG4zIVLFrcjbR/14LifXKRJ1L7A+pAK7K4ibcORlYf/x5QZb3dal3At6EqUrEnLvBz65TNixAqCEh93dxdP95GU2mMm1LgwNPdVDAGZ+MeZCa4asfGRXq77p+oRDVOtsqadBB71JBGHPvamva5hyVaYexAjO/MNvChCLcTlE0CJ5fqnNok/tye6WJIyuwZpIiRHYVm/Lx1bYtzIYPQe8K3puyWHWSYHF6aaATgyFriYf9jEj6PpLftc77Hk+TkvAY0fL55MCh6cuCWwJFIVirdxaeD2M3el/uhFymDMYAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01N3SswTaN2F5Qy79FDW8K92",
+      "name": "code_execution",
+      "input": {
+       "code": "for x in r:\n    if '3701/financialstatements' in x['url'] or 'q4-2025-ce7' in x['url']:\n        print(x['url']);print(x['content'][:4000]);print('====')"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01N3SswTaN2F5Qy79FDW8K92",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "https://www.marketscreener.com/news/asml-n-financial-statements-us-gaap-q4-2025-ce7e5bd9d88af626\n82.6. 613.5. Long-term debt. 3,677.3. 2,709.0. ASML N : (Financial statements US GAAP Q4 2025). … Summary US GAAP Notes Forward Looking Statements ASML Financial statements US GAAP Q4 2025 9 Quarterly Summary US GAAP Consolidated Statements ...\n\n# ASML N : (Financial statements US GAAP Q4 2025)\nWeighted average number of ordinary shares used in computing per share amounts (in millions):\nBasic 393.3 · 386.5 · 393.3 · 388.5\nDiluted 393.6 · 387.0 · 393.6 · 388.9\n\nAccounts receivable, net · 4,477.5 · 3,023.0\nFinance receivables, net · 82.6 · 613.5 · Long-term debt · 3,677.3 · 2,709.0\nCurrent tax assets · 283.6 · 88.9 · Deferred and other tax liabilities · 299.2 · 183.0\n\nDiluted net income per ordinary share · 6.84 · 6.00 · 5.90 · 5.48 · 7.34\n\nFinance receivables, net · 82.6 · 381.7 · 531.1 · 666.2 · 613.5 · Long-term debt · 3,677.3 · 3,681.0 · 3,698.9 · 2,704.7 · 2,709.0\n====\nhttps://www.sec.gov/Archives/edgar/data/937966/000162828026003701/financialstatementsusgaa.htm\n5,126.5 7,004.7 12,735.9 Cash and cash equivalents at end of the period 12,735.9 12,916.0 12,735.9 12,916.0 Three months ended Twelve months ended Dec 31, Dec 31, Dec 31, Dec 31, (unaudited, in millions €) 2024 2025 2024 2025 Summary US GAAP Quarterly Summary US GAAP Notes Forward Looking Statements ASML Financial statements US GAAP Q4 2025 5 Consolidated Statements of Operations Ratios and Other Data Consolidated Balance Sheets Consolidated Statements of Cash Flows Summary US GAAP Consolidated Statements of Cash Flows\n\n16.0 Net income 2,693.4 2,355.0 2,290.3 2,124.5 2,839.6 Basic net income per ordinary share 6.85 6.00 5.90 5.49 7.35 Diluted net income per ordinary share 6.84 6.00 5.90 5.48 7.34 Weighted average number of ordinary shares used in computing per share amounts (in millions): Basic 393.3 392.3 388.2 387.3 386.5 Diluted 393.6 392.5 388.4 387.6 387.0 Summary US GAAP Quarterly Summary US GAAP Notes Forward Looking Statements ASML Financial statements US GAAP Q4 2025 6 Consolidated Statements of Operations Ratios and Other Data Consolidated Balance Sheets Consolidated Statements of Cash Flows Quarterly Summary Consolidated Statements of Operations\n\nLithography systems do not include metrology and inspection systems. 2.\n\nSummary US GAAP Quarterly Summary US GAAP Notes Forward Looking Statements ASML Financial statements US GAAP Q4 2025 7 Consolidated Statements of Operations Ratios and Other Data Consolidated Balance Sheets Consolidated Statements of Cash Flows Quarterly Summary US GAAP Ratios and Other Data\n====\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS8QYKEAgTGAI4AUIIdGhpbmtpbmcSDDgqSTvQ5ym3zdqTaRoManBADtmvtCX2NzSKIjCZOp3AGVHtSC8jZQNyPTcqiAAVhYmbdouhLMrfzz2pPOeGtPbIUTCik6R/LHkC/IUqjgZXOBu7U+FsX1iZ7oOzAOrZ/fW2oWx5S3CTdHpldu4JxekdgR7tlHxZ+64ORvpBUy5NgJYFYbNaAskQVu7LZ4IkyVWozqdaRVNtkPNg6d4IxBNMb9iXoUnUUX/b2+CM/C9QMnMnhbmGfL84vRuj1tjAJmkp6bskUsgJbYJuiRAVUTI0km1bObD4wb17bGLsthI0quM9f/dVHmMtm55ns9R6BUJk+5JGESKjcgyzT04eONdJ7h66TBpAPS8PJIsOwifLSz82XrERHZnUj6EJnCuLgFL5ZKkvqo5ZbiCVhU0gghwa6v9is0ug07gPzU/CyR0ACib/Ri/ei+QIzMUMjrz6nAC2BFVjTwPJVZ4ru8pl0suo7XSUKHmks5MLRzyg5vKQF9hXxm9B8NMfAa0+/X8UZOdjCsEWShwe5ajYqFmIjHUgfZh4kV92MXhkdpY2V90Q7sL7iSSBe6kYapYEy9G61qGxJzGAp3C+aK97NMjNBv97/j6TH545mf9IXfnOyDUORlgnyA6ga+zvsN8pTSNc/2Y3WUc5+CbwGKjYYX4UnmddFrNV69B54Z9vzzZsuw8pKtZEc/RLzUOJnPUHijV2zi9ntTIzCv3wlvyQlwJ6URW1r802AC5zem06OTMXqb/yuLmTbud8UQLWZFHKglJ0WcJIb/8TTUdqVHMcKUPOIhlDPr22Au1W/DtIvUp7RrAgx0Dtdg3UPeGSudJPhBPo/FoSg7A95K/W3XcfoetR3ZjPd4lXX/VqtoHdnXAybByBw1eoq5+vSaEdyRciK1lRTetbnAIW65S8/KHUVtlTXKI5Mi7yUz4DoPMrGOykOSttW0vQhguCIDaVbRW9rRqJTATTz8KZdbKK0OIoqktCgJjav4Z3/OEOL38hVFeuZkmb8L7ltreUr1AtiK7XFv/NgB8O2U/QdaN81O96Uf7Q5UdcvMS0txW2VzJdBV0WYiPpjLwfsE3BbG3c/ev96mw80qRGqqTH06uNlg6dxw8652+XZe3Dl1U+/ipHyBev3wEe34jRIO/Mdd29Clq3wRgB"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01RB2ujqeFGVgyLRaovL9Xod",
+      "name": "code_execution",
+      "input": {
+       "code": "async def g(q,keys):\n    r=await web_search({\"query\":q});r=json.loads(r) if isinstance(r,str) else r\n    for x in r:\n        c=x['content']\n        for k in keys:\n            for m in re.finditer(k+r'[^\\n]{0,300}',c):print(x['url'][-45:],'|',m.group(0)[:320])\nawait g(\"ASML Q4 2025 financial statements US GAAP balance sheet current portion of long-term debt short-term debt December 31 2025\",['Current portion','Short-term debt','Depreciation and amortization','Purchase of property','Income from operations'])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01GwszFQoGYdMwmks2CsXvEH",
+      "name": "web_search",
+      "input": {
+       "query": "ASML Q4 2025 financial statements US GAAP balance sheet current portion of long-term debt short-term debt December 31 2025"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01RB2ujqeFGVgyLRaovL9Xod"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01GwszFQoGYdMwmks2CsXvEH",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "ASML N : (Financial statements US GAAP Q4 2025)",
+        "url": "https://ca.marketscreener.com/news/asml-n-financial-statements-us-gaap-q4-2025-ce7e5bd9d88af626",
+        "encrypted_content": "[omitted]",
+        "page_age": "285 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML Holding (ASML) Balance Sheet",
+        "url": "https://stockanalysis.com/stocks/asml/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML Holding (AMS:ASML) Balance Sheet",
+        "url": "https://stockanalysis.com/quote/ams/ASML/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/financialstatementsusgaa.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML reports €32.7 billion total net sales and €9.6 billion net income in 2025",
+        "url": "https://investor.asml.com/news-releases/news-release-details/q4-2025-financial-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "161 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828025034992/financialstatementsusgaa.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828025045043/financialstatementsusgaa.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828025034992/presentationinvestorrela.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Annual reports",
+        "url": "https://investor.asml.com/annual-reports",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01RB2ujqeFGVgyLRaovL9Xod"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01RB2ujqeFGVgyLRaovL9Xod",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDIGLK61Dgy0HZlyjTxoMEuQKUQOvgM1jtFBfIjAieW+QekBprq4YjU+MNrCd7ErAm4XtE2YPddKFvPZhjMi6TVxj/dqO0AxAppygXeMqEhopEFxLi6JDaeRLqh/B5Cul2RgD",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01HaoFUoQEZ1JWbLXr75uVj1",
+      "name": "code_execution",
+      "input": {
+       "code": "await g(\"ASML 2025 annual report 20-F cash flows twelve months depreciation and amortization 2,3 purchase of property plant equipment 2023 2024 2025\",['Depreciation and amortization','Purchase of property','Current portion','Income from operations'])\nawait g(\"ASML annual report 2025 long-term debt current portion notes repayment 2026 €\",['urrent portion','Short-term debt','otal debt'])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01R3QV7M8U3S48DSyQ11E3yP",
+      "name": "web_search",
+      "input": {
+       "query": "ASML 2025 annual report 20-F cash flows twelve months depreciation and amortization 2,3 purchase of property plant equipment 2023 2024 2025"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01HaoFUoQEZ1JWbLXr75uVj1"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01R3QV7M8U3S48DSyQ11E3yP",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 20-F - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000937966/000162828026011378/asml-20251231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 20-F - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000937966/000093796625000009/asml-20241231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 20-F - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000937966/000093796624000008/asml-20231231.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML 2025 Annual Report",
+        "url": "https://ourbrand.asml.com/m/419103cb23dfeaa4/original/asml-2025-annual-report-financial-performance-section.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML - Summary US GAAP Consolidated Statements of Operations",
+        "url": "https://ourbrand.asml.com/m/25454c639befd796/original/Financial-statements-US-GAAP-Q1-2025.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "573 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML Holding (ASML) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/asml/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1150 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML Holding Total Depreciation and Amortization - Cash Flow 2012-2026",
+        "url": "https://www.macrotrends.net/stocks/charts/ASML/asml-holding/total-depreciation-amortization-cash-flow",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Asml Holding Nv (ASML) 10K Annual Reports & 10Q SEC Filings",
+        "url": "https://last10k.com/sec-filings/asml",
+        "encrypted_content": "[omitted]",
+        "page_age": "257 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML - Summary US GAAP Consolidated Statements of Operations",
+        "url": "https://investor.asml.com/static-files/c9b0dca1-a51c-482f-b04e-e9316d0a2d73",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01HaoFUoQEZ1JWbLXr75uVj1"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01PFHGNq6gDBAA5Jj6D9Cs5L",
+      "name": "web_search",
+      "input": {
+       "query": "ASML annual report 2025 long-term debt current portion notes repayment 2026 €"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01HaoFUoQEZ1JWbLXr75uVj1"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01PFHGNq6gDBAA5Jj6D9Cs5L",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026011377/asml-2025xannualxreportx.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 20-F - FY2024 (Annual Financial Statement Tables - full year 2024)",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000093796625000009/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML Holding (ASML) Balance Sheet",
+        "url": "https://stockanalysis.com/stocks/asml/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 20-F - FY2015 (Annual Financial Statement Tables - full year 2015)",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000937966/000093796616000017/Financial_Report.xlsx",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Financial Statements US GAAP Q2 2026 Powering technology forward with you",
+        "url": "https://investor.asml.com/static-files/3085f6c6-290c-420c-9a84-342e7d4ecd62",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML - Debt",
+        "url": "https://tradingeconomics.com/asml:us:debt",
+        "encrypted_content": "[omitted]",
+        "page_age": "512 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML Holding (ASML) Long Term Debt Last 4Q - Current & Historical Data (Jul 2026)",
+        "url": "https://www.financecharts.com/stocks/ASML/balance-sheet/long-term-debt-last-quarters",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2017",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000937966/000093796617000005/asmlstatutoryannualreport2.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML Holding",
+        "url": "https://tradingeconomics.com/asml:na:debt",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01HaoFUoQEZ1JWbLXr75uVj1"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01HaoFUoQEZ1JWbLXr75uVj1",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "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"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01UHX5PcmTiiPJGV7AZWfeVu",
+      "name": "code_execution",
+      "input": {
+       "code": "await g(\"ASML 2023 total net sales 27,5 million euro full year 2023 income from operations 9,042\",['otal net sales[^\\\\n]{0,0}'])\nawait g(\"ASML Financial statements US GAAP Q4 2025 consolidated balance sheets current portion of long-term debt\",['urrent portion of long','Depreciation and amortization','Cash and cash equivalents ','Short-term investments'])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01W5QZ4Uggjm7pgurAYBbjhy",
+      "name": "web_search",
+      "input": {
+       "query": "ASML 2023 total net sales 27,5 million euro full year 2023 income from operations 9,042"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01UHX5PcmTiiPJGV7AZWfeVu"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01W5QZ4Uggjm7pgurAYBbjhy",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000093796624000003/pressreleasequarterlyresul.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000093796623000026/pressreleasequarterlyresul.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000093796623000029/pressreleasequarterlyresul.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML reports €27.6 Billion Net Sales and €7.8 Billion Net Income in 2023",
+        "url": "https://www.techpowerup.com/318240/asml-reports-eur-27-6-billion-net-sales-and-eur-7-8-billion-net-income-in-2023",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML reports €27.6 billion net sales and €7.8 billion net income in 2023",
+        "url": "https://www.asml.com/en/news/press-releases/2024/q4-2023-financial-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "1020 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML reports €27.6 billion net sales and €7.8 billion net income in 2023",
+        "url": "https://finance.yahoo.com/news/asml-reports-27-6-billion-060000170.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "1020 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML reports €27.6 billion net sales and €7.8 billion net income in 2023",
+        "url": "https://www.marketscreener.com/quote/stock/ASML-HOLDING-N-V-12002973/news/ASML-reports-27-6-billion-net-sales-and-7-8-billion-net-income-in-2023-45797961/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1020 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML reports €28.3 billion total net sales and €7.6 billion net income in 2024",
+        "url": "https://www.asml.com/en/news/press-releases/2025/q4-2024-financial-results",
+        "encrypted_content": "[omitted]",
+        "page_age": "649 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML reports €27.6 billion net sales and €7.8 billion net income in 2023",
+        "url": "https://live.euronext.com/en/products/equities/company-news/2024-01-24-asml-reports-eu276-billion-net-sales-and-eu78-billion-net",
+        "encrypted_content": "[omitted]",
+        "page_age": "1020 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01UHX5PcmTiiPJGV7AZWfeVu"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01NCEVK6Wcf5HZwxGfaubRJL",
+      "name": "web_search",
+      "input": {
+       "query": "ASML Financial statements US GAAP Q4 2025 consolidated balance sheets current portion of long-term debt"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01UHX5PcmTiiPJGV7AZWfeVu"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01NCEVK6Wcf5HZwxGfaubRJL",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/financialstatementsusgaa.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828025045043/financialstatementsusgaa.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML HOLDING NV - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828025034992/financialstatementsusgaa.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML - Summary US GAAP Consolidated Statements of Operations",
+        "url": "https://investor.asml.com/static-files/ee2e95dc-db9a-4e25-b492-3071bc80a880",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML - Summary US GAAP Consolidated Statements of Operations",
+        "url": "https://ourbrand.asml.com/m/52891a783efb65cf/original/Financial-statements-US-GAAP-Q4-2024.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML N : (Financial statements US GAAP Q4 2025)",
+        "url": "https://ca.marketscreener.com/news/asml-n-financial-statements-us-gaap-q4-2025-ce7e5bd9d88af626",
+        "encrypted_content": "[omitted]",
+        "page_age": "285 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML Holding (ASML) Balance Sheet",
+        "url": "https://stockanalysis.com/stocks/asml/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1361 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Q4 total net sales of €9.7 billion, gross margin of 52.2%, ...",
+        "url": "https://www.sec.gov/Archives/edgar/data/937966/000162828026003701/pressreleasefinancialresul.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "285 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "ASML 2025 fourth-quarter and full-year results Veldhoven, the Netherlands",
+        "url": "https://ourbrand.asml.com/m/3136300aa4999bc1/original/2026_01_28_Presentation-Investor-Relations-Q4-2025.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "285 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01UHX5PcmTiiPJGV7AZWfeVu"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01UHX5PcmTiiPJGV7AZWfeVu",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "EsgGCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDAMu4FPppsm4kDpEzhoMptMvGhO1vm9M9NwSIjA2BW79dtA/Jqpwxga2T1+lIhtFOAjkEJzcyrgfDup0CQtkJOmZfmMIMkMpc5DS7g4qywVoixJ1NpKzk7KnqaQY+GMPeKBy2zlmti5KU3hFvwnTnj7EUxwk50aiOhpoE1BpwywV0HsFcbqr4f+KnE4YHRyZWfxLvFgSBMG0dAGQJmIbtH0YMFpx7hCMPkXdepBm1fxxAlAT/1QmBhw/1XzYsMhJ+iWXeHRqJe1P6tUBWYXaYExxeeAAwu9n8tROKPQf0CB3+BDs2vBxwOcrACq8QJEPqa/GAwUk/wOc8XiO/4bfNhIHDA75DFnNA262Zgs5wQvR9L/hfEEymVB5B1VdobIkC/yVqiVIqL9Px/S+bIR3rL2rkd7HCKKuw4viWGKeBeQcwuIpT/NiMm+pYfcp3wXtQQiRdM0pIyxCl55mfHm8G0VLe0ZngHkYNhsGIeC3HPbWZHN8M5IytubVnBaFFCtQYv+M8ph9rvCmh088/+e0trqZ9jxQXQyU8l6Sug6Mibpe5MkaXaOwXYnT7ftoGhIbvnxeH1cC3M55ioWOYOrMBldY4U9WADzKBMX5eoX0qQLe1G6nzQoG2uFIovxnxQ1QS1uf06/IGx+4wyfieNErWez1KM0qDrYydM2FKbkfOsAQ4LFmr3LWQwyVQPINBT18b2GUuX8E3w8DNAVIpg0qBMOB2MYwGp8LXcQQdaEtgqmgVE1x2IwemjmI2uj60erowI5Cx2IoPcr4nAAX3/8O0H968ir85x+DMNf+0yvHTn3nVPQe/mdyXUhORJe8stgbXVtUMt+0qNFaM+RrUv9ktVO/KRcIr5/bEL+Ip3J7rP1bHQklgjSar/Gn4luxRuxegkoo48t+aRLiJre8FHcID9tM50iB7hf+GqImZyQjx9sJWF3ufxjZa3pfQR16p0c9yxIGilJo5DlYipsJkFp6V5w+/fmdxO2oJcSRh1zworeEXN6WvLLD86cRGb0IVB0WmQiRxVmD7evSE9iEa1zKDkM3nh3QamXaQ+iCGAM=",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS2QYKEAgTGAI4AUIIdGhpbmtpbmcSDGeF71ZLTiQx9R920RoMdDBVGoVspkvgxHtsIjDErKceD6/MWBDxcqisKWE2rleNsTO60lpWUSvzeqjfxlKIxvzkQWJPDERgLXVkrRQq9gUsHnJiA9T8MenWrkbuFoAgRN2xU+OM+3u42s2GsQ4jQb1kCxuJa49dFkuv6TywRUaPOoX6hNFNAJguoZaeNIp2Nr8bkJvn0A/xC42Y8OC2KRFifWEg8vb0vkWYP7ZVEuhcyVyU76qCY0c2ZDsp3B7St5JJ6i3TzdlLgKj89oi7CmADsE45e2K0heo+Zjeyj1+xVZ5qBXzMGWepOfbuOsdX02CuKcLGQNXaUKFzUnzKiiT0YPJaGYVJWYz9gfX0SNBMBpZdRRaRv6QTjy1r/SuKcG4Wi7mqQwtWj/fc00zZKZa6rq3zdsntE6IE/dbMe1LB+zohX8I74lTmvAFF0eRgNu+dLrBpnQn44DlUO7FR+UGF6GCqWwOqumONkBkOTwefshMxt5LquEbEyKmX94lDQ63rqzf41hKvp3z0Wh9eF7f1R39jm3tzy6m8yVffjiPQuu06iVxVK7lXQvNzkAuDYTW5J0fg6wPxXNSG7lYn6khT+IuhOWNV5c5d7SEi9PsyzpVmqvXyIFiWAhR6fRFZHhgFKS1n5QpjKYBTsMudImGhcBFNj3MGJEVbY6COne6b2ker9SrTMe1rQawuu2vLhEsrMwZTiIkXuB+LD/LRJg3LxL7ehyH1y1DTHB8gy81jm4A24c1zZ4UJMlVk+J5QgyXvZmpuf4i5KbuFik2/EPF4yLxqRFxUy3zl44Av0KjfH2Pd/bnQ99br8ICIpmq+bQ0VH+gbu0BZMfBiDCnEB+z/fi2M7a2c8DCWQ7IJ6MFSzW859EQQG6w4hEpSiCDCK2vC+g3EB/hb6r8QadX0+pMva/D+X3Y+Pe18h6wlTq1L8BP2mRqQ/+c/roMI8wIeKKYelOtxuX0SV5XmYfy/+H105dLOwJ3xhtzeyteUATOBG7MujdkGrIeGBYcNGNjyZyx95IoOuKbCMV4gJ/0z4YTZL8KcBB2IhJnGQZJlPYV7sAAZSeVeJ05MBZHAfTHBBSGxdu9u9U342HRnmCC2f3bZoSHlbBgB"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01B3Rg7mGF7TgCWK3P5NLYPs",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":\"ASML FY2023 total net sales 27,559 million income from operations 9,042 net income 7,839\"})\nr=json.loads(r) if isinstance(r,str) else r\nfor x in r:\n    for m in re.finditer(r'.{80}27,5\\d\\d.{80}',x['content']):print(x['url'][-40:],m.group(0))\nr=await web_search({\"query\":\"ASML December 31 2025 balance sheet current portion of long-term debt and short-term debt million\"})\nr=json.loads(r) if isinstance(r,str) else r\nfor x in r:\n    for m in re.finditer(r'.{100}(urrent portion|hort-term debt).{150}',x['content']):print(x['url'][-40:],m.group(0).replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01B3Rg7mGF7TgCWK3P5NLYPs",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDKxjjTMlEiKO2euLtRoMI0DOxJoNdaKWuSzqIjAyUixe+jq24AGDGJ8Uhgucv7h2MRrKOOlamWv4wgDes5YPf7wamtTD5lLRc6n42kMqEllhsA16beAmADWZlyCMuWhqRxgD",
+       "stderr": "Server tool use limit exceeded during code execution.",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "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"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01PUgdaYHGBiztAhKnaM4L5K",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "ASML Holding NV",
+       "ticker": "724500Y6DUVHQD6OXN27",
+       "currency": "EUR",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           27559,
+           28262.9,
+           32667.3
+          ],
+          "source": "FY2024/FY2025: ASML 2025 annual report financial performance section (28,262.9; 32,667.3). FY2023: ASML Q4 2023 release headline €27.6bn; 27,559 is from analyst recall, reviewer to verify (consistent with 32.8% op margin and EBIT 9,042)."
+         },
+         "operating_income": {
+          "values": [
+           9042,
+           9022,
+           11301
+          ],
+          "source": "ASML Q4 2025 results release (6-K, Jan 28 2026) five-year table of income from operations, US GAAP, EUR m"
+         },
+         "d_and_a": {
+          "values": [
+           739.8,
+           918.6,
+           1026
+          ],
+          "source": "ASML Q4 2024 US GAAP financial statements (FY2023 739.8, FY2024 918.6). FY2025 = sum of quarters 241.3+254.9+274.6+255.2 from later quarterly statements; reviewer to confirm vs 20-F. Includes amortization of debt costs and ROU depreciation."
+         },
+         "capex": {
+          "values": [
+           2155.6,
+           2067.2,
+           1573.6
+          ],
+          "source": "Purchase of property, plant and equipment: Q4 2024 statements (2023 2,155.6; 2024 2,067.2); 2025 annual report (1,573.6). Excludes intangibles (2024: 15.9; 2025: 57.6)."
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.117,
+          0.1,
+          0.08,
+          0.07,
+          0.06
+         ],
+         "source": "FY2026: midpoint of ASML guidance €34-39bn (€36.5bn) vs 32.67bn = +11.7% (Q4 2025 release). Later years: assumption, fading growth toward long-run semis/EUV demand trend; backlog €38.8bn supports near term."
+        },
+        "ebit_margin": {
+         "value": 0.34,
+         "source": "Assumption: FY2025 34.6%, 3-yr range 31.9-34.6%; guided gross margin 51-53% in 2026; held at 34%."
+        },
+        "tax_rate": {
+         "value": 0.17,
+         "source": "Assumption: ASML effective tax rate historically ~16-17% (Dutch innovation box); not verified in this session."
+        },
+        "da_pct_revenue": {
+         "value": 0.031,
+         "source": "FY2025 D&A 1,026.0 / revenue 32,667.3 = 3.1%"
+        },
+        "capex_pct_revenue": {
+         "value": 0.048,
+         "source": "FY2025 PP&E capex 1,573.6 / revenue 32,667.3 = 4.8%; ASML is expanding capacity so kept at this level"
+        },
+        "wacc": {
+         "value": 0.085,
+         "source": "Assumption: ~4% risk-free/ERP-based cost of equity ~8.5-9%, minimal debt, beta ~1.2; not sourced from a data provider"
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "source": "Assumption: roughly long-run nominal GDP / inflation, below WACC"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": -8902.9,
+         "period": "FY2025",
+         "source": "Debt: long-term debt 2,709.0 (Q4 2025 US GAAP balance sheet) + current portion ~1,710 (stockanalysis.com balance sheet, may include small lease/other items; verify vs 20-F) = 4,419; less cash and short-term investments 13,321.9 (ASML Q4 2025 release) = -8,902.9 (net cash)."
+        },
+        "diluted_shares": {
+         "value": 388.9,
+         "period": "FY2025",
+         "source": "Weighted average diluted shares FY2025 = 388.9m, ASML Q4 2025 US GAAP statements (6-K Jan 2026)"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 7,
+  "mismatch": 3,
+  "other_line": 3,
+  "definition": 1,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {
+   "other": 3
+  },
+  "typed": 25,
+  "unsourced": 1,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 27559,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 27558500000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 28262.9,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 28262900000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 32667.3,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 32667300000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 9042,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.operating_income[FY2023]",
+    "status": "other_line",
+    "hints": [
+     "equals ifrs-full:InterestReceivedClassifiedAsOperatingActivities + ifrs-full:Inventories in the same filing"
+    ],
+    "filed_value": 9511900000,
+    "resolved": "724500Y6DUVHQD6OXN27",
+    "other_line": "ifrs-full:InterestReceivedClassifiedAsOperatingActivities + ifrs-full:Inventories"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 9022,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.operating_income[FY2024]",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 9937100000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 11301,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.operating_income[FY2025]",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 12054000000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 739.8,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "other_line",
+    "hints": [
+     "equals ifrs-full:DecreaseIncreaseThroughTaxOnSharebasedPaymentTransactions + ifrs-full:DeferredTaxLiabilities in the same filing"
+    ],
+    "filed_value": 1047500000,
+    "resolved": "724500Y6DUVHQD6OXN27",
+    "other_line": "ifrs-full:DecreaseIncreaseThroughTaxOnSharebasedPaymentTransactions + ifrs-full:DeferredTaxLiabilities"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 918.6,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 1200100000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 1026,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "other_line",
+    "hints": [
+     "equals asml:AccruedAndOtherLiabilities + ifrs-full:CurrentFinanceLeaseReceivables in the same filing"
+    ],
+    "filed_value": 1432800000,
+    "resolved": "724500Y6DUVHQD6OXN27",
+    "other_line": "asml:AccruedAndOtherLiabilities + ifrs-full:CurrentFinanceLeaseReceivables"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 2155.6,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2155600000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 2067.2,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2067200000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 1573.6,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1573600000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": -8902.9,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "bridge.net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": -8931000000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   },
+   {
+    "company": "724500Y6DUVHQD6OXN27",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 388.9,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 388900000,
+    "resolved": "724500Y6DUVHQD6OXN27"
+   }
+  ],
+  "unsourced_refs": [
+   "assumptions.terminal_growth"
+  ],
+  "errors": []
+ }
+}

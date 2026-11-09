@@ -1,0 +1,1360 @@
+{
+ "company": "PG",
+ "task": "dcf",
+ "arm": "A",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "The Procter & Gamble Company",
+   "ticker": "PG",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       84039,
+       84284,
+       87032
+      ],
+      "source": "P&G FY2026 Annual Report/10-K (accession 0000080424-26-000103), Consolidated Statements of Earnings"
+     },
+     "operating_income": {
+      "values": [
+       18545,
+       20451,
+       19748
+      ],
+      "source": "P&G FY2026 10-K (0000080424-26-000103), Statements of Earnings, operating income"
+     },
+     "d_and_a": {
+      "values": [
+       2896,
+       2847,
+       3160
+      ],
+      "source": "P&G FY2026 10-K, Consolidated Statements of Cash Flows"
+     },
+     "capex": {
+      "values": [
+       3322,
+       3773,
+       4409
+      ],
+      "source": "P&G FY2026 10-K, Cash Flows, capital expenditures (shown as outflow; entered positive)"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.035,
+      0.035,
+      0.035,
+      0.03,
+      0.03
+     ],
+     "source": "Assumption: FY26 growth 3.3%, FY25 0.3%; organic growth ~2-4% with pricing/volume; fades to 3% toward long-run staples growth."
+    },
+    "ebit_margin": {
+     "value": 0.225,
+     "source": "Assumption: FY2026 margin 22.7% (19,748/87,032), FY2025 24.3%, FY2024 22.1%; held near FY26 level, slightly below for cost/tariff pressure."
+    },
+    "tax_rate": {
+     "value": 0.21,
+     "source": "Assumption: approx. P&G effective tax rate ~21-22% in recent years; not verified against filing in this session."
+    },
+    "da_pct_revenue": {
+     "value": 0.036,
+     "source": "Assumption: FY2026 D&A 3,160/87,032 = 3.6%; FY25 3.4%, FY24 3.4%."
+    },
+    "capex_pct_revenue": {
+     "value": 0.05,
+     "source": "Assumption: P&G guides capital spending 4.5-5.5% of FY2027 net sales (Q4 FY26 release); FY26 actual 5.1%."
+    },
+    "wacc": {
+     "value": 0.07,
+     "source": "Assumption: low-beta (~0.5-0.6) staples, risk-free ~4.3%, ERP ~5%, modest leverage; ~7%."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: long-run nominal growth below GDP/inflation; staples mature."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 24196,
+     "source": "P&G FY2026 balance sheet at June 30, 2026: debt due within one year 11,296 + long-term debt 22,842 = 34,138, minus cash 9,942; no separate short-term investments found.",
+     "period": "FY2026"
+    },
+    "diluted_shares": {
+     "value": 2422.5,
+     "source": "P&G FY2026 Statements of Earnings / Q4 FY26 release: diluted weighted average common shares outstanding (millions)",
+     "period": "FY2026"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "The Procter & Gamble Company",
+   "ticker": "PG",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       84039,
+       84284,
+       87032
+      ],
+      "source": "P&G FY2026 Annual Report/10-K (accession 0000080424-26-000103), Consolidated Statements of Earnings"
+     },
+     "operating_income": {
+      "values": [
+       18545,
+       20451,
+       19748
+      ],
+      "source": "P&G FY2026 10-K (0000080424-26-000103), Statements of Earnings, operating income"
+     },
+     "d_and_a": {
+      "values": [
+       2896,
+       2847,
+       3160
+      ],
+      "source": "P&G FY2026 10-K, Consolidated Statements of Cash Flows"
+     },
+     "capex": {
+      "values": [
+       3322,
+       3773,
+       4409
+      ],
+      "source": "P&G FY2026 10-K, Cash Flows, capital expenditures (shown as outflow; entered positive)"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.035,
+      0.035,
+      0.035,
+      0.03,
+      0.03
+     ],
+     "source": "Assumption: FY26 growth 3.3%, FY25 0.3%; organic growth ~2-4% with pricing/volume; fades to 3% toward long-run staples growth."
+    },
+    "ebit_margin": {
+     "value": 0.225,
+     "source": "Assumption: FY2026 margin 22.7% (19,748/87,032), FY2025 24.3%, FY2024 22.1%; held near FY26 level, slightly below for cost/tariff pressure."
+    },
+    "tax_rate": {
+     "value": 0.21,
+     "source": "Assumption: approx. P&G effective tax rate ~21-22% in recent years; not verified against filing in this session."
+    },
+    "da_pct_revenue": {
+     "value": 0.036,
+     "source": "Assumption: FY2026 D&A 3,160/87,032 = 3.6%; FY25 3.4%, FY24 3.4%."
+    },
+    "capex_pct_revenue": {
+     "value": 0.05,
+     "source": "Assumption: P&G guides capital spending 4.5-5.5% of FY2027 net sales (Q4 FY26 release); FY26 actual 5.1%."
+    },
+    "wacc": {
+     "value": 0.07,
+     "source": "Assumption: low-beta (~0.5-0.6) staples, risk-free ~4.3%, ERP ~5%, modest leverage; ~7%."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "source": "Assumption: long-run nominal growth below GDP/inflation; staples mature."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 24196,
+     "source": "P&G FY2026 balance sheet at June 30, 2026: debt due within one year 11,296 + long-term debt 22,842 = 34,138, minus cash 9,942; no separate short-term investments found.",
+     "period": "FY2026"
+    },
+    "diluted_shares": {
+     "value": 2422.5,
+     "source": "P&G FY2026 Statements of Earnings / Q4 FY26 release: diluted weighted average common shares outstanding (millions)",
+     "period": "FY2026"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 1,
+  "usage": {
+   "input_tokens": 18,
+   "output_tokens": 2979,
+   "cache_creation_input_tokens": 19312,
+   "cache_read_input_tokens": 78503,
+   "server_tool_use": {
+    "web_search_requests": 7
+   }
+  },
+  "cost": 0.16380660000000002,
+  "seconds": 44.806,
+  "tool_calls": {
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: web_search (public web pages). No other data source is available.\n\nBuild a quick unlevered DCF for The Procter & Gamble Company (identifier: PG).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 18,
+     "cache_creation_input_tokens": 19312,
+     "cache_read_input_tokens": 78503,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 19312,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 2979,
+     "output_tokens_details": {
+      "thinking_tokens": 415
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard",
+     "server_tool_use": {
+      "web_search_requests": 7,
+      "web_fetch_requests": 0
+     }
+    },
+    "cost": 0.16380660000000002,
+    "content": [
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01WKXbVuXxhUp5sX6LufNGCD",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":\"Procter & Gamble fiscal 2025 annual results net sales operating income depreciation capital expenditures diluted shares debt cash\"})\nfor x in r[:6]:\n    print(x['url']);print(x['content'][:1500]);print()"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01A4oY61Xf2D8R9Q43qD984w",
+      "name": "web_search",
+      "input": {
+       "query": "Procter & Gamble fiscal 2025 annual results net sales operating income depreciation capital expenditures diluted shares debt cash"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01WKXbVuXxhUp5sX6LufNGCD"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01A4oY61Xf2D8R9Q43qD984w",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "PROCTER & GAMBLE Co - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000067/fy2425q4amj8-kexhibit991.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "PROCTER & GAMBLE Co - Form ARS - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/80424/000119312525191752/d879413dars.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "PROCTER & GAMBLE Co - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000009/fy2425q2ond8-kexhibit991.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "PROCTER & GAMBLE Co - Form 8-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000032/fy2425q3jfm8-kexhibit991.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "P&G 2025 Annual Report",
+        "url": "https://s204.q4cdn.com/332108499/files/doc_financials/2025/ar/2025_annual_report.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "462 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "10-K: Procter & Gamble",
+        "url": "https://www.moomoo.com/news/notice/305158496/procter-gamble-10-k-fy2025-annual-report",
+        "encrypted_content": "[omitted]",
+        "page_age": "461 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Procter & Gamble : 2025 Annual Report",
+        "url": "https://www.marketscreener.com/news/procter-gamble-2025-annual-report-ce7c50ddd881f62d",
+        "encrypted_content": "[omitted]",
+        "page_age": "436 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "P&G Announces Fourth Quarter and Fiscal Year 2025 Results",
+        "url": "https://www.pginvestor.com/news/news-details/2025/PG-Announces-Fourth-Quarter-and-Fiscal-Year-2025-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "468 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Procter & Gamble Company (via Public) / Annual Report for Fiscal Year Ending June 30, 2025 (Form 10-K)",
+        "url": "https://www.publicnow.com/view/9809FC531128D7F9A314DD74D2950E9F3C93B727",
+        "encrypted_content": "[omitted]",
+        "page_age": "462 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s204.q4cdn.com/332108499/files/doc_financials/2025/ar/d5551ac1-abaa-45fb-92fa-0bd5218d58c6.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "462 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01WKXbVuXxhUp5sX6LufNGCD"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01WKXbVuXxhUp5sX6LufNGCD",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDAewsYEkX57eRLDQEBoMWm0pQvUMdTMPR49FIjDf4OzE9/HJ+i1Sxmbvvn2592eE/b4XSPKQf7BmD/2EMZ4apX/G/Bez1g+thY9kZBMqEinrdU7MZ20iDbhpR+o3Y/ckfxgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01WKXbVuXxhUp5sX6LufNGCD/cell.py\", line 10, in <module>\n    print(x['url']);print(x['content'][:1500]);print()\n          ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01TcDYWzBVNj4vvNDN53KNUM",
+      "name": "code_execution",
+      "input": {
+       "code": "print(str(r)[:3000])"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01TcDYWzBVNj4vvNDN53KNUM",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "[{\"type\": \"web_search_result\", \"title\": \"PROCTER & GAMBLE Co - Form 8-K - FY2025\", \"url\": \"https://www.sec.gov/Archives/edgar/data/80424/000008042425000067/fy2425q4amj8-kexhibit991.htm\", \"content\": \"#### Fiscal Year 2025 Results\\nThe Company reported fiscal year 2025 net sales of $84.3 billion, unchanged versus the prior year. A one percent increase due to higher pricing was offset by a one percent decrease from unfavorable\\n\\nforeign exchange impacts. All-in volume was unchanged versus prior year. Organic sales, which excludes the impacts of foreign exchange and acquisitions and divestitures, increased two percent. Higher pricing and organic volume each contributed one point of growth to organic sales. Mix was unchanged versus the prior year.\\n\\nDiluted net earnings per share were $6.51, an increase of eight percent versus prior year as a reduction in selling, general and administrative costs (SG&A) in the current year and the non-cash impairment charge of $1.3 billion ($1.0 billion after tax) on the Gillette intangible asset in the prior year were partially offset by higher non-core restructuring charges in the current year. Core net earnings per share increased by 4% to $6.83.\\n\\nThe Company generated operating cash flow of $17.8 billion and net earnings of $16.1 billion for the fiscal year. Adjusted free cash flow productivity was 87%, which is calculated as operating cash flow less capital spending and certain other items, as a percentage of net earnings excluding the non-cash charge for accumulated foreign currency translation losses due to the substantial liquidation of operations in Argentina.\\n\\nThe Company returned over $16 billion of value to shareholders in fiscal 2025 via $9.9 billion in dividend payments and $6.5 billion of share repurchases.\"}, {\"type\": \"web_search_result\", \"title\": \"PROCTER & GAMBLE Co - Form ARS - FY2025\", \"url\": \"https://www.sec.gov/Archives/edgar/data/80424/000119312525191752/d879413dars.pdf\", \"content\": \"2025\\r\\nAnnual \\r\\nReport\\n\\nFinancial Highlights (Unaudited)\\r\\nAmounts in billions, except per share amounts\\r\\n2025 2024 2023 2022 2021\\r\\nNet Sales $84.3 $84.0 $82.0 $80.2 $76.1\\r\\nOperating Income $20.5 $18.5 $18.1 $17.8 $18.0\\r\\nNet Earnings \\r\\nAttributable to P&G $16.0 $14.9 $14.7 $14.7 $14.3\\r\\nNet Earnings Margin 19.1% 17.8% 18.0% 18.4% 18.9%\\r\\nDiluted Net Earnings \\r\\nper Common Share\\u200a1 $6.51 $6.02 $5.90 $5.81 $5.50\\r\\nCore Earnings \\r\\nper Share\\u20092 $6.83 $6.59 $5.90 $5.81 $5.66\\r\\nOperating Cash Flow $17.8 $19.8 $16.8 $16.7 $18.4\\r\\nDividends per \\r\\nCommon Share $4.08 $3.83 $3.68 $3.52 $3.24\\r\\n2025 Net Sales by Business Segment\\u20093\\r\\n Fabric & Home Care 36%\\r\\n Baby, Feminine \\r\\n& Family Care 24%\\r\\n Beauty 18%\\r\\nHealth Care 14%\\r\\nGrooming 8%\\r\\n2025 Net Sales by Geographic Region\\r\\nNorth America\\u20094 52%\\r\\nEurope 22%\\r\\nLatin America 7%\\r\\nGreater China 7%\\r\\nAsia Pacific 7%\\r\\n India, Middle East \\r\\n& Africa (IMEA) 5%\\r\\nFiscal Year 2025 by the Numbers\\r\\nOrganic Sales\\r\\n\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSnQUKEAgTGAI4AUIIdGhpbmtpbmcSDLUnDg5Briu2z+UDrBoMpHBlvHLiKzCNUPEQIjA0xIh7Cs7j53n7yr3cc8lMWb44mPMgBXdjgzEhAARjlqSS1oxpu0Ho6qlaJS28zNUqugSduKg/IsL8RU9dIZoXel7U8SpZ324KsxMUeDzUQVBf/HYats44zejOkffUdSud9DIaM0wBXIPvgoCOiVG/MKCfc/mNTkrmmLiUZ1wd8yCe++L5p4Dr5HDAKE6+Jh7kN3+Yre/SGaGZjLlAkkTNcKA2CAubVk1sLarxKVsfWuCh2olrJw0zNIkmNYk6LV4cbAZi+MFRP7nBKmS5i5iroSMP976SCp2ICfDRWv03SbLv+QXXhtreBWIpXo9smxMYD9ihwHGSy+nDt5BkHmmXrydRMtTXTRLQmzmd6iVzgeJGRpovxZlNKfCNagQGyVF7APwwgIGn7EpCEZoFHwXzvNuNFrAOa3ymD6w85HquIjEMUvafFeXnJel24WXKDTssEuZsW8V5uO1zsHKF8ZvP6u+alv78KzFhogU/suZaZLxgaxQLfiH/JsdQttB9azo6TyxmLN/6FQIuVa7uG/B5XwzGEwDoZYxXiQ+ILO19fmFOWEyuUHRp646w7ji/loGrBQk+ydsgeMZuzLY57dBQH1o7850BmuQYxPzOKeLzKREWhNHJ1FGyQYGKstoYT0/YP6JilQfF3cqqM57eupZieNQZpyIxzIQhC4+WkjtA1YFxPWX1UvZvQ1alu8kji/jN6nI+uJloHb6AzGitwhBn4hc7ZalS57iiHslpocIYVG1lNEoSEVpt+v8IHsdbbhqAuY2uoM9bnVrTKeRNm7ZXrDGML+mj0hsP8GJGTyOPxSLJ2bj4Kjmgpz31ZBoYAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_018VjZK51RA8XdKmZwmCpWyQ",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in [\"Procter & Gamble 10-K 2025 depreciation and amortization capital expenditures 2025 2024 2023 cash flow statement\",\"Procter & Gamble June 30 2025 balance sheet cash short-term debt long-term debt diluted weighted average shares\"]:\n  r=await web_search({\"query\":q})\n  import re\n  for x in r[:6]:\n    c=x['content']\n    print(x['url'])\n    for m in re.finditer(r'(Depreciation and amortization|Capital expenditures|Capital spending|Long-term debt|Debt due within one year|Cash and cash equivalents|Diluted|Net sales  )[^\\n]{0,150}',c):\n        print('  ',m.group(0)[:180])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Y7ZCu9SBDyMmNU9x3jQt2v",
+      "name": "web_search",
+      "input": {
+       "query": "Procter & Gamble 10-K 2025 depreciation and amortization capital expenditures 2025 2024 2023 cash flow statement"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_018VjZK51RA8XdKmZwmCpWyQ"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01Y7ZCu9SBDyMmNU9x3jQt2v",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "PROCTER & GAMBLE Co - Form 10-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042424000083/pg-20240630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "PROCTER & GAMBLE Co - Form 10-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042423000073/pg-20230630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Procter & Gamble (PG) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/pg/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Procter & Gamble Co. (NYSE:PG)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Procter-Gamble-Co/Financial-Statement/Statement-of-Cash-Flows",
+        "encrypted_content": "[omitted]",
+        "page_age": "461 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Capital Expenditures - Procter & Gamble Co (NYSE:PG) - Alpha Spread",
+        "url": "https://www.alphaspread.com/security/nyse/pg/financials/cash-flow-statement/capital-expenditures",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "News Release The Procter & Gamble Company One P&G Plaza Cincinnati, OH 45202",
+        "url": "https://s204.q4cdn.com/332108499/files/doc_financials/2025/q4/FY2425-Q4-AMJ-Press-Release-Final.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "468 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Procter & Gamble Co. (NYSE:PG)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Procter-Gamble-Co/Ratios/Reportable-Segments",
+        "encrypted_content": "[omitted]",
+        "page_age": "461 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s204.q4cdn.com/332108499/files/doc_financials/2025/ar/d5551ac1-abaa-45fb-92fa-0bd5218d58c6.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "462 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://assets.ctfassets.net/oggad6svuzkv/7ssg6HBZvKjXxd6Va3ZuvD/e1048bf54cd6d87fb52a6ad9b35ef7b2/2025_form_10k.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "462 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_018VjZK51RA8XdKmZwmCpWyQ"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_018VjZK51RA8XdKmZwmCpWyQ",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDKhpNorys2cJf36mXRoMzFVs+PqMRIWtEqj2IjCMrkiMnnwF9PexjdbJBFnSh1kdqQebllxAolhg/7iVZZvosWaGin4HD+2caAoCDzAqEj0u+ZEqzguFXHXOem2LL32WThgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_018VjZK51RA8XdKmZwmCpWyQ/cell.py\", line 12, in <module>\n    c=x['content']\n      ~^^^^^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "text",
+      "text": "Odd; r may be a string-ish."
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_013fhFFDLAqnYTrHW6roCfNY",
+      "name": "code_execution",
+      "input": {
+       "code": "print(type(r), str(r)[:500])"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_013fhFFDLAqnYTrHW6roCfNY",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "<class 'str'> [{\"type\": \"web_search_result\", \"title\": \"PROCTER & GAMBLE Co - Form 10-K - FY2024\", \"url\": \"https://www.sec.gov/Archives/edgar/data/80424/000008042424000083/pg-20240630.htm\", \"content\": \"See accompanying Notes to Consolidated Financial Statements.\\n\\nThe Procter & Gamble Company 39\\n\\n## Consolidated Statements of Cash Flows\\n\\n### Consolidated Statements of Cash Flows\\n\\n*(untagged table \\u2014 column alignment not verified)*\\n\\n| Amounts in millions; fiscal years ended June 30 | 2024 | 2023 | \n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01SrwTQKKuVDZaVMcPgT6zQZ",
+      "name": "code_execution",
+      "input": {
+       "code": "import json\nfor q in [\"Procter & Gamble 10-K 2025 depreciation and amortization capital expenditures cash flow statement\",\"Procter & Gamble June 30 2025 balance sheet cash debt due within one year long-term debt diluted weighted average shares\"]:\n  r=json.loads(await web_search({\"query\":q}))\n  for x in r[:6]:\n    c=x['content']\n    print(x['url'])\n    for m in re.finditer(r'\\|\\s*(Depreciation and amortization|Capital expenditures|Long-term debt|Debt due within one year|Cash and cash equivalents|Diluted|Operating income|Net sales|Weighted)[^\\n]{0,160}',c,re.I):\n        print('  ',m.group(0)[:200])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01YV9JK5EopUVZRpezURyKZ4",
+      "name": "web_search",
+      "input": {
+       "query": "Procter & Gamble 10-K 2025 depreciation and amortization capital expenditures cash flow statement"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01SrwTQKKuVDZaVMcPgT6zQZ"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01YV9JK5EopUVZRpezURyKZ4",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "PROCTER & GAMBLE Co - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "pg-20250930",
+        "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000245/pg-20250930.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Procter & Gamble (PG) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/pg/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Procter & Gamble Co. (NYSE:PG)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Procter-Gamble-Co/Financial-Statement/Statement-of-Cash-Flows",
+        "encrypted_content": "[omitted]",
+        "page_age": "461 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "P&G Announces Fourth Quarter and Fiscal Year 2025 Results",
+        "url": "https://www.pginvestor.com/news/news-details/2025/PG-Announces-Fourth-Quarter-and-Fiscal-Year-2025-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "468 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Procter & Gamble Co. (NYSE:PG)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Procter-Gamble-Co/Financial-Statement/Statement-of-Cash-Flows/Quarterly-Data",
+        "encrypted_content": "[omitted]",
+        "page_age": "198 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://assets.ctfassets.net/oggad6svuzkv/7ssg6HBZvKjXxd6Va3ZuvD/e1048bf54cd6d87fb52a6ad9b35ef7b2/2025_form_10k.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "462 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Procter & Gamble Total Depreciation and Amortization - Cash Flow 2010-2025 | PG",
+        "url": "https://macrotrends.net/stocks/charts/PG/procter-gamble/total-depreciation-amortization-cash-flow",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "d5551ac1 abaa 45fb 92fa 0bd5218d58c6",
+        "url": "https://s204.q4cdn.com/332108499/files/doc_financials/2025/ar/d5551ac1-abaa-45fb-92fa-0bd5218d58c6.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01SrwTQKKuVDZaVMcPgT6zQZ"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01PMXytyx5arEjoGAF4pSibi",
+      "name": "web_search",
+      "input": {
+       "query": "Procter & Gamble June 30 2025 balance sheet cash debt due within one year long-term debt diluted weighted average shares"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01SrwTQKKuVDZaVMcPgT6zQZ"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01PMXytyx5arEjoGAF4pSibi",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "PROCTER & GAMBLE Co - Form 10-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000076/pg-20250630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "PROCTER & GAMBLE Co - Form ARS - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000080424/000119312526372220/pg_ars_2026.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "PROCTER & GAMBLE Co - Form 10-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000080424/000008042426000103/pg-20260630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "PROCTER & GAMBLE Co - Form 10-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042423000073/pg-20230630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, D.C. 20549",
+        "url": "https://fortune.com/company-assets/1601/quartr/quarterly-report-10-q-10fcc-2025-10-24-08-51-24.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "381 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "P&G Announces Fourth Quarter and Fiscal Year 2025 Results",
+        "url": "https://www.pginvestor.com/news/news-details/2025/PG-Announces-Fourth-Quarter-and-Fiscal-Year-2025-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "468 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "The Procter & Gamble Company (PG) - Long-Term Debt (Annual)",
+        "url": "https://www.alphaquery.com/stock/PG/fundamentals/annual/long-term-debt",
+        "encrypted_content": "[omitted]",
+        "page_age": "275 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Procter & Gamble (PG) Balance Sheet",
+        "url": "https://stockanalysis.com/stocks/pg/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Procter & Gamble Co. (NYSE:PG)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Procter-Gamble-Co/Financial-Statement/Liabilities-and-Stockholders-Equity",
+        "encrypted_content": "[omitted]",
+        "page_age": "461 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Procter & Gamble Co. (NYSE:PG)",
+        "url": "https://www.stock-analysis-on.net/NYSE/Company/Procter-Gamble-Co/Analysis/Debt",
+        "encrypted_content": "[omitted]",
+        "page_age": "461 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01SrwTQKKuVDZaVMcPgT6zQZ"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01SrwTQKKuVDZaVMcPgT6zQZ",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS2AYKEAgTGAI4AUIIdGhpbmtpbmcSDB1/ECDjelMsfCcsJBoMyjRRYG0VLcxGtrDJIjDzyXEuEee6VcOku3xKOTeC8OhXk2jpX9anuedbrYhs2TAh4y7olu/XGDgNgK9VR7gq9QU0V0D+5v8Bal3r0EFDH/y21hABh9I+lgSSdWuvkeq0PvJr4Z0dEWYE4QNR4oGlKcv/1F00znQ3S21VEKHKcjHSZRPGQXYHQ4sA4Odi+fHKw4sR+55gTcE0mn0klYv2YlWzjFKAca8awxBH+K7IBMgA+dmyAgN1uiVExvqZCIE7Z15MDQvjMy8ITS4M4FhO7cQBM1/tJM5Xmx3veBYGi8W7R0x+rSMRxJWvxslx19fwjFy0AVZbIv/fB4pGU/iInk63dtSiIYZF5y7DB4sFID8Fq0io0naH4qGmIt1TrtOHvYQnet7wNflL47ORMNxslqfWunZIvQEckcqI64oQ6ZTCqhCfjxQgUgGnPi137zWRmShBRafTni+U8FOFH0RsY2lcWrCd6DT82QWb6KgndP8wsk5JCd6HhsDcXRdY+Hdf1nXtLE5TLNmSowL4QYkYTLFKwCxy+hJ7OV5njrOSc5JiG3/4I8udbyDAeHLphcf3WK8sRCL6T+7vihMnRiIZayQ4XMJylbM53FwWCMVbDeta1Sy1aRT63vwscjpy0cpY1zYNKuw7Ndw5pCJx8oonaI58XvfxnSGK2dYzsvH/NPBiuj2jmiuUGWESME93f5m6R7yEweRDRTgSDKrRd5avr52Q22/oTMtsIREQXk3+BhBqJCph/ksSWaMfuKXRhjCsXAOUKzn0PV0L5Lz6VjJILDVHPqPhYmKTWaJqtftPHZPhepasdcumU0K4WMHuIcs7wGFrJSpIWiJnN/HqIZ0D2KlNVGcpVDRSRDdzNiBxrJyn0maDjjrbiKOWAgIPGzyhVyQRq8Hl2e8lHlQbYbfTuGJT+zo8CxepGjUnBNBNt0dDh89EA3pyAY91c5LzMNO/gQ1e5iqCo90EvCqifGNTWvltZFLc+Lr/QXnWLecay+dxfNeH5Pph3u1LtSACRRj5K7SUAlzgyzB3bf/4JoH8BCeLdPJzlk2FWflhgaVEdYJp4EoE1Xn7u//OPy8TNbbvo40FWL+OGAE="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Snt3LEoSHWnu8KdFPpEqZA",
+      "name": "code_execution",
+      "input": {
+       "code": "for x in r:\n  if '20260630' in x['url'] or 'ars_2026' in x['url']:\n    c=x['content'];print(x['url'],len(c));print(c[:3000]);print('=====')"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01Snt3LEoSHWnu8KdFPpEqZA",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "https://www.sec.gov/Archives/edgar/data/0000080424/000119312526372220/pg_ars_2026.pdf 1557\nConsolidated Statements of Earnings \r\nAmounts in millions except per share amounts; fiscal years ended June 30 2026 2025 2024\r\nNET SALES $ 87,032 $ 84,284 $ 84,039\n\nDiluted $ 6.62 $ 6.51 $ 6.02 \r\n(1) Basic net earnings per common share and Diluted net earnings per common share are calculated on Net earnings attributable to Procter &\n\nAmounts in millions; fiscal years ended June 30 2026 2025 2024\n\nConsolidated Balance Sheets \r\nAmounts in millions except stated values; as of June 30 2026 2025\n\nCash and cash equivalents $ 9,942 $ 9,556\n\nDebt due within one year 11,296 9,513\n\nLONG-TERM DEBT 22,842 24,995\n\nConvertible Class A preferred stock, stated value $1 per share (600 shares authorized) 756 777 \r\nNon-Voting Class B preferred stock, stated value $1 per share (200 shares authorized) — — \r\nCommon stock, stated value $1 per share (10,000 shares authorized; shares issued: 2026 -\n\nReserve for ESOP debt retirement (596) (672)\n\nTreasury stock (shares held: 2026 -1,685.4; 2025 - 1,667.3) (143,008) (138,702)\n\nshares in thousands\n\nDebt\n\nShares Amount Equity\r\nBALANCE JUNE 30, 2023 2,362,120 $4,009 $819 $66,556 ($821) ($12,220) ($129,736)$118,170 $288 $47,065\n\nESOP debt impacts 85 99 184\n\nBALANCE JUNE 30, 2024 2,357,051 $4,009 $798 $67,684 ($737) ($11,900) ($133,379)$123,811 $272 $50,559\n\nESOP debt impacts 64 86 150\n\nBALANCE JUNE 30, 2025 2,341,994 $4,009 $777 $68,770 ($672) ($12,143) ($138,702)$129,973 $272 $52,284\n\nESOP debt impacts 76 91 168\n\nBALANCE JUNE 30, 2026 2,323,859 $4,009 $756 $69,533 ($596) ($12,465) ($143,008)$135,852 $230 $54,311\n=====\nhttps://www.sec.gov/Archives/edgar/data/0000080424/000008042426000103/pg-20260630.htm 1541\n## Note 10: Short-term and Long-term Debt\n\n### SHORT-TERM AND LONG-TERM DEBT\n\n| As of June 30 | 2026 | 2025 |\n\n| DEBT DUE WITHIN ONE YEAR |  |  |\n| Current portion of long-term debt | $6,457 | $5,377 |\n\n| Weighted average interest rate of debt due within one year (1) | 3.3% | 3.0% |\n\n- Current portion of long-term debt — as of 2026-06-30: $6,457 million\n- Current portion of long-term debt — as of 2025-06-30: $5,377 million\n- Commercial paper — as of 2026-06-30: $4,837 million\n- Commercial paper — as of 2025-06-30: $4,108 million\n- Other — as of 2026-06-30: $3 million\n- Other — as of 2025-06-30: $27 million\n- TOTAL — Debt due within one year — as of 2026-06-30: $11,296 million\n- TOTAL — Debt due within one year — as of 2025-06-30: $9,513 million\n- Weighted average interest rate of debt due within one year (1) — Weighted average interest rate of debt due within one year (in percent) — as of 2026-06-30: 3.3%\n- Weighted average interest rate of debt due within one year (1) — Weighted average interest rate of debt due within one year (in percent) — as of 2025-06-30: 3%\n\n(1) Weighted average interest rate of debt due within one year includes the effects of interest rate swaps discussed in Note 9.\n\n| As of June 30 | 2026 | 2025 |\n\n| LONG-TERM DEBT |  |  |\n\n| 4.10% USD note due January 2026 | — | 650 |\n\n| 2.30% USD note due February 2032 | 850 | 850 |\n\n| All other long-term debt | 5,265 | 5,263 |\n| Current portion of long-term debt | (6,457) | (5,377) |\n\n| Weighted average interest rate of long-term debt (1) | 3.3% | 3.3% |\n=====\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS4AYKEAgTGAI4AUIIdGhpbmtpbmcSDIgH/iD3W06nCORMNBoMBN/iThj5sGex0lcBIjBCeoGYG/UtPtnsqe7En2sVSrhRMuByz14kNlIU196k3F9MnAw+1vWfewhc9GAryTMq/QXfpelB3Opt/W+EZHU6hpDyppVpyEku+5VA9rmwngOAV+NXRhiirAeNIGNRVpho4lpnI/rTTVdEW9X2Ls0fy9RQ1lauDtvSWpsKTkw1jgDZHyxbznTZsUCLepOYmP+29xqm+QGjg67BDLYBA1VdxfqAXWGuEqIKRbn5UzHJZN1MkI1V4Scj6DOOna1RlLclsX2ya+MOQtfcWSZ97b6/oXraAGFonXM1MpaXsuo7JJziI+vaZcoEQxzR3WJxPWriFhEaKNukRbXKGEWI5roz6b47NasaX+cUOu24u8U1Tt6IE/jwGUpFzOhn1euBEAV7RwzJOYmk3uRvIwd3J4AoTqdiNHi+UFlW/Lc+sKUI77W78FElqskPFAUPHOBcjnNJJ6HvtpjnlT2nbxbB3naPIjLErHaI4H/xK/EQcvCQq/bEeKF7hIxSpvXKM7SjTiHHGuszyw2Q5N6lAHGA4DY8iHgITxzUqmd7D2JfxEi+eeIazWqT7drB+gEZ5xF8gYDdabbgjNexOI3lV7sIGJ8ag8yQKgxUdRPLmQNB2i5gwap0sDoMCeVuuJoMfVLoPHykU8JI/siHeRIASI+ajHfqVTniTvrqwYJimu+8YFYGRxKzYJ9auWN1hcN6mGj5+30PzmmfdpwBR4yfSUvOUK5c4LNDbrwf1d1uWRvoPECqhS9fEawgAF97n2MlGnV9yBwOZTrBxqpbcqZHa79ICLKtTPZeRU9ATVuzvyITGnuSUWAoKgkMwU519Cq0LoCJREZzeJr+bJtX9yRiukwShPuPb+bhieq5SY2TweRBE+M+dWUyoDTcgS10q96tr7lK/Vhkwlh3UV0VNS0HrG04W+/YbN41J3pw34nTejyAfwKzRiYapJwdEtVnfTuJnpetr/71JWRBbnxe81Jxn41LZRndB18IAkq34IluRAGCo6KLyi+l34wgAe9ME1NBU4h3Ja9Jds4GMp57nEqnytW2xh7Uz51cAXFTMNKx706MaySdeRvkz6pAkf47EadWO8kXFnIYAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01RGuRbZcC2xD27X1zvcp7ES",
+      "name": "code_execution",
+      "input": {
+       "code": "qs=[\"Procter & Gamble fiscal 2026 10-K operating income depreciation and amortization capital spending\",\"Procter & Gamble 10-K June 30 2026 consolidated statements of cash flows depreciation amortization capital expenditures\",\"Procter & Gamble fiscal 2026 diluted weighted average common shares outstanding operating income\"]\nfor q in qs:\n  r=json.loads(await web_search({\"query\":q}))\n  for x in r[:8]:\n    c=x['content']\n    if '2026' not in x['url'] and '2026' not in c[:3000]: continue\n    print(x['url'])\n    for m in re.finditer(r'[^\\n]*(Depreciation and amortization|Capital expenditures|Capital spending|OPERATING INCOME|Operating income|Diluted weighted|DILUTED|Total debt)[^\\n]{0,200}',c):\n        print('  ',m.group(0)[:260])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01SFvLNfh7a12EtCbPS3cB86",
+      "name": "web_search",
+      "input": {
+       "query": "Procter & Gamble fiscal 2026 10-K operating income depreciation and amortization capital spending"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01RGuRbZcC2xD27X1zvcp7ES"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01SFvLNfh7a12EtCbPS3cB86",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "PROCTER & GAMBLE Co - Form 10-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000080424/000008042426000103/pg-20260630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "News Release The Procter & Gamble Company One P&G Plaza Cincinnati, OH 45202",
+        "url": "https://s204.q4cdn.com/332108499/files/doc_financials/2026/q4/FY2526-Q4-AMJ-Press-Release.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "103 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Capital Expenditures - Procter & Gamble Co (NYSE:PG) - Alpha Spread",
+        "url": "https://www.alphaspread.com/security/nyse/pg/financials/cash-flow-statement/capital-expenditures",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "maintains fiscal year sales, EPS growth and cash return ...",
+        "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000240/fy2526q1jas8-kexhibit991.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s204.q4cdn.com/332108499/files/doc_financials/2026/ar/2026_form_10k.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "21 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "P&G Announces Fourth Quarter and Fiscal Year 2026 Results",
+        "url": "https://us.pg.com/newsroom/news-releases/PG-Announces-Fourth-Quarter-and-Fiscal-Year-2026-Results/",
+        "encrypted_content": "[omitted]",
+        "page_age": "103 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Procter %26 Gamble",
+        "url": "https://en.wikipedia.org/wiki/Procter_%26_Gamble",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "P&G Announces Fiscal Year 2026 Third Quarter Results",
+        "url": "https://www.pginvestor.com/news/news-details/2026/PG-Announces-Fiscal-Year-2026-Third-Quarter-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "199 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "P&G Announces Fiscal Year 2026 Second Quarter Results",
+        "url": "https://www.pginvestor.com/news/news-details/2026/PG-Announces-Fiscal-Year-2026-Second-Quarter-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "291 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Procter & Gamble details 2026 restructuring costs",
+        "url": "https://www.stocktitan.net/sec-filings/PG/10-k-procter-gamble-co-files-annual-report-df19f0b18081.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "96 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01RGuRbZcC2xD27X1zvcp7ES"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_014Ym2h4An4KcJRtb7emoea7",
+      "name": "web_search",
+      "input": {
+       "query": "Procter & Gamble 10-K June 30 2026 consolidated statements of cash flows depreciation amortization capital expenditures"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01RGuRbZcC2xD27X1zvcp7ES"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_014Ym2h4An4KcJRtb7emoea7",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "PROCTER & GAMBLE Co - Form 10-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000080424/000008042426000103/pg-20260630.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549",
+        "url": "https://s204.q4cdn.com/332108499/files/doc_financials/2026/ar/2026_form_10k.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "21 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Procter & Gamble (PG) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/pg/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "News Release The Procter & Gamble Company One P&G Plaza Cincinnati, OH 45202",
+        "url": "https://s204.q4cdn.com/332108499/files/doc_financials/2026/q4/FY2526-Q4-AMJ-Press-Release.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "103 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "P&G Announces Fourth Quarter and Fiscal Year 2026 Results",
+        "url": "https://www.pginvestor.com/news/news-details/2026/PG-Announces-Fourth-Quarter-and-Fiscal-Year-2026-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "103 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "P&G Announces Fourth Quarter and Fiscal Year 2026 Results",
+        "url": "https://us.pg.com/newsroom/news-releases/PG-Announces-Fourth-Quarter-and-Fiscal-Year-2026-Results/",
+        "encrypted_content": "[omitted]",
+        "page_age": "103 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Ctfassets",
+        "url": "https://assets.ctfassets.net/oggad6svuzkv/4JHQenYzRCrXokDMBfqJAg/5f464a615be36bfa994338568825b735/FY2526_10-K_Accessible_final.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Procter & Gamble details 2026 restructuring costs",
+        "url": "https://www.stocktitan.net/sec-filings/PG/10-k-procter-gamble-co-files-annual-report-df19f0b18081.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "96 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "PG 10-K FY2026 Annual Report — Revenue, Net Income, EPS",
+        "url": "https://www.analystlens.com/stocks/pg/10k/fy2026",
+        "encrypted_content": "[omitted]",
+        "page_age": "96 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01RGuRbZcC2xD27X1zvcp7ES"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01QjPF1YGKRLuNAs8CUMnYoY",
+      "name": "web_search",
+      "input": {
+       "query": "Procter & Gamble fiscal 2026 diluted weighted average common shares outstanding operating income"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01RGuRbZcC2xD27X1zvcp7ES"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01QjPF1YGKRLuNAs8CUMnYoY",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "PROCTER & GAMBLE Co - Form ARS - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000080424/000119312526372220/pg_ars_2026.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "PROCTER & GAMBLE Co - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000080424/000008042426000056/fy2526q3jfm8-kexhibit991.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "maintains fiscal year sales, EPS growth and cash return ...",
+        "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000240/fy2526q1jas8-kexhibit991.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "PROCTER & GAMBLE Co - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042426000006/fy2526q2ond8-kexhibit991.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Fourth quarter and fiscal year 2026 results",
+        "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042426000093/fy2526q4amj8-kexhibit991.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "103 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "P&G Announces Fourth Quarter and Fiscal Year 2026 Results",
+        "url": "https://www.nasdaq.com/press-release/pg-announces-fourth-quarter-and-fiscal-year-2026-results-2026-07-29",
+        "encrypted_content": "[omitted]",
+        "page_age": "102 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "P&G Announces Fourth Quarter and Fiscal Year 2026 Results",
+        "url": "https://www.pginvestor.com/news/news-details/2026/PG-Announces-Fourth-Quarter-and-Fiscal-Year-2026-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "103 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "News Release The Procter & Gamble Company One P&G Plaza Cincinnati, OH 45202",
+        "url": "https://s204.q4cdn.com/332108499/files/doc_financials/2026/q2/FY2526-Q2-OND-Press-Release-Final.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "291 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "P&G Announces Fiscal Year 2026 First Quarter Results",
+        "url": "https://www.pginvestor.com/news/news-details/2025/PG-Announces-Fiscal-Year-2026-First-Quarter-Results/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "381 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01RGuRbZcC2xD27X1zvcp7ES"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01RGuRbZcC2xD27X1zvcp7ES",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSowkKEAgTGAI4AUIIdGhpbmtpbmcSDAhz0VkqtgHYMGLDiBoM5mlmQjogxdCgc69NIjAKJ69cC66I1hAGe5tQU/pmENXVWt1w/chkylPQuYqFzIu24MSS8/SKCttBAyfiLWgqwAgnhZ2HZAtU41PKVCeCEbEhOqXRIF5xHtI1NFYH8nKALIiXFb+ANFFD+VPYWZstzRYa2NW3wRfDA3Y3KuRpZwB1Jn0aIHlHQUThPDAh+BfcHT5aRZ6Ft5alb7FK9suKjR0cPZmnGa65cSN91xNERH9KLDmc8ank8vcAWve/geijwC2/iZwjH5SJkNrE2UvVd2WKqGhXrhqaO5n7l1IBEhRK9lC+Of22b/a7FJS7C6WjQ8vDgB1Eb9f50s+jcseUJ2knF273eCMh5EnHbQ9rmmPijKA2Kj43jDX0lz9Lf9aFoLmG+9qF2T/m0KNshnbyNB6ATRSJMjaJN5CZU63biEWHQQQ3QFVXFb6j8Ldf7cdmZiW9Qk8vzc35Ui1X3Pm9mWbA2E/AKIVHTr/FNs/4H1xsrXofhLD/lCxtd+MXieJL1JZcvZXu6yk/VYca+lt6r88YMPBbKIj/TUSmQOSTvJBlRMscGtGJyBpYDTWhahUGZjF50tyBU0qUbdPA51zRV9QWDTd9u/fUSbTAQpM62nTrUCGJiuNxtiFn/zl6+vTBQSHIzAFMYPX3OMRVfQOfVHtV/VcJe5qjhMVFy4OrWMJ/xWkXLc/Yz/XW2ClAQH99qbzM0XuXVwUxy7IZyDWZoMOZI4ATKIQHGT62wxEreEdwY5S9oYQ7d5NLDkTgdqskqk+igxoYQpOS7ObeyvAGqedtsXnyfuClYig7zvYo/ebXGQXkWI0YWPYR3aGhjWrWnQN9os0SaWnY5FtP2Ccs1sbgD6PbOCOLXwj4mRb4JTLPs5QMbs4rZq8SM6ul7kwjyAbZ09rjiUBrbhUUw4vUGJKEomMpM/PPdOzMnrLZlXNxE7taiIB6aDwgfvDgyqOociM7Zi/y2RapkKCWNMPJ45dMP2csc1wY3D8zFlVONsDdvQ3f1UF3SJg4Y1klf7YGUhXRESJrR3rQv8kF6KYc3wWrZKC7nEkky/+Lpja8wJW33b5EVGMRwm20X9x0ZjeaQiqA4IH58a52F1USvo6vHinXg0dRJphmeHGj06ZESE/W1SgN5vx0Qs7gZXuZTtT+wNjecEgCCiU9uDodgmsOE+XaKlaiT10x/yrOMedt2xjXS7FpjGLCn917bbxvT/ftW1BQrgqABWvsCV4f11GhhjEgsHOd4PHxCjtbAc67j86sW6UNKXs78kkrZhyFqRo7Z4GwoLqXuXhryc9dMRbJxLdy3YGGlALFSmfkU0BrC5E8ATOKYmX81/GvzDbyGeh/b6QwiKzalGjYjy7+BFYqsvhRF1yzPYbvA0S/Q7+iQ5YTJPGjYGixu0xPY6ahP6hIud0QNtb6JpvmcMvfk5VSAf9RFIadsrylKdLlModHwBCWsNBEebUaJudHR0v0GkMZqBnFpMVdH8M90pPM8WgSrLckOdp6l7Tb5mhsocQvAOuPbDz8xqzuQxM787pS/TcSCBgB"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01JnwPDqBDjikkdeq9CyKzeX",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "The Procter & Gamble Company",
+       "ticker": "PG",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2024",
+         "FY2025",
+         "FY2026"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           84039,
+           84284,
+           87032
+          ],
+          "source": "P&G FY2026 Annual Report/10-K (accession 0000080424-26-000103), Consolidated Statements of Earnings"
+         },
+         "operating_income": {
+          "values": [
+           18545,
+           20451,
+           19748
+          ],
+          "source": "P&G FY2026 10-K (0000080424-26-000103), Statements of Earnings, operating income"
+         },
+         "d_and_a": {
+          "values": [
+           2896,
+           2847,
+           3160
+          ],
+          "source": "P&G FY2026 10-K, Consolidated Statements of Cash Flows"
+         },
+         "capex": {
+          "values": [
+           3322,
+           3773,
+           4409
+          ],
+          "source": "P&G FY2026 10-K, Cash Flows, capital expenditures (shown as outflow; entered positive)"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030",
+         "FY2031"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.035,
+          0.035,
+          0.035,
+          0.03,
+          0.03
+         ],
+         "source": "Assumption: FY26 growth 3.3%, FY25 0.3%; organic growth ~2-4% with pricing/volume; fades to 3% toward long-run staples growth."
+        },
+        "ebit_margin": {
+         "value": 0.225,
+         "source": "Assumption: FY2026 margin 22.7% (19,748/87,032), FY2025 24.3%, FY2024 22.1%; held near FY26 level, slightly below for cost/tariff pressure."
+        },
+        "tax_rate": {
+         "value": 0.21,
+         "source": "Assumption: approx. P&G effective tax rate ~21-22% in recent years; not verified against filing in this session."
+        },
+        "da_pct_revenue": {
+         "value": 0.036,
+         "source": "Assumption: FY2026 D&A 3,160/87,032 = 3.6%; FY25 3.4%, FY24 3.4%."
+        },
+        "capex_pct_revenue": {
+         "value": 0.05,
+         "source": "Assumption: P&G guides capital spending 4.5-5.5% of FY2027 net sales (Q4 FY26 release); FY26 actual 5.1%."
+        },
+        "wacc": {
+         "value": 0.07,
+         "source": "Assumption: low-beta (~0.5-0.6) staples, risk-free ~4.3%, ERP ~5%, modest leverage; ~7%."
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "source": "Assumption: long-run nominal growth below GDP/inflation; staples mature."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 24196,
+         "source": "P&G FY2026 balance sheet at June 30, 2026: debt due within one year 11,296 + long-term debt 22,842 = 34,138, minus cash 9,942; no separate short-term investments found.",
+         "period": "FY2026"
+        },
+        "diluted_shares": {
+         "value": 2422.5,
+         "source": "P&G FY2026 Statements of Earnings / Q4 FY26 release: diluted weighted average common shares outstanding (millions)",
+         "period": "FY2026"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 14,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "PG",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 84039,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 84039000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "PG",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 84284,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 84284000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "PG",
+    "metric": "revenue",
+    "period": "FY2026",
+    "value": 87032,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 87032000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "PG",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 18545,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 18545000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "PG",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 20451,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 20451000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "PG",
+    "metric": "operating_income",
+    "period": "FY2026",
+    "value": 19748,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 19748000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "PG",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 2896,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2896000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "PG",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 2847,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2847000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "PG",
+    "metric": "d_and_a",
+    "period": "FY2026",
+    "value": 3160,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3160000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "PG",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 3322,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3322000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "PG",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 3773,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3773000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "PG",
+    "metric": "capex",
+    "period": "FY2026",
+    "value": 4409,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4409000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "PG",
+    "metric": "net_debt",
+    "period": "FY2026",
+    "value": 24196,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 24196000000,
+    "resolved": "PG"
+   },
+   {
+    "company": "PG",
+    "metric": "diluted_shares",
+    "period": "FY2026",
+    "value": 2422.5,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2422500000,
+    "resolved": "PG"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

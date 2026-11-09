@@ -1,0 +1,106 @@
+{
+ "kind": "dcf",
+ "company": "STELLANTIS N.V.",
+ "ticker": "549300LKT9PW7ZIBDF31",
+ "currency": "EUR",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     189544,
+     156878,
+     153508
+    ],
+    "source": "ESEF ifrs-full:Revenue, report 549300LKT9PW7ZIBDF31-2025-12-31-ESEF-NL-0 (EUR millions)"
+   },
+   "operating_income": {
+    "values": [
+     22376,
+     3687,
+     -26254
+    ],
+    "source": "ESEF ifrs-full:ProfitLossFromOperatingActivities, report 549300LKT9PW7ZIBDF31-2025-12-31-ESEF-NL-0; FY2025 includes large charges/impairments"
+   },
+   "d_and_a": {
+    "values": [
+     7549,
+     7226,
+     6981
+    ],
+    "source": "ESEF ifrs-full:AdjustmentsForDepreciationAndAmortisationExpense, report 549300LKT9PW7ZIBDF31-2025-12-31-ESEF-NL-0"
+   },
+   "capex": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: capex not mapped in deskstack ESEF data (null); not filled from memory"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0,
+    0.03,
+    0.03,
+    0.025,
+    0.02
+   ],
+   "source": "Assumption: flat FY2026 after revenue fell from 189.5bn (FY2023) to 153.5bn (FY2025), then modest recovery fading toward 2% as new-model launches and volumes normalise."
+  },
+  "ebit_margin": {
+   "value": 0.045,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: normalised margin well below FY2023 (11.8%) but above FY2024 (2.4%); FY2025 (-17.1%) distorted by one-off charges and treated as non-recurring. Reviewer should revisit."
+  },
+  "tax_rate": {
+   "value": 0.25,
+   "source": "Assumption: approximate blended statutory rate across Stellantis jurisdictions (Italy/France/US/NL); not taken from a filing."
+  },
+  "da_pct_revenue": {
+   "value": 0.045,
+   "period": "FY2025",
+   "source": "Derived: FY2025 D&A 6,981 / revenue 153,508 = 4.5% (ESEF report 549300LKT9PW7ZIBDF31-2025-12-31-ESEF-NL-0)"
+  },
+  "capex_pct_revenue": {
+   "value": 0.05,
+   "source": "Assumption: capex history not found in data; set at 5.0%, slightly above D&A for continued EV/platform investment. Unverified, reviewer to confirm against cash flow statement."
+  },
+  "wacc": {
+   "value": 0.08,
+   "source": "Assumption from CAPM: Rf 3.266% (ECB 10Y AAA, 2026-11-05); ERP 5.27% (Damodaran mature market, per valuation_inputs note); Damodaran Europe Auto & Truck cash-corrected unlevered beta 0.854 relevered at assumed D/E 0.6 and 25% tax = ~1.24; cost of equity ~9.8%; after-tax cost of debt ~4.3% (Damodaran); weights ~62/38 gives ~7.7%, rounded to 8.0% for the turnaround risk."
+  },
+  "terminal_growth": {
+   "value": 0.015,
+   "source": "Assumption: below the 3.27% EUR risk-free rate and long-run euro area nominal growth, reflecting mature auto industry."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 15801,
+   "period": "FY2025",
+   "source": "deskstack derived net_debt = total debt 45,947 (borrowings noncurrent 31,826 + current 14,121) - cash 30,146; no short-term investments reported; report 549300LKT9PW7ZIBDF31-2025-12-31-ESEF-NL-0"
+  },
+  "diluted_shares": {
+   "value": 2886,
+   "period": "FY2025",
+   "source": "Not reported directly (diluted_shares null). Derived: net income attributable -22,368m / diluted EPS -7.75 = ~2,886m shares; approximate, reviewer to verify against filing."
+  }
+ }
+}

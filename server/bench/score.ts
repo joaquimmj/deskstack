@@ -152,7 +152,7 @@ export async function secondReading(items: ScoredItem[], o: Opts = {}): Promise<
     }
     const scale = SCALE[x.scale] ?? null;
     const facts = scale && x.company && o.filingFacts ? await o.filingFacts(x.company, x.period).catch(() => null) : null;
-    const hit = facts && scale ? findInFiling(x.value * scale, tolerance(x.value, scale), facts) : null;
+    const hit = facts && scale ? findInFiling(x.value * scale, tolerance(x.value, scale), facts, x.metric) : null;
     out.push(hit ? { ...rest, status: "other_line", other_line: hit, hints: [...(x.hints ?? []), `equals ${hit} in the same filing`] } : x);
   }
   return out;

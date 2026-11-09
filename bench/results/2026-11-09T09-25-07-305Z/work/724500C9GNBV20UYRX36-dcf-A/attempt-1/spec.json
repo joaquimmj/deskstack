@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "Koninklijke Ahold Delhaize N.V.",
+ "ticker": "724500C9GNBV20UYRX36",
+ "currency": "EUR",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     88734,
+     89356,
+     92352
+    ],
+    "source": "Net sales (IFRS). FY2024 and FY2025 from Annual Report 2025 financial statements segment note. FY2023 is the restated figure from the Q4 2024 report/AR2024 (originally 88,649). EUR m."
+   },
+   "operating_income": {
+    "values": [
+     2846,
+     2784,
+     3542
+    ],
+    "source": "IFRS operating income. FY2025 3,542 and FY2024 2,784 from Q4 2025 summary report. FY2023 2,846 from AR2023/Q4 2024 report. EUR m."
+   },
+   "d_and_a": {
+    "values": [
+     3469,
+     3477,
+     3586
+    ],
+    "source": "Depreciation and amortization from segment notes. FY2023 3,469 (restated, AR2024), FY2024 3,477, FY2025 3,586 (AR2025). Includes right-of-use asset depreciation. EUR m."
+   },
+   "capex": {
+    "values": [
+     2434,
+     2299,
+     2564
+    ],
+    "source": "Cash capex ('Purchase of non-current assets'). FY2023 2,434 and FY2024 2,299 from AR2024 performance review cash flow. FY2025 2,564 from the investing.com cash-flow page (third-party, not checked against the AR2025 filing). Gross cash capex guidance and actual was about EUR 2.6bn. EUR m."
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.03,
+    0.028,
+    0.026,
+    0.025,
+    0.025
+   ],
+   "source": "Assumption. FY2025 growth was 3.4% reported and 5.9% at constant rates, helped by the Profi acquisition. I fade from about 3% toward a mature grocery rate of about 2.5% (inflation plus modest volume). It is not company guidance."
+  },
+  "ebit_margin": {
+   "value": 0.04,
+   "period": "FY2026-FY2030",
+   "source": "Assumption. FY2025 IFRS margin was 3.8% (3,542/92,352) and the underlying margin was 4.0% (Q4 2025 report). 2026 guidance is not retrieved. I hold 4.0% flat as a normalised level."
+  },
+  "tax_rate": {
+   "value": 0.24,
+   "period": "FY2026-FY2030",
+   "source": "Assumption. A blended US (about 25%) and Benelux/Europe statutory rate. The effective rate was not retrieved from the filings."
+  },
+  "da_pct_revenue": {
+   "value": 0.0385,
+   "period": "FY2026-FY2030",
+   "source": "Assumption based on FY2025 D&A of 3,586/92,352 = 3.88%. Includes right-of-use depreciation."
+  },
+  "capex_pct_revenue": {
+   "value": 0.029,
+   "period": "FY2026-FY2030",
+   "source": "Assumption. FY2025 cash capex was about 2.8% of sales and 2026 guidance is about EUR 2.7bn gross cash capex (about 2.9% of sales). Capex excludes lease additions while D&A includes lease depreciation, so FCF is overstated. The reviewer should consider lease-adjusted treatment."
+  },
+  "wacc": {
+   "value": 0.065,
+   "period": "terminal",
+   "source": "Assumption. A defensive grocer with a beta of about 0.5-0.6, a risk-free rate of about 3%, an equity risk premium of about 5.5% and moderate leverage. Not taken from a data provider."
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "period": "terminal",
+   "source": "Assumption. In line with long-run euro/US inflation and below nominal GDP."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": null,
+   "period": "FY2025",
+   "source": "Not found on the convention basis (debt excluding leases, less cash and short-term investments). The company-reported net debt at 28 Dec 2025 was EUR 14,699m (Q4 2025 report), but that includes lease liabilities. The year-end lease liability was not retrieved because the search tool limit was hit. The reviewer must subtract leases from 14,699."
+  },
+  "diluted_shares": {
+   "value": 904,
+   "period": "FY2025",
+   "source": "Derived, not read from a filing. Underlying income from continuing operations of EUR 2,414m divided by diluted underlying EPS of EUR 2.67 gives about 904m shares (Q4 2025 report). Q1 2025 diluted weighted average was 916m. The reviewer should check against the AR2025 EPS note. Millions."
+  }
+ }
+}

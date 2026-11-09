@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "Adobe Inc.",
+ "ticker": "ADBE",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     19409,
+     21505,
+     23769
+    ],
+    "source": "Adobe FY2025 10-K (accession 0000796343-26-000003), income statement"
+   },
+   "operating_income": {
+    "values": [
+     6650,
+     6740,
+     8710
+    ],
+    "source": "Adobe Q4 earnings press releases (8-K ex99.1) for FY23/FY24/FY25: GAAP operating income quoted as $6.65B, $6.74B, $8.71B; rounded to $10M, check against 10-K"
+   },
+   "d_and_a": {
+    "values": [
+     null,
+     857,
+     818
+    ],
+    "source": "Sum of four quarterly 'Depreciation, amortization and accretion' lines in Adobe 8-Ks FY25 (217+209+208+184) and FY24 (212+214+213+218); FY2023 not found"
+   },
+   "capex": {
+    "values": [
+     null,
+     183,
+     179
+    ],
+    "source": "Sum of quarterly 'Purchases of property and equipment' in Adobe 8-Ks FY25 (26+47+72+34) and FY24 (37+41+57+48); FY2023 not found"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.105,
+    0.1,
+    0.095,
+    0.09,
+    0.085
+   ],
+   "source": "Assumption: FY2025 growth was 11% (10-K: 23,769 vs 21,505); fade ~50bp per year as the base grows and AI competition matures"
+  },
+  "ebit_margin": {
+   "value": 0.365,
+   "source": "Assumption: held near FY2025 GAAP margin of 36.6% (8,710/23,769)"
+  },
+  "tax_rate": {
+   "value": 0.185,
+   "source": "Assumption: approximates Adobe's recent effective rate of about 18-19%; not verified against the 10-K tax note"
+  },
+  "da_pct_revenue": {
+   "value": 0.034,
+   "source": "FY2025 D&A 818 / revenue 23,769 = 3.4%"
+  },
+  "capex_pct_revenue": {
+   "value": 0.0075,
+   "source": "FY2025 capex 179 / revenue 23,769 = 0.75%"
+  },
+  "wacc": {
+   "value": 0.095,
+   "source": "Assumption: Rf ~4.3%, beta ~1.1, ERP ~5% gives cost of equity ~9.8%; little debt, so WACC ~9.5%. Not data-sourced."
+  },
+  "terminal_growth": {
+   "value": 0.03,
+   "source": "Assumption: long-run nominal GDP-like growth, below WACC"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": -385,
+   "source": "Adobe FY2025 10-K at Nov 28 2025: senior notes carrying value ~$6.21B (par $6.15B) minus cash 5,431 minus short-term investments 1,164 = 6,210-6,595 = -385",
+   "period": "FY2025"
+  },
+  "diluted_shares": {
+   "value": 427,
+   "source": "Adobe FY2025 10-K EPS note: weighted average diluted shares ~427 million. Check the decimal against the filing.",
+   "period": "FY2025"
+  }
+ }
+}

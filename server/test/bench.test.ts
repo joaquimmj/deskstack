@@ -299,6 +299,25 @@ describe("second reading of mismatches (pilot 2026-11-08)", () => {
     expect(findInFiling(4_287e6, 0.5e6, facts)).toBeNull();
   });
 
+  it("with a metric, only lines of its family count: no chance sums of unrelated lines (main run, 2026-11-09)", () => {
+    const facts = [
+      { concept: "ifrs-full:IncreaseDecreaseThroughChangesInOwnershipInterestsInSubsidiariesThatDoNotResultInLossOfControl", value: 100e6 },
+      { concept: "ifrs-full:DeferredTaxAssets", value: 222e6 },
+      { concept: "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities", value: 300e6 },
+      { concept: "ifrs-full:PurchaseOfIntangibleAssetsClassifiedAsInvestingActivities", value: 22e6 },
+      { concept: "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic", value: 850e6 },
+      { concept: "us-gaap:CompensationAndBenefitsTrust", value: 4e6 },
+    ];
+    expect(findInFiling(322e6, 0.5e6, facts)).not.toBeNull(); // the old rule: some pair always fits
+    expect(findInFiling(322e6, 0.5e6, facts, "capex")).toBe(
+      "ifrs-full:PurchaseOfIntangibleAssetsClassifiedAsInvestingActivities + ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
+    );
+    expect(findInFiling(322e6, 0.5e6, facts.slice(0, 3), "capex")).toBeNull();
+    expect(findInFiling(850e6, 0.5e6, facts, "diluted_shares")).toBe("us-gaap:WeightedAverageNumberOfSharesOutstandingBasic");
+    expect(findInFiling(854e6, 0.5e6, facts, "diluted_shares")).toBeNull(); // shares: single lines only
+    expect(findInFiling(300e6, 0.5e6, facts, "no_such_metric")).toBeNull();
+  });
+
   it("SEC facts: annual filings only, the column's period, every namespace but dei", () => {
     const cf = {
       facts: {

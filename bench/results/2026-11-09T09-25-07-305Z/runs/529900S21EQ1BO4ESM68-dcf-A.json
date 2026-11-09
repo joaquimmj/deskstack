@@ -1,0 +1,1800 @@
+{
+ "company": "529900S21EQ1BO4ESM68",
+ "task": "dcf",
+ "arm": "A",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "TotalEnergies SE",
+   "ticker": "529900S21EQ1BO4ESM68",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2022",
+     "FY2023",
+     "FY2024"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       263310,
+       218945,
+       195610
+      ],
+      "source": "Revenues from sales, consolidated statement of income: FY2022 from 4Q22 results release (8 Feb 2023); FY2023 and FY2024 from 4Q24/FY2024 results release (5 Feb 2025). USD millions."
+     },
+     "operating_income": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found - TotalEnergies does not report an IFRS operating income line and I could not retrieve the full-year income statements (search limit reached). Reviewer to fill from the URD."
+     },
+     "d_and_a": {
+      "values": [
+       null,
+       13818,
+       13107
+      ],
+      "source": "Depreciation, depletion, amortization and impairment, FY2024 13,107 and FY2023 13,818, TotalEnergies Q4 2024 accounts PDF (cash-flow statement). FY2022 not found."
+     },
+     "capex": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found for full years. Only 9M figures retrieved: additions to intangible assets and PP&E 9M2024 11,229 and 9M2023 12,646 (6-K, Q3 2024 accounts). Reviewer to fill."
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2025",
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029"
+    ],
+    "revenue_growth": {
+     "values": [
+      -0.03,
+      0,
+      0.01,
+      0.015,
+      0.015
+     ],
+     "source": "Assumption: FY2024 revenue fell 10.7% (218,945 to 195,610) on lower oil/gas prices; assume a further mild decline in 2025 on softer prices, then flat and low growth in line with price normalisation and LNG/electricity volume growth."
+    },
+    "ebit_margin": {
+     "value": 0.11,
+     "source": "Assumption, not derived from filed EBIT (not found). Rough placeholder for an integrated major at mid-cycle prices; reviewer to check against FY2024 URD."
+    },
+    "tax_rate": {
+     "value": 0.38,
+     "source": "Assumption: TotalEnergies' effective tax rate is high because of upstream production taxes in high-tax jurisdictions. Not verified against filings."
+    },
+    "da_pct_revenue": {
+     "value": 0.067,
+     "source": "FY2024 D&A 13,107 / revenue 195,610 = 6.7% (Q4 2024 accounts PDF and results release)."
+    },
+    "capex_pct_revenue": {
+     "value": 0.08,
+     "source": "Assumption: 9M2024 capex of 11,229 against 9M2024 revenues of about 148,495 is about 7.6%. Rounded up to 8% for the 2025 investment plan. Full-year capex not found."
+    },
+    "wacc": {
+     "value": 0.085,
+     "source": "Assumption: integrated oil and gas major, beta around 0.9, risk-free rate about 3%, ERP about 5.5%, modest leverage (gearing 8.3% at FY2024), USD cash flows."
+    },
+    "terminal_growth": {
+     "value": 0.01,
+     "source": "Assumption: below long-run inflation to reflect long-term energy transition risk to hydrocarbons."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 11924,
+     "source": "FY2024 year-end from the 4Q24 release net debt table: current borrowings 7,929 + other current financial liabilities 664 + non-current financial debt 35,711 (excludes leases) - cash 25,844 - current financial assets 6,536 = 11,924. The company's reported net debt is 10,930; it also nets non-current financial assets of 1,027 and held-for-sale items of 33.",
+     "period": "FY2024"
+    },
+    "diluted_shares": {
+     "value": 2315,
+     "source": "Weighted average diluted shares for 2024, 2,315 million, from the 4Q24 results release (adjusted diluted EPS $7.77). Millions of shares.",
+     "period": "FY2024"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "TotalEnergies SE",
+   "ticker": "529900S21EQ1BO4ESM68",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2022",
+     "FY2023",
+     "FY2024"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       263310,
+       218945,
+       195610
+      ],
+      "source": "Revenues from sales, consolidated statement of income: FY2022 from 4Q22 results release (8 Feb 2023); FY2023 and FY2024 from 4Q24/FY2024 results release (5 Feb 2025). USD millions."
+     },
+     "operating_income": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found - TotalEnergies does not report an IFRS operating income line and I could not retrieve the full-year income statements (search limit reached). Reviewer to fill from the URD."
+     },
+     "d_and_a": {
+      "values": [
+       null,
+       13818,
+       13107
+      ],
+      "source": "Depreciation, depletion, amortization and impairment, FY2024 13,107 and FY2023 13,818, TotalEnergies Q4 2024 accounts PDF (cash-flow statement). FY2022 not found."
+     },
+     "capex": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found for full years. Only 9M figures retrieved: additions to intangible assets and PP&E 9M2024 11,229 and 9M2023 12,646 (6-K, Q3 2024 accounts). Reviewer to fill."
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2025",
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029"
+    ],
+    "revenue_growth": {
+     "values": [
+      -0.03,
+      0,
+      0.01,
+      0.015,
+      0.015
+     ],
+     "source": "Assumption: FY2024 revenue fell 10.7% (218,945 to 195,610) on lower oil/gas prices; assume a further mild decline in 2025 on softer prices, then flat and low growth in line with price normalisation and LNG/electricity volume growth."
+    },
+    "ebit_margin": {
+     "value": 0.11,
+     "source": "Assumption, not derived from filed EBIT (not found). Rough placeholder for an integrated major at mid-cycle prices; reviewer to check against FY2024 URD."
+    },
+    "tax_rate": {
+     "value": 0.38,
+     "source": "Assumption: TotalEnergies' effective tax rate is high because of upstream production taxes in high-tax jurisdictions. Not verified against filings."
+    },
+    "da_pct_revenue": {
+     "value": 0.067,
+     "source": "FY2024 D&A 13,107 / revenue 195,610 = 6.7% (Q4 2024 accounts PDF and results release)."
+    },
+    "capex_pct_revenue": {
+     "value": 0.08,
+     "source": "Assumption: 9M2024 capex of 11,229 against 9M2024 revenues of about 148,495 is about 7.6%. Rounded up to 8% for the 2025 investment plan. Full-year capex not found."
+    },
+    "wacc": {
+     "value": 0.085,
+     "source": "Assumption: integrated oil and gas major, beta around 0.9, risk-free rate about 3%, ERP about 5.5%, modest leverage (gearing 8.3% at FY2024), USD cash flows."
+    },
+    "terminal_growth": {
+     "value": 0.01,
+     "source": "Assumption: below long-run inflation to reflect long-term energy transition risk to hydrocarbons."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 11924,
+     "source": "FY2024 year-end from the 4Q24 release net debt table: current borrowings 7,929 + other current financial liabilities 664 + non-current financial debt 35,711 (excludes leases) - cash 25,844 - current financial assets 6,536 = 11,924. The company's reported net debt is 10,930; it also nets non-current financial assets of 1,027 and held-for-sale items of 33.",
+     "period": "FY2024"
+    },
+    "diluted_shares": {
+     "value": 2315,
+     "source": "Weighted average diluted shares for 2024, 2,315 million, from the 4Q24 results release (adjusted diluted EPS $7.77). Millions of shares.",
+     "period": "FY2024"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 1,
+  "usage": {
+   "input_tokens": 22,
+   "output_tokens": 5215,
+   "cache_creation_input_tokens": 29481,
+   "cache_read_input_tokens": 153089,
+   "server_tool_use": {
+    "web_search_requests": 12
+   }
+  },
+  "cost": 0.2765143,
+  "seconds": 74.312,
+  "tool_calls": {
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: web_search (public web pages). No other data source is available.\n\nBuild a quick unlevered DCF for TotalEnergies SE (identifier: 529900S21EQ1BO4ESM68).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 22,
+     "cache_creation_input_tokens": 29481,
+     "cache_read_input_tokens": 153089,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 29481,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 5215,
+     "output_tokens_details": {
+      "thinking_tokens": 1780
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard",
+     "server_tool_use": {
+      "web_search_requests": 12,
+      "web_fetch_requests": 0
+     }
+    },
+    "cost": 0.2765143,
+    "content": [
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Mro9ZtitSBbQqBKcTaLcYe",
+      "name": "code_execution",
+      "input": {
+       "code": "qs=[\"TotalEnergies full year 2024 results revenues adjusted net income capex depreciation net debt diluted shares\",\"TotalEnergies 2024 consolidated statements income sales operating income depreciation depletion amortization diluted weighted average shares\",\"TotalEnergies 2023 2022 sales consolidated statement of cash flow intangible capex DD&A\"]\nfor q in qs:\n    r=await web_search({\"query\":q})\n    for x in r[:5]:\n        print(x['url']);print(x['content'][:600].replace(\"\\n\",\" \"));print()"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01DT2zEfj3QW6UmY3UJTHUfY",
+      "name": "web_search",
+      "input": {
+       "query": "TotalEnergies full year 2024 results revenues adjusted net income capex depreciation net debt diluted shares"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01Mro9ZtitSBbQqBKcTaLcYe"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01DT2zEfj3QW6UmY3UJTHUfY",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results",
+        "url": "https://www.nasdaq.com/press-release/totalenergies-se-fourth-quarter-and-full-year-2024-results-2025-02-05",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Fourth quarter and full-year 2024 results",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_pr-results-q4-2024_2025_en.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results",
+        "url": "https://www.marketscreener.com/quote/stock/TOTALENERGIES-SE-4717/news/TotalEnergies-SE-Fourth-Quarter-and-Full-Year-2024-Results-48959401/",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Sec",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465926013065/tm265640d1_ex99-1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results",
+        "url": "https://live.euronext.com/en/products/equities/company-news/2025-02-05-totalenergies-se-fourth-quarter-and-full-year-2024",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results",
+        "url": "https://finance.yahoo.com/news/totalenergies-se-fourth-quarter-full-071500262.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924082449/tot-20240630xex99d1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924084523/tm2420095d1_ex99-13.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924113348/tm2426879d1_ex99-14.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies posts 21% drop in full-year profit on lower crude prices",
+        "url": "https://www.cnbc.com/2025/02/05/totalenergies-earnings-full-year-and-q4-2024.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "641 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01Mro9ZtitSBbQqBKcTaLcYe"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01Mro9ZtitSBbQqBKcTaLcYe",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDPjEsiFS5yjFMSUpjhoMLoVcE3Y9rSAtz4BLIjAttIAhuttYIwHWGE4ALH0hLWY7c8KvfcHrLk+zWKMJU+ntfsshDtv4Fm7J3yMv4z4qEgy6cEytSecN/TPef4WwZJv5nxgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01Mro9ZtitSBbQqBKcTaLcYe/cell.py\", line 12, in <module>\n    print(x['url']);print(x['content'][:600].replace(\"\\n\",\" \"));print()\n          ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_014wBcrv78w9UeT1FrcwYmCa",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":qs[0]})\nprint(type(r), str(r)[:1500])"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Mze1t8saQGCzaRRzbThdME",
+      "name": "web_search",
+      "input": {
+       "query": "TotalEnergies full year 2024 results revenues adjusted net income capex depreciation net debt diluted shares"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_014wBcrv78w9UeT1FrcwYmCa"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01Mze1t8saQGCzaRRzbThdME",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results",
+        "url": "https://www.nasdaq.com/press-release/totalenergies-se-fourth-quarter-and-full-year-2024-results-2025-02-05",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Fourth quarter and full-year 2024 results",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_pr-results-q4-2024_2025_en.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results",
+        "url": "https://www.marketscreener.com/quote/stock/TOTALENERGIES-SE-4717/news/TotalEnergies-SE-Fourth-Quarter-and-Full-Year-2024-Results-48959401/",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Sec",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465926013065/tm265640d1_ex99-1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results",
+        "url": "https://live.euronext.com/en/products/equities/company-news/2025-02-05-totalenergies-se-fourth-quarter-and-full-year-2024",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results",
+        "url": "https://finance.yahoo.com/news/totalenergies-se-fourth-quarter-full-071500262.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924082449/tot-20240630xex99d1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924084523/tm2420095d1_ex99-13.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924113348/tm2426879d1_ex99-14.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies posts 21% drop in full-year profit on lower crude prices",
+        "url": "https://www.cnbc.com/2025/02/05/totalenergies-earnings-full-year-and-q4-2024.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "641 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_014wBcrv78w9UeT1FrcwYmCa"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_014wBcrv78w9UeT1FrcwYmCa",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01L26aCfJoD3SUGhLJcss2wX",
+      "name": "code_execution",
+      "input": {
+       "code": "import json,re\nr=json.loads(r)\nt=r[0]['content']\nfor k in [\"Sales\",\"Total expenditures\",\"Depreciation\",\"diluted\",\"Net debt\",\"net debt\",\"Cash and cash\",\"Gross capex\",\"Net investments\",\"Operating income\",\"Current borrowings\",\"non-current financial debt\",\"Current financial assets\"]:\n    for m in re.finditer(k,t):\n        print(k,'|',t[max(0,m.start()-100):m.start()+300].replace(\"\\n\",\" \"));print('--')\n        "
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01L26aCfJoD3SUGhLJcss2wX",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "diluted | ourth quarter 2024 versus $4,074 million in the third quarter 2024, for the same reasons.  Adjusted diluted net earnings per share were:  - $1.90 in the fourth quarter 2024, based on 2,282 million weighted average diluted shares, compared to $1.74 in the third quarter 2024, - $7.77 in 2024, based on 2,315 million weighted average diluted shares, compared to $9.40 in 2023.  - (M$) (a) · Year 2024 (\n--\ndiluted | rnings per share were:  - $1.90 in the fourth quarter 2024, based on 2,282 million weighted average diluted shares, compared to $1.74 in the third quarter 2024, - $7.77 in 2024, based on 2,315 million weighted average diluted shares, compared to $9.40 in 2023.  - (M$) (a) · Year 2024 (unaudited) · Year 2023  - Revenues from sales · 195,610 · 218,945  - Net cost of net debt · (331)  - Net income - \n--\ndiluted | mpared to $1.74 in the third quarter 2024, - $7.77 in 2024, based on 2,315 million weighted average diluted shares, compared to $9.40 in 2023.  - (M$) (a) · Year 2024 (unaudited) · Year 2023  - Revenues from sales · 195,610 · 218,945  - Net cost of net debt · (331)  - Net income - TotalEnergies share · 3,956  - Net cost of net debt · (1,360)  - Net cost of net debt · (1,108)\n--\nnet debt | ) (a) · Year 2024 (unaudited) · Year 2023  - Revenues from sales · 195,610 · 218,945  - Net cost of net debt · (331)  - Net income - TotalEnergies share · 3,956  - Net cost of net debt · (1,360)  - Net cost of net debt · (1,108)\n--\nnet debt |  218,945  - Net cost of net debt · (331)  - Net income - TotalEnergies share · 3,956  - Net cost of net debt · (1,360)  - Net cost of net debt · (1,108)\n--\nnet debt |  (331)  - Net income - TotalEnergies share · 3,956  - Net cost of net debt · (1,360)  - Net cost of net debt · (1,108)\n--\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSoAUKEAgTGAI4AUIIdGhpbmtpbmcSDBSnKjI3myH8Q+j6MBoMl7H+bpstAEi+1zwdIjCpfen1z6DkwIe5wgmjX2o1kJaxehKiRkwKWS1xb3qy+crqm1SvJ/eeAfy+ES355GkqvQRb7KHLsWApWsvcw6Z5c+v6hDEQWDKf9ZAOpkMx1Iry8BkUJXyxaDE814WJSs/Usnbn8/SfWsh4i3NM2XjGFBA1sZGPl40NMhloCRhIWIMaWCdpOT6/sOLzkjzG9/T8AteanZ/Mv6O0A4yZuV4sNm3YANtt18rHp4mwU5XpfIMk3KXw+I6823Ql2MIH8wsfFZF2c9mYAgAcHArbEftmVzuOpd5r/TGbUH6Y9QH5THDv6b2fArXKUTv+xd+EpwPFa5sHwYWmqCinmIMxoVycwf/03+ryiKTCoJfTetf08y4ObzvvotZEUcWXTp1oN0HuKrLiEkejz6sKnKuiGW/JKHx3ZBPX2vmdOs1IxCOVibNonzj6Tny8r2t5977uVmPVZMV7Jzf//cOEcB72rz7GghybrkPpjlYbW/Vj9QKE6+e4xeaNaNxVb71GWsg/Y++0Zl+JaRQ89YxE2iO/RbyhPP6JSWGTjWP1f9HeUOxfN0GWvi2SfDyWBvhGrlEsDuovPS/+WFi3ae6SHpCRbb3EorIlVaYl4p9vPszrplrPxQ4o0fiY3yTLvhAPTNqyDfC7hx62P9aZebxlU4rvtN3mE1FJ6VtglqZquziIDhosSAxWVcJBPW6HeLU6bC0oYMbof+HK3aKUsEvWHt8Krag22KxuW0rpFRamEVB5nKEDBtyQEzNEXOqkEo13fGcrnHSNZ5dPFqAT/i5/5sc+w3bwMepC+OVW6ql3wVnpBUjut7QTZSNN3zlQuEZL5KkSz4wYAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_016BXP7NiKeyBVBjK8AcUa7E",
+      "name": "code_execution",
+      "input": {
+       "code": "def s(q,keys,w=250):\n    r=json.loads(await_r[q]) if False else None\nqs=[\"TotalEnergies 2024 consolidated statement of income sales depreciation depletion and impairment of tangible assets and mineral interests\",\"TotalEnergies 2024 consolidated balance sheet current borrowings non-current financial debt cash and cash equivalents December 31 2024\",\"TotalEnergies 2024 consolidated cash flow intangible assets and property plant equipment additions\",\"TotalEnergies 2022 results sales 263,085 depreciation capex\"]\nout={}\nfor q in qs:\n    out[q]=json.loads(await web_search({\"query\":q}))\n    for x in out[q][:6]:\n        print(x['url'],len(x['content']))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01FJp8t8d2AeUTpEKAwNfVeT",
+      "name": "web_search",
+      "input": {
+       "query": "TotalEnergies 2024 consolidated statement of income sales depreciation depletion and impairment of tangible assets and mineral interests"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_016BXP7NiKeyBVBjK8AcUa7E"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01FJp8t8d2AeUTpEKAwNfVeT",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "CONSOLIDATED STATEMENT OF INCOME TotalEnergies (M$) (a) 4th quarter 2024",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_accounts-q4-2024_2025_en.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924113348/tm2426879d1_ex99-14.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "consolidated statement of income",
+        "url": "https://totalenergies.com/sites/g/files/nytnzq121/files/documents/totalenergies_totalenergies-SE-limited-audit-review_2025_en.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CONSOLIDATED STATEMENT OF INCOME TotalEnergies (unaudited) 1st quarter",
+        "url": "https://totalenergies.com/system/files/documents/2024-04/totalenergies_accounts-q1-2024_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "952 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "CONSOLIDATED STATEMENT OF INCOME TotalEnergies (unaudited) 3rd quarter",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_accounts-q3-2024_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies : Accounts (totalenergies 2q 2024 financial statements 2024 en pdf)",
+        "url": "https://uk.marketscreener.com/quote/stock/TOTALENERGIES-SE-4717/news/TotalEnergies-Accounts-totalenergies-2q-2024-financial-statements-2024-en-pdf-47463901/",
+        "encrypted_content": "[omitted]",
+        "page_age": "599 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Financial report First half 2024",
+        "url": "https://totalenergies.com/sites/g/files/nytnzq121/files/documents/2024-07/TotalEnergies_rapport_financier_semestriel_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "836 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924112845/tm2426879d2_ex99-1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Second quarter and first half 2024 results",
+        "url": "https://totalenergies.com/system/files/documents/2024-07/totalenergies_2q-2024-results-press-release_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "837 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924052322/tm2412491d3_ex99-1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_016BXP7NiKeyBVBjK8AcUa7E"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01G41w8yuiR5NkD7yFafD4qx",
+      "name": "web_search",
+      "input": {
+       "query": "TotalEnergies 2024 consolidated balance sheet current borrowings non-current financial debt cash and cash equivalents December 31 2024"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_016BXP7NiKeyBVBjK8AcUa7E"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01G41w8yuiR5NkD7yFafD4qx",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Third quarter 2024 results",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_pr-results-q3-2024_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "739 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results",
+        "url": "https://finance.yahoo.com/news/totalenergies-se-fourth-quarter-full-071500262.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Third Quarter 2024 Results",
+        "url": "https://finance.yahoo.com/news/totalenergies-se-third-quarter-2024-072000283.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "739 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "CONSOLIDATED STATEMENT OF INCOME TotalEnergies (unaudited) 1st quarter",
+        "url": "https://totalenergies.com/system/files/documents/2024-04/totalenergies_accounts-q1-2024_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "952 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Fourth quarter and full-year 2024 results",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_pr-results-q4-2024_2025_en.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "consolidated statement of income",
+        "url": "https://totalenergies.com/sites/g/files/nytnzq121/files/documents/totalenergies_totalenergies-SE-limited-audit-review_2025_en.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Financial report First half 2024",
+        "url": "https://totalenergies.com/sites/g/files/nytnzq121/files/documents/2024-07/TotalEnergies_rapport_financier_semestriel_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "836 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Fourth quarter and full year 2025 results",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_pr-results-q4-2025_2026_en.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "271 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE (TTE) Balance Sheet",
+        "url": "https://stockanalysis.com/stocks/tte/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_016BXP7NiKeyBVBjK8AcUa7E"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01S1kgzyq5gE952LFfG3GnPu",
+      "name": "web_search",
+      "input": {
+       "query": "TotalEnergies 2024 consolidated cash flow intangible assets and property plant equipment additions"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_016BXP7NiKeyBVBjK8AcUa7E"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01S1kgzyq5gE952LFfG3GnPu",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924084523/tm2420095d1_ex99-13.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924113348/tm2426879d1_ex99-14.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924112845/tm2426879d2_ex99-1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Fourth quarter and full-year 2024 results",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_pr-results-q4-2024_2025_en.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924055925/tm2412701d1_ex99-13.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Third Quarter 2024 Results",
+        "url": "https://www.businesswire.com/news/home/20241031605124/en/TotalEnergies-SE-Third-Quarter-2024-Results",
+        "encrypted_content": "[omitted]",
+        "page_age": "739 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "CONSOLIDATED STATEMENT OF INCOME TotalEnergies (unaudited) 1st quarter",
+        "url": "https://totalenergies.com/system/files/documents/2024-04/totalenergies_accounts-q1-2024_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "952 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results",
+        "url": "https://live.euronext.com/en/products/equities/company-news/2025-02-05-totalenergies-se-fourth-quarter-and-full-year-2024",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results",
+        "url": "https://www.nasdaq.com/press-release/totalenergies-se-fourth-quarter-and-full-year-2024-results-2025-02-05",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Q3 2024 Condensed interim financial statements",
+        "url": "https://totalenergies.com/sites/g/files/nytnzq121/files/documents/totalenergies_TotalEnergies-SE-Q3-2024-Condensed-interim-financial_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_016BXP7NiKeyBVBjK8AcUa7E"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01JQrWYfgZQsyaHupwCzXcqJ",
+      "name": "web_search",
+      "input": {
+       "query": "TotalEnergies 2022 results sales 263,085 depreciation capex"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_016BXP7NiKeyBVBjK8AcUa7E"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01JQrWYfgZQsyaHupwCzXcqJ",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Fourth quarter and full-year 2022 results",
+        "url": "https://totalenergies.com/system/files/documents/2023-02/TotalEnergies_4Q22_Results.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "1370 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies annual profit doubles to $36.2bn",
+        "url": "https://www.offshore-technology.com/news/totalenergies-profit-36/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1368 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Third Quarter 2022 Results",
+        "url": "https://www.businesswire.com/news/home/20221026006181/en/TotalEnergies-SE-Third-Quarter-2022-Results",
+        "encrypted_content": "[omitted]",
+        "page_age": "1473 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "First quarter 2022 results TotalEnergies records a $4.1 ...",
+        "url": "https://totalenergies.com/system/files/documents/2022-04/1Q22_Results.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "1656 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE 1 Third Quarter 2022 Results",
+        "url": "https://totalenergies.com/system/files/documents/2022-10/3Q22_Results.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "1474 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies: First Quarter 2022 Results",
+        "url": "https://www.businesswire.com/news/home/20220427006262/en/TotalEnergies-First-Quarter-2022-Results",
+        "encrypted_content": "[omitted]",
+        "page_age": "1655 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "CONSOLIDATED STATEMENT OF INCOME TotalEnergies (M$) (a) 4th quarter 2022",
+        "url": "https://totalenergies.com/system/files/documents/2023-02/TotalEnergies_consolidated_statement_of_incomes_31122022.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Financial report First half 2022",
+        "url": "https://totalenergies.com/sites/g/files/nytnzq121/files/documents/2022-07/TotalEnergies_Financial_report_first_half_2022.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "1564 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Sec",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465923012205/tm235611d1_ex99-1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_016BXP7NiKeyBVBjK8AcUa7E"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_016BXP7NiKeyBVBjK8AcUa7E",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "text",
+      "text": "Snippets are short. Print the key ones."
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01JpDsx2nTteyq2vxiF9FE9Y",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in qs[:3]:\n    for x in out[q][:3]:\n        print(x['url']);print(x['content']);print('==')"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01JpDsx2nTteyq2vxiF9FE9Y",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "https://totalenergies.com/system/files/documents/totalenergies_accounts-q4-2024_2025_en.pdf\nDepreciation, depletion and impairment of tangible assets and mineral interests. … Net income - TotalEnergies share.\n\n(30,342) · (31,425) · (37,150)\n\nOther income\n\nDepreciation, depletion and impairment of tangible assets and mineral interests · (12,025) · (12,762)\n\nOther income\n\n| Depreciation, depletion, amortization and impairment | 13,107 | 13,818 |\n\n| 4th quarter 2024  |  |  | Integrated Integrated  |  |  |  |  |  |  |\n\n| Intersegment sales |  | 9,382 | 2,968 765 7,207 | 168 |  | 70 | (20,560) |  | - |\n\n| Depreciation, depletion and impairment of tangible assets and mineral interests |  | (1,853) | (326) (28) (250) | (227) |  | (31) |  | - | (2,715) |\n\n| 3rd quarter 2024 |  | Integrated Integrated  |  |  |  |  |  |  |\n\n| Intersegment sales |  | 9,633 2,017 424 7,927 | 218 |  | 58 | (20,277) |  | - |\n\n| Depreciation, depletion and impairment of tangible assets and mineral interests |  | (2,324) (294) (114) (400) | (229) |  | (31) |  | - | (3,392) |\n\n| Depreciation, depletion and impairment of tangible assets and mineral interests | (2,334) (440) (97) (394) | (236) |  | (38) |  | - | (3,539) |\n\n| Year 2024 |  | Integrated Integrated  |  |  |  |  |  |  |\n\n| Intersegment sales | 38,546 | 10,591 2,348 31,480 | 819 |  | 268 | (84,052) |  | - |\n\n| Depreciation, depletion and impairment of tangible assets and mineral interests | (8,001) | (1,251) (344) (1,442) | (870) |  | (117) |  | - | (12,025) |\n\n**TotalEnergies**\n\n| Depreciation, depletion and impairment of tangible assets and mineral interests | (8,493) (1,288) (281) (1,685) | (905) |  | (110) |  | - | (12,762) |\n==\nhttps://www.sec.gov/Archives/edgar/data/879764/000110465924113348/tm2426879d1_ex99-14.htm\n| CONSOLIDATED STATEMENT OF INCOME                                                                \n TotalEnergies\n\n(M$)(a) 2024 2023                                                                               \n Sales 162,042 177,891\n\nRevenues from sales 148,495 164,180\n\nDepreciation, depletion and impairment of tangible assets and mineral interests (9,310) (9,223) \n Other income 1,806 992\n\nConsolidated net income 12,012 16,473                                                           \n TotalEnergies share 11,802 16,321                                                               \n Non-controlling interests 210 152\n\n(a) Except for per share amounts.\n\n| CONSOLIDATED STATEMENT OF COMPREHENSIVE INCOME                                  \n TotalEnergies\n\n(M$) 2024 2023                                                                  \n Consolidated net income 12,012 16,473                                           \n Other comprehensive income\n\nTotalEnergies share 12,635 17,539                                               \n Non-controlling interests 214 92\n==\nhttps://totalenergies.com/sites/g/files/nytnzq121/files/documents/totalenergies_totalenergies-SE-limited-audit-review_2025_en.pdf\nDepreciation, depletion and impairment of tangible assets and mineral interests. … On July 17, 2024, TotalEnergies announced that its subsidiary TotalEnergies EP Nigeria signed a sale and purchase. agreement (SPA) with Chappal Energies for ...\n\nPurchases, net of inventory variation · (30,855) · (30,342) · (33,780)\nOther operating expenses · (7,564) · (7,219) · (7,643)\nExploration costs · (81) · (242) · (88)\nDepreciation, depletion and impairment of tangible assets and mineral interests · (2,998) · (2,715) · (2,942)\n\n|  |  |  |  |\n| --- | --- | --- | --- |\n| Depreciation, depletion, amortization and impairment | 3,086 | 2,971 | 3,036 |\n\nDepreciation, depletion and impairment of\n\ntangible assets and mineral interests\n\n(1,950) (391) (75) (339) (217) (26) - (2,998)\n==\nhttps://totalenergies.com/system/files/documents/totalenergies_pr-results-q3-2024_2024_en_pdf.pdf\n| Current borrowings \\* | 11,805 | 9,358 | 15,193 |\n| Other current financial liabilities | 488 | 461 | 415 |\n\nNon-current financial debt \\* · 37,824 · 34,726 · 33,947\nNon-current financial assets \\* · (1,307) · (1,166) · (1,519)\n\nCash and cash equivalents · (25,672) · (23,211) · (24,731)\n\nFinancial income and expense from cash & cash equivalents\n\nCost of net debt · (893) · (798)\n\n**CONSOLIDATED BALANCE SHEET**\n\n**TotalEnergies**\n\n**September 30,** **June 30,** **December 31,** **September**\n\n**2024** **2024** **2023** **30, 2023**\n\n**Non-current assets**\n\n**Non-current liabilities**\n\n| Non-current financial debt | 45,750 | 42,526 | 40,478 | 41,022 |\n\n| Current borrowings | 13,853 | 11,271 |  | 9,590 | 16,876 |\n| Other current financial liabilities | 488 |  | 461 | 446 | 415 |\n\n| Non-current liabilities, valuation allowances and deferred taxes | (93) | (53) | 686 |\n\nNet issuance (repayment) of non-current debt · 3,080 · 4,319 · 47\nIncrease (decrease) in current borrowings · 911 · (5,453) · (446)\nIncrease (decrease) in current financial assets and liabilities · 760 · (530) · (182)\n\nNet increase (decrease) in cash and cash equivalents · 2,184 · (2,372) · (333)\n\nCash and cash equivalents at the beginning of the period · 23,211 · 25,640 · 25,572\nCash and cash equivalents at the end of the period · 25,672 · 23,211 · 24,731\n\n| Non-current liabilities, valuation allowances and deferred taxes | 146 | 1,081 |\n\nIncrease (decrease) in current borrowings · (1,006) · (5,831)\n\nNet increase (decrease) in cash and cash equivalents · (1,728) · (7,984)\n==\nhttps://finance.yahoo.com/news/totalenergies-se-fourth-quarter-full-071500262.html\nNon-current financial debt *.\n\nNon-current financial assets *.\n\nCash and cash equivalents.\n\nTotalEnergies SE statutory accounts.\n\n# TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results\n- In millions of dollars · 12/31/2024 · 09/30/2024 · 12/31/2023\n- Current borrowings \\* · 7,929 · 11,805 · 7,869\n- Other current financial liabilities · 664 · 488 · 446\n\n- Non-current financial debt \\* · 35,711 · 37,824 · 32,722\n\n- Non-current financial assets \\* · (1,027) · (1,307) · (1,229)\n- Cash and cash equivalents · (25,844) · (25,672) · (27,263)\n\n- Financial interest on debt · (3,016) · (2,820)\n- Financial income and expense from cash \\& cash equivalents · 1,786 · 1,801\n- Cost of net debt · (1,230) · (1,019)\n\nCONSOLIDATED BALANCE SHEET\n\nTotalEnergies\n\n- (M$) · December 31, 2024 (unaudited) · September 30, 2024 (unaudited) · December 31, 2023\n\n- Non-current assets\n\n- Cash and cash equivalents · 25,844 · 25,672 · 27,263\n\n- Non-current financial debt · 43,533 · 45,750 · 40,478\n- Total non-current liabilities · 77,272 · 79,680 · 75,416\n\n- Current borrowings · 10,024 · 13,853 · 9,590\n- Other current financial liabilities · 664 · 488 · 446\n\n- Cash and cash equivalents at the end of the period · 25,844 · 25,672 · 27,263\n\n- Increase in non-current loans · (2,275) · (1,889)\n\n- Net issuance (repayment) of non-current debt · 7,532 · 130\n- Increase (decrease) in current borrowings · (5,142) · (14,289)\n\n- Net increase (decrease) in cash and cash equivalents · (903) · (5,505)\n\n- Cash and cash equivalents at the end of the period · 25,844 · 27,263\n==\nhttps://finance.yahoo.com/news/totalenergies-se-third-quarter-2024-072000283.html\nTotalEnergies. September 30, 2024. June 30, 2024. December 31, 2023. … Cash and cash equivalents. (25,672). (23,211). (24,731). Net debt ( a ). 17,562.\n\n# TotalEnergies SE: Third Quarter 2024 Results\n- Current financial assets \\* , \\*\\* · (5,780) · (6,425) · (6,585)\n- Net financial assets classified as held for sale \\* · 204 · (61) · (44)\n- Non-current financial debt \\* · 37,824 · 34,726 · 33,947\n\n- Non-current financial assets \\* · (1,307) · (1,166) · (1,519)\n- Cash and cash equivalents · (25,672) · (23,211) · (24,731)\n- Net debt ( a ) · 17,562 · 13,682 · 16,676\n\n- Other income · 1,806 · 992\n\n- Financial interest on debt · (2,230) · (2,160)\n- Financial income and expense from cash \\& cash equivalents · 1,337 · 1,362\n- Cost of net debt · (893) · (798)\n\nCurrent financial assets · 6,151 · 6,823 · 6,585 · 6,892\nCash and cash equivalents · 25,672 · 23,211 · 27,263 · 24,731\n\nNon-current liabilities\n\nProvisions and other non-current liabilities · 20,290 · 20,295 · 21,257 · 22,657\nNon-current financial debt · 45,750 · 42,526 · 40,478 · 41,022\n\nTotal non-current liabilities · 79,680 · 77,101 · 75,416 · 77,149\nCurrent liabilities\n\nCurrent borrowings · 13,853 · 11,271 · 9,590 · 16,876\nOther current financial liabilities · 488 · 461 · 446 · 415\n\n- (M$) · 2024 · 2023\n- CASH FLOW FROM OPERATING ACTIVITIES\n- Consolidated net income · 12,012 · 16,473\n\n- Non-current liabilities, valuation allowances and deferred taxes · 146 · 1,081\n\n- Cash and cash equivalents at the end of the period · 25,672 · 24,731\n==\nhttps://www.sec.gov/Archives/edgar/data/879764/000110465924084523/tm2420095d1_ex99-13.htm\n| CONSOLIDATED STATEMENT OF CASH FLOW                                                      \n TotalEnergies\n\n(M$) 2024 2024 2023                                                                      \n CASH FLOW FROM OPERATING ACTIVITIES                                                      \n Consolidated net income 3,847 5,804 4,152\n\n(Gains) losses on disposals of assets 182 (1,610) (70)\n\nCash flow from operating activities 9,007 2,169 9,900                                    \n CASH FLOW USED IN INVESTING ACTIVITIES                                                   \n Intangible assets and property, plant and equipment additions (3,699) (3,420) (3,870)\n\nProceeds from disposals of intangible assets and property, plant and equipment 44 337 31\n\nCash flow used in investing activities (4,558) (3,467) (4,473)                           \n CASH FLOW USED IN FINANCING ACTIVITIES\n\nIncrease (decrease) in current financial assets and liabilities (530) 271 990            \n Cash flow from (used in) financing activities (6,821) (242) (7,875)                      \n Net increase (decrease) in cash and cash equivalents (2,372) (1,540) (2,448)\n\nCash and cash equivalents at the beginning of the period 25,640 27,263 27,985            \n Cash and cash equivalents at the end of the period 23,211 25,640 25,572\n==\nhttps://www.sec.gov/Archives/edgar/data/879764/000110465924113348/tm2426879d1_ex99-14.htm\n| CONSOLIDATED STATEMENT OF CASH FLOW                                                      \n TotalEnergies\n\n(M$) 2024 2024 2023                                                                      \n CASH FLOW FROM OPERATING ACTIVITIES                                                      \n Consolidated net income 2,361 3,847 6,690\n\n(Gains) losses on disposals of assets (3) 182 (521)\n\nCash flow from operating activities 7,171 9,007 9,496                                    \n CASH FLOW USED IN INVESTING ACTIVITIES                                                   \n Intangible assets and property, plant and equipment additions (4,110) (3,699) (3,808)\n\nProceeds from disposals of intangible assets and property, plant and equipment 32 44 914\n\nCash flow used in investing activities (5,562) (4,558) (4,987)                           \n CASH FLOW FROM FINANCING ACTIVITIES\n\nIncrease (decrease) in current financial assets and liabilities 760 (530) (182)          \n Cash flow from / (used in) financing activities 575 (6,821) (4,842)                      \n Net increase (decrease) in cash and cash equivalents 2,184 (2,372) (333)\n\nCash and cash equivalents at the beginning of the period 23,211 25,640 25,572            \n Cash and cash equivalents at the end of the period 25,672 23,211 24,731\n==\nhttps://www.sec.gov/Archives/edgar/data/879764/000110465924112845/tm2426879d2_ex99-1.htm\nCONSOLIDATED STATEMENT OF CASH FLOW\n\nTotalEnergies\n\n| (M$)                                                                  |    2024 |     |    2024 |     |    2023 |\n| CASH                                                                  \n FLOW FROM OPERATING ACTIVITIES                                        |         |     |         |     |         |\n| Consolidated\n\nlosses on disposals of assets                                         |      -3 |     |     182 |     |    -521 |\n\n| Cash                                                                  \n flow from operating activities                                        |   7,171 |     |   9,007 |     |   9,496 |\n| CASH                                                                  \n FLOW USED IN INVESTING ACTIVITIES                                     |         |     |         |     |         |\n| Intangible                                                            \n assets and property, plant and equipment additions                    |  -4,110 |     |  -3,699 |     |  -3,808 |\n\nfrom disposals of intangible assets and property, plant and equipment |      32 |     |      44 |     |     914 |\n\n| Cash                                                                  \n flow used in investing activities                                     |  -5,562 |     |  -4,558 |     |  -4,987 |\n| CASH                                                                  \n FLOW FROM FINANCING ACTIVITIES                                        |         |     |         |     |         |\n==\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSxwgKEAgTGAI4AUIIdGhpbmtpbmcSDA5P9JkdLHz/5m74jRoMEnyWMLWpmztYKcEbIjBYQ3DpCc6GPEv0ZOL3TWk+23Ap7wm9g7gUABUg/LUog47g3yodzCOM7/yt5De+VSUq5Ad7hnalOFHF89PG4/ge67Olm5MVZR1MW82UZbUALcLfHooxWMEzbKgutOWhqF8nO+X0OpJo1FX3j7npDhGPvU92EAmVpGjsqbSAP2yh62qsXIYNozADGYA8jGps0yToHkJyfAk9mwPkemlF02WZKo4rRvckjHLCEttgzAT4nd+VskeB7clPgogAkeh1CDY3MQV56l9Wpqp/QMEoYtH20aL96VsWargO/xu6wY+cLpH1MsqddanS8lL7LgC6r7/YJKHI9yuDrE7rqC0s7cGcij54hb3wGFOkPSkgE8x9A1IJBGyJe44U/+3qFs05RWJVmU0hP+nVasHpAHKC503/uU0v1C/2aItPDnP3u72gwO4cVdKLgQ1FLb4DdUcIPZAb6BPVAbb/boxlzGuPE8WUS3zQxB7eHmaNSYrjHLRNm6mi49bXDbvMEBPaleTs2Gl/9nzMMZW/pwOtXtNZPuH3L1kdrh4bnYBoH4ouUMZ4yLdpkbXt+ne3HLY4goYFDX2OtXpGsQ/EwlGlPqbHKZVQV5FGCF+P3lWC+upJlr2twrAoNX/l9AumFYjq+cXpTgfdidB3FrhBCn7dHR/FU3NRzYItP3vbiZ7Ab0Z44nLp0iT/bOF56QgABJHCqUGpeObXMy+hmBmxb4Rl27fkeJjMA9rMfAW7CuMIktaygW5U3ElL5vjVMfTtKrIRQs+VyuXjIn3ooeC3a1g8B75Pm5lZ3Gqcl6+Rq2SU9NIZZUnHz81+PiXPFcou4/5spDl9a5x7PBli7MCOJvkRrcMeUrQpdrgcoH2vDpcdc/LvXtYAAParXp4KLEkTcQ71U/MHc8NL4NOcLgf1UFcfJmjpVUqCoitlv0Ne4pLujatJVtUK5HeqJ+rkLFjoOtcJTjXaY3zWL2bCmjf5UZXpZIrD0O1VYXJWb6sG/D/D+RgGgOOTAlh+J1I0hKQ13r9lynU2fCnftsYKZ7rXADhTT9yVFQgH0KoxIiH5io3mrJT+C26ZmeStGOoltN0pO8SSW5qfIzwCgsZKlwkJlrVpDsQ4voN2vyW+AwtKJJXWktMVQsM+C1AYJGRJ5OUDeCvSkivvcOrFcV1DKxSc346duETrU9QtbLLwm1v5nkavF/emstckBv7GyRq7TC391CnDm7zAyVcplE2RgiYqMvIX7RsGDmwrJta8KzN0mKdIzmI5LvhsffnMy0fUO9q7/qNJzKoS8Fo6KbGR71kmmsRCwUishyxMFMORunhpZDA0UA6piBth0StAQDsYBtH+P/6sTlin8/r3RUJe6LpLZ2zPUedPsBRySSpPOObIF1xuEwVJ3UjWHhsGJOFCGDEYAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01UdCARit6pTUqTk1kXGDsqZ",
+      "name": "code_execution",
+      "input": {
+       "code": "qs2=[\"TotalEnergies 2024 full year net debt current financial assets 12/31/2024 gearing 8.3% net debt 2024 million\",\"TotalEnergies 2024 annual cash flow \\\"Intangible assets and property, plant and equipment additions\\\" year 2024 2023 2022 depreciation depletion amortization and impairment\",\"TotalEnergies 2024 universal registration document income statement 2024 2023 2022 revenues from sales net income\",\"TotalEnergies fourth quarter 2022 results revenues from sales 2022 net debt cash flow additions capex\"]\nfor q in qs2:\n    o=json.loads(await web_search({\"query\":q}))\n    for x in o[:5]:\n        c=x['content']\n        print(x['url']);\n        for m in re.finditer(r\"(Net debt|additions|Depreciation, depletion, amort|Revenues from sales|Current financial assets|Sales )\",c):\n            print('  ',c[max(0,m.start()-50):m.start()+200].replace(\"\\n\",\" \"))\n    print(\"=====\")"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01EtJY1inydT6eBT6KwBTbos",
+      "name": "web_search",
+      "input": {
+       "query": "TotalEnergies 2024 full year net debt current financial assets 12/31/2024 gearing 8.3% net debt 2024 million"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01UdCARit6pTUqTk1kXGDsqZ"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01EtJY1inydT6eBT6KwBTbos",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Fourth quarter and full-year 2024 results",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_pr-results-q4-2024_2025_en.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results",
+        "url": "https://www.nasdaq.com/press-release/totalenergies-se-fourth-quarter-and-full-year-2024-results-2025-02-05",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE First quarter 2024 results",
+        "url": "https://totalenergies.com/system/files/documents/2024-04/totalenergies_pr-results-q1-2024_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "927 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Third quarter 2024 results",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_pr-results-q3-2024_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "739 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Financial report First half 2024",
+        "url": "https://totalenergies.com/sites/g/files/nytnzq121/files/documents/2024-07/TotalEnergies_rapport_financier_semestriel_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "836 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Exhibit 99.1",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465925042042/tm2511808d3_ex99-1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE Net Current Debt 2012-2026",
+        "url": "https://www.macrotrends.net/stocks/charts/TTE/totalenergies-se/net-current-debt",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Sec",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924082449/tot-20240630xex99d3.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies (TTE) - Total debt",
+        "url": "https://companiesmarketcap.com/aud/totalenergies/total-debt/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE Fourth Quarter and Full Year 2024 Results",
+        "url": "https://www.businesswire.com/news/home/20250204066463/en/TotalEnergies-SE-Fourth-Quarter-and-Full-Year-2024-Results",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01UdCARit6pTUqTk1kXGDsqZ"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01GutbUJQQ5g3sUgFBiD1qG2",
+      "name": "web_search",
+      "input": {
+       "query": "TotalEnergies 2024 annual cash flow \"Intangible assets and property, plant and equipment additions\" year 2024 2023 2022 depreciation depletion amortization and impairment"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01UdCARit6pTUqTk1kXGDsqZ"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01GutbUJQQ5g3sUgFBiD1qG2",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924084523/tm2420095d1_ex99-13.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465923054839/tm2313553d1_ex99-8.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924113348/tm2426879d1_ex99-14.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465923113517/tm2328939d2_ex99-15.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465923085990/tm2321893d1_ex99-12.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CONSOLIDATED STATEMENT OF INCOME TotalEnergies (unaudited) 3rd quarter",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_accounts-q3-2024_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465923012205/tm235611d1_ex99-1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CONSOLIDATED STATEMENT OF INCOME TotalEnergies (unaudited) 1st quarter",
+        "url": "https://totalenergies.com/system/files/documents/2024-04/totalenergies_accounts-q1-2024_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "952 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Financial report First half 2024",
+        "url": "https://totalenergies.com/sites/g/files/nytnzq121/files/documents/2024-07/TotalEnergies_rapport_financier_semestriel_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "836 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results",
+        "url": "https://www.nasdaq.com/press-release/totalenergies-se-fourth-quarter-and-full-year-2024-results-2025-02-05",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01UdCARit6pTUqTk1kXGDsqZ"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_0156CyEMnboMvo7CCFHBPAyX",
+      "name": "web_search",
+      "input": {
+       "query": "TotalEnergies 2024 universal registration document income statement 2024 2023 2022 revenues from sales net income"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01UdCARit6pTUqTk1kXGDsqZ"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_0156CyEMnboMvo7CCFHBPAyX",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "2023 Universal Registration Document",
+        "url": "https://totalenergies.com/system/files/documents/2024-03/totalenergies_universal-registration-document-2023_2023_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "955 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "CONSOLIDATED STATEMENT OF INCOME TotalEnergies (M$) (a) 4th quarter 2024",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_accounts-q4-2024_2025_en.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Fourth quarter and full-year 2023 results",
+        "url": "https://totalenergies.com/sites/g/files/nytnzq121/files/documents/2024-02/TotalEnergies_PR_4Q23_Results.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "1006 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Fourth quarter and full-year 2024 results",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_pr-results-q4-2024_2025_en.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "2024 Universal Registration Document",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_universal-registration-document-2024_2025_en.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "591 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Compulsory Acquisition Funding Statement Appendix 2: Accounts of TotalEnergies",
+        "url": "https://nsip-documents.planninginspectorate.gov.uk/published-documents/EN010130-000624-4.2.1%20Appendix%202%20Accounts%20of%20TotalEnergies.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "1326 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Reports",
+        "url": "https://totalenergies.com/investors/reports",
+        "encrypted_content": "[omitted]",
+        "page_age": "227 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "file: tot-20251231xex15d1.htm",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465926035876/tot-20251231xex15d1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Annual reports including annual financial reports",
+        "url": "https://totalenergies.com/investors/publications-and-regulated-information/regulated-information/annual-financial-reports",
+        "encrypted_content": "[omitted]",
+        "page_age": "226 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01UdCARit6pTUqTk1kXGDsqZ"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01KUaMLPBKRyYXUWj43g8SwZ",
+      "name": "web_search",
+      "input": {
+       "query": "TotalEnergies fourth quarter 2022 results revenues from sales 2022 net debt cash flow additions capex"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01UdCARit6pTUqTk1kXGDsqZ"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01KUaMLPBKRyYXUWj43g8SwZ",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Fourth quarter and full-year 2022 results",
+        "url": "https://totalenergies.com/system/files/documents/2023-02/TotalEnergies_4Q22_Results.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "1370 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies: Fourth Quarter and Full-year 2022 Results",
+        "url": "https://www.nasdaq.com/press-release/totalenergies:-fourth-quarter-and-full-year-2022-results-2023-02-08",
+        "encrypted_content": "[omitted]",
+        "page_age": "1370 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies: Fourth Quarter and Full-year 2022 Results",
+        "url": "https://www.businesswire.com/news/home/20230208005409/en/TotalEnergies-Fourth-Quarter-and-Full-year-2022-Results",
+        "encrypted_content": "[omitted]",
+        "page_age": "1369 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies announces fourth quarter and full-year 2022 results",
+        "url": "https://www.energy-pedia.com/news/general/totalenergies-announces-fourth-quarter-and-full-year-2022-results-190490",
+        "encrypted_content": "[omitted]",
+        "page_age": "1370 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Fourth quarter and full-year 2022 results",
+        "url": "https://echanges.dila.gouv.fr/OPENDATA/AMF/BWR/2023/02/FCBWR147635_20230208.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2022",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465922028275/tm227393d1_ex99-4.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Sec",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465923012205/tm235611d1_ex99-1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "CONSOLIDATED STATEMENT OF INCOME TotalEnergies (M$) (a) 4th quarter 2022",
+        "url": "https://totalenergies.com/system/files/documents/2023-02/TotalEnergies_consolidated_statement_of_incomes_31122022.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2022",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465922053966/tm2213621d1_ex99-8.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies (TTE) Q4 2022 Earnings Results & Call Transcript",
+        "url": "https://www.marketbeat.com/earnings/reports/2023-2-8-totalenergies-se-stock/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1370 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01UdCARit6pTUqTk1kXGDsqZ"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01UdCARit6pTUqTk1kXGDsqZ",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "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"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01DKzVZz5nQdDYp1pkpm6Ze5",
+      "name": "code_execution",
+      "input": {
+       "code": "qs3=[\"TotalEnergies full-year 2024 results consolidated statement of cash flow year 2024 2023 additions 15, depreciation depletion amortization and impairment\",\"TotalEnergies 2024 organic investments net investments 2024 $ billion capex 2025 guidance\",\"TotalEnergies 2024 consolidated statement of income year 2024 2023 total expenses income taxes net income before tax\"]\nfor q in qs3:\n    o=json.loads(await web_search({\"query\":q}))\n    for x in o[:6]:\n        c=x['content']\n        print(x['url'])\n        for m in re.finditer(r\"(additions|Depreciation, depletion, amort|Income taxes|Total expenses|Net investments|Gross investments|Organic)\",c):\n            print('  ',c[max(0,m.start()-80):m.start()+220].replace(\"\\n\",\" \"))\n    print(\"=====\")"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01JCmKWpaevYr5zGNtcJKsPZ",
+      "name": "web_search",
+      "input": {
+       "query": "TotalEnergies full-year 2024 results consolidated statement of cash flow year 2024 2023 additions 15, depreciation depletion amortization and impairment"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DKzVZz5nQdDYp1pkpm6Ze5"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01JCmKWpaevYr5zGNtcJKsPZ",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Fourth quarter and full-year 2024 results",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_pr-results-q4-2024_2025_en.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results",
+        "url": "https://www.nasdaq.com/press-release/totalenergies-se-fourth-quarter-and-full-year-2024-results-2025-02-05",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924113348/tm2426879d1_ex99-14.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465924084523/tm2420095d1_ex99-13.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465923085990/tm2321893d1_ex99-12.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465923113517/tm2328939d2_ex99-15.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results",
+        "url": "https://www.streetinsider.com/Business+Wire/TotalEnergies+SE:+Fourth+Quarter+and+Full-Year+2024+Results/24297127.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2023",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465923054839/tm2313553d1_ex99-8.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "Financial report First half 2024",
+        "url": "https://totalenergies.com/sites/g/files/nytnzq121/files/documents/2024-07/TotalEnergies_rapport_financier_semestriel_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "836 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "CONSOLIDATED STATEMENT OF INCOME TotalEnergies (M$) (a) 4th quarter 2024",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_accounts-q4-2024_2025_en.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DKzVZz5nQdDYp1pkpm6Ze5"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01C48DUGPUFM6ve8DAs1CUnr",
+      "name": "web_search",
+      "input": {
+       "query": "TotalEnergies 2024 organic investments net investments 2024 $ billion capex 2025 guidance"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DKzVZz5nQdDYp1pkpm6Ze5"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01C48DUGPUFM6ve8DAs1CUnr",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Third quarter 2024 results",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_pr-results-q3-2024_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "739 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "2024 Results & 2025 Objectives - Transcript",
+        "url": "https://totalenergies.com/sites/g/files/nytnzq121/files/documents/totalenergies_2024-results-2025-objectives-transcript_2025_en.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465925009436/tm254590d2_ex99-1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 20-F - FY2024",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465925029751/tot-20241231xex15d1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE Fourth quarter and full-year 2024 results",
+        "url": "https://totalenergies.com/system/files/documents/totalenergies_pr-results-q4-2024_2025_en.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "PRESS RELEASE First quarter 2024 results",
+        "url": "https://totalenergies.com/system/files/documents/2024-04/totalenergies_pr-results-q1-2024_2024_en_pdf.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "927 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE: Fourth Quarter and Full-Year 2024 Results",
+        "url": "https://www.nasdaq.com/press-release/totalenergies-se-fourth-quarter-and-full-year-2024-results-2025-02-05",
+        "encrypted_content": "[omitted]",
+        "page_age": "642 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 20-F - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465926035876/tot-20251231x20f.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 6-K - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465925105118/tm2529941d1_ex99-12.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "TotalEnergies SE - Form 20-F - FY2025",
+        "url": "https://www.sec.gov/Archives/edgar/data/879764/000110465926035876/tot-20251231xex15d1.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01DKzVZz5nQdDYp1pkpm6Ze5"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01DKzVZz5nQdDYp1pkpm6Ze5",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDLJEBAIIjYjgqlbCLBoMBOpCnQvLXpuZrhpfIjDvQi/DT2Z3cwW3QPSSAm7tEo8cPQHF/uv+ckVjaxu5a5w09cmQwhNKWvVLCA1F/j8qEvQdON5vBj6J+RZaDrsH8o8KBBgD",
+       "stderr": "Server tool use limit exceeded during code execution.",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS7gYKEAgTGAI4AUIIdGhpbmtpbmcSDEFWlvJpv5oKx5t32RoMtWLckhBUzl5RlUrzIjCIDA2PgycA42qARIbUG/lM7QNU6zLHirjhpAb/kHy5z5VroJa/PIqgvH6U7AuW098qiwbkbkfhqXFIRuYEJT7RCkiWZfszxWLorC5D0LODTY9nJr0DLtzhUJOxLbv6KqMO7PVA47rForp+8r4hULc9wUE0B8ayKp8/FsKXukUQ/0PORiwj+kSt32e1HsuBFLBYOPMd2/CLpVambvkmZ8KnMpLC7DtisSRBaddikFBCYFBpb2G9VS9FiVOBtU841LT5E+m1+SyvO8TXwIGhVjVngkK59fu6l+X6TbuhaYL1oc1d92JqN3w+aHDSHq0sDg9031CT4CoA7IyFb+RfbZBGjJynsx/wpw1GCfOhelDRSS1riUgJwXJ/mmpIwyoFXHb3cuWl4lX2wC1pen54PZLx850HIqwi0QuY6b9A1OozNa6Dm8HE6rURbCZUnukJoQFGOi+UAzEdWObNNWP298WOjIQ92NRHvzD8UoT3sLtYzQUvEhnv3+gEf6nehkAIoWMngADwpjWh41pQNn0SWpCRI57PE+dQ2QtR9A+x+0KZADSRXm9FLdJ5Fl4viLvA0N8lCsmgc75/Eu5zbldQewzyIHeb9Nzj2bVPUbQsE62b1fR7bk9ZINUulCL4YrOk6K0RYTbLGNwl+O2a22dPmaNu5ylRYYGSILbESfhC8AdJnq3AE71DOGLKdWrU54OQpvQQSf3Ck2dkF58P/RcSmLSM3Dcn+AaZ5FWtT54HHYhwb+oDAELGgSVoE860gBmhhrKeWSYoU7Z9c6k+d7wrfUwvYQuWy2bYaP02XxFRy/xPRP94LRgLvH9jT/kOOU0qjYsYszE9LlZBa6J7PGlbVDiecAnwuatf9t+NgPIhjyyrgLZhQjGSq6G6Cj9pmYLLbmETeMTgXaaIMAn0stdRMjHUmNa+BM3q3Bwv+USc0gblfjEzhR8lXqP+OzvUz4S2LBVMk+8MfgEJfU1kGMzXZj3klb88S4loUKMAMc5VSlPnhPZW3VYMFGZ6v6mx6TfD9s/TzsleRgZj+yah88E/DYwhRrwABELJmtJJMT+9xxaVzWXm5BEzq2ymK6hg7R9GrTfOteduhiKY90R4XD9cAxgB"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_0181orUDrCQ9mpDFvi8SMqET",
+      "name": "code_execution",
+      "input": {
+       "code": "o=json.loads(await web_search({\"query\":\"TotalEnergies 2024 results cash flow additions intangible assets property plant equipment year 2024 15,\"}))\nfor x in o[:6]:\n    c=x['content'];print(x['url'])\n    for m in re.finditer(r\"(additions|Depreciation, depletion, amort)\",c):\n        print('  ',c[max(0,m.start()-80):m.start()+220].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_0181orUDrCQ9mpDFvi8SMqET",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDOK1UZUj+6PxXFswXBoM8DBHf7iI+xFs3onkIjDFhHiDlGzG7bg2QJhiTschJzVAh7oEp/1I4NNlN7pDnkXNhXVIt5hdpOm7SSOXaIsqEp6N2qaDbbOT2LOzfbIlGHpSqhgD",
+       "stderr": "Server tool use limit exceeded during code execution.",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "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"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01NNMdmdeAvKA1sp9j8BXSg4",
+      "name": "code_execution",
+      "input": {
+       "code": "print(1)"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01NNMdmdeAvKA1sp9j8BXSg4",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "1\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_015zKxK5eXyQqtadyNvh1xT3",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "TotalEnergies SE",
+       "ticker": "529900S21EQ1BO4ESM68",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2022",
+         "FY2023",
+         "FY2024"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           263310,
+           218945,
+           195610
+          ],
+          "source": "Revenues from sales, consolidated statement of income: FY2022 from 4Q22 results release (8 Feb 2023); FY2023 and FY2024 from 4Q24/FY2024 results release (5 Feb 2025). USD millions."
+         },
+         "operating_income": {
+          "values": [
+           null,
+           null,
+           null
+          ],
+          "source": "not found - TotalEnergies does not report an IFRS operating income line and I could not retrieve the full-year income statements (search limit reached). Reviewer to fill from the URD."
+         },
+         "d_and_a": {
+          "values": [
+           null,
+           13818,
+           13107
+          ],
+          "source": "Depreciation, depletion, amortization and impairment, FY2024 13,107 and FY2023 13,818, TotalEnergies Q4 2024 accounts PDF (cash-flow statement). FY2022 not found."
+         },
+         "capex": {
+          "values": [
+           null,
+           null,
+           null
+          ],
+          "source": "not found for full years. Only 9M figures retrieved: additions to intangible assets and PP&E 9M2024 11,229 and 9M2023 12,646 (6-K, Q3 2024 accounts). Reviewer to fill."
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2025",
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029"
+        ],
+        "revenue_growth": {
+         "values": [
+          -0.03,
+          0,
+          0.01,
+          0.015,
+          0.015
+         ],
+         "source": "Assumption: FY2024 revenue fell 10.7% (218,945 to 195,610) on lower oil/gas prices; assume a further mild decline in 2025 on softer prices, then flat and low growth in line with price normalisation and LNG/electricity volume growth."
+        },
+        "ebit_margin": {
+         "value": 0.11,
+         "source": "Assumption, not derived from filed EBIT (not found). Rough placeholder for an integrated major at mid-cycle prices; reviewer to check against FY2024 URD."
+        },
+        "tax_rate": {
+         "value": 0.38,
+         "source": "Assumption: TotalEnergies' effective tax rate is high because of upstream production taxes in high-tax jurisdictions. Not verified against filings."
+        },
+        "da_pct_revenue": {
+         "value": 0.067,
+         "source": "FY2024 D&A 13,107 / revenue 195,610 = 6.7% (Q4 2024 accounts PDF and results release)."
+        },
+        "capex_pct_revenue": {
+         "value": 0.08,
+         "source": "Assumption: 9M2024 capex of 11,229 against 9M2024 revenues of about 148,495 is about 7.6%. Rounded up to 8% for the 2025 investment plan. Full-year capex not found."
+        },
+        "wacc": {
+         "value": 0.085,
+         "source": "Assumption: integrated oil and gas major, beta around 0.9, risk-free rate about 3%, ERP about 5.5%, modest leverage (gearing 8.3% at FY2024), USD cash flows."
+        },
+        "terminal_growth": {
+         "value": 0.01,
+         "source": "Assumption: below long-run inflation to reflect long-term energy transition risk to hydrocarbons."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 11924,
+         "source": "FY2024 year-end from the 4Q24 release net debt table: current borrowings 7,929 + other current financial liabilities 664 + non-current financial debt 35,711 (excludes leases) - cash 25,844 - current financial assets 6,536 = 11,924. The company's reported net debt is 10,930; it also nets non-current financial assets of 1,027 and held-for-sale items of 33.",
+         "period": "FY2024"
+        },
+        "diluted_shares": {
+         "value": 2315,
+         "source": "Weighted average diluted shares for 2024, 2,315 million, from the 4Q24 results release (adjusted diluted EPS $7.77). Millions of shares.",
+         "period": "FY2024"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 7,
+  "match": 0,
+  "mismatch": 0,
+  "other_line": 3,
+  "definition": 1,
+  "not_found": 3,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 18,
+  "unsourced": 4,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "529900S21EQ1BO4ESM68",
+    "metric": "revenue",
+    "period": "FY2022",
+    "value": 263310,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2022]",
+    "status": "other_line",
+    "hints": [
+     "equals tot:RevenueFromContractsWithCustomersExcludingExciseTax in the same filing"
+    ],
+    "filed_value": 280999000000,
+    "resolved": "529900S21EQ1BO4ESM68",
+    "other_line": "tot:RevenueFromContractsWithCustomersExcludingExciseTax"
+   },
+   {
+    "company": "529900S21EQ1BO4ESM68",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 218945,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "other_line",
+    "hints": [
+     "equals tot:RevenueFromContractsWithCustomersExcludingExciseTax in the same filing"
+    ],
+    "filed_value": 237128000000,
+    "resolved": "529900S21EQ1BO4ESM68",
+    "other_line": "tot:RevenueFromContractsWithCustomersExcludingExciseTax"
+   },
+   {
+    "company": "529900S21EQ1BO4ESM68",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 195610,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "other_line",
+    "hints": [
+     "equals tot:RevenueFromContractsWithCustomersExcludingExciseTax in the same filing"
+    ],
+    "filed_value": 214550000000,
+    "resolved": "529900S21EQ1BO4ESM68",
+    "other_line": "tot:RevenueFromContractsWithCustomersExcludingExciseTax"
+   },
+   {
+    "company": "529900S21EQ1BO4ESM68",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 13818,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "not_found",
+    "hints": [
+     "d_and_a is not reported for FY2023 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "529900S21EQ1BO4ESM68"
+   },
+   {
+    "company": "529900S21EQ1BO4ESM68",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 13107,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "not_found",
+    "hints": [
+     "d_and_a is not reported for FY2024 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "529900S21EQ1BO4ESM68"
+   },
+   {
+    "company": "529900S21EQ1BO4ESM68",
+    "metric": "net_debt",
+    "period": "FY2024",
+    "value": 11924,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 27713000000,
+    "resolved": "529900S21EQ1BO4ESM68"
+   },
+   {
+    "company": "529900S21EQ1BO4ESM68",
+    "metric": "diluted_shares",
+    "period": "FY2024",
+    "value": 2315,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "not_found",
+    "hints": [
+     "diluted_shares is not reported for FY2024 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "529900S21EQ1BO4ESM68"
+   }
+  ],
+  "unsourced_refs": [
+   "history.d_and_a[FY2023]",
+   "history.d_and_a[FY2024]",
+   "assumptions.ebit_margin",
+   "assumptions.capex_pct_revenue"
+  ],
+  "errors": []
+ }
+}

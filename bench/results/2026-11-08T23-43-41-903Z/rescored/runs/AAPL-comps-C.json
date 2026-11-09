@@ -5,10 +5,10 @@
  "score": {
   "valid": true,
   "filed": 24,
-  "match": 24,
+  "match": 23,
   "mismatch": 0,
   "other_line": 0,
-  "definition": 0,
+  "definition": 1,
   "not_found": 0,
   "ambiguous": 0,
   "unverifiable": 0,
@@ -110,11 +110,12 @@
     "scale": "millions",
     "currency": "USD",
     "ref": "peers[MSFT].ebitda",
-    "status": "match",
+    "status": "definition",
     "hints": [
-     "Computed value: operating_income + d_and_a."
+     "Computed value: operating_income + d_and_a (depreciation only) + amortization_intangibles.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
     ],
-    "filed_value": 189537000000,
+    "filed_value": 194237000000,
     "resolved": "MSFT"
    },
    {

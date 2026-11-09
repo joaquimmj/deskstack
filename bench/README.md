@@ -63,5 +63,5 @@ SEC_USER_AGENT="name email" npx tsx bench/run.ts --rescore ../bench/results/<run
   - one `runs/<company>-<task>-<arm>.json` per run, with the full transcript, the submission and the score;
   - `summary.json` and `summary.md`.
 
-**Status:** the runner and scorer are built and tested offline with a scripted model (`server/test/bench.test.ts`).
+**Status:** main run done on 2026-11-09 (50 companies × DCF × 3 arms): [bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md](../bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md). The runner and scorer are tested offline with a scripted model (`server/test/bench.test.ts`).
 No paid run yet. The $20 pilot is approved (see `COST_ESTIMATE.md`) and waits for the API key.

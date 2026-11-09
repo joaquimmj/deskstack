@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "Schneider Electric SE",
+ "ticker": "969500A1YF1XUYYXS284",
+ "currency": "EUR",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     35902,
+     38153,
+     40152
+    ],
+    "source": "ESEF ifrs-full:RevenueFromContractsWithCustomers; reports 969500A1YF1XUYYXS284-2024-12-31-ESEF-FR-0 and -2025-12-31-ESEF-FR-0"
+   },
+   "operating_income": {
+    "values": [
+     5933,
+     6449,
+     6699
+    ],
+    "source": "ESEF ifrs-full:ProfitLossFromOperatingActivities, same reports"
+   },
+   "d_and_a": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: D&A returned null by financial_statements (not tagged with a standard concept)"
+   },
+   "capex": {
+    "values": [
+     914,
+     950,
+     1072
+    ],
+    "source": "ESEF ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities (PP&E only; may exclude intangibles/capitalised R&D)"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.07,
+    0.07,
+    0.065,
+    0.06,
+    0.05
+   ],
+   "source": "Assumption: FY2025 growth was 5.2% and FY2024 6.3% (from filed revenue); data-center/electrification demand supports mid-to-high single digit, fading toward GDP-plus"
+  },
+  "ebit_margin": {
+   "value": 0.167,
+   "source": "Assumption: FY2025 EBIT margin 6699/40152 = 16.7% (filed), held flat"
+  },
+  "tax_rate": {
+   "value": 0.25,
+   "source": "Assumption: approx. French statutory rate 25.8%; FY2025 pretax 6,180 vs net income 4,163 implies higher effective rate incl. minorities/associates, so 25% is a simplification"
+  },
+  "da_pct_revenue": {
+   "value": 0.03,
+   "source": "Assumption: D&A not found in filing data; set at 3.0% of revenue as placeholder, reviewer to replace from the annual report cash flow statement"
+  },
+  "capex_pct_revenue": {
+   "value": 0.027,
+   "source": "Assumption: FY2025 capex 1072/40152 = 2.67% (filed, PP&E only)"
+  },
+  "wacc": {
+   "value": 0.077,
+   "source": "Assumption: CAPM Ke = Rf 3.27% (ECB AAA 10Y, 2026-11-05) + beta 1.0 (assumed, not looked up) x France ERP 5.01% (Damodaran, 2026-02-16) = 8.3%; pre-tax Kd ~4% assumed, after-tax ~3%; weights ~85/15 equity/debt gives ~7.7%"
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "source": "Assumption: slightly below long-run nominal growth; below the 3.27% EUR 10Y risk-free rate"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 10387,
+   "period": "FY2025",
+   "source": "financial_statements derived net_debt = borrowings_noncurrent 15,021 - cash 4,634 (ESEF 969500A1YF1XUYYXS284-2025-12-31-ESEF-FR-0); current borrowings not reported in the data, so net debt may be understated"
+  },
+  "diluted_shares": {
+   "value": 567.9,
+   "period": "FY2025",
+   "source": "Derived: FY2025 net income attributable 4,163m / diluted EPS 7.33 (ESEF ifrs-full:DilutedEarningsLossPerShare); weighted diluted share count not directly reported by tool"
+  }
+ }
+}
