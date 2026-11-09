@@ -84,12 +84,8 @@
   <h2 class="title" id="bench-t">{{b_t}}</h2>
   <p class="intro">{{b_intro}}</p>
   <figure class="bench">
-    <table>
-      <caption class="visually-hidden">{{b_t}}</caption>
-      <thead><tr><th scope="col">{{b_h_arm}}</th><th scope="col">{{b_h_wrong}}</th><th scope="col" class="r">{{b_h_cost}}</th><th scope="col" class="r">{{b_h_time}}</th></tr></thead>
-      <tbody>{{bench_rows}}</tbody>
-    </table>
-    <figcaption>{{b_caveat}} <a href="{{gh}}/blob/main/{{analysis}}">{{b_link}}</a></figcaption>
+    {{bench_tables}}
+    <figcaption>{{b_caveat}}</figcaption>
   </figure>
   <div class="two">
     <div>

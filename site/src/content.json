@@ -155,38 +155,44 @@
     "b_h_wrong": "Reported figures wrong",
     "b_h_cost": "Cost / model",
     "b_h_time": "Time",
-    "bench": [
-      [
-        "Web search only",
-        "3.5%",
-        "20 of 573",
-        "$0.23",
-        "58 s",
-        "3.5"
-      ],
-      [
-        "deskstack data",
-        "0%",
-        "0 of 593",
-        "$0.07",
-        "18 s",
-        ""
-      ],
-      [
-        "deskstack data + reviewers",
-        "0%",
-        "0 of 606",
-        "$0.10",
-        "32 s",
-        ""
-      ]
-    ],
     "b_caveat": "Most wrong figures were numbers the model couldn't find and filled in anyway: derived share counts, estimated capex, aggregator figures, non-GAAP revenue. Net debt and EBITDA are reported apart, since definitions vary. Every transcript is public.",
     "cp_t": "What the run found in deskstack",
     "cp_p": "The benchmark also checks us: it found four gaps in deskstack's own data (narrow D&A, Disney's segment operating income, a mis-scaled share count, a dual filer), all fixed and tested since.",
     "demo_t": "See it catch a typo",
     "demo_p": "The review scripts on Apple's FY2025 DCF with one planted typo: the model review can't see it, the tie-out to the 10-K can. Real scripts, real filing, no AI in this loop.",
-    "demo_alt": "Terminal recording: /associate finds 13 of 14 figures match Apple's 10-K and flags revenue FY2024 391,053 against a filed 391,035 as swapped digits; /vp-review finds the model clean; after the fix 14 of 14 match; /sign-off shows every check passed and waits for approval."
+    "demo_alt": "Terminal recording: /associate finds 13 of 14 figures match Apple's 10-K and flags revenue FY2024 391,053 against a filed 391,035 as swapped digits; /vp-review finds the model clean; after the fix 14 of 14 match; /sign-off shows every check passed and waits for approval.",
+    "benches": [
+      {
+        "t": "DCF, 50 companies",
+        "analysis": "bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md",
+        "rows": [
+          [
+            "Web search only",
+            "3.5%",
+            "20 of 573",
+            "$0.23",
+            "58 s",
+            "3.5"
+          ],
+          [
+            "deskstack data",
+            "0%",
+            "0 of 593",
+            "$0.07",
+            "18 s",
+            ""
+          ],
+          [
+            "deskstack data + reviewers",
+            "0%",
+            "0 of 606",
+            "$0.10",
+            "32 s",
+            ""
+          ]
+        ]
+      }
+    ]
   },
   "fr": {
     "lang": "fr",
@@ -344,37 +350,43 @@
     "b_h_wrong": "Chiffres publiés faux",
     "b_h_cost": "Coût / modèle",
     "b_h_time": "Temps",
-    "bench": [
-      [
-        "Recherche web seule",
-        "3,5 %",
-        "20 sur 573",
-        "0,23 $",
-        "58 s",
-        "3.5"
-      ],
-      [
-        "Données deskstack",
-        "0 %",
-        "0 sur 593",
-        "0,07 $",
-        "18 s",
-        ""
-      ],
-      [
-        "Données deskstack + relecteurs",
-        "0 %",
-        "0 sur 606",
-        "0,10 $",
-        "32 s",
-        ""
-      ]
-    ],
     "b_caveat": "La plupart des chiffres faux sont des chiffres introuvables que le modèle a remplis quand même : nombres d'actions calculés, investissements estimés, chiffres d'agrégateurs, chiffre d'affaires non comptable. Dette nette et EBITDA sont présentés à part, car les définitions varient. Chaque transcription est publique.",
     "cp_t": "Ce que le run a trouvé dans deskstack",
     "cp_p": "Le benchmark nous vérifie aussi : il a trouvé quatre manques dans les données de deskstack (D&A trop étroit, résultat opérationnel de Disney par segments, nombre d'actions mal échelonné, double déposant), tous corrigés et testés depuis.",
     "demo_t": "Le voir attraper une faute de frappe",
     "demo_p": "Les scripts de revue sur le DCF d'Apple FY2025 avec une faute glissée : la revue du modèle ne la voit pas, le pointage contre le 10-K si. Vrais scripts, vrai dépôt, sans IA dans cette boucle.",
-    "demo_alt": "Enregistrement de terminal : /associate trouve 13 chiffres sur 14 conformes au 10-K d'Apple et signale le chiffre d'affaires FY2024 391 053 contre 391 035 déposé, deux chiffres inversés ; /vp-review trouve le modèle propre ; après correction, 14 sur 14 ; /sign-off montre tous les contrôles réussis et attend l'accord."
+    "demo_alt": "Enregistrement de terminal : /associate trouve 13 chiffres sur 14 conformes au 10-K d'Apple et signale le chiffre d'affaires FY2024 391 053 contre 391 035 déposé, deux chiffres inversés ; /vp-review trouve le modèle propre ; après correction, 14 sur 14 ; /sign-off montre tous les contrôles réussis et attend l'accord.",
+    "benches": [
+      {
+        "t": "DCF, 50 sociétés",
+        "analysis": "bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md",
+        "rows": [
+          [
+            "Recherche web seule",
+            "3,5 %",
+            "20 sur 573",
+            "0,23 $",
+            "58 s",
+            "3.5"
+          ],
+          [
+            "Données deskstack",
+            "0 %",
+            "0 sur 593",
+            "0,07 $",
+            "18 s",
+            ""
+          ],
+          [
+            "Données deskstack + relecteurs",
+            "0 %",
+            "0 sur 606",
+            "0,10 $",
+            "32 s",
+            ""
+          ]
+        ]
+      }
+    ]
   }
 }
