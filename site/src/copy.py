@@ -121,7 +121,7 @@ en = {
     "d_p": "Official filings and public datasets only. A figure that isn't filed stays empty; it is never estimated.",
     "data": [
         ["SEC EDGAR", "Financial statements, US", "10-K, 10-Q and 20-F filings: annual and last twelve months, for US-listed companies including foreign filers under IFRS."],
-        ["filings.xbrl.org", "Financial statements, Europe", "ESEF annual reports of about 30 large issuers in France, the Netherlands, Spain, Finland, Italy and Belgium."],
+        ["filings.xbrl.org", "Financial statements, Europe", "ESEF annual reports of about 100 large issuers in 13 countries, from France and the Netherlands to Spain, Italy and the Nordics."],
         ["U.S. Treasury · ECB", "Risk-free rates", "Daily yields from 1 month to 30 years."],
         ["European Central Bank", "Exchange rates", "30+ currencies, on a date or averaged over a period."],
         ["Aswath Damodaran, NYU Stern", "Valuation inputs", "Equity risk premium by country; betas and cost of capital by industry."],
@@ -254,7 +254,7 @@ fr = {
     "d_p": "Uniquement des dépôts officiels et des jeux de données publics. Un chiffre non déposé reste vide ; il n'est jamais estimé.",
     "data": [
         ["SEC EDGAR", "États financiers, États-Unis", "Dépôts 10-K, 10-Q et 20-F : annuels et douze derniers mois, pour les sociétés cotées aux États-Unis, y compris les émetteurs étrangers en IFRS."],
-        ["filings.xbrl.org", "États financiers, Europe", "Rapports annuels ESEF d'une trentaine de grands émetteurs en France, aux Pays-Bas, en Espagne, en Finlande, en Italie et en Belgique."],
+        ["filings.xbrl.org", "États financiers, Europe", "Rapports annuels ESEF d'une centaine de grands émetteurs dans 13 pays, de la France et des Pays-Bas à l'Espagne, l'Italie et les pays nordiques."],
         ["Trésor américain · BCE", "Taux sans risque", "Rendements quotidiens de 1 mois à 30 ans."],
         ["Banque centrale européenne", "Taux de change", "Plus de 30 devises, à une date ou en moyenne sur une période."],
         ["Aswath Damodaran, NYU Stern", "Paramètres de valorisation", "Prime de risque par pays ; bêtas et coût du capital par secteur."],
