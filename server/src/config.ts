@@ -25,6 +25,8 @@ export interface Env {
   USAGE?: D1Database;
   /** Optional Workers Rate Limiting binding (per IP). */
   IP_LIMITER?: { limit(opts: { key: string }): Promise<{ success: boolean }> };
+  /** The shared per-IP counter (src/limiter.ts IpCounter). */
+  IP_COUNTER?: { idFromName(name: string): unknown; get(id: unknown): { fetch(input: string): Promise<Response> } };
   /** Required for live SEC requests: "<name> <contact email>" per SEC fair-access policy. */
   SEC_USER_AGENT?: string;
   DAILY_CAP?: string;
