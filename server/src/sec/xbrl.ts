@@ -118,7 +118,11 @@ export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
   ],
   diluted_shares: ["AdjustedWeightedAverageShares"],
   // Basic EPS last: some filers (Inditex) tag no diluted figure; adjustRow notes it on the cell.
-  diluted_eps: ["DilutedEarningsLossPerShare", "BasicAndDilutedEarningsLossPerShare", "BasicEarningsLossPerShare"],
+  // Last: EPS from continuing operations, for filers that tag no total EPS (Iberdrola); adjustRow notes it.
+  diluted_eps: [
+    "DilutedEarningsLossPerShare", "BasicAndDilutedEarningsLossPerShare", "BasicEarningsLossPerShare",
+    "DilutedEarningsLossPerShareFromContinuingOperations", "BasicEarningsLossPerShareFromContinuingOperations",
+  ],
 };
 
 export const IFRS_INSTANT_CONCEPTS: Record<string, string[]> = {
@@ -493,7 +497,7 @@ const accs = (...cells: Cell[]) => [...new Set(cells.flatMap((c) => c.accessions
  * - D&A tagged as depreciation alone, with intangible amortization on its own line: the two are added;
  * - operating income for filers in OPERATING_INCOME_FROM_COSTS: revenue - costs and expenses;
  * - D&A tagged only together with impairment (IFRS): noted, and EBITDA's formula says so (derive);
- * - basic EPS standing in for an untagged diluted EPS (IFRS): noted;
+ * - basic EPS standing in for an untagged diluted EPS (IFRS): noted; likewise EPS from continuing operations;
  * - no share count tagged (IFRS, annual columns): net income to ordinary holders (else to owners) / EPS, as a
  *   computed cell with its precision and, for the owners' figure, the hybrid-coupon caveat; only for a profit and an
  *   EPS of at least 0.50 (EPS is rounded to cents);
@@ -529,13 +533,16 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false): voi
   if (IMPAIRMENT_DA.test(row.d_and_a?.concept ?? "")) {
     row.d_and_a = withNote(row.d_and_a!, "includes impairment: the filer tags no D&A line without it, so EBITDA includes impairment too");
   }
-  const basicEps = row.diluted_eps?.concept === "ifrs-full:BasicEarningsLossPerShare";
+  const basicEps = /^ifrs-full:BasicEarningsLossPerShare(FromContinuingOperations)?$/.test(row.diluted_eps?.concept ?? "");
   if (basicEps) row.diluted_eps = withNote(row.diluted_eps!, "basic EPS: the filer tags no diluted EPS");
+  const continuing = /FromContinuingOperations$/.test(row.diluted_eps?.concept ?? "");
+  if (continuing) row.diluted_eps = withNote(row.diluted_eps!, "EPS from continuing operations: the filer tags no total EPS");
   const ordinary = row.net_income_ordinary;
   const owners = row.net_income?.concept === "ifrs-full:ProfitLossAttributableToOwnersOfParent" ? row.net_income : null;
   const num = ordinary ?? owners;
   const eps = row.diluted_eps;
-  if (!ltm && !row.diluted_shares && num && eps && num.value > 0 && eps.value >= 0.5) {
+  // Not from continuing-operations EPS: net income also includes discontinued operations.
+  if (!ltm && !continuing && !row.diluted_shares && num && eps && num.value > 0 && eps.value >= 0.5) {
     const band = `±${((0.005 / eps.value) * 100).toFixed(1)}%`;
     const den = basicEps ? "basic EPS (no diluted EPS or share count tagged)" : "diluted_eps (no share count tagged)";
     row.diluted_shares = {

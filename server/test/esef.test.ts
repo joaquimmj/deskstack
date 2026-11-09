@@ -98,6 +98,9 @@ describe("ESEF extraction (xBRL-JSON)", () => {
       "VINCI:Purchaseofpropertyplantandequipmentandpurchaseofintangibleassetsclassifiedasinvestingactivities",
       "airbus:PurchasesOfIntangibleAssetsPropertyPlantAndEquipmentInvestmentProperty",
       "stellantis:InvestmentsInPropertyPlantAndEquipmentAndIntangibleAssets",
+      // French names: L'Oréal ("acquisitions d'immobilisations corporelles et incorporelles").
+      "loreal:AcquisitionsDImmobilisationsCorporellesEtIncorporelles",
+      "x:AcquisitionsDImmobilisationsIncorporellesEtCorporelles",
     ]) {
       expect(rows([{ concept: c, value: "7" }]).map((r) => r.x), c).toEqual([c]);
     }
@@ -107,6 +110,9 @@ describe("ESEF extraction (xBRL-JSON)", () => {
       "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsIncludingAcquisitions",
       "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsNetOfSubsidies",
       "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsOfDiscontinuedOperations",
+      "loreal:CessionsDImmobilisationsCorporellesEtIncorporelle", // disposals
+      "x:AcquisitionsDImmobilisationsFinancieres", // financial assets
+      "x:AcquisitionsDImmobilisationsCorporellesEtIncorporellesNonDecaissees",
     ]) {
       expect(rows([{ concept: c, value: "7" }]), c).toEqual([]);
     }

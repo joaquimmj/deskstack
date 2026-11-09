@@ -72,7 +72,8 @@ const days = (s: string, e: string) => Math.round((Date.parse(`${e}T00:00:00Z`) 
 // An allowlist of whole names (review: a denylist kept letting look-alikes through): purchases of / investments in
 // PP&E and intangible assets, in either order, optionally "and purchase of", "other than goodwill", "and investment
 // property", "and other non-current assets", "classified as investing activities". Nothing else may follow.
-const EXT_CAPEX = /^(purchases?of|investmentsin|acquisitionsof)(propertyplantandequipment(and)?(purchaseof)?intangibleassets|intangibleassets(and)?propertyplantandequipment)(otherthangoodwill)?((and)?investmentproperty)?((and)?othernoncurrentassets)?(classifiedasinvestingactivities)?$/i;
+// French: "acquisitions d'immobilisations corporelles et incorporelles" (L'Oréal), in either order.
+const EXT_CAPEX = /^(?:(purchases?of|investmentsin|acquisitionsof)(propertyplantandequipment(and)?(purchaseof)?intangibleassets|intangibleassets(and)?propertyplantandequipment)(otherthangoodwill)?((and)?investmentproperty)?((and)?othernoncurrentassets)?(classifiedasinvestingactivities)?|acquisitionsd(es)?immobilisations(corporellesetincorporelles|incorporellesetcorporelles))$/i;
 // A well-formed QName: the issuer's concept is published as-is, so nothing else gets through.
 const QNAME = /^[A-Za-z_][\w.-]{0,63}:[A-Za-z_][\w.-]{0,200}$/;
 
