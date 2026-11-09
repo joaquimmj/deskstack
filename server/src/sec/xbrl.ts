@@ -120,6 +120,8 @@ export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
   // An issuer's own PP&E depreciation and intangible amortization (Schneider): adjustRow adds them when no D&A is tagged.
   depreciation_ext: [EXT_KEYS.depreciation],
   amortization_ext: [EXT_KEYS.amortization],
+  // Right-of-use depreciation tagged on its own: the two parts above would then miss it, so they aren't added.
+  rou_depreciation_ext: ["DepreciationRightofuseAssets"],
   operating_cash_flow: ["CashFlowsFromUsedInOperatingActivities"],
   capex: [
     "PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
@@ -534,7 +536,10 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false): voi
   }
   const dx = row.depreciation_ext;
   const ax = row.amortization_ext;
-  if (!row.d_and_a && dx && ax) {
+  // Review (PR #14): both parts from one filing, nothing tagged beside them, and annual columns only (an LTM sum
+  // could be defined differently from the annual D&A next to it).
+  const oneFiling = dx && ax && dx.accession !== undefined && dx.accession === ax.accession;
+  if (!ltm && !row.d_and_a && dx && ax && oneFiling && !row.rou_depreciation_ext) {
     row.d_and_a = {
       value: dx.value + ax.value,
       concept: `${dx.concept} + ${ax.concept}`,
@@ -544,6 +549,7 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false): voi
   }
   delete row.depreciation_ext;
   delete row.amortization_ext;
+  delete row.rou_depreciation_ext;
   const why = ctx.cik !== undefined ? OPERATING_INCOME_FROM_COSTS[ctx.cik] : undefined;
   const rev = row.revenue;
   const ce = row.costs_and_expenses;
