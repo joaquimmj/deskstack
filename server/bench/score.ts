@@ -5,8 +5,15 @@
 //   - every typed number is checked for a usable source;
 //   - the workbook built from the spec goes through the deterministic checker.
 // Market caps and assumptions aren't filed figures: they count toward sourcing only.
+//
+// A mismatch is not always a wrong number (pilot of 2026-11-08, ANALYSIS.md):
+//   - EBITDA and net debt are computed, and definitions vary: a mismatch there is "definition", not wrong;
+//   - a reported line that equals another line of the same filing (or two of them added) is "other_line": the
+//     model picked a different line (revenue excluding excise taxes, capex including leased equipment).
+// Only what's left counts as wrong.
 
 import type { Connector } from "./connector";
+import { findInFiling, tolerance, type Fact } from "./filing-facts";
 import { buildWorkbook, checkWorkbook } from "./pytools";
 
 export interface Item {
@@ -21,7 +28,7 @@ export interface Item {
   ref: string;
 }
 
-export type ScoredItem = Item & { status: string; cause?: string; hints?: string[]; filed_value?: number | null; resolved?: string | null };
+export type ScoredItem = Item & { status: string; cause?: string; hints?: string[]; filed_value?: number | null; resolved?: string | null; other_line?: string };
 
 export interface Score {
   valid: boolean;
@@ -29,6 +36,10 @@ export interface Score {
   filed: number;
   match: number;
   mismatch: number;
+  /** Equal to another line of the same filing, or two lines added: a different line, not a wrong number. */
+  other_line?: number;
+  /** EBITDA or net debt different from deskstack's definition: definitions vary, so not counted as wrong. */
+  definition?: number;
   not_found: number;
   ambiguous: number;
   unverifiable: number;
@@ -118,6 +129,33 @@ export function itemsOf(spec: Spec, asked: { id: string; name: string }): { item
 
 export interface Opts {
   sleep?: (ms: number) => Promise<void>;
+  /** The filing's own facts for a company id and period label (e.g. "FY2025"), or null when unavailable. */
+  filingFacts?: (company: string, period: string) => Promise<Fact[] | null>;
+}
+
+/** Computed from several lines, with definitions that vary between companies and analysts. */
+export const COMPUTED = new Set(["ebitda", "net_debt"]);
+const SCALE: Record<string, number> = { units: 1, thousands: 1e3, millions: 1e6, billions: 1e9 };
+
+/** Reclassifies mismatches that are a different definition or a different line of the same filing. */
+export async function secondReading(items: ScoredItem[], o: Opts = {}): Promise<ScoredItem[]> {
+  const out: ScoredItem[] = [];
+  for (const x of items) {
+    if (x.status !== "mismatch") {
+      out.push(x);
+      continue;
+    }
+    const { cause: _c, ...rest } = x;
+    if (COMPUTED.has(x.metric)) {
+      out.push({ ...rest, status: "definition", hints: [...(x.hints ?? []), "computed figure: differs from deskstack's definition, which varies between analysts"] });
+      continue;
+    }
+    const scale = SCALE[x.scale] ?? null;
+    const facts = scale && x.company && o.filingFacts ? await o.filingFacts(x.company, x.period).catch(() => null) : null;
+    const hit = facts && scale ? findInFiling(x.value * scale, tolerance(x.value, scale), facts) : null;
+    out.push(hit ? { ...rest, status: "other_line", other_line: hit, hints: [...(x.hints ?? []), `equals ${hit} in the same filing`] } : x);
+  }
+  return out;
 }
 
 async function callWithRetry(c: Connector, name: string, args: Record<string, unknown>, o: Opts) {
@@ -193,11 +231,11 @@ export async function verify(connector: Connector, items: Item[], o: Opts = {}, 
 }
 
 export async function scoreSubmission(connector: Connector, spec: Spec | null, asked: { id: string; name: string }, dir: string, o: Opts = {}): Promise<Score> {
-  const empty: Score = { valid: false, filed: 0, match: 0, mismatch: 0, not_found: 0, ambiguous: 0, unverifiable: 0, causes: {}, typed: 0, unsourced: 0, items: [], unsourced_refs: [], errors: [] };
+  const empty: Score = { valid: false, filed: 0, match: 0, mismatch: 0, other_line: 0, definition: 0, not_found: 0, ambiguous: 0, unverifiable: 0, causes: {}, typed: 0, unsourced: 0, items: [], unsourced_refs: [], errors: [] };
   if (!spec) return { ...empty, error: "no model submitted" };
   const errors: string[] = [];
   const { items, typed } = itemsOf(spec, asked);
-  const verified = await verify(connector, items, o, errors);
+  const verified = await secondReading(await verify(connector, items, o, errors), o);
   const n = (s: string) => verified.filter((x) => x.status === s).length;
   const causes: Record<string, number> = {};
   for (const x of verified) if (x.cause) causes[x.cause] = (causes[x.cause] ?? 0) + 1;
@@ -218,6 +256,8 @@ export async function scoreSubmission(connector: Connector, spec: Spec | null, a
     filed: verified.length,
     match: n("match"),
     mismatch: n("mismatch"),
+    other_line: n("other_line"),
+    definition: n("definition"),
     not_found: n("not_found"),
     ambiguous: n("ambiguous"),
     unverifiable: n("unverifiable"),

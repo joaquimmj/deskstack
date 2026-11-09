@@ -45,6 +45,8 @@ export const DURATION_CONCEPTS: Record<string, string[]> = {
     "DepreciationAmortizationAndOther",
     "Depreciation",
   ],
+  // Added to EBITDA only when d_and_a is depreciation alone (filers that tag the two separately, e.g. KDP).
+  amortization_intangibles: ["AmortizationOfIntangibleAssets"],
   operating_cash_flow: ["NetCashProvidedByUsedInOperatingActivities"],
   capex: ["PaymentsToAcquirePropertyPlantAndEquipment", "PaymentsToAcquireProductiveAssets"],
   diluted_shares: ["WeightedAverageNumberOfDilutedSharesOutstanding"],
@@ -100,7 +102,9 @@ export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
 
 export const IFRS_INSTANT_CONCEPTS: Record<string, string[]> = {
   cash: ["CashAndCashEquivalents"],
-  short_term_investments: [], // no standard IFRS concept
+  // IFRS has no general short-term investments line. Short-term deposits are the clear case (Inditex: EUR 5.7B).
+  // OtherCurrentFinancialAssets is left out on purpose: it mixes derivatives and receivables.
+  short_term_investments: ["ShorttermDepositsNotClassifiedAsCashEquivalents"],
   total_assets: ["Assets"],
   total_equity: ["EquityAttributableToOwnersOfParent", "Equity"],
   // IFRS Borrowings is current + non-current; the pieces are the fallback.
@@ -456,7 +460,13 @@ function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | nu
   const out: Record<string, Derived | null> = {};
   const oi = v(row, "operating_income");
   const da = v(row, "d_and_a");
-  out.ebitda = oi !== null && da !== null ? { value: oi + da, formula: "operating_income + d_and_a" } : null;
+  const amort = row.d_and_a?.concept === "us-gaap:Depreciation" ? v(row, "amortization_intangibles") : null;
+  out.ebitda =
+    oi !== null && da !== null
+      ? amort !== null
+        ? { value: oi + da + amort, formula: "operating_income + d_and_a (depreciation only) + amortization_intangibles" }
+        : { value: oi + da, formula: "operating_income + d_and_a" }
+      : null;
   const cfo = v(row, "operating_cash_flow");
   const capex = v(row, "capex");
   out.free_cash_flow =

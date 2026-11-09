@@ -39,15 +39,15 @@ interface OimFact {
   dimensions?: Record<string, string>;
 }
 
-const CORE_DIMENSIONS = new Set(["concept", "entity", "period", "unit", "language"]);
+export const CORE_DIMENSIONS = new Set(["concept", "entity", "period", "unit", "language"]);
 
 /** OIM dates: "2026-01-01T00:00:00" is the instant at the start of Jan 1, i.e. the end of Dec 31. */
-function oimEnd(s: string): string {
+export function oimEnd(s: string): string {
   const [d, t] = s.split("T");
   return t && /^00:00:00/.test(t) ? shiftDays(d!, -1) : d!;
 }
 
-function oimStart(s: string): string {
+export function oimStart(s: string): string {
   return s.split("T")[0]!;
 }
 

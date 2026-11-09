@@ -48,7 +48,11 @@ function shapeColumn(c: Column): StatementPeriod {
     end: c.end,
     ...(c.ytd ? { ytd: c.ytd } : {}),
     income_statement: pickKeys(c.values, INCOME),
-    cash_flow: pickKeys(c.values, CASH_FLOW),
+    cash_flow: {
+      ...pickKeys(c.values, CASH_FLOW),
+      // Shown only when reported: it feeds EBITDA when d_and_a is depreciation alone.
+      ...(c.values.amortization_intangibles ? { amortization_intangibles: c.values.amortization_intangibles } : {}),
+    },
     balance_sheet: c.balance_sheet,
     derived: c.derived,
   };

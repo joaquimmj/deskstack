@@ -18,7 +18,9 @@ How many numbers in an AI-built financial model are wrong or unsourced, with and
 
 | Metric | Definition |
 |---|---|
-| Wrong vs filing | Filed figures that `verify_value` finds different from the filing, over those it could check. Filed figures are history lines, net debt and diluted shares for a DCF; revenue, EBITDA, net income and net debt for comps. Each mismatch carries its likely cause from the hint: scale, sign, currency, period, line item or other |
+| Wrong vs filing | Reported lines that `verify_value` finds different from the filing and that match no other line of it, over all filed figures checked. Filed figures are history lines, net debt and diluted shares for a DCF; revenue, EBITDA, net income and net debt for comps. Each mismatch carries its likely cause from the hint: scale, sign, currency, period, line item or other |
+| Other line of the filing | The value equals another line of the same filing, or two lines added, to the precision written (revenue excluding excise taxes, capex including leased equipment). Facts come from the filing itself: SEC companyfacts or the ESEF report. Reported, not counted as wrong |
+| Other definition | EBITDA or net debt different from deskstack's definition. Definitions vary, so reported, not counted as wrong (a computed figure that is plainly wrong lands here too) |
 | Not verifiable | The line isn't reported for that period, the period is ambiguous, or a peer can't be resolved by name with `company_lookup`. Colliding tickers (MC is LVMH in Paris and Moelis in New York) are never scored against the wrong company. Reported separately, never counted as wrong |
 | Unsourced | Typed numbers whose source is missing, a placeholder, or "not found" |
 | Checker | Blockers and majors per model, from the deterministic checker on the built workbook |
@@ -36,7 +38,11 @@ How many numbers in an AI-built financial model are wrong or unsourced, with and
 cd server
 npx tsx bench/run.ts --connector https://<worker>.workers.dev/mcp                          # dry run: plan + estimate, sends nothing
 ANTHROPIC_API_KEY=... npx tsx bench/run.ts --connector URL --set pilot --budget 20 --i-approve-spend
+SEC_USER_AGENT="name email" npx tsx bench/run.ts --rescore ../bench/results/<run> --connector URL  # score again, no API calls
 ```
+
+- **Second reading.** Set `SEC_USER_AGENT` (SEC asks for a contact) so the scorer can look for other lines in SEC
+  filings; ESEF reports need nothing. Without it, SEC mismatches on reported lines stay counted as wrong.
 
 - **Budget.** `--budget` is a hard cap on the spend recorded in `bench/results/ledger.json`.
   - The ledger is written after every request, so a crash and a re-run continue from what was already spent.
@@ -44,7 +50,8 @@ ANTHROPIC_API_KEY=... npx tsx bench/run.ts --connector URL --set pilot --budget 
     `max_tokens` of output, and every allowed search. It refuses the request if that could cross the cap.
   - A timed-out request is counted at that worst case.
   - The SDK's own retries are off. Only 429/529 are retried, because those aren't billed.
-  - `--max-run-cost` (default $1.50) stops a runaway run the same way.
+  - `--max-run-cost` (default $1.50) stops a runaway run the same way. Arm A's comps needs about 3: with web pages
+    in context, the worst case of one more request is near $1.
 - **Order.** Runs go company by company, arms A, B, C, so a stop leaves paired sets. The summary only compares
   company-tasks where every arm ran.
 - **Prices.** The prices used are printed at start (`server/bench/pricing.ts`). Check them against the live

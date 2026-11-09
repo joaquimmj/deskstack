@@ -130,6 +130,25 @@ describe("real filings", () => {
     expect(r.notes.some((n) => n.includes("IFRS filer"))).toBe(true);
   });
 
+  it("IFRS short-term deposits count as short-term investments in net debt (Inditex style)", () => {
+    // Inditex FY2025 (ended 2026-01-31), EUR millions: cash 5,276, short-term deposits 5,684, borrowings 2.
+    const at = (v: number) => [fact(v, null, "2026-01-31", "i-25", "2026-03-20", "ESEF", 2025)];
+    const ifrs = (o: Record<string, RawFact[]>) => {
+      const ns: Record<string, { units: { EUR: RawFact[] } }> = {};
+      for (const [k, v] of Object.entries(o)) ns[k] = { units: { EUR: v } };
+      return { cik: 0, entityName: "Inditex", facts: { "ifrs-full": ns } } as never;
+    };
+    const cf = ifrs({
+      Revenue: [fact(39_900, "2025-02-01", "2026-01-31", "i-25", "2026-03-20", "ESEF", 2025)],
+      Borrowings: at(2),
+      CashAndCashEquivalents: at(5_276),
+      ShorttermDepositsNotClassifiedAsCashEquivalents: at(5_684),
+    });
+    const p = standardize(cf, 5, false).periods[0]!;
+    expect(p.balance_sheet.short_term_investments!.concept).toBe("ifrs-full:ShorttermDepositsNotClassifiedAsCashEquivalents");
+    expect(p.derived.net_debt!.value).toBe(2 - 5_276 - 5_684);
+  });
+
   it("Toyota IFRS with no standard capex concept", () => {
     const r = standardize(facts("TM"), 1);
     const fy = r.periods[0]!;
@@ -195,6 +214,16 @@ describe("rules on synthetic facts", () => {
     expect(td({ ltd_total: 37_816, ltd_due_12m: 7_120 })).toEqual([37_816, "ltd_total"]);
     // DebtCurrent already covers the current portion.
     expect(td({ ltd_noncurrent: 30_696, debt_current: 12_634, ltd_due_12m: 7_120 })[0]).toBe(43_330);
+  });
+
+  it("EBITDA adds intangible amortization when D&A is depreciation alone (Keurig Dr Pepper style)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "d-25", "2026-02-20", "10-K", 2025)];
+    const base = { Revenues: y(16_603), OperatingIncomeLoss: y(3_575), AmortizationOfIntangibleAssets: y(138) };
+    const split = standardize(companyfacts({ ...base, Depreciation: y(455) }), 5, false).periods[0]!.derived.ebitda!;
+    expect(split).toEqual({ value: 3_575 + 455 + 138, formula: "operating_income + d_and_a (depreciation only) + amortization_intangibles" });
+    // A combined D&A concept already includes amortization: nothing added.
+    const both = standardize(companyfacts({ ...base, DepreciationDepletionAndAmortization: y(593) }), 5, false).periods[0]!;
+    expect(both.derived.ebitda).toEqual({ value: 3_575 + 593, formula: "operating_income + d_and_a" });
   });
 
   it("restated value comes from the latest filing; label from the original", () => {
