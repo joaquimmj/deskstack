@@ -25,6 +25,7 @@ from __future__ import annotations
 import csv
 import datetime as dt
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -92,18 +93,81 @@ SEC = [
 # (LEI, name, period label, report file, period start, end, [(metric, concept)], tags)
 ESEF = [
     ("529900S21EQ1BO4ESM68", "TotalEnergies", "FY2025", "529900S21EQ1BO4ESM68-2025-12-31-ESEF-FR-0", "2025-01-01", "2025-12-31",
-     [("revenue", "RevenueFromContractsWithCustomers"), ("net_income", "ProfitLossAttributableToOwnersOfParent"), ("total_assets", "Assets")], ["eu", "esef", "usd-reporter"]),
+     [("revenue", "RevenueFromContractsWithCustomers"), ("net_income", "ProfitLossAttributableToOwnersOfParent"), ("total_assets", "Assets"),
+      ("cash", "CashAndCashEquivalents"), ("operating_cash_flow", "CashFlowsFromUsedInOperatingActivities")], ["eu", "esef", "usd-reporter"]),
     ("529900S21EQ1BO4ESM68", "TotalEnergies", "FY2024", "529900S21EQ1BO4ESM68-2025-12-31-ESEF-FR-0", "2024-01-01", "2024-12-31",
-     [("revenue", "RevenueFromContractsWithCustomers"), ("net_income", "ProfitLossAttributableToOwnersOfParent")], ["eu", "esef", "usd-reporter", "comparative"]),
+     [("revenue", "RevenueFromContractsWithCustomers"), ("net_income", "ProfitLossAttributableToOwnersOfParent"), ("total_assets", "Assets"),
+      ("cash", "CashAndCashEquivalents"), ("operating_cash_flow", "CashFlowsFromUsedInOperatingActivities")], ["eu", "esef", "usd-reporter", "comparative"]),
     ("549300TTCXZOGZM2EY83", "Inditex", "FY2025", "549300TTCXZOGZM2EY83-2026-01-31-ESEF-ES-0", "2025-02-01", "2026-01-31",
      [("revenue", "Revenue"), ("net_income", "ProfitLossAttributableToOwnersOfParent"), ("total_assets", "Assets"),
-      ("short_term_investments", "ShorttermDepositsNotClassifiedAsCashEquivalents")], ["eu", "esef", "january-fye", "ifrs16"]),
+      ("short_term_investments", "ShorttermDepositsNotClassifiedAsCashEquivalents"),
+      ("cash", "CashAndCashEquivalents"), ("operating_cash_flow", "CashFlowsFromUsedInOperatingActivities")], ["eu", "esef", "january-fye", "ifrs16"]),
     ("549300TTCXZOGZM2EY83", "Inditex", "FY2024", "549300TTCXZOGZM2EY83-2026-01-31-ESEF-ES-0", "2024-02-01", "2025-01-31",
-     [("revenue", "Revenue"), ("net_income", "ProfitLossAttributableToOwnersOfParent")], ["eu", "esef", "january-fye", "comparative"]),
+     [("revenue", "Revenue"), ("net_income", "ProfitLossAttributableToOwnersOfParent"), ("total_assets", "Assets"),
+      ("cash", "CashAndCashEquivalents")], ["eu", "esef", "january-fye", "comparative"]),
     # Only reported as the comparative in the FY2024 report: its label must be counted back (FY2023), not taken from
     # the end year (2024, which is the next fiscal year's label for a January year-end).
     ("549300TTCXZOGZM2EY83", "Inditex", "FY2023", "549300TTCXZOGZM2EY83-2025-01-31-ESEF-ES-0", "2023-02-01", "2024-01-31",
      [("revenue", "Revenue")], ["eu", "esef", "january-fye", "comparative-only"]),
+    # Stars brief lot 2 bis: one issuer per further country, ten questions each (two years, five lines).
+    ("724500K5PTPSST86UQ23", "Heineken", "FY2025", "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'nl']),
+    ("724500K5PTPSST86UQ23", "Heineken", "FY2024", "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0", "2024-01-01", "2024-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'nl', 'comparative']),
+    ("5493009GY1X8GQ66AM14", "Neste", "FY2025", "5493009GY1X8GQ66AM14-2025-12-31-ESEF-FI-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'fi']),
+    ("5493009GY1X8GQ66AM14", "Neste", "FY2024", "5493009GY1X8GQ66AM14-2025-12-31-ESEF-FI-0", "2024-01-01", "2024-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'fi', 'comparative']),
+    ("5493008H3828EMEXB082", "AB InBev", "FY2025", "5493008H3828EMEXB082-2025-12-31-ESEF-BE-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'be']),
+    ("5493008H3828EMEXB082", "AB InBev", "FY2024", "5493008H3828EMEXB082-2025-12-31-ESEF-BE-0", "2024-01-01", "2024-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'be', 'comparative']),
+    ("815600EBD7FB00525B20", "Moncler", "FY2025", "815600EBD7FB00525B20-2025-12-31-ESEF-IT-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'it']),
+    ("815600EBD7FB00525B20", "Moncler", "FY2024", "815600EBD7FB00525B20-2025-12-31-ESEF-IT-0", "2024-01-01", "2024-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'it', 'comparative']),
+    ("2138003319Y7NM75FG53", "Galp", "FY2025", "2138003319Y7NM75FG53-2025-12-31-ESEF-PT-0", "2025-01-01", "2025-12-31",
+     [('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'pt']),
+    ("2138003319Y7NM75FG53", "Galp", "FY2024", "2138003319Y7NM75FG53-2025-12-31-ESEF-PT-0", "2024-01-01", "2024-12-31",
+     [('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'pt', 'comparative']),
+    ("2138003319Y7NM75FG53", "Galp", "FY2023", "2138003319Y7NM75FG53-2024-12-31-ESEF-PT-0", "2023-01-01", "2023-12-31",
+     [('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('total_assets', 'Assets')], ['eu', 'esef', 'pt', 'comparative']),
+    ("549300V62YJ9HTLRI486", "OMV", "FY2025", "549300V62YJ9HTLRI486-2025-12-31-ESEF-AT-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('pretax_income', 'ProfitLossBeforeTax'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'at']),
+    ("549300V62YJ9HTLRI486", "OMV", "FY2024", "549300V62YJ9HTLRI486-2025-12-31-ESEF-AT-0", "2024-01-01", "2024-12-31",
+     [('revenue', 'Revenue'), ('pretax_income', 'ProfitLossBeforeTax'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'at', 'comparative']),
+    ("635400TLVVBNXLFHWC59", "Kerry", "FY2024", "635400TLVVBNXLFHWC59-2024-12-31-ESEF-GB-0", "2024-01-01", "2024-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLoss'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'ie']),
+    ("635400TLVVBNXLFHWC59", "Kerry", "FY2023", "635400TLVVBNXLFHWC59-2024-12-31-ESEF-GB-0", "2023-01-01", "2023-12-31",
+     [('revenue', 'Revenue'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'ie', 'comparative', 'restated']),
+    # The 2024 report tags only total profit for FY2023; the owners' share is tagged in the 2023 report.
+    ("635400TLVVBNXLFHWC59", "Kerry", "FY2023", "635400TLVVBNXLFHWC59-2023-12-31-ESEF-GB-0", "2023-01-01", "2023-12-31",
+     [('net_income', 'ProfitLossAttributableToOwnersOfParent')], ['eu', 'esef', 'ie']),
+    ("2EULGUTUI56JI9SAL165", "ArcelorMittal", "FY2024", "2EULGUTUI56JI9SAL165-2024-12-31-ESEF-LU-0", "2024-01-01", "2024-12-31",
+     [('revenue', 'RevenueFromContractsWithCustomers'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'lu']),
+    ("2EULGUTUI56JI9SAL165", "ArcelorMittal", "FY2023", "2EULGUTUI56JI9SAL165-2024-12-31-ESEF-LU-0", "2023-01-01", "2023-12-31",
+     [('revenue', 'RevenueFromContractsWithCustomers'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'lu', 'comparative']),
+    ("549300DAQ1CVT6CXN342", "Novo Nordisk", "FY2025", "549300DAQ1CVT6CXN342-2025-12-31-ESEF-DK-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLoss'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'dk']),
+    ("549300DAQ1CVT6CXN342", "Novo Nordisk", "FY2024", "549300DAQ1CVT6CXN342-2025-12-31-ESEF-DK-0", "2024-01-01", "2024-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLoss'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'dk', 'comparative']),
+    ("213800T8PC8Q4FYJZR07", "Atlas Copco", "FY2025", "213800T8PC8Q4FYJZR07-2025-12-31-ESEF-SE-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'se']),
+    ("213800T8PC8Q4FYJZR07", "Atlas Copco", "FY2024", "213800T8PC8Q4FYJZR07-2025-12-31-ESEF-SE-0", "2024-01-01", "2024-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'se', 'comparative']),
+    ("OW6OFBNCKXC4US5C7523", "Equinor", "FY2025", "OW6OFBNCKXC4US5C7523-2025-12-31-ESEF-NO-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'no']),
+    ("OW6OFBNCKXC4US5C7523", "Equinor", "FY2024", "OW6OFBNCKXC4US5C7523-2025-12-31-ESEF-NO-0", "2024-01-01", "2024-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'no', 'comparative']),
+    # UK listed (UKSEF): AstraZeneca reports in USD; Tesco's year ends in February (FY2025 has 53 weeks) and it tags no total assets.
+    ("PY6ZZQWO2IZFZC3IOL08", "AstraZeneca", "FY2025", "PY6ZZQWO2IZFZC3IOL08-2025-12-31-ESEF-GB-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'uksef', 'gb', 'usd-reporter']),
+    ("PY6ZZQWO2IZFZC3IOL08", "AstraZeneca", "FY2024", "PY6ZZQWO2IZFZC3IOL08-2025-12-31-ESEF-GB-0", "2024-01-01", "2024-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'uksef', 'gb', 'usd-reporter', 'comparative']),
+    ("2138002P5RNKC5W2JZ46", "Tesco", "FY2025", "2138002P5RNKC5W2JZ46-2026-02-28-ESEF-GB-0", "2025-02-23", "2026-02-28",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('cash', 'CashAndCashEquivalents')], ['eu', 'uksef', 'gb', 'february-fye', '53-week year']),
+    ("2138002P5RNKC5W2JZ46", "Tesco", "FY2024", "2138002P5RNKC5W2JZ46-2026-02-28-ESEF-GB-0", "2024-02-25", "2025-02-22",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('cash', 'CashAndCashEquivalents')], ['eu', 'uksef', 'gb', 'february-fye', 'comparative']),
 ]
 
 # Behavior checks: (id, question, call, read, expected, tags)
@@ -235,7 +299,7 @@ def build() -> dict:
         for metric, concept in items:
             a = esef_answer(report, concept, start, end, metric in INSTANT)
             qs.append({
-                "id": f"{name.lower()}-{label.lower()}-{metric.replace('_', '-')}",
+                "id": f"{re.sub('[^a-z0-9]+', '-', name.lower())}-{label.lower()}-{metric.replace('_', '-')}",
                 "question": f"What was {name}'s {LABEL[metric]} for {label} (period ending {end})?",
                 "tags": list(tags),
                 "call": {"tool": "financial_statements", "args": {"ticker": lei, "years": 5}},

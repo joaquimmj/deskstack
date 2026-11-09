@@ -516,15 +516,21 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
     },
     async () =>
       guarded(async () => {
-        const m = await repo.manifest();
+        const [m, eu] = await Promise.all([repo.manifest(), repo.euCompanies()]);
+        const byCountry: Record<string, number> = {};
+        for (const e of eu) byCountry[e.country] = (byCountry[e.country] ?? 0) + 1;
+        const countries = Object.entries(byCountry).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
         return ok({
           name: PRODUCT_NAME,
           version: VERSION,
           coverage: {
             us_sec: "SEC registrants with XBRL financials (10-K/10-Q; 20-F IFRS filers without LTM).",
             europe_esef:
-              "Large EU issuers (FR, NL, ES, FI, IT, BE) from their ESEF annual reports via filings.xbrl.org; annual only " +
-              "(half-year reports are rarely in ESEF). No German issuers yet: their reports are not in the public repository.",
+              `${eu.length} large European and UK listed issuers in ${countries.length} countries (${countries.map(([c, n]) => `${c} ${n}`).join(", ")}), ` +
+              "from their ESEF or UKSEF annual reports via filings.xbrl.org; annual only (half-year reports are rare). " +
+              "No German filings and none lodged in Ireland: they are not in the public repository. Irish issuers listed " +
+              "in London (Kerry) file UKSEF and are served.",
+            europe_by_country: Object.fromEntries(countries),
             ratios: "key_metrics: computed from the SEC statements, each with its formula",
             risk_free_rates: "US Treasury par yield curve; ECB euro area par yields (AAA or all issuers)",
             fx: "fx_rate: ECB euro reference rates, any pair crossed through EUR",

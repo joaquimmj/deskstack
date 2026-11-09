@@ -106,6 +106,8 @@ export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
   net_income: ["ProfitLossAttributableToOwnersOfParent", "ProfitLoss"],
   // EPS's own numerator (after coupons on hybrid / AT1 instruments): used to derive an untagged share count.
   net_income_ordinary: ["ProfitLossAttributableToOrdinaryEquityHoldersOfParentEntity"],
+  // An input only: adjustRow notes it when net income falls back to consolidated profit (OMV).
+  net_income_nci: ["ProfitLossAttributableToNoncontrollingInterests"],
   interest_expense: ["InterestExpense", "FinanceCosts"],
   // Impairment-inclusive D&A concepts come last, for filers that tag nothing else (TotalEnergies, AB InBev, Ahold,
   // Iberdrola); adjustRow notes it on the cell, since EBITDA then includes impairment.
@@ -573,6 +575,15 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false): voi
   if (IMPAIRMENT_DA.test(row.d_and_a?.concept ?? "")) {
     row.d_and_a = withNote(row.d_and_a!, "includes impairment: the filer tags no D&A line without it, so EBITDA includes impairment too");
   }
+  const nci = row.net_income_nci;
+  if (row.net_income?.concept === "ifrs-full:ProfitLoss" && nci && nci.value !== 0) {
+    row.net_income = withNote(
+      row.net_income,
+      `consolidated profit: includes ${Math.round(nci.value / 1e6).toLocaleString("en-US")} million attributable to ` +
+        "non-controlling interests; the filer tags no profit attributable to owners of the parent",
+    );
+  }
+  delete row.net_income_nci;
   const basicEps = /^ifrs-full:BasicEarningsLossPerShare(FromContinuingOperations)?$/.test(row.diluted_eps?.concept ?? "");
   if (basicEps) row.diluted_eps = withNote(row.diluted_eps!, "basic EPS: the filer tags no diluted EPS");
   const continuing = /FromContinuingOperations$/.test(row.diluted_eps?.concept ?? "");

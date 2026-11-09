@@ -295,6 +295,15 @@ describe("snapshot path", () => {
     expect(calls.some((u) => u.includes("companyfacts"))).toBe(true);
   });
 
+  it("data_status counts the European issuers it serves, by country (stars brief lot 2 bis)", async () => {
+    const r = await call(baseEnv({ ASSETS: fixtureAssets(["AAPL"]) }), "data_status");
+    const eu = r.json.coverage.europe_by_country as Record<string, number>;
+    const total = Object.values(eu).reduce((a, b) => a + b, 0);
+    expect(total).toBeGreaterThan(0);
+    expect(r.json.coverage.europe_esef).toMatch(new RegExp(`^${total} large European and UK listed issuers`));
+    expect(r.json.coverage.europe_esef).not.toMatch(/\(FR, NL, ES, FI, IT, BE\)/);
+  });
+
   it("data_status reports the snapshot", async () => {
     const r = await call(baseEnv({ ASSETS: fixtureAssets(["AAPL"]) }), "data_status");
     expect(r.json.snapshot.built_at).toBe("2026-11-08T03:00:00Z");

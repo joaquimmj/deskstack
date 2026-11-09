@@ -197,6 +197,26 @@ describe("real filings", () => {
     expect(facts({ AdjustedWeightedAverageShares: { units: { shares: y(3_050e6) } } }).diluted_shares!.value).toBe(3_050e6);
   });
 
+  it("IFRS net income says when it is consolidated profit including minorities (OMV; stars brief lot 2 bis)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "o-25", "2026-03-20", "ESEF", 2025)];
+    const run = (extra: Record<string, { units: Record<string, RawFact[]> }>) => standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+      Revenue: { units: { EUR: y(24_000e6) } },
+      ProfitLoss: { units: { EUR: y(1_520e6) } },
+      ...extra,
+    } } } as never, 5, false).periods[0]!.values;
+    const omv = run({ ProfitLossAttributableToNoncontrollingInterests: { units: { EUR: y(443e6) } } });
+    expect(omv.net_income!.value).toBe(1_520e6); // the tagged figure, never an estimate of the owners' share
+    expect(omv.net_income!.note).toMatch(/443 million attributable to non-controlling interests/);
+    expect(omv).not.toHaveProperty("net_income_nci");
+    // No minorities tagged (Novo Nordisk), or owners' profit tagged: nothing to say.
+    expect(run({}).net_income!.note).toBeUndefined();
+    expect(run({ ProfitLossAttributableToNoncontrollingInterests: { units: { EUR: y(0) } } }).net_income!.note).toBeUndefined();
+    const owners = run({ ProfitLossAttributableToOwnersOfParent: { units: { EUR: y(1_077e6) } },
+      ProfitLossAttributableToNoncontrollingInterests: { units: { EUR: y(443e6) } } }).net_income!;
+    expect(owners.value).toBe(1_077e6);
+    expect(owners.note).toBeUndefined();
+  });
+
   it("IFRS net debt says when current financial assets are tagged only mixed with derivatives (TotalEnergies; stars brief lot 1)", () => {
     const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "t-25", "2026-03-20", "ESEF", 2025)];
     const at = (v: number) => [fact(v, null, "2025-12-31", "t-25", "2026-03-20", "ESEF", 2025)];
