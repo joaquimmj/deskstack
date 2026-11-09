@@ -22,7 +22,7 @@
 // ifrs-full with their own concept map, in their reporting currency. A filer
 // with both taxonomies (Sony) is read from whichever has the latest fiscal year.
 
-import { CAPEX_FROM_OTHER_PRODUCTIVE_ASSETS, OPERATING_INCOME_FROM_COSTS } from "../config";
+import { CAPEX_FROM_OTHER_PRODUCTIVE_ASSETS, DA_EXCLUDES_INTANGIBLES, OPERATING_INCOME_FROM_COSTS } from "../config";
 
 export const DURATION_CONCEPTS: Record<string, string[]> = {
   revenue: [
@@ -526,12 +526,14 @@ const withNote = (c: Cell, note: string): Cell => ({ ...c, note: c.note ? `${c.n
 function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false): void {
   const dep = row.d_and_a;
   const am = row.amortization_intangibles;
-  if (dep && am && dep.concept === "us-gaap:Depreciation") {
+  const narrowDa = ctx.cik !== undefined ? DA_EXCLUDES_INTANGIBLES[ctx.cik] : undefined;
+  if (dep && am && (dep.concept === "us-gaap:Depreciation" || narrowDa)) {
     row.d_and_a = {
       value: dep.value + am.value,
-      concept: "us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets",
+      concept: `${dep.concept} + us-gaap:AmortizationOfIntangibleAssets`,
       accessions: accs(dep, am),
       formula: "depreciation + amortization of intangible assets (tagged separately)",
+      ...(narrowDa ? { note: narrowDa } : {}),
     };
   }
   const dx = row.depreciation_ext;

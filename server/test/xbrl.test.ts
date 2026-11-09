@@ -269,6 +269,18 @@ describe("real filings", () => {
     expect(ltm!.values.d_and_a).toBeNull();
   });
 
+  it("Cisco's D&A adds intangible amortization to its property-and-equipment-only D&A tag; nobody else's does", () => {
+    // Cisco FY2026 10-K: DepreciationDepletionAndAmortization 700 (property and equipment only), intangibles 916.
+    const y = (v: number) => [fact(v, "2025-07-27", "2026-07-25", "c-26", "2026-09-05", "10-K", 2026)];
+    const facts = { Revenues: y(56_000), DepreciationDepletionAndAmortization: y(700), AmortizationOfIntangibleAssets: y(916) };
+    const csco = standardize({ ...companyfacts(facts), cik: 858877 }, 5, false).periods[0]!.values.d_and_a!;
+    expect(csco.value).toBe(1616);
+    expect(csco.formula).toMatch(/depreciation \+ amortization of intangible assets/);
+    expect(csco.note).toMatch(/property and equipment only/);
+    // Any other filer's DepreciationDepletionAndAmortization already includes amortization: kept as tagged.
+    expect(standardize(companyfacts(facts), 5, false).periods[0]!.values.d_and_a!.value).toBe(700);
+  });
+
   it("Verizon-style capex says which line it is (review)", () => {
     const y = (v: number) => [fact(v, "2024-01-01", "2024-12-31", "v-24", "2025-02-10", "10-K", 2024)];
     const vz = { ...companyfacts({ Revenues: y(1), PaymentsToAcquireOtherProductiveAssets: y(17_090) }), cik: 732712 };

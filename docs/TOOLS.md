@@ -38,8 +38,8 @@ The deskstack connector is a remote MCP server, with no sign-in. Every tool is r
 Each computed line carries its formula, so a different definition is visible.
 
 - **D&A:** when a company tags depreciation and intangible amortization separately (no combined line), the D&A line
-  is the two added, and its formula says so (Merck, Microsoft, Keurig Dr Pepper). A company that tags a narrower
-  figure as combined D&A keeps it (Cisco's covers property and equipment only).
+  is the two added, and its formula says so (Merck, Microsoft, Keurig Dr Pepper). So is D&A for a short list of
+  filers whose combined D&A tag covers property and equipment only (Cisco), with a note.
 - **EBITDA** is operating income + D&A.
 - **Lines from an issuer's own concepts:** a European issuer that tags a line only with its own concept gets that
   figure for a short list of lines, matched on the whole concept name; the cell shows the real concept and a note, and
