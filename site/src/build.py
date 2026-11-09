@@ -51,10 +51,15 @@ def render(L: dict, prefix: str, home: str) -> str:
     lanes = []
     for cmd, who, desc in L["roles"]:
         lanes.append(f'<li class="{who}"><span class="who">{L["who_" + who]}</span><code>{cmd}</code><p>{desc}</p></li>')
-    bench = []
-    for arm, pct, detail, cost, secs, width in L["bench"]:
-        bar = f'<span class="bar" style="--w:{width}"></span>' if width else '<span class="bar zero"></span>'
-        bench.append(f'<tr><th scope="row">{arm}</th><td class="wrong">{bar}<b>{pct}</b> <span>{detail}</span></td><td class="r">{cost}</td><td class="r">{secs}</td></tr>')
+    tables = []
+    for tb in L["benches"]:
+        rows = []
+        for arm, pct, detail, cost, secs, width in tb["rows"]:
+            bar = f'<span class="bar" style="--w:{width}"></span>' if width else '<span class="bar zero"></span>'
+            rows.append(f'<tr><th scope="row">{arm}</th><td class="wrong">{bar}<b>{pct}</b> <span>{detail}</span></td><td class="r">{cost}</td><td class="r">{secs}</td></tr>')
+        head = f'<thead><tr><th scope="col">{L["b_h_arm"]}</th><th scope="col">{L["b_h_wrong"]}</th><th scope="col" class="r">{L["b_h_cost"]}</th><th scope="col" class="r">{L["b_h_time"]}</th></tr></thead>'
+        link = f'<a href="{GH}/blob/main/{tb["analysis"]}">{L["b_link"]}</a>'
+        tables.append(f'<table><caption>{tb["t"]} <span>{link}</span></caption>{head}<tbody>{"".join(rows)}</tbody></table>')
     data = "".join(f"<tr><td>{a}</td><td>{b}</td><td>{c}</td></tr>" for a, b, c in L["data"])
     limits = "".join(f"<li>{x}</li>" for x in L["limits"])
     values = {
@@ -62,7 +67,7 @@ def render(L: dict, prefix: str, home: str) -> str:
         "prefix": prefix, "home": home, "gh": GH, "analysis": ANALYSIS, "logo": LOGO, "favicon": FAVICON, "tick": TICK,
         "col_heads": "".join(f"<span>{c}</span>" for c in COLS),
         "row_heads": "".join(f"<span>{r}</span>" for r in range(1, ROWS + 1)),
-        "hero_cells": "".join(cells), "stats": stats, "lanes": "".join(lanes), "bench_rows": "".join(bench),
+        "hero_cells": "".join(cells), "stats": stats, "lanes": "".join(lanes), "bench_tables": "".join(tables),
         "data_rows": data, "limit_items": limits, "desc_attr": html.escape(L["desc"], quote=True),
         "title_text": html.escape(L["title"]),
     }

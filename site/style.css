@@ -153,6 +153,9 @@ h3 { font-size: 19px; margin: 0 0 8px; }
 /* Benchmark table with inline bars. */
 .bench { margin: 0 0 40px; background: var(--sheet); border: 1px solid var(--grid); border-radius: 12px; padding: 8px 20px 18px; }
 .bench table { width: 100%; border-collapse: collapse; }
+.bench table + table { margin-top: 28px; }
+.bench caption { text-align: left; caption-side: top; padding: 14px 8px 4px; font-weight: 700; font-size: 17px; }
+.bench caption span { font-weight: 400; font-size: 14px; margin-left: 10px; }
 .bench th, .bench td { text-align: left; padding: 14px 8px; border-bottom: 1px solid var(--grid); font-size: 16px; }
 .bench thead th { font-size: 13px; color: var(--muted); font-weight: 600; }
 .bench tbody th { font-weight: 600; width: 30%; }

@@ -84,12 +84,8 @@
   <h2 class="title" id="bench-t">The benchmark</h2>
   <p class="intro">Claude Sonnet 5.5 built a DCF for each of 50 companies (35 US, 15 European), three ways. Every reported figure was scored against the filing, and every one flagged as wrong was read by hand.</p>
   <figure class="bench">
-    <table>
-      <caption class="visually-hidden">The benchmark</caption>
-      <thead><tr><th scope="col">Setup</th><th scope="col">Reported figures wrong</th><th scope="col" class="r">Cost / model</th><th scope="col" class="r">Time</th></tr></thead>
-      <tbody><tr><th scope="row">Web search only</th><td class="wrong"><span class="bar" style="--w:3.5"></span><b>3.5%</b> <span>20 of 573</span></td><td class="r">$0.23</td><td class="r">58 s</td></tr><tr><th scope="row">deskstack data</th><td class="wrong"><span class="bar zero"></span><b>0%</b> <span>0 of 593</span></td><td class="r">$0.07</td><td class="r">18 s</td></tr><tr><th scope="row">deskstack data + reviewers</th><td class="wrong"><span class="bar zero"></span><b>0%</b> <span>0 of 606</span></td><td class="r">$0.10</td><td class="r">32 s</td></tr></tbody>
-    </table>
-    <figcaption>Most wrong figures were numbers the model couldn't find and filled in anyway: derived share counts, estimated capex, aggregator figures, non-GAAP revenue. Net debt and EBITDA are reported apart, since definitions vary. Every transcript is public. <a href="https://github.com/joaquimmj/deskstack/blob/main/bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md">Analysis and transcripts</a></figcaption>
+    <table><caption>DCF, 50 companies <span><a href="https://github.com/joaquimmj/deskstack/blob/main/bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md">Analysis and transcripts</a></span></caption><thead><tr><th scope="col">Setup</th><th scope="col">Reported figures wrong</th><th scope="col" class="r">Cost / model</th><th scope="col" class="r">Time</th></tr></thead><tbody><tr><th scope="row">Web search only</th><td class="wrong"><span class="bar" style="--w:3.5"></span><b>3.5%</b> <span>20 of 573</span></td><td class="r">$0.23</td><td class="r">58 s</td></tr><tr><th scope="row">deskstack data</th><td class="wrong"><span class="bar zero"></span><b>0%</b> <span>0 of 593</span></td><td class="r">$0.07</td><td class="r">18 s</td></tr><tr><th scope="row">deskstack data + reviewers</th><td class="wrong"><span class="bar zero"></span><b>0%</b> <span>0 of 606</span></td><td class="r">$0.10</td><td class="r">32 s</td></tr></tbody></table>
+    <figcaption>Most wrong figures were numbers the model couldn't find and filled in anyway: derived share counts, estimated capex, aggregator figures, non-GAAP revenue. Net debt and EBITDA are reported apart, since definitions vary. Every transcript is public.</figcaption>
   </figure>
   <div class="two">
     <div>
