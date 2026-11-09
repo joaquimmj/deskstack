@@ -1,0 +1,1338 @@
+{
+ "company": "PFE",
+ "task": "comps",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "comps",
+   "target": "PFE",
+   "currency": "USD",
+   "scale": "millions",
+   "period": "FY2025",
+   "peers": [
+    {
+     "name": "Pfizer Inc (target)",
+     "ticker": "PFE",
+     "currency": "USD",
+     "revenue": {
+      "value": 62579,
+      "period": "FY2025",
+      "source": "10-K 0000078003-26-000026, us-gaap:Revenues"
+     },
+     "ebitda": {
+      "value": 16783,
+      "period": "FY2025",
+      "source": "Derived, operating income not reported in XBRL: pretax income 7,520 + interest expense 2,671 + D&A 6,592 (10-K 0000078003-26-000026); ignores interest income, so approximate"
+     },
+     "net_income": {
+      "value": 7771,
+      "period": "FY2025",
+      "source": "10-K 0000078003-26-000026, us-gaap:NetIncomeLoss"
+     },
+     "market_cap": {
+      "value": 0,
+      "period": "n/a",
+      "source": "PLACEHOLDER 0 = not found: no share price from tools; shares outstanding 5,699.9M (10-Q 0000078003-26-000127); reviewer to supply price"
+     },
+     "net_debt": {
+      "value": 54470,
+      "period": "FY2025-12-31",
+      "source": "financial_statements derived: total debt 64,795 - cash 1,142 - ST investments 9,183 (10-K 0000078003-26-000026)"
+     }
+    },
+    {
+     "name": "AbbVie Inc.",
+     "ticker": "ABBV",
+     "currency": "USD",
+     "revenue": {
+      "value": 61160,
+      "period": "FY2025",
+      "source": "10-K 0001551152-26-000008, us-gaap:Revenues"
+     },
+     "ebitda": {
+      "value": 23214,
+      "period": "FY2025",
+      "source": "10-K 0001551152-26-000008: operating income 15,075 + D&A 8,139"
+     },
+     "net_income": {
+      "value": 4226,
+      "period": "FY2025",
+      "source": "10-K 0001551152-26-000008, us-gaap:NetIncomeLoss"
+     },
+     "market_cap": {
+      "value": 0,
+      "period": "n/a",
+      "source": "PLACEHOLDER 0 = not found: no share price; shares outstanding 1,767.6M (10-Q 0001551152-26-000037)"
+     },
+     "net_debt": {
+      "value": 62239,
+      "period": "FY2025-12-31",
+      "source": "financial_statements derived (10-K 0001551152-26-000008)"
+     }
+    },
+    {
+     "name": "Amgen Inc.",
+     "ticker": "AMGN",
+     "currency": "USD",
+     "revenue": {
+      "value": 36751,
+      "period": "FY2025",
+      "source": "10-K 0000318154-26-000010"
+     },
+     "ebitda": {
+      "value": 14247,
+      "period": "FY2025",
+      "source": "10-K 0000318154-26-000010: operating income 9,080 + D&A 5,167"
+     },
+     "net_income": {
+      "value": 7711,
+      "period": "FY2025",
+      "source": "10-K 0000318154-26-000010"
+     },
+     "market_cap": {
+      "value": 0,
+      "period": "n/a",
+      "source": "PLACEHOLDER 0 = not found: no share price; shares outstanding 540.9M (10-Q 0000318154-26-000155)"
+     },
+     "net_debt": {
+      "value": 45475,
+      "period": "FY2025-12-31",
+      "source": "financial_statements derived (10-K 0000318154-26-000010)"
+     }
+    },
+    {
+     "name": "Gilead Sciences, Inc.",
+     "ticker": "GILD",
+     "currency": "USD",
+     "revenue": {
+      "value": 29443,
+      "period": "FY2025",
+      "source": "10-K 0000882095-26-000006"
+     },
+     "ebitda": {
+      "value": 12792,
+      "period": "FY2025",
+      "source": "10-K 0000882095-26-000006: operating income 10,022 + D&A 2,770"
+     },
+     "net_income": {
+      "value": 8510,
+      "period": "FY2025",
+      "source": "10-K 0000882095-26-000006"
+     },
+     "market_cap": {
+      "value": 0,
+      "period": "n/a",
+      "source": "PLACEHOLDER 0 = not found: no share price; shares outstanding 1,240.3M (10-Q 0000882095-26-000039)"
+     },
+     "net_debt": {
+      "value": 17304,
+      "period": "FY2025-12-31",
+      "source": "financial_statements derived (10-K 0000882095-26-000006)"
+     }
+    },
+    {
+     "name": "Regeneron Pharmaceuticals, Inc.",
+     "ticker": "REGN",
+     "currency": "USD",
+     "revenue": {
+      "value": 14342.9,
+      "period": "FY2025",
+      "source": "10-K 0000872589-26-000008"
+     },
+     "ebitda": {
+      "value": 4121.6,
+      "period": "FY2025",
+      "source": "10-K 0000872589-26-000008: operating income 3,577.9 + D&A 543.7"
+     },
+     "net_income": {
+      "value": 4504.9,
+      "period": "FY2025",
+      "source": "10-K 0000872589-26-000008"
+     },
+     "market_cap": {
+      "value": 0,
+      "period": "n/a",
+      "source": "PLACEHOLDER 0 = not found: no share price from tools"
+     },
+     "net_debt": {
+      "value": -6619.3,
+      "period": "FY2025-12-31",
+      "source": "financial_statements derived: debt 1,985.9 - cash 3,118.1 - ST investments 5,487.1 (10-K 0000872589-26-000008)"
+     }
+    }
+   ]
+  },
+  "first_submission": {
+   "kind": "comps",
+   "target": "PFE",
+   "currency": "USD",
+   "scale": "millions",
+   "period": "FY2025",
+   "peers": [
+    {
+     "name": "Pfizer Inc (target)",
+     "ticker": "PFE",
+     "currency": "USD",
+     "revenue": {
+      "value": 62579,
+      "period": "FY2025",
+      "source": "10-K 0000078003-26-000026, us-gaap:Revenues"
+     },
+     "ebitda": {
+      "value": 16783,
+      "period": "FY2025",
+      "source": "Derived, operating income not reported in XBRL: pretax income 7,520 + interest expense 2,671 + D&A 6,592 (10-K 0000078003-26-000026); ignores interest income, so approximate"
+     },
+     "net_income": {
+      "value": 7771,
+      "period": "FY2025",
+      "source": "10-K 0000078003-26-000026, us-gaap:NetIncomeLoss"
+     },
+     "market_cap": {
+      "value": 0,
+      "period": "n/a",
+      "source": "PLACEHOLDER 0 = not found: no share price from tools; shares outstanding 5,699.9M (10-Q 0000078003-26-000127); reviewer to supply price"
+     },
+     "net_debt": {
+      "value": 54470,
+      "period": "FY2025-12-31",
+      "source": "financial_statements derived: total debt 64,795 - cash 1,142 - ST investments 9,183 (10-K 0000078003-26-000026)"
+     }
+    },
+    {
+     "name": "AbbVie Inc.",
+     "ticker": "ABBV",
+     "currency": "USD",
+     "revenue": {
+      "value": 61160,
+      "period": "FY2025",
+      "source": "10-K 0001551152-26-000008, us-gaap:Revenues"
+     },
+     "ebitda": {
+      "value": 23214,
+      "period": "FY2025",
+      "source": "10-K 0001551152-26-000008: operating income 15,075 + D&A 8,139"
+     },
+     "net_income": {
+      "value": 4226,
+      "period": "FY2025",
+      "source": "10-K 0001551152-26-000008, us-gaap:NetIncomeLoss"
+     },
+     "market_cap": {
+      "value": 0,
+      "period": "n/a",
+      "source": "PLACEHOLDER 0 = not found: no share price; shares outstanding 1,767.6M (10-Q 0001551152-26-000037)"
+     },
+     "net_debt": {
+      "value": 62239,
+      "period": "FY2025-12-31",
+      "source": "financial_statements derived (10-K 0001551152-26-000008)"
+     }
+    },
+    {
+     "name": "Amgen Inc.",
+     "ticker": "AMGN",
+     "currency": "USD",
+     "revenue": {
+      "value": 36751,
+      "period": "FY2025",
+      "source": "10-K 0000318154-26-000010"
+     },
+     "ebitda": {
+      "value": 14247,
+      "period": "FY2025",
+      "source": "10-K 0000318154-26-000010: operating income 9,080 + D&A 5,167"
+     },
+     "net_income": {
+      "value": 7711,
+      "period": "FY2025",
+      "source": "10-K 0000318154-26-000010"
+     },
+     "market_cap": {
+      "value": 0,
+      "period": "n/a",
+      "source": "PLACEHOLDER 0 = not found: no share price; shares outstanding 540.9M (10-Q 0000318154-26-000155)"
+     },
+     "net_debt": {
+      "value": 45475,
+      "period": "FY2025-12-31",
+      "source": "financial_statements derived (10-K 0000318154-26-000010)"
+     }
+    },
+    {
+     "name": "Gilead Sciences, Inc.",
+     "ticker": "GILD",
+     "currency": "USD",
+     "revenue": {
+      "value": 29443,
+      "period": "FY2025",
+      "source": "10-K 0000882095-26-000006"
+     },
+     "ebitda": {
+      "value": 12792,
+      "period": "FY2025",
+      "source": "10-K 0000882095-26-000006: operating income 10,022 + D&A 2,770"
+     },
+     "net_income": {
+      "value": 8510,
+      "period": "FY2025",
+      "source": "10-K 0000882095-26-000006"
+     },
+     "market_cap": {
+      "value": 0,
+      "period": "n/a",
+      "source": "PLACEHOLDER 0 = not found: no share price; shares outstanding 1,240.3M (10-Q 0000882095-26-000039)"
+     },
+     "net_debt": {
+      "value": 17304,
+      "period": "FY2025-12-31",
+      "source": "financial_statements derived (10-K 0000882095-26-000006)"
+     }
+    },
+    {
+     "name": "Regeneron Pharmaceuticals, Inc.",
+     "ticker": "REGN",
+     "currency": "USD",
+     "revenue": {
+      "value": 14342.9,
+      "period": "FY2025",
+      "source": "10-K 0000872589-26-000008"
+     },
+     "ebitda": {
+      "value": 4121.6,
+      "period": "FY2025",
+      "source": "10-K 0000872589-26-000008: operating income 3,577.9 + D&A 543.7"
+     },
+     "net_income": {
+      "value": 4504.9,
+      "period": "FY2025",
+      "source": "10-K 0000872589-26-000008"
+     },
+     "market_cap": {
+      "value": 0,
+      "period": "n/a",
+      "source": "PLACEHOLDER 0 = not found: no share price from tools"
+     },
+     "net_debt": {
+      "value": -6619.3,
+      "period": "FY2025-12-31",
+      "source": "financial_statements derived: debt 1,985.9 - cash 3,118.1 - ST investments 5,487.1 (10-K 0000872589-26-000008)"
+     }
+    }
+   ]
+  },
+  "submit_attempts": 2,
+  "requests": 4,
+  "usage": {
+   "input_tokens": 10,
+   "output_tokens": 5126,
+   "cache_creation_input_tokens": 42170,
+   "cache_read_input_tokens": 77688,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.17224260000000002,
+  "seconds": 37.46,
+  "tool_calls": {
+   "financial_statements": 10,
+   "submit_model": 2
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a trading comparables table for Pfizer Inc. (identifier: PFE) with 4 to 6 listed peers.\n- For the target and each peer: revenue, EBITDA, net income and net debt for the last filed fiscal year (or LTM if\n  you state it), each in that company's reporting currency, each with its source and period.\n- Market cap for each: use any source you can cite (market caps are not scored).\n- If a figure isn't available for a peer, replace that peer rather than leaving the figure empty.\nSubmit it with submit_model, kind \"comps\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7199,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7199,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 431,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0223155,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01S7EhMuu37LqwMVt2VqKjWH",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "PFE",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01D2hiacfdxwwtrHrT961UxL",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "MRK",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01TmJHQG3sma21b1NroatRZg",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "LLY",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_011dmVy1qvvPuFLGcpE7pGku",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "BMY",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_017iBApgDBD5RtPaXz2gM7Hk",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "ABBV",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01Hg1gXw3wnzvhTvtc5pUsfx",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "AMGN",
+       "years": 1
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01S7EhMuu37LqwMVt2VqKjWH",
+      "content": "{\"summary\":\"PFIZER INC (PFE), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 62.6B USD, net income 7.8B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"PFIZER INC\",\"ticker\":\"PFE\",\"cik\":78003,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2834\",\"sic_description\":\"Pharmaceutical Preparations\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":62579000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000078003-26-000026\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":2671000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0000078003-26-000026\"},\"pretax_income\":{\"value\":7520000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000078003-26-000026\"},\"net_income\":{\"value\":7771000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000078003-26-000026\"},\"diluted_shares\":{\"value\":5713000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000078003-26-000026\"},\"diluted_eps\":{\"value\":1.36,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000078003-26-000026\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":11704000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000078003-26-000026\"},\"capex\":{\"value\":2629000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000078003-26-000026\"},\"d_and_a\":{\"value\":6592000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000078003-26-000026\"}},\"balance_sheet\":{\"cash\":{\"value\":1142000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000078003-26-000026\"},\"short_term_investments\":{\"value\":9183000000,\"concept\":\"us-gaap:AvailableForSaleSecuritiesDebtSecuritiesCurrent\",\"accession\":\"0000078003-26-000026\"},\"total_assets\":{\"value\":208160000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000078003-26-000026\"},\"total_equity\":{\"value\":86476000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000078003-26-000026\"},\"ltd_noncurrent\":{\"value\":61641000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000078003-26-000026\"},\"ltd_total\":null,\"debt_current\":{\"value\":3154000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000078003-26-000026\"},\"ltd_current\":{\"value\":2997000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000078003-26-000026\"},\"commercial_paper\":{\"value\":0,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000078003-26-000026\"},\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":9075000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":64795000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":54470000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"LTM to 2026-09-27\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-09-27\",\"ytd\":{\"start\":\"2026-01-01\",\"end\":\"2026-09-27\",\"days\":270},\"income_statement\":{\"revenue\":{\"value\":63624000000,\"concept\":\"us-gaap:Revenues\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000078003-26-000026\",\"0000078003-26-000127\"]},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":2709000000,\"concept\":\"us-gaap:InterestExpense\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000078003-26-000026\",\"0000078003-26-000127\"]},\"pretax_income\":{\"value\":4260000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000078003-26-000026\",\"0000078003-26-000127\"]},\"net_income\":{\"value\":4033000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000078003-26-000026\",\"0000078003-26-000127\"]},\"diluted_shares\":{\"value\":5739000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000078003-26-000127\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":{\"value\":0.7000000000000002,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000078003-26-000026\",\"0000078003-26-000127\"],\"note\":\"sum of the last four quarters' EPS; per-share amounts are approximately additive\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":14173000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000078003-26-000026\",\"0000078003-26-000127\"]},\"capex\":{\"value\":2387000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000078003-26-000026\",\"0000078003-26-000127\"]},\"d_and_a\":{\"value\":6499000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000078003-26-000026\",\"0000078003-26-000127\"]}},\"balance_sheet\":{\"cash\":{\"value\":1824000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000078003-26-000127\"},\"short_term_investments\":{\"value\":9118000000,\"concept\":\"us-gaap:AvailableForSaleSecuritiesDebtSecuritiesCurrent\",\"accession\":\"0000078003-26-000127\"},\"total_assets\":{\"value\":204544000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000078003-26-000127\"},\"total_equity\":{\"value\":89001000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000078003-26-000127\"},\"ltd_noncurrent\":{\"value\":59997000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000078003-26-000127\"},\"ltd_total\":null,\"debt_current\":{\"value\":2674000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000078003-26-000127\"},\"ltd_current\":{\"value\":2604000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000078003-26-000127\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":11786000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":62671000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":51729000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/78003/000007800326000026/0000078003-26-000026-index.htm\",\"accession_or_id\":\"0000078003-26-000026\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-26\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/78003/000007800326000127/0000078003-26-000127-index.htm\",\"accession_or_id\":\"0000078003-26-000127\",\"form\":\"10-Q\",\"period\":\"2026-09-27\",\"as_of\":\"2026-11-03\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":5699853733,\"as_of\":\"2026-10-28\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000078003-26-000127\",\"url\":\"https://www.sec.gov/Archives/edgar/data/78003/000007800326000127/0000078003-26-000127-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01D2hiacfdxwwtrHrT961UxL",
+      "content": "{\"summary\":\"Merck & Co., Inc. (MRK), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 65.0B USD, net income 18.3B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Merck & Co., Inc.\",\"ticker\":\"MRK\",\"cik\":310158,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2834\",\"sic_description\":\"Pharmaceutical Preparations\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":65011000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000310158-26-000063\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":1357000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000310158-26-000063\"},\"pretax_income\":{\"value\":21067000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000310158-26-000063\"},\"net_income\":{\"value\":18254000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000310158-26-000063\"},\"diluted_shares\":{\"value\":2507000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000310158-26-000063\"},\"diluted_eps\":{\"value\":7.28,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000310158-26-000063\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":16472000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000310158-26-000063\"},\"capex\":{\"value\":4112000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000310158-26-000063\"},\"d_and_a\":{\"value\":5845000000,\"concept\":\"us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets\",\"accessions\":[\"0000310158-26-000063\"],\"formula\":\"depreciation + amortization of intangible assets (tagged separately)\"},\"amortization_intangibles\":{\"value\":2800000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000310158-26-000063\"}},\"balance_sheet\":{\"cash\":{\"value\":14565000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000310158-26-000063\"},\"short_term_investments\":{\"value\":0,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0000310158-26-000063\"},\"total_assets\":{\"value\":136866000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000310158-26-000063\"},\"total_equity\":{\"value\":52606000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000310158-26-000063\"},\"ltd_noncurrent\":{\"value\":46750000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000310158-26-000063\"},\"ltd_total\":null,\"debt_current\":{\"value\":2589000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000310158-26-000063\"},\"ltd_current\":{\"value\":2300000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000310158-26-000063\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":2600000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000310158-26-000063\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":12360000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":49339000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":34774000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"LTM to 2026-09-30\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-09-30\",\"ytd\":{\"start\":\"2026-01-01\",\"end\":\"2026-09-30\",\"days\":273},\"income_statement\":{\"revenue\":{\"value\":67378000000,\"concept\":\"us-gaap:Revenues\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000310158-26-000063\",\"0000310158-26-000248\"]},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":1961000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000310158-26-000063\",\"0000310158-26-000248\"]},\"pretax_income\":{\"value\":4762000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000310158-26-000063\",\"0000310158-26-000248\"]},\"net_income\":{\"value\":2453000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000310158-26-000063\",\"0000310158-26-000248\"]},\"diluted_shares\":{\"value\":2471000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000310158-26-000248\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":{\"value\":0.9900000000000002,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000310158-26-000063\",\"0000310158-26-000248\"],\"note\":\"sum of the last four quarters' EPS; per-share amounts are approximately additive\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":18703000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000310158-26-000063\",\"0000310158-26-000248\"]},\"capex\":{\"value\":3957000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000310158-26-000063\",\"0000310158-26-000248\"]},\"d_and_a\":{\"value\":3399000000,\"concept\":\"us-gaap:Depreciation\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000310158-26-000063\",\"0000310158-26-000248\"]}},\"balance_sheet\":{\"cash\":{\"value\":9550000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000310158-26-000248\"},\"short_term_investments\":{\"value\":100000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0000310158-26-000248\"},\"total_assets\":{\"value\":132773000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000310158-26-000248\"},\"total_equity\":{\"value\":44893000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000310158-26-000248\"},\"ltd_noncurrent\":{\"value\":49689000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000310158-26-000248\"},\"ltd_total\":null,\"debt_current\":{\"value\":4088000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000310158-26-000248\"},\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":14746000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":53777000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":44127000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/310158/000031015826000063/0000310158-26-000063-index.htm\",\"accession_or_id\":\"0000310158-26-000063\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-24\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/310158/000031015826000248/0000310158-26-000248-index.htm\",\"accession_or_id\":\"0000310158-26-000248\",\"form\":\"10-Q\",\"period\":\"2026-09-30\",\"as_of\":\"2026-11-04\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":2465245688,\"as_of\":\"2026-10-31\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000310158-26-000248\",\"url\":\"https://www.sec.gov/Archives/edgar/data/310158/000031015826000248/0000310158-26-000248-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01TmJHQG3sma21b1NroatRZg",
+      "content": "{\"summary\":\"ELI LILLY AND COMPANY (LLY), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 65.2B USD, net income 20.6B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"ELI LILLY AND COMPANY\",\"ticker\":\"LLY\",\"cik\":59478,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2834\",\"sic_description\":\"Pharmaceutical Preparations\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":65179000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000059478-26-000013\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":895000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000059478-26-000013\"},\"pretax_income\":{\"value\":25731000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000059478-26-000013\"},\"net_income\":{\"value\":20640000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000059478-26-000013\"},\"diluted_shares\":{\"value\":899300000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000059478-26-000013\"},\"diluted_eps\":{\"value\":22.95,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000059478-26-000013\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":16813000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000059478-26-000013\"},\"capex\":null,\"d_and_a\":{\"value\":1997000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000059478-26-000013\"},\"amortization_intangibles\":{\"value\":488000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000059478-26-000013\"}},\"balance_sheet\":{\"cash\":{\"value\":7268000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000059478-26-000013\"},\"short_term_investments\":null,\"total_assets\":{\"value\":112476000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000059478-26-000013\"},\"total_equity\":{\"value\":26535000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000059478-26-000013\"},\"ltd_noncurrent\":{\"value\":40868000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000059478-26-000013\"},\"ltd_total\":null,\"debt_current\":{\"value\":1635000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000059478-26-000013\"},\"ltd_current\":null,\"commercial_paper\":{\"value\":0,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000059478-26-000013\"},\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":null,\"free_cash_flow\":null,\"total_debt\":{\"value\":42503000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":35235000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"LTM to 2026-09-30\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-09-30\",\"ytd\":{\"start\":\"2026-01-01\",\"end\":\"2026-09-30\",\"days\":273},\"income_statement\":{\"revenue\":{\"value\":86462000000,\"concept\":\"us-gaap:Revenues\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000059478-26-000013\",\"0000059478-26-000108\"]},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":null,\"pretax_income\":{\"value\":34769000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000059478-26-000013\",\"0000059478-26-000108\"]},\"net_income\":{\"value\":27580000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000059478-26-000013\",\"0000059478-26-000108\"]},\"diluted_shares\":{\"value\":894400000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000059478-26-000108\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":{\"value\":30.810000000000002,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000059478-26-000013\",\"0000059478-26-000108\"],\"note\":\"sum of the last four quarters' EPS; per-share amounts are approximately additive\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":30645000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000059478-26-000013\",\"0000059478-26-000108\"]},\"capex\":null,\"d_and_a\":{\"value\":2174000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000059478-26-000013\",\"0000059478-26-000108\"]}},\"balance_sheet\":{\"cash\":{\"value\":4885000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000059478-26-000108\"},\"short_term_investments\":null,\"total_assets\":{\"value\":148072000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000059478-26-000108\"},\"total_equity\":{\"value\":40271000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000059478-26-000108\"},\"ltd_noncurrent\":{\"value\":46986000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000059478-26-000108\"},\"ltd_total\":null,\"debt_current\":{\"value\":2517000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000059478-26-000108\"},\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":null,\"free_cash_flow\":null,\"total_debt\":{\"value\":49503000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":44618000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/59478/000005947826000013/0000059478-26-000013-index.htm\",\"accession_or_id\":\"0000059478-26-000013\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-12\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/59478/000005947826000108/0000059478-26-000108-index.htm\",\"accession_or_id\":\"0000059478-26-000108\",\"form\":\"10-Q\",\"period\":\"2026-09-30\",\"as_of\":\"2026-10-29\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":940745031,\"as_of\":\"2026-10-26\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000059478-26-000108\",\"url\":\"https://www.sec.gov/Archives/edgar/data/59478/000005947826000108/0000059478-26-000108-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_011dmVy1qvvPuFLGcpE7pGku",
+      "content": "{\"summary\":\"BRISTOL-MYERS SQUIBB COMPANY (BMY), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 48.2B USD, net income 7.1B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"BRISTOL-MYERS SQUIBB COMPANY\",\"ticker\":\"BMY\",\"cik\":14272,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2834\",\"sic_description\":\"Pharmaceutical Preparations\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":48194000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000014272-26-000004\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":1891000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000014272-26-000004\"},\"pretax_income\":{\"value\":9328000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000014272-26-000004\"},\"net_income\":{\"value\":7054000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000014272-26-000004\"},\"diluted_shares\":{\"value\":2039000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000014272-26-000004\"},\"diluted_eps\":{\"value\":3.46,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000014272-26-000004\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":14156000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000014272-26-000004\"},\"capex\":{\"value\":1311000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000014272-26-000004\"},\"d_and_a\":{\"value\":4011000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000014272-26-000004\"},\"amortization_intangibles\":{\"value\":3500000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000014272-26-000004\"}},\"balance_sheet\":{\"cash\":{\"value\":10209000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000014272-26-000004\"},\"short_term_investments\":{\"value\":464000000,\"concept\":\"us-gaap:AvailableForSaleSecuritiesDebtSecuritiesCurrent\",\"accession\":\"0000014272-26-000004\"},\"total_assets\":{\"value\":90038000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000014272-26-000004\"},\"total_equity\":{\"value\":18473000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000014272-26-000004\"},\"ltd_noncurrent\":{\"value\":42850000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000014272-26-000004\"},\"ltd_total\":{\"value\":44827000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000014272-26-000004\"},\"debt_current\":{\"value\":2261000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000014272-26-000004\"},\"ltd_current\":{\"value\":1977000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000014272-26-000004\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":2261000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000014272-26-000004\"},\"ltd_due_12m\":{\"value\":2000000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000014272-26-000004\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":12845000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":45111000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":34438000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"LTM to 2026-09-30\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-09-30\",\"ytd\":{\"start\":\"2026-01-01\",\"end\":\"2026-09-30\",\"days\":273},\"income_statement\":{\"revenue\":{\"value\":50034000000,\"concept\":\"us-gaap:Revenues\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000014272-26-000004\",\"0000014272-26-000024\"]},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":1652000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000014272-26-000004\",\"0000014272-26-000024\"]},\"pretax_income\":{\"value\":11332000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000014272-26-000004\",\"0000014272-26-000024\"]},\"net_income\":{\"value\":9243000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000014272-26-000004\",\"0000014272-26-000024\"]},\"diluted_shares\":{\"value\":2049000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000014272-26-000024\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":{\"value\":4.51,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000014272-26-000004\",\"0000014272-26-000024\"],\"note\":\"sum of the last four quarters' EPS; per-share amounts are approximately additive\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":10652000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000014272-26-000004\",\"0000014272-26-000024\"]},\"capex\":{\"value\":1366000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000014272-26-000004\",\"0000014272-26-000024\"]},\"d_and_a\":{\"value\":2791000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000014272-26-000004\",\"0000014272-26-000024\"]},\"amortization_intangibles\":{\"value\":2300000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000014272-26-000004\",\"0000014272-26-000024\"]}},\"balance_sheet\":{\"cash\":{\"value\":9574000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000014272-26-000024\"},\"short_term_investments\":{\"value\":3007000000,\"concept\":\"us-gaap:AvailableForSaleSecuritiesDebtSecuritiesCurrent\",\"accession\":\"0000014272-26-000024\"},\"total_assets\":{\"value\":88772000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000014272-26-000024\"},\"total_equity\":{\"value\":23404000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000014272-26-000024\"},\"ltd_noncurrent\":{\"value\":41849000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000014272-26-000024\"},\"ltd_total\":{\"value\":42617000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000014272-26-000024\"},\"debt_current\":{\"value\":1028000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000014272-26-000024\"},\"ltd_current\":{\"value\":768000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000014272-26-000024\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":1028000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000014272-26-000024\"},\"ltd_due_12m\":null},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":9286000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":42877000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":30296000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/14272/000001427226000004/0000014272-26-000004-index.htm\",\"accession_or_id\":\"0000014272-26-000004\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-11\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/14272/000001427226000024/0000014272-26-000024-index.htm\",\"accession_or_id\":\"0000014272-26-000024\",\"form\":\"10-Q\",\"period\":\"2026-09-30\",\"as_of\":\"2026-10-29\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":2044085831,\"as_of\":\"2026-10-21\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000014272-26-000024\",\"url\":\"https://www.sec.gov/Archives/edgar/data/14272/000001427226000024/0000014272-26-000024-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_017iBApgDBD5RtPaXz2gM7Hk",
+      "content": "{\"summary\":\"AbbVie Inc. (ABBV), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 61.2B USD, net income 4.2B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"AbbVie Inc.\",\"ticker\":\"ABBV\",\"cik\":1551152,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2834\",\"sic_description\":\"Pharmaceutical Preparations\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":61160000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0001551152-26-000008\"},\"gross_profit\":null,\"operating_income\":{\"value\":15075000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001551152-26-000008\"},\"interest_expense\":{\"value\":2893000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0001551152-26-000008\"},\"pretax_income\":{\"value\":6597000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001551152-26-000008\"},\"net_income\":{\"value\":4226000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001551152-26-000008\"},\"diluted_shares\":{\"value\":1773000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001551152-26-000008\"},\"diluted_eps\":{\"value\":2.36,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001551152-26-000008\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":19030000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001551152-26-000008\"},\"capex\":{\"value\":1214000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001551152-26-000008\"},\"d_and_a\":{\"value\":8139000000,\"concept\":\"us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets\",\"accessions\":[\"0001551152-26-000008\"],\"formula\":\"depreciation + amortization of intangible assets (tagged separately)\"},\"amortization_intangibles\":{\"value\":7377000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001551152-26-000008\"}},\"balance_sheet\":{\"cash\":{\"value\":5229000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001551152-26-000008\"},\"short_term_investments\":{\"value\":28000000,\"concept\":\"us-gaap:ShortTermInvestments\",\"accession\":\"0001551152-26-000008\"},\"total_assets\":{\"value\":133960000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001551152-26-000008\"},\"total_equity\":{\"value\":-3270000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001551152-26-000008\"},\"ltd_noncurrent\":{\"value\":58941000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0001551152-26-000008\"},\"ltd_total\":{\"value\":64503000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001551152-26-000008\"},\"debt_current\":null,\"ltd_current\":{\"value\":6056000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent\",\"accession\":\"0001551152-26-000008\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":2499000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0001551152-26-000008\"},\"ltd_due_12m\":{\"value\":6000000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001551152-26-000008\"}},\"derived\":{\"ebitda\":{\"value\":23214000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":17816000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":67496000000,\"formula\":\"ltd_noncurrent + ltd_current + short_term_borrowings\"},\"net_debt\":{\"value\":62239000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"LTM to 2026-09-30\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-09-30\",\"ytd\":{\"start\":\"2026-01-01\",\"end\":\"2026-09-30\",\"days\":273},\"income_statement\":{\"revenue\":{\"value\":66014000000,\"concept\":\"us-gaap:Revenues\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001551152-26-000008\",\"0001551152-26-000037\"]},\"gross_profit\":null,\"operating_income\":{\"value\":21233000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001551152-26-000008\",\"0001551152-26-000037\"]},\"interest_expense\":{\"value\":2979000000,\"concept\":\"us-gaap:InterestExpense\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001551152-26-000008\",\"0001551152-26-000037\"]},\"pretax_income\":{\"value\":12814000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001551152-26-000008\",\"0001551152-26-000037\"]},\"net_income\":{\"value\":10342000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001551152-26-000008\",\"0001551152-26-000037\"]},\"diluted_shares\":{\"value\":1772000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001551152-26-000037\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":{\"value\":5.8100000000000005,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001551152-26-000008\",\"0001551152-26-000037\"],\"note\":\"sum of the last four quarters' EPS; per-share amounts are approximately additive\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":20089000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001551152-26-000008\",\"0001551152-26-000037\"]},\"capex\":{\"value\":1217000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001551152-26-000008\",\"0001551152-26-000037\"]},\"d_and_a\":{\"value\":7667000000,\"concept\":\"us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets\",\"accessions\":[\"0001551152-26-000008\",\"0001551152-26-000037\"],\"formula\":\"depreciation + amortization of intangible assets (tagged separately)\"},\"amortization_intangibles\":{\"value\":6890000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0001551152-26-000008\",\"0001551152-26-000037\"]}},\"balance_sheet\":{\"cash\":{\"value\":10774000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001551152-26-000037\"},\"short_term_investments\":null,\"total_assets\":{\"value\":147680000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001551152-26-000037\"},\"total_equity\":{\"value\":-4583000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001551152-26-000037\"},\"ltd_noncurrent\":{\"value\":72230000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0001551152-26-000037\"},\"ltd_total\":null,\"debt_current\":null,\"ltd_current\":{\"value\":8673000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent\",\"accession\":\"0001551152-26-000037\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":0,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0001551152-26-000037\"},\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":28900000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":18872000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":80903000000,\"formula\":\"ltd_noncurrent + ltd_current + short_term_borrowings\"},\"net_debt\":{\"value\":70129000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1551152/000155115226000008/0001551152-26-000008-index.htm\",\"accession_or_id\":\"0001551152-26-000008\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-20\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1551152/000155115226000037/0001551152-26-000037-index.htm\",\"accession_or_id\":\"0001551152-26-000037\",\"form\":\"10-Q\",\"period\":\"2026-09-30\",\"as_of\":\"2026-11-03\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":1767616306,\"as_of\":\"2026-10-26\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0001551152-26-000037\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1551152/000155115226000037/0001551152-26-000037-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01Hg1gXw3wnzvhTvtc5pUsfx",
+      "content": "{\"summary\":\"Amgen Inc. (AMGN), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 36.8B USD, net income 7.7B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Amgen Inc.\",\"ticker\":\"AMGN\",\"cik\":318154,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2836\",\"sic_description\":\"Biological Products, (No Diagnostic Substances)\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":36751000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000318154-26-000010\"},\"gross_profit\":null,\"operating_income\":{\"value\":9080000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000318154-26-000010\"},\"interest_expense\":{\"value\":2755000000,\"concept\":\"us-gaap:InterestExpenseDebt\",\"accession\":\"0000318154-26-000010\"},\"pretax_income\":{\"value\":8976000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000318154-26-000010\"},\"net_income\":{\"value\":7711000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000318154-26-000010\"},\"diluted_shares\":{\"value\":542000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000318154-26-000010\"},\"diluted_eps\":{\"value\":14.23,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000318154-26-000010\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":9958000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000318154-26-000010\"},\"capex\":{\"value\":1858000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000318154-26-000010\"},\"d_and_a\":{\"value\":5167000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000318154-26-000010\"},\"amortization_intangibles\":{\"value\":4300000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000318154-26-000010\"}},\"balance_sheet\":{\"cash\":{\"value\":9129000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000318154-26-000010\"},\"short_term_investments\":null,\"total_assets\":{\"value\":90586000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000318154-26-000010\"},\"total_equity\":{\"value\":8658000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000318154-26-000010\"},\"ltd_noncurrent\":{\"value\":50005000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000318154-26-000010\"},\"ltd_total\":{\"value\":54604000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000318154-26-000010\"},\"debt_current\":null,\"ltd_current\":{\"value\":4599000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000318154-26-000010\"},\"commercial_paper\":{\"value\":0,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000318154-26-000010\"},\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":4571000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000318154-26-000010\"}},\"derived\":{\"ebitda\":{\"value\":14247000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":8100000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":54604000000,\"formula\":\"ltd_noncurrent + ltd_current + commercial_paper\"},\"net_debt\":{\"value\":45475000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"LTM to 2026-09-30\",\"type\":\"ltm\",\"start\":null,\"end\":\"2026-09-30\",\"ytd\":{\"start\":\"2026-01-01\",\"end\":\"2026-09-30\",\"days\":273},\"income_statement\":{\"revenue\":{\"value\":38903000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000318154-26-000010\",\"0000318154-26-000155\"]},\"gross_profit\":null,\"operating_income\":{\"value\":12610000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000318154-26-000010\",\"0000318154-26-000155\"]},\"interest_expense\":{\"value\":2636000000,\"concept\":\"us-gaap:InterestExpenseDebt\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000318154-26-000010\",\"0000318154-26-000155\"]},\"pretax_income\":{\"value\":11052000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000318154-26-000010\",\"0000318154-26-000155\"]},\"net_income\":{\"value\":9391000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000318154-26-000010\",\"0000318154-26-000155\"]},\"diluted_shares\":{\"value\":545000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000318154-26-000155\",\"note\":\"weighted average for the year-to-date period, not trailing twelve months\"},\"diluted_eps\":{\"value\":17.25,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000318154-26-000010\",\"0000318154-26-000155\"],\"note\":\"sum of the last four quarters' EPS; per-share amounts are approximately additive\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":12035000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000318154-26-000010\",\"0000318154-26-000155\"]},\"capex\":{\"value\":2454000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000318154-26-000010\",\"0000318154-26-000155\"]},\"d_and_a\":{\"value\":4482000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000318154-26-000010\",\"0000318154-26-000155\"]},\"amortization_intangibles\":{\"value\":3600000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"formula\":\"FY + YTD - prior YTD\",\"accessions\":[\"0000318154-26-000010\",\"0000318154-26-000155\"]}},\"balance_sheet\":{\"cash\":{\"value\":13190000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000318154-26-000155\"},\"short_term_investments\":null,\"total_assets\":{\"value\":96048000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000318154-26-000155\"},\"total_equity\":{\"value\":14352000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000318154-26-000155\"},\"ltd_noncurrent\":{\"value\":51609000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000318154-26-000155\"},\"ltd_total\":{\"value\":54007000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000318154-26-000155\"},\"debt_current\":null,\"ltd_current\":{\"value\":2398000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000318154-26-000155\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":17092000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":9581000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":54007000000,\"formula\":\"ltd_noncurrent + ltd_current\"},\"net_debt\":{\"value\":40817000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/318154/000031815426000010/0000318154-26-000010-index.htm\",\"accession_or_id\":\"0000318154-26-000010\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-13\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/318154/000031815426000155/0000318154-26-000155-index.htm\",\"accession_or_id\":\"0000318154-26-000155\",\"form\":\"10-Q\",\"period\":\"2026-09-30\",\"as_of\":\"2026-11-04\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":540911490,\"as_of\":\"2026-10-29\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000318154-26-000155\",\"url\":\"https://www.sec.gov/Archives/edgar/data/318154/000031815426000155/0000318154-26-000155-index.htm\"}}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 23317,
+     "cache_read_input_tokens": 7199,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 23317,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 573,
+     "output_tokens_details": {
+      "thinking_tokens": 183
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0654663,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSuQgKEAgTGAI4AUIIdGhpbmtpbmcSDCXyRWfOlMkI308eVxoME9Mm4Lloba5fpVIkIjD7gq9qYRuijUG4WAh2st2j/9n9lp+xgsECZ+MZ3+YfV+JuNpZSlEOjvYRZQ1AQDawq1gedDaCzFKPN+h+hF6CNj6VPi/uUTy8xa2rgID5jEAWN6fN+jVoc8X97j6nKamr5aEkalbOP92VPg2cS6adMVl+ZMMbIFu4W5P9Df2w+M0Xv9NEmrjlTIgHzOLwVNrVr4fs+F1gQ7ezbtEa5T6RevOT8qBjRt4edUL6Ih9zGa5BiRikMLzkvbF5+YRuhe8PMWp/okHUPMg9YejWgol1cLm1HtL8S5MtIxtwBHaMumNWUkHw7b0nD3nkcwRUqYg6gxl8mw8QnKjwOwmn/zfA0XmfNd4VHYEGpJq1uI+OcTSju7FHuOiUjzKddDEGyXPi68Ij2B2bK+c1HeCIYIqL0XB2M6d7ULDvecew/RbQqge5yX/aTaEdN/kKEl9S2wQOjriOeuFwW21pVC7LJnRn7ke906r2J7Msed78d9826Q4xDfk+Yl0QWlXtGEPnZ48/5nsSxm1xCrBR16ISNSNHmdQ4g393dwTXLyERdQb63cLIH+sWjf5fuKGMU5vcj32DgwVL+iy7c8i5H5dbXgqE4W8Eexm/ugubkwna1KqufZt/dLozYcAOyni9T87TWAuHcKmZeITG+80mzy19JI9yg1VVky3nmynFiPBeytmJzrBIf+2gFj3U8LKf9f+cRCQR9GQt4W3wHPjCmwoLucioBdYc7LxxHZSwAWV/Gfzny3hELjvECII91UaT1p+jy6d3h/P0BzSpC17XMwew9iICSzAKPXPW0tGk3GNvceSTCnquGHVwOXeATk6YTB5k+21tkXRhbTM0UZaifbdnlrnK95AoWkF8N3YtE8hrOGFCOXaizS2e/o7Fp6Ngy6m02gBv6lO860IqCJ4MGQW9nPZOLNR36cj3aFid7GgrQ2lqhxAjaqNes640tDpKxuM+9xfiyk5Z8fvrjaA6eQ6Fc4DAZVrTRt75SaJP4j5dkuP/seYPFi+9fVTtbhiiBctrfpvzANomg14f/IcoRxYqJDGmOzmTavpMgbYToPsdeDxmNEEFhT7JvdFH/A/o/zmTruybtPxr2BznM9ANnuPUwCEtzMCFzLLad0uLHIpQIIPEukkWzpJqOXHOV2y/jY/pN15a49h5p/UUt2yk+/6rX02h5vvyMqCPjXUPL11x4XLLZ4mSYn+D176TdMCl/BRNFuSxpLnocWS+I9ZLeYzSQV+HAmOZMpW4vll3F1Tnn43z4TBmRlODBGKVkYOFeKIHsDw2stHfEREOq35Xv4GAeP6XFd8LcLBfnyJ4m5un7mtLQoslUfh0TnBrtEmdAFuf96pdQNXWW2GH0awxaoLwdghPriubrgT+hrUGuGAE="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01Pub6tAJ7cagd7uRfPFkp4N",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "GILD",
+       "years": 1,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01SoBRMQ3ngeaXxLqBJSHQkR",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "JNJ",
+       "years": 1,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01M8K2NH1hwQwFETARELYF4e",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "REGN",
+       "years": 1,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01MwL2sb3xat3vAHL6isGNzF",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "VRTX",
+       "years": 1,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01Pub6tAJ7cagd7uRfPFkp4N",
+      "content": "{\"summary\":\"GILEAD SCIENCES, INC. (GILD), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 29.4B USD, net income 8.5B USD. 1 period(s), 1 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"GILEAD SCIENCES, INC.\",\"ticker\":\"GILD\",\"cik\":882095,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2836\",\"sic_description\":\"Biological Products, (No Diagnostic Substances)\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":29443000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000882095-26-000006\"},\"gross_profit\":null,\"operating_income\":{\"value\":10022000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000882095-26-000006\"},\"interest_expense\":{\"value\":1024000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000882095-26-000006\"},\"pretax_income\":{\"value\":9796000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000882095-26-000006\"},\"net_income\":{\"value\":8510000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000882095-26-000006\"},\"diluted_shares\":{\"value\":1255000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000882095-26-000006\"},\"diluted_eps\":{\"value\":6.78,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000882095-26-000006\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":10019000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000882095-26-000006\"},\"capex\":{\"value\":563000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000882095-26-000006\"},\"d_and_a\":{\"value\":2770000000,\"concept\":\"us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets\",\"accessions\":[\"0000882095-26-000006\"],\"formula\":\"depreciation + amortization of intangible assets (tagged separately)\"},\"amortization_intangibles\":{\"value\":2400000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000882095-26-000006\"}},\"balance_sheet\":{\"cash\":{\"value\":7564000000,\"concept\":\"us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents\",\"accession\":\"0000882095-26-000006\"},\"short_term_investments\":{\"value\":68000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0000882095-26-000006\"},\"total_assets\":{\"value\":59023000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000882095-26-000006\"},\"total_equity\":{\"value\":22703000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000882095-26-000006\"},\"ltd_noncurrent\":{\"value\":22129000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000882095-26-000006\"},\"ltd_total\":{\"value\":24937000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000882095-26-000006\"},\"debt_current\":{\"value\":2807000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000882095-26-000006\"},\"ltd_current\":{\"value\":2807000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000882095-26-000006\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":12792000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":9456000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":24936000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":17304000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-10-30 (period 2026-09-30) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/882095/000088209526000006/0000882095-26-000006-index.htm\",\"accession_or_id\":\"0000882095-26-000006\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-24\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":1240338614,\"as_of\":\"2026-10-23\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000882095-26-000039\",\"url\":\"https://www.sec.gov/Archives/edgar/data/882095/000088209526000039/0000882095-26-000039-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01SoBRMQ3ngeaXxLqBJSHQkR",
+      "content": "{\"summary\":\"Johnson & Johnson (JNJ), US-GAAP, USD. FY2025 (ended 2025-12-28): revenue 94.2B USD, net income 26.8B USD. 1 period(s), 1 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Johnson & Johnson\",\"ticker\":\"JNJ\",\"cik\":200406,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"0103\",\"sic\":\"2834\",\"sic_description\":\"Pharmaceutical Preparations\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2024-12-30\",\"end\":\"2025-12-28\",\"income_statement\":{\"revenue\":{\"value\":94193000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000200406-26-000016\"},\"gross_profit\":{\"value\":63937000000,\"concept\":\"us-gaap:GrossProfit\",\"accession\":\"0000200406-26-000016\"},\"operating_income\":null,\"interest_expense\":{\"value\":971000000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000200406-26-000016\"},\"pretax_income\":{\"value\":32581000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000200406-26-000016\"},\"net_income\":{\"value\":26804000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000200406-26-000016\"},\"diluted_shares\":{\"value\":2429400000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000200406-26-000016\"},\"diluted_eps\":{\"value\":11.03,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000200406-26-000016\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":24530000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000200406-26-000016\"},\"capex\":{\"value\":4832000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000200406-26-000016\"},\"d_and_a\":{\"value\":7503000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000200406-26-000016\"},\"amortization_intangibles\":{\"value\":4600000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000200406-26-000016\"}},\"balance_sheet\":{\"cash\":{\"value\":19709000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000200406-26-000016\"},\"short_term_investments\":{\"value\":393000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0000200406-26-000016\"},\"total_assets\":{\"value\":199210000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000200406-26-000016\"},\"total_equity\":{\"value\":81544000000,\"concept\":\"us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest\",\"accession\":\"0000200406-26-000016\"},\"ltd_noncurrent\":{\"value\":39438000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000200406-26-000016\"},\"ltd_total\":{\"value\":41438000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000200406-26-000016\"},\"debt_current\":{\"value\":8500000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000200406-26-000016\"},\"ltd_current\":{\"value\":2000000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000200406-26-000016\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":8495000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000200406-26-000016\"},\"ltd_due_12m\":{\"value\":2000000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000200406-26-000016\"}},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":19698000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":47938000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":27836000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-10-21 (period 2026-09-27) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/0000200406-26-000016-index.htm\",\"accession_or_id\":\"0000200406-26-000016\",\"form\":\"10-K\",\"period\":\"2025-12-28\",\"as_of\":\"2026-02-11\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":2407310266,\"as_of\":\"2026-10-15\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000200406-26-000197\",\"url\":\"https://www.sec.gov/Archives/edgar/data/200406/000020040626000197/0000200406-26-000197-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01M8K2NH1hwQwFETARELYF4e",
+      "content": "{\"summary\":\"REGENERON PHARMACEUTICALS, INC. (REGN), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 14.3B USD, net income 4.5B USD. 1 period(s), 1 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"REGENERON PHARMACEUTICALS, INC.\",\"ticker\":\"REGN\",\"cik\":872589,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2834\",\"sic_description\":\"Pharmaceutical Preparations\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":14342900000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000872589-26-000008\"},\"gross_profit\":null,\"operating_income\":{\"value\":3577900000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000872589-26-000008\"},\"interest_expense\":{\"value\":43800000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000872589-26-000008\"},\"pretax_income\":{\"value\":5230700000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000872589-26-000008\"},\"net_income\":{\"value\":4504900000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000872589-26-000008\"},\"diluted_shares\":{\"value\":108600000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000872589-26-000008\"},\"diluted_eps\":{\"value\":41.48,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000872589-26-000008\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":4978900000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000872589-26-000008\"},\"capex\":{\"value\":898400000,\"concept\":\"us-gaap:PaymentsToAcquireProductiveAssets\",\"accession\":\"0000872589-26-000008\"},\"d_and_a\":{\"value\":543700000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000872589-26-000008\"},\"amortization_intangibles\":{\"value\":178800000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000872589-26-000008\"}},\"balance_sheet\":{\"cash\":{\"value\":3118100000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000872589-26-000008\"},\"short_term_investments\":{\"value\":5487100000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0000872589-26-000008\"},\"total_assets\":{\"value\":40558700000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000872589-26-000008\"},\"total_equity\":{\"value\":31256900000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000872589-26-000008\"},\"ltd_noncurrent\":{\"value\":1985900000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000872589-26-000008\"},\"ltd_total\":null,\"debt_current\":null,\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":4121600000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":4080500000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":1985900000,\"formula\":\"ltd_noncurrent\"},\"net_debt\":{\"value\":-6619300000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-10-30 (period 2026-09-30) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/872589/000087258926000008/0000872589-26-000008-index.htm\",\"accession_or_id\":\"0000872589-26-000008\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-04\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":93955110,\"as_of\":\"2012-07-13\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0001206774-12-003062\",\"url\":\"https://www.sec.gov/Archives/edgar/data/872589/000120677412003062/0001206774-12-003062-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01MwL2sb3xat3vAHL6isGNzF",
+      "content": "{\"summary\":\"VERTEX PHARMACEUTICALS INC / MA (VRTX), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 12.0B USD, net income 4.0B USD. 1 period(s), 1 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"VERTEX PHARMACEUTICALS INC / MA\",\"ticker\":\"VRTX\",\"cik\":875320,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2834\",\"sic_description\":\"Pharmaceutical Preparations\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":12001300000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000875320-26-000056\"},\"gross_profit\":null,\"operating_income\":{\"value\":4173300000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000875320-26-000056\"},\"interest_expense\":{\"value\":13300000,\"concept\":\"us-gaap:InterestExpenseNonoperating\",\"accession\":\"0000875320-26-000056\"},\"pretax_income\":{\"value\":4643200000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000875320-26-000056\"},\"net_income\":{\"value\":3953200000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000875320-26-000056\"},\"diluted_shares\":{\"value\":258000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000875320-26-000056\"},\"diluted_eps\":{\"value\":15.32,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000875320-26-000056\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":3631400000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000875320-26-000056\"},\"capex\":{\"value\":437600000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000875320-26-000056\"},\"d_and_a\":{\"value\":209800000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000875320-26-000056\"},\"amortization_intangibles\":{\"value\":20200000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000875320-26-000056\"}},\"balance_sheet\":{\"cash\":{\"value\":5084800000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000875320-26-000056\"},\"short_term_investments\":{\"value\":1523300000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0000875320-26-000056\"},\"total_assets\":{\"value\":25643000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000875320-26-000056\"},\"total_equity\":{\"value\":18665800000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000875320-26-000056\"},\"ltd_noncurrent\":null,\"ltd_total\":null,\"debt_current\":null,\"ltd_current\":null,\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":4383100000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":3193800000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":null,\"net_debt\":null}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-11-03 (period 2026-09-30) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/875320/000087532026000056/0000875320-26-000056-index.htm\",\"accession_or_id\":\"0000875320-26-000056\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-13\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T12:04:28.579Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":253537674,\"as_of\":\"2026-10-31\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000875320-26-000291\",\"url\":\"https://www.sec.gov/Archives/edgar/data/875320/000087532026000291/0000875320-26-000291-index.htm\"}}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 3,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 9457,
+     "cache_read_input_tokens": 30516,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 9457,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 2110,
+     "output_tokens_details": {
+      "thinking_tokens": 348
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0508497,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSmwwKEAgTGAI4AUIIdGhpbmtpbmcSDObTTG5pnQ35zxe+PhoMmZ8m2mutQrosxe6EIjAmf783aVqwIof17/lmB96DcHWGj5gayfkzum/oq9fpEth9pyE+IOesRH6fuvK+CL8quAuWjItkyFi72wzpTLj63Zw2piX6hxkjG/cHiqHyUH7xNT8L/zMaJgSDQK7ROvrdGIoHF/p98Pz9nv1ccu6ffe5FjSQD9Gt2DPG2AYaE/xYZdRSt5s6VKvKv0LNZQ6uUdN2wvQu7KJxFHaT16FWPT9gMOYMR7R6msr6NKhoaD+vjCX4KltMH/IcOiP4kbImeyRIv0Ojk5cFYkaXLbheIL5aQwurib9rcbL1Jb+MwrzSbkqwhRXQebYo+4PJvArA3efhX58/jU/dczlU2AQK9Aun8Ga2JmL9HdALbWXguZ9YNccNepHSngCkZ0DiDipNVq17tCruUN1vDStVSyfO7N313QBAZ89nG+A4cSxkVxOt7GbaFk0ieGzdSWrgXmcqPLJ93kZaXRsPF8YLq9h2GIFtI+MGrF/KJw4BpiuS5qwr1nf7rTn4wJE5WihsBEF/id+0mWY98MqtOIqRNGuV+yHCLJnsyV/H1MTck13NyRWQ/hnROEmWD+/lF6sU3eV9aT/+rHRhkN7RnUtnBWs3EmQilyVc003jwnVhSRCrLiceVqiqyIbZ7vt+90TmYjTCARBhfYo42v9vFTrnYHn4YaS0TYh5gux8DvHKU0EmiRzCeB6nNV0CTRhQ2boSbpLCkNqv0QZbso9ZKBmRgudMQMJZRVl6x6TgLD+GmZKjRYgJnRKnTtOogpvIVFqXDeMzYUq0YNARiT2XHKgaPn68u6TcPEFdJgD9rq5YdD7ge38+fN1KDmj87O9qyQmXe44HPpEw6v4NwcBc3wsCbvopmt6vv+c+E0JDB5gRiRr1YjAhp8589HLnk0oZ8TwZ2RGon+fa/jEj+i/+avRm7sfp+Op6nDQBUboyhweStvjBmTY4HsKr/7O4toS06IahbjNhxZWfGqwMcyXMSNUCdvNde/8ph1HLTM7ixvvOyGGGXOm/JPkIrcc8MR8iNBMtTcP/wyR87lA+aWZaDnZEZefUqmY/kad/vNeAz/VoVttrX1XcAjm0Rp1Di2qzWExI0dqGfXt8g2A5zmIWg6hj0L8uWtOeoXB3BSGaQmKuso0KTbfq762UUsOXqQrk3mWpdRPbZmM9tvHF79EdE4VOa16d1fvMP7ya8q2NjZFRlWrIMxUcvLu1/CWzTCz55A7uTPuX+mWV9fH+wTensPxxMTrGMezVO7I9vwXdif+MwFJ8RldejgsilIYc0z8HRe9tfsIozHUJfM4FlxsSotZgohlE35HQpUqbnEMkUsER4A0r/NAxM6hTJOzsS19XpbNFg59O14GI80/sFPchJ/NqS3yQhQdJmI7rj9N6h28GFiI5LTYt7S++Bd2mkvf6Ajn7K17Shi4A8ahZpHmnuQ+LF+hB/DQ4MWhUFFEJHub/ZLtX6ToAty6q8q4uMCw0DJROgVBk4qtKtMN4IOiqWEL9PjR5unoJ4pWAPdEkqZWzqPQE14DN+ReBel/s8QOoyBvq+GkWTsj4I2XsT8CXySO2IaT6sQ4E/t9WYt1cBnzgTelKuM3nLuUFTQHmNaIJrO1nwFoVzZQAiZKf/q6PfjKtzr3FmhAAiSYJzpbggjh0FZeCQSf2GHIg42vcDGy9SyyfGFPVcXMTF7PDkwKVBKx484uNFd91SZfettE06EFStjsXaTAVaqxfrLiBOmtnLmlzszSlxy6GBqApSD+vCOYmnCVoFCcyG37TouO/EBMly2H2ej7WYXJBNcwfxzTE+TTiDavgc664+94K/Ejeg73zH/tyd/f2FNrPaIQi+gQb1D2ZUKoUjattOX+VIqiLA7vfXrk5jgDMhLUph8lVJ5z+dizfZPQYdke251Er3LikcDrGMghaUarr7VmKgAFIuNgOx4t8plRJoH40aeI9nJ7jzIVuaNRZsQT43hfw8aWRB0kVuNVYmYFeNWW55Gw39TQVHWXchGwFcBDBVRX3b/j67cr2ComK9O3empEgk4FUYAQ=="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_018E97V8XwAvMt14F2kQicuz",
+      "name": "submit_model",
+      "input": {
+       "kind": "comps",
+       "target": "PFE",
+       "currency": "USD",
+       "scale": "millions",
+       "period": "FY2025",
+       "peers": [
+        {
+         "name": "Pfizer Inc (target)",
+         "ticker": "PFE",
+         "currency": "USD",
+         "revenue": {
+          "value": 62579,
+          "period": "FY2025",
+          "source": "10-K 0000078003-26-000026, us-gaap:Revenues"
+         },
+         "ebitda": {
+          "value": 16783,
+          "period": "FY2025",
+          "source": "Derived, operating income not reported in XBRL: pretax income 7,520 + interest expense 2,671 + D&A 6,592 (10-K 0000078003-26-000026); ignores interest income, so approximate"
+         },
+         "net_income": {
+          "value": 7771,
+          "period": "FY2025",
+          "source": "10-K 0000078003-26-000026, us-gaap:NetIncomeLoss"
+         },
+         "market_cap": {
+          "value": null,
+          "period": "n/a",
+          "source": "not found: no share price available from tools; cover shares outstanding 5,699.9M (10-Q 0000078003-26-000127)"
+         },
+         "net_debt": {
+          "value": 54470,
+          "period": "FY2025-12-31",
+          "source": "financial_statements derived: total debt 64,795 - cash 1,142 - ST investments 9,183 (10-K 0000078003-26-000026)"
+         }
+        },
+        {
+         "name": "AbbVie Inc.",
+         "ticker": "ABBV",
+         "currency": "USD",
+         "revenue": {
+          "value": 61160,
+          "period": "FY2025",
+          "source": "10-K 0001551152-26-000008, us-gaap:Revenues"
+         },
+         "ebitda": {
+          "value": 23214,
+          "period": "FY2025",
+          "source": "10-K 0001551152-26-000008: operating income 15,075 + D&A 8,139"
+         },
+         "net_income": {
+          "value": 4226,
+          "period": "FY2025",
+          "source": "10-K 0001551152-26-000008, us-gaap:NetIncomeLoss"
+         },
+         "market_cap": {
+          "value": null,
+          "period": "n/a",
+          "source": "not found: no share price available; shares outstanding 1,767.6M (10-Q 0001551152-26-000037)"
+         },
+         "net_debt": {
+          "value": 62239,
+          "period": "FY2025-12-31",
+          "source": "financial_statements derived (10-K 0001551152-26-000008)"
+         }
+        },
+        {
+         "name": "Amgen Inc.",
+         "ticker": "AMGN",
+         "currency": "USD",
+         "revenue": {
+          "value": 36751,
+          "period": "FY2025",
+          "source": "10-K 0000318154-26-000010"
+         },
+         "ebitda": {
+          "value": 14247,
+          "period": "FY2025",
+          "source": "10-K 0000318154-26-000010: operating income 9,080 + D&A 5,167"
+         },
+         "net_income": {
+          "value": 7711,
+          "period": "FY2025",
+          "source": "10-K 0000318154-26-000010"
+         },
+         "market_cap": {
+          "value": null,
+          "period": "n/a",
+          "source": "not found: no share price available; shares outstanding 540.9M (10-Q 0000318154-26-000155)"
+         },
+         "net_debt": {
+          "value": 45475,
+          "period": "FY2025-12-31",
+          "source": "financial_statements derived (10-K 0000318154-26-000010)"
+         }
+        },
+        {
+         "name": "Gilead Sciences, Inc.",
+         "ticker": "GILD",
+         "currency": "USD",
+         "revenue": {
+          "value": 29443,
+          "period": "FY2025",
+          "source": "10-K 0000882095-26-000006"
+         },
+         "ebitda": {
+          "value": 12792,
+          "period": "FY2025",
+          "source": "10-K 0000882095-26-000006: operating income 10,022 + D&A 2,770"
+         },
+         "net_income": {
+          "value": 8510,
+          "period": "FY2025",
+          "source": "10-K 0000882095-26-000006"
+         },
+         "market_cap": {
+          "value": null,
+          "period": "n/a",
+          "source": "not found: no share price available; shares outstanding 1,240.3M (10-Q 0000882095-26-000039)"
+         },
+         "net_debt": {
+          "value": 17304,
+          "period": "FY2025-12-31",
+          "source": "financial_statements derived (10-K 0000882095-26-000006)"
+         }
+        },
+        {
+         "name": "Regeneron Pharmaceuticals, Inc.",
+         "ticker": "REGN",
+         "currency": "USD",
+         "revenue": {
+          "value": 14342.9,
+          "period": "FY2025",
+          "source": "10-K 0000872589-26-000008"
+         },
+         "ebitda": {
+          "value": 4121.6,
+          "period": "FY2025",
+          "source": "10-K 0000872589-26-000008: operating income 3,577.9 + D&A 543.7"
+         },
+         "net_income": {
+          "value": 4504.9,
+          "period": "FY2025",
+          "source": "10-K 0000872589-26-000008"
+         },
+         "market_cap": {
+          "value": null,
+          "period": "n/a",
+          "source": "not found: no share price available"
+         },
+         "net_debt": {
+          "value": -6619.3,
+          "period": "FY2025-12-31",
+          "source": "financial_statements derived: debt 1,985.9 - cash 3,118.1 - ST investments 5,487.1 (10-K 0000872589-26-000008)"
+         }
+        }
+       ]
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_018E97V8XwAvMt14F2kQicuz",
+      "content": "Not accepted: Pfizer Inc (target) market_cap must be a number, got None.",
+      "is_error": true
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 4,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 2197,
+     "cache_read_input_tokens": 39973,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 2197,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 2012,
+     "output_tokens_details": {
+      "thinking_tokens": 129
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0336111,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS2QgKEAgTGAI4AUIIdGhpbmtpbmcSDPfLrSfG4hHWYPpguBoM4w8hpp10fmpTa3UyIjCLaOGuUA3DKAigca8gAxHzZPodCKnDxbvgKy7rHiB9JydAu5rzow1vXvM428IpR3Aq9gfrbdDUlp66FXXR0U8D4AGr4QJ1cbYPMRvFOXRUZAYG+S65oJUayMouKUy0vBfkVHizwx9zjaT9eWquXdlGk9TkASi2tcxzjrPaIhFSSTFKVu5BR/MHfdDEDMNfAZysPmq4YVkOYpS2PS2JhA5ydyHhYA3kOTWBh781HMmAbf40u8Uen1gAhv/Lv2JwmDgU/yuBPaN1mtos3GgYdNIfy0ral3WrWgsu4gxwmRsNZK9pfeCd4YysiW6dBDLzAwCa82x2MhQAqdULRyv08eHDkR5ipHWZi6EkalZdpnzRIg6d8S2N3hmUW4wCgrz5H2nTxs9H+oVAHxXBlIAtQwuXEEOGtbUUz7b4hmhBVOG//oCP7UdCj6XFzkNCXkq2bUAsBgq6JOB61gQIn6beti+QkSi5cSoNtTTE0ALHFr6xjUUrLmAKM6cAwiDx3QdUz4QxexStob03sMXdboErJlvLIWEQi1U0i8QidYpoAqfEmA4rmagYL/n3CGvtCtAXWbUfsi1PCXqGjAaYc/jJQzYA8AHQ4qtkXwLe6FqUPeP6EUFS59eRWEa7F0kgrkQcc27qfNRHFZlblqkYFv2P3EqKRiBR/o2DX2RwzG71QG3tfKa0Q4NPtUN1aloG+6hJAF1toTiQuZZhzkYxZxd6tlx3mqWgj37Y2PFdfkuwbX1AVTV9HP3YhjOOduXwOz/vvbNES9UjFWnqJxVAxU2K5HquIy5VPO8AsRnm2twdik9WhHOmdHdmVz5n9HH46nI/qxOgKKYRQHBaNNjWhC4Va8nN4RWOonkfJzf1EHQxvj6ciVG9kE9YwD8vl7UhoSPfHtq+Y/icb2QOc+/2x4VC6YiF5nUFIJrfHn6yJXxbR4ka9HZa9QEwvQ2BSxHklAPdTZ5Zg8Siz2IYfpcKf6YYVNS+GRSPmmOzEMAVEc1qI4C31Fkma+yozixrHIzUOO26na3BctHhxX+Ckv3d9sYARb1lQDFeMeweOBQUHTJ6VNxqHcNALzcuxSzYe8Lpgo8/CzJFKrgmOn6ydNPnqM7tqXDhruWz+teG0gaVblKe+uO60np5NTrxlVfAkNfpPt0nzDmFrDMID5GxkrqXf1GSEseNRmWGwchADOJBXhqi9gyc/mT0aiHpyKPgH3iC0YeLJQyCqGo08S+LWzJRmalksEB+3HUybb6AT3SfsWdYNQPtU/pyUUckN9yHsK3ghh5XkEDA5vIJQ9m9Y9O5g5b3//0dcX+3GTWXTUX3UGfDnAKy50M/MrWTg3LKdQl9/lWC6GgkzMpoul5EBxU2Cs905mp2cz7G6LSHJEu+U3kdcQRe4h+zaThnxJD34fsOq/tdrtCxB8KmWT1DXC4YAQ=="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01QJMS6944SAjGQC6WGJprhr",
+      "name": "submit_model",
+      "input": {
+       "kind": "comps",
+       "target": "PFE",
+       "currency": "USD",
+       "scale": "millions",
+       "period": "FY2025",
+       "peers": [
+        {
+         "name": "Pfizer Inc (target)",
+         "ticker": "PFE",
+         "currency": "USD",
+         "revenue": {
+          "value": 62579,
+          "period": "FY2025",
+          "source": "10-K 0000078003-26-000026, us-gaap:Revenues"
+         },
+         "ebitda": {
+          "value": 16783,
+          "period": "FY2025",
+          "source": "Derived, operating income not reported in XBRL: pretax income 7,520 + interest expense 2,671 + D&A 6,592 (10-K 0000078003-26-000026); ignores interest income, so approximate"
+         },
+         "net_income": {
+          "value": 7771,
+          "period": "FY2025",
+          "source": "10-K 0000078003-26-000026, us-gaap:NetIncomeLoss"
+         },
+         "market_cap": {
+          "value": 0,
+          "period": "n/a",
+          "source": "PLACEHOLDER 0 = not found: no share price from tools; shares outstanding 5,699.9M (10-Q 0000078003-26-000127); reviewer to supply price"
+         },
+         "net_debt": {
+          "value": 54470,
+          "period": "FY2025-12-31",
+          "source": "financial_statements derived: total debt 64,795 - cash 1,142 - ST investments 9,183 (10-K 0000078003-26-000026)"
+         }
+        },
+        {
+         "name": "AbbVie Inc.",
+         "ticker": "ABBV",
+         "currency": "USD",
+         "revenue": {
+          "value": 61160,
+          "period": "FY2025",
+          "source": "10-K 0001551152-26-000008, us-gaap:Revenues"
+         },
+         "ebitda": {
+          "value": 23214,
+          "period": "FY2025",
+          "source": "10-K 0001551152-26-000008: operating income 15,075 + D&A 8,139"
+         },
+         "net_income": {
+          "value": 4226,
+          "period": "FY2025",
+          "source": "10-K 0001551152-26-000008, us-gaap:NetIncomeLoss"
+         },
+         "market_cap": {
+          "value": 0,
+          "period": "n/a",
+          "source": "PLACEHOLDER 0 = not found: no share price; shares outstanding 1,767.6M (10-Q 0001551152-26-000037)"
+         },
+         "net_debt": {
+          "value": 62239,
+          "period": "FY2025-12-31",
+          "source": "financial_statements derived (10-K 0001551152-26-000008)"
+         }
+        },
+        {
+         "name": "Amgen Inc.",
+         "ticker": "AMGN",
+         "currency": "USD",
+         "revenue": {
+          "value": 36751,
+          "period": "FY2025",
+          "source": "10-K 0000318154-26-000010"
+         },
+         "ebitda": {
+          "value": 14247,
+          "period": "FY2025",
+          "source": "10-K 0000318154-26-000010: operating income 9,080 + D&A 5,167"
+         },
+         "net_income": {
+          "value": 7711,
+          "period": "FY2025",
+          "source": "10-K 0000318154-26-000010"
+         },
+         "market_cap": {
+          "value": 0,
+          "period": "n/a",
+          "source": "PLACEHOLDER 0 = not found: no share price; shares outstanding 540.9M (10-Q 0000318154-26-000155)"
+         },
+         "net_debt": {
+          "value": 45475,
+          "period": "FY2025-12-31",
+          "source": "financial_statements derived (10-K 0000318154-26-000010)"
+         }
+        },
+        {
+         "name": "Gilead Sciences, Inc.",
+         "ticker": "GILD",
+         "currency": "USD",
+         "revenue": {
+          "value": 29443,
+          "period": "FY2025",
+          "source": "10-K 0000882095-26-000006"
+         },
+         "ebitda": {
+          "value": 12792,
+          "period": "FY2025",
+          "source": "10-K 0000882095-26-000006: operating income 10,022 + D&A 2,770"
+         },
+         "net_income": {
+          "value": 8510,
+          "period": "FY2025",
+          "source": "10-K 0000882095-26-000006"
+         },
+         "market_cap": {
+          "value": 0,
+          "period": "n/a",
+          "source": "PLACEHOLDER 0 = not found: no share price; shares outstanding 1,240.3M (10-Q 0000882095-26-000039)"
+         },
+         "net_debt": {
+          "value": 17304,
+          "period": "FY2025-12-31",
+          "source": "financial_statements derived (10-K 0000882095-26-000006)"
+         }
+        },
+        {
+         "name": "Regeneron Pharmaceuticals, Inc.",
+         "ticker": "REGN",
+         "currency": "USD",
+         "revenue": {
+          "value": 14342.9,
+          "period": "FY2025",
+          "source": "10-K 0000872589-26-000008"
+         },
+         "ebitda": {
+          "value": 4121.6,
+          "period": "FY2025",
+          "source": "10-K 0000872589-26-000008: operating income 3,577.9 + D&A 543.7"
+         },
+         "net_income": {
+          "value": 4504.9,
+          "period": "FY2025",
+          "source": "10-K 0000872589-26-000008"
+         },
+         "market_cap": {
+          "value": 0,
+          "period": "n/a",
+          "source": "PLACEHOLDER 0 = not found: no share price from tools"
+         },
+         "net_debt": {
+          "value": -6619.3,
+          "period": "FY2025-12-31",
+          "source": "financial_statements derived: debt 1,985.9 - cash 3,118.1 - ST investments 5,487.1 (10-K 0000872589-26-000008)"
+         }
+        }
+       ]
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 20,
+  "match": 19,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 1,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 5,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "PFE",
+    "name": "Pfizer Inc (target)",
+    "written": "PFE",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 62579,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[PFE].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 62579000000,
+    "resolved": "PFE"
+   },
+   {
+    "company": "PFE",
+    "name": "Pfizer Inc (target)",
+    "written": "PFE",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 16783,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[PFE].ebitda",
+    "status": "not_found",
+    "hints": [
+     "ebitda is not reported for FY2025 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "PFE"
+   },
+   {
+    "company": "PFE",
+    "name": "Pfizer Inc (target)",
+    "written": "PFE",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 7771,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[PFE].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 7771000000,
+    "resolved": "PFE"
+   },
+   {
+    "company": "PFE",
+    "name": "Pfizer Inc (target)",
+    "written": "PFE",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 54470,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[PFE].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 54470000000,
+    "resolved": "PFE"
+   },
+   {
+    "company": "ABBV",
+    "name": "AbbVie Inc.",
+    "written": "ABBV",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 61160,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[ABBV].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 61160000000,
+    "resolved": "ABBV"
+   },
+   {
+    "company": "ABBV",
+    "name": "AbbVie Inc.",
+    "written": "ABBV",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 23214,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[ABBV].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 23214000000,
+    "resolved": "ABBV"
+   },
+   {
+    "company": "ABBV",
+    "name": "AbbVie Inc.",
+    "written": "ABBV",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 4226,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[ABBV].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4226000000,
+    "resolved": "ABBV"
+   },
+   {
+    "company": "ABBV",
+    "name": "AbbVie Inc.",
+    "written": "ABBV",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 62239,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[ABBV].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 62239000000,
+    "resolved": "ABBV"
+   },
+   {
+    "company": "AMGN",
+    "name": "Amgen Inc.",
+    "written": "AMGN",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 36751,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMGN].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 36751000000,
+    "resolved": "AMGN"
+   },
+   {
+    "company": "AMGN",
+    "name": "Amgen Inc.",
+    "written": "AMGN",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 14247,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMGN].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 14247000000,
+    "resolved": "AMGN"
+   },
+   {
+    "company": "AMGN",
+    "name": "Amgen Inc.",
+    "written": "AMGN",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 7711,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMGN].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 7711000000,
+    "resolved": "AMGN"
+   },
+   {
+    "company": "AMGN",
+    "name": "Amgen Inc.",
+    "written": "AMGN",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 45475,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMGN].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 45475000000,
+    "resolved": "AMGN"
+   },
+   {
+    "company": "GILD",
+    "name": "Gilead Sciences, Inc.",
+    "written": "GILD",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 29443,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[GILD].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 29443000000,
+    "resolved": "GILD"
+   },
+   {
+    "company": "GILD",
+    "name": "Gilead Sciences, Inc.",
+    "written": "GILD",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 12792,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[GILD].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 12792000000,
+    "resolved": "GILD"
+   },
+   {
+    "company": "GILD",
+    "name": "Gilead Sciences, Inc.",
+    "written": "GILD",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 8510,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[GILD].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 8510000000,
+    "resolved": "GILD"
+   },
+   {
+    "company": "GILD",
+    "name": "Gilead Sciences, Inc.",
+    "written": "GILD",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 17304,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[GILD].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 17304000000,
+    "resolved": "GILD"
+   },
+   {
+    "company": "REGN",
+    "name": "Regeneron Pharmaceuticals, Inc.",
+    "written": "REGN",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 14342.9,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[REGN].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 14342900000,
+    "resolved": "REGN"
+   },
+   {
+    "company": "REGN",
+    "name": "Regeneron Pharmaceuticals, Inc.",
+    "written": "REGN",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 4121.6,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[REGN].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 4121600000,
+    "resolved": "REGN"
+   },
+   {
+    "company": "REGN",
+    "name": "Regeneron Pharmaceuticals, Inc.",
+    "written": "REGN",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 4504.9,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[REGN].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4504900000,
+    "resolved": "REGN"
+   },
+   {
+    "company": "REGN",
+    "name": "Regeneron Pharmaceuticals, Inc.",
+    "written": "REGN",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": -6619.3,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[REGN].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": -6619300000,
+    "resolved": "REGN"
+   }
+  ],
+  "unsourced_refs": [
+   "peers[PFE].market_cap",
+   "peers[ABBV].market_cap",
+   "peers[AMGN].market_cap",
+   "peers[GILD].market_cap",
+   "peers[REGN].market_cap"
+  ],
+  "errors": []
+ }
+}

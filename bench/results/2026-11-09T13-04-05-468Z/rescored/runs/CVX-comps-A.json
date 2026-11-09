@@ -1,0 +1,293 @@
+{
+ "company": "CVX",
+ "task": "comps",
+ "arm": "A",
+ "score": {
+  "valid": true,
+  "filed": 16,
+  "match": 7,
+  "mismatch": 0,
+  "other_line": 1,
+  "definition": 2,
+  "not_found": 2,
+  "ambiguous": 0,
+  "unverifiable": 4,
+  "causes": {},
+  "typed": 20,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "",
+    "name": "Exxon Mobil Corporation",
+    "written": "XOM",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 323905,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[XOM].revenue",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "",
+    "name": "Exxon Mobil Corporation",
+    "written": "XOM",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 67864,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[XOM].ebitda",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "",
+    "name": "Exxon Mobil Corporation",
+    "written": "XOM",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 28844,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[XOM].net_income",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "",
+    "name": "Exxon Mobil Corporation",
+    "written": "XOM",
+    "metric": "net_debt",
+    "period": "2025-12-31",
+    "value": 32819,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[XOM].net_debt",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "CVX",
+    "name": "Chevron Corporation (target)",
+    "written": "CVX",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 184432,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CVX].revenue",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax in the same filing"
+    ],
+    "filed_value": 189031000000,
+    "resolved": "CVX",
+    "other_line": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
+   },
+   {
+    "company": "CVX",
+    "name": "Chevron Corporation (target)",
+    "written": "CVX",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 41092,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CVX].ebitda",
+    "status": "not_found",
+    "hints": [
+     "ebitda is not reported for FY2025 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "name": "Chevron Corporation (target)",
+    "written": "CVX",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 12299,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CVX].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 12299000000,
+    "resolved": "CVX"
+   },
+   {
+    "company": "CVX",
+    "name": "Chevron Corporation (target)",
+    "written": "CVX",
+    "metric": "net_debt",
+    "period": "2025-12-31",
+    "value": 34461,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CVX].net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 43414000000,
+    "resolved": "CVX",
+    "computed": true
+   },
+   {
+    "company": "COP",
+    "name": "ConocoPhillips",
+    "written": "COP",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 58944,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[COP].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 58944000000,
+    "resolved": "COP"
+   },
+   {
+    "company": "COP",
+    "name": "ConocoPhillips",
+    "written": "COP",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 25011,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[COP].ebitda",
+    "status": "not_found",
+    "hints": [
+     "ebitda is not reported for FY2025 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "COP"
+   },
+   {
+    "company": "COP",
+    "name": "ConocoPhillips",
+    "written": "COP",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 7988,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[COP].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 7988000000,
+    "resolved": "COP"
+   },
+   {
+    "company": "COP",
+    "name": "ConocoPhillips",
+    "written": "COP",
+    "metric": "net_debt",
+    "period": "2025-12-31",
+    "value": 16463,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[COP].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 16463000000,
+    "resolved": "COP",
+    "computed": true
+   },
+   {
+    "company": "EOG",
+    "name": "EOG Resources, Inc.",
+    "written": "EOG",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 22632,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[EOG].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 22632000000,
+    "resolved": "EOG"
+   },
+   {
+    "company": "EOG",
+    "name": "EOG Resources, Inc.",
+    "written": "EOG",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 11058,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[EOG].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 10846000000,
+    "resolved": "EOG",
+    "computed": true
+   },
+   {
+    "company": "EOG",
+    "name": "EOG Resources, Inc.",
+    "written": "EOG",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 4980,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[EOG].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4980000000,
+    "resolved": "EOG"
+   },
+   {
+    "company": "EOG",
+    "name": "EOG Resources, Inc.",
+    "written": "EOG",
+    "metric": "net_debt",
+    "period": "2025-12-31",
+    "value": 4540,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[EOG].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 4540000000,
+    "resolved": "EOG",
+    "computed": true
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

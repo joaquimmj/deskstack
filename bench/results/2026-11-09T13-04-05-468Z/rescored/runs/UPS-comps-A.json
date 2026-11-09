@@ -1,0 +1,445 @@
+{
+ "company": "UPS",
+ "task": "comps",
+ "arm": "A",
+ "score": {
+  "valid": true,
+  "filed": 24,
+  "match": 2,
+  "mismatch": 10,
+  "other_line": 0,
+  "definition": 7,
+  "not_found": 5,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {
+   "period": 2,
+   "other": 8
+  },
+  "typed": 30,
+  "unsourced": 1,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "UPS",
+    "name": "United Parcel Service, Inc.",
+    "written": "UPS",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 88661,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[UPS].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 88661000000,
+    "resolved": "UPS"
+   },
+   {
+    "company": "UPS",
+    "name": "United Parcel Service, Inc.",
+    "written": "UPS",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 11555,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[UPS].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 10867000000,
+    "resolved": "UPS",
+    "computed": true
+   },
+   {
+    "company": "UPS",
+    "name": "United Parcel Service, Inc.",
+    "written": "UPS",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 5572,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[UPS].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 5572000000,
+    "resolved": "UPS"
+   },
+   {
+    "company": "UPS",
+    "name": "United Parcel Service, Inc.",
+    "written": "UPS",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 22703,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[UPS].net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 18240000000,
+    "resolved": "UPS",
+    "computed": true
+   },
+   {
+    "company": "FDX",
+    "name": "FedEx Corporation",
+    "written": "FDX",
+    "metric": "revenue",
+    "period": "LTM",
+    "value": 94720,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[FDX].revenue",
+    "status": "mismatch",
+    "cause": "period",
+    "hints": [
+     "Period: the value matches revenue for FY2026 (ended 2026-05-31), not LTM to 2026-09-30."
+    ],
+    "filed_value": 98468000000,
+    "resolved": "FDX"
+   },
+   {
+    "company": "FDX",
+    "name": "FedEx Corporation",
+    "written": "FDX",
+    "metric": "ebitda",
+    "period": "LTM",
+    "value": 11840,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[FDX].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 10302000000,
+    "resolved": "FDX",
+    "computed": true
+   },
+   {
+    "company": "FDX",
+    "name": "FedEx Corporation",
+    "written": "FDX",
+    "metric": "net_income",
+    "period": "LTM",
+    "value": 4430,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[FDX].net_income",
+    "status": "mismatch",
+    "cause": "period",
+    "hints": [
+     "Period: the value matches net_income for FY2026 (ended 2026-05-31), not LTM to 2026-09-30."
+    ],
+    "filed_value": 8627000000,
+    "resolved": "FDX"
+   },
+   {
+    "company": "FDX",
+    "name": "FedEx Corporation",
+    "written": "FDX",
+    "metric": "net_debt",
+    "period": "latest quarter",
+    "value": 29390,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[FDX].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"latest quarter\". Available: FY2012, FY2013, FY2014, FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, FY2026, LTM to 2026-09-30."
+    ],
+    "filed_value": null,
+    "resolved": "FDX"
+   },
+   {
+    "company": "JBHT",
+    "name": "J.B. Hunt Transport Services, Inc.",
+    "written": "JBHT",
+    "metric": "revenue",
+    "period": "LTM",
+    "value": 12700,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[JBHT].revenue",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 13325220000,
+    "resolved": "JBHT"
+   },
+   {
+    "company": "JBHT",
+    "name": "J.B. Hunt Transport Services, Inc.",
+    "written": "JBHT",
+    "metric": "ebitda",
+    "period": "LTM",
+    "value": 1670,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[JBHT].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 1682821000,
+    "resolved": "JBHT",
+    "computed": true
+   },
+   {
+    "company": "JBHT",
+    "name": "J.B. Hunt Transport Services, Inc.",
+    "written": "JBHT",
+    "metric": "net_income",
+    "period": "LTM",
+    "value": 674.51,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[JBHT].net_income",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 676074000,
+    "resolved": "JBHT"
+   },
+   {
+    "company": "JBHT",
+    "name": "J.B. Hunt Transport Services, Inc.",
+    "written": "JBHT",
+    "metric": "net_debt",
+    "period": "latest quarter",
+    "value": 1395.84,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[JBHT].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"latest quarter\". Available: FY2011, FY2012, FY2013, FY2014, FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, LTM to 2026-09-30."
+    ],
+    "filed_value": null,
+    "resolved": "JBHT"
+   },
+   {
+    "company": "XPO",
+    "name": "XPO, Inc.",
+    "written": "XPO",
+    "metric": "revenue",
+    "period": "LTM",
+    "value": 8570,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[XPO].revenue",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 8834000000,
+    "resolved": "XPO"
+   },
+   {
+    "company": "XPO",
+    "name": "XPO, Inc.",
+    "written": "XPO",
+    "metric": "ebitda",
+    "period": "LTM",
+    "value": 1280,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[XPO].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 1407000000,
+    "resolved": "XPO",
+    "computed": true
+   },
+   {
+    "company": "XPO",
+    "name": "XPO, Inc.",
+    "written": "XPO",
+    "metric": "net_income",
+    "period": "LTM",
+    "value": 404,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[XPO].net_income",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 503000000,
+    "resolved": "XPO"
+   },
+   {
+    "company": "XPO",
+    "name": "XPO, Inc.",
+    "written": "XPO",
+    "metric": "net_debt",
+    "period": "latest quarter",
+    "value": 3752,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[XPO].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"latest quarter\". Available: FY2011, FY2012, FY2013, FY2014, FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, LTM to 2026-09-30."
+    ],
+    "filed_value": null,
+    "resolved": "XPO"
+   },
+   {
+    "company": "CHRW",
+    "name": "C.H. Robinson Worldwide, Inc.",
+    "written": "CHRW",
+    "metric": "revenue",
+    "period": "LTM",
+    "value": 17000,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CHRW].revenue",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 18217726000,
+    "resolved": "CHRW"
+   },
+   {
+    "company": "CHRW",
+    "name": "C.H. Robinson Worldwide, Inc.",
+    "written": "CHRW",
+    "metric": "ebitda",
+    "period": "LTM",
+    "value": 932.64,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CHRW].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 982264000,
+    "resolved": "CHRW",
+    "computed": true
+   },
+   {
+    "company": "CHRW",
+    "name": "C.H. Robinson Worldwide, Inc.",
+    "written": "CHRW",
+    "metric": "net_income",
+    "period": "LTM",
+    "value": 633.33,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CHRW].net_income",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 668809000,
+    "resolved": "CHRW"
+   },
+   {
+    "company": "CHRW",
+    "name": "C.H. Robinson Worldwide, Inc.",
+    "written": "CHRW",
+    "metric": "net_debt",
+    "period": "latest quarter",
+    "value": 1815.41,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CHRW].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"latest quarter\". Available: FY2011, FY2012, FY2013, FY2014, FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, LTM to 2026-09-30."
+    ],
+    "filed_value": null,
+    "resolved": "CHRW"
+   },
+   {
+    "company": "EXPD",
+    "name": "Expeditors International of Washington, Inc.",
+    "written": "EXPD",
+    "metric": "revenue",
+    "period": "LTM",
+    "value": 12040,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[EXPD].revenue",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 13248900000,
+    "resolved": "EXPD"
+   },
+   {
+    "company": "EXPD",
+    "name": "Expeditors International of Washington, Inc.",
+    "written": "EXPD",
+    "metric": "ebitda",
+    "period": "LTM",
+    "value": 1260,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[EXPD].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 1395590000,
+    "resolved": "EXPD",
+    "computed": true
+   },
+   {
+    "company": "EXPD",
+    "name": "Expeditors International of Washington, Inc.",
+    "written": "EXPD",
+    "metric": "net_income",
+    "period": "LTM",
+    "value": 918.8,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[EXPD].net_income",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 1041055000,
+    "resolved": "EXPD"
+   },
+   {
+    "company": "EXPD",
+    "name": "Expeditors International of Washington, Inc.",
+    "written": "EXPD",
+    "metric": "net_debt",
+    "period": "latest quarter",
+    "value": -464.16,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[EXPD].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"latest quarter\". Available: FY2011, FY2012, FY2013, FY2014, FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, LTM to 2026-09-30."
+    ],
+    "filed_value": null,
+    "resolved": "EXPD"
+   }
+  ],
+  "unsourced_refs": [
+   "peers[UPS].net_debt"
+  ],
+  "errors": []
+ }
+}

@@ -1,0 +1,162 @@
+{
+ "company": "529900S21EQ1BO4ESM68",
+ "task": "comps",
+ "arm": "A",
+ "score": {
+  "valid": true,
+  "filed": 8,
+  "match": 2,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 1,
+  "not_found": 1,
+  "ambiguous": 0,
+  "unverifiable": 4,
+  "causes": {},
+  "typed": 10,
+  "unsourced": 3,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "",
+    "name": "Exxon Mobil Corporation",
+    "written": "XOM",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 349585,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[XOM].revenue",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "",
+    "name": "Exxon Mobil Corporation",
+    "written": "XOM",
+    "metric": "ebitda",
+    "period": "FY2024",
+    "value": 72315,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[XOM].ebitda",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "",
+    "name": "Exxon Mobil Corporation",
+    "written": "XOM",
+    "metric": "net_income",
+    "period": "FY2024",
+    "value": 33680,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[XOM].net_income",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "",
+    "name": "Exxon Mobil Corporation",
+    "written": "XOM",
+    "metric": "net_debt",
+    "period": "FY2024",
+    "value": 18700,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[XOM].net_debt",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "529900S21EQ1BO4ESM68",
+    "name": "TotalEnergies SE (target)",
+    "written": "TTE",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 214550,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[TTE].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 214550000000,
+    "resolved": "529900S21EQ1BO4ESM68"
+   },
+   {
+    "company": "529900S21EQ1BO4ESM68",
+    "name": "TotalEnergies SE (target)",
+    "written": "TTE",
+    "metric": "ebitda",
+    "period": "FY2024",
+    "value": 43100,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[TTE].ebitda",
+    "status": "not_found",
+    "hints": [
+     "ebitda is not reported for FY2024 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "529900S21EQ1BO4ESM68"
+   },
+   {
+    "company": "529900S21EQ1BO4ESM68",
+    "name": "TotalEnergies SE (target)",
+    "written": "TTE",
+    "metric": "net_income",
+    "period": "FY2024",
+    "value": 15758,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[TTE].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 15758000000,
+    "resolved": "529900S21EQ1BO4ESM68"
+   },
+   {
+    "company": "529900S21EQ1BO4ESM68",
+    "name": "TotalEnergies SE (target)",
+    "written": "TTE",
+    "metric": "net_debt",
+    "period": "FY2024",
+    "value": 10930,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[TTE].net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 27713000000,
+    "resolved": "529900S21EQ1BO4ESM68",
+    "computed": true
+   }
+  ],
+  "unsourced_refs": [
+   "peers[TTE].market_cap",
+   "peers[XOM].ebitda",
+   "peers[XOM].market_cap"
+  ],
+  "errors": []
+ }
+}
