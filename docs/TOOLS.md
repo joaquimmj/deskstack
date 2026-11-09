@@ -41,13 +41,20 @@ Each computed line carries its formula, so a different definition is visible.
   is the two added, and its formula says so (Merck, Microsoft, Keurig Dr Pepper). A company that tags a narrower
   figure as combined D&A keeps it (Cisco's covers property and equipment only).
 - **EBITDA** is operating income + D&A.
-- **Capex from an issuer's own concept:** a European issuer that tags capex only with its own concept for purchases of
-  PP&E and intangible assets (TotalEnergies, Airbus, VINCI, AB InBev, Stellantis) gets that figure; the cell shows the
-  real concept and a note. A standard IFRS capex line always wins.
+- **Lines from an issuer's own concepts:** a European issuer that tags a line only with its own concept gets that
+  figure for a short list of lines, matched on the whole concept name; the cell shows the real concept and a note, and
+  a standard IFRS concept always wins:
+  - capex: purchases of PP&E and intangible assets (TotalEnergies, Airbus, VINCI, AB InBev, Stellantis, L'Oréal);
+  - operating income: profit before financial result and income taxes (Airbus's EBIT);
+  - D&A: "amortissements et dépréciations" (Sanofi), which includes impairment (see below); or PP&E depreciation and
+    intangible amortization as two concepts, added, with the formula (Schneider Electric).
 - **D&A with impairment:** a European issuer that tags D&A only together with impairment (TotalEnergies, AB InBev,
-  Ahold, Iberdrola) gets that figure, with a note; its EBITDA then includes impairment too.
-- **EPS and shares:** with no diluted EPS tagged (Inditex), diluted EPS is the basic figure, with a note. With no share
-  count tagged, diluted shares are net income attributable to owners ÷ EPS, and the formula says so.
+  Ahold, Iberdrola, Sanofi) gets that figure, with a note; its EBITDA then includes impairment too.
+- **EPS and shares:** with no diluted EPS tagged (Inditex), diluted EPS is the basic figure, with a note; with only
+  EPS from continuing operations tagged (Iberdrola), that figure, with a note. With no share count tagged, diluted
+  shares are net income to ordinary holders (else to owners) ÷ EPS, with the formula and how far EPS rounding can
+  move it; the owners' figure carries a note that coupons on hybrid or AT1 instruments overstate it. Never from EPS
+  from continuing operations, or from a loss.
 - **Operating income** is the tagged line, except for a short list of filers that tag something else as operating
   income: Disney tags its segment total, so its operating income is revenue − costs and expenses, with a note.
 - **Diluted shares** off by a thousand or a million in a filer's XBRL (McDonald's tags 716.4) are rescaled only when

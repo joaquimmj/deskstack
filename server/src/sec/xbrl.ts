@@ -88,11 +88,20 @@ export const INSTANT_CONCEPTS: Record<string, string[]> = {
 
 /** Synthetic key under which esef/extract.ts keeps an issuer's own capex concept (the cell shows the real one). */
 export const EXT_CAPEX_KEY = "PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssetsExtension";
+/** Synthetic keys for the other lines esef/extract.ts takes from an issuer's own concepts (EXTENSIONS there). */
+export const EXT_KEYS = {
+  capex: EXT_CAPEX_KEY,
+  operating_income: "ProfitLossFromOperatingActivitiesExtension",
+  d_and_a: "DepreciationAmortisationAndImpairmentExtension",
+  depreciation: "DepreciationOfPropertyPlantAndEquipmentExtension",
+  amortization: "AmortisationOfIntangibleAssetsExtension",
+} as const;
 
 export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
   revenue: ["Revenue", "RevenueFromContractsWithCustomers", "RevenueFromSaleOfGoods"],
   gross_profit: ["GrossProfit"],
-  operating_income: ["ProfitLossFromOperatingActivities"],
+  // Last: an issuer's own EBIT concept (Airbus: profit before financial result and income taxes).
+  operating_income: ["ProfitLossFromOperatingActivities", EXT_KEYS.operating_income],
   pretax_income: ["ProfitLossBeforeTax"],
   net_income: ["ProfitLossAttributableToOwnersOfParent", "ProfitLoss"],
   // EPS's own numerator (after coupons on hybrid / AT1 instruments): used to derive an untagged share count.
@@ -105,7 +114,12 @@ export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
     "AdjustmentsForDepreciationAndAmortisationExpense",
     "AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss",
     "DepreciationAmortisationAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss",
+    // Last: an issuer's own "amortissements et dépréciations" (Sanofi), which includes impairment.
+    EXT_KEYS.d_and_a,
   ],
+  // An issuer's own PP&E depreciation and intangible amortization (Schneider): adjustRow adds them when no D&A is tagged.
+  depreciation_ext: [EXT_KEYS.depreciation],
+  amortization_ext: [EXT_KEYS.amortization],
   operating_cash_flow: ["CashFlowsFromUsedInOperatingActivities"],
   capex: [
     "PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
@@ -518,6 +532,18 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false): voi
       formula: "depreciation + amortization of intangible assets (tagged separately)",
     };
   }
+  const dx = row.depreciation_ext;
+  const ax = row.amortization_ext;
+  if (!row.d_and_a && dx && ax) {
+    row.d_and_a = {
+      value: dx.value + ax.value,
+      concept: `${dx.concept} + ${ax.concept}`,
+      accessions: accs(dx, ax),
+      formula: "depreciation of PP&E + amortization of intangible assets (the issuer's own concepts)",
+    };
+  }
+  delete row.depreciation_ext;
+  delete row.amortization_ext;
   const why = ctx.cik !== undefined ? OPERATING_INCOME_FROM_COSTS[ctx.cik] : undefined;
   const rev = row.revenue;
   const ce = row.costs_and_expenses;
@@ -581,7 +607,8 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false): voi
   }
 }
 
-const IMPAIRMENT_DA = /ImpairmentLossReversalOfImpairmentLoss/;
+// "Dépréciation" is French for impairment (Sanofi's "amortissements et dépréciations").
+const IMPAIRMENT_DA = /ImpairmentLossReversalOfImpairmentLoss|AmortissementsEtDepreciations/i;
 
 function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | null>, tx: Taxonomy): Record<string, Derived | null> {
   const v = (src: Record<string, Cell | null>, k: string): number | null => src[k]?.value ?? null;
@@ -810,8 +837,8 @@ export function standardize(cf: CompanyFacts, years = 5, includeLtm = true, opts
   if (opts.source === "esef") {
     notes.push(
       "ESEF report (IFRS as adopted in the EU), from the issuer's tagged consolidated statements. Lines the " +
-        "issuer tagged only with its own (extension) concepts are not mapped and come back null, except capex " +
-        "(an issuer's own concept for purchases of PP&E and intangibles, shown with its real name).",
+        "issuer tagged only with its own (extension) concepts are not mapped and come back null, except capex, " +
+        "EBIT and D&A from a short list of whole concept names, shown with their real names.",
     );
     if (!columns.some((c) => c.type === "ltm")) {
       notes.push("No LTM column: the issuer's half-year report is not available in ESEF format.");
