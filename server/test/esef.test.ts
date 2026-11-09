@@ -89,6 +89,33 @@ describe("ESEF extraction (xBRL-JSON)", () => {
     ])).toEqual([{ c: EXT_CAPEX_KEY, u: "EUR", s: "2025-01-01", e: "2025-12-31", v: 200, x: "abc:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssets" }]);
   });
 
+  it("extension capex is an allowlist of whole names; conflicting duplicates drop the period (review, cycle 2)", () => {
+    const p = "2025-01-01T00:00:00/2026-01-01T00:00:00";
+    const rows = (facts: Array<{ concept: string; value: string }>) => extractFiling(doc(facts.map((f) => ({ ...f, period: p }))), "Z").rows;
+    for (const c of [
+      "tot:PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssets",
+      "BUD:PurchaseOfPropertyPlantAndEquipmentAndPurchaseOfIntangibleAssetsClassifiedAsInvestingActivities",
+      "VINCI:Purchaseofpropertyplantandequipmentandpurchaseofintangibleassetsclassifiedasinvestingactivities",
+      "airbus:PurchasesOfIntangibleAssetsPropertyPlantAndEquipmentInvestmentProperty",
+      "stellantis:InvestmentsInPropertyPlantAndEquipmentAndIntangibleAssets",
+    ]) {
+      expect(rows([{ concept: c, value: "7" }]).map((r) => r.x), c).toEqual([c]);
+    }
+    for (const c of [
+      "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsNotPaidInCash",
+      "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsAndEquityAffiliates",
+      "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsIncludingAcquisitions",
+      "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsNetOfSubsidies",
+      "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsOfDiscontinuedOperations",
+    ]) {
+      expect(rows([{ concept: c, value: "7" }]), c).toEqual([]);
+    }
+    expect(rows([
+      { concept: "abc:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssets", value: "100" },
+      { concept: "abc:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssets", value: "-120" },
+    ])).toEqual([]);
+  });
+
   it("keeps only undimensioned numeric ifrs-full facts, deduplicated; counts extensions", () => {
     const p = "2025-01-01T00:00:00/2026-01-01T00:00:00";
     const x = extractFiling(

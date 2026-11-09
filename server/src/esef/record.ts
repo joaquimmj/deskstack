@@ -37,7 +37,7 @@ export interface EuRecord {
 
 /** The human-readable report on filings.xbrl.org (the iXBRL viewer), else the repository's filing page. */
 export function citationUrl(meta: EsefFilingMeta): string {
-  const path = meta.viewer_url ?? meta.report_url;
+  const path = [meta.viewer_url, meta.report_url].find((p) => p && /^\/(?!\/)/.test(p)); // a path on the same host
   return path ? `${FILINGS_XBRL_ORG}${path}` : `${FILINGS_XBRL_ORG}/filing/${encodeURIComponent(meta.fxo_id)}`;
 }
 

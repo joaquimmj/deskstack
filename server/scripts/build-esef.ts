@@ -70,12 +70,13 @@ async function filingsFor(issuer: EuIssuer): Promise<ApiFiling[]> {
 }
 
 async function extracted(f: ApiFiling): Promise<ExtractedFiling> {
-  // v2: extraction also keeps issuers' own capex concepts (EXT_CAPEX in src/esef/extract.ts); bump on extraction changes.
+  // v3: extraction keeps issuers' own capex concepts (EXT_CAPEX in src/esef/extract.ts); bump on extraction changes.
   if (!/^[A-Za-z0-9._-]+$/.test(f.attributes.fxo_id) || f.attributes.fxo_id.includes("..")) {
     throw new Error(`unexpected filing id ${JSON.stringify(f.attributes.fxo_id).slice(0, 80)}`);
   }
-  const path = join(CACHE, `${f.attributes.fxo_id}.v2.json`);
+  const path = join(CACHE, `${f.attributes.fxo_id}.v3.json`);
   if (existsSync(path)) return JSON.parse(readFileSync(path, "utf8")) as ExtractedFiling;
+  if (!/^\/(?!\/)/.test(f.attributes.json_url ?? "")) throw new Error(`${f.attributes.fxo_id}: unexpected json_url`);
   const res = await get(`${FILINGS_XBRL_ORG}${f.attributes.json_url}`, "application/json");
   if (!res.ok) throw new Error(`${f.attributes.fxo_id}: HTTP ${res.status}`);
   const data = extractFiling((await res.json()) as never, f.attributes.fxo_id);
