@@ -33,6 +33,20 @@ The deskstack connector is a remote MCP server, with no sign-in. Every tool is r
     its end year.
 - **Restatements:** when a period was restated, the latest annual filing that reports it wins.
 
+## Computed lines
+
+Each computed line carries its formula, so a different definition is visible.
+
+- **EBITDA** is operating income + D&A. When a company tags depreciation and intangible amortization separately (no
+  combined D&A line), both are added, and the formula says so.
+- **Total debt** excludes leases. If no current-debt line is tagged, the 12-month maturity of long-term debt stands
+  in for the current portion, and the formula names it.
+- **Net debt** is total debt − cash − short-term investments. Short-term investments are marketable securities and
+  other short-term investments (US GAAP), or short-term deposits (IFRS). Wider IFRS lines such as other current
+  financial assets are left out: they mix derivatives and receivables.
+- **A new holding company** with no 10-K yet (ExxonMobil since July 2026) gets its predecessor's filings, with a
+  `predecessor_note` that names both registrants.
+
 ## Limits
 
 - **Shared service:** the free hosted service has a daily cap and a per-IP rate limit. When either is reached, the

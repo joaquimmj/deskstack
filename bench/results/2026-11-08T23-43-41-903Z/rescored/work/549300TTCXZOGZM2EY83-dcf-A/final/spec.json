@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "Industria de Diseño Textil (Inditex)",
+ "ticker": "549300TTCXZOGZM2EY83",
+ "currency": "EUR",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     35947,
+     38632,
+     39864
+    ],
+    "source": "Inditex FY2024 results (CNMV) for FY2023/FY2024; Inditex FY2025 results PDF (year to 31 Jan 2026) for FY2025 net sales"
+   },
+   "operating_income": {
+    "values": [
+     6809,
+     7554,
+     7997
+    ],
+    "source": "Inditex FY2024 and FY2025 results press releases, EBIT"
+   },
+   "d_and_a": {
+    "values": [
+     3041,
+     3174,
+     null
+    ],
+    "source": "Inditex FY2024 results, amortisation and depreciation; FY2025 D&A not found (search limit reached)"
+   },
+   "capex": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found - capex figures not retrieved from sources before search limit was reached"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.045,
+    0.05,
+    0.045,
+    0.04,
+    0.04
+   ],
+   "source": "Assumption: FY2025 reported growth was 3.2% (FY2024 7.5%); modest reacceleration from space growth/online, fading toward long-run nominal growth"
+  },
+  "ebit_margin": {
+   "value": 0.201,
+   "source": "Assumption: held at FY2025 EBIT margin of 20.1% (7,997/39,864; FY2024 19.6%)"
+  },
+  "tax_rate": {
+   "value": 0.22,
+   "source": "Assumption: approximate Inditex effective tax rate (~21-23%); not verified in a filing in this session"
+  },
+  "da_pct_revenue": {
+   "value": 0.082,
+   "source": "Assumption: FY2024 D&A/sales = 3,174/38,632 = 8.2% (incl. right-of-use depreciation); FY2025 not found"
+  },
+  "capex_pct_revenue": {
+   "value": 0.05,
+   "source": "Assumption: capex figures not found; 5% of sales judgmental placeholder (D&A includes lease depreciation so capex ex-leases is lower than D&A) - reviewer to verify against ordinary investment guidance"
+  },
+  "wacc": {
+   "value": 0.08,
+   "source": "Assumption: Spanish risk-free ~3%-3.5%, ERP ~5.5%, beta ~0.9, negligible debt, giving ~8%"
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "source": "Assumption: long-run euro-area inflation-like nominal growth"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": -10958,
+   "source": "Inditex FY2025 results: net financial cash of 10,958m at 31 Jan 2026 (cash and ST investments less financial debt, excl. leases); shown as negative net debt",
+   "period": "FY2025"
+  },
+  "diluted_shares": {
+   "value": 3114.452983,
+   "source": "Proxy: shares for EPS calculation 3,114,452,983 for FY2024 (Inditex FY2024 results); FY2025 weighted diluted count not found, share count is broadly stable",
+   "period": "FY2024"
+  }
+ }
+}

@@ -15,7 +15,7 @@ companies, a DCF and a comps table each, and three setups: web search only, desk
 reviewers. Scoring is automatic, against the filings. The runner, the frozen company set and the method are in
 [bench/](bench/README.md).
 
-**A pilot has run, with no headline number yet.** 5 companies, 30 models, $6.68 of API credits ([analysis](bench/results/2026-11-08T23-43-41-903Z/ANALYSIS.md)). Read by hand, almost every "wrong" number from web search alone turned out to be a different definition or a gap in deskstack's own data (two of those are fixed). With deskstack, models cost 2-3× less and finished 2-3× faster; web search alone finished 1 of its 5 comps tables. The scoring is being tightened before the full run.
+**A pilot has run, with no headline number yet.** 5 companies, 30 models, $6.68 of API credits ([analysis](bench/results/2026-11-08T23-43-41-903Z/ANALYSIS.md)). Read by hand, almost every "wrong" number from web search alone turned out to be a different definition or a gap in deskstack's own data (fixed since). The scorer now reports definition differences apart. With deskstack, models cost 2-3× less and finished 2-3× faster; web search alone finished 1 of its 5 comps tables.
 
 ## Install in 30 seconds
 

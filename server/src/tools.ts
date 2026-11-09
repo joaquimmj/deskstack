@@ -4,7 +4,7 @@
 
 import { McpServer } from "@modelcontextprotocol/server";
 import * as z from "zod/v4";
-import { DISCLAIMER, PRODUCT_NAME, SELF_HOST_URL, SNAPSHOT_YEARS, VERSION } from "./config";
+import { DISCLAIMER, PREDECESSORS, PRODUCT_NAME, SELF_HOST_URL, SNAPSHOT_YEARS, VERSION } from "./config";
 import { ConfigError, ToolError, UpstreamError } from "./errors";
 import { countryPremium, DAMODARAN_PAGE, industryInputs, industryNames } from "./damodaran";
 import type { Fx } from "./fx";
@@ -180,7 +180,10 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
   );
 
   /** Resolve a ticker/CIK (SEC) or an LEI (EU) to the record the statement tools use. */
-  async function resolveRecord(ticker: string) {
+  async function resolveRecord(ticker: string): Promise<
+    | { kind: "eu"; rec: Awaited<ReturnType<typeof repo.euRecord>>; predecessor_note?: undefined }
+    | { kind: "sec"; rec: Awaited<ReturnType<typeof repo.record>>; predecessor_note?: string }
+  > {
     const t = ticker.trim().toUpperCase();
     if (LEI_RE.test(t)) {
       const rec = await repo.euRecord(t);
@@ -191,6 +194,21 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
     }
     const co = await repo.resolve(ticker);
     const rec = await repo.record(co.cik);
+    const pred = PREDECESSORS[co.cik];
+    if (!rec.financials && pred) {
+      // A holding-company reorganization: the listed registrant has no 10-K yet, its history is the predecessor's.
+      const prev = await repo.record(pred.cik).catch(() => null);
+      if (prev?.financials) {
+        return {
+          kind: "sec" as const,
+          rec: prev,
+          predecessor_note:
+            `${rec.name ?? co.name ?? `CIK ${co.cik}`} (CIK ${co.cik}, ticker ${co.ticker ?? "none"}) has no 10-K yet: ` +
+            `${pred.why}. These figures are the predecessor's, ${prev.name ?? `CIK ${pred.cik}`} (CIK ${pred.cik}); ` +
+            "cite its filings. Interim reports filed by the new registrant are not included.",
+        };
+      }
+    }
     if (!rec.financials) {
       throw new ToolError(
         `${rec.name ?? co.name ?? `CIK ${co.cik}`} (CIK ${co.cik}) has no usable annual XBRL financials: ` +
@@ -236,7 +254,11 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
         const r = await resolveRecord(ticker);
         if (r.kind === "eu") return ok(euFinancialStatements(r.rec, years ?? 5, include_ltm ?? true));
         const out = financialStatements(r.rec, years ?? 5, include_ltm ?? true);
-        return ok({ ...out, shares_outstanding: r.rec.shares_outstanding });
+        return ok({
+          ...(r.predecessor_note ? { predecessor_note: r.predecessor_note } : {}),
+          ...out,
+          shares_outstanding: r.rec.shares_outstanding,
+        });
       }),
   );
 
@@ -268,6 +290,7 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
         const { cited } = slice(std, n + 1, ltm);
         const company = r.kind === "eu" ? euCompanyBlock(r.rec) : companyBlock(r.rec);
         const warnings = r.kind === "eu" ? [] : recordWarnings(r.rec, cited);
+        if (r.predecessor_note) warnings.unshift(`predecessor: ${r.predecessor_note}`);
         if (financial) {
           warnings.push("financial_company: EBITDA-based ratios and ROIC are not meaningful for banks and insurers (null).");
         }
@@ -328,6 +351,7 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
         const counts = summarize(results);
         const name = std.entity_name ?? r.rec.name;
         return ok({
+          ...(r.predecessor_note ? { predecessor_note: r.predecessor_note } : {}),
           summary:
             `${name}: ${counts.match} of ${counts.total} value(s) match the filings` +
             (counts.mismatch ? `, ${counts.mismatch} mismatch` : "") +

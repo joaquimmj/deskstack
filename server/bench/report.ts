@@ -17,8 +17,10 @@ export interface ArmSummary {
   submitted: number;
   valid: number;
   filed: number;
-  checked: number; // match + mismatch
+  checked: number; // match + mismatch + other_line + definition
   mismatch: number;
+  other_line: number;
+  definition: number;
   not_verifiable: number;
   causes: Record<string, number>;
   errored: number;
@@ -47,7 +49,7 @@ export function summarize(runs: ScoredRun[], arms: Arm[]): { paired: number; arm
     const rs = runs.filter((r) => r.arm === arm && complete.has(key(r)));
     const s = (f: (r: ScoredRun) => number) => rs.reduce((t, r) => t + f(r), 0);
     const valid = rs.filter((r) => r.score.valid);
-    const checked = s((r) => r.score.match + r.score.mismatch);
+    const checked = s((r) => r.score.match + r.score.mismatch + (r.score.other_line ?? 0) + (r.score.definition ?? 0));
     out.push({
       arm,
       runs: rs.length,
@@ -56,6 +58,8 @@ export function summarize(runs: ScoredRun[], arms: Arm[]): { paired: number; arm
       filed: s((r) => r.score.filed),
       checked,
       mismatch: s((r) => r.score.mismatch),
+      other_line: s((r) => r.score.other_line ?? 0),
+      definition: s((r) => r.score.definition ?? 0),
       not_verifiable: s((r) => r.score.not_found + r.score.ambiguous + r.score.unverifiable),
       causes: rs.reduce((acc, r) => {
         for (const [k, v] of Object.entries(r.score.causes ?? {})) acc[k] = (acc[k] ?? 0) + v;
@@ -88,21 +92,23 @@ export function toMarkdown(s: ReturnType<typeof summarize>, meta: Record<string,
     `Model ${meta.model}, effort ${meta.effort}, prompts v${meta.prompts_version}, set ${meta.set} (${s.paired} company-task pairs where every arm ran), run ${meta.started}.`,
     `Total API cost: $${s.total_cost.toFixed(2)}.`,
     "",
-    "| Arm | Models (valid) | Filed figures checked | Wrong vs filing | Why wrong | Not verifiable | Typed numbers unsourced | Checker blockers / model | Avg cost | Avg tokens | Avg time | Runs errored |",
-    "|---|---|---|---|---|---|---|---|---|---|---|---|",
+    "| Arm | Models (valid) | Filed figures checked | Wrong vs filing | Why wrong | Other line of the filing | Other definition (EBITDA, net debt) | Not verifiable | Typed numbers unsourced | Checker blockers / model | Avg cost | Avg tokens | Avg time | Runs errored |",
+    "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|",
   ];
   for (const a of s.arms) {
     const why = Object.entries(a.causes).sort((x, y) => y[1] - x[1]).map(([k, v]) => `${k} ${v}`).join(", ") || "-";
-    lines.push(`| ${label[a.arm]} | ${a.submitted} (${a.valid}) | ${a.checked} | ${pct(a.wrong_pct)} (${a.mismatch}) | ${why} | ${a.not_verifiable} | ${pct(a.unsourced_pct)} (${a.unsourced}/${a.typed}) | ${n2(a.checker_blockers_per_model)} | $${a.avg_cost.toFixed(2)} | ${Math.round(a.avg_tokens).toLocaleString("en-US")} | ${a.avg_seconds.toFixed(0)} s | ${a.errored} |`);
+    lines.push(`| ${label[a.arm]} | ${a.submitted} (${a.valid}) | ${a.checked} | ${pct(a.wrong_pct)} (${a.mismatch}) | ${why} | ${a.other_line} | ${a.definition} | ${a.not_verifiable} | ${pct(a.unsourced_pct)} (${a.unsourced}/${a.typed}) | ${n2(a.checker_blockers_per_model)} | $${a.avg_cost.toFixed(2)} | ${Math.round(a.avg_tokens).toLocaleString("en-US")} | ${a.avg_seconds.toFixed(0)} s | ${a.errored} |`);
   }
   lines.push(
     "",
     "How to read it:",
-    "- Wrong vs filing = filed figures (history lines, net debt, shares; comps revenue, EBITDA, net income, net debt) that verify_value found different from the filing, over those it could check.",
+    "- Wrong vs filing = reported lines (revenue, operating income, D&A, capex, net income, shares) that differ from the filing and from every other line of it, over all filed figures checked.",
+    "- Other line of the filing = the value equals another line of the same filing, or two lines added (e.g. revenue excluding excise taxes, capex including leased equipment): a different line, not counted as wrong.",
+    "- Other definition = EBITDA or net debt that differs from deskstack's definition. Definitions vary between analysts, so these are reported, not counted as wrong.",
     "- Not verifiable = the filing doesn't report the line for that period, the period is ambiguous, or the company couldn't be resolved (e.g. a peer outside coverage). Reported, not counted as wrong.",
     "- Scoring uses deskstack's verify_value as the oracle; arms B and C read the same data, so their tie-out is partly by construction. The comparison that matters is A against B and C. The nightly differential test (evals/differential) checks verify_value itself against the filings with independent parsers.",
     "- Arm C sees the associate's tie-out before fixing, by design (it is B plus the review layer).",
-    "- EBITDA and net debt are checked against deskstack's definitions (operating income + D&A; total debt excluding leases - cash - short-term investments), which every arm is given in the prompt. Why wrong splits mismatches by the hint verify_value gave (scale, sign, currency, period, line item, other).",
+    "- EBITDA and net debt are compared with deskstack's definitions (operating income + D&A; total debt excluding leases - cash - short-term investments), which every arm is given in the prompt. Why wrong splits the remaining mismatches by the hint verify_value gave (scale, sign, currency, period, line item, other).",
     "- Pairs exclude company-tasks where any arm crashed or hit the budget; crashed runs are counted per arm.",
   );
   return lines.join("\n");

@@ -9,7 +9,8 @@ import { runOne, type MessagesClient } from "../bench/agent";
 import type { Connector } from "../bench/connector";
 import { Budget, cost } from "../bench/pricing";
 import { summarize, toMarkdown, type ScoredRun } from "../bench/report";
-import { scoreSubmission } from "../bench/score";
+import { findInFiling, esefFactsFor, secFactsFor, tolerance } from "../bench/filing-facts";
+import { scoreSubmission, secondReading } from "../bench/score";
 import { resetCounter } from "../src/guard";
 import { resetMemos } from "../src/repo";
 import { secFetch } from "./helpers";
@@ -276,5 +277,86 @@ describe("deskstack-bench (offline)", () => {
     expect(s.arms.map((a) => [a.arm, a.mismatch, a.checked])).toEqual([["A", 4, 14], ["B", 0, 14], ["C", 0, 14]]);
     expect(s.arms[0]!.wrong_pct).toBeCloseTo(4 / 14);
     expect(toMarkdown(s, { model: "m", effort: "medium", prompts_version: "1", set: "pilot", started: "t" })).toMatch(/\| A: web search only \| 1 \(1\) \| 14 \| 28\.6% \(4\)/);
+  });
+});
+
+describe("second reading of mismatches (pilot 2026-11-08)", () => {
+  it("tolerance is half a unit of the last digit written, at the submitted scale", () => {
+    expect(tolerance(218_945, 1e6)).toBe(0.5e6);
+    expect(tolerance(2_447.754, 1e6)).toBeCloseTo(500, 6);
+    expect(tolerance(15_004.697, 1e6)).toBeCloseTo(500, 6);
+  });
+
+  it("finds one line, or two added together, and nothing looser", () => {
+    const facts = [
+      { concept: "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment", value: 2_821e6 },
+      { concept: "us-gaap:PaymentsToAcquireEquipmentOnLease", value: 1_465e6 },
+      { concept: "us-gaap:Revenues", value: 67_589e6 },
+    ];
+    expect(findInFiling(2_821e6, 0.5e6, facts)).toBe("us-gaap:PaymentsToAcquirePropertyPlantAndEquipment");
+    expect(findInFiling(4_286e6, 0.5e6, facts)).toBe("us-gaap:PaymentsToAcquireEquipmentOnLease + us-gaap:PaymentsToAcquirePropertyPlantAndEquipment");
+    expect(findInFiling(-4_286e6, 0.5e6, facts)).not.toBeNull(); // sign conventions differ (capex as an outflow)
+    expect(findInFiling(4_287e6, 0.5e6, facts)).toBeNull();
+  });
+
+  it("SEC facts: annual filings only, the column's period, every namespace but dei", () => {
+    const cf = {
+      facts: {
+        dei: { EntityCommonStockSharesOutstanding: { units: { shares: [{ val: 1, end: "2025-12-31", form: "10-K" }] } } },
+        "us-gaap": {
+          PaymentsToAcquireEquipmentOnLease: {
+            units: {
+              USD: [
+                { val: 1_465e6, start: "2025-01-01", end: "2025-12-31", form: "10-K" },
+                { val: 900e6, start: "2025-07-01", end: "2025-12-31", form: "10-K" }, // a half-year inside the 10-K
+                { val: 1_000e6, start: "2025-01-01", end: "2025-12-31", form: "8-K" },
+              ],
+            },
+          },
+          LongTermDebtNoncurrent: { units: { USD: [{ val: 30_696e6, end: "2025-12-31", form: "10-K" }] } },
+          EarningsPerShareDiluted: { units: { "USD/shares": [{ val: 18.8, start: "2025-01-01", end: "2025-12-31", form: "10-K" }] } },
+        },
+      },
+    };
+    expect(secFactsFor(cf, { start: "2025-01-01", end: "2025-12-31" })).toEqual([
+      { concept: "us-gaap:PaymentsToAcquireEquipmentOnLease", value: 1_465e6 },
+      { concept: "us-gaap:LongTermDebtNoncurrent", value: 30_696e6 },
+    ]);
+  });
+
+  it("ESEF facts: statement lines only (no members), extension concepts included, OIM end dates", () => {
+    const report = {
+      facts: {
+        a: { value: "182344000000", dimensions: { concept: "tot:RevenuesFromSales", entity: "x", unit: "iso4217:USD", period: "2025-01-01T00:00:00/2026-01-01T00:00:00" } },
+        b: { value: "201196000000", dimensions: { concept: "ifrs-full:Revenue", entity: "x", unit: "iso4217:USD", period: "2025-01-01T00:00:00/2026-01-01T00:00:00" } },
+        c: { value: "50000000000", dimensions: { concept: "ifrs-full:Revenue", entity: "x", unit: "iso4217:USD", period: "2025-01-01T00:00:00/2026-01-01T00:00:00", "ifrs-full:SegmentsAxis": "tot:Refining" } },
+        d: { value: "26202000000", dimensions: { concept: "ifrs-full:CashAndCashEquivalents", entity: "x", unit: "iso4217:USD", period: "2026-01-01T00:00:00" } },
+        e: { value: "1", dimensions: { concept: "ifrs-full:Revenue", entity: "x", unit: "iso4217:USD", period: "2024-01-01T00:00:00/2025-01-01T00:00:00" } },
+      },
+    };
+    const facts = esefFactsFor(report, { start: "2025-01-01", end: "2025-12-31" });
+    expect(facts.map((f) => f.concept)).toEqual(["tot:RevenuesFromSales", "ifrs-full:Revenue", "ifrs-full:CashAndCashEquivalents"]);
+    expect(findInFiling(182_344e6, 0.5e6, facts)).toBe("tot:RevenuesFromSales");
+  });
+
+  it("computed figures become 'definition', reported lines found in the filing 'other_line', the rest stays wrong", async () => {
+    const base = { company: "CAT", period: "FY2025", scale: "millions", status: "mismatch", cause: "other", hints: [] };
+    const items = [
+      { ...base, metric: "net_debt", value: 33_344, ref: "bridge.net_debt" },
+      { ...base, metric: "capex", value: 4_286, ref: "history.capex[FY2025]" },
+      { ...base, metric: "capex", value: 9_999, ref: "history.capex[FY2024]" },
+      { ...base, metric: "revenue", value: 1, ref: "history.revenue[FY2025]", status: "match" },
+    ];
+    const filingFacts = async () => [
+      { concept: "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment", value: 2_821e6 },
+      { concept: "us-gaap:PaymentsToAcquireEquipmentOnLease", value: 1_465e6 },
+    ];
+    const out = await secondReading(items, { filingFacts });
+    expect(out.map((x) => x.status)).toEqual(["definition", "other_line", "mismatch", "match"]);
+    expect(out[0]!.cause).toBeUndefined();
+    expect(out[1]!.other_line).toContain("PaymentsToAcquireEquipmentOnLease");
+    expect(out[2]!.cause).toBe("other");
+    // Without filing facts, a reported-line mismatch stays wrong.
+    expect((await secondReading([items[1]!]))[0]!.status).toBe("mismatch");
   });
 });
