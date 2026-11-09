@@ -101,7 +101,7 @@ conversation.
 |---|---|
 | « connector not connected » | Vérifiez **Paramètres → Connecteurs** : deskstack doit être *Connecté* |
 | Les scripts ne se lancent pas | Activez l'exécution de code dans **Paramètres → Capacités** |
-| Une entreprise européenne est introuvable | La couverture compte une trentaine de grands émetteurs. Essayez son LEI, ou `/eu-company` |
+| Une entreprise européenne est introuvable | La couverture compte une centaine de grands émetteurs dans 13 pays. Essayez son LEI, ou `/eu-company` |
 | Une banque ou un assureur | Un DCF classique ne s'y applique pas. L'analyste propose le PER ou le P/B à la place |
 | « Free daily capacity is used up » | Le service partagé repart à 00:00 UTC ; vous pouvez aussi [auto-héberger](SELF_HOSTING.md) |
 

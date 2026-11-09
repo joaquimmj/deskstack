@@ -99,7 +99,8 @@ jobs:
         id: esef
         name: Build European issuers (ESEF, filings.xbrl.org)
         continue-on-error: true
-        timeout-minutes: 30
+        # 45: a newly added batch of issuers downloads its reports once (~400 reports for 73 issuers, ~20 min locally).
+        timeout-minutes: 45
         run: |
           npx tsx scripts/build-esef.ts
           rm -rf .esef-last && cp -R snapshot/v1/eu .esef-last

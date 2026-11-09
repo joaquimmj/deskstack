@@ -46,5 +46,5 @@ Each finding has a rule ID (DS001…) and a suggested fix.
 ## Limits to state honestly
 
 - No share prices and no consensus estimates.
-- European coverage is about 30 large issuers, annual figures only.
+- European coverage is about 100 large issuers in 13 countries, annual figures only.
 - A `match` checks the data, not the judgement. Reviews reduce errors but don't replace a human reviewer.
