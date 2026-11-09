@@ -10,7 +10,7 @@ import type { Connector } from "../bench/connector";
 import { Budget, cost } from "../bench/pricing";
 import { summarize, toMarkdown, type ScoredRun } from "../bench/report";
 import { findInFiling, esefFactsFor, secFactsFor, tolerance } from "../bench/filing-facts";
-import { scoreSubmission, secondReading } from "../bench/score";
+import { sameName, scoreSubmission, secondReading } from "../bench/score";
 import { resetCounter } from "../src/guard";
 import { resetMemos } from "../src/repo";
 import { secFetch } from "./helpers";
@@ -232,6 +232,16 @@ describe("deskstack-bench (offline)", () => {
     spec.peers[0] = { ...spec.peers[0], ticker: "AAPL.O", name: "Apple Inc." };
     const s = await scoreSubmission(connector(), spec, AAPL, mkdtempSync(join(tmpdir(), "bench-")));
     expect(s.items.filter((x) => x.company === "AAPL").map((x) => x.status)).toEqual(["match", "match", "match", "match"]);
+  });
+
+  it("a peer whose name only starts like the target's is not the target (comps run: CCEP scored as KO)", async () => {
+    expect(sameName("Coca-Cola Europacific Partners plc", "COCA COLA CO")).toBe(false);
+    expect(sameName("LVMH", "LVMH MOET HENNESSY LOUIS VUITTON")).toBe(true);
+    expect(sameName("Apple", "Apple Inc.")).toBe(true);
+    const spec = structuredClone(COMPS);
+    spec.peers = [COMPS.peers[0], { ...COMPS.peers[1], name: "Apple Hospitality REIT", ticker: "APLE" }];
+    const s = await scoreSubmission(connector(), spec, AAPL, mkdtempSync(join(tmpdir(), "bench-")));
+    expect(s.items.filter((x) => x.ref.startsWith("peers[APLE]")).every((x) => x.company !== "AAPL")).toBe(true);
   });
 
   it("items are normalised like the builder, and one bad item doesn't sink the batch", async () => {
