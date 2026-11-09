@@ -7,49 +7,98 @@
 <meta name="description" content="Free, cited financial data for Claude and a review team that checks every number against the SEC or ESEF filing. Open source.">
 <link rel="alternate" hreflang="fr" href="fr/">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link rel="icon" href="data:image/svg+xml,<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><rect x='2.5' y='2.5' width='19' height='19' rx='2' fill='none' stroke='%2314213d' stroke-width='2'/><path d='M7 12.5l3.2 3.2L17.5 8' fill='none' stroke='%23c8102e' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><rect x='2.5' y='2.5' width='19' height='19' rx='2' fill='none' stroke='%230e1a2b' stroke-width='2'/><path d='M7 12.5l3.2 3.2L17.5 8' fill='none' stroke='%230b7a3e' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 </head>
 <body>
 <a class="skip" href="#install">Skip to install</a>
-<div class="wrap">
-<header class="top">
-  <a class="brand" href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 12.5l3.2 3.2L17.5 8" fill="none" stroke="#c8102e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>deskstack</a>
-  <nav class="top" aria-label="Main">
-    <a href="#install">Install</a>
-    <a class="hide-sm" href="https://github.com/joaquimmj/deskstack/blob/main/docs/TUTORIAL.md">Tutorial</a>
-    <a class="hide-sm" href="https://github.com/joaquimmj/deskstack">GitHub</a>
-    <a href="fr/" hreflang="fr" lang="fr">Français</a>
-  </nav>
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 12.5l3.2 3.2L17.5 8" fill="none" stroke="#0b7a3e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>deskstack</a>
+    <nav aria-label="Main">
+      <a class="hide-sm" href="#proof">Results</a>
+      <a class="hide-sm" href="#team">How it works</a>
+      <a class="hide-sm" href="https://github.com/joaquimmj/deskstack">GitHub</a>
+      <a href="fr/" hreflang="fr" lang="fr">Français</a>
+      <a class="btn sm" href="#install">Install</a>
+    </nav>
+  </div>
 </header>
 
 <main id="main">
-<div class="hero">
-  <div>
-    <h1>Every number in your model, tied out to the filing.</h1>
-    <p class="lede">deskstack gives Claude free financial data with a source on every figure, and a review team. One agent builds the model, others check each number against the SEC or European filing, and nothing is exported until you sign it off.</p>
-    <div class="actions">
-      <a class="btn" href="#install">Install in Claude</a>
-      <a class="btn ghost" href="https://github.com/joaquimmj/deskstack/blob/main/docs/TUTORIAL.md">Read the tutorial</a>
+<!-- The hero is a workbook: the headline is the selected range, the associate ties out the history to the 10-K. -->
+<section class="sheet-hero" aria-labelledby="hero-t">
+  <div class="fx" aria-hidden="true">
+    <span class="ref">B4:K8</span><span class="fxl">fx</span>
+    <code>=DESKSTACK.TIEOUT(Inputs!D3, "AAPL 10-K FY2025")</code>
+    <span class="fx-ok"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>416,161 · 0000320193-25-000079</span>
+  </div>
+  <div class="sheet">
+    <div class="grid" aria-hidden="true">
+      <div class="cols"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span><span>K</span><span>L</span></div>
+      <div class="rows"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span></div>
+      <div class="cells"><span class="c h" style="--x:1;--y:1;--i:0">USD m</span><span class="c h" style="--x:2;--y:1;--i:1">FY2023</span><span class="c h" style="--x:3;--y:1;--i:2">FY2024</span><span class="c h" style="--x:4;--y:1;--i:3">FY2025</span><span class="c h" style="--x:1;--y:2;--i:4">Revenue</span><span class="c ok" style="--x:2;--y:2;--i:5"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>383,285</span><span class="c bad" style="--x:3;--y:2;--i:6">391,053</span><span class="c ok" style="--x:4;--y:2;--i:7"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>416,161</span><span class="c h" style="--x:1;--y:3;--i:8">EBIT</span><span class="c ok" style="--x:2;--y:3;--i:9"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>114,301</span><span class="c ok" style="--x:3;--y:3;--i:10"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>123,216</span><span class="c ok" style="--x:4;--y:3;--i:11"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>133,050</span><span class="c h" style="--x:10;--y:1;--i:12">WACC</span><span class="c in" style="--x:11;--y:1;--i:13">9.0%</span><span class="c h" style="--x:10;--y:2;--i:14">g</span><span class="c in" style="--x:11;--y:2;--i:15">3.0%</span><span class="c h" style="--x:10;--y:3;--i:16">Tax</span><span class="c in" style="--x:11;--y:3;--i:17">16.0%</span><span class="c h" style="--x:1;--y:12;--i:18">D&A</span><span class="c ok" style="--x:2;--y:12;--i:19"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>11,519</span><span class="c ok" style="--x:3;--y:12;--i:20"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>11,445</span><span class="c ok" style="--x:4;--y:12;--i:21"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>11,698</span><span class="c h" style="--x:1;--y:13;--i:22">Capex</span><span class="c ok" style="--x:2;--y:13;--i:23"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>10,959</span><span class="c ok" style="--x:3;--y:13;--i:24"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>9,447</span><span class="c ok" style="--x:4;--y:13;--i:25"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>12,715</span><span class="c h" style="--x:1;--y:14;--i:26">Net debt</span><span class="c ok" style="--x:4;--y:14;--i:27"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>43,960</span><span class="c h" style="--x:10;--y:13;--i:28">Sign-off</span><span class="c f" style="--x:11;--y:13;--i:29">awaiting you</span><span class="c h" style="--x:10;--y:14;--i:30">Tie-out</span><span class="c f" style="--x:11;--y:14;--i:31">13/14</span>
+        <div class="cursor c-associate" style="--x:3;--y:2"></div>
+        <div class="comment" style="--x:5;--y:2"><b>Associate</b> Filed 391,035, not 391,053: two digits swapped. Accession 0000320193-25-000079.</div>
+        <div class="cursor c-analyst" style="--x:11;--y:3"><span>Analyst</span></div>
+      </div>
+    </div>
+    <div class="selection"><h1 id="hero-t">Every number in your model, tied out to the filing.</h1></div>
+    <div class="below">
+      <p class="lede">Claude builds the model with free, cited data. Other agents tie every number to the SEC or European filing, and nothing ships until you sign off.</p>
+      <div class="actions">
+        <a class="btn" href="#install">Install in Claude</a>
+        <a class="btn ghost" href="#proof">See the results</a>
+      </div>
     </div>
   </div>
-  <figure class="workpaper" aria-label="Example tie-out of Apple figures against the 10-K">
-    <h2>Apple Inc. <span>USD millions, tied out to the FY2025 10-K</span></h2>
-    <table class="wp">
-      <thead><tr><th scope="col">Line</th><th scope="col">Period</th><th scope="col" class="r">Model</th><th scope="col"><span class="visually-hidden">Tie-out</span></th></tr></thead>
-      <tbody>
-<tr><td>Revenue</td><td>FY2025</td><td class="num">416,161</td><td class="mark"><span class="visually-hidden">Agrees with the 10-K</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
-<tr class="flag"><td>Revenue</td><td>FY2024</td><td class="num">391,053</td><td class="mark"><span class="visually-hidden">Doesn't agree with the 10-K</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M12 3.2c5 0 8.8 3.7 8.6 8.9-.2 5-4 8.6-9 8.5-4.8-.1-8.4-3.9-8.2-8.8C3.6 6.8 7.3 3.1 12.6 3.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></td></tr>
-<tr><td>Operating income</td><td>FY2025</td><td class="num">133,050</td><td class="mark"><span class="visually-hidden">Agrees with the 10-K</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
-<tr><td>Capex</td><td>FY2025</td><td class="num">12,715</td><td class="mark"><span class="visually-hidden">Agrees with the 10-K</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
-<tr><td>Net debt</td><td>FY2025</td><td class="num">43,960</td><td class="mark"><span class="visually-hidden">Agrees with the 10-K</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
-      </tbody>
-    </table>
-    <p class="margin-note">Filed 391,035, not 391,053: two digits swapped. Accession 0000320193-25-000079.</p>
-    <div class="legend"><span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Agreed to the 10-K</span><span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M12 3.2c5 0 8.8 3.7 8.6 8.9-.2 5-4 8.6-9 8.5-4.8-.1-8.4-3.9-8.2-8.8C3.6 6.8 7.3 3.1 12.6 3.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>Doesn't agree, see note</span></div>
+  <p class="legend" aria-hidden="true"><span class="k-in">123</span>typed assumption<span class="k-ok">123</span>agrees with the filing<span class="k-bad">123</span>doesn't: see the note</p>
+</section>
+
+<section id="proof" class="band" aria-labelledby="proof-t">
+  <div class="wrap">
+    <h2 class="visually-hidden" id="proof-t">Results</h2>
+    <ul class="stats"><li><span class="num">3.5%</span><span class="lab">of reported figures were wrong when Claude built DCFs with web search alone: 20 of 573, every one checked by hand</span></li><li><span class="num">0</span><span class="lab">wrong with deskstack's data, on the same 50 companies, in DCFs and comps tables alike</span></li><li><span class="num">⅓</span><span class="lab">of the cost per model: $0.07–0.10 instead of $0.23, and 2–3× faster</span></li><li><span class="num">10,419</span><span class="lab">US companies, plus large European issuers, from the filings</span></li></ul>
+    <p class="fine">50 companies, a DCF and a comps table each, Claude Sonnet 5.5, November 2026. The zero is partly by construction: the scorer checks against the same data, which is checked separately against two other parsers every night. <a href="https://github.com/joaquimmj/deskstack/blob/main/bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md">Read the analysis</a></p>
+  </div>
+</section>
+
+<div class="wrap">
+<section id="team" aria-labelledby="team-t">
+  <h2 class="title" id="team-t">A deal team where every role has one job</h2>
+  <p class="intro">Each role is a skill with its own checklist and a fixed report. Agents build and check; only you approve the export.</p>
+  <ol class="lanes" aria-label="A deal team where every role has one job"><li class="agent"><span class="who">Agents</span><code>/analyst</code><p>Builds the workbook from cited data, after agreeing the assumptions with you.</p></li><li class="agent"><span class="who">Agents</span><code>/associate</code><p>Ties every typed number to the filing, cell by cell, and flags what doesn't agree.</p></li><li class="agent"><span class="who">Agents</span><code>/vp-review</code><p>Runs the deterministic model checks, then reviews the assumptions against history.</p></li><li class="agent"><span class="who">Agents</span><code>/md-redteam</code><p>Argues against the valuation: what moves it, and what the market implies.</p></li><li class="agent"><span class="who">Agents</span><code>/compliance</code><p>Checks the disclaimer, the sources and the language before anything is shared.</p></li><li class="you"><span class="who">You</span><code>/sign-off</code><p>Shows every open item, and exports a signed copy only after you approve in your own words.</p></li></ol>
+  <p class="after">Reviewers report; they never edit your file. In Claude Code and Cowork they run as separate agents that don't see how the model was built. They also review workbooks made with Anthropic's financial-analysis plugin.</p>
+</section>
+
+<section aria-labelledby="demo-t">
+  <h2 class="title" id="demo-t">See it catch a typo</h2>
+  <p class="intro">The review scripts on Apple's FY2025 DCF with one planted typo: the model review can't see it, the tie-out to the 10-K can. Real scripts, real filing, no AI in this loop.</p>
+  <figure class="demo">
+    <img src="media/demo.gif" width="1080" height="608" loading="lazy" alt="Terminal recording: /associate finds 13 of 14 figures match Apple's 10-K and flags revenue FY2024 391,053 against a filed 391,035 as swapped digits; /vp-review finds the model clean; after the fix 14 of 14 match; /sign-off shows every check passed and waits for approval.">
   </figure>
-</div>
+</section>
+
+<section aria-labelledby="bench-t">
+  <h2 class="title" id="bench-t">The benchmark</h2>
+  <p class="intro">Claude Sonnet 5.5 built a DCF and a comps table for each of 50 companies (35 US, 15 European), three ways. Every reported figure was scored against the filing, and every one flagged as wrong was read by hand.</p>
+  <figure class="bench">
+    <table><caption>DCF, 50 companies <span><a href="https://github.com/joaquimmj/deskstack/blob/main/bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md">Analysis and transcripts</a></span></caption><thead><tr><th scope="col">Setup</th><th scope="col">Reported figures wrong</th><th scope="col" class="r">Cost / model</th><th scope="col" class="r">Time</th></tr></thead><tbody><tr><th scope="row">Web search only</th><td class="wrong"><span class="bar" style="--w:3.5"></span><b>3.5%</b> <span>20 of 573</span></td><td class="r">$0.23</td><td class="r">58 s</td></tr><tr><th scope="row">deskstack data</th><td class="wrong"><span class="bar zero"></span><b>0%</b> <span>0 of 593</span></td><td class="r">$0.07</td><td class="r">18 s</td></tr><tr><th scope="row">deskstack data + reviewers</th><td class="wrong"><span class="bar zero"></span><b>0%</b> <span>0 of 606</span></td><td class="r">$0.10</td><td class="r">32 s</td></tr></tbody></table><table><caption>Comps, the same 50 companies <span><a href="https://github.com/joaquimmj/deskstack/blob/main/bench/results/2026-11-09T13-04-05-468Z/ANALYSIS.md">Analysis and transcripts</a></span></caption><thead><tr><th scope="col">Setup</th><th scope="col">Reported figures wrong</th><th scope="col" class="r">Cost / model</th><th scope="col" class="r">Time</th></tr></thead><tbody><tr><th scope="row">Web search only</th><td class="wrong"><span class="bar" style="--w:3.6"></span><b>3.6%</b> <span>16 of 445, and 7 left as 0</span></td><td class="r">$0.56</td><td class="r">171 s</td></tr><tr><th scope="row">deskstack data</th><td class="wrong"><span class="bar zero"></span><b>0%</b> <span>0 of 1,021</span></td><td class="r">$0.17</td><td class="r">36 s</td></tr><tr><th scope="row">deskstack data + reviewers</th><td class="wrong"><span class="bar zero"></span><b>0%</b> <span>0 of 1,010</span></td><td class="r">$0.22</td><td class="r">51 s</td></tr></tbody></table>
+    <figcaption>In the DCFs, most wrong figures were numbers the model couldn't find and filled in anyway: derived share counts, estimated capex, aggregator figures, non-GAAP revenue. In the comps, 15 of 16 were twelve-month figures a quarter out of date, from an aggregator, after the latest 10-Qs were filed. Net debt and EBITDA are reported apart, since definitions vary. Every transcript is public.</figcaption>
+  </figure>
+  <div class="two">
+    <div>
+      <h3>Accuracy, checked every night</h3>
+      <p>Golden questions answered exactly as filed, on every change: US and European companies, a bank, restatements, a stock split, fiscal years ending in January, March, June and September. Each night, the answers are re-read from the filings with independent parsers.</p>
+      <p><a href="https://github.com/joaquimmj/deskstack/blob/main/evals/README.md">How the golden set works</a></p>
+    </div>
+    <div>
+      <h3>What the run found in deskstack</h3>
+      <p>The benchmark also checks us: it found four gaps in deskstack's own data (narrow D&A, Disney's segment operating income, a mis-scaled share count, a dual filer), all fixed and tested since.</p>
+    </div>
+  </div>
+</section>
 
 <section id="install" aria-labelledby="install-t">
   <h2 class="title" id="install-t">Install in three steps</h2>
@@ -59,7 +108,7 @@
       <h3>Add the data connector</h3>
       <p>In Claude, open Settings, then Connectors, then Add custom connector. Paste the URL, with no sign-in.</p>
       <div class="urlbox" data-connector data-placeholder="Coming soon"><code id="connector-url">Coming soon</code><button class="btn" type="button" data-copy="connector-url" data-done="Copied" data-fallback="Selected: press Ctrl+C">Copy</button></div>
-      <p class="pending" data-pending>The hosted connector isn't online yet. You can run your own copy for free in a few minutes: <a href="https://github.com/joaquimmj/deskstack/blob/main/docs/SELF_HOSTING.md">self-hosting guide</a>.</p>
+      <p class="pending" data-pending hidden>The hosted connector isn't online yet. You can run your own copy for free in a few minutes: <a href="https://github.com/joaquimmj/deskstack/blob/main/docs/SELF_HOSTING.md">self-hosting guide</a>.</p>
     </li>
     <li>
       <h3>Add the deal team</h3>
@@ -72,30 +121,6 @@
       <div class="urlbox"><code id="first-cmd">/deal-team Apple quick-dcf</code><button class="btn" type="button" data-copy="first-cmd" data-done="Copied" data-fallback="Selected: press Ctrl+C">Copy</button></div>
     </li>
   </ol>
-</section>
-
-<section aria-labelledby="team-t">
-  <h2 class="title" id="team-t">A team where every role has one job</h2>
-  <p class="intro">Each role is a skill with its own checklist and a fixed report. They run in this order, and you can call any of them on its own, on any workbook.</p>
-  <ol class="pipeline"><li><code>/analyst</code><p>Builds the workbook from cited data, after agreeing the assumptions with you.</p></li><li><code>/associate</code><p>Checks every typed number against the filing and says why one doesn't agree.</p></li><li><code>/vp-review</code><p>Runs 15 model checks, then compares the assumptions with filed history.</p></li><li><code>/md-redteam</code><p>Argues against the valuation and shows what the market price implies.</p></li><li><code>/compliance</code><p>Checks the disclaimer, the citations and signs of non-public information.</p></li><li class="gate"><code>/sign-off</code><p>Shows every open item and exports only after you approve in your own words.</p></li></ol>
-  <p class="after">Reviewers report; they never edit your file. In Claude Code and Cowork they run as separate agents that don't see how the model was built. They also review workbooks made with Anthropic's financial-analysis plugin.</p>
-</section>
-
-<section aria-labelledby="proof-t">
-  <h2 class="title" id="proof-t">How we know the numbers are right</h2>
-  <div class="two">
-    <div>
-      <h3>Accuracy</h3>
-      <p class="stat">100/100</p>
-      <p>Golden questions answered exactly as filed, on every change: US and European companies, a bank, restatements, a stock split, fiscal years ending in January, March, June and September. Each night, the answers are re-read from the filings with independent parsers.</p>
-      <p><a href="https://github.com/joaquimmj/deskstack/blob/main/evals/README.md">How the golden set works</a></p>
-    </div>
-    <div>
-      <h3>Benchmark</h3>
-      <p>We measure how many numbers are wrong or unsourced when Claude builds a model with web search only, with deskstack's data, and with deskstack's reviewers too, scored automatically against the filings. First results, on 50 companies (a DCF each, Claude Sonnet 5.5): with web search only, 20 of 573 reported figures were wrong (3.5%), checked by hand against the filings. With deskstack's data, none, at a third of the cost. That zero is partly by construction (the scorer checks against the same data), and the analysis says how the data is checked independently and what the run found wrong in deskstack itself. Every transcript is public.</p>
-      <p><a href="https://github.com/joaquimmj/deskstack/blob/main/bench/README.md">The method and the company set</a></p>
-    </div>
-  </div>
 </section>
 
 <section aria-labelledby="data-t">
@@ -111,14 +136,16 @@
   <h2 class="title" id="lim-t">What it doesn't do</h2>
   <ul class="limits"><li>No share prices and no consensus estimates: a market cap needs a price you provide.</li><li>European coverage is partial and annual only; German issuers aren't in the public repository yet.</li><li>Banks and insurers are flagged: a standard DCF doesn't fit them.</li><li>Reviews reduce errors but don't replace a human reviewer. Everything is a draft until you sign it off.</li></ul>
 </section>
+</div>
 </main>
 
 <footer>
-  <p>deskstack is free and open source (MIT). Run your own copy on a free Cloudflare account, or read the code on <a href="https://github.com/joaquimmj/deskstack">GitHub</a>. <a href="https://github.com/joaquimmj/deskstack/blob/main/PRIVACY.md">Privacy</a>.</p>
-  <p>Data from SEC EDGAR, XBRL International's filings.xbrl.org, the U.S. Treasury, ECB statistics and Aswath Damodaran (NYU Stern). SEC XBRL handling builds on open-finance-mcp by Nathanael Johnson.</p>
-  <p>Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed. Not investment advice.</p>
+  <div class="wrap">
+    <p>deskstack is free and open source (MIT). Run your own copy on a free Cloudflare account, or read the code on <a href="https://github.com/joaquimmj/deskstack">GitHub</a>. <a href="https://github.com/joaquimmj/deskstack/blob/main/PRIVACY.md">Privacy</a>.</p>
+    <p>Data from SEC EDGAR, XBRL International's filings.xbrl.org, the U.S. Treasury, ECB statistics and Aswath Damodaran (NYU Stern). SEC XBRL handling builds on open-finance-mcp by Nathanael Johnson.</p>
+    <p>Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed. Not investment advice.</p>
+  </div>
 </footer>
-</div>
 <script src="config.js"></script>
 <script src="app.js"></script>
 </body>
