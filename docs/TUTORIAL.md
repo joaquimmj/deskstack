@@ -95,7 +95,7 @@ Code and Cowork, the reviewers run as separate agents automatically, so you don'
 |---|---|
 | "connector not connected" | Check **Settings → Connectors**: deskstack must show *Connected* |
 | The scripts don't run | Turn on code execution in **Settings → Capabilities** |
-| A European company isn't found | Coverage is about 30 large issuers. Try its LEI, or ask `/eu-company` |
+| A European company isn't found | Coverage is about 100 large issuers in 13 countries. Try its LEI, or ask `/eu-company` |
 | A bank or insurer | A standard DCF doesn't fit them. The analyst offers P/E or P/B instead |
 | "Free daily capacity is used up" | The shared service resets at 00:00 UTC; you can also [self-host](SELF_HOSTING.md) |
 
