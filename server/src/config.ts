@@ -32,3 +32,12 @@ export interface Env {
   /** Comma-separated extra Origin hostnames allowed (besides Claude's and localhost). */
   ALLOWED_ORIGINS?: string;
 }
+
+/**
+ * Listed registrants with no 10-K yet whose history sits under a predecessor CIK (holding-company
+ * reorganizations). Checked against EDGAR: the predecessor's ticker moved to the new registrant.
+ */
+export const PREDECESSORS: Record<number, { cik: number; why: string }> = {
+  // Exxon Mobil Corp delisted (Form 25, July 2026); XOM is now ExxonMobil Holdings Corp, first 10-Q 2026-11-02.
+  2115436: { cik: 34088, why: "ExxonMobil Holdings Corp became the listed parent of Exxon Mobil Corp in July 2026" },
+};

@@ -52,6 +52,12 @@ Arm A grows its context fastest because search results are bulky. Arm B's tool r
 **At the mid estimate, a full 300-run benchmark on Sonnet 5.5 costs about twice the budget. Opus 5.5 is out of
 reach.** Haiku 5.5 fits easily, but "a small model makes mistakes" is a weak headline.
 
+## Measured in the pilot (2026-11-08)
+
+30 runs cost $6.68. Per run: DCF A $0.22, B $0.08, C $0.12; comps A $0.55 (4 of 5 stopped by the per-run cap), B
+$0.17, C $0.20. With arm A's comps allowed to finish (about $0.85), one company-task costs about $0.89, so by the rule
+below the main run is **50 companies × DCF × 3 arms, about $25**. The runner's dry run uses these figures.
+
 ## Recommended plan (fits $100)
 
 1. **Pilot, hard cap $20.**

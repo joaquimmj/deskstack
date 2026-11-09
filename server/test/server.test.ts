@@ -6,6 +6,7 @@ import { Client, StreamableHTTPClientTransport } from "@modelcontextprotocol/cli
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { PREDECESSORS } from "../src/config";
 import { resetCounter } from "../src/guard";
 import worker from "../src/index";
 import { resetMemos } from "../src/repo";
@@ -93,6 +94,23 @@ describe("tools (live SEC path)", () => {
     expect(r.text).toMatch(/predecessor/);
     expect(r.text).toContain("CIK0000034088");
     expect(r.text).not.toContain("IFRS");
+  });
+
+  it("a known reorganization falls back to the predecessor's filings, and says so", async () => {
+    // The XOM fixture is the new holding registrant (no 10-K). Point the table at a fixture we have (KO).
+    const real = PREDECESSORS[2115436]!;
+    PREDECESSORS[2115436] = { cik: 21344, why: "test reorganization" };
+    try {
+      const r = await call(baseEnv(), "financial_statements", { ticker: "XOM", years: 1 });
+      expect(r.isError).toBe(false);
+      expect(r.json.predecessor_note).toMatch(/has no 10-K yet: test reorganization/);
+      expect(r.json.predecessor_note).toContain("CIK 21344");
+      expect(r.json.company.cik).toBe(21344);
+      const v = await call(baseEnv(), "verify_value", { company: "XOM", items: [{ metric: "revenue", period: "FY2023", value: 1 }] });
+      expect(v.json.predecessor_note).toContain("CIK 21344");
+    } finally {
+      PREDECESSORS[2115436] = real;
+    }
   });
 
   it("unknown ticker points to company_lookup", async () => {
