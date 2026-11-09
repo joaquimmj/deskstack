@@ -4,7 +4,7 @@ Three layers check that deskstack returns the numbers that were actually filed.
 
 | Layer | Runs | What it checks |
 |---|---|---|
-| Golden set, recorded | Every push (`server/test/golden.test.ts`, in `npm test`) | 101 questions with known answers, through the real MCP tools on recorded fixtures. Every question must pass; a known miss must be listed with its reason |
+| Golden set, recorded | Every push (`server/test/golden.test.ts`, in `npm test`) | 238 questions with known answers, through the real MCP tools on recorded fixtures. Every question must pass; a known miss must be listed with its reason |
 | Golden set, live | Nightly (`server/scripts/golden.ts`) | The same questions against the deployed connector, at ≥ 95% (live answers can drift when a company files). Writes `site/badges/golden.json` (a shields.io endpoint badge) |
 | Differential | Nightly (`evals/differential/differential.py`) | Re-reads every golden answer from the filing itself with an independent parser (see below). Fails when a check couldn't run |
 

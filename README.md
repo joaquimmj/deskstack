@@ -53,7 +53,7 @@ builder's reasoning. Details: [docs/ROLES.md](docs/ROLES.md).
 | Data | Source | Coverage |
 |---|---|---|
 | Financial statements (US) | SEC EDGAR XBRL (10-K, 10-Q, 20-F) | US-listed companies, including IFRS foreign filers; annual years plus LTM |
-| Financial statements (EU) | ESEF annual reports via [filings.xbrl.org](https://filings.xbrl.org) | About 100 large issuers in 13 countries (France, the Netherlands, Spain, Italy, Finland, Belgium, Denmark, Sweden, Norway, Austria, Portugal, Ireland and Luxembourg); annual |
+| Financial statements (Europe and UK) | ESEF and UKSEF annual reports via [filings.xbrl.org](https://filings.xbrl.org) | 159 large issuers in 14 countries: 55 UK listed companies, and 104 issuers in France, the Netherlands, Spain, Italy, Finland, Belgium, Denmark, Sweden, Norway, Austria, Portugal, Ireland and Luxembourg; annual |
 | Risk-free rates | U.S. Treasury par yield curve; ECB euro area par yields | Daily, 1 month to 30 years |
 | Exchange rates | ECB reference rates | 30+ currencies, latest, on a date or as a period average |
 | Valuation inputs | Aswath Damodaran's public datasets (NYU Stern) | ERP and country risk by country; betas and cost of capital by industry |
@@ -63,11 +63,13 @@ Every value carries its source: filing, accession or report, period. The 8 tools
 
 ## Accuracy
 
-- **The golden set:** 101 questions with known answers from the filings. It covers:
-  - US and EU issuers, and IFRS 20-F filers;
+- **The golden set:** 238 questions with known answers from the filings. It covers:
+  - US issuers and IFRS 20-F filers;
+  - at least 10 questions for each of the 14 European countries covered, the UK included, each answer read by
+    Arelle from the published report;
   - a bank;
   - restatements and a stock split;
-  - 52/53-week years, and fiscal years ending in January, March, June and September.
+  - 52/53-week years, and fiscal years ending in January, February, March, June and September.
 - **Every push:** every question must pass through the real tools on recorded data. Today: 100%.
 - **Nightly:** an independent re-read of each answer from the filing itself, with edgartools for SEC and Arelle for
   ESEF. Details: [evals/README.md](evals/README.md).
@@ -76,8 +78,8 @@ Every value carries its source: filing, accession or report, period. The 8 tools
 
 - No share prices: a market cap needs a price you give.
 - No consensus estimates.
-- European coverage is partial and annual only. There are no German issuers, because their reports aren't in the
-  public ESEF repository.
+- European and UK coverage is partial and annual only. There are no German issuers, because their reports aren't in
+  the public ESEF repository. Some UK companies tag no total assets; that line is then `null`.
 - IFRS 20-F filers have no LTM.
 - Banks and insurers are flagged; EBITDA and EV metrics don't apply to them.
 - **Reviewers reduce errors but don't replace a human reviewer.** Everything is a draft until you sign it off.
