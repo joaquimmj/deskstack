@@ -3,150 +3,203 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>deskstack : chaque chiffre rapproché du dépôt officiel</title>
-<meta name="description" content="Des données financières gratuites et sourcées pour Claude, et une équipe de relecture qui vérifie chaque chiffre contre le dépôt SEC ou ESEF. Open source.">
+<title>deskstack : chaque chiffre rapproché du dépôt officiel</title>
+<meta name="description" content="Des données financières gratuites et sourcées pour Claude, et une équipe de revue qui rapproche chaque chiffre de votre modèle du dépôt SEC ou ESEF. Open source.">
+<meta name="theme-color" content="#f6f7f8">
 <link rel="alternate" hreflang="en" href="../">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css">
-<link rel="icon" href="data:image/svg+xml,<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><rect x='2.5' y='2.5' width='19' height='19' rx='2' fill='none' stroke='%230e1a2b' stroke-width='2'/><path d='M7 12.5l3.2 3.2L17.5 8' fill='none' stroke='%230b7a3e' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=1828c0d1ba">
+<link rel="icon" href="data:image/svg+xml,<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><rect x='2.5' y='2.5' width='19' height='19' rx='2' fill='none' stroke='%23111418' stroke-width='2'/><path d='M7 12.5l3.2 3.2L17.5 8' fill='none' stroke='%23107c41' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 <a class="skip" href="#install">Aller à l'installation</a>
 <header class="bar">
   <div class="wrap bar-in">
-    <a class="brand" href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 12.5l3.2 3.2L17.5 8" fill="none" stroke="#0b7a3e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>deskstack</a>
-    <nav aria-label="Principal">
-      <a class="hide-sm" href="#proof">Résultats</a>
-      <a class="hide-sm" href="#team">Fonctionnement</a>
-      <a class="hide-sm" href="https://github.com/joaquimmj/deskstack">GitHub</a>
-      <a href="../" hreflang="en" lang="en">English</a>
-      <a class="btn sm" href="#install">Installer</a>
+    <a class="brand" href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 12.5l3.2 3.2L17.5 8" fill="none" stroke="#107c41" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>deskstack</span></a>
+    <nav class="links" aria-label="Principal">
+      <a href="#how">Fonctionnement</a>
+      <a href="#bench">Benchmark</a>
+      <a href="#data">Données</a>
+      <a href="#faq">FAQ</a>
     </nav>
+    <div class="bar-end">
+      <a class="gh" href="https://github.com/joaquimmj/deskstack" aria-label="GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.8.06 1.23.83 1.23.83.72 1.22 1.88.87 2.33.66.07-.52.28-.87.5-1.07-1.77-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0z"/></svg><span>GitHub</span></a>
+      <a class="lang" href="../" hreflang="en" lang="en">English</a>
+      <a class="btn go sm" href="#install">Installer</a>
+    </div>
   </div>
 </header>
 
 <main id="main">
-<!-- The hero is a workbook: the headline is the selected range, the associate ties out the history to the 10-K. -->
-<section class="sheet-hero" aria-labelledby="hero-t">
-  <div class="fx" aria-hidden="true">
-    <span class="ref">B4:K8</span><span class="fxl">fx</span>
-    <code>=DESKSTACK.TIEOUT(Inputs!D3, "AAPL 10-K FY2025")</code>
-    <span class="fx-ok"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>416,161 · 0000320193-25-000079</span>
-  </div>
-  <div class="sheet">
-    <div class="grid" aria-hidden="true">
-      <div class="cols"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span><span>K</span><span>L</span></div>
-      <div class="rows"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span></div>
-      <div class="cells"><span class="c h" style="--x:1;--y:1;--i:0">USD m</span><span class="c h" style="--x:2;--y:1;--i:1">FY2023</span><span class="c h" style="--x:3;--y:1;--i:2">FY2024</span><span class="c h" style="--x:4;--y:1;--i:3">FY2025</span><span class="c h" style="--x:1;--y:2;--i:4">CA</span><span class="c ok" style="--x:2;--y:2;--i:5"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>383,285</span><span class="c bad" style="--x:3;--y:2;--i:6">391,053</span><span class="c ok" style="--x:4;--y:2;--i:7"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>416,161</span><span class="c h" style="--x:1;--y:3;--i:8">EBIT</span><span class="c ok" style="--x:2;--y:3;--i:9"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>114,301</span><span class="c ok" style="--x:3;--y:3;--i:10"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>123,216</span><span class="c ok" style="--x:4;--y:3;--i:11"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>133,050</span><span class="c h" style="--x:10;--y:1;--i:12">WACC</span><span class="c in" style="--x:11;--y:1;--i:13">9.0%</span><span class="c h" style="--x:10;--y:2;--i:14">g</span><span class="c in" style="--x:11;--y:2;--i:15">3.0%</span><span class="c h" style="--x:10;--y:3;--i:16">Impôt</span><span class="c in" style="--x:11;--y:3;--i:17">16.0%</span><span class="c h" style="--x:1;--y:12;--i:18">D&A</span><span class="c ok" style="--x:2;--y:12;--i:19"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>11,519</span><span class="c ok" style="--x:3;--y:12;--i:20"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>11,445</span><span class="c ok" style="--x:4;--y:12;--i:21"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>11,698</span><span class="c h" style="--x:1;--y:13;--i:22">Capex</span><span class="c ok" style="--x:2;--y:13;--i:23"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>10,959</span><span class="c ok" style="--x:3;--y:13;--i:24"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>9,447</span><span class="c ok" style="--x:4;--y:13;--i:25"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>12,715</span><span class="c h" style="--x:1;--y:14;--i:26">Dette nette</span><span class="c ok" style="--x:4;--y:14;--i:27"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>43,960</span><span class="c h" style="--x:10;--y:13;--i:28">Sign-off</span><span class="c f" style="--x:11;--y:13;--i:29">vous attend</span><span class="c h" style="--x:10;--y:14;--i:30">Pointage</span><span class="c f" style="--x:11;--y:14;--i:31">13/14</span>
-        <div class="cursor c-associate" style="--x:3;--y:2"></div>
-        <div class="comment" style="--x:5;--y:2"><b>Associate</b> Déposé : 391 035, pas 391 053 : deux chiffres inversés. Accession 0000320193-25-000079.</div>
-        <div class="cursor c-analyst" style="--x:11;--y:3"><span>Analyste</span></div>
-      </div>
-    </div>
-    <div class="selection"><h1 id="hero-t">Chaque chiffre de votre modèle, rapproché du dépôt officiel.</h1></div>
-    <div class="below">
-      <p class="lede">Claude construit le modèle avec des données gratuites et sourcées. D'autres agents pointent chaque chiffre contre le dépôt SEC ou européen, et rien ne sort sans votre accord.</p>
-      <div class="actions">
-        <a class="btn" href="#install">Installer dans Claude</a>
-        <a class="btn ghost" href="#proof">Voir les résultats</a>
-      </div>
+<!-- Hero: a workbook. The headline is the selected range; the associate ties the history to the 10-K. -->
+<section class="hero" aria-labelledby="hero-t">
+  <div class="sheet" aria-hidden="true">
+    <div class="cols"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span><span>K</span><span>L</span></div>
+    <div class="rows"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span></div>
+    <div class="cells"><span class="c h" style="--x:1;--y:1;--i:0">USD m</span><span class="c h" style="--x:2;--y:1;--i:1">FY2023</span><span class="c h" style="--x:3;--y:1;--i:2">FY2024</span><span class="c h" style="--x:4;--y:1;--i:3">FY2025</span><span class="c h" style="--x:1;--y:2;--i:4">CA</span><span class="c ok" style="--x:2;--y:2;--i:5"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>383,285</span><span class="c bad" style="--x:3;--y:2;--i:6">391,053</span><span class="c ok" style="--x:4;--y:2;--i:7"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>416,161</span><span class="c h" style="--x:1;--y:3;--i:8">EBIT</span><span class="c ok" style="--x:2;--y:3;--i:9"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>114,301</span><span class="c ok" style="--x:3;--y:3;--i:10"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>123,216</span><span class="c ok" style="--x:4;--y:3;--i:11"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>133,050</span><span class="c h" style="--x:10;--y:1;--i:12">WACC</span><span class="c in" style="--x:11;--y:1;--i:13">9.0%</span><span class="c h" style="--x:10;--y:2;--i:14">g</span><span class="c in" style="--x:11;--y:2;--i:15">3.0%</span><span class="c h" style="--x:10;--y:3;--i:16">Impôt</span><span class="c in" style="--x:11;--y:3;--i:17">16.0%</span><span class="c h" style="--x:1;--y:12;--i:18">D&A</span><span class="c ok" style="--x:2;--y:12;--i:19"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>11,519</span><span class="c ok" style="--x:3;--y:12;--i:20"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>11,445</span><span class="c ok" style="--x:4;--y:12;--i:21"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>11,698</span><span class="c h" style="--x:1;--y:13;--i:22">Capex</span><span class="c ok" style="--x:2;--y:13;--i:23"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>10,959</span><span class="c ok" style="--x:3;--y:13;--i:24"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>9,447</span><span class="c ok" style="--x:4;--y:13;--i:25"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>12,715</span><span class="c h" style="--x:1;--y:14;--i:26">Dette nette</span><span class="c ok" style="--x:4;--y:14;--i:27"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>43,960</span><span class="c h" style="--x:10;--y:13;--i:28">Sign-off</span><span class="c f" style="--x:11;--y:13;--i:29">en attente</span><span class="c h" style="--x:10;--y:14;--i:30">Pointage</span><span class="c f" style="--x:11;--y:14;--i:31">13/14</span>
+      <div class="cursor c-associate" style="--x:3;--y:2"><span>Associate</span></div>
+      <div class="comment" style="--x:5;--y:2">Déposé 391 035, pas 391 053 : deux chiffres inversés.</div>
+      <div class="cursor c-you" style="--x:11;--y:3"><span>Vous</span></div>
     </div>
   </div>
-  <p class="legend" aria-hidden="true"><span class="k-in">123</span>hypothèse saisie<span class="k-ok">123</span>conforme au dépôt<span class="k-bad">123</span>non conforme : voir la note</p>
+  <div class="hero-in">
+    <div class="fx" aria-hidden="true">
+      <span class="ref">B4:K8</span><span class="fxl">fx</span>
+      <code>=DESKSTACK.TIEOUT(Inputs!D3, "AAPL 10-K FY2025")</code>
+      <span class="avatars"><i class="a1">A</i><i class="a2">Y</i></span>
+    </div>
+    <div class="selection"><h1 id="hero-t">Chaque chiffre de votre modèle,<br><em>rapproché du dépôt officiel.</em></h1><i class="handle"></i></div>
+    <p class="lede"><b>Une équipe deal dans Claude.</b> Un agent construit le modèle à partir de données gratuites et sourcées. D'autres rapprochent chaque chiffre du dépôt SEC ou européen. Rien ne sort sans votre accord.</p>
+    <div class="actions">
+      <a class="btn go" href="#install">Installer dans Claude <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="btn ghost" href="#bench">Voir le benchmark</a>
+    </div>
+  </div>
 </section>
 
-<section id="proof" class="band" aria-labelledby="proof-t">
+<section class="proof" aria-label="Benchmark">
   <div class="wrap">
-    <h2 class="visually-hidden" id="proof-t">Résultats</h2>
-    <ul class="stats"><li><span class="num">3,5 %</span><span class="lab">des chiffres publiés étaient faux quand Claude a construit des DCF avec la recherche web seule : 20 sur 573, tous vérifiés à la main</span></li><li><span class="num">0</span><span class="lab">faux avec les données deskstack, sur les mêmes 50 entreprises, en DCF comme en comparables</span></li><li><span class="num">⅓</span><span class="lab">du coût par modèle : 0,07–0,10 $ au lieu de 0,23 $, et 2 à 3 fois plus rapide</span></li><li><span class="num">10 419</span><span class="lab">entreprises américaines, plus de grands émetteurs européens, depuis les dépôts</span></li></ul>
-    <p class="fine">50 entreprises, un DCF et des comparables chacune, Claude Sonnet 5.5, novembre 2026. Le zéro tient en partie à la méthode : la notation vérifie contre les mêmes données, elles-mêmes comparées chaque nuit à deux autres parseurs. <a href="https://github.com/joaquimmj/deskstack/blob/main/bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md">Lire l'analyse</a></p>
+    <ul class="stats"><li><b>0 sur 3 230</b><span>chiffres faux avec les données deskstack, sur 199 DCF et tableaux de comparables</span></li><li><b>3,5 %</b><span>de chiffres faux avec la recherche web seule (DCF), relus à la main contre les dépôts</span></li><li><b>⅓</b><span>du coût par modèle, et 2 à 5 fois plus rapide</span></li><li><b>10 419</b><span>entreprises américaines, plus de grands émetteurs européens, directement depuis les dépôts</span></li></ul>
+    <p class="fine">50 entreprises × DCF et comparables × 3 configurations, Claude Sonnet 5.5, novembre 2026. Le zéro tient en partie à la méthode : la notation vérifie contre les mêmes données, elles-mêmes comparées chaque nuit à deux autres parseurs.</p>
   </div>
 </section>
 
-<div class="wrap">
-<section id="team" aria-labelledby="team-t">
-  <h2 class="title" id="team-t">Une équipe où chaque rôle a une seule tâche</h2>
-  <p class="intro">Chaque rôle est un skill avec sa liste de contrôle et un rapport fixe. Les agents construisent et vérifient ; vous seul approuvez l'export.</p>
-  <ol class="lanes" aria-label="Une équipe où chaque rôle a une seule tâche"><li class="agent"><span class="who">Agents</span><code>/analyst</code><p>Construit le classeur à partir de données sourcées, après avoir validé les hypothèses avec vous.</p></li><li class="agent"><span class="who">Agents</span><code>/associate</code><p>Pointe chaque chiffre saisi contre le dépôt, cellule par cellule, et signale ce qui ne concorde pas.</p></li><li class="agent"><span class="who">Agents</span><code>/vp-review</code><p>Lance les contrôles déterministes du modèle, puis confronte les hypothèses à l'historique.</p></li><li class="agent"><span class="who">Agents</span><code>/md-redteam</code><p>Plaide contre la valorisation : ce qui la fait bouger, et ce que le marché suppose.</p></li><li class="agent"><span class="who">Agents</span><code>/compliance</code><p>Vérifie l'avertissement, les sources et le vocabulaire avant tout partage.</p></li><li class="you"><span class="who">Vous</span><code>/sign-off</code><p>Montre chaque point ouvert, et n'exporte une copie signée qu'après votre accord, avec vos mots.</p></li></ol>
-  <p class="after">Les relecteurs font un rapport ; ils ne modifient jamais votre fichier. Dans Claude Code et Cowork, ils tournent comme des agents séparés qui ne voient pas comment le modèle a été construit. Ils relisent aussi les classeurs faits avec le plugin financial-analysis d'Anthropic.</p>
-</section>
-
-<section aria-labelledby="demo-t">
-  <h2 class="title" id="demo-t">Le voir attraper une faute de frappe</h2>
-  <p class="intro">Les scripts de revue sur le DCF d'Apple FY2025 avec une faute glissée : la revue du modèle ne la voit pas, le pointage contre le 10-K si. Vrais scripts, vrai dépôt, sans IA dans cette boucle.</p>
-  <figure class="demo">
-    <img src="../media/demo.gif" width="1080" height="608" loading="lazy" alt="Enregistrement de terminal : /associate trouve 13 chiffres sur 14 conformes au 10-K d'Apple et signale le chiffre d'affaires FY2024 391 053 contre 391 035 déposé, deux chiffres inversés ; /vp-review trouve le modèle propre ; après correction, 14 sur 14 ; /sign-off montre tous les contrôles réussis et attend l'accord.">
-  </figure>
-</section>
-
-<section aria-labelledby="bench-t">
-  <h2 class="title" id="bench-t">Le benchmark</h2>
-  <p class="intro">Claude Sonnet 5.5 a construit un DCF et un tableau de comparables pour chacune de 50 entreprises (35 américaines, 15 européennes), de trois façons. Chaque chiffre publié a été noté contre le dépôt, et chaque chiffre signalé faux a été relu à la main.</p>
-  <figure class="bench">
-    <table><caption>DCF, 50 sociétés <span><a href="https://github.com/joaquimmj/deskstack/blob/main/bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md">Analyse et transcriptions</a></span></caption><thead><tr><th scope="col">Configuration</th><th scope="col">Chiffres publiés faux</th><th scope="col" class="r">Coût / modèle</th><th scope="col" class="r">Temps</th></tr></thead><tbody><tr><th scope="row">Recherche web seule</th><td class="wrong"><span class="bar" style="--w:3.5"></span><b>3,5 %</b> <span>20 sur 573</span></td><td class="r">0,23 $</td><td class="r">58 s</td></tr><tr><th scope="row">Données deskstack</th><td class="wrong"><span class="bar zero"></span><b>0 %</b> <span>0 sur 593</span></td><td class="r">0,07 $</td><td class="r">18 s</td></tr><tr><th scope="row">Données deskstack + relecteurs</th><td class="wrong"><span class="bar zero"></span><b>0 %</b> <span>0 sur 606</span></td><td class="r">0,10 $</td><td class="r">32 s</td></tr></tbody></table><table><caption>Comparables, les mêmes 50 sociétés <span><a href="https://github.com/joaquimmj/deskstack/blob/main/bench/results/2026-11-09T13-04-05-468Z/ANALYSIS.md">Analyse et transcriptions</a></span></caption><thead><tr><th scope="col">Configuration</th><th scope="col">Chiffres publiés faux</th><th scope="col" class="r">Coût / modèle</th><th scope="col" class="r">Temps</th></tr></thead><tbody><tr><th scope="row">Recherche web seule</th><td class="wrong"><span class="bar" style="--w:3.6"></span><b>3,6 %</b> <span>16 sur 445, et 7 laissés à 0</span></td><td class="r">0,56 $</td><td class="r">171 s</td></tr><tr><th scope="row">Données deskstack</th><td class="wrong"><span class="bar zero"></span><b>0 %</b> <span>0 sur 1 021</span></td><td class="r">0,17 $</td><td class="r">36 s</td></tr><tr><th scope="row">Données deskstack + relecteurs</th><td class="wrong"><span class="bar zero"></span><b>0 %</b> <span>0 sur 1 010</span></td><td class="r">0,22 $</td><td class="r">51 s</td></tr></tbody></table>
-    <figcaption>Dans les DCF, la plupart des chiffres faux sont des chiffres introuvables que le modèle a remplis quand même : nombres d'actions calculés, investissements estimés, chiffres d'agrégateurs, chiffre d'affaires non comptable. Dans les comparables, 15 sur 16 étaient des chiffres sur douze mois en retard d'un trimestre, pris chez un agrégateur alors que les derniers 10-Q étaient publiés. Dette nette et EBITDA sont présentés à part, car les définitions varient. Chaque transcription est publique.</figcaption>
-  </figure>
-  <div class="two">
-    <div>
-      <h3>Exactitude, vérifiée chaque nuit</h3>
-      <p>Questions de référence auxquelles l'outil répond exactement comme dans les dépôts, à chaque modification : entreprises américaines et européennes, une banque, des retraitements, une division d'action, des exercices clos en janvier, mars, juin et septembre. Chaque nuit, les réponses sont relues dans les dépôts par des outils indépendants.</p>
-      <p><a href="https://github.com/joaquimmj/deskstack/blob/main/evals/README.md">Comment fonctionne le jeu de référence</a></p>
-    </div>
-    <div>
-      <h3>Ce que le run a trouvé dans deskstack</h3>
-      <p>Le benchmark nous vérifie aussi : il a trouvé quatre manques dans les données de deskstack (D&A trop étroit, résultat opérationnel de Disney par segments, nombre d'actions mal échelonné, double déposant), tous corrigés et testés depuis.</p>
+<section id="how" class="block" aria-labelledby="sc-t">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="sc-t">Un agent construit le modèle. <span>D'autres vérifient chaque chiffre.</span></h2>
+    <p class="sub reveal">Chaque rôle est un skill avec sa propre checklist et un rapport fixe. Les relecteurs signalent ; ils ne modifient jamais votre fichier.</p>
+    <div class="showcase reveal">
+      <div class="tablist" role="tablist" aria-label="Un agent construit le modèle."><button class="tab" role="tab" id="tab-analyst" aria-controls="panel-analyst" aria-selected="true" tabindex="0"><span class="tab-h"><code>/analyst</code> Construit le modèle</span><span class="tab-p">Un DCF trois états ou un tableau de comparables à partir de données sourcées, après avoir validé les hypothèses avec vous.</span></button><button class="tab" role="tab" id="tab-associate" aria-controls="panel-associate" aria-selected="false" tabindex="-1"><span class="tab-h"><code>/associate</code> Rapproche du dépôt</span><span class="tab-p">Chaque chiffre saisi vérifié contre le 10-K ou le rapport ESEF, cellule par cellule, avec la raison quand il ne concorde pas.</span></button><button class="tab" role="tab" id="tab-vp" aria-controls="panel-vp" aria-selected="false" tabindex="-1"><span class="tab-h"><code>/vp-review</code> Relit le modèle</span><span class="tab-p">Contrôles déterministes : valeurs en dur, formules cassées, WACC contre croissance, conventions de signe, puis les hypothèses contre l'historique.</span></button><button class="tab" role="tab" id="tab-compliance" aria-controls="panel-compliance" aria-selected="false" tabindex="-1"><span class="tab-h"><code>/compliance</code> Vérifie avant diffusion</span><span class="tab-p">Avertissement, sources, saisies datées, aucun langage de conseil et aucune instruction cachée.</span></button><button class="tab" role="tab" id="tab-signoff" aria-controls="panel-signoff" aria-selected="false" tabindex="-1"><span class="tab-h"><code>/sign-off</code> Vous attend</span><span class="tab-p">Montre chaque point ouvert et n'exporte une copie signée qu'après votre accord, dans vos propres mots.</span></button></div>
+      <div class="stage"><div class="panel" role="tabpanel" id="panel-analyst" aria-labelledby="tab-analyst" tabindex="0"><div class="win"><div class="win-bar"><i></i><i></i><i></i><span>Apple · DCF · M USD</span></div><div class="win-body two-col"><div><p class="cap">Historique, depuis les dépôts</p><table class="mini"><thead><tr><th></th><th>FY2023</th><th>FY2024</th><th>FY2025</th></tr></thead><tbody><tr><th>CA</th><td>383,285</td><td>391,035</td><td class="src">416,161</td></tr><tr><th>EBIT</th><td>114,301</td><td>123,216</td><td class="src">133,050</td></tr><tr><th>D&A</th><td>11,519</td><td>11,445</td><td class="src">11,698</td></tr><tr><th>Capex</th><td>10,959</td><td>9,447</td><td class="src">12,715</td></tr></tbody></table><p class="tip"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Source : Apple 10-K FY2025 · 0000320193-25-000079 · sec.gov</p></div><div><p class="cap">Hypothèses</p><table class="mini"><tbody><tr><th>WACC</th><td class="in">9.0%</td></tr><tr><th>g</th><td class="in">3.0%</td></tr><tr><th>Impôt</th><td class="in">16.0%</td></tr></tbody></table></div></div></div></div><div class="panel" role="tabpanel" id="panel-associate" aria-labelledby="tab-associate" tabindex="0" hidden><div class="win"><div class="win-bar"><i></i><i></i><i></i><span>/associate · verify_value</span></div><div class="win-body"><p class="sum bad-sum">13 chiffres sur 14 concordent avec le 10-K d'Apple. 1 écart.</p><table class="mini wide"><thead><tr><th>Ligne</th><th>Modèle</th><th>Déposé</th><th></th></tr></thead><tbody><tr class=""><th>CA FY2025</th><td>416,161</td><td>416,161</td><td class="st"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr class="bad"><th>CA FY2024</th><td>391,053</td><td>391,035</td><td class="st"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></td></tr><tr class=""><th>EBIT FY2025</th><td>133,050</td><td>133,050</td><td class="st"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr class=""><th>D&A FY2025</th><td>11,698</td><td>11,698</td><td class="st"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr class=""><th>Capex FY2025</th><td>12,715</td><td>12,715</td><td class="st"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr></tbody></table><p class="hint">Coquille : deux chiffres voisins semblent inversés (déposé 391 035, saisi 391 053).</p></div></div></div><div class="panel" role="tabpanel" id="panel-vp" aria-labelledby="tab-vp" tabindex="0" hidden><div class="win"><div class="win-bar"><i></i><i></i><i></i><span>/vp-review · deskstack-check</span></div><div class="win-body"><p class="sum ok-sum"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Contrôle du modèle : propre<span class="counts">0 bloquant · 0 majeur · 0 mineur</span></p><ul class="checks"><li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Valeurs en dur</li><li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Cohérence des formules</li><li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Valeurs d'erreur</li><li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>WACC contre croissance terminale</li><li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Croissance terminale contre PIB</li><li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Convention de signe</li><li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Calendrier d'actualisation</li></ul></div></div></div><div class="panel" role="tabpanel" id="panel-compliance" aria-labelledby="tab-compliance" tabindex="0" hidden><div class="win"><div class="win-bar"><i></i><i></i><i></i><span>/compliance</span></div><div class="win-body"><p class="sum ok-sum"><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Conformité : 10 conformes, 0 échec</p><ul class="checks"><li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Avertissement brouillon / pas un conseil en investissement</li><li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Chaque chiffre saisi est sourcé</li><li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Aucune source fictive ou « de mémoire »</li><li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Les saisies de l'utilisateur sont datées</li><li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Aucun langage de recommandation ou de promesse</li><li><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Aucune instruction adressée à une IA ou à un relecteur</li></ul></div></div></div><div class="panel" role="tabpanel" id="panel-signoff" aria-labelledby="tab-signoff" tabindex="0" hidden><div class="win"><div class="win-bar"><i></i><i></i><i></i><span>/sign-off</span></div><div class="win-body"><table class="mini wide"><tbody><tr><th>Rapprochement des dépôts</th><td><span class="pill ok">OK</span></td><td>14 concordent</td></tr><tr><th>Revue du modèle</th><td><span class="pill ok">OK</span></td><td>0 bloquant, 0 majeur</td></tr><tr><th>Conformité</th><td><span class="pill ok">OK</span></td><td>10 conformes, 0 échec</td></tr></tbody></table><div class="gate"><p>Jeton d'approbation <code>3ba96d58cd17</code></p><p class="wait">Rien n'est exporté avant votre accord, dans vos propres mots.</p><span class="btn go sm fake" aria-hidden="true">Approuver et exporter</span></div></div></div></div></div>
     </div>
   </div>
 </section>
 
-<section id="install" aria-labelledby="install-t">
-  <h2 class="title" id="install-t">Installer en trois étapes</h2>
-  <p class="intro">Pas de terminal, pas de compte à créer. Il faut un compte Claude avec l'exécution de code activée ; les rôles demandent un abonnement payant.</p>
-  <ol class="steps">
-    <li>
-      <h3>Ajouter le connecteur de données</h3>
-      <p>Dans Claude, ouvrez Paramètres, puis Connecteurs, puis Ajouter un connecteur personnalisé. Collez l'URL, sans connexion.</p>
-      <div class="urlbox" data-connector data-placeholder="Bientôt en ligne"><code id="connector-url">Bientôt en ligne</code><button class="btn" type="button" data-copy="connector-url" data-done="Copié" data-fallback="Sélectionné : faites Ctrl+C">Copier</button></div>
-      <p class="pending" data-pending hidden>Le connecteur hébergé n'est pas encore en ligne. Vous pouvez lancer votre propre copie gratuitement en quelques minutes : <a href="https://github.com/joaquimmj/deskstack/blob/main/docs/SELF_HOSTING.md">guide d'auto-hébergement</a>.</p>
-    </li>
-    <li>
-      <h3>Ajouter l'équipe</h3>
-      <p>Ouvrez Personnaliser, puis Plugins, puis Ajouter une marketplace. Collez ce dépôt, puis installez deskstack.</p>
-      <div class="urlbox"><code id="market-url">https://github.com/joaquimmj/deskstack</code><button class="btn" type="button" data-copy="market-url" data-done="Copié" data-fallback="Sélectionné : faites Ctrl+C">Copier</button></div>
-    </li>
-    <li>
-      <h3>Demander un modèle</h3>
-      <p>Claude construit le DCF, fait vérifier et relire chaque chiffre, puis attend votre accord.</p>
-      <div class="urlbox"><code id="first-cmd">/deal-team Apple quick-dcf</code><button class="btn" type="button" data-copy="first-cmd" data-done="Copié" data-fallback="Sélectionné : faites Ctrl+C">Copier</button></div>
-    </li>
-  </ol>
+<section class="block white" aria-labelledby="ln-t">
+  <div class="wrap">
+    <div class="lanes-card reveal">
+      <h2 class="h3" id="ln-t">Les agents construisent et vérifient. <span>Vous signez.</span></h2>
+      <div class="lanes" aria-hidden="true">
+        <div class="lane-names"><span class="who-a">Agents</span><span class="who-y">Vous</span></div>
+        <ol class="track"><li class="agent"><i></i><span data-who="">Hypothèses</span></li><li class="agent"><i></i><span data-who="">Construction</span></li><li class="agent"><i></i><span data-who="">Pointage</span></li><li class="agent"><i></i><span data-who="">Revue</span></li><li class="agent"><i></i><span data-who="">Contradiction</span></li><li class="agent"><i></i><span data-who="">Conformité</span></li><li class="you"><i></i><span data-who="Vous">Accord</span></li></ol>
+      </div>
+      <p class="sub">Dans Claude Code et Cowork, les relecteurs tournent comme des agents séparés qui ne voient jamais comment le modèle a été construit. Ils relisent aussi votre travail : n'importe quel .xlsx.</p>
+    </div>
+  </div>
 </section>
 
-<section aria-labelledby="data-t">
-  <h2 class="title" id="data-t">Des données gratuites, avec la source de chaque chiffre</h2>
-  <p class="intro">Uniquement des dépôts officiels et des jeux de données publics. Un chiffre absent reste vide ; il n'est jamais estimé.</p>
-  <div class="scroll"><table class="data">
-    <thead><tr><th scope="col">Donnée</th><th scope="col">Source</th><th scope="col">Couverture</th></tr></thead>
-    <tbody><tr><td>Comptes, États-Unis</td><td>Dépôts SEC EDGAR (10-K, 10-Q, 20-F)</td><td>Sociétés cotées aux États-Unis, y compris les émetteurs étrangers en IFRS ; annuel et douze derniers mois</td></tr><tr><td>Comptes, Europe</td><td>Rapports annuels ESEF sur filings.xbrl.org</td><td>Une trentaine de grands émetteurs en France, aux Pays-Bas, en Espagne, en Finlande, en Italie et en Belgique</td></tr><tr><td>Taux sans risque</td><td>Trésor américain ; Banque centrale européenne</td><td>Rendements quotidiens de 1 mois à 30 ans</td></tr><tr><td>Taux de change</td><td>Banque centrale européenne</td><td>Plus de 30 devises, à une date ou en moyenne sur une période</td></tr><tr><td>Paramètres de valorisation</td><td>Aswath Damodaran, NYU Stern</td><td>Prime de risque par pays ; bêtas et coût du capital par secteur</td></tr></tbody>
-  </table></div>
+<section class="night" aria-labelledby="dk-t">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2 class="h2 reveal" id="dk-t">Vérifié contre le dépôt. <span>Pas contre un autre modèle.</span></h2>
+    <p class="sub reveal">verify_value lit le chiffre déposé pour la même entreprise, la même ligne et la même période, et dit pourquoi un chiffre diffère : échelle, signe, devise, période, ligne ou coquille.</p>
+    <ol class="stepper reveal"><li><i>1</i><span>Lire le dépôt</span></li><li><i>2</i><span>Écrire le modèle</span></li><li><i>3</i><span>Rapprocher</span></li><li><i>4</i><span>Corriger et revérifier</span></li></ol>
+    <div class="night-grid">
+      <article class="ncard reveal">
+        <h3>Une raison, pas juste une cellule rouge</h3>
+        <p>Chaque écart revient avec la valeur déposée, le numéro du dépôt et la cause probable.</p>
+        <div class="json" aria-hidden="true"><pre>{
+  "metric": "revenue",
+  "period": "FY2024",
+  "status": <b class="r">"mismatch"</b>,
+  "claimed": 391053,
+  "filed": <b class="g">391035</b>,
+  "accessions": ["0000320193-25-000079"],
+  "hints": [<b class="y">"Typo: two adjacent digits look swapped"</b>]
+}</pre></div>
+        <ul class="hints"><li><b>Échelle</b><span>Saisi en milliers, déposé en millions</span></li><li><b>Signe</b><span>Investissements saisis en négatif</span></li><li><b>Période</b><span>Correspond à l'exercice 2026, pas aux douze derniers mois</span></li><li><b>Coquille</b><span>Deux chiffres voisins inversés</span></li></ul>
+      </article>
+      <article class="ncard reveal">
+        <h3>Le voir repérer une coquille</h3>
+        <p>Les scripts de revue sur le DCF FY2025 d'Apple, avec une coquille glissée. La revue du modèle ne la voit pas ; le rapprochement avec le 10-K, si.</p>
+        <figure class="demo"><img src="../media/demo.gif" width="1080" height="608" loading="lazy" alt="Enregistrement de terminal : /associate trouve 13 chiffres sur 14 conformes au 10-K d'Apple et signale le CA FY2024 391 053 contre 391 035 déposé, deux chiffres inversés ; /vp-review trouve le modèle propre ; après correction, /sign-off montre tous les contrôles au vert et attend l'accord."></figure>
+      </article>
+    </div>
+  </div>
 </section>
 
-<section aria-labelledby="lim-t">
-  <h2 class="title" id="lim-t">Ce que l'outil ne fait pas</h2>
-  <ul class="limits"><li>Pas de cours de bourse ni de consensus : une capitalisation demande un cours que vous fournissez.</li><li>La couverture européenne est partielle et annuelle ; les émetteurs allemands ne sont pas encore dans la base publique.</li><li>Les banques et assureurs sont signalés : un DCF classique ne s'y applique pas.</li><li>Les relectures réduisent les erreurs mais ne remplacent pas un relecteur humain. Tout reste un brouillon jusqu'à votre validation.</li></ul>
+<section id="bench" class="block" aria-labelledby="bench-t">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="bench-t">Nous l'avons mesuré. <span>Puis relu chaque chiffre faux à la main.</span></h2>
+    <p class="sub reveal">Claude Sonnet 5.5 a construit un DCF et un tableau de comparables pour chacune de 50 entreprises (35 américaines, 15 européennes), de trois façons. Chaque chiffre publié a été noté contre le dépôt.</p>
+    <div class="bench reveal"><div class="bcard"><div class="bcard-h"><h3>DCF, 50 sociétés</h3><a href="https://github.com/joaquimmj/deskstack/blob/main/bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md">Analyse et transcriptions <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="scroll"><table><thead><tr><th scope="col">Configuration</th><th scope="col">Chiffres publiés faux</th><th scope="col" class="r">Coût / modèle</th><th scope="col" class="r">Temps</th></tr></thead><tbody><tr><th scope="row">Recherche web seule</th><td class="wrong"><span class="meter" style="--w:3.5"></span><b>3,5 %</b> <span>20 sur 573</span></td><td class="r">0,23 $</td><td class="r">58 s</td></tr><tr><th scope="row">Données deskstack</th><td class="wrong"><span class="meter zero"></span><b>0 %</b> <span>0 sur 593</span></td><td class="r">0,07 $</td><td class="r">18 s</td></tr><tr><th scope="row">deskstack + relecteurs</th><td class="wrong"><span class="meter zero"></span><b>0 %</b> <span>0 sur 606</span></td><td class="r">0,10 $</td><td class="r">32 s</td></tr></tbody></table></div></div><div class="bcard"><div class="bcard-h"><h3>Comparables, les mêmes 50 sociétés</h3><a href="https://github.com/joaquimmj/deskstack/blob/main/bench/results/2026-11-09T13-04-05-468Z/ANALYSIS.md">Analyse et transcriptions <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="scroll"><table><thead><tr><th scope="col">Configuration</th><th scope="col">Chiffres publiés faux</th><th scope="col" class="r">Coût / modèle</th><th scope="col" class="r">Temps</th></tr></thead><tbody><tr><th scope="row">Recherche web seule</th><td class="wrong"><span class="meter" style="--w:3.6"></span><b>3,6 %</b> <span>16 sur 445, et 7 laissés à 0</span></td><td class="r">0,56 $</td><td class="r">171 s</td></tr><tr><th scope="row">Données deskstack</th><td class="wrong"><span class="meter zero"></span><b>0 %</b> <span>0 sur 1 021</span></td><td class="r">0,17 $</td><td class="r">36 s</td></tr><tr><th scope="row">deskstack + relecteurs</th><td class="wrong"><span class="meter zero"></span><b>0 %</b> <span>0 sur 1 010</span></td><td class="r">0,22 $</td><td class="r">51 s</td></tr></tbody></table></div></div></div>
+    <div class="cards3"><article class="card reveal"><h3>Ce que la recherche web a raté</h3><p>Dans les DCF, des chiffres introuvables remplis quand même : nombres d'actions calculés, investissements estimés, chiffre d'affaires non comptable. Dans les comparables, des chiffres sur douze mois en retard d'un trimestre, pris chez un agrégateur.</p></article><article class="card reveal"><h3>Avec plus de recherches ?</h3><p>Une reprise préenregistrée avec 30 recherches et un effort élevé a encore écrit un chiffre qui n'est pas celui du dépôt. Les valeurs fictives ont disparu ; le coût par tableau a plus que doublé.</p><a href="https://github.com/joaquimmj/deskstack/blob/main/bench/ROBUSTNESS.md">Test de robustesse <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article><article class="card reveal"><h3>Il nous vérifie aussi</h3><p>Les runs ont trouvé des lacunes dans les données de deskstack et deux bugs dans la notation. Tous corrigés, testés et documentés avec les résultats.</p></article></div>
+  </div>
 </section>
-</div>
+
+<section id="data" class="block white" aria-labelledby="data-t">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="data-t">Des données gratuites, <span>avec la source sur chaque chiffre.</span></h2>
+    <p class="sub reveal">Uniquement des dépôts officiels et des jeux de données publics. Un chiffre non déposé reste vide ; il n'est jamais estimé.</p>
+    <div class="sources"><article class="src-card reveal"><span class="src-tag">SEC EDGAR</span><h3>États financiers, États-Unis</h3><p>Dépôts 10-K, 10-Q et 20-F : annuels et douze derniers mois, pour les sociétés cotées aux États-Unis, y compris les émetteurs étrangers en IFRS.</p></article><article class="src-card reveal"><span class="src-tag">filings.xbrl.org</span><h3>États financiers, Europe</h3><p>Rapports annuels ESEF d'une trentaine de grands émetteurs en France, aux Pays-Bas, en Espagne, en Finlande, en Italie et en Belgique.</p></article><article class="src-card reveal"><span class="src-tag">Trésor américain · BCE</span><h3>Taux sans risque</h3><p>Rendements quotidiens de 1 mois à 30 ans.</p></article><article class="src-card reveal"><span class="src-tag">Banque centrale européenne</span><h3>Taux de change</h3><p>Plus de 30 devises, à une date ou en moyenne sur une période.</p></article><article class="src-card reveal"><span class="src-tag">Aswath Damodaran, NYU Stern</span><h3>Paramètres de valorisation</h3><p>Prime de risque par pays ; bêtas et coût du capital par secteur.</p></article><article class="src-card reveal"><span class="src-tag">Chaque réponse</span><h3>Une citation</h3><p>Source, URL, numéro de dépôt, période et date sur chaque chiffre, pour ouvrir le dépôt d'où il vient.</p></article></div>
+    <div class="accuracy reveal">
+      <div><h3>Exactitude, vérifiée chaque nuit</h3><p>Des questions de référence répondues exactement comme déposé, contre le connecteur en ligne, et chaque réponse relue depuis le dépôt par un parseur indépendant.</p></div>
+      <div class="acc-badge" aria-hidden="true"><b>99/99</b><span>golden</span><b>83/83</b><span>re-read</span></div>
+      <a class="btn ghost sm" href="https://github.com/joaquimmj/deskstack/blob/main/evals/README.md">Comment c'est vérifié <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section id="install" class="block" aria-labelledby="install-t">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="install-t">Installer en trois étapes. <span>Sans terminal, sans compte à créer.</span></h2>
+    <p class="sub reveal">Il vous faut un compte Claude avec l'exécution de code activée ; les rôles demandent un forfait payant.</p>
+    <ol class="steps">
+      <li class="reveal">
+        <h3>Ajouter le connecteur de données</h3>
+        <p>Dans Claude, ouvrez Réglages, puis Connecteurs, puis Ajouter un connecteur personnalisé. Collez l'URL, sans connexion.</p>
+        <div class="urlbox" data-connector data-placeholder="Bientôt disponible"><code id="connector-url">Bientôt disponible</code><button class="btn ink sm" type="button" data-copy="connector-url" data-done="Copié" data-fallback="Sélectionné : faites Ctrl+C">Copier</button></div>
+        <p class="pending" data-pending hidden>Le connecteur hébergé n'est pas encore en ligne. Vous pouvez lancer votre propre copie gratuitement en quelques minutes : <a href="https://github.com/joaquimmj/deskstack/blob/main/docs/SELF_HOSTING.md">guide d'auto-hébergement</a>.</p>
+      </li>
+      <li class="reveal">
+        <h3>Ajouter l'équipe deal</h3>
+        <p>Ouvrez Personnaliser, puis Plugins, puis Ajouter une marketplace. Collez ce dépôt, puis installez deskstack.</p>
+        <div class="urlbox"><code id="market-url">https://github.com/joaquimmj/deskstack</code><button class="btn ink sm" type="button" data-copy="market-url" data-done="Copié" data-fallback="Sélectionné : faites Ctrl+C">Copier</button></div>
+      </li>
+      <li class="reveal">
+        <h3>Demander un modèle</h3>
+        <p>Claude construit le DCF, fait vérifier et relire chaque chiffre, puis attend votre accord.</p>
+        <div class="urlbox"><code id="first-cmd">/deal-team Apple quick-dcf</code><button class="btn ink sm" type="button" data-copy="first-cmd" data-done="Copié" data-fallback="Sélectionné : faites Ctrl+C">Copier</button></div>
+      </li>
+    </ol>
+    <p class="tut"><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/TUTORIEL.md">Lire le tutoriel <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+  </div>
+</section>
+
+<section id="faq" class="block faq-block" aria-labelledby="faq-t">
+  <div class="wrap faq-wrap">
+    <h2 class="h2" id="faq-t">Vos questions,<br><span>nos réponses.</span></h2>
+    <div class="faq"><details><summary>Est-ce gratuit ?<i aria-hidden="true"></i></summary><p>Oui. Le connecteur tourne sur l'offre gratuite de Cloudflare avec un plafond quotidien partagé, et le code est sous licence MIT. Pour un usage intensif, déployez votre propre copie en quelques minutes : <a href="https://github.com/joaquimmj/deskstack/blob/main/docs/SELF_HOSTING.md">guide d'auto-hébergement</a>.</p></details><details><summary>D'où viennent les chiffres ?<i aria-hidden="true"></i></summary><p>Des dépôts eux-mêmes : SEC EDGAR pour les sociétés américaines, les rapports ESEF sur filings.xbrl.org pour les européennes, plus le Trésor américain, la BCE et les données de Damodaran. Chaque chiffre porte sa source.</p></details><details><summary>Le serveur voit-il mon classeur ?<i aria-hidden="true"></i></summary><p>Non. Les scripts de revue tournent dans votre propre session Claude. Le serveur ne voit que les valeurs que l'associate envoie à verify_value, et ne conserve aucune donnée utilisateur. <a href="https://github.com/joaquimmj/deskstack/blob/main/PRIVACY.md">Confidentialité</a>.</p></details><details><summary>Que ne fait-il pas ?<i aria-hidden="true"></i></summary><p>Pas de cours de bourse ni de consensus : une capitalisation demande un cours que vous fournissez. La couverture européenne est partielle et annuelle uniquement. Les banques et assureurs sont signalés, un DCF standard ne leur convient pas.</p></details><details><summary>Remplace-t-il un relecteur ?<i aria-hidden="true"></i></summary><p>Non. Il attrape ce qui se vérifie : les chiffres contre les dépôts, les formules contre des règles, le langage contre une checklist. Tout reste un brouillon jusqu'à votre accord.</p></details><details><summary>Est-ce fait par Anthropic ?<i aria-hidden="true"></i></summary><p>Non. deskstack est un projet open source indépendant qui fonctionne avec Claude. Il n'est ni affilié à Anthropic ni approuvé par elle.</p></details></div>
+  </div>
+</section>
+
+<section class="end" aria-labelledby="end-t">
+  <div class="sheet faint" aria-hidden="true"><div class="cols"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><span>J</span><span>K</span><span>L</span></div><div class="cells"></div></div>
+  <div class="wrap">
+    <h2 class="h2" id="end-t">Rapprochez votre prochain modèle.<br><span>Avant que quelqu'un d'autre ne le fasse.</span></h2>
+    <div class="actions">
+      <a class="btn go" href="#install">Installer dans Claude <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="btn ghost" href="https://github.com/joaquimmj/deskstack">GitHub</a>
+    </div>
+  </div>
+</section>
 </main>
 
-<footer>
+<footer class="foot">
   <div class="wrap">
-    <p>deskstack est gratuit et open source (MIT). Lancez votre propre copie sur un compte Cloudflare gratuit, ou lisez le code sur <a href="https://github.com/joaquimmj/deskstack">GitHub</a>. <a href="https://github.com/joaquimmj/deskstack/blob/main/PRIVACY.md">Confidentialité</a>.</p>
-    <p>Données : SEC EDGAR, filings.xbrl.org (XBRL International), Trésor américain, statistiques de la BCE et Aswath Damodaran (NYU Stern). Le traitement du XBRL de la SEC s'appuie sur open-finance-mcp de Nathanael Johnson.</p>
-    <p>Projet open source indépendant. Non affilié à Anthropic ni approuvé par Anthropic. Les données peuvent être incomplètes ou en retard. Pas un conseil en investissement.</p>
+    <div class="foot-top">
+      <a class="brand" href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 12.5l3.2 3.2L17.5 8" fill="none" stroke="#107c41" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>deskstack</span></a>
+      <nav aria-label="Produit"><h3>Produit</h3><a href="#install">Installer</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/BENCHMARK.md">Benchmark</a><a href="https://github.com/joaquimmj/deskstack">GitHub</a></nav>
+      <nav aria-label="Docs"><h3>Docs</h3><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/TUTORIEL.md">Tutoriel</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/TOOLS.md">Outils de données</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/ROLES.md">Rôles</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/DATA_SOURCES.md">Sources de données</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/SELF_HOSTING.md">Auto-hébergement</a></nav>
+      <nav aria-label="Projet"><h3>Projet</h3><a href="https://github.com/joaquimmj/deskstack/blob/main/PRIVACY.md">Confidentialité</a><a href="https://github.com/joaquimmj/deskstack/blob/main/LICENSE">Licence MIT</a></nav>
+    </div>
+    <p class="credit">Données de SEC EDGAR, filings.xbrl.org (XBRL International), du Trésor américain, de la BCE et d'Aswath Damodaran (NYU Stern). Le traitement XBRL de la SEC s'appuie sur open-finance-mcp de Nathanael Johnson.</p>
+    <p class="credit">Projet open source indépendant. Ni affilié à Anthropic ni approuvé par elle. Les données peuvent être incomplètes ou en retard. Pas un conseil en investissement.</p>
   </div>
 </footer>
-<script src="../config.js"></script>
-<script src="../app.js"></script>
+<script src="../config.js?v=1828c0d1ba"></script>
+<script src="../app.js?v=1828c0d1ba"></script>
 </body>
 </html>
