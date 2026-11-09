@@ -11,11 +11,13 @@ nothing ships without your sign-off. Free data, US and Europe.**
 ## Benchmark
 
 How many numbers in an AI-built model are wrong or unsourced, with and without deskstack. The test covers 50
-companies (a DCF each so far; comps tables are designed but not run yet) and three setups: web search only, deskstack
+companies (a DCF and a comps table each) and three setups: web search only, deskstack
 data, and deskstack plus its reviewers. Scoring is automatic, against the filings. The runner, the frozen company set and the method are in
 [bench/](bench/README.md).
 
 **First results (50 companies, DCF, Claude Sonnet 5.5):** with web search only, 20 of 573 reported figures were wrong (3.5%, in 12 of 50 models), read by hand against the filings. With deskstack's data: 0, at a third of the cost ($0.07-0.10 vs $0.23 per model) and 2-3× faster. The 0 is partly by construction, since the scorer checks against the same data; the [analysis](bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md) says how that data is checked independently, and what the run found wrong in deskstack itself.
+
+**Comps (same 50 companies):** with web search only, 16 of 445 reported figures were wrong (3.6%), 15 of them twelve-month figures a quarter out of date, taken from an aggregator after the September 10-Qs were filed; 7 more were left as 0 placeholders. With deskstack's data: 0 of 1,021, at a third of the cost ($0.17-0.22 vs $0.56 per table) and 3-5× faster ([analysis](bench/results/2026-11-09T13-04-05-468Z/ANALYSIS.md)).
 
 ## Install in 30 seconds
 

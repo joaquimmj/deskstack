@@ -1,0 +1,299 @@
+{
+ "company": "ABBV",
+ "task": "comps",
+ "arm": "A",
+ "score": {
+  "valid": true,
+  "filed": 16,
+  "match": 6,
+  "mismatch": 0,
+  "other_line": 2,
+  "definition": 2,
+  "not_found": 6,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 20,
+  "unsourced": 4,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "ABBV",
+    "name": "AbbVie Inc. (target)",
+    "written": "ABBV",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 56334,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[ABBV].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 56334000000,
+    "resolved": "ABBV"
+   },
+   {
+    "company": "ABBV",
+    "name": "AbbVie Inc. (target)",
+    "written": "ABBV",
+    "metric": "ebitda",
+    "period": "FY2024",
+    "value": 25808,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[ABBV].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 17523000000,
+    "resolved": "ABBV",
+    "computed": true
+   },
+   {
+    "company": "ABBV",
+    "name": "AbbVie Inc. (target)",
+    "written": "ABBV",
+    "metric": "net_income",
+    "period": "FY2024",
+    "value": 4238,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[ABBV].net_income",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic in the same filing"
+    ],
+    "filed_value": 4278000000,
+    "resolved": "ABBV",
+    "other_line": "us-gaap:NetIncomeLossAvailableToCommonStockholdersBasic"
+   },
+   {
+    "company": "ABBV",
+    "name": "AbbVie Inc. (target)",
+    "written": "ABBV",
+    "metric": "net_debt",
+    "period": "Dec 31, 2024",
+    "value": 61286,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[ABBV].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"Dec 31, 2024\". Available: FY2011, FY2012, FY2013, FY2014, FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, LTM to 2026-09-30."
+    ],
+    "filed_value": null,
+    "resolved": "ABBV"
+   },
+   {
+    "company": "LLY",
+    "name": "Eli Lilly and Company",
+    "written": "LLY",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 45042.7,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[LLY].revenue",
+    "status": "other_line",
+    "hints": [
+     "equals us-gaap:Revenues in the same filing"
+    ],
+    "filed_value": 45043000000,
+    "resolved": "LLY",
+    "other_line": "us-gaap:Revenues"
+   },
+   {
+    "company": "LLY",
+    "name": "Eli Lilly and Company",
+    "written": "LLY",
+    "metric": "ebitda",
+    "period": "FY2024",
+    "value": 14447,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[LLY].ebitda",
+    "status": "not_found",
+    "hints": [
+     "ebitda is not reported for FY2024 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "LLY"
+   },
+   {
+    "company": "LLY",
+    "name": "Eli Lilly and Company",
+    "written": "LLY",
+    "metric": "net_income",
+    "period": "FY2024",
+    "value": 10590,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[LLY].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 10590000000,
+    "resolved": "LLY"
+   },
+   {
+    "company": "LLY",
+    "name": "Eli Lilly and Company",
+    "written": "LLY",
+    "metric": "net_debt",
+    "period": "Dec 31, 2024",
+    "value": 30221,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[LLY].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"Dec 31, 2024\". Available: FY2011, FY2012, FY2013, FY2014, FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, LTM to 2026-09-30."
+    ],
+    "filed_value": null,
+    "resolved": "LLY"
+   },
+   {
+    "company": "AMGN",
+    "name": "Amgen Inc.",
+    "written": "AMGN",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 33424,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMGN].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 33424000000,
+    "resolved": "AMGN"
+   },
+   {
+    "company": "AMGN",
+    "name": "Amgen Inc.",
+    "written": "AMGN",
+    "metric": "ebitda",
+    "period": "FY2024",
+    "value": 13356,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMGN].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 12850000000,
+    "resolved": "AMGN",
+    "computed": true
+   },
+   {
+    "company": "AMGN",
+    "name": "Amgen Inc.",
+    "written": "AMGN",
+    "metric": "net_income",
+    "period": "FY2024",
+    "value": 4090,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMGN].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4090000000,
+    "resolved": "AMGN"
+   },
+   {
+    "company": "AMGN",
+    "name": "Amgen Inc.",
+    "written": "AMGN",
+    "metric": "net_debt",
+    "period": "Dec 31, 2024",
+    "value": 48100,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[AMGN].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"Dec 31, 2024\". Available: FY2011, FY2012, FY2013, FY2014, FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, LTM to 2026-09-30."
+    ],
+    "filed_value": null,
+    "resolved": "AMGN"
+   },
+   {
+    "company": "MRK",
+    "name": "Merck & Co., Inc.",
+    "written": "MRK",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 64170,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MRK].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 64168000000,
+    "resolved": "MRK"
+   },
+   {
+    "company": "MRK",
+    "name": "Merck & Co., Inc.",
+    "written": "MRK",
+    "metric": "ebitda",
+    "period": "FY2024",
+    "value": 25710,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MRK].ebitda",
+    "status": "not_found",
+    "hints": [
+     "ebitda is not reported for FY2024 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "MRK"
+   },
+   {
+    "company": "MRK",
+    "name": "Merck & Co., Inc.",
+    "written": "MRK",
+    "metric": "net_income",
+    "period": "FY2024",
+    "value": 17117,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MRK].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 17117000000,
+    "resolved": "MRK"
+   },
+   {
+    "company": "MRK",
+    "name": "Merck & Co., Inc.",
+    "written": "MRK",
+    "metric": "net_debt",
+    "period": "Dec 31, 2024",
+    "value": 23422,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MRK].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"Dec 31, 2024\". Available: FY2011, FY2012, FY2013, FY2014, FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, LTM to 2026-09-30."
+    ],
+    "filed_value": null,
+    "resolved": "MRK"
+   }
+  ],
+  "unsourced_refs": [
+   "peers[ABBV].market_cap",
+   "peers[LLY].market_cap",
+   "peers[AMGN].market_cap",
+   "peers[MRK].market_cap"
+  ],
+  "errors": []
+ }
+}

@@ -1,0 +1,163 @@
+{
+ "company": "549300E9PC51EN656011",
+ "task": "comps",
+ "arm": "A",
+ "score": {
+  "valid": true,
+  "filed": 8,
+  "match": 3,
+  "mismatch": 0,
+  "other_line": 1,
+  "definition": 0,
+  "not_found": 4,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 10,
+  "unsourced": 3,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "549300E9PC51EN656011",
+    "name": "Sanofi",
+    "written": "SAN.PA",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 43626,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "peers[SAN.PA].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 43626000000,
+    "resolved": "549300E9PC51EN656011"
+   },
+   {
+    "company": "549300E9PC51EN656011",
+    "name": "Sanofi",
+    "written": "SAN.PA",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 9554,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "peers[SAN.PA].ebitda",
+    "status": "not_found",
+    "hints": [
+     "ebitda is not reported for FY2025 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "549300E9PC51EN656011"
+   },
+   {
+    "company": "549300E9PC51EN656011",
+    "name": "Sanofi",
+    "written": "SAN.PA",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 7813,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "peers[SAN.PA].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 7813000000,
+    "resolved": "549300E9PC51EN656011"
+   },
+   {
+    "company": "549300E9PC51EN656011",
+    "name": "Sanofi",
+    "written": "SAN.PA",
+    "metric": "net_debt",
+    "period": "Dec 31 2025",
+    "value": 11008,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "peers[SAN.PA].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"Dec 31 2025\". Available: FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025."
+    ],
+    "filed_value": null,
+    "resolved": "549300E9PC51EN656011"
+   },
+   {
+    "company": "NVS",
+    "name": "Novartis",
+    "written": "NOVN.SW",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 54532,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[NOVN.SW].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 54532000000,
+    "resolved": "NVS"
+   },
+   {
+    "company": "NVS",
+    "name": "Novartis",
+    "written": "NOVN.SW",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 17644,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[NOVN.SW].ebitda",
+    "status": "not_found",
+    "hints": [
+     "ebitda is not reported for FY2025 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "NVS"
+   },
+   {
+    "company": "NVS",
+    "name": "Novartis",
+    "written": "NOVN.SW",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 13967,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[NOVN.SW].net_income",
+    "status": "other_line",
+    "hints": [
+     "equals ifrs-full:ProfitLoss in the same filing"
+    ],
+    "filed_value": 13984000000,
+    "resolved": "NVS",
+    "other_line": "ifrs-full:ProfitLoss"
+   },
+   {
+    "company": "NVS",
+    "name": "Novartis",
+    "written": "NOVN.SW",
+    "metric": "net_debt",
+    "period": "Dec 31 2025",
+    "value": 21900,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[NOVN.SW].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"Dec 31 2025\". Available: FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025."
+    ],
+    "filed_value": null,
+    "resolved": "NVS"
+   }
+  ],
+  "unsourced_refs": [
+   "peers[SAN.PA].market_cap",
+   "peers[NOVN.SW].ebitda",
+   "peers[NOVN.SW].market_cap"
+  ],
+  "errors": []
+ }
+}

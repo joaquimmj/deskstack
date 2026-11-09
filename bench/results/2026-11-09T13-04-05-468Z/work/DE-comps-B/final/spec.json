@@ -1,0 +1,189 @@
+{
+ "kind": "comps",
+ "target": "DE",
+ "currency": "USD",
+ "scale": "units",
+ "period": "FY2025",
+ "peers": [
+  {
+   "name": "Deere & Company (target)",
+   "ticker": "DE",
+   "currency": "USD",
+   "revenue": {
+    "value": 45684000000,
+    "period": "FY2025 (ended 2025-11-02)",
+    "source": "10-K acc 0001104659-25-122321, us-gaap:Revenues"
+   },
+   "ebitda": {
+    "value": 11656000000,
+    "period": "FY2025",
+    "source": "Derived, not reported (operating income not tagged): pretax income 6,257M + interest expense 3,170M + D&A 2,229M, 10-K acc 0001104659-25-122321. Includes Financial Services interest, so overstated vs industrial peers."
+   },
+   "net_income": {
+    "value": 5027000000,
+    "period": "FY2025",
+    "source": "10-K acc 0001104659-25-122321, us-gaap:NetIncomeLoss"
+   },
+   "net_debt": {
+    "value": 5520000000,
+    "period": "FY2025",
+    "source": "deskstack derived: debt_current 13,796M - cash 8,276M; acc 0001104659-25-122321. Likely incomplete (no long-term debt concept), understates true debt."
+   },
+   "market_cap": {
+    "value": 129400000000,
+    "period": "assumption",
+    "source": "ASSUMPTION, unverified: placeholder price $480 (from memory, not a tool/filing) x 269,625,412 shares (acc 0001104659-26-102213). Reviewer must replace."
+   }
+  },
+  {
+   "name": "Caterpillar Inc.",
+   "ticker": "CAT",
+   "currency": "USD",
+   "revenue": {
+    "value": 67589000000,
+    "period": "FY2025 (ended 2025-12-31)",
+    "source": "10-K acc 0000018230-26-000008, us-gaap:Revenues"
+   },
+   "ebitda": {
+    "value": 13413000000,
+    "period": "FY2025",
+    "source": "deskstack derived: operating income 11,151M + D&A 2,262M, acc 0000018230-26-000008"
+   },
+   "net_income": {
+    "value": 8884000000,
+    "period": "FY2025",
+    "source": "10-K acc 0000018230-26-000008"
+   },
+   "net_debt": {
+    "value": 33350000000,
+    "period": "FY2025",
+    "source": "deskstack derived: LTD 30,696M + due 12m 7,120M + ST borrowings 5,514M - cash 9,980M (includes Cat Financial debt), acc 0000018230-26-000008"
+   },
+   "market_cap": {
+    "value": 275000000000,
+    "period": "assumption",
+    "source": "ASSUMPTION, unverified: placeholder price $600 (memory) x 457,594,174 shares (acc 0000018230-26-000057). Reviewer must replace."
+   }
+  },
+  {
+   "name": "AGCO Corporation",
+   "ticker": "AGCO",
+   "currency": "USD",
+   "revenue": {
+    "value": 10082000000,
+    "period": "FY2025 (ended 2025-12-31)",
+    "source": "10-K acc 0000880266-26-000010"
+   },
+   "ebitda": {
+    "value": 923300000,
+    "period": "FY2025",
+    "source": "deskstack derived: operating income 595.7M + D&A 327.6M, acc 0000880266-26-000010"
+   },
+   "net_income": {
+    "value": 726500000,
+    "period": "FY2025",
+    "source": "10-K acc 0000880266-26-000010"
+   },
+   "net_debt": {
+    "value": 1579000000,
+    "period": "FY2025",
+    "source": "deskstack derived: total debt 2,440.8M - cash 861.8M, acc 0000880266-26-000010"
+   },
+   "market_cap": {
+    "value": 7600000000,
+    "period": "assumption",
+    "source": "ASSUMPTION, unverified: placeholder price $110 (memory) x 68,950,835 shares (acc 0000880266-26-000077). Reviewer must replace."
+   }
+  },
+  {
+   "name": "Cummins Inc.",
+   "ticker": "CMI",
+   "currency": "USD",
+   "revenue": {
+    "value": 33670000000,
+    "period": "FY2025 (ended 2025-12-31)",
+    "source": "10-K acc 0000026172-26-000009"
+   },
+   "ebitda": {
+    "value": 5130000000,
+    "period": "FY2025",
+    "source": "deskstack derived: operating income 4,025M + D&A 1,105M, acc 0000026172-26-000009"
+   },
+   "net_income": {
+    "value": 2843000000,
+    "period": "FY2025",
+    "source": "10-K acc 0000026172-26-000009"
+   },
+   "net_debt": {
+    "value": 3630000000,
+    "period": "FY2025",
+    "source": "deskstack derived: total debt 7,239M - cash 2,845M - marketable securities 764M, acc 0000026172-26-000009"
+   },
+   "market_cap": {
+    "value": 61700000000,
+    "period": "assumption",
+    "source": "ASSUMPTION, unverified: placeholder price $450 (memory) x 137,077,890 shares (acc 0000026172-26-000037). Reviewer must replace."
+   }
+  },
+  {
+   "name": "Oshkosh Corporation",
+   "ticker": "OSK",
+   "currency": "USD",
+   "revenue": {
+    "value": 10422300000,
+    "period": "FY2025 (ended 2025-12-31)",
+    "source": "10-K acc 0001193125-26-054061"
+   },
+   "ebitda": {
+    "value": 1163600000,
+    "period": "FY2025",
+    "source": "deskstack derived: operating income 939.5M + D&A 224.1M, acc 0001193125-26-054061"
+   },
+   "net_income": {
+    "value": 647000000,
+    "period": "FY2025",
+    "source": "10-K acc 0001193125-26-054061, us-gaap:ProfitLoss"
+   },
+   "net_debt": {
+    "value": 621100000,
+    "period": "FY2025",
+    "source": "deskstack derived: debt 1,100.9M - cash 479.8M, acc 0001193125-26-054061"
+   },
+   "market_cap": {
+    "value": 7900000000,
+    "period": "assumption",
+    "source": "ASSUMPTION, unverified: placeholder price $130 (memory) x 60,972,017 shares (acc 0001193125-26-437287). Reviewer must replace."
+   }
+  },
+  {
+   "name": "The Toro Company",
+   "ticker": "TTC",
+   "currency": "USD",
+   "revenue": {
+    "value": 4510400000,
+    "period": "FY2025 (ended 2025-10-31)",
+    "source": "10-K acc 0000737758-25-000115"
+   },
+   "ebitda": {
+    "value": 552800000,
+    "period": "FY2025",
+    "source": "deskstack derived: operating income 409.9M + D&A 142.9M, acc 0000737758-25-000115"
+   },
+   "net_income": {
+    "value": 316100000,
+    "period": "FY2025",
+    "source": "10-K acc 0000737758-25-000115"
+   },
+   "net_debt": {
+    "value": 580500000,
+    "period": "FY2025",
+    "source": "deskstack derived: LTD 921.5M - cash 341.0M, acc 0000737758-25-000115"
+   },
+   "market_cap": {
+    "value": 7600000000,
+    "period": "assumption",
+    "source": "ASSUMPTION, unverified: placeholder price $80 (memory) x 94,663,378 shares (acc 0000737758-26-000043). Reviewer must replace."
+   }
+  }
+ ]
+}

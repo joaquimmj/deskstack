@@ -22,5 +22,20 @@ construction, because they read the data the scorer checks against; that data is
 set and the nightly differential. Net debt and EBITDA are reported apart as definitions, not scored as wrong. The run
 also found four gaps in deskstack's data, listed in the analysis.
 
+**Comps run, 2026-11-09:** the same 50 companies × comps (the company and 4 to 6 peers it picks) × 3 arms, 150 runs,
+$47.09. Every transcript, submission and score is in
+[`bench/results/2026-11-09T13-04-05-468Z/`](../bench/results/2026-11-09T13-04-05-468Z/), with a hand-checked
+[analysis](../bench/results/2026-11-09T13-04-05-468Z/ANALYSIS.md).
+
+| Arm | Models finished | Wrong reported figures (read by hand) | Placeholders left as 0 | Avg cost | Avg time |
+|---|---|---|---|---|---|
+| A: web search only | 45 of 50 | 16 of 445 (3.6%) | 7 | $0.56 | 171 s |
+| B: deskstack data | 50 of 50 | 0 of 1,021 | 0 | $0.17 | 36 s |
+| C: deskstack + reviewers | 50 of 50 | 0 of 1,010 | 0 | $0.22 | 51 s |
+
+15 of web search's 16 are twelve-month figures a quarter late: an aggregator's "TTM" still showed the twelve months to
+June when the September 10-Qs were out. The sixteenth is a fourth quarter written as the year. The run also found two
+scorer bugs, in how peers are matched to companies by name; both fixed before the hand check.
+
 A 5-company pilot ran first ([analysis](../bench/results/2026-11-08T23-43-41-903Z/ANALYSIS.md)). It led to the scorer's "other line" and "other
 definition" categories and to five data fixes.

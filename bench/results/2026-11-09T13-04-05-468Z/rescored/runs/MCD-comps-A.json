@@ -1,0 +1,362 @@
+{
+ "company": "MCD",
+ "task": "comps",
+ "arm": "A",
+ "score": {
+  "valid": true,
+  "filed": 20,
+  "match": 11,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 5,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 4,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "",
+    "name": "Domino's Pizza, Inc.",
+    "written": "DPZ",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 4940,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[DPZ].revenue",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "",
+    "name": "Domino's Pizza, Inc.",
+    "written": "DPZ",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 1008.2,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[DPZ].ebitda",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "",
+    "name": "Domino's Pizza, Inc.",
+    "written": "DPZ",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 601.7,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[DPZ].net_income",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "",
+    "name": "Domino's Pizza, Inc.",
+    "written": "DPZ",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 4475.3,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[DPZ].net_debt",
+    "status": "unverifiable",
+    "resolved": null,
+    "hints": [
+     "company not resolved with a matching name by company_lookup"
+    ]
+   },
+   {
+    "company": "MCD",
+    "name": "McDonald's Corporation (target)",
+    "written": "MCD",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 26890,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MCD].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 26885000000,
+    "resolved": "MCD"
+   },
+   {
+    "company": "MCD",
+    "name": "McDonald's Corporation (target)",
+    "written": "MCD",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 14680,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MCD].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 12850000000,
+    "resolved": "MCD",
+    "computed": true
+   },
+   {
+    "company": "MCD",
+    "name": "McDonald's Corporation (target)",
+    "written": "MCD",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 8560,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MCD].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 8563000000,
+    "resolved": "MCD"
+   },
+   {
+    "company": "MCD",
+    "name": "McDonald's Corporation (target)",
+    "written": "MCD",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 39226,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MCD].net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 40722000000,
+    "resolved": "MCD",
+    "computed": true
+   },
+   {
+    "company": "SBUX",
+    "name": "Starbucks Corporation",
+    "written": "SBUX",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 37184.4,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[SBUX].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 37184400000,
+    "resolved": "SBUX"
+   },
+   {
+    "company": "SBUX",
+    "name": "Starbucks Corporation",
+    "written": "SBUX",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 5380,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[SBUX].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 4708100000,
+    "resolved": "SBUX",
+    "computed": true
+   },
+   {
+    "company": "SBUX",
+    "name": "Starbucks Corporation",
+    "written": "SBUX",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 1856.4,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[SBUX].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1856400000,
+    "resolved": "SBUX"
+   },
+   {
+    "company": "SBUX",
+    "name": "Starbucks Corporation",
+    "written": "SBUX",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 12607.8,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[SBUX].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 12607800000,
+    "resolved": "SBUX",
+    "computed": true
+   },
+   {
+    "company": "YUM",
+    "name": "Yum! Brands, Inc.",
+    "written": "YUM",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 8210,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[YUM].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 8214000000,
+    "resolved": "YUM"
+   },
+   {
+    "company": "YUM",
+    "name": "Yum! Brands, Inc.",
+    "written": "YUM",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 2780,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[YUM].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 2780000000,
+    "resolved": "YUM",
+    "computed": true
+   },
+   {
+    "company": "YUM",
+    "name": "Yum! Brands, Inc.",
+    "written": "YUM",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 1560,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[YUM].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1559000000,
+    "resolved": "YUM"
+   },
+   {
+    "company": "YUM",
+    "name": "Yum! Brands, Inc.",
+    "written": "YUM",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 10800,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[YUM].net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "Period: the value matches net_debt for FY2021 (ended 2021-12-31), not FY2025.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 11201000000,
+    "resolved": "YUM",
+    "computed": true
+   },
+   {
+    "company": "CMG",
+    "name": "Chipotle Mexican Grill, Inc.",
+    "written": "CMG",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 11930,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CMG].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 11925601000,
+    "resolved": "CMG"
+   },
+   {
+    "company": "CMG",
+    "name": "Chipotle Mexican Grill, Inc.",
+    "written": "CMG",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 2370,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CMG].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 2297180000,
+    "resolved": "CMG",
+    "computed": true
+   },
+   {
+    "company": "CMG",
+    "name": "Chipotle Mexican Grill, Inc.",
+    "written": "CMG",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 1540,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CMG].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1535761000,
+    "resolved": "CMG"
+   },
+   {
+    "company": "CMG",
+    "name": "Chipotle Mexican Grill, Inc.",
+    "written": "CMG",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": -1049,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CMG].net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": -1049136000,
+    "resolved": "CMG",
+    "computed": true
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

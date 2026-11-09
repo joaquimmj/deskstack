@@ -1,0 +1,364 @@
+{
+ "company": "CSCO",
+ "task": "comps",
+ "arm": "A",
+ "score": {
+  "valid": true,
+  "filed": 20,
+  "match": 7,
+  "mismatch": 4,
+  "other_line": 0,
+  "definition": 4,
+  "not_found": 4,
+  "ambiguous": 0,
+  "unverifiable": 1,
+  "causes": {
+   "other": 4
+  },
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "CSCO",
+    "name": "Cisco Systems, Inc.",
+    "written": "CSCO",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 56654,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CSCO].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 56654000000,
+    "resolved": "CSCO"
+   },
+   {
+    "company": "CSCO",
+    "name": "Cisco Systems, Inc.",
+    "written": "CSCO",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 14571,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CSCO].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 12460000000,
+    "resolved": "CSCO",
+    "computed": true
+   },
+   {
+    "company": "CSCO",
+    "name": "Cisco Systems, Inc.",
+    "written": "CSCO",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 10180,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CSCO].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 10180000000,
+    "resolved": "CSCO"
+   },
+   {
+    "company": "CSCO",
+    "name": "Cisco Systems, Inc.",
+    "written": "CSCO",
+    "metric": "net_debt",
+    "period": "26-Jul-2025",
+    "value": 11983,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[CSCO].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"26-Jul-2025\". Available: FY2012, FY2013, FY2014, FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, FY2026."
+    ],
+    "filed_value": null,
+    "resolved": "CSCO"
+   },
+   {
+    "company": "ANET",
+    "name": "Arista Networks, Inc.",
+    "written": "ANET",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 9005.7,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[ANET].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 9005700000,
+    "resolved": "ANET"
+   },
+   {
+    "company": "ANET",
+    "name": "Arista Networks, Inc.",
+    "written": "ANET",
+    "metric": "ebitda",
+    "period": "FY2025",
+    "value": 3928.7,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[ANET].ebitda",
+    "status": "match",
+    "hints": [
+     "Computed value: operating_income + d_and_a."
+    ],
+    "filed_value": 3928700000,
+    "resolved": "ANET",
+    "computed": true
+   },
+   {
+    "company": "ANET",
+    "name": "Arista Networks, Inc.",
+    "written": "ANET",
+    "metric": "net_income",
+    "period": "FY2025",
+    "value": 3511.4,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[ANET].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3511400000,
+    "resolved": "ANET"
+   },
+   {
+    "company": "ANET",
+    "name": "Arista Networks, Inc.",
+    "written": "ANET",
+    "metric": "net_debt",
+    "period": "31-Dec-2025",
+    "value": -10743,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[ANET].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"31-Dec-2025\". Available: FY2012, FY2013, FY2014, FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, LTM to 2026-09-30."
+    ],
+    "filed_value": null,
+    "resolved": "ANET"
+   },
+   {
+    "company": "MSI",
+    "name": "Motorola Solutions, Inc.",
+    "written": "MSI",
+    "metric": "revenue",
+    "period": "LTM",
+    "value": 12240,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MSI].revenue",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 12603000000,
+    "resolved": "MSI"
+   },
+   {
+    "company": "MSI",
+    "name": "Motorola Solutions, Inc.",
+    "written": "MSI",
+    "metric": "ebitda",
+    "period": "LTM",
+    "value": 3760,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MSI].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 3639000000,
+    "resolved": "MSI",
+    "computed": true
+   },
+   {
+    "company": "MSI",
+    "name": "Motorola Solutions, Inc.",
+    "written": "MSI",
+    "metric": "net_income",
+    "period": "LTM",
+    "value": 2130,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MSI].net_income",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 2084000000,
+    "resolved": "MSI"
+   },
+   {
+    "company": "MSI",
+    "name": "Motorola Solutions, Inc.",
+    "written": "MSI",
+    "metric": "net_debt",
+    "period": "Q2 2026 balance sheet",
+    "value": 7707,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[MSI].net_debt",
+    "status": "unverifiable",
+    "resolved": "MSI",
+    "hints": [
+     "Input validation error: Invalid arguments for tool verify_value: items.0.period: Too big: expected string to have <=20 characters"
+    ]
+   },
+   {
+    "company": "FFIV",
+    "name": "F5, Inc.",
+    "written": "FFIV",
+    "metric": "revenue",
+    "period": "LTM",
+    "value": 3310,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[FFIV].revenue",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3309332000,
+    "resolved": "FFIV"
+   },
+   {
+    "company": "FFIV",
+    "name": "F5, Inc.",
+    "written": "FFIV",
+    "metric": "ebitda",
+    "period": "LTM",
+    "value": 923.3,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[FFIV].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 909529000,
+    "resolved": "FFIV",
+    "computed": true
+   },
+   {
+    "company": "FFIV",
+    "name": "F5, Inc.",
+    "written": "FFIV",
+    "metric": "net_income",
+    "period": "LTM",
+    "value": 726.51,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[FFIV].net_income",
+    "status": "match",
+    "hints": [],
+    "filed_value": 726510000,
+    "resolved": "FFIV"
+   },
+   {
+    "company": "FFIV",
+    "name": "F5, Inc.",
+    "written": "FFIV",
+    "metric": "net_debt",
+    "period": "latest quarter",
+    "value": -1350,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[FFIV].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"latest quarter\". Available: FY2011, FY2012, FY2013, FY2014, FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, LTM to 2026-06-30."
+    ],
+    "filed_value": null,
+    "resolved": "FFIV"
+   },
+   {
+    "company": "FTNT",
+    "name": "Fortinet, Inc.",
+    "written": "FTNT",
+    "metric": "revenue",
+    "period": "LTM",
+    "value": 7530,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[FTNT].revenue",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 7880900000,
+    "resolved": "FTNT"
+   },
+   {
+    "company": "FTNT",
+    "name": "Fortinet, Inc.",
+    "written": "FTNT",
+    "metric": "ebitda",
+    "period": "LTM",
+    "value": 2970,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[FTNT].ebitda",
+    "status": "definition",
+    "hints": [
+     "Computed value: operating_income + d_and_a.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 2759300000,
+    "resolved": "FTNT",
+    "computed": true
+   },
+   {
+    "company": "FTNT",
+    "name": "Fortinet, Inc.",
+    "written": "FTNT",
+    "metric": "net_income",
+    "period": "LTM",
+    "value": 2120,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[FTNT].net_income",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 2282300000,
+    "resolved": "FTNT"
+   },
+   {
+    "company": "FTNT",
+    "name": "Fortinet, Inc.",
+    "written": "FTNT",
+    "metric": "net_debt",
+    "period": "latest quarter",
+    "value": -3510,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "peers[FTNT].net_debt",
+    "status": "not_found",
+    "hints": [
+     "No period \"latest quarter\". Available: FY2011, FY2012, FY2013, FY2014, FY2015, FY2016, FY2017, FY2018, FY2019, FY2020, FY2021, FY2022, FY2023, FY2024, FY2025, LTM to 2026-09-30."
+    ],
+    "filed_value": null,
+    "resolved": "FTNT"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": [
+   "verify_value MSI: Input validation error: Invalid arguments for tool verify_value: items.3.period: Too big: expected string to have <=20 characters"
+  ]
+ }
+}
