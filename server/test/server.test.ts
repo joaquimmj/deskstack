@@ -313,6 +313,18 @@ describe("guardrails", () => {
     expect((last!.content as Array<{ text: string }>)[0]!.text).toMatch(/Too many requests/);
   });
 
+  it("per-IP limit also holds in each isolate when the Cloudflare limiter lets a burst through (security audit, 2026-11-09)", async () => {
+    // Live: Cloudflare's rate-limit binding is approximate per location; 512 of 515 calls in 70 s were served.
+    const permissive = { limit: async () => ({ success: true }) };
+    const env = baseEnv({ ASSETS: fixtureAssets(["AAPL"]), PER_IP_PER_MINUTE: "3", IP_LIMITER: permissive } as never);
+    const client = await connect(env, "auto", { "CF-Connecting-IP": "203.0.113.10" });
+    let last;
+    for (let i = 0; i < 5; i++) last = await client.callTool({ name: "data_status", arguments: {} });
+    await client.close();
+    expect(last!.isError).toBe(true);
+    expect((last!.content as Array<{ text: string }>)[0]!.text).toMatch(/Too many requests/);
+  });
+
   it("daily cap answers with the self-host message", async () => {
     let total = 0;
     const db = {
