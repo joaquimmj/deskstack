@@ -12,7 +12,7 @@ import re
 from dataclasses import dataclass, field
 from typing import Iterator
 
-from openpyxl import load_workbook
+from .xlsxio import safe_load_workbook as load_workbook
 from openpyxl.cell.cell import Cell
 from openpyxl.utils import column_index_from_string, get_column_letter
 
