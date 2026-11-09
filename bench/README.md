@@ -18,7 +18,7 @@ How many numbers in an AI-built financial model are wrong or unsourced, with and
 
 | Metric | Definition |
 |---|---|
-| Wrong vs filing | Reported lines that `verify_value` finds different from the filing and that match no other line of it, over all filed figures checked. Filed figures are history lines, net debt and diluted shares for a DCF; revenue, EBITDA, net income and net debt for comps. Each mismatch carries its likely cause from the hint: scale, sign, currency, period, line item or other |
+| Wrong vs filing | Reported lines that `verify_value` finds different from the filing and that match no other line of it, over all filed figures checked. Filed figures are history lines, net debt and diluted shares for a DCF; revenue, EBITDA, net income and net debt for comps. Each mismatch carries its likely cause from the hint: scale, sign, currency, period, line item, typo or other |
 | Other line of the filing | The value equals another line of the same filing, or two lines added, to the precision written (revenue excluding excise taxes, capex including leased equipment). Facts come from the filing itself: SEC companyfacts or the ESEF report. Reported, not counted as wrong |
 | Other definition | EBITDA or net debt different from deskstack's definition. Definitions vary, so reported, not counted as wrong (a computed figure that is plainly wrong lands here too) |
 | Not verifiable | The line isn't reported for that period, the period is ambiguous, or a peer can't be resolved by name with `company_lookup`. Colliding tickers (MC is LVMH in Paris and Moelis in New York) are never scored against the wrong company. Reported separately, never counted as wrong |

@@ -7,7 +7,7 @@
 // Pure functions: used by the snapshot build (scripts/build-esef.ts) and tests.
 
 import { shiftDays } from "../dates";
-import { IFRS_DURATION_CONCEPTS, type CompanyFacts, type Namespace, type RawFact } from "../sec/xbrl";
+import { EXT_CAPEX_KEY, IFRS_DURATION_CONCEPTS, type CompanyFacts, type Namespace, type RawFact } from "../sec/xbrl";
 
 /** One undimensioned numeric ifrs-full fact, compact for the build cache. */
 export interface EsefRow {
@@ -32,7 +32,7 @@ export interface ExtractedFiling {
   /** End of the reporting period, from the facts (not the repository metadata). */
   report_end: string | null;
   rows: EsefRow[];
-  /** Numeric facts dropped because they use a company-specific (extension) concept. */
+  /** Numeric facts that use a company-specific (extension) concept; all are dropped except extension capex. */
   extension_facts: number;
 }
 
@@ -69,13 +69,17 @@ const days = (s: string, e: string) => Math.round((Date.parse(`${e}T00:00:00Z`) 
 
 // "PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssets", "PurchasesOfIntangibleAssetsPropertyPlantAndEquipment...",
 // "InvestmentsInPropertyPlantAndEquipmentAndIntangibleAssets": PP&E and intangibles, both named, bought or invested in.
-const EXT_CAPEX = /^(purchases?of|investmentsin|acquisitionsof)(?=.*propertyplantandequipment)(?=.*intangible)(?!.*(proceeds|sale|disposal|subsidiar|financial))/i;
-export const EXT_CAPEX_KEY = "PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssetsExtension";
+// Look-alikes are excluded: unpaid or accrued amounts, leases, associates, acquisitions of businesses, disposals.
+// Investment property stays in, as in the standard IFRS concept (Airbus tags PP&E, intangibles and investment property).
+const EXT_CAPEX = /^(purchases?of|investmentsin|acquisitionsof)(?=.*propertyplantandequipment)(?=.*intangible)(?!.*(proceeds|sale|disposal|subsidiar|financial|notyet|unpaid|accrued|payable|lease|rightofuse|associate|jointventure|business|grant))/i;
+// A well-formed QName: the issuer's concept is published as-is, so nothing else gets through.
+const QNAME = /^[A-Za-z_][\w.-]{0,63}:[A-Za-z_][\w.-]{0,200}$/;
 
 /** Undimensioned numeric ifrs-full facts of one filing (plus kept extension capex), deduplicated, and the report kind. */
 export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: string): ExtractedFiling {
   const seen = new Set<string>();
   const rows: EsefRow[] = [];
+  const extCapex = new Map<string, Map<string, EsefRow>>();
   let extension = 0;
   for (const f of Object.values(doc.facts ?? {})) {
     const dims = f.dimensions ?? {};
@@ -90,7 +94,7 @@ export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: s
     } else {
       extension++;
       // Issuers that tag capex only with their own concept (purchases of PP&E and intangible assets).
-      if (!EXT_CAPEX.test(concept.split(":").pop() ?? "")) continue;
+      if (!QNAME.test(concept) || !EXT_CAPEX.test(concept.split(":").pop() ?? "")) continue;
       c = EXT_CAPEX_KEY;
       x = concept;
     }
@@ -101,12 +105,22 @@ export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: s
     const row: EsefRow = b
       ? { c, u: unit, s: oimStart(a!), e: oimEnd(b), v: Number(raw) }
       : { c, u: unit, s: null, e: oimEnd(a!), v: Number(raw) };
-    if (x) row.x = x;
+    if (x) {
+      // A purchase is an outflow: stored positive like the standard capex concepts, whatever the issuer's sign.
+      row.x = x;
+      row.v = Math.abs(row.v);
+      const k = `${row.u}|${row.s}|${row.e}`;
+      if (!extCapex.has(k)) extCapex.set(k, new Map());
+      extCapex.get(k)!.set(x, row);
+      continue;
+    }
     const key = `${row.c}|${row.u}|${row.s}|${row.e}`;
     if (seen.has(key)) continue; // the same fact tagged in several places of the report
     seen.add(key);
     rows.push(row);
   }
+  // One issuer concept per period is a capex line; two different ones are ambiguous, so neither is used.
+  for (const byConcept of extCapex.values()) if (byConcept.size === 1) rows.push(...byConcept.values());
 
   // Classify by the facts: the longest revenue/profit period that ends at the report's last date.
   const flow = new Set([...IFRS_DURATION_CONCEPTS.revenue!, ...IFRS_DURATION_CONCEPTS.net_income!, "ProfitLoss"]);

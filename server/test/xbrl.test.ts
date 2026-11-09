@@ -173,7 +173,11 @@ describe("real filings", () => {
       } } } as never, 5, false).periods[0]!.values;
     const derived = facts({}).diluted_shares!;
     expect(derived.value).toBe(3_000_000_000);
-    expect(derived.formula).toBe("net_income / diluted_eps (no share count tagged)");
+    expect(derived.concept).toBe(""); // computed, so verify_value shows the formula
+    expect(derived.formula).toBe("net_income / basic EPS (no diluted EPS or share count tagged)");
+    expect(facts({ DilutedEarningsLossPerShare: { units: { "EUR/shares": y(2.0) } } }).diluted_shares!.formula).toBe(
+      "net_income / diluted_eps (no share count tagged)",
+    );
     // A tagged share count always wins.
     expect(facts({ AdjustedWeightedAverageShares: { units: { shares: y(3_050e6) } } }).diluted_shares!.value).toBe(3_050e6);
   });
@@ -193,6 +197,38 @@ describe("real filings", () => {
     });
     expect(both.values.d_and_a!.value).toBe(12_000e6);
     expect(both.values.d_and_a!.note).toBeUndefined();
+  });
+
+  it("derived shares: IFRS annual columns only, never for a loss, a tiny EPS or a US filer (review)", () => {
+    const y = (v: number) => [fact(v, "2025-02-01", "2026-01-31", "i-25", "2026-03-20", "ESEF", 2025)];
+    const ifrs = (ni: number, eps: number) =>
+      standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+        Revenue: { units: { EUR: y(30_000e6) } },
+        ProfitLossAttributableToOwnersOfParent: { units: { EUR: y(ni) } },
+        DilutedEarningsLossPerShare: { units: { "EUR/shares": y(eps) } },
+      } } } as never, 5, false).periods[0]!.values.diluted_shares;
+    expect(ifrs(-600e6, -2)).toBeNull(); // loss year
+    expect(ifrs(30e6, 0.12)).toBeNull(); // EPS in cents: the count would be off by percents
+    const us = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
+    const usCf = companyfacts({ Revenues: us(1_000e6), NetIncomeLoss: us(100e6) });
+    usCf.facts["us-gaap"]!.EarningsPerShareDiluted = { units: { "USD/shares": us(2.0) } };
+    expect(standardize(usCf, 5, false).periods[0]!.values.diluted_shares).toBeNull();
+  });
+
+  it("EBITDA says when D&A includes impairment, and notes add up instead of replacing each other (review)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "t-25", "2026-03-20", "ESEF", 2025)];
+    const p = standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+      Revenue: { units: { USD: y(180_000e6) } },
+      ProfitLossFromOperatingActivities: { units: { USD: y(20_000e6) } },
+      AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss: { units: { USD: y(13_847e6) } },
+    } } } as never, 5, false).periods[0]!;
+    expect(p.derived.ebitda).toEqual({ value: 33_847e6, formula: "operating_income + d_and_a (includes impairment)" });
+  });
+
+  it("Verizon-style capex says which line it is (review)", () => {
+    const y = (v: number) => [fact(v, "2024-01-01", "2024-12-31", "v-24", "2025-02-10", "10-K", 2024)];
+    const capex = standardize(companyfacts({ Revenues: y(1), PaymentsToAcquireOtherProductiveAssets: y(17_090) }), 5, false).periods[0]!.values.capex!;
+    expect(capex.note).toMatch(/other productive assets/);
   });
 
   it("Toyota IFRS with no standard capex concept", () => {
