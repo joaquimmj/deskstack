@@ -149,6 +149,35 @@ describe("real filings", () => {
     expect(p.derived.net_debt!.value).toBe(2 - 5_276 - 5_684);
   });
 
+  it("an IFRS filer that tags only basic EPS gets it as diluted EPS, with a note (Inditex)", () => {
+    // Inditex FY2025 (ended 2026-01-31): basic EPS 1.996 EUR, no diluted EPS, no share count tagged.
+    const y = (v: number) => [fact(v, "2025-02-01", "2026-01-31", "i-25", "2026-03-20", "ESEF", 2025)];
+    const ns: Record<string, { units: Record<string, RawFact[]> }> = {
+      Revenue: { units: { EUR: y(39_900e6) } },
+      ProfitLossAttributableToOwnersOfParent: { units: { EUR: y(6_220e6) } },
+      BasicEarningsLossPerShare: { units: { "EUR/shares": y(1.996) } },
+    };
+    const p = standardize({ cik: 0, entityName: "Inditex", facts: { "ifrs-full": ns } } as never, 5, false).periods[0]!;
+    expect(p.values.diluted_eps).toMatchObject({ value: 1.996, concept: "ifrs-full:BasicEarningsLossPerShare" });
+    expect(p.values.diluted_eps!.note).toMatch(/basic EPS: the filer tags no diluted EPS/);
+  });
+
+  it("with no share count tagged, diluted shares are derived from net income and EPS, and say so", () => {
+    const y = (v: number) => [fact(v, "2025-02-01", "2026-01-31", "i-25", "2026-03-20", "ESEF", 2025)];
+    const facts = (extra: Record<string, { units: Record<string, RawFact[]> }>) =>
+      standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+        Revenue: { units: { EUR: y(30_000e6) } },
+        ProfitLossAttributableToOwnersOfParent: { units: { EUR: y(6_000e6) } },
+        BasicEarningsLossPerShare: { units: { "EUR/shares": y(2.0) } },
+        ...extra,
+      } } } as never, 5, false).periods[0]!.values;
+    const derived = facts({}).diluted_shares!;
+    expect(derived.value).toBe(3_000_000_000);
+    expect(derived.formula).toBe("net_income / diluted_eps (no share count tagged)");
+    // A tagged share count always wins.
+    expect(facts({ AdjustedWeightedAverageShares: { units: { shares: y(3_050e6) } } }).diluted_shares!.value).toBe(3_050e6);
+  });
+
   it("Toyota IFRS with no standard capex concept", () => {
     const r = standardize(facts("TM"), 1);
     const fy = r.periods[0]!;
