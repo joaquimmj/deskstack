@@ -101,7 +101,8 @@ export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
     "PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets",
   ],
   diluted_shares: ["AdjustedWeightedAverageShares"],
-  diluted_eps: ["DilutedEarningsLossPerShare"],
+  // Basic EPS last: some filers (Inditex) tag no diluted figure; adjustRow notes it on the cell.
+  diluted_eps: ["DilutedEarningsLossPerShare", "BasicAndDilutedEarningsLossPerShare", "BasicEarningsLossPerShare"],
 };
 
 export const IFRS_INSTANT_CONCEPTS: Record<string, string[]> = {
@@ -490,6 +491,18 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx): void {
       accessions: accs(rev, ce),
       formula: "revenue - costs_and_expenses",
       note: why,
+    };
+  }
+  if (row.diluted_eps?.concept === "ifrs-full:BasicEarningsLossPerShare") {
+    row.diluted_eps = { ...row.diluted_eps, note: "basic EPS: the filer tags no diluted EPS" };
+  }
+  if (!row.diluted_shares && row.net_income && row.diluted_eps && row.diluted_eps.value > 0 &&
+      /:(ProfitLossAttributableToOwnersOfParent|NetIncomeLoss)$/.test(row.net_income.concept)) {
+    row.diluted_shares = {
+      value: Math.round(row.net_income.value / row.diluted_eps.value),
+      concept: "derived",
+      accessions: accs(row.net_income, row.diluted_eps),
+      formula: "net_income / diluted_eps (no share count tagged)",
     };
   }
   const sh = row.diluted_shares;
