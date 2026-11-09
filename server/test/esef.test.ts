@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { extractFiling, fiscalYear, oimUnit } from "../src/esef/extract";
+import { EXT_CAPEX_KEY } from "../src/sec/xbrl";
 import { buildEuRecord } from "../src/esef/record";
 import { esefFixture, ITX, meta, tteRecord } from "./esef-fixture";
 
@@ -30,6 +31,89 @@ describe("ESEF extraction (xBRL-JSON)", () => {
       { c: "Assets", u: "EUR", s: null, e: "2025-12-31", v: 500 },
     ]);
     expect([x.kind, x.report_end]).toEqual(["annual", "2025-12-31"]);
+  });
+
+  it("keeps a company concept for purchases of PP&E and intangibles as capex, last, with a note (TotalEnergies, Airbus)", () => {
+    const p = "2025-01-01T00:00:00/2026-01-01T00:00:00";
+    const x = extractFiling(
+      doc([
+        { concept: "ifrs-full:Revenue", period: p, value: "180000" },
+        { concept: "tot:PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssets", period: p, value: "16953" },
+        { concept: "tot:PurchaseOfTreasuryShares", period: p, value: "7526" },
+      ]),
+      "TTE-2025-ESEF-FR-0",
+    );
+    expect(x.rows).toContainEqual({ c: "PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssetsExtension", u: "EUR", s: "2025-01-01", e: "2025-12-31", v: 16953, x: "tot:PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssets" });
+    expect(x.rows).toHaveLength(2);
+    const rec = buildEuRecord(ITX, [{ meta: meta("TTE-2025-ESEF-FR-0", "2026-03-18"), data: x }]);
+    const capex = rec.financials!.periods.at(-1)!.values.capex!;
+    expect(capex.value).toBe(16953);
+    expect(capex.note).toMatch(/issuer's own concept tot:PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssets/);
+    // Airbus and Stellantis word it differently.
+    for (const c of ["airbus:PurchasesOfIntangibleAssetsPropertyPlantAndEquipmentInvestmentProperty", "stellantis:InvestmentsInPropertyPlantAndEquipmentAndIntangibleAssets", "BUD:PurchaseOfPropertyPlantAndEquipmentAndPurchaseOfIntangibleAssetsClassifiedAsInvestingActivities"]) {
+      expect(extractFiling(doc([{ concept: c, period: p, value: "1" }]), "Z").rows[0]?.x).toBe(c);
+    }
+    // A standard IFRS capex line always wins.
+    const both = extractFiling(doc([
+      { concept: "ifrs-full:Revenue", period: p, value: "1000" },
+      { concept: "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities", period: p, value: "70" },
+      { concept: "tot:PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssets", period: p, value: "90" },
+    ]), "B-ESEF-FR-0");
+    expect(buildEuRecord(ITX, [{ meta: meta("B-ESEF-FR-0", "2026-03-18"), data: both }]).financials!.periods.at(-1)!.values.capex!.value).toBe(70);
+  });
+
+  it("extension capex: drops look-alikes, ambiguity and malformed names; stores the outflow as positive (review)", () => {
+    const p = "2025-01-01T00:00:00/2026-01-01T00:00:00";
+    const rows = (facts: Array<{ concept: string; value: string }>) => extractFiling(doc(facts.map((f) => ({ ...f, period: p }))), "Z").rows;
+    for (const c of [
+      "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsNotYetPaid",
+      "x:PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssetsAccrued",
+      "x:PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssetsPayable",
+      "x:PurchaseOfPropertyPlantAndEquipmentRightOfUseAndIntangibleAssetsUnderLeases",
+      "x:InvestmentsInAssociatesPropertyPlantAndEquipmentAndIntangibleAssets",
+      "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsNetOfDisposals",
+      "x:AcquisitionsOfSubsidiariesPropertyPlantAndEquipmentAndIntangibleAssets",
+      "bad prefix:PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssets",
+    ]) {
+      expect(rows([{ concept: c, value: "5" }]), c).toEqual([]);
+    }
+    // Two different issuer concepts for the same period: ambiguous, so neither is used.
+    expect(rows([
+      { concept: "abc:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssets", value: "200" },
+      { concept: "abc:InvestmentsInPropertyPlantAndEquipmentAndIntangibleAssets", value: "210" },
+    ])).toEqual([]);
+    // The same concept tagged twice is one fact; a negative (credit-balance) outflow is stored as positive.
+    expect(rows([
+      { concept: "abc:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssets", value: "-200" },
+      { concept: "abc:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssets", value: "-200" },
+    ])).toEqual([{ c: EXT_CAPEX_KEY, u: "EUR", s: "2025-01-01", e: "2025-12-31", v: 200, x: "abc:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssets" }]);
+  });
+
+  it("extension capex is an allowlist of whole names; conflicting duplicates drop the period (review, cycle 2)", () => {
+    const p = "2025-01-01T00:00:00/2026-01-01T00:00:00";
+    const rows = (facts: Array<{ concept: string; value: string }>) => extractFiling(doc(facts.map((f) => ({ ...f, period: p }))), "Z").rows;
+    for (const c of [
+      "tot:PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssets",
+      "BUD:PurchaseOfPropertyPlantAndEquipmentAndPurchaseOfIntangibleAssetsClassifiedAsInvestingActivities",
+      "VINCI:Purchaseofpropertyplantandequipmentandpurchaseofintangibleassetsclassifiedasinvestingactivities",
+      "airbus:PurchasesOfIntangibleAssetsPropertyPlantAndEquipmentInvestmentProperty",
+      "stellantis:InvestmentsInPropertyPlantAndEquipmentAndIntangibleAssets",
+    ]) {
+      expect(rows([{ concept: c, value: "7" }]).map((r) => r.x), c).toEqual([c]);
+    }
+    for (const c of [
+      "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsNotPaidInCash",
+      "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsAndEquityAffiliates",
+      "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsIncludingAcquisitions",
+      "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsNetOfSubsidies",
+      "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsOfDiscontinuedOperations",
+    ]) {
+      expect(rows([{ concept: c, value: "7" }]), c).toEqual([]);
+    }
+    expect(rows([
+      { concept: "abc:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssets", value: "100" },
+      { concept: "abc:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssets", value: "-120" },
+    ])).toEqual([]);
   });
 
   it("keeps only undimensioned numeric ifrs-full facts, deduplicated; counts extensions", () => {

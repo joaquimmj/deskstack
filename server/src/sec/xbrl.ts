@@ -22,7 +22,7 @@
 // ifrs-full with their own concept map, in their reporting currency. A filer
 // with both taxonomies (Sony) is read from whichever has the latest fiscal year.
 
-import { OPERATING_INCOME_FROM_COSTS } from "../config";
+import { CAPEX_FROM_OTHER_PRODUCTIVE_ASSETS, OPERATING_INCOME_FROM_COSTS } from "../config";
 
 export const DURATION_CONCEPTS: Record<string, string[]> = {
   revenue: [
@@ -53,6 +53,8 @@ export const DURATION_CONCEPTS: Record<string, string[]> = {
   costs_and_expenses: ["CostsAndExpenses"],
   operating_cash_flow: ["NetCashProvidedByUsedInOperatingActivities"],
   capex: ["PaymentsToAcquirePropertyPlantAndEquipment", "PaymentsToAcquireProductiveAssets"],
+  // Capex only for filers in CAPEX_FROM_OTHER_PRODUCTIVE_ASSETS (Verizon); elsewhere it is a minor line.
+  capex_other_productive: ["PaymentsToAcquireOtherProductiveAssets"],
   diluted_shares: ["WeightedAverageNumberOfDilutedSharesOutstanding"],
   diluted_eps: ["EarningsPerShareDiluted"],
 };
@@ -84,24 +86,39 @@ export const INSTANT_CONCEPTS: Record<string, string[]> = {
   ltd_due_12m: ["LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths"],
 };
 
+/** Synthetic key under which esef/extract.ts keeps an issuer's own capex concept (the cell shows the real one). */
+export const EXT_CAPEX_KEY = "PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssetsExtension";
+
 export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
   revenue: ["Revenue", "RevenueFromContractsWithCustomers", "RevenueFromSaleOfGoods"],
   gross_profit: ["GrossProfit"],
   operating_income: ["ProfitLossFromOperatingActivities"],
   pretax_income: ["ProfitLossBeforeTax"],
   net_income: ["ProfitLossAttributableToOwnersOfParent", "ProfitLoss"],
+  // EPS's own numerator (after coupons on hybrid / AT1 instruments): used to derive an untagged share count.
+  net_income_ordinary: ["ProfitLossAttributableToOrdinaryEquityHoldersOfParentEntity"],
   interest_expense: ["InterestExpense", "FinanceCosts"],
-  // Impairment-inclusive D&A concepts are left out so EBITDA means the same thing across filers.
-  d_and_a: ["DepreciationAndAmortisationExpense", "AdjustmentsForDepreciationAndAmortisationExpense"],
+  // Impairment-inclusive D&A concepts come last, for filers that tag nothing else (TotalEnergies, AB InBev, Ahold,
+  // Iberdrola); adjustRow notes it on the cell, since EBITDA then includes impairment.
+  d_and_a: [
+    "DepreciationAndAmortisationExpense",
+    "AdjustmentsForDepreciationAndAmortisationExpense",
+    "AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss",
+    "DepreciationAmortisationAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss",
+  ],
   operating_cash_flow: ["CashFlowsFromUsedInOperatingActivities"],
   capex: [
     "PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
     "PurchaseOfPropertyPlantAndEquipment",
     // Broader (includes intangibles); the concept name is reported with the value.
     "PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets",
+    // Last: an issuer's own concept for purchases of PP&E and intangibles (TotalEnergies, Airbus, VINCI, AB InBev,
+    // Stellantis), kept by esef/extract.ts under this key; the cell shows the real concept and a note.
+    EXT_CAPEX_KEY,
   ],
   diluted_shares: ["AdjustedWeightedAverageShares"],
-  diluted_eps: ["DilutedEarningsLossPerShare"],
+  // Basic EPS last: some filers (Inditex) tag no diluted figure; adjustRow notes it on the cell.
+  diluted_eps: ["DilutedEarningsLossPerShare", "BasicAndDilutedEarningsLossPerShare", "BasicEarningsLossPerShare"],
 };
 
 export const IFRS_INSTANT_CONCEPTS: Record<string, string[]> = {
@@ -148,6 +165,8 @@ export interface RawFact {
   fy?: number | null;
   fp?: string | null;
   frame?: string;
+  /** ESEF only: the issuer's own (extension) concept behind a synthetic standard key. */
+  src?: string;
 }
 
 /** `facts.<taxonomy>`: concept -> { units: { unit: rows } }. */
@@ -168,6 +187,7 @@ export interface Fact {
   accession: string;
   filed: string;
   fy: number | null;
+  src?: string;
 }
 
 export interface Cell {
@@ -264,6 +284,7 @@ function getFacts(ns: Namespace, concept: string, unit: string): Fact[] {
       accession: r.accn,
       filed: r.filed ?? "",
       fy: r.fy ?? null,
+      ...(r.src ? { src: r.src } : {}),
     });
   }
   return out;
@@ -372,7 +393,12 @@ function pick(ctx: Ctx, metric: string, concepts: string[], match: (f: Fact) => 
 
 function cell(ctx: Ctx, f: Fact | null): Cell | null {
   if (!f) return null;
-  return { value: f.value, concept: `${ctx.tx.prefix}:${f.concept}`, accession: f.accession };
+  const c: Cell = { value: f.value, concept: `${ctx.tx.prefix}:${f.concept}`, accession: f.accession };
+  if (f.src) {
+    c.concept = f.src;
+    c.note = `the issuer's own concept ${f.src}, used because no standard IFRS concept for this line is tagged`;
+  }
+  return c;
 }
 
 function durationValue(ctx: Ctx, metric: string, start: string, end: string, forms: Set<string>): Fact | null {
@@ -466,10 +492,18 @@ const accs = (...cells: Cell[]) => [...new Set(cells.flatMap((c) => c.accessions
  * Fixes for how some filers tag a line, each stated on the cell (formula, note) so a reader sees it:
  * - D&A tagged as depreciation alone, with intangible amortization on its own line: the two are added;
  * - operating income for filers in OPERATING_INCOME_FROM_COSTS: revenue - costs and expenses;
+ * - D&A tagged only together with impairment (IFRS): noted, and EBITDA's formula says so (derive);
+ * - basic EPS standing in for an untagged diluted EPS (IFRS): noted;
+ * - no share count tagged (IFRS, annual columns): net income to ordinary holders (else to owners) / EPS, as a
+ *   computed cell with its precision and, for the owners' figure, the hybrid-coupon caveat; only for a profit and an
+ *   EPS of at least 0.50 (EPS is rounded to cents);
+ * - capex for filers in CAPEX_FROM_OTHER_PRODUCTIVE_ASSETS (Verizon): their "other productive assets" line, noted;
  * - a diluted share count off by a thousand or a million (McDonald's FY2025: 716.4), rescaled only when
  *   net income / diluted EPS confirms the corrected figure within 3%.
  */
-function adjustRow(row: Record<string, Cell | null>, ctx: Ctx): void {
+const withNote = (c: Cell, note: string): Cell => ({ ...c, note: c.note ? `${c.note}; ${note}` : note });
+
+function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false): void {
   const dep = row.d_and_a;
   const am = row.amortization_intangibles;
   if (dep && am && dep.concept === "us-gaap:Depreciation") {
@@ -492,19 +526,47 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx): void {
       note: why,
     };
   }
+  if (IMPAIRMENT_DA.test(row.d_and_a?.concept ?? "")) {
+    row.d_and_a = withNote(row.d_and_a!, "includes impairment: the filer tags no D&A line without it, so EBITDA includes impairment too");
+  }
+  const basicEps = row.diluted_eps?.concept === "ifrs-full:BasicEarningsLossPerShare";
+  if (basicEps) row.diluted_eps = withNote(row.diluted_eps!, "basic EPS: the filer tags no diluted EPS");
+  const ordinary = row.net_income_ordinary;
+  const owners = row.net_income?.concept === "ifrs-full:ProfitLossAttributableToOwnersOfParent" ? row.net_income : null;
+  const num = ordinary ?? owners;
+  const eps = row.diluted_eps;
+  if (!ltm && !row.diluted_shares && num && eps && num.value > 0 && eps.value >= 0.5) {
+    const band = `±${((0.005 / eps.value) * 100).toFixed(1)}%`;
+    const den = basicEps ? "basic EPS (no diluted EPS or share count tagged)" : "diluted_eps (no share count tagged)";
+    row.diluted_shares = {
+      value: Math.round(num.value / eps.value),
+      concept: "", // computed: verify_value shows the formula
+      accessions: accs(num, eps),
+      formula: `${ordinary ? "net income to ordinary holders" : "net_income"} / ${den}`,
+      note: ordinary
+        ? `approximate (${band}): EPS is rounded to cents`
+        : `approximate (${band}): EPS is rounded to cents; if the issuer pays coupons on hybrid or AT1 instruments, ` +
+          "the count is overstated (EPS excludes them, net income to owners includes them)",
+    };
+  }
+  const otherCapex = ctx.cik !== undefined ? CAPEX_FROM_OTHER_PRODUCTIVE_ASSETS[ctx.cik] : undefined;
+  if (!row.capex && otherCapex && row.capex_other_productive) {
+    row.capex = withNote(row.capex_other_productive, otherCapex);
+  }
+  // Inputs to the adjustments above, not metrics of their own.
+  delete row.capex_other_productive;
+  delete row.net_income_ordinary;
   const sh = row.diluted_shares;
   const ni = row.net_income;
-  const eps = row.diluted_eps;
   if (sh && ni && eps && eps.value !== 0) {
     const implied = ni.value / eps.value;
     if (implied > 0 && Math.abs(sh.value / implied - 1) > 0.5) {
       for (const k of [1e3, 1e6]) {
         if (Math.abs((sh.value * k) / implied - 1) < 0.03) {
-          row.diluted_shares = {
-            ...sh,
-            value: sh.value * k,
-            note: `filed as ${sh.value}, a scale error in the filer's XBRL: net income / diluted EPS gives ${Math.round(implied).toLocaleString("en-US")}, so multiplied by ${k.toLocaleString("en-US")}`,
-          };
+          row.diluted_shares = withNote(
+            { ...sh, value: sh.value * k },
+            `filed as ${sh.value}, a scale error in the filer's XBRL: net income / diluted EPS gives ${Math.round(implied).toLocaleString("en-US")}, so multiplied by ${k.toLocaleString("en-US")}`,
+          );
           break;
         }
       }
@@ -512,12 +574,15 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx): void {
   }
 }
 
+const IMPAIRMENT_DA = /ImpairmentLossReversalOfImpairmentLoss/;
+
 function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | null>, tx: Taxonomy): Record<string, Derived | null> {
   const v = (src: Record<string, Cell | null>, k: string): number | null => src[k]?.value ?? null;
   const out: Record<string, Derived | null> = {};
   const oi = v(row, "operating_income");
   const da = v(row, "d_and_a");
-  out.ebitda = oi !== null && da !== null ? { value: oi + da, formula: "operating_income + d_and_a" } : null;
+  const daFormula = IMPAIRMENT_DA.test(row.d_and_a?.concept ?? "") ? "d_and_a (includes impairment)" : "d_and_a";
+  out.ebitda = oi !== null && da !== null ? { value: oi + da, formula: `operating_income + ${daFormula}` } : null;
   const cfo = v(row, "operating_cash_flow");
   const capex = v(row, "capex");
   out.free_cash_flow =
@@ -592,9 +657,12 @@ function ltmColumn(ctx: Ctx, lastFy: Period): Column | null {
       const parts = ltmParts(ctx, m, concept, lastFy, ytd);
       if (!parts) continue;
       const [fy, cur, prev] = parts;
+      // An issuer's own concept must be the same one in all three parts (review: mixed concepts gave nonsense).
+      if (fy.src !== cur.src || fy.src !== prev.src) continue;
       row[m] = {
         value: fy.value + cur.value - prev.value,
-        concept: `${ctx.tx.prefix}:${concept}`,
+        concept: fy.src ?? `${ctx.tx.prefix}:${concept}`,
+        ...(fy.src ? { note: `the issuer's own concept ${fy.src}, used because no standard IFRS concept for this line is tagged` } : {}),
         formula: "FY + YTD - prior YTD",
         accessions: [...new Set([fy.accession, cur.accession, prev.accession])].sort(),
         // Change vs open-finance-mcp: it reported diluted EPS as the YTD figure
@@ -617,7 +685,7 @@ function ltmColumn(ctx: Ctx, lastFy: Period): Column | null {
     type: "ltm",
     ytd: { start: ytd[0], end: ytd[1], days: daysBetween(ytd[0], ytd[1]) + 1 },
     values: row,
-    balance_sheet: (adjustRow(row, ctx), inst),
+    balance_sheet: (adjustRow(row, ctx, true), inst),
     derived: derive(row, inst, ctx.tx),
   };
 }
@@ -728,14 +796,15 @@ export function standardize(cf: CompanyFacts, years = 5, includeLtm = true, opts
 
   const notes = [
     "Values are as most recently reported (restatements included); each cites its filing.",
-    "Balance-sheet items are period-end instants. Share counts are weighted diluted.",
+    "Balance-sheet items are period-end instants. Share counts are weighted diluted; where none is tagged (some IFRS filers) the count is computed from net income and EPS, with its formula and precision.",
     "Derived metrics show their formula. EBITDA is null when operating income is not " +
       "reported (common for banks and insurers, where EBITDA is not meaningful).",
   ];
   if (opts.source === "esef") {
     notes.push(
       "ESEF report (IFRS as adopted in the EU), from the issuer's tagged consolidated statements. Lines the " +
-        "issuer tagged only with its own (extension) concepts are not mapped and come back null.",
+        "issuer tagged only with its own (extension) concepts are not mapped and come back null, except capex " +
+        "(an issuer's own concept for purchases of PP&E and intangibles, shown with its real name).",
     );
     if (!columns.some((c) => c.type === "ltm")) {
       notes.push("No LTM column: the issuer's half-year report is not available in ESEF format.");
