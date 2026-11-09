@@ -16,8 +16,12 @@
     //   printf '%s' "myapp me@example.com" | npx wrangler secret put SEC_USER_AGENT
     "DAILY_CAP": "90000",
     "PER_IP_PER_MINUTE": "60"
-  }
-  // Optional global daily counter. Create it with `npx wrangler d1 create deskstack-usage`,
-  // apply migrations/0001_usage.sql, then add:
-  // "d1_databases": [{ "binding": "USAGE", "database_name": "deskstack-usage", "database_id": "<id>" }]
+  },
+  // Both guards are required on the shared service (security audit 2026-11-09, test/config.test.ts): without
+  // them one client can spend the free plan's 100k requests/day for everyone.
+  // Per-IP limit, per Cloudflare location (src/guard.ts allowIp). Without it, a per-isolate window is the fallback.
+  "ratelimits": [{ "name": "IP_LIMITER", "namespace_id": "1001", "simple": { "limit": 60, "period": 60 } }],
+  // Global daily counter (src/guard.ts allowDaily; DAILY_CAP above). Self-hosting: `npx wrangler d1 create
+  // deskstack-usage`, apply migrations/0001_usage.sql with --remote, and put your database_id here.
+  "d1_databases": [{ "binding": "USAGE", "database_name": "deskstack-usage", "database_id": "cedde41f-7732-46d5-b886-2026541fd349" }]
 }
