@@ -52,7 +52,8 @@ export const DURATION_CONCEPTS: Record<string, string[]> = {
   // Operating income for filers in OPERATING_INCOME_FROM_COSTS (revenue - costs and expenses).
   costs_and_expenses: ["CostsAndExpenses"],
   operating_cash_flow: ["NetCashProvidedByUsedInOperatingActivities"],
-  capex: ["PaymentsToAcquirePropertyPlantAndEquipment", "PaymentsToAcquireProductiveAssets"],
+  // Last: Verizon tags its capital expenditures as "other productive assets".
+  capex: ["PaymentsToAcquirePropertyPlantAndEquipment", "PaymentsToAcquireProductiveAssets", "PaymentsToAcquireOtherProductiveAssets"],
   diluted_shares: ["WeightedAverageNumberOfDilutedSharesOutstanding"],
   diluted_eps: ["EarningsPerShareDiluted"],
 };
