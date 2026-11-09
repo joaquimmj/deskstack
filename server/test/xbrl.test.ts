@@ -231,6 +231,7 @@ describe("real filings", () => {
     const capex = standardize(vz, 5, false).periods[0]!.values.capex!;
     expect(capex).toMatchObject({ value: 17_090, concept: "us-gaap:PaymentsToAcquireOtherProductiveAssets" });
     expect(capex.note).toMatch(/other productive assets/);
+    expect(standardize(vz, 5, false).periods[0]!.values).not.toHaveProperty("capex_other_productive");
     // Any other filer: a small "other productive assets" line is not taken as capex (review, cycle 2).
     expect(standardize(companyfacts({ Revenues: y(1), PaymentsToAcquireOtherProductiveAssets: y(40) }), 5, false).periods[0]!.values.capex).toBeNull();
   });
@@ -248,6 +249,7 @@ describe("real filings", () => {
     const ord = shares({ ProfitLossAttributableToOrdinaryEquityHoldersOfParentEntity: { units: { EUR: y(3_900e6) } } });
     expect(ord.value).toBe(3_900e6);
     expect(ord.formula).toMatch(/^net income to ordinary holders \/ diluted_eps/);
+    expect(standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": { Revenue: { units: { EUR: y(1) } }, ProfitLossAttributableToOrdinaryEquityHoldersOfParentEntity: { units: { EUR: y(1) } } } } } as never, 5, false).periods[0]!.values).not.toHaveProperty("net_income_ordinary");
     const owners = shares({});
     expect(owners.value).toBe(4_000e6);
     expect(owners.note).toMatch(/hybrid|AT1/);
