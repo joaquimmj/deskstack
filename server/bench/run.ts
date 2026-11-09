@@ -21,6 +21,7 @@ import { PROMPTS_VERSION } from "./prompts";
 import { summarize, toMarkdown, type ScoredRun } from "./report";
 import { scoreSubmission, type Opts as ScoreOpts } from "./score";
 import { filingFactSource } from "./filing-facts";
+import { DUAL_FILERS } from "../src/config";
 import type { Connector } from "./connector";
 
 const ROOT = join(import.meta.dirname, "..", "..");
@@ -79,7 +80,12 @@ function filingFactsVia(connector: Connector): NonNullable<ScoreOpts["filingFact
     const col = fs?.periods?.find((p) => p.label === period && p.type === "annual");
     if (!fs || !col) return null;
     const c = { start: col.start ?? null, end: col.end };
-    if (fs.company?.lei) return src.esef(fs.company.lei, c);
+    if (fs.company?.lei) {
+      // A dual filer's other-basis figures (ASML's US GAAP 20-F) are other lines, not wrong numbers.
+      const dual = DUAL_FILERS[fs.company.lei];
+      const [eu, us] = await Promise.all([src.esef(fs.company.lei, c), dual ? src.sec(dual.cik, c) : Promise.resolve(null)]);
+      return eu || us ? [...(eu ?? []), ...(us ?? [])] : null;
+    }
     if (fs.company?.cik) return src.sec(fs.company.cik, c);
     return null;
   };

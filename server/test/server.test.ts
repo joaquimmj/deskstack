@@ -6,7 +6,7 @@ import { Client, StreamableHTTPClientTransport } from "@modelcontextprotocol/cli
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { PREDECESSORS } from "../src/config";
+import { DUAL_FILERS, PREDECESSORS } from "../src/config";
 import { resetCounter } from "../src/guard";
 import worker from "../src/index";
 import { resetMemos } from "../src/repo";
@@ -188,6 +188,23 @@ describe("verify_value", () => {
 });
 
 describe("European issuers (ESEF)", () => {
+  it("a dual filer's responses say a 20-F on another basis exists, and how to get it (ASML style)", async () => {
+    const env = baseEnv({ ASSETS: fixtureAssets(["AAPL"]) });
+    DUAL_FILERS[TTE.lei] = { cik: 4321, ticker: "TTEX", standard: "US GAAP" };
+    try {
+      const fs = await call(env, "financial_statements", { ticker: TTE.lei, years: 1 });
+      expect(fs.json.basis_note).toMatch(/also files a 20-F with the SEC in US GAAP \(CIK 4321, ticker TTEX\)/);
+      const km = await call(env, "key_metrics", { ticker: TTE.lei, years: 1 });
+      expect(km.json.warnings[0]).toMatch(/^other_basis: /);
+      const v = await call(env, "verify_value", { company: TTE.lei, items: [{ metric: "net income", period: "FY2024", value: 15758, scale: "millions" }] });
+      expect(v.json.basis_note).toContain("'TTEX'");
+    } finally {
+      delete DUAL_FILERS[TTE.lei];
+    }
+    const plain = await call(env, "financial_statements", { ticker: TTE.lei, years: 1 });
+    expect(plain.json.basis_note).toBeUndefined();
+  });
+
   it("company_lookup finds an EU issuer by name and returns its LEI", async () => {
     const r = await call(baseEnv({ ASSETS: fixtureAssets(["AAPL"]) }), "company_lookup", { query: "totalenergies" });
     expect(r.json.results[0]).toMatchObject({ lei: TTE.lei, region: "EU", reporting_standard: "IFRS", currency: "USD" });
