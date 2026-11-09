@@ -4,7 +4,7 @@
 
 import { McpServer } from "@modelcontextprotocol/server";
 import * as z from "zod/v4";
-import { DISCLAIMER, PREDECESSORS, PRODUCT_NAME, SELF_HOST_URL, SNAPSHOT_YEARS, VERSION } from "./config";
+import { DISCLAIMER, DUAL_FILERS, PREDECESSORS, PRODUCT_NAME, SELF_HOST_URL, SNAPSHOT_YEARS, VERSION } from "./config";
 import { ConfigError, ToolError, UpstreamError } from "./errors";
 import { countryPremium, DAMODARAN_PAGE, industryInputs, industryNames } from "./damodaran";
 import type { Fx } from "./fx";
@@ -181,8 +181,8 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
 
   /** Resolve a ticker/CIK (SEC) or an LEI (EU) to the record the statement tools use. */
   async function resolveRecord(ticker: string): Promise<
-    | { kind: "eu"; rec: Awaited<ReturnType<typeof repo.euRecord>>; predecessor_note?: undefined }
-    | { kind: "sec"; rec: Awaited<ReturnType<typeof repo.record>>; predecessor_note?: string }
+    | { kind: "eu"; rec: Awaited<ReturnType<typeof repo.euRecord>>; predecessor_note?: undefined; basis_note?: string }
+    | { kind: "sec"; rec: Awaited<ReturnType<typeof repo.record>>; predecessor_note?: string; basis_note?: undefined }
   > {
     const t = ticker.trim().toUpperCase();
     if (LEI_RE.test(t)) {
@@ -190,7 +190,13 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
       if (!rec.financials) {
         throw new ToolError(`${rec.name} (LEI ${rec.lei}) has ${rec.financials_error}; do not substitute figures from memory.`);
       }
-      return { kind: "eu" as const, rec };
+      const dual = DUAL_FILERS[t];
+      const basis_note = dual
+        ? `${rec.name} also files a 20-F with the SEC in ${dual.standard} (CIK ${dual.cik}, ticker ${dual.ticker}). ` +
+          `Those figures can differ from this IFRS annual report; pass '${dual.ticker}' as the ticker for them, and ` +
+          "say which basis a number is on."
+        : undefined;
+      return { kind: "eu" as const, rec, ...(basis_note ? { basis_note } : {}) };
     }
     const co = await repo.resolve(ticker);
     const rec = await repo.record(co.cik);
@@ -252,7 +258,9 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
     async ({ ticker, years, include_ltm }) =>
       guarded(async () => {
         const r = await resolveRecord(ticker);
-        if (r.kind === "eu") return ok(euFinancialStatements(r.rec, years ?? 5, include_ltm ?? true));
+        if (r.kind === "eu") {
+          return ok({ ...(r.basis_note ? { basis_note: r.basis_note } : {}), ...euFinancialStatements(r.rec, years ?? 5, include_ltm ?? true) });
+        }
         const out = financialStatements(r.rec, years ?? 5, include_ltm ?? true);
         return ok({
           ...(r.predecessor_note ? { predecessor_note: r.predecessor_note } : {}),
@@ -291,6 +299,7 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
         const company = r.kind === "eu" ? euCompanyBlock(r.rec) : companyBlock(r.rec);
         const warnings = r.kind === "eu" ? [] : recordWarnings(r.rec, cited);
         if (r.predecessor_note) warnings.unshift(`predecessor: ${r.predecessor_note}`);
+        if (r.basis_note) warnings.unshift(`other_basis: ${r.basis_note}`);
         if (financial) {
           warnings.push("financial_company: EBITDA-based ratios and ROIC are not meaningful for banks and insurers (null).");
         }
@@ -352,6 +361,7 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
         const name = std.entity_name ?? r.rec.name;
         return ok({
           ...(r.predecessor_note ? { predecessor_note: r.predecessor_note } : {}),
+          ...(r.basis_note ? { basis_note: r.basis_note } : {}),
           summary:
             `${name}: ${counts.match} of ${counts.total} value(s) match the filings` +
             (counts.mismatch ? `, ${counts.mismatch} mismatch` : "") +

@@ -41,3 +41,17 @@ export const PREDECESSORS: Record<number, { cik: number; why: string }> = {
   // Exxon Mobil Corp delisted (Form 25, July 2026); XOM is now ExxonMobil Holdings Corp, first 10-Q 2026-11-02.
   2115436: { cik: 34088, why: "ExxonMobil Holdings Corp became the listed parent of Exxon Mobil Corp in July 2026" },
 };
+
+/**
+ * Filers whose tagged OperatingIncomeLoss is not a GAAP operating income; theirs is revenue - CostsAndExpenses.
+ * Checked against the 10-K (Disney FY2023: tagged 12,863 = total segment operating income; pretax income 4,769).
+ */
+export const OPERATING_INCOME_FROM_COSTS: Record<number, string> = {
+  1744489: "Disney tags its total segment operating income as OperatingIncomeLoss and reports no GAAP operating income line",
+};
+
+/** EU issuers that also file a 20-F with the SEC on another accounting basis, so two sets of right figures exist. */
+export const DUAL_FILERS: Record<string, { cik: number; ticker: string; standard: string }> = {
+  // ASML: IFRS annual report (ESEF) and a US GAAP 20-F (2024 operating income: IFRS 9,937; US GAAP 9,023).
+  "724500Y6DUVHQD6OXN27": { cik: 937966, ticker: "ASML", standard: "US GAAP" },
+};
