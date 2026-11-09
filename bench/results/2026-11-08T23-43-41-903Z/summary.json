@@ -1,0 +1,107 @@
+{
+ "meta": {
+  "started": "2026-11-08T23:43:41.903Z",
+  "model": "claude-sonnet-5-5",
+  "effort": "medium",
+  "set": "pilot",
+  "tasks": [
+   "dcf",
+   "comps"
+  ],
+  "arms": [
+   "A",
+   "B",
+   "C"
+  ],
+  "budget": 20,
+  "spent_before": 0,
+  "prompts_version": "2",
+  "connector": "https://deskstack.deskstack-server.workers.dev/mcp",
+  "prices": {
+   "input": 2,
+   "output": 10,
+   "cacheWrite5m": 2.5,
+   "cacheRead": 0.2
+  },
+  "companies": [
+   "AAPL",
+   "KO",
+   "CAT",
+   "529900S21EQ1BO4ESM68",
+   "549300TTCXZOGZM2EY83"
+  ]
+ },
+ "paired": 10,
+ "arms": [
+  {
+   "arm": "A",
+   "runs": 10,
+   "submitted": 6,
+   "valid": 6,
+   "filed": 80,
+   "checked": 67,
+   "mismatch": 13,
+   "not_verifiable": 13,
+   "causes": {
+    "other": 13
+   },
+   "errored": 0,
+   "wrong_pct": 0.19402985074626866,
+   "typed": 139,
+   "unsourced": 10,
+   "unsourced_pct": 0.07194244604316546,
+   "checker_blockers_per_model": 0,
+   "checker_majors_per_model": 0.6666666666666666,
+   "avg_cost": 0.38211052,
+   "avg_tokens": 362632.7,
+   "avg_seconds": 99.3985,
+   "total_cost": 3.8211052000000003
+  },
+  {
+   "arm": "B",
+   "runs": 10,
+   "submitted": 8,
+   "valid": 8,
+   "filed": 131,
+   "checked": 130,
+   "mismatch": 0,
+   "not_verifiable": 1,
+   "causes": {},
+   "errored": 0,
+   "wrong_pct": 0,
+   "typed": 196,
+   "unsourced": 24,
+   "unsourced_pct": 0.12244897959183673,
+   "checker_blockers_per_model": 0,
+   "checker_majors_per_model": 0.25,
+   "avg_cost": 0.12519001,
+   "avg_tokens": 109633.9,
+   "avg_seconds": 32.0147,
+   "total_cost": 1.2519000999999998
+  },
+  {
+   "arm": "C",
+   "runs": 10,
+   "submitted": 10,
+   "valid": 10,
+   "filed": 165,
+   "checked": 163,
+   "mismatch": 0,
+   "not_verifiable": 2,
+   "causes": {},
+   "errored": 0,
+   "wrong_pct": 0,
+   "typed": 246,
+   "unsourced": 35,
+   "unsourced_pct": 0.14227642276422764,
+   "checker_blockers_per_model": 0,
+   "checker_majors_per_model": 0.1,
+   "avg_cost": 0.16058545000000002,
+   "avg_tokens": 141508.7,
+   "avg_seconds": 46.542699999999996,
+   "total_cost": 1.6058545000000002
+  }
+ ],
+ "total_cost": 6.678859800000001,
+ "spent_total": 6.678859799999998
+}

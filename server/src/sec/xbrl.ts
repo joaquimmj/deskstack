@@ -57,6 +57,8 @@ export const INSTANT_CONCEPTS: Record<string, string[]> = {
     "MarketableSecuritiesCurrent",
     "AvailableForSaleSecuritiesDebtSecuritiesCurrent",
     "ShortTermInvestments",
+    // Coca-Cola and others tag their short-term investments with this one (KO since FY2021).
+    "OtherShortTermInvestments",
   ],
   total_assets: ["Assets"],
   total_equity: ["StockholdersEquity", "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"],
@@ -71,6 +73,9 @@ export const INSTANT_CONCEPTS: Record<string, string[]> = {
   ltd_current: ["LongTermDebtCurrent", "LongTermDebtAndCapitalLeaseObligationsCurrent"],
   commercial_paper: ["CommercialPaper"],
   short_term_borrowings: ["ShortTermBorrowings"],
+  // Maturity-schedule figure; stands in for the current portion only when no current-debt line is tagged
+  // (Caterpillar tags its balance-sheet line with a company extension, which companyfacts leaves out).
+  ltd_due_12m: ["LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths"],
 };
 
 export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
@@ -406,7 +411,10 @@ export function totalDebt(inst: Inst): [number | null, string] {
     cur = inst.debt_current.value;
     curDesc = "debt_current";
   } else {
-    const parts = ["ltd_current", "commercial_paper", "short_term_borrowings"].filter((k) => inst[k]);
+    // Without a tagged current portion, the next-12-months maturity stands in for it, but only next to a
+    // non-current line (LongTermDebt totals already include it).
+    const ltdCur = inst.ltd_current ? "ltd_current" : ltDesc === "ltd_noncurrent" && inst.ltd_due_12m ? "ltd_due_12m" : null;
+    const parts = [ltdCur, "commercial_paper", "short_term_borrowings"].filter((k): k is string => !!k && !!inst[k]);
     cur = parts.length ? sumCells(parts.map((k) => inst[k])) : null;
     curDesc = parts.length ? parts.join(" + ") : null;
   }

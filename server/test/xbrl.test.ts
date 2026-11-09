@@ -166,6 +166,37 @@ describe("rules on synthetic facts", () => {
     ]);
   });
 
+  it("OtherShortTermInvestments counts as short-term investments in net debt (Coca-Cola style)", () => {
+    // KO FY2025: debt 45.436B, cash 10.270B, OtherShortTermInvestments 3.602B (found by the benchmark pilot).
+    const cf = companyfacts({
+      Revenues: [fact(47_000, "2025-01-01", "2025-12-31", "k-25", "2026-02-20", "10-K", 2025)],
+      LongTermDebtNoncurrent: [fact(40_000, null, "2025-12-31", "k-25", "2026-02-20", "10-K", 2025)],
+      DebtCurrent: [fact(5_436, null, "2025-12-31", "k-25", "2026-02-20", "10-K", 2025)],
+      CashAndCashEquivalentsAtCarryingValue: [fact(10_270, null, "2025-12-31", "k-25", "2026-02-20", "10-K", 2025)],
+      OtherShortTermInvestments: [fact(3_602, null, "2025-12-31", "k-25", "2026-02-20", "10-K", 2025)],
+    });
+    const p = standardize(cf, 5, false).periods[0]!;
+    expect(p.balance_sheet.short_term_investments!.concept).toBe("us-gaap:OtherShortTermInvestments");
+    expect(p.derived.net_debt!.value).toBe(45_436 - 10_270 - 3_602);
+  });
+
+  it("next-12-months maturity stands in for an untagged current portion (Caterpillar style)", () => {
+    // CAT FY2025: short-term borrowings 5.514B + LT debt due within one year 7.120B (company extension on the
+    // balance sheet; only the maturity schedule is in us-gaap) + LT debt due after one year 30.696B = 43.330B.
+    const td = (inst: Record<string, number>) =>
+      totalDebt(Object.fromEntries(Object.entries(inst).map(([k, v]) => [k, { value: v }])) as never);
+    expect(td({ ltd_noncurrent: 30_696, short_term_borrowings: 5_514, ltd_due_12m: 7_120 })).toEqual([
+      43_330,
+      "ltd_noncurrent + ltd_due_12m + short_term_borrowings",
+    ]);
+    // A tagged current portion wins; the maturity figure is never added on top.
+    expect(td({ ltd_noncurrent: 30_696, ltd_current: 7_000, ltd_due_12m: 7_120 })[0]).toBe(37_696);
+    // LongTermDebt already includes its current portion: no maturity figure added.
+    expect(td({ ltd_total: 37_816, ltd_due_12m: 7_120 })).toEqual([37_816, "ltd_total"]);
+    // DebtCurrent already covers the current portion.
+    expect(td({ ltd_noncurrent: 30_696, debt_current: 12_634, ltd_due_12m: 7_120 })[0]).toBe(43_330);
+  });
+
   it("restated value comes from the latest filing; label from the original", () => {
     const cf = companyfacts({
       Revenues: [
