@@ -286,6 +286,7 @@ export function transposition(written: number, filedInScale: number): string | n
   const a = Math.abs(written).toFixed(dec).replace(".", "");
   const b = Math.abs(filedInScale).toFixed(dec).replace(".", "");
   if (a.length !== b.length || Math.sign(written) !== Math.sign(filedInScale)) return null;
+  if (a.replace(/^0+/, "").length < 3) return null; // with two digits a "swap" is too often a coincidence
   const diff = [...a].flatMap((ch, i) => (ch !== b[i] ? [i] : []));
   if (diff.length !== 2 || diff[1] !== diff[0]! + 1 || a[diff[0]!] !== b[diff[1]!] || a[diff[1]!] !== b[diff[0]!]) return null;
   return `Typo: two adjacent digits look swapped (filed ${show(filedInScale)}, written ${show(written)}).`;

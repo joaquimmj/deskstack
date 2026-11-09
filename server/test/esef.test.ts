@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { extractFiling, fiscalYear, oimUnit } from "../src/esef/extract";
+import { EXT_CAPEX_KEY } from "../src/sec/xbrl";
 import { buildEuRecord } from "../src/esef/record";
 import { esefFixture, ITX, meta, tteRecord } from "./esef-fixture";
 
@@ -59,6 +60,33 @@ describe("ESEF extraction (xBRL-JSON)", () => {
       { concept: "tot:PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssets", period: p, value: "90" },
     ]), "B-ESEF-FR-0");
     expect(buildEuRecord(ITX, [{ meta: meta("B-ESEF-FR-0", "2026-03-18"), data: both }]).financials!.periods.at(-1)!.values.capex!.value).toBe(70);
+  });
+
+  it("extension capex: drops look-alikes, ambiguity and malformed names; stores the outflow as positive (review)", () => {
+    const p = "2025-01-01T00:00:00/2026-01-01T00:00:00";
+    const rows = (facts: Array<{ concept: string; value: string }>) => extractFiling(doc(facts.map((f) => ({ ...f, period: p }))), "Z").rows;
+    for (const c of [
+      "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsNotYetPaid",
+      "x:PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssetsAccrued",
+      "x:PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssetsPayable",
+      "x:PurchaseOfPropertyPlantAndEquipmentRightOfUseAndIntangibleAssetsUnderLeases",
+      "x:InvestmentsInAssociatesPropertyPlantAndEquipmentAndIntangibleAssets",
+      "x:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssetsNetOfDisposals",
+      "x:AcquisitionsOfSubsidiariesPropertyPlantAndEquipmentAndIntangibleAssets",
+      "bad prefix:PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssets",
+    ]) {
+      expect(rows([{ concept: c, value: "5" }]), c).toEqual([]);
+    }
+    // Two different issuer concepts for the same period: ambiguous, so neither is used.
+    expect(rows([
+      { concept: "abc:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssets", value: "200" },
+      { concept: "abc:InvestmentsInPropertyPlantAndEquipmentAndIntangibleAssets", value: "210" },
+    ])).toEqual([]);
+    // The same concept tagged twice is one fact; a negative (credit-balance) outflow is stored as positive.
+    expect(rows([
+      { concept: "abc:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssets", value: "-200" },
+      { concept: "abc:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssets", value: "-200" },
+    ])).toEqual([{ c: EXT_CAPEX_KEY, u: "EUR", s: "2025-01-01", e: "2025-12-31", v: 200, x: "abc:PurchasesOfPropertyPlantAndEquipmentAndIntangibleAssets" }]);
   });
 
   it("keeps only undimensioned numeric ifrs-full facts, deduplicated; counts extensions", () => {
