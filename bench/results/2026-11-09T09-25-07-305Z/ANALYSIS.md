@@ -52,15 +52,20 @@ share counts or operating income under 1% (Chevron, Cisco, UPS, Thermo Fisher).
 Not read by hand: the 27 "other definition" figures (net debt and EBITDA, which depend on a definition) and the
 "not verifiable" ones (87 in A, mostly lines the filing doesn't tag for that year).
 
-## What it found in deskstack
+## What it found in deskstack, and what was fixed
 
-- **D&A is depreciation only** for filers that tag the two separately (Cisco, Merck, Microsoft). EBITDA already adds
-  intangible amortization in that case; the D&A line itself doesn't yet. B and C added amortization themselves.
-- **Disney's operating income** is its tagged segment figure, not a GAAP line (Disney reports none).
-- **Implausible share counts** (McDonald's 716.4) pass through as filed. A plausibility warning would catch them.
-- **Dual filers** (ASML: US GAAP 20-F and IFRS annual report) give two right answers; deskstack serves the IFRS one.
-- **Checker:** a bridge sent as text crashed the workbook build with a traceback instead of a clear error. Fixed with
-  this run; the model recovered on its own.
+- **D&A as depreciation only** for filers that tag the two separately (Merck, Microsoft; also AbbVie and Thermo
+  Fisher): fixed, the D&A line now adds intangible amortization. Cisco is left as is: it tags property-and-equipment
+  D&A as combined D&A, and other filers use that tag for the full figure, so no general rule is safe.
+- **Disney's operating income** was its tagged segment total: fixed, it is now revenue − costs and expenses, with a
+  note (8,992 / 11,914 / 13,832, the model's figures).
+- **McDonald's diluted shares** (716.4 in its XBRL since FY2023): fixed, rescaled when net income ÷ diluted EPS
+  confirms it, with a note.
+- **Dual filers** (ASML): responses now say a US GAAP 20-F exists and how to get it, and the scorer searches it.
+- **Checker:** a bridge sent as text crashed the workbook build with a traceback instead of a clear error. Fixed; the
+  model recovered on its own.
+
+These fixes change none of the 20 model errors above: each item they touch was already counted as not wrong by hand.
 
 ## Cost
 

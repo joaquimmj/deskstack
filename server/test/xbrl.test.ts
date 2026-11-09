@@ -216,14 +216,46 @@ describe("rules on synthetic facts", () => {
     expect(td({ ltd_noncurrent: 30_696, debt_current: 12_634, ltd_due_12m: 7_120 })[0]).toBe(43_330);
   });
 
-  it("EBITDA adds intangible amortization when D&A is depreciation alone (Keurig Dr Pepper style)", () => {
+  it("D&A tagged as depreciation alone gets intangible amortization added (Keurig Dr Pepper, Merck, Microsoft)", () => {
     const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "d-25", "2026-02-20", "10-K", 2025)];
     const base = { Revenues: y(16_603), OperatingIncomeLoss: y(3_575), AmortizationOfIntangibleAssets: y(138) };
-    const split = standardize(companyfacts({ ...base, Depreciation: y(455) }), 5, false).periods[0]!.derived.ebitda!;
-    expect(split).toEqual({ value: 3_575 + 455 + 138, formula: "operating_income + d_and_a (depreciation only) + amortization_intangibles" });
+    const split = standardize(companyfacts({ ...base, Depreciation: y(455) }), 5, false).periods[0]!;
+    expect(split.values.d_and_a).toMatchObject({
+      value: 455 + 138,
+      concept: "us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets",
+      formula: "depreciation + amortization of intangible assets (tagged separately)",
+    });
+    expect(split.derived.ebitda).toEqual({ value: 3_575 + 455 + 138, formula: "operating_income + d_and_a" });
     // A combined D&A concept already includes amortization: nothing added.
     const both = standardize(companyfacts({ ...base, DepreciationDepletionAndAmortization: y(593) }), 5, false).periods[0]!;
+    expect(both.values.d_and_a!.value).toBe(593);
     expect(both.derived.ebitda).toEqual({ value: 3_575 + 593, formula: "operating_income + d_and_a" });
+  });
+
+  it("listed filers get operating income as revenue - costs and expenses (Disney tags its segment total)", () => {
+    const y = (v: number) => [fact(v, "2022-10-02", "2023-09-30", "w-23", "2023-11-21", "10-K", 2023)];
+    const facts = { Revenues: y(88_898), CostsAndExpenses: y(79_906), OperatingIncomeLoss: y(12_863), NetIncomeLoss: y(2_354) };
+    const disney = { ...companyfacts(facts), cik: 1744489 };
+    const oi = standardize(disney, 5, false).periods[0]!.values.operating_income!;
+    expect(oi).toMatchObject({ value: 8_992, formula: "revenue - costs_and_expenses", concept: "us-gaap:Revenues - us-gaap:CostsAndExpenses" });
+    expect(oi.note).toMatch(/segment operating income/);
+    // Any other filer keeps its tagged operating income.
+    expect(standardize(companyfacts(facts), 5, false).periods[0]!.values.operating_income!.value).toBe(12_863);
+  });
+
+  it("a share count off by a million is rescaled only when net income / EPS confirms it (McDonald's)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "m-25", "2026-02-20", "10-K", 2025)];
+    const mcd = (shares: number, eps: number) => {
+      const cf = companyfacts({ Revenues: y(26_885e6), NetIncomeLoss: y(8_560e6) });
+      cf.facts["us-gaap"]!.EarningsPerShareDiluted = { units: { "USD/shares": y(eps) } };
+      cf.facts["us-gaap"]!.WeightedAverageNumberOfDilutedSharesOutstanding = { units: { shares: y(shares) } };
+      return standardize(cf, 5, false).periods[0]!.values.diluted_shares!;
+    };
+    const fixed = mcd(716.4, 11.95);
+    expect(fixed.value).toBeCloseTo(716_400_000, 0);
+    expect(fixed.note).toMatch(/filed as 716.4, a scale error/);
+    expect(mcd(716_400_000, 11.95).value).toBe(716_400_000); // already right: untouched
+    expect(mcd(716.4, 3.1).value).toBe(716.4); // EPS doesn't confirm: left as filed
   });
 
   it("restated value comes from the latest filing; label from the original", () => {
