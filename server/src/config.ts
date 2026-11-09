@@ -55,3 +55,8 @@ export const DUAL_FILERS: Record<string, { cik: number; ticker: string; standard
   // ASML: IFRS annual report (ESEF) and a US GAAP 20-F (2024 operating income: IFRS 9,937; US GAAP 9,023).
   "724500Y6DUVHQD6OXN27": { cik: 937966, ticker: "ASML", standard: "US GAAP" },
 };
+
+/** US filers that tag their capital expenditures only as PaymentsToAcquireOtherProductiveAssets (checked in the 10-K). */
+export const CAPEX_FROM_OTHER_PRODUCTIVE_ASSETS: Record<number, string> = {
+  732712: "Verizon tags its capital expenditures (including capitalized software) as other productive assets",
+};

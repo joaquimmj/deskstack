@@ -10,7 +10,7 @@ import type { Connector } from "../bench/connector";
 import { Budget, cost } from "../bench/pricing";
 import { summarize, toMarkdown, type ScoredRun } from "../bench/report";
 import { findInFiling, esefFactsFor, secFactsFor, tolerance } from "../bench/filing-facts";
-import { scoreSubmission, secondReading } from "../bench/score";
+import { sameName, scoreSubmission, secondReading } from "../bench/score";
 import { resetCounter } from "../src/guard";
 import { resetMemos } from "../src/repo";
 import { secFetch } from "./helpers";
@@ -234,6 +234,19 @@ describe("deskstack-bench (offline)", () => {
     expect(s.items.filter((x) => x.company === "AAPL").map((x) => x.status)).toEqual(["match", "match", "match", "match"]);
   });
 
+  it("a peer whose name only starts like the target's is not the target (comps run: CCEP scored as KO)", async () => {
+    expect(sameName("Coca-Cola Europacific Partners plc", "COCA COLA CO")).toBe(false);
+    expect(sameName("LVMH", "LVMH MOET HENNESSY LOUIS VUITTON")).toBe(true);
+    expect(sameName("Apple", "Apple Inc.")).toBe(true);
+    expect(sameName("Industria de Diseño Textil (Inditex) [target]", "Industria de Diseno Textil")).toBe(true); // asides are dropped
+    expect(sameName("Coca-Cola Co - target", "COCA COLA CO")).toBe(true);
+    expect(sameName("Apple Inc. (target)", "Apple Inc.")).toBe(true);
+    const spec = structuredClone(COMPS);
+    spec.peers = [COMPS.peers[0], { ...COMPS.peers[1], name: "Apple Hospitality REIT", ticker: "APLE" }];
+    const s = await scoreSubmission(connector(), spec, AAPL, mkdtempSync(join(tmpdir(), "bench-")));
+    expect(s.items.filter((x) => x.ref.startsWith("peers[APLE]")).every((x) => x.company !== "AAPL")).toBe(true);
+  });
+
   it("items are normalised like the builder, and one bad item doesn't sink the batch", async () => {
     const spec = structuredClone(DCF);
     spec.history.periods = ["2023", "2024", "2025"];
@@ -356,6 +369,11 @@ describe("second reading of mismatches (pilot 2026-11-08)", () => {
     const facts = esefFactsFor(report, { start: "2025-01-01", end: "2025-12-31" });
     expect(facts.map((f) => f.concept)).toEqual(["tot:RevenuesFromSales", "ifrs-full:Revenue", "ifrs-full:CashAndCashEquivalents"]);
     expect(findInFiling(182_344e6, 0.5e6, facts)).toBe("tot:RevenuesFromSales");
+  });
+
+  it("a figure verify_value computed (e.g. derived shares) is 'definition', not wrong (review, cycle 2)", async () => {
+    const out = await secondReading([{ company: "ITX", metric: "diluted_shares", period: "FY2025", value: 3_120, scale: "millions", ref: "bridge.diluted_shares", status: "mismatch", cause: "other", hints: [], computed: true }]);
+    expect(out[0]!.status).toBe("definition");
   });
 
   it("computed figures become 'definition', reported lines found in the filing 'other_line', the rest stays wrong", async () => {

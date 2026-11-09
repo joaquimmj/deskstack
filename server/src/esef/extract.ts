@@ -7,12 +7,14 @@
 // Pure functions: used by the snapshot build (scripts/build-esef.ts) and tests.
 
 import { shiftDays } from "../dates";
-import { IFRS_DURATION_CONCEPTS, type CompanyFacts, type Namespace, type RawFact } from "../sec/xbrl";
+import { EXT_CAPEX_KEY, IFRS_DURATION_CONCEPTS, type CompanyFacts, type Namespace, type RawFact } from "../sec/xbrl";
 
 /** One undimensioned numeric ifrs-full fact, compact for the build cache. */
 export interface EsefRow {
-  /** ifrs-full local name, e.g. "Revenue" */
+  /** ifrs-full local name, e.g. "Revenue" (or a synthetic key for a kept extension concept, see x) */
   c: string;
+  /** the issuer's own concept behind a synthetic key, e.g. "tot:PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssets" */
+  x?: string;
   /** "EUR", "USD", "EUR/shares", "shares" */
   u: string;
   /** start date (durations only) */
@@ -30,7 +32,7 @@ export interface ExtractedFiling {
   /** End of the reporting period, from the facts (not the repository metadata). */
   report_end: string | null;
   rows: EsefRow[];
-  /** Numeric facts dropped because they use a company-specific (extension) concept. */
+  /** Numeric facts that use a company-specific (extension) concept; all are dropped except extension capex. */
   extension_facts: number;
 }
 
@@ -65,10 +67,20 @@ export function oimUnit(u: string | undefined): string | null {
 
 const days = (s: string, e: string) => Math.round((Date.parse(`${e}T00:00:00Z`) - Date.parse(`${s}T00:00:00Z`)) / 86_400_000) + 1;
 
-/** Undimensioned numeric ifrs-full facts of one filing, deduplicated, plus what kind of report it is. */
+// "PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssets", "PurchasesOfIntangibleAssetsPropertyPlantAndEquipment...",
+// "InvestmentsInPropertyPlantAndEquipmentAndIntangibleAssets": PP&E and intangibles, both named, bought or invested in.
+// An allowlist of whole names (review: a denylist kept letting look-alikes through): purchases of / investments in
+// PP&E and intangible assets, in either order, optionally "and purchase of", "other than goodwill", "and investment
+// property", "and other non-current assets", "classified as investing activities". Nothing else may follow.
+const EXT_CAPEX = /^(purchases?of|investmentsin|acquisitionsof)(propertyplantandequipment(and)?(purchaseof)?intangibleassets|intangibleassets(and)?propertyplantandequipment)(otherthangoodwill)?((and)?investmentproperty)?((and)?othernoncurrentassets)?(classifiedasinvestingactivities)?$/i;
+// A well-formed QName: the issuer's concept is published as-is, so nothing else gets through.
+const QNAME = /^[A-Za-z_][\w.-]{0,63}:[A-Za-z_][\w.-]{0,200}$/;
+
+/** Undimensioned numeric ifrs-full facts of one filing (plus kept extension capex), deduplicated, and the report kind. */
 export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: string): ExtractedFiling {
   const seen = new Set<string>();
   const rows: EsefRow[] = [];
+  const extCapex = new Map<string, Map<string, EsefRow | null>>();
   let extension = 0;
   for (const f of Object.values(doc.facts ?? {})) {
     const dims = f.dimensions ?? {};
@@ -76,21 +88,45 @@ export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: s
     const concept = dims.concept ?? "";
     const raw = typeof f.value === "string" ? f.value : null;
     if (raw === null || raw.trim() === "" || !Number.isFinite(Number(raw))) continue;
-    if (!concept.startsWith("ifrs-full:")) {
+    let c: string;
+    let x: string | undefined;
+    if (concept.startsWith("ifrs-full:")) {
+      c = concept.slice("ifrs-full:".length);
+    } else {
       extension++;
-      continue;
+      // Issuers that tag capex only with their own concept (purchases of PP&E and intangible assets).
+      if (!QNAME.test(concept) || !EXT_CAPEX.test(concept.split(":").pop() ?? "")) continue;
+      c = EXT_CAPEX_KEY;
+      x = concept;
     }
     const unit = oimUnit(dims.unit);
     const period = dims.period;
     if (!unit || !period) continue;
     const [a, b] = period.split("/");
     const row: EsefRow = b
-      ? { c: concept.slice("ifrs-full:".length), u: unit, s: oimStart(a!), e: oimEnd(b), v: Number(raw) }
-      : { c: concept.slice("ifrs-full:".length), u: unit, s: null, e: oimEnd(a!), v: Number(raw) };
+      ? { c, u: unit, s: oimStart(a!), e: oimEnd(b), v: Number(raw) }
+      : { c, u: unit, s: null, e: oimEnd(a!), v: Number(raw) };
+    if (x) {
+      // A purchase is an outflow: stored positive like the standard capex concepts, whatever the issuer's sign.
+      row.x = x;
+      row.v = Math.abs(row.v);
+      const k = `${row.u}|${row.s}|${row.e}`;
+      if (!extCapex.has(k)) extCapex.set(k, new Map());
+      const byConcept = extCapex.get(k)!;
+      const prev = byConcept.get(x);
+      // The same concept twice with different values is a conflict: null drops the period below.
+      byConcept.set(x, prev === undefined || (prev && prev.v === row.v) ? row : null);
+      continue;
+    }
     const key = `${row.c}|${row.u}|${row.s}|${row.e}`;
     if (seen.has(key)) continue; // the same fact tagged in several places of the report
     seen.add(key);
     rows.push(row);
+  }
+  // One issuer concept per period, with one value, is a capex line; anything else is ambiguous and dropped.
+  for (const byConcept of extCapex.values()) {
+    const [only] = byConcept.values();
+    if (byConcept.size === 1 && only) rows.push(only);
   }
 
   // Classify by the facts: the longest revenue/profit period that ends at the report's last date.
@@ -140,6 +176,7 @@ export function toCompanyFacts(name: string, filings: Array<{ meta: EsefFilingMe
       const filed = (meta.published ?? meta.processed).slice(0, 10);
       const row: RawFact = { val: r.v, end: r.e, accn: meta.fxo_id, filed, form, fy: fiscalYear(r.e) };
       if (r.s) row.start = r.s;
+      if (r.x) row.src = r.x;
       (units[r.u] ??= []).push(row);
     }
   }

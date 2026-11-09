@@ -28,7 +28,7 @@ export interface Item {
   ref: string;
 }
 
-export type ScoredItem = Item & { status: string; cause?: string; hints?: string[]; filed_value?: number | null; resolved?: string | null; other_line?: string };
+export type ScoredItem = Item & { status: string; cause?: string; hints?: string[]; filed_value?: number | null; resolved?: string | null; other_line?: string; computed?: boolean };
 
 export interface Score {
   valid: boolean;
@@ -73,10 +73,14 @@ export function normPeriod(p: unknown): string | null {
 }
 
 const words = (s: string) => new Set(s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").split(/[^a-z0-9]+/).filter((w) => w.length >= 2 && !STOP.has(w)));
-export function sameName(a: string, b: string): boolean {
-  const A = words(a), B = words(b);
-  for (const w of A) if (B.has(w)) return true;
-  return false;
+/** The name a model wrote matches an official name when every distinctive word of it is in the official one: "LVMH"
+ *  is LVMH Moet Hennessy Louis Vuitton, but "Coca-Cola Europacific Partners" is not The Coca-Cola Company. */
+export function sameName(written: string, official: string): boolean {
+  // Asides the model adds are not part of the name: "(Inditex)", "[target]", "- target".
+  const W = words(written.replace(/\([^)]*\)|\[[^\]]*\]|\s[-–—]\s*target\b.*$/gi, " ")), O = words(official);
+  if (W.size === 0) return false;
+  for (const w of W) if (!O.has(w)) return false;
+  return true;
 }
 
 /** Filed figures to tie out, and every typed number with its source. */
@@ -146,7 +150,8 @@ export async function secondReading(items: ScoredItem[], o: Opts = {}): Promise<
       continue;
     }
     const { cause: _c, ...rest } = x;
-    if (COMPUTED.has(x.metric)) {
+    // Computed by deskstack (EBITDA, net debt, a derived share count): a definition, not a filed figure.
+    if (COMPUTED.has(x.metric) || x.computed) {
       out.push({ ...rest, status: "definition", hints: [...(x.hints ?? []), "computed figure: differs from deskstack's definition, which varies between analysts"] });
       continue;
     }
@@ -179,7 +184,7 @@ async function resolvePeer(c: Connector, name: string, written: string, cache: M
     const r = await callWithRetry(c, "company_lookup", { query: q, limit: 5 }, o);
     if (r.isError) continue;
     for (const hit of (JSON.parse(r.text).results ?? []) as Array<{ name?: string; lei?: string; ticker?: string | null; cik?: number }>) {
-      if (hit.name && name && sameName(hit.name, name)) {
+      if (hit.name && name && sameName(name, hit.name)) {
         id = hit.lei ?? hit.ticker ?? (hit.cik ? String(hit.cik) : null);
         if (id) break outer;
       }
@@ -189,7 +194,7 @@ async function resolvePeer(c: Connector, name: string, written: string, cache: M
   return id;
 }
 
-const CAUSES: Array<[string, RegExp]> = [["scale", /^Scale:/], ["sign", /^Sign:/], ["currency", /^Currency:/], ["period", /^Period:/], ["line item", /^Line item:/]];
+const CAUSES: Array<[string, RegExp]> = [["scale", /^Scale:/], ["sign", /^Sign:/], ["currency", /^Currency:/], ["period", /^Period:/], ["line item", /^Line item:/], ["typo", /^Typo:/]];
 
 export async function verify(connector: Connector, items: Item[], o: Opts = {}, errors: string[] = []): Promise<ScoredItem[]> {
   const out: ScoredItem[] = [];
@@ -204,10 +209,10 @@ export async function verify(connector: Connector, items: Item[], o: Opts = {}, 
     groups.set(id, [...(groups.get(id) ?? []), { ...it, company: id }]);
   }
   const toArg = (x: Item) => ({ metric: x.metric, period: x.period, value: x.value, scale: x.scale, ...(x.currency ? { currency: x.currency } : {}), ref: x.ref });
-  const record = (x: Item, v: { status: string; hints?: string[]; filed?: number | null } | undefined) => {
+  const record = (x: Item, v: { status: string; hints?: string[]; filed?: number | null; computed?: boolean } | undefined) => {
     const hints = v?.hints ?? [];
     const cause = v?.status === "mismatch" ? (CAUSES.find(([, re]) => hints.some((h) => re.test(h)))?.[0] ?? "other") : undefined;
-    out.push({ ...x, status: v?.status ?? "unverifiable", ...(cause ? { cause } : {}), hints, filed_value: v?.filed ?? null, resolved: x.company });
+    out.push({ ...x, status: v?.status ?? "unverifiable", ...(cause ? { cause } : {}), hints, filed_value: v?.filed ?? null, resolved: x.company, ...(v?.computed ? { computed: true } : {}) });
   };
   for (const [company, list] of groups) {
     for (let i = 0; i < list.length; i += 50) {

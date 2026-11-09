@@ -149,6 +149,113 @@ describe("real filings", () => {
     expect(p.derived.net_debt!.value).toBe(2 - 5_276 - 5_684);
   });
 
+  it("an IFRS filer that tags only basic EPS gets it as diluted EPS, with a note (Inditex)", () => {
+    // Inditex FY2025 (ended 2026-01-31): basic EPS 1.996 EUR, no diluted EPS, no share count tagged.
+    const y = (v: number) => [fact(v, "2025-02-01", "2026-01-31", "i-25", "2026-03-20", "ESEF", 2025)];
+    const ns: Record<string, { units: Record<string, RawFact[]> }> = {
+      Revenue: { units: { EUR: y(39_900e6) } },
+      ProfitLossAttributableToOwnersOfParent: { units: { EUR: y(6_220e6) } },
+      BasicEarningsLossPerShare: { units: { "EUR/shares": y(1.996) } },
+    };
+    const p = standardize({ cik: 0, entityName: "Inditex", facts: { "ifrs-full": ns } } as never, 5, false).periods[0]!;
+    expect(p.values.diluted_eps).toMatchObject({ value: 1.996, concept: "ifrs-full:BasicEarningsLossPerShare" });
+    expect(p.values.diluted_eps!.note).toMatch(/basic EPS: the filer tags no diluted EPS/);
+  });
+
+  it("with no share count tagged, diluted shares are derived from net income and EPS, and say so", () => {
+    const y = (v: number) => [fact(v, "2025-02-01", "2026-01-31", "i-25", "2026-03-20", "ESEF", 2025)];
+    const facts = (extra: Record<string, { units: Record<string, RawFact[]> }>) =>
+      standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+        Revenue: { units: { EUR: y(30_000e6) } },
+        ProfitLossAttributableToOwnersOfParent: { units: { EUR: y(6_000e6) } },
+        BasicEarningsLossPerShare: { units: { "EUR/shares": y(2.0) } },
+        ...extra,
+      } } } as never, 5, false).periods[0]!.values;
+    const derived = facts({}).diluted_shares!;
+    expect(derived.value).toBe(3_000_000_000);
+    expect(derived.concept).toBe(""); // computed, so verify_value shows the formula
+    expect(derived.formula).toBe("net_income / basic EPS (no diluted EPS or share count tagged)");
+    expect(facts({ DilutedEarningsLossPerShare: { units: { "EUR/shares": y(2.0) } } }).diluted_shares!.formula).toBe(
+      "net_income / diluted_eps (no share count tagged)",
+    );
+    // A tagged share count always wins.
+    expect(facts({ AdjustedWeightedAverageShares: { units: { shares: y(3_050e6) } } }).diluted_shares!.value).toBe(3_050e6);
+  });
+
+  it("an IFRS filer that tags D&A only with impairment gets that figure, with a note (TotalEnergies, Ahold)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "t-25", "2026-03-20", "ESEF", 2025)];
+    const base = { Revenue: { units: { USD: y(180_000e6) } }, ProfitLossFromOperatingActivities: { units: { USD: y(20_000e6) } } };
+    const cf = (extra: Record<string, { units: Record<string, RawFact[]> }>) =>
+      standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": { ...base, ...extra } } } as never, 5, false).periods[0]!;
+    const withImp = cf({ AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss: { units: { USD: y(13_847e6) } } });
+    expect(withImp.values.d_and_a!.value).toBe(13_847e6);
+    expect(withImp.values.d_and_a!.note).toMatch(/includes impairment/);
+    // A D&A line without impairment always wins.
+    const both = cf({
+      AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss: { units: { USD: y(13_847e6) } },
+      AdjustmentsForDepreciationAndAmortisationExpense: { units: { USD: y(12_000e6) } },
+    });
+    expect(both.values.d_and_a!.value).toBe(12_000e6);
+    expect(both.values.d_and_a!.note).toBeUndefined();
+  });
+
+  it("derived shares: IFRS annual columns only, never for a loss, a tiny EPS or a US filer (review)", () => {
+    const y = (v: number) => [fact(v, "2025-02-01", "2026-01-31", "i-25", "2026-03-20", "ESEF", 2025)];
+    const ifrs = (ni: number, eps: number) =>
+      standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+        Revenue: { units: { EUR: y(30_000e6) } },
+        ProfitLossAttributableToOwnersOfParent: { units: { EUR: y(ni) } },
+        DilutedEarningsLossPerShare: { units: { "EUR/shares": y(eps) } },
+      } } } as never, 5, false).periods[0]!.values.diluted_shares;
+    expect(ifrs(-600e6, -2)).toBeNull(); // loss year
+    expect(ifrs(30e6, 0.12)).toBeNull(); // EPS in cents: the count would be off by percents
+    const us = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
+    const usCf = companyfacts({ Revenues: us(1_000e6), NetIncomeLoss: us(100e6) });
+    usCf.facts["us-gaap"]!.EarningsPerShareDiluted = { units: { "USD/shares": us(2.0) } };
+    expect(standardize(usCf, 5, false).periods[0]!.values.diluted_shares).toBeNull();
+  });
+
+  it("EBITDA says when D&A includes impairment, and notes add up instead of replacing each other (review)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "t-25", "2026-03-20", "ESEF", 2025)];
+    const p = standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+      Revenue: { units: { USD: y(180_000e6) } },
+      ProfitLossFromOperatingActivities: { units: { USD: y(20_000e6) } },
+      AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss: { units: { USD: y(13_847e6) } },
+    } } } as never, 5, false).periods[0]!;
+    expect(p.derived.ebitda).toEqual({ value: 33_847e6, formula: "operating_income + d_and_a (includes impairment)" });
+  });
+
+  it("Verizon-style capex says which line it is (review)", () => {
+    const y = (v: number) => [fact(v, "2024-01-01", "2024-12-31", "v-24", "2025-02-10", "10-K", 2024)];
+    const vz = { ...companyfacts({ Revenues: y(1), PaymentsToAcquireOtherProductiveAssets: y(17_090) }), cik: 732712 };
+    const capex = standardize(vz, 5, false).periods[0]!.values.capex!;
+    expect(capex).toMatchObject({ value: 17_090, concept: "us-gaap:PaymentsToAcquireOtherProductiveAssets" });
+    expect(capex.note).toMatch(/other productive assets/);
+    expect(standardize(vz, 5, false).periods[0]!.values).not.toHaveProperty("capex_other_productive");
+    // Any other filer: a small "other productive assets" line is not taken as capex (review, cycle 2).
+    expect(standardize(companyfacts({ Revenues: y(1), PaymentsToAcquireOtherProductiveAssets: y(40) }), 5, false).periods[0]!.values.capex).toBeNull();
+  });
+
+  it("derived shares prefer net income to ordinary holders, and say how far they can be off (review, cycle 2)", () => {
+    const y = (v: number) => [fact(v, "2021-01-01", "2021-12-31", "g-21", "2022-03-10", "ESEF", 2021)];
+    const shares = (extra: Record<string, { units: Record<string, RawFact[]> }>) =>
+      standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+        Revenue: { units: { EUR: y(20_000e6) } },
+        ProfitLossAttributableToOwnersOfParent: { units: { EUR: y(4_000e6) } },
+        DilutedEarningsLossPerShare: { units: { "EUR/shares": y(1.0) } },
+        ...extra,
+      } } } as never, 5, false).periods[0]!.values.diluted_shares!;
+    // ING-style: EPS is computed on profit to ordinary holders, after AT1 coupons.
+    const ord = shares({ ProfitLossAttributableToOrdinaryEquityHoldersOfParentEntity: { units: { EUR: y(3_900e6) } } });
+    expect(ord.value).toBe(3_900e6);
+    expect(ord.formula).toMatch(/^net income to ordinary holders \/ diluted_eps/);
+    expect(standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": { Revenue: { units: { EUR: y(1) } }, ProfitLossAttributableToOrdinaryEquityHoldersOfParentEntity: { units: { EUR: y(1) } } } } } as never, 5, false).periods[0]!.values).not.toHaveProperty("net_income_ordinary");
+    const owners = shares({});
+    expect(owners.value).toBe(4_000e6);
+    expect(owners.note).toMatch(/hybrid|AT1/);
+    expect(owners.note).toMatch(/±0\.5%/); // EPS 1.00 rounded to cents
+  });
+
   it("Toyota IFRS with no standard capex concept", () => {
     const r = standardize(facts("TM"), 1);
     const fy = r.periods[0]!;
@@ -256,6 +363,15 @@ describe("rules on synthetic facts", () => {
     expect(fixed.note).toMatch(/filed as 716.4, a scale error/);
     expect(mcd(716_400_000, 11.95).value).toBe(716_400_000); // already right: untouched
     expect(mcd(716.4, 3.1).value).toBe(716.4); // EPS doesn't confirm: left as filed
+  });
+
+  it("capex falls back to PaymentsToAcquireOtherProductiveAssets when nothing else is tagged (Verizon)", () => {
+    const y = (v: number) => [fact(v, "2024-01-01", "2024-12-31", "v-24", "2025-02-10", "10-K", 2024)];
+    const vz = standardize({ ...companyfacts({ Revenues: y(134_788), PaymentsToAcquireOtherProductiveAssets: y(17_090) }), cik: 732712 }, 5, false);
+    expect(vz.periods[0]!.values.capex).toMatchObject({ value: 17_090, concept: "us-gaap:PaymentsToAcquireOtherProductiveAssets" });
+    // PP&E purchases win when tagged.
+    const both = standardize({ ...companyfacts({ Revenues: y(1), PaymentsToAcquirePropertyPlantAndEquipment: y(100), PaymentsToAcquireOtherProductiveAssets: y(7) }), cik: 732712 }, 5, false);
+    expect(both.periods[0]!.values.capex!.value).toBe(100);
   });
 
   it("restated value comes from the latest filing; label from the original", () => {

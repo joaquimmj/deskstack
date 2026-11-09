@@ -3,7 +3,7 @@
 import { describe, expect, it } from "vitest";
 import { SNAPSHOT_YEARS } from "../src/config";
 import { standardize } from "../src/sec/xbrl";
-import { resolveMetric, resolvePeriod, summarize, verifyItems, type VerifyItem } from "../src/verify";
+import { resolveMetric, resolvePeriod, summarize, transposition, verifyItems, type VerifyItem } from "../src/verify";
 import { tteRecord } from "./esef-fixture";
 import { facts } from "./helpers";
 
@@ -78,11 +78,26 @@ describe("verify_value: planted errors are caught, with the right hint", () => {
     expect(r.hints.join(" ")).toMatch(/matches operating_income/);
   });
 
-  it("a typo (transposed digits) is a plain mismatch with the difference", () => {
+  it("transposed digits are a mismatch with a transposition hint", () => {
     const r = one(aapl, { metric: "revenue", period: "FY2024", value: 390.135, scale: "billions" });
     expect(r.status).toBe("mismatch");
     expect(r.difference).toBeCloseTo(390.135e9 - REV24, -3);
-    expect(r.hints).toEqual([]);
+    expect(r.hints).toEqual(["Typo: two adjacent digits look swapped (filed 391.035, written 390.135)."]);
+    // The hero's example, in millions.
+    expect(one(aapl, { metric: "revenue", period: "FY2024", value: 391_053, scale: "millions" }).hints[0]).toMatch(/^Typo: .*filed 391,035, written 391,053/);
+    // A different number with no swap gets no typo hint.
+    expect(one(aapl, { metric: "revenue", period: "FY2024", value: 391_530, scale: "millions" }).hints).toEqual([]);
+  });
+
+  it.each([
+    [-391_053, -391_035, true],
+    [391_053, -391_035, false], // sign differs
+    [3_910_530, 391_035, false], // length differs
+    [100.5, 105.0, true], // adjacent keys across the point are still a swap (a shifted decimal would be 10.5)
+    [12, 21, false], // two digits: too often a coincidence
+    [123.4, 132.4, true],
+  ])("transposition(%d, %d) flags a typo: %s (review)", (w, f, hit) => {
+    expect(transposition(w as number, f as number) !== null).toBe(hit);
   });
 
   it("rounding-aware: 391 and 391.04 (billions) are fair roundings of 391.035; 391.05 is not", () => {
