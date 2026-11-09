@@ -304,6 +304,15 @@ describe("rules on synthetic facts", () => {
     expect(mcd(716.4, 3.1).value).toBe(716.4); // EPS doesn't confirm: left as filed
   });
 
+  it("capex falls back to PaymentsToAcquireOtherProductiveAssets when nothing else is tagged (Verizon)", () => {
+    const y = (v: number) => [fact(v, "2024-01-01", "2024-12-31", "v-24", "2025-02-10", "10-K", 2024)];
+    const vz = standardize(companyfacts({ Revenues: y(134_788), PaymentsToAcquireOtherProductiveAssets: y(17_090) }), 5, false);
+    expect(vz.periods[0]!.values.capex).toMatchObject({ value: 17_090, concept: "us-gaap:PaymentsToAcquireOtherProductiveAssets" });
+    // PP&E purchases win when tagged.
+    const both = standardize(companyfacts({ Revenues: y(1), PaymentsToAcquirePropertyPlantAndEquipment: y(100), PaymentsToAcquireOtherProductiveAssets: y(7) }), 5, false);
+    expect(both.periods[0]!.values.capex!.value).toBe(100);
+  });
+
   it("restated value comes from the latest filing; label from the original", () => {
     const cf = companyfacts({
       Revenues: [
