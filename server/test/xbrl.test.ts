@@ -162,6 +162,21 @@ describe("real filings", () => {
     expect(p.values.diluted_eps!.note).toMatch(/basic EPS: the filer tags no diluted EPS/);
   });
 
+  it("an IFRS filer that tags EPS only from continuing operations gets it, with a note, and no derived shares (Iberdrola)", () => {
+    // Iberdrola FY2025: diluted EPS from continuing operations 0.843 EUR; no total EPS, no share count tagged.
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "ib-25", "2026-03-01", "ESEF", 2025)];
+    const p = standardize({ cik: 0, entityName: "Iberdrola", facts: { "ifrs-full": {
+      Revenue: { units: { EUR: y(45_000e6) } },
+      ProfitLossAttributableToOwnersOfParent: { units: { EUR: y(5_600e6) } },
+      BasicEarningsLossPerShareFromContinuingOperations: { units: { "EUR/shares": y(0.845) } },
+      DilutedEarningsLossPerShareFromContinuingOperations: { units: { "EUR/shares": y(0.843) } },
+    } } } as never, 5, false).periods[0]!.values;
+    expect(p.diluted_eps).toMatchObject({ value: 0.843, concept: "ifrs-full:DilutedEarningsLossPerShareFromContinuingOperations" });
+    expect(p.diluted_eps!.note).toMatch(/continuing operations/);
+    // Net income includes discontinued operations, so net income / this EPS is not a share count.
+    expect(p.diluted_shares).toBeNull();
+  });
+
   it("with no share count tagged, diluted shares are derived from net income and EPS, and say so", () => {
     const y = (v: number) => [fact(v, "2025-02-01", "2026-01-31", "i-25", "2026-03-20", "ESEF", 2025)];
     const facts = (extra: Record<string, { units: Record<string, RawFact[]> }>) =>
