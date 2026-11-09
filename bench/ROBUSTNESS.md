@@ -30,3 +30,13 @@ README say that web search's errors in the main runs depend on its search allowa
 with 30 searches and high effort. Either result is published, with this file.
 
 **Budget.** Hard cap $98 on the ledger ($73.80 spent before this check), per-run cap $3. Expected about $15-20.
+
+## Amendment, 2026-11-09, after the A30 pass and before any re-run
+
+In A30, 7 of 10 runs (AAPL, KO, TotalEnergies, Inditex, UNH, XOM, UPS) stopped on the runner's per-run cap ($3)
+without a table: the first submission was rejected (a missing market cap), and the worst-case bound for the request
+that would fix it (30 searches' worth of conversation, priced as if none of it were cached) crossed the cap after
+about $0.80 spent. That cap is a property of our runner, not of web search, so those 7 runs are re-run at A30 with a
+per-run cap of $6 (same companies, prompts, model, searches and effort), into a separate results folder. The ledger's
+hard cap stays $98. The A12 pass and the two A30 runs that finished are kept as they are. The reading rule above is
+unchanged.
