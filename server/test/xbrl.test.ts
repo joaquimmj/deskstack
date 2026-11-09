@@ -227,8 +227,31 @@ describe("real filings", () => {
 
   it("Verizon-style capex says which line it is (review)", () => {
     const y = (v: number) => [fact(v, "2024-01-01", "2024-12-31", "v-24", "2025-02-10", "10-K", 2024)];
-    const capex = standardize(companyfacts({ Revenues: y(1), PaymentsToAcquireOtherProductiveAssets: y(17_090) }), 5, false).periods[0]!.values.capex!;
+    const vz = { ...companyfacts({ Revenues: y(1), PaymentsToAcquireOtherProductiveAssets: y(17_090) }), cik: 732712 };
+    const capex = standardize(vz, 5, false).periods[0]!.values.capex!;
+    expect(capex).toMatchObject({ value: 17_090, concept: "us-gaap:PaymentsToAcquireOtherProductiveAssets" });
     expect(capex.note).toMatch(/other productive assets/);
+    // Any other filer: a small "other productive assets" line is not taken as capex (review, cycle 2).
+    expect(standardize(companyfacts({ Revenues: y(1), PaymentsToAcquireOtherProductiveAssets: y(40) }), 5, false).periods[0]!.values.capex).toBeNull();
+  });
+
+  it("derived shares prefer net income to ordinary holders, and say how far they can be off (review, cycle 2)", () => {
+    const y = (v: number) => [fact(v, "2021-01-01", "2021-12-31", "g-21", "2022-03-10", "ESEF", 2021)];
+    const shares = (extra: Record<string, { units: Record<string, RawFact[]> }>) =>
+      standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+        Revenue: { units: { EUR: y(20_000e6) } },
+        ProfitLossAttributableToOwnersOfParent: { units: { EUR: y(4_000e6) } },
+        DilutedEarningsLossPerShare: { units: { "EUR/shares": y(1.0) } },
+        ...extra,
+      } } } as never, 5, false).periods[0]!.values.diluted_shares!;
+    // ING-style: EPS is computed on profit to ordinary holders, after AT1 coupons.
+    const ord = shares({ ProfitLossAttributableToOrdinaryEquityHoldersOfParentEntity: { units: { EUR: y(3_900e6) } } });
+    expect(ord.value).toBe(3_900e6);
+    expect(ord.formula).toMatch(/^net income to ordinary holders \/ diluted_eps/);
+    const owners = shares({});
+    expect(owners.value).toBe(4_000e6);
+    expect(owners.note).toMatch(/hybrid|AT1/);
+    expect(owners.note).toMatch(/±0\.5%/); // EPS 1.00 rounded to cents
   });
 
   it("Toyota IFRS with no standard capex concept", () => {
@@ -342,10 +365,10 @@ describe("rules on synthetic facts", () => {
 
   it("capex falls back to PaymentsToAcquireOtherProductiveAssets when nothing else is tagged (Verizon)", () => {
     const y = (v: number) => [fact(v, "2024-01-01", "2024-12-31", "v-24", "2025-02-10", "10-K", 2024)];
-    const vz = standardize(companyfacts({ Revenues: y(134_788), PaymentsToAcquireOtherProductiveAssets: y(17_090) }), 5, false);
+    const vz = standardize({ ...companyfacts({ Revenues: y(134_788), PaymentsToAcquireOtherProductiveAssets: y(17_090) }), cik: 732712 }, 5, false);
     expect(vz.periods[0]!.values.capex).toMatchObject({ value: 17_090, concept: "us-gaap:PaymentsToAcquireOtherProductiveAssets" });
     // PP&E purchases win when tagged.
-    const both = standardize(companyfacts({ Revenues: y(1), PaymentsToAcquirePropertyPlantAndEquipment: y(100), PaymentsToAcquireOtherProductiveAssets: y(7) }), 5, false);
+    const both = standardize({ ...companyfacts({ Revenues: y(1), PaymentsToAcquirePropertyPlantAndEquipment: y(100), PaymentsToAcquireOtherProductiveAssets: y(7) }), cik: 732712 }, 5, false);
     expect(both.periods[0]!.values.capex!.value).toBe(100);
   });
 

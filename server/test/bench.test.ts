@@ -358,6 +358,11 @@ describe("second reading of mismatches (pilot 2026-11-08)", () => {
     expect(findInFiling(182_344e6, 0.5e6, facts)).toBe("tot:RevenuesFromSales");
   });
 
+  it("a figure verify_value computed (e.g. derived shares) is 'definition', not wrong (review, cycle 2)", async () => {
+    const out = await secondReading([{ company: "ITX", metric: "diluted_shares", period: "FY2025", value: 3_120, scale: "millions", ref: "bridge.diluted_shares", status: "mismatch", cause: "other", hints: [], computed: true }]);
+    expect(out[0]!.status).toBe("definition");
+  });
+
   it("computed figures become 'definition', reported lines found in the filing 'other_line', the rest stays wrong", async () => {
     const base = { company: "CAT", period: "FY2025", scale: "millions", status: "mismatch", cause: "other", hints: [] };
     const items = [

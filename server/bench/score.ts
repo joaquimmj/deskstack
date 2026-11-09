@@ -28,7 +28,7 @@ export interface Item {
   ref: string;
 }
 
-export type ScoredItem = Item & { status: string; cause?: string; hints?: string[]; filed_value?: number | null; resolved?: string | null; other_line?: string };
+export type ScoredItem = Item & { status: string; cause?: string; hints?: string[]; filed_value?: number | null; resolved?: string | null; other_line?: string; computed?: boolean };
 
 export interface Score {
   valid: boolean;
@@ -146,7 +146,8 @@ export async function secondReading(items: ScoredItem[], o: Opts = {}): Promise<
       continue;
     }
     const { cause: _c, ...rest } = x;
-    if (COMPUTED.has(x.metric)) {
+    // Computed by deskstack (EBITDA, net debt, a derived share count): a definition, not a filed figure.
+    if (COMPUTED.has(x.metric) || x.computed) {
       out.push({ ...rest, status: "definition", hints: [...(x.hints ?? []), "computed figure: differs from deskstack's definition, which varies between analysts"] });
       continue;
     }
@@ -204,10 +205,10 @@ export async function verify(connector: Connector, items: Item[], o: Opts = {}, 
     groups.set(id, [...(groups.get(id) ?? []), { ...it, company: id }]);
   }
   const toArg = (x: Item) => ({ metric: x.metric, period: x.period, value: x.value, scale: x.scale, ...(x.currency ? { currency: x.currency } : {}), ref: x.ref });
-  const record = (x: Item, v: { status: string; hints?: string[]; filed?: number | null } | undefined) => {
+  const record = (x: Item, v: { status: string; hints?: string[]; filed?: number | null; computed?: boolean } | undefined) => {
     const hints = v?.hints ?? [];
     const cause = v?.status === "mismatch" ? (CAUSES.find(([, re]) => hints.some((h) => re.test(h)))?.[0] ?? "other") : undefined;
-    out.push({ ...x, status: v?.status ?? "unverifiable", ...(cause ? { cause } : {}), hints, filed_value: v?.filed ?? null, resolved: x.company });
+    out.push({ ...x, status: v?.status ?? "unverifiable", ...(cause ? { cause } : {}), hints, filed_value: v?.filed ?? null, resolved: x.company, ...(v?.computed ? { computed: true } : {}) });
   };
   for (const [company, list] of groups) {
     for (let i = 0; i < list.length; i += 50) {

@@ -69,9 +69,10 @@ const days = (s: string, e: string) => Math.round((Date.parse(`${e}T00:00:00Z`) 
 
 // "PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssets", "PurchasesOfIntangibleAssetsPropertyPlantAndEquipment...",
 // "InvestmentsInPropertyPlantAndEquipmentAndIntangibleAssets": PP&E and intangibles, both named, bought or invested in.
-// Look-alikes are excluded: unpaid or accrued amounts, leases, associates, acquisitions of businesses, disposals.
-// Investment property stays in, as in the standard IFRS concept (Airbus tags PP&E, intangibles and investment property).
-const EXT_CAPEX = /^(purchases?of|investmentsin|acquisitionsof)(?=.*propertyplantandequipment)(?=.*intangible)(?!.*(proceeds|sale|disposal|subsidiar|financial|notyet|unpaid|accrued|payable|lease|rightofuse|associate|jointventure|business|grant))/i;
+// An allowlist of whole names (review: a denylist kept letting look-alikes through): purchases of / investments in
+// PP&E and intangible assets, in either order, optionally "and purchase of", "other than goodwill", "and investment
+// property", "and other non-current assets", "classified as investing activities". Nothing else may follow.
+const EXT_CAPEX = /^(purchases?of|investmentsin|acquisitionsof)(propertyplantandequipment(and)?(purchaseof)?intangibleassets|intangibleassets(and)?propertyplantandequipment)(otherthangoodwill)?((and)?investmentproperty)?((and)?othernoncurrentassets)?(classifiedasinvestingactivities)?$/i;
 // A well-formed QName: the issuer's concept is published as-is, so nothing else gets through.
 const QNAME = /^[A-Za-z_][\w.-]{0,63}:[A-Za-z_][\w.-]{0,200}$/;
 
@@ -79,7 +80,7 @@ const QNAME = /^[A-Za-z_][\w.-]{0,63}:[A-Za-z_][\w.-]{0,200}$/;
 export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: string): ExtractedFiling {
   const seen = new Set<string>();
   const rows: EsefRow[] = [];
-  const extCapex = new Map<string, Map<string, EsefRow>>();
+  const extCapex = new Map<string, Map<string, EsefRow | null>>();
   let extension = 0;
   for (const f of Object.values(doc.facts ?? {})) {
     const dims = f.dimensions ?? {};
@@ -111,7 +112,10 @@ export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: s
       row.v = Math.abs(row.v);
       const k = `${row.u}|${row.s}|${row.e}`;
       if (!extCapex.has(k)) extCapex.set(k, new Map());
-      extCapex.get(k)!.set(x, row);
+      const byConcept = extCapex.get(k)!;
+      const prev = byConcept.get(x);
+      // The same concept twice with different values is a conflict: null drops the period below.
+      byConcept.set(x, prev === undefined || (prev && prev.v === row.v) ? row : null);
       continue;
     }
     const key = `${row.c}|${row.u}|${row.s}|${row.e}`;
@@ -119,8 +123,11 @@ export function extractFiling(doc: { facts?: Record<string, OimFact> }, fxoId: s
     seen.add(key);
     rows.push(row);
   }
-  // One issuer concept per period is a capex line; two different ones are ambiguous, so neither is used.
-  for (const byConcept of extCapex.values()) if (byConcept.size === 1) rows.push(...byConcept.values());
+  // One issuer concept per period, with one value, is a capex line; anything else is ambiguous and dropped.
+  for (const byConcept of extCapex.values()) {
+    const [only] = byConcept.values();
+    if (byConcept.size === 1 && only) rows.push(only);
+  }
 
   // Classify by the facts: the longest revenue/profit period that ends at the report's last date.
   const flow = new Set([...IFRS_DURATION_CONCEPTS.revenue!, ...IFRS_DURATION_CONCEPTS.net_income!, "ProfitLoss"]);

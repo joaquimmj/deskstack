@@ -22,7 +22,7 @@
 // ifrs-full with their own concept map, in their reporting currency. A filer
 // with both taxonomies (Sony) is read from whichever has the latest fiscal year.
 
-import { OPERATING_INCOME_FROM_COSTS } from "../config";
+import { CAPEX_FROM_OTHER_PRODUCTIVE_ASSETS, OPERATING_INCOME_FROM_COSTS } from "../config";
 
 export const DURATION_CONCEPTS: Record<string, string[]> = {
   revenue: [
@@ -52,8 +52,9 @@ export const DURATION_CONCEPTS: Record<string, string[]> = {
   // Operating income for filers in OPERATING_INCOME_FROM_COSTS (revenue - costs and expenses).
   costs_and_expenses: ["CostsAndExpenses"],
   operating_cash_flow: ["NetCashProvidedByUsedInOperatingActivities"],
-  // Last: Verizon tags its capital expenditures as "other productive assets".
-  capex: ["PaymentsToAcquirePropertyPlantAndEquipment", "PaymentsToAcquireProductiveAssets", "PaymentsToAcquireOtherProductiveAssets"],
+  capex: ["PaymentsToAcquirePropertyPlantAndEquipment", "PaymentsToAcquireProductiveAssets"],
+  // Capex only for filers in CAPEX_FROM_OTHER_PRODUCTIVE_ASSETS (Verizon); elsewhere it is a minor line.
+  capex_other_productive: ["PaymentsToAcquireOtherProductiveAssets"],
   diluted_shares: ["WeightedAverageNumberOfDilutedSharesOutstanding"],
   diluted_eps: ["EarningsPerShareDiluted"],
 };
@@ -94,6 +95,8 @@ export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
   operating_income: ["ProfitLossFromOperatingActivities"],
   pretax_income: ["ProfitLossBeforeTax"],
   net_income: ["ProfitLossAttributableToOwnersOfParent", "ProfitLoss"],
+  // EPS's own numerator (after coupons on hybrid / AT1 instruments): used to derive an untagged share count.
+  net_income_ordinary: ["ProfitLossAttributableToOrdinaryEquityHoldersOfParentEntity"],
   interest_expense: ["InterestExpense", "FinanceCosts"],
   // Impairment-inclusive D&A concepts come last, for filers that tag nothing else (TotalEnergies, AB InBev, Ahold,
   // Iberdrola); adjustRow notes it on the cell, since EBITDA then includes impairment.
@@ -491,9 +494,10 @@ const accs = (...cells: Cell[]) => [...new Set(cells.flatMap((c) => c.accessions
  * - operating income for filers in OPERATING_INCOME_FROM_COSTS: revenue - costs and expenses;
  * - D&A tagged only together with impairment (IFRS): noted, and EBITDA's formula says so (derive);
  * - basic EPS standing in for an untagged diluted EPS (IFRS): noted;
- * - no share count tagged (IFRS, annual columns): net income attributable to owners / EPS, as a computed cell, only
- *   for a profit and an EPS of at least 0.50 (EPS is rounded to cents);
- * - capex tagged as "other productive assets" (Verizon): noted;
+ * - no share count tagged (IFRS, annual columns): net income to ordinary holders (else to owners) / EPS, as a
+ *   computed cell with its precision and, for the owners' figure, the hybrid-coupon caveat; only for a profit and an
+ *   EPS of at least 0.50 (EPS is rounded to cents);
+ * - capex for filers in CAPEX_FROM_OTHER_PRODUCTIVE_ASSETS (Verizon): their "other productive assets" line, noted;
  * - a diluted share count off by a thousand or a million (McDonald's FY2025: 716.4), rescaled only when
  *   net income / diluted EPS confirms the corrected figure within 3%.
  */
@@ -527,31 +531,39 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false): voi
   }
   const basicEps = row.diluted_eps?.concept === "ifrs-full:BasicEarningsLossPerShare";
   if (basicEps) row.diluted_eps = withNote(row.diluted_eps!, "basic EPS: the filer tags no diluted EPS");
-  const ni = row.net_income;
+  const ordinary = row.net_income_ordinary;
+  const owners = row.net_income?.concept === "ifrs-full:ProfitLossAttributableToOwnersOfParent" ? row.net_income : null;
+  const num = ordinary ?? owners;
   const eps = row.diluted_eps;
-  if (!ltm && !row.diluted_shares && ni && eps && ni.value > 0 && eps.value >= 0.5 &&
-      ni.concept === "ifrs-full:ProfitLossAttributableToOwnersOfParent") {
+  if (!ltm && !row.diluted_shares && num && eps && num.value > 0 && eps.value >= 0.5) {
+    const band = `±${((0.005 / eps.value) * 100).toFixed(1)}%`;
+    const den = basicEps ? "basic EPS (no diluted EPS or share count tagged)" : "diluted_eps (no share count tagged)";
     row.diluted_shares = {
-      value: Math.round(ni.value / eps.value),
+      value: Math.round(num.value / eps.value),
       concept: "", // computed: verify_value shows the formula
-      accessions: accs(ni, eps),
-      formula: basicEps ? "net_income / basic EPS (no diluted EPS or share count tagged)" : "net_income / diluted_eps (no share count tagged)",
+      accessions: accs(num, eps),
+      formula: `${ordinary ? "net income to ordinary holders" : "net_income"} / ${den}`,
+      note: ordinary
+        ? `approximate (${band}): EPS is rounded to cents`
+        : `approximate (${band}): EPS is rounded to cents; if the issuer pays coupons on hybrid or AT1 instruments, ` +
+          "the count is overstated (EPS excludes them, net income to owners includes them)",
     };
   }
-  if (row.capex?.concept === "us-gaap:PaymentsToAcquireOtherProductiveAssets") {
-    row.capex = withNote(row.capex, "tagged as other productive assets, the filer's only capex line here; check it against the cash-flow statement");
+  const otherCapex = ctx.cik !== undefined ? CAPEX_FROM_OTHER_PRODUCTIVE_ASSETS[ctx.cik] : undefined;
+  if (!row.capex && otherCapex && row.capex_other_productive) {
+    row.capex = withNote(row.capex_other_productive, otherCapex);
   }
   const sh = row.diluted_shares;
+  const ni = row.net_income;
   if (sh && ni && eps && eps.value !== 0) {
     const implied = ni.value / eps.value;
     if (implied > 0 && Math.abs(sh.value / implied - 1) > 0.5) {
       for (const k of [1e3, 1e6]) {
         if (Math.abs((sh.value * k) / implied - 1) < 0.03) {
-          row.diluted_shares = {
-            ...sh,
-            value: sh.value * k,
-            note: `filed as ${sh.value}, a scale error in the filer's XBRL: net income / diluted EPS gives ${Math.round(implied).toLocaleString("en-US")}, so multiplied by ${k.toLocaleString("en-US")}`,
-          };
+          row.diluted_shares = withNote(
+            { ...sh, value: sh.value * k },
+            `filed as ${sh.value}, a scale error in the filer's XBRL: net income / diluted EPS gives ${Math.round(implied).toLocaleString("en-US")}, so multiplied by ${k.toLocaleString("en-US")}`,
+          );
           break;
         }
       }
@@ -781,7 +793,7 @@ export function standardize(cf: CompanyFacts, years = 5, includeLtm = true, opts
 
   const notes = [
     "Values are as most recently reported (restatements included); each cites its filing.",
-    "Balance-sheet items are period-end instants. Share counts are weighted diluted.",
+    "Balance-sheet items are period-end instants. Share counts are weighted diluted; where none is tagged (some IFRS filers) the count is computed from net income and EPS, with its formula and precision.",
     "Derived metrics show their formula. EBITDA is null when operating income is not " +
       "reported (common for banks and insurers, where EBITDA is not meaningful).",
   ];
