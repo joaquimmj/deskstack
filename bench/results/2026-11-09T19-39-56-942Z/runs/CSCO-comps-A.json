@@ -1,0 +1,44 @@
+{
+ "company": "CSCO",
+ "task": "comps",
+ "arm": "A",
+ "run": {
+  "status": "error",
+  "submission": null,
+  "first_submission": null,
+  "submit_attempts": 0,
+  "requests": 0,
+  "usage": {
+   "input_tokens": 0,
+   "output_tokens": 0
+  },
+  "cost": 0.46528499999999995,
+  "seconds": 301.041,
+  "tool_calls": {},
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: web_search (public web pages). No other data source is available.\n\nBuild a trading comparables table for Cisco Systems, Inc. (identifier: CSCO) with 4 to 6 listed peers.\n- For the target and each peer: revenue, EBITDA, net income and net debt for the last filed fiscal year (or LTM if\n  you state it), each in that company's reporting currency, each with its source and period.\n- Market cap for each: use any source you can cite (market caps are not scored).\n- If a figure isn't available for a peer, replace that peer rather than leaving the figure empty.\nSubmit it with submit_model, kind \"comps\"."
+   }
+  ],
+  "error": "Request timed out."
+ },
+ "score": {
+  "valid": false,
+  "filed": 0,
+  "match": 0,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 0,
+  "unsourced": 0,
+  "items": [],
+  "unsourced_refs": [],
+  "errors": [],
+  "error": "no model submitted"
+ }
+}

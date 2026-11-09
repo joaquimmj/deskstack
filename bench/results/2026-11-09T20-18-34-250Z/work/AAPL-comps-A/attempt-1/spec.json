@@ -1,0 +1,129 @@
+{
+ "kind": "comps",
+ "target": "AAPL",
+ "currency": "USD",
+ "scale": "millions",
+ "period": "Last filed fiscal year per company (AAPL FY2026 to 26-Sep-2026; MSFT FY2026 to 30-Jun-2026; GOOGL FY2025 to 31-Dec-2025; Samsung FY2025 to 31-Dec-2025)",
+ "peers": [
+  {
+   "name": "Apple Inc. (target)",
+   "ticker": "AAPL",
+   "currency": "USD",
+   "revenue": {
+    "value": 478834,
+    "period": "FY2026",
+    "source": "Apple 10-K FY ended 26-Sep-2026, acc. 0000320193-26-000026, Consolidated Statements of Operations: Total net sales"
+   },
+   "ebitda": {
+    "value": 171486,
+    "period": "FY2026",
+    "source": "Computed = operating income 158,063 + D&A 13,423 (Apple 10-K acc. 0000320193-26-000026, income statement and cash flow statement)"
+   },
+   "net_income": {
+    "value": 132175,
+    "period": "FY2026",
+    "source": "Apple 10-K acc. 0000320193-26-000026, Net income"
+   },
+   "market_cap": {
+    "value": null,
+    "period": "n/a",
+    "source": "not found (market cap search not performed before the search tool limit was hit; not scored)"
+   },
+   "net_debt": {
+    "value": 23389,
+    "period": "FY2026 (26-Sep-2026)",
+    "source": "Computed from Apple 10-K acc. 0000320193-26-000026 balance sheet: commercial paper 1,997 + current term debt 9,906 + non-current term debt 68,208 = 80,111 debt, less cash 36,305, less current marketable securities 20,417. Non-current marketable securities excluded per convention (cash + short-term investments only)."
+   }
+  },
+  {
+   "name": "Microsoft Corporation",
+   "ticker": "MSFT",
+   "currency": "USD",
+   "revenue": {
+    "value": 331839,
+    "period": "FY2026",
+    "source": "Microsoft FY2026 (FYE 30-Jun-2026) 10-K, acc. 0001193125-26-323660: Total revenue"
+   },
+   "ebitda": {
+    "value": 193771,
+    "period": "FY2026",
+    "source": "Computed = operating income 155,237 + 'Depreciation, amortization, and other' 38,534 (Microsoft 10-K acc. 0001193125-26-323660 income statement and cash flow statement). D&A line includes 'other' so slightly overstated."
+   },
+   "net_income": {
+    "value": 133749,
+    "period": "FY2026",
+    "source": "Microsoft 10-K acc. 0001193125-26-323660: Net income"
+   },
+   "market_cap": {
+    "value": null,
+    "period": "n/a",
+    "source": "not found (not scored)"
+   },
+   "net_debt": {
+    "value": -36549,
+    "period": "FY2026 (30-Jun-2026)",
+    "source": "Computed: current portion of LT debt 9,227 + LT debt 31,067 = 40,294 (Microsoft FY26 Q4 earnings release, microsoft.com/investor fy-2026-q4) less cash 20,935 less short-term investments 55,908 (Microsoft Annual Report 2026 balance sheet). Leases excluded."
+   }
+  },
+  {
+   "name": "Alphabet Inc.",
+   "ticker": "GOOGL",
+   "currency": "USD",
+   "revenue": {
+    "value": 402836,
+    "period": "FY2025",
+    "source": "Alphabet 10-K FY2025 (FYE 31-Dec-2025), acc. 0001652044-26-000018: Total revenues"
+   },
+   "ebitda": {
+    "value": 150175,
+    "period": "FY2025",
+    "source": "Computed = income from operations 129,039 + depreciation of property and equipment 21,136 (Alphabet 10-K acc. 0001652044-26-000018 / 2025 annual report cash flow statement). Intangible amortization not separately disclosed in cash flow statement, so EBITDA may be slightly understated."
+   },
+   "net_income": {
+    "value": 132170,
+    "period": "FY2025",
+    "source": "Alphabet 10-K acc. 0001652044-26-000018: Net income (includes large non-operating gains on equity securities)"
+   },
+   "market_cap": {
+    "value": null,
+    "period": "n/a",
+    "source": "not found (not scored)"
+   },
+   "net_debt": {
+    "value": -78300,
+    "period": "FY2025 (31-Dec-2025)",
+    "source": "Computed from Alphabet 10-K acc. 0001652044-26-000018: long-term debt 46,547 + current portion of long-term notes 1,996 (no commercial paper outstanding at 31-Dec-2025) = 48,543, less cash 30,708 less marketable securities 96,135 (2025 annual report balance sheet). Leases excluded."
+   }
+  },
+  {
+   "name": "Samsung Electronics Co., Ltd.",
+   "ticker": "005930.KS",
+   "currency": "KRW",
+   "revenue": {
+    "value": 333605938,
+    "period": "FY2025",
+    "source": "Samsung Electronics FY2025 consolidated financial statements (2025_con_quarter04_all.pdf, images.samsung.com IR), KRW millions: Revenue"
+   },
+   "ebitda": {
+    "value": 89656720,
+    "period": "FY2025",
+    "source": "Computed = operating profit 43,601,051 + depreciation approx. 43,610,000 (Samsung 4Q25 conference deck, KRW 43.61T; rounded to 0.01T) + amortization 2,445,669 (9M 2025 only, Q3 2025 interim report; Q4 amortization NOT FOUND so D&A slightly understated). Cross-check: investing.com summary shows EBITDA 89.26T."
+   },
+   "net_income": {
+    "value": 44260956,
+    "period": "FY2025",
+    "source": "Net income attributable to owners of parent, FY2025, per stockanalysis.com 005930 financials (KRW millions); profit for the period incl. non-controlling interests is 45,206,805 per Samsung 4Q25 interim report"
+   },
+   "market_cap": {
+    "value": null,
+    "period": "n/a",
+    "source": "not found (not scored)"
+   },
+   "net_debt": {
+    "value": -100582260,
+    "period": "FY2025 (31-Dec-2025)",
+    "source": "Computed from Samsung FY2025 consolidated statement of financial position (2025_con_quarter04_all.pdf): short-term borrowings 17,574,980 + current portion of LT liabilities 1,177,508 + debentures 7,134 + LT borrowings 6,479,517 = 25,239,139, less cash 57,856,378 less short-term financial instruments 67,965,021"
+   }
+  }
+ ]
+}
