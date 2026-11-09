@@ -1,0 +1,105 @@
+{
+ "kind": "dcf",
+ "company": "L'Oréal",
+ "ticker": "529900JI1GG6F7RKVI53",
+ "currency": "EUR",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     41182.5,
+     43486.8,
+     44052
+    ],
+    "source": "ESEF 529900JI1GG6F7RKVI53-2025-12-31-ESEF-FR-0, ifrs-full:Revenue"
+   },
+   "operating_income": {
+    "values": [
+     7693.4,
+     8249.8,
+     8386.5
+    ],
+    "source": "Same ESEF report, ifrs-full:ProfitLossFromOperatingActivities"
+   },
+   "d_and_a": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: D&A null in deskstack ESEF data for all three years; not filled from memory"
+   },
+   "capex": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: capex null in deskstack ESEF data for all three years; not filled from memory"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.04,
+    0.045,
+    0.045,
+    0.04,
+    0.035
+   ],
+   "source": "Assumption: FY2025 growth was 1.3% (44,052 vs 43,487), FY2024 5.6%; assume recovery to mid-single digit then fade toward terminal growth, in line with beauty-market growth"
+  },
+  "ebit_margin": {
+   "value": 0.19,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: filed EBIT margin 18.7% FY2023, 19.0% FY2024, 19.0% FY2025 (operating income / revenue from ESEF); hold at 19%"
+  },
+  "tax_rate": {
+   "value": 0.25,
+   "source": "Assumption: approx. French statutory corporate rate (~25%); filed pretax/tax lines not available in tool data; Damodaran Europe Household Products effective rate 14.7% judged too low"
+  },
+  "da_pct_revenue": {
+   "value": 0.04,
+   "source": "Assumption/placeholder: D&A not found in filed data; set equal to capex % so net effect on FCF is neutral; reviewer should replace from the annual report cash flow statement"
+  },
+  "capex_pct_revenue": {
+   "value": 0.04,
+   "source": "Assumption/placeholder: capex not found in filed data; set equal to D&A %; reviewer should replace from the annual report"
+  },
+  "wacc": {
+   "value": 0.07,
+   "source": "CAPM: rf 3.266% (ECB 10Y AAA, 2026-11-05) + relevered beta 0.79 (Damodaran Europe Household Products unlevered cash-corrected 0.711, D/E 0.144, tax 25%) x France ERP 5.006% = Ke ~7.2%; Kd after-tax 4.1% (Damodaran), weights 87/13 gives ~6.8%; rounded to 7.0%"
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "source": "Assumption: long-run euro area inflation/nominal growth, below the 3.27% risk-free rate. Note: terminal value is ~79% of EV, typical for a stable, high-quality consumer franchise with a 5-year horizon; reviewer should treat the result as sensitive to WACC and g"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 253.6,
+   "period": "FY2025",
+   "source": "deskstack derived net_debt = borrowings_noncurrent 8,069.7 + current 2,048.9 - cash 9,865.0 (ESEF 529900JI1GG6F7RKVI53-2025-12-31-ESEF-FR-0); excludes leases"
+  },
+  "diluted_shares": {
+   "value": null,
+   "period": "FY2025",
+   "source": "not found: weighted diluted shares are not reported in the deskstack ESEF data (FY2025 diluted EPS 11.44 and net income to owners 6,127.2m are filed, implying ~535.6m, but that is an unfiled derivation; reviewer to take the figure from the annual report EPS note)"
+  }
+ }
+}

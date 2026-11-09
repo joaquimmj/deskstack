@@ -1,0 +1,754 @@
+{
+ "company": "XOM",
+ "task": "dcf",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Exxon Mobil Corporation",
+   "ticker": "XOM",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       344582,
+       349585,
+       332238
+      ],
+      "source": "deskstack financial_statements, us-gaap:Revenues, 10-K accession 0000034088-26-000045"
+     },
+     "operating_income": {
+      "values": [
+       53632,
+       49869,
+       41871
+      ],
+      "source": "Operating income not reported in XBRL (null). Proxy = pretax income (us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxes...) + us-gaap:InterestExpense: FY23 52783+849, FY24 48873+996, FY25 41268+603; accession 0000034088-26-000045. Includes equity income; reviewer should verify."
+     },
+     "d_and_a": {
+      "values": [
+       20641,
+       23442,
+       25993
+      ],
+      "source": "us-gaap:DepreciationDepletionAndAmortization, accession 0000034088-26-000045"
+     },
+     "capex": {
+      "values": [
+       21919,
+       24306,
+       28358
+      ],
+      "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000034088-26-000045"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0,
+      0.015,
+      0.02,
+      0.02,
+      0.02
+     ],
+     "source": "Assumption: FY2025 revenue fell 5.0%; flat commodity-price deck in 2026, then growth near inflation/volume growth of ~2%."
+    },
+    "ebit_margin": {
+     "value": 0.13,
+     "source": "Assumption: proxy EBIT margin was 15.6%/14.3%/12.6% in FY23-25; hold ~13%, near FY25 level with modest mean reversion."
+    },
+    "tax_rate": {
+     "value": 0.28,
+     "source": "Damodaran US Oil/Gas (Integrated) effective tax rate 28.2% (dataset 2026-01-05)."
+    },
+    "da_pct_revenue": {
+     "value": 0.078,
+     "source": "FY2025 D&A 25,993 / revenue 332,238 = 7.8%."
+    },
+    "capex_pct_revenue": {
+     "value": 0.085,
+     "source": "FY2025 capex 28,358 / revenue 332,238 = 8.5%; consistent with growing capex program."
+    },
+    "wacc": {
+     "value": 0.075,
+     "source": "Assumption. CAPM check: rf 4.86% (US 10Y, 2026-11-06) + relevered beta ~0.31 (Damodaran unlevered cash-corrected 0.278, D/E 0.138, tax 25%) x ERP 4.46% = ~6.2% Ke; Damodaran industry WACC 5.1%. Rounded up to 7.5% as the industry beta looks low (4 firms) for a cyclical commodity producer."
+    },
+    "terminal_growth": {
+     "value": 0.02,
+     "source": "Assumption: long-run inflation-like growth, below the 4.86% risk-free rate; energy transition caps higher growth."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 32856,
+     "period": "FY2025",
+     "source": "deskstack derived: total debt 43,537 (LT 34,241 + current 9,296) - cash 10,681; no short-term investments reported; accession 0000034088-26-000045"
+    },
+    "diluted_shares": {
+     "value": 4305,
+     "period": "FY2025",
+     "source": "Weighted diluted shares not reported in the data (null). Derived = net income 28,844M / diluted EPS 6.70 = ~4,305M; approximate, verify against the 10-K. Cover-page shares 4,144.9M at 2026-03-31."
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Exxon Mobil Corporation",
+   "ticker": "XOM",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       344582,
+       349585,
+       332238
+      ],
+      "source": "deskstack financial_statements, us-gaap:Revenues, 10-K accession 0000034088-26-000045"
+     },
+     "operating_income": {
+      "values": [
+       53632,
+       49869,
+       41871
+      ],
+      "source": "Operating income not reported in XBRL (null). Proxy = pretax income (us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxes...) + us-gaap:InterestExpense: FY23 52783+849, FY24 48873+996, FY25 41268+603; accession 0000034088-26-000045. Includes equity income; reviewer should verify."
+     },
+     "d_and_a": {
+      "values": [
+       20641,
+       23442,
+       25993
+      ],
+      "source": "us-gaap:DepreciationDepletionAndAmortization, accession 0000034088-26-000045"
+     },
+     "capex": {
+      "values": [
+       21919,
+       24306,
+       28358
+      ],
+      "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000034088-26-000045"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0,
+      0.015,
+      0.02,
+      0.02,
+      0.02
+     ],
+     "source": "Assumption: FY2025 revenue fell 5.0%; flat commodity-price deck in 2026, then growth near inflation/volume growth of ~2%."
+    },
+    "ebit_margin": {
+     "value": 0.13,
+     "source": "Assumption: proxy EBIT margin was 15.6%/14.3%/12.6% in FY23-25; hold ~13%, near FY25 level with modest mean reversion."
+    },
+    "tax_rate": {
+     "value": 0.28,
+     "source": "Damodaran US Oil/Gas (Integrated) effective tax rate 28.2% (dataset 2026-01-05)."
+    },
+    "da_pct_revenue": {
+     "value": 0.078,
+     "source": "FY2025 D&A 25,993 / revenue 332,238 = 7.8%."
+    },
+    "capex_pct_revenue": {
+     "value": 0.085,
+     "source": "FY2025 capex 28,358 / revenue 332,238 = 8.5%; consistent with growing capex program."
+    },
+    "wacc": {
+     "value": 0.075,
+     "source": "Assumption. CAPM check: rf 4.86% (US 10Y, 2026-11-06) + relevered beta ~0.31 (Damodaran unlevered cash-corrected 0.278, D/E 0.138, tax 25%) x ERP 4.46% = ~6.2% Ke; Damodaran industry WACC 5.1%. Rounded up to 7.5% as the industry beta looks low (4 firms) for a cyclical commodity producer."
+    },
+    "terminal_growth": {
+     "value": 0.02,
+     "source": "Assumption: long-run inflation-like growth, below the 4.86% risk-free rate; energy transition caps higher growth."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 32856,
+     "period": "FY2025",
+     "source": "deskstack derived: total debt 43,537 (LT 34,241 + current 9,296) - cash 10,681; no short-term investments reported; accession 0000034088-26-000045"
+    },
+    "diluted_shares": {
+     "value": 4305,
+     "period": "FY2025",
+     "source": "Weighted diluted shares not reported in the data (null). Derived = net income 28,844M / diluted EPS 6.70 = ~4,305M; approximate, verify against the 10-K. Cover-page shares 4,144.9M at 2026-03-31."
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 3,
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 2380,
+   "cache_creation_input_tokens": 15525,
+   "cache_read_input_tokens": 21543,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.0669371,
+  "seconds": 17.295,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 2,
+   "verify_value": 1,
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a quick unlevered DCF for Exxon Mobil Corporation (identifier: XOM).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7213,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7213,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 257,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0206105,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01RdBW2Eau5xNx4hzVSgwK3p",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "XOM",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01TGF9LiV9VAVeFjcpd5CFLx",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01QoxTQi18gb6qtP1CZ6gbJ9",
+      "name": "valuation_inputs",
+      "input": {
+       "industry": "Oil/Gas (Integrated)"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01HiAfcwSaubAz7o7pNtXGtm",
+      "name": "valuation_inputs",
+      "input": {
+       "country": "United States"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01RdBW2Eau5xNx4hzVSgwK3p",
+      "content": "{\"predecessor_note\":\"ExxonMobil Holdings Corp (CIK 2115436, ticker XOM) has no 10-K yet: ExxonMobil Holdings Corp became the listed parent of Exxon Mobil Corp in July 2026. These figures are the predecessor's, EXXON MOBIL CORP (CIK 34088); cite its filings. Interim reports filed by the new registrant are not included.\",\"summary\":\"Exxon Mobil Corporation (CIK 34088), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 332.2B USD, net income 28.8B USD. 3 period(s), 3 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Exxon Mobil Corporation\",\"ticker\":null,\"cik\":34088,\"exchange\":null,\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2911\",\"sic_description\":\"Petroleum Refining\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"start\":\"2023-01-01\",\"end\":\"2023-12-31\",\"income_statement\":{\"revenue\":{\"value\":344582000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000034088-26-000045\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":849000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0000034088-26-000045\"},\"pretax_income\":{\"value\":52783000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000034088-26-000045\"},\"net_income\":{\"value\":36010000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000034088-26-000045\"},\"diluted_shares\":null,\"diluted_eps\":{\"value\":8.89,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000034088-26-000045\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":55369000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000034088-26-000045\"},\"capex\":{\"value\":21919000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000034088-26-000045\"},\"d_and_a\":{\"value\":20641000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000034088-26-000045\"}},\"balance_sheet\":{\"cash\":{\"value\":31539000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000034088-25-000010\"},\"short_term_investments\":null,\"total_assets\":{\"value\":376317000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000034088-25-000010\"},\"total_equity\":{\"value\":204802000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000034088-25-000010\"},\"ltd_noncurrent\":{\"value\":37483000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000034088-25-000010\"},\"ltd_total\":null,\"debt_current\":{\"value\":4090000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000034088-25-000010\"},\"ltd_current\":{\"value\":4009000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000034088-24-000018\"},\"commercial_paper\":{\"value\":75000000,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000034088-25-000010\"},\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":33450000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":41573000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":10034000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2024-01-01\",\"end\":\"2024-12-31\",\"income_statement\":{\"revenue\":{\"value\":349585000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000034088-26-000045\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":996000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0000034088-26-000045\"},\"pretax_income\":{\"value\":48873000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000034088-26-000045\"},\"net_income\":{\"value\":33680000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000034088-26-000045\"},\"diluted_shares\":null,\"diluted_eps\":{\"value\":7.84,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000034088-26-000045\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":55022000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000034088-26-000045\"},\"capex\":{\"value\":24306000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000034088-26-000045\"},\"d_and_a\":{\"value\":23442000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000034088-26-000045\"}},\"balance_sheet\":{\"cash\":{\"value\":23029000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000034088-26-000045\"},\"short_term_investments\":null,\"total_assets\":{\"value\":453475000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000034088-26-000045\"},\"total_equity\":{\"value\":263705000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000034088-26-000045\"},\"ltd_noncurrent\":{\"value\":36755000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000034088-26-000045\"},\"ltd_total\":null,\"debt_current\":{\"value\":4955000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000034088-26-000045\"},\"ltd_current\":{\"value\":4892000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000034088-25-000010\"},\"commercial_paper\":{\"value\":0,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000034088-26-000045\"},\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":30716000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":41710000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":18681000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":332238000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000034088-26-000045\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":603000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0000034088-26-000045\"},\"pretax_income\":{\"value\":41268000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000034088-26-000045\"},\"net_income\":{\"value\":28844000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000034088-26-000045\"},\"diluted_shares\":null,\"diluted_eps\":{\"value\":6.7,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000034088-26-000045\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":51970000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000034088-26-000045\"},\"capex\":{\"value\":28358000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000034088-26-000045\"},\"d_and_a\":{\"value\":25993000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000034088-26-000045\"}},\"balance_sheet\":{\"cash\":{\"value\":10681000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000034088-26-000045\"},\"short_term_investments\":null,\"total_assets\":{\"value\":448980000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000034088-26-000045\"},\"total_equity\":{\"value\":259386000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000034088-26-000045\"},\"ltd_noncurrent\":{\"value\":34241000000,\"concept\":\"us-gaap:LongTermDebtAndCapitalLeaseObligations\",\"accession\":\"0000034088-26-000045\"},\"ltd_total\":null,\"debt_current\":{\"value\":9296000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000034088-26-000045\"},\"ltd_current\":{\"value\":6200000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000034088-26-000045\"},\"commercial_paper\":{\"value\":3059000000,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000034088-26-000045\"},\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":23612000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":43537000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":32856000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-08-03 (period 2026-06-30) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\",\"Built live from SEC (not in the nightly snapshot); figures follow the same rules.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/34088/000003408824000018/0000034088-24-000018-index.htm\",\"accession_or_id\":\"0000034088-24-000018\",\"form\":\"10-K\",\"period\":\"2023-12-31\",\"as_of\":\"2024-02-28\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/34088/000003408825000010/0000034088-25-000010-index.htm\",\"accession_or_id\":\"0000034088-25-000010\",\"form\":\"10-K\",\"period\":\"2024-12-31\",\"as_of\":\"2025-02-19\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/34088/000003408826000045/0000034088-26-000045-index.htm\",\"accession_or_id\":\"0000034088-26-000045\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-18\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T10:08:29.667Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":4144947162,\"as_of\":\"2026-03-31\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000034088-26-000067\",\"url\":\"https://www.sec.gov/Archives/edgar/data/34088/000003408826000067/0000034088-26-000067-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01TGF9LiV9VAVeFjcpd5CFLx",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01QoxTQi18gb6qtP1CZ6gbJ9",
+      "content": "{\"summary\":\"US industry data for \\\"Oil/Gas (Integrated)\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"industry\":[{\"region\":\"US\",\"industry\":\"Oil/Gas (Integrated)\",\"firms\":4,\"beta\":0.2993819796439979,\"de_ratio\":0.13845002805508974,\"effective_tax_rate\":0.2824095529705382,\"unlevered_beta\":0.2712192455295165,\"cash_to_firm_value\":0.024405283836666014,\"unlevered_beta_cash_corrected\":0.2780040123588666,\"cost_of_equity\":0.05285243629212231,\"equity_weight\":0.878387259305869,\"cost_of_debt_pretax\":0.047306,\"after_tax_cost_of_debt\":0.0354795,\"debt_weight\":0.12161274069413097,\"cost_of_capital\":0.05073966589573278,\"match\":\"exact\",\"sources\":[{\"name\":\"Aswath Damodaran, Betas by Sector (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls\",\"accession_or_id\":\"betas/US/Oil/Gas (Integrated)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"},{\"name\":\"Aswath Damodaran, Cost of Capital by Industry (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/wacc.xls\",\"accession_or_id\":\"wacc/US/Oil/Gas (Integrated)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}],\"note\":\"cost_of_equity and cost_of_capital are Damodaran's US$ estimates using his own risk-free rate (0.0395) and ERP (0.0446) at the update date. For a current WACC, prefer unlevered_beta_cash_corrected, relevered at the company's D/E, with today's risk_free_rate.\"}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01HiAfcwSaubAz7o7pNtXGtm",
+      "content": "{\"summary\":\"Country risk data for \\\"United States\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"country\":[{\"country\":\"United States\",\"region\":\"North America\",\"moodys_rating\":\"Aa1\",\"default_spread\":0.002333679169992019,\"equity_risk_premium\":0.0446,\"country_risk_premium\":0.002333679169992019,\"basis\":\"Moody's sovereign rating\",\"match\":\"exact\",\"mature_market_erp\":0.0423,\"source\":{\"name\":\"Aswath Damodaran, Country Default Spreads and Risk Premiums\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx\",\"accession_or_id\":\"ctryprem/United States\",\"period\":\"2026-02-16\",\"as_of\":\"2026-02-16\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 7117,
+     "cache_read_input_tokens": 7213,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7117,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 290,
+     "output_tokens_details": {
+      "thinking_tokens": 171
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0221391,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQStwgKEAgTGAI4AUIIdGhpbmtpbmcSDFK+lNCePoxc/dl5kRoMMXDXnrXadm7pqUPmIjAepqVfPwSqAiFDbwh1YZqaH4Hu7o+9kAT5WLQJSMmgLc4LHt2D5xzcsBA2b/19bpQq1AdBTQ3TBd3rspQsCuP8TFpxmrayDf0IzuQivEq1rMlmaC1Xov8QdDW+Rgzo9+/fs6wXz1DisCZBtDi6iCRshnXeaZVc3FwTzlw9aPXdhK6w+AMeQn3iWEIaKvcDzqVGTcN0KWiZneIXuJ2rQyFXvFTk/MkbJtOsV6RGy6pjzZSiGlOXEoTdxPdGJ/YIVN+jVNjdd/LuMBVxDH4c+Kz1fZk4o9P7KFGnh65bqwKEXboxjMNGySI9musdrx5oGN7OlEaBbDrRD3mdDoQSaMznpACJA9fkHzim8cM8PhWstXgCRdn8w2V0uLQ5qqw+7ShDXqlv7WMqnnE9Uesu/JTjtEA+Bi39NaZTELa5kfg18k8aB1liUy2Z24xXH4VaU29I2FBMR/il81aoQDVjh9bOliU2jtahC6EO3idZd8g1verSam6CA9mkUXjA2GdarBvz0unZVuiMtDmQzNZbRQCakpu83dpD4jNtV4Ksx9r+2qB2VCRkoDVIgWBLBbIgJWl7nI4pC7jKmUxVtfSPfx3hedYf92VnI9jEb8IkyaaqSd7Vgi1eJBB0Td+SPg9ryGy2HsN6I2zwREm+oF3yUmuMlGjuPWl0a5e4qf1I/6GR1EUGLV8mW7oGLKG8/p8U+ZAIB6EoTnsRO5QbK4KKxoTCWZPp1db6WLb++RLQ04GGfKv3X7IvJ3MmN5o0JbCSLQ22yQhqZ/VaX1CP9Xo4YEEoFtXOgThpaxwq3Zqo/omwi35gepbTuh35EjhPh2w6sweo8KAVlBLQkbOtfWXDKal/gj7jO7DLRA0sZXyiLxerS1AgDDN5LgorB7NEh4IbY8or2EJ1zmLWBzjo7oVZNUxt6LLQM73pK/YneEm3m9mwCi7oGOUQL1gkwV5WwoM4HimGFwgd6+pijMZYSokQIRwCSfXlG/IwLqY3ksHw1eMdW2nHhDFtLz/cFCH3GZYhvsiVNDC5lDAnKj2dN9AplQpZox/5gkQbg/+6wg64t37WwtoCcrjJxUH0leMHzNP+A1xiECIuBL5HgwIQt/RlFUf30qbX2s/pNG/dDxjT6o4uD1TRFn7JC0tE+B2kparMqskzxgGmeFyShoVY98o9EceqnO1wjkVORH0zgN4lzP5h5rRr7oXH47VOaIwyk2tqlSmPYvuPYknIUKqDk6CL8ADnqaXyEzgAmiPa7CIsUvOhjE6wYElW2Q8gJXgOFhGLx5ZDRr9FdvekAb/P1wvK/yy6b1jFF9DJ/n42LeaKMYpfa6FCzR7H7k/dWRZs6wRwvVmySI6DLkuGGkNqNa7HxtIXJXCoTcVl8xgB"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01FTFYXzvFeBZdyPTE1Jvh6K",
+      "name": "verify_value",
+      "input": {
+       "company": "XOM",
+       "items": [
+        {
+         "metric": "operating income",
+         "period": "FY2025",
+         "value": 1
+        },
+        {
+         "metric": "diluted shares",
+         "period": "FY2025",
+         "value": 1
+        }
+       ]
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01FTFYXzvFeBZdyPTE1Jvh6K",
+      "content": "{\"predecessor_note\":\"ExxonMobil Holdings Corp (CIK 2115436, ticker XOM) has no 10-K yet: ExxonMobil Holdings Corp became the listed parent of Exxon Mobil Corp in July 2026. These figures are the predecessor's, EXXON MOBIL CORP (CIK 34088); cite its filings. Interim reports filed by the new registrant are not included.\",\"summary\":\"Exxon Mobil Corporation: 0 of 2 value(s) match the filings, 2 not found. Read each item's hints before changing a number.\",\"company\":{\"name\":\"Exxon Mobil Corporation\",\"ticker\":null,\"cik\":34088,\"exchange\":null,\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2911\",\"sic_description\":\"Petroleum Refining\",\"financial_company\":false,\"foreign_private_issuer\":false},\"currency\":\"USD\",\"counts\":{\"total\":2,\"match\":0,\"mismatch\":0,\"not_found\":2,\"ambiguous\":0},\"results\":[{\"ref\":null,\"metric\":\"operating income\",\"resolved_metric\":\"operating_income\",\"period\":\"FY2025\",\"resolved_period\":\"FY2025 (ended 2025-12-31)\",\"status\":\"not_found\",\"claimed\":1,\"claimed_units\":1,\"filed\":null,\"difference\":null,\"relative_difference\":null,\"concept\":null,\"computed\":false,\"accessions\":[],\"allowance\":{\"units\":0,\"basis\":\"\"},\"hints\":[\"operating_income is not reported for FY2025 (null in the filing data). Do not use a figure from memory.\"]},{\"ref\":null,\"metric\":\"diluted shares\",\"resolved_metric\":\"diluted_shares\",\"period\":\"FY2025\",\"resolved_period\":\"FY2025 (ended 2025-12-31)\",\"status\":\"not_found\",\"claimed\":1,\"claimed_units\":1,\"filed\":null,\"difference\":null,\"relative_difference\":null,\"concept\":null,\"computed\":false,\"accessions\":[],\"allowance\":{\"units\":0,\"basis\":\"\"},\"hints\":[\"diluted_shares is not reported for FY2025 (null in the filing data). Do not use a figure from memory.\"]}],\"sources\":[],\"note\":\"Computed lines (EBITDA, free cash flow, total debt, net debt) are checked against deskstack's own formula from the filed inputs, shown in the hints. A match means the number agrees with the filing; it does not validate assumptions or forecasts.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 3,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 1195,
+     "cache_read_input_tokens": 14330,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 1195,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1833,
+     "output_tokens_details": {
+      "thinking_tokens": 414
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0241875,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSlwsKEAgTGAI4AUIIdGhpbmtpbmcSDDVxkiqhGtJv0mHfGRoMUBGhZra2zhE0HRRwIjCtt8J4IsQk0O/udrcVHdxY8mSlbLk/8Oo5GDEm8ro5rPIWvRufmkx55BGUQee8fRYqtArSX/V3jch1/byQaXkcVtLJcpClSX14Ega7od8Rq5CmIFJ4/CUhrBlzFRPYLwCc8667TCrit0Bhh0FR2+7phfXikqmwNPtBslFU/qYNlW4L95+KKLpgIohahNKXRzdGjmIGZ6HP6fNgIQrmOth0T5PIxZKiIqRKIQ6CrDwm6QUeVVOD+ULXK6ibymPPdzErP8h/vvrr244l/StOO7hduVWWjqWubHmCsCD4q4Sy77jY2Mj1U9k2qqg6fvchf34wdSU1UqL2IYG7Oe3JdtUSS6p5okj5SkK13AKeiFk0Y93X5prTjAmKvZl5lek58NyWZji4Am/UoBz3I2OYnY5bPi6ad09HZ+qiLDFKALze2uvZCdl+RZlyy0stFjniTtBz82OxTc2sXgteLoXURvvyniZBzcBh/89RS0YzBdcId/QG/oVWqkgy/jui4R8jJQy/i452JiSn+cNADokVd/xx07VzedVwnqBYPwhW1uFEvGd3kRBKGCBreU9vvwE3gX2NsIB4x0uo4C8XhyW5nrVnbU0/QjcW0oegmt9QP1A/Vaj+UyxOJwvlUACoxuI4xbgmbHGfGfuWGiXik26hcbVbxdB/q5/tKW5lO90DYDat9cWHLGBkS8tXIZb8pe13LVEg78WnB0igO4d8tO9xixlS6VoQbJxSUTRotGVyVBVla2pmEfRAKztMVLSCiyOWUZQYFGBwqmPPHVp8lMz+45CblBXvnMCUFuQv2ULb9U24PeXaRSva5ES4UfIMZkH8ANGNgH5mbujCwOmMSBzn3zA4tGuGyPYwB+BRGGfzSTM5gyOCn2MZu4mR69SZoU7djOB5u2vyERwtA5Q6j9qM8wMrYoQ+CJfzsAjX+w93UHKg5MxFk5YxpY3Gho8tCM/Ks/h6X1NkoPyav4cPeXkoSYiRERBUrMahE0ok3eUpXvwZWPedFPTjsX0TJbCHXsnZU2dOzynZU7viDqFynR2ok7HzjWpV6WBcfBke5e3GnKQ0Hk+iBYkIsQdYkGtukBG1R7+PMzMS1XJKa5+uJsLyjsWvm8xFGBrVvGKTzw7OZxbpkdRRzvpQDlRyC01BqQvy+Cns4tay3e7r0xNd2bMyPZBwTJU1pwN0aYJRRLMayYCzatEqTff0MRIRIfbVLUjIHXzloLhCspZ/8XvT2XznaCZO+kDM7tc2Y26ltTJgy3IZSazY8oYKwbUQ5/LRjRyvlIpL7QQlGpJ7i5BAMvL/jTvTdxJP174izhG5KBx9EYcqc95gIkZcTEkNIwWsugMnctm2K2j7IkiySB03a8BZUlkrKPsjHveq7Clg+kKqWHaQGqYPbaElqujHIOgMdJau5I9pUx7aSe95sVbVZfUikcLYrx5+XzfZlFfJBXiXLdXXkDZGfKQC2Hz5bIp57Qq3dyRGe4rtDEUlI4LCmKEHIDZhXThw1a8UJ4Uhl6TewNWC6b2mDJr5vQIVruuPfl/qSqcGSQvP5ivle9C5dYzl/p/nautmD3gFJNCYolaCTJEgxwjgFMgDaNi1iW+npclU7fiiw28/S6l9OSykCfl0KTbGF6borQnROg5Y1YMCVSE5y41gDskT0EBEBSmqhgLhSgKS0h+eR4rX0qaJHxt4EeJdLRNk22qVzlX0eB3h/zWAW4YuJGW3U+Eja5ZyhvOR/lIUvd2s9A0SunOOVLh7e1MKZT3iVmjmOopnu0/iYmQIT7ZnYzX4ZadnjLC3UE2i4IGMQHKcS7WcRvsKy1XLWq0/Ttcrh+EqmT6EQ+Ibi47OwYssNWq8TBoYAQ=="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_017a7jmkajQcjyAL9VXbo1tN",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Exxon Mobil Corporation",
+       "ticker": "XOM",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           344582,
+           349585,
+           332238
+          ],
+          "source": "deskstack financial_statements, us-gaap:Revenues, 10-K accession 0000034088-26-000045"
+         },
+         "operating_income": {
+          "values": [
+           53632,
+           49869,
+           41871
+          ],
+          "source": "Operating income not reported in XBRL (null). Proxy = pretax income (us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxes...) + us-gaap:InterestExpense: FY23 52783+849, FY24 48873+996, FY25 41268+603; accession 0000034088-26-000045. Includes equity income; reviewer should verify."
+         },
+         "d_and_a": {
+          "values": [
+           20641,
+           23442,
+           25993
+          ],
+          "source": "us-gaap:DepreciationDepletionAndAmortization, accession 0000034088-26-000045"
+         },
+         "capex": {
+          "values": [
+           21919,
+           24306,
+           28358
+          ],
+          "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000034088-26-000045"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0,
+          0.015,
+          0.02,
+          0.02,
+          0.02
+         ],
+         "source": "Assumption: FY2025 revenue fell 5.0%; flat commodity-price deck in 2026, then growth near inflation/volume growth of ~2%."
+        },
+        "ebit_margin": {
+         "value": 0.13,
+         "source": "Assumption: proxy EBIT margin was 15.6%/14.3%/12.6% in FY23-25; hold ~13%, near FY25 level with modest mean reversion."
+        },
+        "tax_rate": {
+         "value": 0.28,
+         "source": "Damodaran US Oil/Gas (Integrated) effective tax rate 28.2% (dataset 2026-01-05)."
+        },
+        "da_pct_revenue": {
+         "value": 0.078,
+         "source": "FY2025 D&A 25,993 / revenue 332,238 = 7.8%."
+        },
+        "capex_pct_revenue": {
+         "value": 0.085,
+         "source": "FY2025 capex 28,358 / revenue 332,238 = 8.5%; consistent with growing capex program."
+        },
+        "wacc": {
+         "value": 0.075,
+         "source": "Assumption. CAPM check: rf 4.86% (US 10Y, 2026-11-06) + relevered beta ~0.31 (Damodaran unlevered cash-corrected 0.278, D/E 0.138, tax 25%) x ERP 4.46% = ~6.2% Ke; Damodaran industry WACC 5.1%. Rounded up to 7.5% as the industry beta looks low (4 firms) for a cyclical commodity producer."
+        },
+        "terminal_growth": {
+         "value": 0.02,
+         "source": "Assumption: long-run inflation-like growth, below the 4.86% risk-free rate; energy transition caps higher growth."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 32856,
+         "period": "FY2025",
+         "source": "deskstack derived: total debt 43,537 (LT 34,241 + current 9,296) - cash 10,681; no short-term investments reported; accession 0000034088-26-000045"
+        },
+        "diluted_shares": {
+         "value": 4305,
+         "period": "FY2025",
+         "source": "Weighted diluted shares not reported in the data (null). Derived = net income 28,844M / diluted EPS 6.70 = ~4,305M; approximate, verify against the 10-K. Cover-page shares 4,144.9M at 2026-03-31."
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 10,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 4,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "XOM",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 344582,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 344582000000,
+    "resolved": "XOM"
+   },
+   {
+    "company": "XOM",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 349585,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 349585000000,
+    "resolved": "XOM"
+   },
+   {
+    "company": "XOM",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 332238,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 332238000000,
+    "resolved": "XOM"
+   },
+   {
+    "company": "XOM",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 53632,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "not_found",
+    "hints": [
+     "operating_income is not reported for FY2023 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "XOM"
+   },
+   {
+    "company": "XOM",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 49869,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "not_found",
+    "hints": [
+     "operating_income is not reported for FY2024 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "XOM"
+   },
+   {
+    "company": "XOM",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 41871,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "not_found",
+    "hints": [
+     "operating_income is not reported for FY2025 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "XOM"
+   },
+   {
+    "company": "XOM",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 20641,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 20641000000,
+    "resolved": "XOM"
+   },
+   {
+    "company": "XOM",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 23442,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 23442000000,
+    "resolved": "XOM"
+   },
+   {
+    "company": "XOM",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 25993,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 25993000000,
+    "resolved": "XOM"
+   },
+   {
+    "company": "XOM",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 21919,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 21919000000,
+    "resolved": "XOM"
+   },
+   {
+    "company": "XOM",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 24306,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 24306000000,
+    "resolved": "XOM"
+   },
+   {
+    "company": "XOM",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 28358,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 28358000000,
+    "resolved": "XOM"
+   },
+   {
+    "company": "XOM",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 32856,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 32856000000,
+    "resolved": "XOM"
+   },
+   {
+    "company": "XOM",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 4305,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "not_found",
+    "hints": [
+     "diluted_shares is not reported for FY2025 (null in the filing data). Do not use a figure from memory."
+    ],
+    "filed_value": null,
+    "resolved": "XOM"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

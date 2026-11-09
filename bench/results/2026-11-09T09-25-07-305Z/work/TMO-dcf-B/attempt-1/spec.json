@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "Thermo Fisher Scientific Inc.",
+ "ticker": "TMO",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     42857,
+     42879,
+     44556
+    ],
+    "source": "10-K FY2025 acc. 0000097745-26-000018, RevenueFromContractWithCustomerExcludingAssessedTax"
+   },
+   "operating_income": {
+    "values": [
+     6859,
+     7337,
+     7746
+    ],
+    "source": "10-K FY2025 acc. 0000097745-26-000018, OperatingIncomeLoss"
+   },
+   "d_and_a": {
+    "values": [
+     3406,
+     3108,
+     2780
+    ],
+    "source": "financial_statements: Depreciation (1068/1156/1050) + AmortizationOfIntangibleAssets (2338/1952/1730), acc. 0000097745-26-000018"
+   },
+   "capex": {
+    "values": [
+     1479,
+     1400,
+     1525
+    ],
+    "source": "PaymentsToAcquirePropertyPlantAndEquipment, acc. 0000097745-26-000018"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.04,
+    0.05,
+    0.05,
+    0.05,
+    0.045
+   ],
+   "source": "Assumption: FY2025 growth was 3.9%, FY2024 0.1%; modest recovery to mid-single-digit life-science/diagnostics market growth, fading in the final year"
+  },
+  "ebit_margin": {
+   "value": 0.18,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 GAAP EBIT margin 17.4% (7746/44556), FY2024 17.1%; slight improvement from productivity and falling amortization"
+  },
+  "tax_rate": {
+   "value": 0.17,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: approximate 17% effective rate; analyst estimate, not taken from a filing (verify in the 10-K tax note)"
+  },
+  "da_pct_revenue": {
+   "value": 0.062,
+   "period": "FY2026-FY2030",
+   "source": "FY2025 D&A 2780/44556 = 6.2% (depreciation + intangible amortization), held flat"
+  },
+  "capex_pct_revenue": {
+   "value": 0.034,
+   "period": "FY2026-FY2030",
+   "source": "FY2025 capex 1525/44556 = 3.4%; 3-year range 3.3-3.5%"
+  },
+  "wacc": {
+   "value": 0.083,
+   "period": "current",
+   "source": "Assumption: CAPM cost of equity = Rf 4.86% (US Treasury 10Y, 2026-11-06) + beta ~0.95 (assumed, not looked up) x ERP 4.46% (Damodaran US, 2026-02-16) = ~9.1%; pre-tax cost of debt ~5.3% (assumed, interest 1419 / debt 39385 is about 3.6%) after tax ~4.4%; assumed 85/15 equity/debt weights (no share price available) gives ~8.3%"
+  },
+  "terminal_growth": {
+   "value": 0.03,
+   "period": "terminal",
+   "source": "Assumption: below the 4.86% risk-free rate and near long-run nominal US GDP growth"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 29280,
+   "period": "FY2025",
+   "source": "financial_statements derived net_debt: total debt 39385 (ltd_noncurrent 35852 + debt_current 3533) - cash 9852 - short-term investments 253; acc. 0000097745-26-000018"
+  },
+  "diluted_shares": {
+   "value": 378,
+   "period": "FY2025",
+   "source": "WeightedAverageNumberOfDilutedSharesOutstanding 378,000,000 shares = 378 million, acc. 0000097745-26-000018"
+  }
+ }
+}

@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "Cisco Systems, Inc.",
+ "ticker": "CSCO",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2024",
+   "FY2025",
+   "FY2026"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     53803,
+     56654,
+     63325
+    ],
+    "source": "Cisco 10-K FY2026 acc. 0000858877-26-000132 via financial_statements, RevenueFromContractWithCustomerExcludingAssessedTax"
+   },
+   "operating_income": {
+    "values": [
+     12181,
+     11760,
+     15368
+    ],
+    "source": "Cisco 10-K acc. 0000858877-26-000132, OperatingIncomeLoss"
+   },
+   "d_and_a": {
+    "values": [
+     700,
+     700,
+     700
+    ],
+    "source": "Cisco 10-K acc. 0000858877-26-000132, DepreciationDepletionAndAmortization (as tagged; amortization of intangibles reported separately: 698/1028/916)"
+   },
+   "capex": {
+    "values": [
+     670,
+     905,
+     1410
+    ],
+    "source": "Cisco 10-K acc. 0000858877-26-000132, PaymentsToAcquirePropertyPlantAndEquipment"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030",
+   "FY2031"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.06,
+    0.055,
+    0.05,
+    0.045,
+    0.04
+   ],
+   "source": "Assumption: FY2026 growth was 11.8% (acquisition/AI-networking driven); fade toward ~4% as growth normalizes; FY24-26 revenue CAGR ~8.5%"
+  },
+  "ebit_margin": {
+   "value": 0.24,
+   "period": "FY2027-FY2031",
+   "source": "Assumption: FY2026 GAAP EBIT margin 24.3% (15368/63325); FY2024-25 were 22.6%/20.8%; hold ~24%"
+  },
+  "tax_rate": {
+   "value": 0.18,
+   "period": "FY2027-FY2031",
+   "source": "Assumption: FY2026 effective rate ~17.1% (1-13267/16009); rounded up modestly toward normalized"
+  },
+  "da_pct_revenue": {
+   "value": 0.012,
+   "period": "FY2027-FY2031",
+   "source": "Assumption: FY2026 D&A 700/63325=1.1%, FY2025 1.2%; use 1.2%"
+  },
+  "capex_pct_revenue": {
+   "value": 0.02,
+   "period": "FY2027-FY2031",
+   "source": "Assumption: FY2026 capex 1410/63325=2.2%, 3-yr avg ~1.9%; use 2.0%"
+  },
+  "wacc": {
+   "value": 0.09,
+   "period": "n/a",
+   "source": "Assumption: CAPM Rf 4.86% (US 10Y, Treasury 2026-11-06) + beta ~1.0 (assumed, not looked up) x ERP 4.46% (Damodaran US, 2026-02-16) = ~9.3% cost of equity; debt ~$29.5B is a small share of capital at low after-tax cost (~4%), giving WACC ~9.0%"
+  },
+  "terminal_growth": {
+   "value": 0.03,
+   "period": "n/a",
+   "source": "Assumption: below long-run nominal GDP growth and below the 4.86% risk-free rate"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 13615,
+   "period": "FY2026",
+   "source": "financial_statements derived net_debt = total debt 29,533 (LT noncurrent 19,372 + current debt 10,161) - cash 7,218 - ST investments 8,700; acc. 0000858877-26-000132"
+  },
+  "diluted_shares": {
+   "value": 3987,
+   "period": "FY2026",
+   "source": "Weighted avg diluted shares 3,987M, acc. 0000858877-26-000132"
+  }
+ }
+}

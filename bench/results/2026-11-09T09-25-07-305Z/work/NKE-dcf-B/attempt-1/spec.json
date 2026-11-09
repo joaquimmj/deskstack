@@ -1,0 +1,49 @@
+{
+ "kind": "dcf",
+ "company": "NIKE, Inc.",
+ "ticker": "NKE",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2024",
+   "FY2025",
+   "FY2026"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     51362,
+     46309,
+     46398
+    ],
+    "source": "financial_statements NKE, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K acc. 0000320187-26-000088"
+   },
+   "operating_income": {
+    "values": [
+     6700,
+     3885,
+     3900
+    ],
+    "source": "PROXY: operating income not reported in XBRL (null in tool). Used pretax income (us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxes..., acc. 0000320187-26-000088); includes net interest/other, so differs slightly from true EBIT. Reviewer should replace with filed EBIT."
+   },
+   "d_and_a": {
+    "values": [
+     796,
+     775,
+     747
+    ],
+    "source": "us-gaap:DepreciationDepletionAndAmortization, acc. 0000320187-26-000088"
+   },
+   "capex": {
+    "values": [
+     812,
+     430,
+     684
+    ],
+    "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, acc. 0000320187-26-000088"
+   }
+  }
+ },
+ "assumptions": "{\"projection_labels\":[\"FY2027\",\"FY2028\",\"FY2029\",\"FY2030\",\"FY2031\"],\"revenue_growth\":{\"values\":[0.02,0.04,0.05,0.05,0.04],\"source\":\"Assumption: FY2026 revenue was flat (+0.2%) vs FY2025 after -9.8% in FY2025; modest recovery then normalisation toward mid-single-digit growth.\"},\"ebit_margin\":{\"value\":0.10,\"period\":\"FY2027-FY2031\",\"source\":\"Assumption: FY2026 pretax margin proxy 8.4% (3,900/46,398), FY2024 13.0%; partial recovery to 10%, below historical peak.\"},\"tax_rate\":{\"value\":0.20,\"source\":\"Assumption: FY2026 effective rate ~20.3% (1-3,108/3,900 from filing); Damodaran shoe industry effective 11.9% considered too low.\"},\"da_pct_revenue\":{\"value\":0.016,\"source\":\"FY2026 D&A 747/46,398 = 1.61%; 3-yr range 1.6-1.7%.\"},\"capex_pct_revenue\":{\"value\":0.015,\"source\":\"Assumption: 3-yr capex/revenue 1.6%, 0.9%, 1.5% (avg ~1.3%); 1.5% allows reinvestment for growth.\"},\"wacc\":{\"value\":0.092,\"source\":\"CAPM: Rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 1.094 (Damodaran Shoe unlevered cash-corrected 1.0002, D/E 0.119, tax 21%) x ERP 4.46% (Damodaran US) = Ke 9.74%; Kd pretax 5.29% (Damodaran Shoe) -> 4.18% after tax; weights 89.3/10.7 (Damodaran Shoe) => ~9.2%.\"},\"terminal_growth\":{\"value\":0.025,\"source\":\"Assumption: below long-run nominal GDP and below the 4.86% risk-free rate.\"},\"mid_year\":true},\"bridge\":{\"net_debt\":{\"value\":379,\"period\":\"FY2026 (2026-05-31)\",\"source\":\"financial_statements derived net_debt: total debt 7,942 (LT debt 5,942 noncurrent + 2,000 current) - cash 7,563; no short-term investments reported; acc. 0000320187-26-000088\"},\"diluted_shares\":{\"value\":1481,\"period\":\"FY2026\",\"source\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 1,481.0M, acc. 0000320187-26-000088\"}}"
+}

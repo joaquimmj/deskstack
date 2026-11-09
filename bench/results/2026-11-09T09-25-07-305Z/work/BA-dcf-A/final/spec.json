@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "The Boeing Company",
+ "ticker": "BA",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     null,
+     66517,
+     89463
+    ],
+    "source": "Boeing 8-K Ex.99.1 Q4 2025 results (sec.gov/Archives/edgar/data/12927/000162828026003518). FY2023 not retrieved: not found in my searches."
+   },
+   "operating_income": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found - GAAP operating income not retrieved from the search snippets; reviewer to fill from 10-K"
+   },
+   "d_and_a": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found - cash flow statement not retrieved; reviewer to fill from 10-K"
+   },
+   "capex": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found - cash flow statement not retrieved; reviewer to fill from 10-K"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.12,
+    0.12,
+    0.09,
+    0.07,
+    0.05
+   ],
+   "source": "Assumption: continued 737/787 production ramp after FY2025 revenue growth of 34.5% (89,463 vs 66,517), converging to mature-aerospace growth; backlog of $682bn supports volume. Analyst judgment, not company guidance."
+  },
+  "ebit_margin": {
+   "value": 0.07,
+   "source": "Assumption: average margin over the projection; historical EBIT not retrieved, so this is a judgment reflecting a recovery from deeply negative margins toward a normalized high-single-digit level."
+  },
+  "tax_rate": {
+   "value": 0.21,
+   "source": "Assumption: US federal statutory rate 21%."
+  },
+  "da_pct_revenue": {
+   "value": 0.03,
+   "source": "Assumption: approximate aerospace-peer level; Boeing historical D&A not retrieved."
+  },
+  "capex_pct_revenue": {
+   "value": 0.03,
+   "source": "Assumption: roughly equal to D&A, with modest investment in capacity; Boeing historical capex not retrieved."
+  },
+  "wacc": {
+   "value": 0.09,
+   "source": "Assumption: cost of equity of about 10% with a levered capital structure and a cost of debt of about 6% pre-tax; typical large-cap aerospace range of 8-10%."
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "source": "Assumption: long-run nominal GDP and inflation, a conservative rate for a duopoly aerospace franchise."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 24700,
+   "period": "FY2025",
+   "source": "Boeing Q4 2025 8-K Ex.99.1: debt $54.1bn minus cash and marketable securities $29.4bn = $24.7bn. Rounded to $0.1bn in the release. Debt may include some leases; not verified."
+  },
+  "diluted_shares": {
+   "value": 902,
+   "period": "FY2025",
+   "source": "DERIVED, not reported: FY2025 net earnings $2,238m / diluted EPS $2.48 (from the same 8-K) = ~902m. The reviewer should replace this with the 10-K weighted average diluted shares."
+  }
+ }
+}

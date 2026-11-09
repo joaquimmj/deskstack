@@ -11,11 +11,11 @@ nothing ships without your sign-off. Free data, US and Europe.**
 ## Benchmark
 
 How many numbers in an AI-built model are wrong or unsourced, with and without deskstack. The test covers 50
-companies, a DCF and a comps table each, and three setups: web search only, deskstack data, and deskstack plus its
-reviewers. Scoring is automatic, against the filings. The runner, the frozen company set and the method are in
+companies (a DCF each so far; comps tables are designed but not run yet) and three setups: web search only, deskstack
+data, and deskstack plus its reviewers. Scoring is automatic, against the filings. The runner, the frozen company set and the method are in
 [bench/](bench/README.md).
 
-**A pilot has run, with no headline number yet.** 5 companies, 30 models, $6.68 of API credits ([analysis](bench/results/2026-11-08T23-43-41-903Z/ANALYSIS.md)). Read by hand, almost every "wrong" number from web search alone turned out to be a different definition or a gap in deskstack's own data (fixed since). The scorer now reports definition differences apart. With deskstack, models cost 2-3× less and finished 2-3× faster; web search alone finished 1 of its 5 comps tables.
+**First results (50 companies, DCF, Claude Sonnet 5.5):** with web search only, 20 of 573 reported figures were wrong (3.5%, in 12 of 50 models), read by hand against the filings. With deskstack's data: 0, at a third of the cost ($0.07-0.10 vs $0.23 per model) and 2-3× faster. The 0 is partly by construction, since the scorer checks against the same data; the [analysis](bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md) says how that data is checked independently, and what the run found wrong in deskstack itself.
 
 ## Install in 30 seconds
 

@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "TotalEnergies SE",
+ "ticker": "529900S21EQ1BO4ESM68",
+ "currency": "USD",
+ "scale": "billions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     237.128,
+     214.55,
+     201.196
+    ],
+    "source": "ESEF annual report 529900S21EQ1BO4ESM68-2025-12-31-ESEF-FR-0, ifrs-full:RevenueFromContractsWithCustomers, USD"
+   },
+   "operating_income": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: not mapped in deskstack ESEF data (issuer extension concept); not filled from memory"
+   },
+   "d_and_a": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: not mapped in deskstack ESEF data; not filled from memory"
+   },
+   "capex": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: not mapped in deskstack ESEF data; not filled from memory"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    -0.03,
+    0,
+    0.01,
+    0.02,
+    0.02
+   ],
+   "source": "Assumption: revenue fell 9.5% in FY2024 and 6.2% in FY2025 (filed revenue); modest further decline then stabilisation and low growth, with commodity prices flat-to-lower"
+  },
+  "ebit_margin": {
+   "value": 0.11,
+   "source": "Assumption, placeholder: historical EBIT not found in tool data; 11% is an analyst assumption for an integrated oil major at mid-cycle prices; reviewer to replace with filed EBIT/revenue"
+  },
+  "tax_rate": {
+   "value": 0.4,
+   "source": "Damodaran Europe Oil/Gas (Integrated) effective tax rate 0.4026 (dataset 2026-01-05), rounded; reflects high upstream taxation"
+  },
+  "da_pct_revenue": {
+   "value": 0.08,
+   "source": "Assumption, placeholder: historical D&A not found in tool data; reviewer to replace with filed figure"
+  },
+  "capex_pct_revenue": {
+   "value": 0.1,
+   "source": "Assumption, placeholder: historical capex not found in tool data; set above D&A for sustaining plus growth investment; reviewer to replace with filed figure"
+  },
+  "wacc": {
+   "value": 0.07,
+   "source": "Assumption. CAPM check: Rf 3.266% (ECB AAA 10Y, 2026-11-05) + relevered beta ~0.47 (Damodaran Europe integrated unlevered cash-corrected 0.406, D/E 0.194, tax 25%) x France ERP 5.006% = Ke ~5.6%; Damodaran industry WACC 5.85%. Mechanical result ~5.3-5.8% looks low for commodity-exposed business, so 7.0% chosen as conservative"
+  },
+  "terminal_growth": {
+   "value": 0.015,
+   "source": "Assumption: below long-run nominal growth and below the 3.27% risk-free rate, reflecting energy transition headwinds"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 34.831,
+   "period": "FY2025",
+   "source": "ESEF 529900S21EQ1BO4ESM68-2025-12-31-ESEF-FR-0: borrowings non-current 48.995 + current 12.038 = 61.033 total debt, less cash 26.202 (no short-term investments tagged); excludes leases per deskstack formula"
+  },
+  "diluted_shares": {
+   "value": null,
+   "period": "FY2025",
+   "source": "not found: weighted diluted share count not reported in tool data (only diluted EPS 5.78 USD); not derived from memory"
+  }
+ }
+}

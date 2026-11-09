@@ -1,0 +1,108 @@
+{
+ "kind": "dcf",
+ "company": "Apple Inc.",
+ "ticker": "AAPL",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2024",
+   "FY2025",
+   "FY2026"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     391035,
+     416161,
+     478834
+    ],
+    "source": "financial_statements AAPL, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K accession 0000320193-26-000026"
+   },
+   "operating_income": {
+    "values": [
+     123216,
+     133050,
+     158063
+    ],
+    "source": "financial_statements AAPL, us-gaap:OperatingIncomeLoss, accession 0000320193-26-000026"
+   },
+   "d_and_a": {
+    "values": [
+     11445,
+     11698,
+     13423
+    ],
+    "source": "financial_statements AAPL, us-gaap:DepreciationDepletionAndAmortization, accession 0000320193-26-000026"
+   },
+   "capex": {
+    "values": [
+     9447,
+     12715,
+     9041
+    ],
+    "source": "financial_statements AAPL, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000320193-26-000026"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030",
+   "FY2031"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.08,
+    0.07,
+    0.06,
+    0.05,
+    0.04
+   ],
+   "source": "Assumption: FY2026 growth was 15.1% (478,834 vs 416,161); fade from 8% toward ~4% as the base scales and converges toward terminal growth."
+  },
+  "ebit_margin": {
+   "value": 0.33,
+   "period": "FY2026",
+   "source": "Assumption: held at FY2026 actual 33.0% (158,063/478,834), accession 0000320193-26-000026; no further expansion assumed."
+  },
+  "tax_rate": {
+   "value": 0.17,
+   "period": "FY2026",
+   "source": "Assumption: FY2026 effective rate = 1 - net income 132,175 / pretax income 159,237 = 17.0%, accession 0000320193-26-000026."
+  },
+  "da_pct_revenue": {
+   "value": 0.028,
+   "period": "FY2026",
+   "source": "Assumption: FY2026 D&A 13,423 / revenue 478,834 = 2.8%."
+  },
+  "capex_pct_revenue": {
+   "value": 0.019,
+   "period": "FY2026",
+   "source": "Assumption: FY2026 capex 9,041 / revenue 478,834 = 1.9%; 3-yr range 1.9-3.1%."
+  },
+  "wacc": {
+   "value": 0.095,
+   "source": "Assumption: CAPM cost of equity = 10Y UST 4.86% (Treasury 2026-11-06) + beta ~1.05 (my assumption; industry beta not fetched) x US ERP 4.46% (Damodaran 2026-02-16) = ~9.5%; debt is ~2% of capital so WACC ~ cost of equity."
+  },
+  "terminal_growth": {
+   "value": 0.03,
+   "source": "Assumption: below the 4.86% risk-free rate and long-run nominal US GDP growth; mature-company perpetuity."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 23389,
+   "period": "FY2026",
+   "source": "financial_statements AAPL derived net_debt = total debt 80,111 (LT debt noncurrent 68,208 + current 9,906 + commercial paper 1,997) - cash 36,305 - marketable securities 20,417; accession 0000320193-26-000026"
+  },
+  "diluted_shares": {
+   "value": 14720.306,
+   "period": "FY2026",
+   "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 14,720,306,000 shares, in millions; accession 0000320193-26-000026"
+  }
+ }
+}

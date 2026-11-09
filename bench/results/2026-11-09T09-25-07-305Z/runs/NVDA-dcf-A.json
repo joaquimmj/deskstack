@@ -1,0 +1,1539 @@
+{
+ "company": "NVDA",
+ "task": "dcf",
+ "arm": "A",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "NVIDIA Corporation",
+   "ticker": "NVDA",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       60922,
+       130497,
+       215938
+      ],
+      "source": "FY2026 revenue 215,938 and FY2025 130,497: Q4 FY26 press release (8-K acc. 0001045810-26-000019). FY2024 60,922: FY2024 10-K (from memory of filing; not re-verified this session)"
+     },
+     "operating_income": {
+      "values": [
+       32972,
+       81453,
+       130387
+      ],
+      "source": "FY2026 130,387 and FY2025 81,453: Q4 FY26 press release (8-K 0001045810-26-000019). FY2024 32,972: FY2024 10-K (not re-verified this session)"
+     },
+     "d_and_a": {
+      "values": [
+       1508,
+       1864,
+       2843
+      ],
+      "source": "Cash flow statement, FY2026 10-K (acc. 0001045810-26-000021)"
+     },
+     "capex": {
+      "values": [
+       1069,
+       3236,
+       6042
+      ],
+      "source": "Purchases related to property and equipment and intangible assets, cash flow statement, FY2026 10-K (0001045810-26-000021)"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.55,
+      0.25,
+      0.15,
+      0.1,
+      0.07
+     ],
+     "source": "Assumption: FY26 growth was 65%; Q1 FY27 guidance of ~$78B/qtr implies strong FY27 (>$300B run-rate); fade to mature growth as law of large numbers and competition bite."
+    },
+    "ebit_margin": {
+     "value": 0.58,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: FY26 GAAP EBIT margin 60.4% (130,387/215,938); modest haircut for competition and mix/pricing normalisation."
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: approx. blended effective rate near 16-17% in recent years; US 21% statutory offset by FDII and credits."
+    },
+    "da_pct_revenue": {
+     "value": 0.015,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: FY26 D&A 2,843/215,938=1.3%, slightly higher as capex rises."
+    },
+    "capex_pct_revenue": {
+     "value": 0.03,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: FY26 capex 6,042/215,938=2.8%; rounded up for growing supply-chain/infrastructure investment."
+    },
+    "wacc": {
+     "value": 0.1,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: CAPM, rf ~4.3%, beta ~1.7-1.8, ERP ~5%, almost no debt; rounded to 10%."
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "period": "terminal",
+     "source": "Assumption: at/below long-run nominal GDP growth; conservative given huge base."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": -54088,
+     "period": "FY2026",
+     "source": "Short-term debt 999 + long-term debt 7,469 minus cash, equivalents and marketable securities 62,556 (Q4 FY26 press release, 8-K 0001045810-26-000019); leases excluded."
+    },
+    "diluted_shares": {
+     "value": 24514,
+     "period": "FY2026",
+     "source": "Weighted average diluted shares, FY2026 10-K (acc. 0001045810-26-000021), millions"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "NVIDIA Corporation",
+   "ticker": "NVDA",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       60922,
+       130497,
+       215938
+      ],
+      "source": "FY2026 revenue 215,938 and FY2025 130,497: Q4 FY26 press release (8-K acc. 0001045810-26-000019). FY2024 60,922: FY2024 10-K (from memory of filing; not re-verified this session)"
+     },
+     "operating_income": {
+      "values": [
+       32972,
+       81453,
+       130387
+      ],
+      "source": "FY2026 130,387 and FY2025 81,453: Q4 FY26 press release (8-K 0001045810-26-000019). FY2024 32,972: FY2024 10-K (not re-verified this session)"
+     },
+     "d_and_a": {
+      "values": [
+       1508,
+       1864,
+       2843
+      ],
+      "source": "Cash flow statement, FY2026 10-K (acc. 0001045810-26-000021)"
+     },
+     "capex": {
+      "values": [
+       1069,
+       3236,
+       6042
+      ],
+      "source": "Purchases related to property and equipment and intangible assets, cash flow statement, FY2026 10-K (0001045810-26-000021)"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.55,
+      0.25,
+      0.15,
+      0.1,
+      0.07
+     ],
+     "source": "Assumption: FY26 growth was 65%; Q1 FY27 guidance of ~$78B/qtr implies strong FY27 (>$300B run-rate); fade to mature growth as law of large numbers and competition bite."
+    },
+    "ebit_margin": {
+     "value": 0.58,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: FY26 GAAP EBIT margin 60.4% (130,387/215,938); modest haircut for competition and mix/pricing normalisation."
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: approx. blended effective rate near 16-17% in recent years; US 21% statutory offset by FDII and credits."
+    },
+    "da_pct_revenue": {
+     "value": 0.015,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: FY26 D&A 2,843/215,938=1.3%, slightly higher as capex rises."
+    },
+    "capex_pct_revenue": {
+     "value": 0.03,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: FY26 capex 6,042/215,938=2.8%; rounded up for growing supply-chain/infrastructure investment."
+    },
+    "wacc": {
+     "value": 0.1,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: CAPM, rf ~4.3%, beta ~1.7-1.8, ERP ~5%, almost no debt; rounded to 10%."
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "period": "terminal",
+     "source": "Assumption: at/below long-run nominal GDP growth; conservative given huge base."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": -54088,
+     "period": "FY2026",
+     "source": "Short-term debt 999 + long-term debt 7,469 minus cash, equivalents and marketable securities 62,556 (Q4 FY26 press release, 8-K 0001045810-26-000019); leases excluded."
+    },
+    "diluted_shares": {
+     "value": 24514,
+     "period": "FY2026",
+     "source": "Weighted average diluted shares, FY2026 10-K (acc. 0001045810-26-000021), millions"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 1,
+  "usage": {
+   "input_tokens": 16,
+   "output_tokens": 3160,
+   "cache_creation_input_tokens": 18744,
+   "cache_read_input_tokens": 67971,
+   "server_tool_use": {
+    "web_search_requests": 9
+   }
+  },
+  "cost": 0.18208619999999998,
+  "seconds": 44.309,
+  "tool_calls": {
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: web_search (public web pages). No other data source is available.\n\nBuild a quick unlevered DCF for NVIDIA Corporation (identifier: NVDA).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 16,
+     "cache_creation_input_tokens": 18744,
+     "cache_read_input_tokens": 67971,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 18744,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 3160,
+     "output_tokens_details": {
+      "thinking_tokens": 416
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard",
+     "server_tool_use": {
+      "web_search_requests": 9,
+      "web_fetch_requests": 0
+     }
+    },
+    "cost": 0.18208619999999998,
+    "content": [
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01FST6TyVGGQoBPfEBKJ4reM",
+      "name": "code_execution",
+      "input": {
+       "code": "r=await web_search({\"query\":\"NVIDIA fiscal 2026 annual results revenue operating income cash flow capex depreciation amortization diluted shares 10-K\"})\nfor x in r[:6]:\n    print(x['url']);print(x['content'][:1500]);print()"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01TyxCDwMJ4wizjcrNKD8nuN",
+      "name": "web_search",
+      "input": {
+       "query": "NVIDIA fiscal 2026 annual results revenue operating income cash flow capex depreciation amortization diluted shares 10-K"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01FST6TyVGGQoBPfEBKJ4reM"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01TyxCDwMJ4wizjcrNKD8nuN",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA CORP - Form 10-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2026",
+        "url": "https://nvidianews.nvidia.com/_gallery/download_pdf/691e34d93d633290a88deeef/",
+        "encrypted_content": "[omitted]",
+        "page_age": "340 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://nvidianews.nvidia.com/_gallery/download_pdf/699f6ab43d6332ccaa689907/",
+        "encrypted_content": "[omitted]",
+        "page_age": "222 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026",
+        "encrypted_content": "[omitted]",
+        "page_age": "257 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Second Quarter Fiscal 2026",
+        "url": "https://nvidianews.nvidia.com/_gallery/download_pdf/68af69043d6332f1d02dec91/",
+        "encrypted_content": "[omitted]",
+        "page_age": "440 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nvidia Corporation (via Public) / Annual Report for Fiscal Year Ending January 25, 2026 (Form 10-K)",
+        "url": "https://www.publicnow.com/view/2882BBE40A7C6C824C8A8D4C36B7AE84D3C63264?1772059708=",
+        "encrypted_content": "[omitted]",
+        "page_age": "257 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nvidia (NVDA) FY2026 10-K Review",
+        "url": "https://app.dhicapitalgroup.com/research/NVDA",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA (NVDA) Financial Statements & History",
+        "url": "https://www.macroaxis.com/financial-statements/NVDA",
+        "encrypted_content": "[omitted]",
+        "page_age": "1 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Second Quarter Fiscal 2026",
+        "url": "https://seekingalpha.com/pr/20213892",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://seekingalpha.com/pr/20414347",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01FST6TyVGGQoBPfEBKJ4reM"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01FST6TyVGGQoBPfEBKJ4reM",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDCcMZOtnJdnMjAbtvBoMUitVhAi39DcmK0AsIjAPEtNPSYUZz9tBj7XWTsJDMtCYaFaUwfOsTkqQfacXhD7R+4QwTK8yxPZoVk205vUqEtBNyMsayBQGw5ERC4jnDi9XpBgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01FST6TyVGGQoBPfEBKJ4reM/cell.py\", line 10, in <module>\n    print(x['url']);print(x['content'][:1500]);print()\n          ~^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_017FqJfPSPUNPTvT8gBaz9tk",
+      "name": "code_execution",
+      "input": {
+       "code": "print(str(r)[:3000])"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_017FqJfPSPUNPTvT8gBaz9tk",
+      "content": {
+       "type": "code_execution_result",
+       "stdout": "[{\"type\": \"web_search_result\", \"title\": \"NVIDIA CORP - Form 10-K - FY2026\", \"url\": \"https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm\", \"content\": \"Depreciation and amortization expense attributable to our Compute & Networking segment for fiscal years 2026, 2025, and 2024 was $ 1.6billion, $ 732million, and $ 457million, respectively. Depreciation and amortization expense attributable to our Graphics segment for fiscal years 2026, 2025, and 2024 was $ 590million, $ 372million, and $ 307million, respectively. Acquisition-related intangible amortization expense is not allocated to either Compute & Networking or Graphics for purposes of making operating decisions or assessing financial performance.\\n\\nA reconciliation of segment operating income to consolidated income before income tax for fiscal years 2026, 2025, and 2024 were as follows:\\n\\n| Segment operating income | $139,297 | $87,960 | $37,862 |\\n\\n| Interest income | 2,300 | 1,786 | 866 |\\n\\n| Other income, net | 9,022 | 1,034 | 237 |\\n| Consolidated income before income tax | $141,450 | $84,026 | $33,818 |\\n\\n- Segment operating income \\u2014 2025-01-27 to 2026-01-25, Consolidation Items: All Other: $139,297 million\\n- Segment operating income \\u2014 2024-01-29 to 2025-01-26, Consolidation Items: All Other: $87,960 million\\n- Segment operating income \\u2014 2023-01-30 to 2024-01-28, Consolidation Items: All Other: $37,862 million\\n\\n(1) In the third quarter of fiscal year 2026, we changed to revenue based upon the location of our customers\\u2019 headquarters as we believe it provides a better representation of the geographic profile of our revenue.\\n\\n(2) In fiscal year 2026, we estimate 76% of Data Center revenue from Taiwan-headquartered customers was attributed to end customers based in the United States and Europe.\"}, {\"type\": \"web_search_result\", \"title\": \"NVIDIA Announces Financial Results for Third Quarter Fiscal 2026\", \"url\": \"https://nvidianews.nvidia.com/_gallery/download_pdf/691e34d93d633290a88deeef/\", \"content\": \"gross profit, non-GAAP gross margin, non-GAAP operating expenses, non-GAAP operating income, non-GAAP other. income (expense), net, non-GAAP net income, non-GAAP net income, or earnings, per diluted share, and free cash flow.\\n\\n**Record revenue of $57.0 billion, up 22% from Q2 and up 62% from a year ago**\\n\\n| ($ in millions, except earnings per share) | Q3 FY26 | Q2 FY26 | Q3 FY25 | Q/Q | Y/Y |  |\\n| --- | --- | --- | --- | --- | --- | --- |\\n| Revenue | $57,006 | $46,743 | $35,082 | 22% |  | 62% |\\n| Operating expenses | $5,839 | $5,413 | $4,287 | 8% |  | 36% |\\n| Operating income | $36,010 | $28,440 | $21,869 | 27% |  | 65% |\\n| Diluted earnings per share | $1.30 | $1.08 | $0.78 | 20% |  | 67% |\\n\\n**Non-GAAP**\\n\\n| ($ in millions, except earnings per share) | Q3 FY26 | Q2 FY26 | Q3 FY25 | Q/Q | Y/Y |  |\\n| --- | --- | --- | --- | --- | --- | --- |\\n| Revenue | $57,006 | $46,743 | $35,082 | 22% |  | 62% |\\n| Operating income | $37,7\n",
+       "stderr": "",
+       "return_code": 0,
+       "content": [],
+       "abort_reason": null
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQStQUKEAgTGAI4AUIIdGhpbmtpbmcSDHrvdmO+5F8CtGTA4RoMJH1WycKvIs64cPIZIjBwfdU65+tW7ikMlutRqkSHClh2UPo5pXR+uJYGQZppp2E3ReK1h2jq9m6NHykS3d0q0gQRIEckBxXloUWBdCHwlN+a8xLmrqBSQSPWLZUVz6QCYa6gp4Vt4ZRl6+xlSpCwTtz/Pw8EDBwLyLyhE7iqEM6Itgj2/I1zaLY01kjkxR3J+XyQ+iI2Z0SeVy7C/mcp5DSIn8RTHj9EoSSrSpzvB/iHsaPVXbhbvwfQYYH7fecDE7O0UDu6vBP+4tYyg2/LdVmdBty6DszrCAyrxSqR1eHbvzdJzMkfB95Cnm79GBoyF0iWqRKgrXiHajKBZ7wSrvXHe1azVgjDvH0Sc5afUKJ0jhQJ20GSje4npsaI9hSidgxe2a8uGYKRrccJ5QHCBjCDQT3IKdSe+s0B3dRwupjkNMSdrLnlcrL7gQ/Delt6FZyWrYrPOcQ6OYUnSEU64v3DlBSlwn4s9Z8ijW0b3WAroI8DKIUYNrgSyMjAKBHIffDwNh5guz3U0EEKQ4y2Fgt5ZBqciu+lh6T4wvSH3U9lFZuVYcg75kUL591Kia0DCrrZ0nUhDcga+yOsGaKoJ8HOj/DNbtU+ROCXGbq9zZJemiFioqBYqTtW9okVdbEYrTipDg7in9A1slfGVOfZDy9kpuc/8y795G7Una40V0rzZaCWvuCX+McRB8qJcvxHPQrptg/ej73twOOEtgnRPx0sT+2SvsHiZgozxvICqqZ2zcqQRUlt9EA5DiyW19pexUQhDVdLfi5SLijBpVqL9i2b5JxCo2fvglV3FqZn5h3QXcQP2kIFBMDmkZW7oB9kVVtlU4r3o+0/4H4SY0Qwi6ctY5iUAVvM9R/FXRNdL/iwd38YAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01R6524yZmiTpA1sk89Pgv8i",
+      "name": "code_execution",
+      "input": {
+       "code": "qs=[\"NVIDIA fourth quarter fiscal 2026 results full year revenue $215 billion cash flow purchases of property and equipment\",\"NVIDIA 10-K fiscal 2026 depreciation and amortization total cash flow statement purchases related to property and equipment\",\"NVIDIA fiscal 2026 balance sheet cash marketable securities total debt notes diluted weighted average shares\"]\nimport re\nfor q in qs:\n    for x in await web_search({\"query\":q}):\n        c=x['content']\n        for m in re.finditer(r'(Depreciation and amortization|Purchases related to property|Revenue \\||Cash, cash equivalents and marketable|Long-term debt|Short-term debt|Diluted|Operating income \\|)',c):\n            print(x['url'][-40:],c[max(0,m.start()-50):m.start()+200].replace(\"\\n\",\" \"))\n            break"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Rp5f9aoQtkhTYjZfbicw7s",
+      "name": "web_search",
+      "input": {
+       "query": "NVIDIA fourth quarter fiscal 2026 results full year revenue $215 billion cash flow purchases of property and equipment"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01R6524yZmiTpA1sk89Pgv8i"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01Rp5f9aoQtkhTYjZfbicw7s",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA CORP - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26pr.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026",
+        "encrypted_content": "[omitted]",
+        "page_age": "257 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://nvidianews.nvidia.com/_gallery/download_pdf/699f6ab43d6332ccaa689907/",
+        "encrypted_content": "[omitted]",
+        "page_age": "222 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://finance.yahoo.com/news/nvidia-announces-financial-results-fourth-213100479.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "256 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nvidia posts record $215 billion annual revenue in latest quarterly earnings report — gaming GPUs now only 11.45% of revenue",
+        "url": "https://finance.yahoo.com/news/nvidia-posts-record-215-billion-102845670.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "255 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://www.nasdaq.com/press-release/nvidia-announces-financial-results-fourth-quarter-and-fiscal-2026-2026-02-25",
+        "encrypted_content": "[omitted]",
+        "page_age": "256 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA (NVDA) Q4 2026 Summary",
+        "url": "https://quartr.com/events/nvidia-corporation-nvda-q4-2026_33dRXhgY",
+        "encrypted_content": "[omitted]",
+        "page_age": "74 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://www.globenewswire.com/news-release/2026/02/25/3245078/0/en/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "256 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Q4 revenue hits $68.1B on record FY 2026",
+        "url": "https://www.stocktitan.net/news/NVDA/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-j0kg9vc0geqr.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "256 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://seekingalpha.com/pr/20414347",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01R6524yZmiTpA1sk89Pgv8i"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01R6524yZmiTpA1sk89Pgv8i",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "Eo4BCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDDkzZ8bhEw5srzLpIRoMWYgbPoWT5z5fpjeYIjDWFAilBv1QZEQKckNqYR/toiOmyKi6Jwr+HsOB4QsezroiZWn28grsQHA6zsycVuYqEqbd7QSWJcqD88JOkcxxQwbW0hgD",
+       "stderr": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 190, in run\n    return runner.run(main)\n           ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/runners.py\", line 118, in run\n    return self._loop.run_until_complete(task)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/asyncio/base_events.py\", line 654, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"/tmp/srvtoolu_01R6524yZmiTpA1sk89Pgv8i/cell.py\", line 12, in <module>\n    c=x['content']\n      ~^^^^^^^^^^^\nTypeError: string indices must be integers, not 'str'\n",
+       "return_code": 1,
+       "content": []
+      }
+     },
+     {
+      "type": "text",
+      "text": "Results appear to be sometimes strings; handle."
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_012n5gNe5Qb2cbankEEQe2pQ",
+      "name": "code_execution",
+      "input": {
+       "code": "for q in qs:\n    res=await web_search({\"query\":q})\n    if not isinstance(res,list): print(str(res)[:200]);continue\n    for x in res:\n        if not isinstance(x,dict): print(str(x)[:200]);continue\n        c=x['content']\n        print('##',x['url'])\n        for k in ['Depreciation and amortization','Purchases related to property','Total revenue','Revenue |','Cash, cash equivalents and marketable','Long-term debt','Short-term debt','Diluted','Operating income |']:\n            i=c.find(k)\n            if i>=0: print(k,'->',c[i:i+220].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_019FDiBgTCVv4nY4CZX7Xj99",
+      "name": "web_search",
+      "input": {
+       "query": "NVIDIA fourth quarter fiscal 2026 results full year revenue $215 billion cash flow purchases of property and equipment"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_012n5gNe5Qb2cbankEEQe2pQ"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_019FDiBgTCVv4nY4CZX7Xj99",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA CORP - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26pr.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026",
+        "encrypted_content": "[omitted]",
+        "page_age": "257 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://nvidianews.nvidia.com/_gallery/download_pdf/699f6ab43d6332ccaa689907/",
+        "encrypted_content": "[omitted]",
+        "page_age": "222 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nvidia posts record $215 billion annual revenue in latest quarterly earnings report — gaming GPUs now only 11.45% of revenue",
+        "url": "https://finance.yahoo.com/news/nvidia-posts-record-215-billion-102845670.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "255 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA (NVDA) Q4 2026 Summary",
+        "url": "https://quartr.com/events/nvidia-corporation-nvda-q4-2026_33dRXhgY",
+        "encrypted_content": "[omitted]",
+        "page_age": "74 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://www.nasdaq.com/press-release/nvidia-announces-financial-results-fourth-quarter-and-fiscal-2026-2026-02-25",
+        "encrypted_content": "[omitted]",
+        "page_age": "256 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://www.globenewswire.com/news-release/2026/02/25/3245078/0/en/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "256 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Q4 revenue hits $68.1B on record FY 2026",
+        "url": "https://www.stocktitan.net/news/NVDA/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-j0kg9vc0geqr.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "256 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://seekingalpha.com/pr/20414347",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_012n5gNe5Qb2cbankEEQe2pQ"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01BUu8UQootkeQegtMyBwKD6",
+      "name": "web_search",
+      "input": {
+       "query": "NVIDIA 10-K fiscal 2026 depreciation and amortization total cash flow statement purchases related to property and equipment"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_012n5gNe5Qb2cbankEEQe2pQ"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01BUu8UQootkeQegtMyBwKD6",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA CORP (Form: 10-K, Received: 02/25/2026 16:42:54)",
+        "url": "https://content.edgar-online.com/ExternalLink/EDGAR/0001045810-26-000021.html?hash=bfc1928dafc1364508898f07748ccfb989b1c7d5ff7edff15133187507f34aba&dest=nvda-20260125_htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "nvda-20260726",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Corporation - NVIDIA Announces Financial Results for Second Quarter Fiscal 2026",
+        "url": "https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Announces-Financial-Results-for-Second-Quarter-Fiscal-2026/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "439 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026",
+        "encrypted_content": "[omitted]",
+        "page_age": "257 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "nvda-20260426",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "nvda-20251026",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000230/nvda-20251026.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "355 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA (NVDA) Cash Flow Statement",
+        "url": "https://stockanalysis.com/stocks/nvda/financials/cash-flow-statement/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1016 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Corp. (NASDAQ:NVDA)",
+        "url": "https://www.stock-analysis-on.net/NASDAQ/Company/NVIDIA-Corp/Financial-Statement/Statement-of-Cash-Flows",
+        "encrypted_content": "[omitted]",
+        "page_age": "256 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nvidia (NVDA) FY2026 10-K Review",
+        "url": "https://app.dhicapitalgroup.com/research/NVDA",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_012n5gNe5Qb2cbankEEQe2pQ"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01Uh7uRbizKEJwBYwKa5Sc2x",
+      "name": "web_search",
+      "input": {
+       "query": "NVIDIA fiscal 2026 balance sheet cash marketable securities total debt notes diluted weighted average shares"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_012n5gNe5Qb2cbankEEQe2pQ"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01Uh7uRbizKEJwBYwKa5Sc2x",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA CORP - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26cfocommentary.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA CORP - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26pr.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "nvda-20260426",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "nvda-20260125",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "288 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA (TSX:NVDA) Balance Sheet",
+        "url": "https://stockanalysis.com/quote/tsx/NVDA/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA (NVDA) Balance Sheet",
+        "url": "https://stockanalysis.com/stocks/nvda/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1344 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, DC 20549",
+        "url": "https://d18rn0p25nwr6d.cloudfront.net/CIK-0001045810/81e344ce-b448-40ef-b470-8a8dc0c0019c.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "173 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Balance Sheet",
+        "url": "https://nvidiastock.co.uk/financials-balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": "173 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA (NVDA) financial statements: income, balance sheet and cash flow",
+        "url": "https://stockfactsheet.com/stocks/nvda/financials/",
+        "encrypted_content": "[omitted]",
+        "page_age": "36 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_012n5gNe5Qb2cbankEEQe2pQ"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_012n5gNe5Qb2cbankEEQe2pQ",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "EusFCioIFRgCIiQyMDZjOWI1YS1iNmViLTRlY2MtODg2NS0zODFiY2IxZGM1NGISDLaBx2pq2ErmroNZtxoM6sWfRWZYF9gkCFhAIjDTvDPxcaT+AyNh4x3KpC3YvPPFwQbJTF/lGr/QpHmKbTf0wAtcTFgKdtNG8QSBatMq7gSh/C5pFiUzM6RdY2u2ZqDQE/HOrhRvkh3JLB0cqsIcOj/33pJba3YPYECPuu7SK7BGM90wKen33tnvO9VV+tBv/gOZlgfAD0eLMmkgu7gxfINmz7wV0l0nyf3tTf/ss8S354b/KecVbXE1CqiEwfvYNucBzxo0/NjURZ7UCEgIAfgg4bB1fSBY8brt4tOfxiSl9TcmLdvnxnUjUZtBYn2kScleXo2b0pMAf10A1laKwEGT0E2akpcjQm+rCr05ytF69kmYjAKW3s+3LhrrksLUeTrFaQB2eYBNlbgmPXGCVbr/ZB8At9eUDbAMcuUkQKcKmWgtVYiQcnHme964D99nQwQpuDkCuq1LQDOcX9RNet9jf5ArS1GEpfNayWc2S4lPjri0kEAP64Wled37W0rMrDyETWgYQqNk8yTYbf/rA6zIgRVSE7l/y667OZDGeNvmqNJrMWIcgX6R2sICMrsPqJadbye0Uizdbu7OVg5RRCv+kKpL41W7C+uEw73BVForX/366iCVXaLowgQ7M1YVSdvmPV4SXOIRf91qs3wGYI4XHgNBSzS1/8g1MYgRh1EgyZfh8kneRt98U/J/lMyFCKi9v2jHhEjEfCn1Cykt2hJA32oK4NM4V1UQWPysilSL4Oap6ia/YQS5A9bE6lTu86nYiP2xq0EqWMYpvge8qaFv7v3lYs9m988d0Bkcym9HDzLZw+6E2zqHpcmWM2ZA6rHCYTpG2zCAWoYkhTt03i75VdpIOAE2xA5iF5E96Zy3bz+vFsYPY/28cy+b3MDeMBgu8ONottHwV5m/jN/n30fAyDQ6F4zEUBLxwgsdGAM=",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "text",
+      "text": "Returns a string; parse JSON."
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01MLFNRnYgHZJZR9q5jrbxcc",
+      "name": "code_execution",
+      "input": {
+       "code": "import json\nfor q in qs:\n    res=await web_search({\"query\":q})\n    if isinstance(res,str): res=json.loads(res)\n    for x in res:\n        c=x['content']\n        print('##',x['url'])\n        for k in ['Depreciation and amortization','Purchases related to property','Revenue','Cash, cash equivalents and marketable','Long-term debt','Short-term debt','Diluted','Operating income']:\n            for m in list(re.finditer(k,c))[:2]:\n                i=m.start(); print(k,'->',c[i:i+200].replace(\"\\n\",\" \"))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_015ExLdnvZ3RJ6N4FP6gadJo",
+      "name": "web_search",
+      "input": {
+       "query": "NVIDIA fourth quarter fiscal 2026 results full year revenue $215 billion cash flow purchases of property and equipment"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01MLFNRnYgHZJZR9q5jrbxcc"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_015ExLdnvZ3RJ6N4FP6gadJo",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA CORP - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26pr.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026",
+        "encrypted_content": "[omitted]",
+        "page_age": "257 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://nvidianews.nvidia.com/_gallery/download_pdf/699f6ab43d6332ccaa689907/",
+        "encrypted_content": "[omitted]",
+        "page_age": "222 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://finance.yahoo.com/news/nvidia-announces-financial-results-fourth-213100479.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "256 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nvidia posts record $215 billion annual revenue in latest quarterly earnings report — gaming GPUs now only 11.45% of revenue",
+        "url": "https://finance.yahoo.com/news/nvidia-posts-record-215-billion-102845670.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "255 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA CORP - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26cfocommentary.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://www.nasdaq.com/press-release/nvidia-announces-financial-results-fourth-quarter-and-fiscal-2026-2026-02-25",
+        "encrypted_content": "[omitted]",
+        "page_age": "256 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA (NVDA) Q4 2026 Summary",
+        "url": "https://quartr.com/events/nvidia-corporation-nvda-q4-2026_33dRXhgY",
+        "encrypted_content": "[omitted]",
+        "page_age": "74 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://www.globenewswire.com/news-release/2026/02/25/3245078/0/en/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "256 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Q4 revenue hits $68.1B on record FY 2026",
+        "url": "https://www.stocktitan.net/news/NVDA/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-j0kg9vc0geqr.html",
+        "encrypted_content": "[omitted]",
+        "page_age": "256 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01MLFNRnYgHZJZR9q5jrbxcc"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01V8SvugTu8TXGDCAetsrro8",
+      "name": "web_search",
+      "input": {
+       "query": "NVIDIA 10-K fiscal 2026 depreciation and amortization total cash flow statement purchases related to property and equipment"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01MLFNRnYgHZJZR9q5jrbxcc"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01V8SvugTu8TXGDCAetsrro8",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA CORP (Form: 10-K, Received: 02/25/2026 16:42:54)",
+        "url": "https://content.edgar-online.com/ExternalLink/EDGAR/0001045810-26-000021.html?hash=bfc1928dafc1364508898f07748ccfb989b1c7d5ff7edff15133187507f34aba&dest=nvda-20260125_htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026",
+        "encrypted_content": "[omitted]",
+        "page_age": "257 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "nvda-20260726",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Corporation - NVIDIA Announces Financial Results for Third Quarter Fiscal 2026",
+        "url": "https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2026/default.aspx",
+        "encrypted_content": "[omitted]",
+        "page_age": "355 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "nvda-20251026",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000230/nvda-20251026.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "355 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "nvda-20260426",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Corp. (NASDAQ:NVDA)",
+        "url": "https://www.stock-analysis-on.net/NASDAQ/Company/NVIDIA-Corp/Financial-Statement/Statement-of-Cash-Flows",
+        "encrypted_content": "[omitted]",
+        "page_age": "256 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Corp. (NASDAQ:NVDA)",
+        "url": "https://www.stock-analysis-on.net/NASDAQ/Company/NVIDIA-Corp/Analysis/Property-Plant-and-Equipment",
+        "encrypted_content": "[omitted]",
+        "page_age": "256 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "Nvidia (NVDA) FY2026 10-K Review",
+        "url": "https://app.dhicapitalgroup.com/research/NVDA",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01MLFNRnYgHZJZR9q5jrbxcc"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01B1ausJLs3SVQCEVp83sWaV",
+      "name": "web_search",
+      "input": {
+       "query": "NVIDIA fiscal 2026 balance sheet cash marketable securities total debt notes diluted weighted average shares"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01MLFNRnYgHZJZR9q5jrbxcc"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_01B1ausJLs3SVQCEVp83sWaV",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA CORP - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26cfocommentary.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA CORP - Form 8-K - FY2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000019/q4fy26pr.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA (TSX:NVDA) Balance Sheet",
+        "url": "https://stockanalysis.com/quote/tsx/NVDA/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "nvda-20260426",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "nvda-20260125",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "288 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA (NVDA) Balance Sheet",
+        "url": "https://stockanalysis.com/stocks/nvda/financials/balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": "1344 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "UNITED STATES SECURITIES AND EXCHANGE COMMISSION WASHINGTON, DC 20549",
+        "url": "https://d18rn0p25nwr6d.cloudfront.net/CIK-0001045810/81e344ce-b448-40ef-b470-8a8dc0c0019c.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "173 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Balance Sheet",
+        "url": "https://nvidiastock.co.uk/financials-balance-sheet/",
+        "encrypted_content": "[omitted]",
+        "page_age": "173 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA (NVDA) financial statements: income, balance sheet and cash flow",
+        "url": "https://stockfactsheet.com/stocks/nvda/financials/",
+        "encrypted_content": "[omitted]",
+        "page_age": "36 days ago"
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01MLFNRnYgHZJZR9q5jrbxcc"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01MLFNRnYgHZJZR9q5jrbxcc",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSzAcKEAgTGAI4AUIIdGhpbmtpbmcSDFgrct1OMYhnxYNe9hoMeUtVsZOsIsFAPs8ZIjDjpXhcjiXL20AMAmeX69HDs0+Ruk4Jd3zLYbkJ3dPncLBNbaTkLQa50LkP8Ywji0Aq6QYAXRxg1J4nDQHasaQZek2R9rUpIVpeXTTfMlGj0u/sa0ZAricySgQ25fZU4e84FnnccXfw9hu+jD7VAjvIx1MuHCO6/a4c8XGtV3IPGI2So8lgX4uLbwI2ohPnVsov0GBt1jjL56tSLyWtVTnSpEho5B5n4UKf/M9kQpKtuxYhY5tA9HkeZI/fRe5PPo2BUuj5bX80WYrdZcR/wtqaDsuaco7fvop/F0krGAamnNuAb5Nbu21wIOfcsVhIfdMfE8fo67PRyD4oD/H9nB5gT+HlVxdM4lfYJ4ofTSNfiAiZbEKaRWHx0WRYOeNYeJyq66vR8KLt6yiDIiDTmvTqSQa3NmdJXuLZV7OrZhBhYmJaH5fLmqjuPD2MYxNykl7gBetwmDCQXSZWCK4XKwVzx8dUbYCKzQC+Q+Rb7khWyJSMo1yExtCNgW1Kz0Q3e4a+br4G9gv2NlnzYcnVQj7im1F4IcXmtxO1n8rh42zaiWcBv7dkPPZNd7S4I1/umZ8D3eeDUkxOjSr6nHn90Cd7afTvTtPUzZO9ExK1Lef6p0LzSiWxVpEPJVB5B5dHWOeqnyuNCqidzxoZfDKYIbjEXRmmBY4StJYtf1g/hRu6NOXRqzLxI+I4a9fpbsS3drqf63iHalpGm08+NEeJ2Q5QYdFvRR2EP3ws7lkP1fEfBfMi5lsbJ9R3ZiE72McwoE2lHw/xpOodX+DlnwdYzYz2FJhnHi/4D5lRWQWUoBi8il7iDa60QUyJFwvy8zvl2rQFPkNGqAMGCEWGM0g8k/HnVdbG2JwAUJxwrjUTgqyQ/Ja0wcpKlhiQSlaPLxafRtRYJyo05Jlxw/JNEBVbeEf8KCEAHdY24GFppW14bz5D7c8uHeurtZvSCWxRpH7jZ+Yk4mz9Mc4DHQnHmcR/ot+Z7IRqpqYtQ9mddwSgyPau47hszcry9GxzNnJ/oGUuHL2wlBeFrCibPAZE/OpdIUoaTODoCtwau/RnsnmSiHpiAXbCu48URifF0hs2r/vyr1R761ykUo8+urS9dMnnalJGs+AoGG8ChxhjwkdvqEnhJhU1iE1krVSOXINAeKYpCRgYxu9vYhcDbfgjFWNqkpTF+gWaQENtq7tnU65yrv9/duBJK67g5yijFa5k3mWlzFHaGj5dR8id+bB2l+cYAQ=="
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_01U8yfkJq6BELwXLq7kCtJ3n",
+      "name": "code_execution",
+      "input": {
+       "code": "res=json.loads(await web_search({\"query\":\"NVIDIA Q4 fiscal 2026 press release condensed consolidated balance sheet long-term debt short-term debt operating income full year\"})) if True else 0\nfor x in res:\n    c=x['content']\n    if 'q4fy26pr' in x['url'] or 'nvidianews' in x['url']:\n        for k in ['Operating income','Long-term debt','Short-term debt','Marketable']:\n            for m in list(re.finditer(k,c))[:3]:\n                print(k,'->',re.sub(r'\\s+',' ',c[m.start():m.start()+300]))"
+      }
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_013pDxNdL9Spd3nFtT414taD",
+      "name": "web_search",
+      "input": {
+       "query": "NVIDIA Q4 fiscal 2026 press release condensed consolidated balance sheet long-term debt short-term debt operating income full year"
+      },
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01U8yfkJq6BELwXLq7kCtJ3n"
+      }
+     },
+     {
+      "type": "web_search_tool_result",
+      "tool_use_id": "srvtoolu_013pDxNdL9Spd3nFtT414taD",
+      "content": [
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Corporation - NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026/",
+        "encrypted_content": "[omitted]",
+        "page_age": "257 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026",
+        "encrypted_content": "[omitted]",
+        "page_age": "257 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "nvda-20260426",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026 •",
+        "url": "https://fortune.com/company-assets/1936/quartr/earnings-release-8-k-73c0d-2026-02-25-09-17-32.pdf",
+        "encrypted_content": "[omitted]",
+        "page_age": "257 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "nvda-20260726",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://nvidianews.nvidia.com/_gallery/download_pdf/699f6ab43d6332ccaa689907/",
+        "encrypted_content": "[omitted]",
+        "page_age": "222 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "nvda-20251026",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000230/nvda-20251026.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "355 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "nvda-20260125",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm",
+        "encrypted_content": "[omitted]",
+        "page_age": "288 days ago"
+       },
+       {
+        "type": "web_search_result",
+        "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+        "url": "https://seekingalpha.com/pr/20414347",
+        "encrypted_content": "[omitted]",
+        "page_age": null
+       }
+      ],
+      "caller": {
+       "type": "code_execution_20260120",
+       "tool_id": "srvtoolu_01U8yfkJq6BELwXLq7kCtJ3n"
+      }
+     },
+     {
+      "type": "code_execution_tool_result",
+      "tool_use_id": "srvtoolu_01U8yfkJq6BELwXLq7kCtJ3n",
+      "content": {
+       "type": "encrypted_code_execution_result",
+       "encrypted_stdout": "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",
+       "stderr": "",
+       "return_code": 0,
+       "content": []
+      }
+     },
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS6wkKEAgTGAI4AUIIdGhpbmtpbmcSDMcwRUwffB4ay0kO6BoMDazN/4qA6vtddKEfIjBcEFUsvBEYcr4odEJUoi/WlUX8Ea0x5QOXLeLokhEE7OmDYNnJuGwzpltxEkHkSjEqiAkKUuECReJmSM6OD1fVwafjoGOyE/S0sCJTVODl3Shf8AezIweygvHYfkT9EA0WE7QXJwMR9IgGYvJpmIFbr8J8XNKL6DRnMb2mDfP1Kqy9vQE4NQuLroO3K/DSXrA1S7Bn0hL+bzly8KyJWZuKiGcN7bZJVQuJfOyFwaFIcI4d/4acBNGNfpq0nHo+MAYv/Yd4tfqaW38zZ3YguJ6vi5yJO73ZSi//XKnDZ+GLQ7m8kKSn4x8CAQunNPDmhrMuvMrIYAwt/VP0KTaBJt9wBRYcvbygBXhuoxeiCbI6Iey+eWd7C+WLhU4V5rQobA+V0atQeHtdhmMBqxfHEtKoh2nVpgZfFeFFk2teRQw49Kc4a1OHTkxC7S9pWfUt/F70i00/q/xZ01hI3xmwBiJe9ek6eVfbL/GPMNDo+7/kKX1xto7WySQc317TPKI9X4HGbevpvsgA8QqCfQTlHkWdHc87lTh7jEbV8ssvqK7UYKL0vDXq5Mchqd8fhQbILMOEn4Jf1EfcVUDffJhJO6/HVmQJbWL9dp//MD+00bmwlzQvK3mCCkk4If97xXnUGt9YKYH2Y595p7/5ildOrk0W8b9s0ePzrSMQ8ymq0AJzTbHp7siSpjYFET+0AB5/h/DvNOTzJ4t2EJyl1FQPI8osfrQMKjPUN/bVP0uYoV0PhNJZ5LV/IKe+cxJikv7uKG0+Pd+6igIQ+r0+v+glgsZ3Nv3FP5beEpY33UeP2E80Y+U7fbN/fskrro+60XXnCVs/aX8lnc3aO2zkqy51ivLl22a+E8Nikp01NJOWsIQqGUVVq9TSJpfELe/lUm13pt+HYQw1RkiPhvPi/bvOTbfdWIisrH5EYDeXIFMJvDSLfA9V6D6CwYYdLi5BBEPsoVvLm6AKTVPj9taNhwaz05A4AKSF8bIAA/DyIgAeXY5kGOSvM9TOgkbXPSpxYoiMZRvPTl88uo0Pm0D5/5HB5qOvllnxef3tnBZIhkdYw6XEjbwEtzl03ibV0nzHm4ZYKrzaIeACrHGBT+aI8RtVsPwM6ZeyStn2buZ8eVQep6c044+mD2YljaB2IxLgqOxlX57eDBEglqU7Yy+5g3lxeGuE24AzeHu7OlFNeQI6iPPz4x2z5Z4Pp8W5941V5AQWvZjZkfjWpM8n7nCntYQTtbfT7FoZt48G+fUyi/OwGlNYkd3tPucWS+VIUxtCjadXlqPoiStt85nOmLkN/Tjq2XQQ5+cfk8IHn68siOYNFv1mjctdp7usUtwe8bYbs0cEiOObNXE0DTWGGg1Ozjyzeq4rNHk70wCu5DOrhs2HkvGBFxsWnHAlG+iAxXccyNuiB9j7wN6D4UUeSW1VyJ93joq03k3RL1WeR6e2tsGpjYTaAUAHk6eQbe7V1SbtOFGxp2otjEhluW9XGUd8Is7ZK8QoXbIXvP8KekfFhuZsx2c7w/afLQ14kTdfVA2ql7cO46odk8GckewXSnrxy2VHcSp8HkWXddynDth4kgA1urK43nit7GdFK8o1aamNC9joIvgTXwMpn1cvA98mOxgB"
+     },
+     {
+      "type": "server_tool_use",
+      "id": "srvtoolu_016SDU81iy95K4m4nRA1kh9i",
+      "name": "code_execution",
+      "input": {
+       "code": "print(1)"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_012dc59QEyEkNEanpj8dmGvB",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "NVIDIA Corporation",
+       "ticker": "NVDA",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2024",
+         "FY2025",
+         "FY2026"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           60922,
+           130497,
+           215938
+          ],
+          "source": "FY2026 revenue 215,938 and FY2025 130,497: Q4 FY26 press release (8-K acc. 0001045810-26-000019). FY2024 60,922: FY2024 10-K (from memory of filing; not re-verified this session)"
+         },
+         "operating_income": {
+          "values": [
+           32972,
+           81453,
+           130387
+          ],
+          "source": "FY2026 130,387 and FY2025 81,453: Q4 FY26 press release (8-K 0001045810-26-000019). FY2024 32,972: FY2024 10-K (not re-verified this session)"
+         },
+         "d_and_a": {
+          "values": [
+           1508,
+           1864,
+           2843
+          ],
+          "source": "Cash flow statement, FY2026 10-K (acc. 0001045810-26-000021)"
+         },
+         "capex": {
+          "values": [
+           1069,
+           3236,
+           6042
+          ],
+          "source": "Purchases related to property and equipment and intangible assets, cash flow statement, FY2026 10-K (0001045810-26-000021)"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030",
+         "FY2031"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.55,
+          0.25,
+          0.15,
+          0.1,
+          0.07
+         ],
+         "source": "Assumption: FY26 growth was 65%; Q1 FY27 guidance of ~$78B/qtr implies strong FY27 (>$300B run-rate); fade to mature growth as law of large numbers and competition bite."
+        },
+        "ebit_margin": {
+         "value": 0.58,
+         "period": "FY2027-FY2031",
+         "source": "Assumption: FY26 GAAP EBIT margin 60.4% (130,387/215,938); modest haircut for competition and mix/pricing normalisation."
+        },
+        "tax_rate": {
+         "value": 0.17,
+         "period": "FY2027-FY2031",
+         "source": "Assumption: approx. blended effective rate near 16-17% in recent years; US 21% statutory offset by FDII and credits."
+        },
+        "da_pct_revenue": {
+         "value": 0.015,
+         "period": "FY2027-FY2031",
+         "source": "Assumption: FY26 D&A 2,843/215,938=1.3%, slightly higher as capex rises."
+        },
+        "capex_pct_revenue": {
+         "value": 0.03,
+         "period": "FY2027-FY2031",
+         "source": "Assumption: FY26 capex 6,042/215,938=2.8%; rounded up for growing supply-chain/infrastructure investment."
+        },
+        "wacc": {
+         "value": 0.1,
+         "period": "FY2027-FY2031",
+         "source": "Assumption: CAPM, rf ~4.3%, beta ~1.7-1.8, ERP ~5%, almost no debt; rounded to 10%."
+        },
+        "terminal_growth": {
+         "value": 0.03,
+         "period": "terminal",
+         "source": "Assumption: at/below long-run nominal GDP growth; conservative given huge base."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": -54088,
+         "period": "FY2026",
+         "source": "Short-term debt 999 + long-term debt 7,469 minus cash, equivalents and marketable securities 62,556 (Q4 FY26 press release, 8-K 0001045810-26-000019); leases excluded."
+        },
+        "diluted_shares": {
+         "value": 24514,
+         "period": "FY2026",
+         "source": "Weighted average diluted shares, FY2026 10-K (acc. 0001045810-26-000021), millions"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 13,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 1,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 3,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "NVDA",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 60922,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 60922000000,
+    "resolved": "NVDA"
+   },
+   {
+    "company": "NVDA",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 130497,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 130497000000,
+    "resolved": "NVDA"
+   },
+   {
+    "company": "NVDA",
+    "metric": "revenue",
+    "period": "FY2026",
+    "value": 215938,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 215938000000,
+    "resolved": "NVDA"
+   },
+   {
+    "company": "NVDA",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 32972,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 32972000000,
+    "resolved": "NVDA"
+   },
+   {
+    "company": "NVDA",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 81453,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 81453000000,
+    "resolved": "NVDA"
+   },
+   {
+    "company": "NVDA",
+    "metric": "operating_income",
+    "period": "FY2026",
+    "value": 130387,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 130387000000,
+    "resolved": "NVDA"
+   },
+   {
+    "company": "NVDA",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 1508,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1508000000,
+    "resolved": "NVDA"
+   },
+   {
+    "company": "NVDA",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 1864,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1864000000,
+    "resolved": "NVDA"
+   },
+   {
+    "company": "NVDA",
+    "metric": "d_and_a",
+    "period": "FY2026",
+    "value": 2843,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2843000000,
+    "resolved": "NVDA"
+   },
+   {
+    "company": "NVDA",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 1069,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1069000000,
+    "resolved": "NVDA"
+   },
+   {
+    "company": "NVDA",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 3236,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3236000000,
+    "resolved": "NVDA"
+   },
+   {
+    "company": "NVDA",
+    "metric": "capex",
+    "period": "FY2026",
+    "value": 6042,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 6042000000,
+    "resolved": "NVDA"
+   },
+   {
+    "company": "NVDA",
+    "metric": "net_debt",
+    "period": "FY2026",
+    "value": -54088,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": -2137000000,
+    "resolved": "NVDA"
+   },
+   {
+    "company": "NVDA",
+    "metric": "diluted_shares",
+    "period": "FY2026",
+    "value": 24514,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 24514000000,
+    "resolved": "NVDA"
+   }
+  ],
+  "unsourced_refs": [
+   "history.revenue[FY2024]",
+   "history.revenue[FY2025]",
+   "history.revenue[FY2026]"
+  ],
+  "errors": []
+ }
+}

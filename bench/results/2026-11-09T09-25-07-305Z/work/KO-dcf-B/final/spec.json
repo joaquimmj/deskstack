@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "The Coca-Cola Company",
+ "ticker": "KO",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     45754,
+     47061,
+     47941
+    ],
+    "source": "financial_statements KO, us-gaap:Revenues, 10-K accession 0001628280-26-010047"
+   },
+   "operating_income": {
+    "values": [
+     11311,
+     9992,
+     13762
+    ],
+    "source": "financial_statements KO, us-gaap:OperatingIncomeLoss, accession 0001628280-26-010047"
+   },
+   "d_and_a": {
+    "values": [
+     1128,
+     1075,
+     1050
+    ],
+    "source": "financial_statements KO, us-gaap:DepreciationDepletionAndAmortization, accession 0001628280-26-010047"
+   },
+   "capex": {
+    "values": [
+     1852,
+     2064,
+     2112
+    ],
+    "source": "financial_statements KO, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0001628280-26-010047"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.045,
+    0.045,
+    0.04,
+    0.04,
+    0.035
+   ],
+   "source": "Assumption: FY23-25 revenue CAGR ~2.4% was depressed by FX/refranchising; mature staple with pricing plus modest volume, fading to 3.5%."
+  },
+  "ebit_margin": {
+   "value": 0.27,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 margin 28.7% (13,762/47,941) vs 21.2% FY2024 and 24.7% FY2023; FY2025 likely includes non-recurring items, so 27% is a haircut to FY2025 and above the 3-yr average."
+  },
+  "tax_rate": {
+   "value": 0.19,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: below 21% US statutory given foreign mix; Damodaran industry effective rate 6.8% considered too low for sustained use."
+  },
+  "da_pct_revenue": {
+   "value": 0.022,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 D&A 1,050/47,941 = 2.2%; 3-yr range 2.2-2.5%."
+  },
+  "capex_pct_revenue": {
+   "value": 0.044,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: FY2025 capex 2,112/47,941 = 4.4%; FY2024 4.4%, FY2023 4.0%."
+  },
+  "wacc": {
+   "value": 0.072,
+   "period": "current",
+   "source": "CAPM: rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 0.669 (Damodaran Beverage (Soft) unlevered cash-corrected 0.575, D/E 0.206, tax 21%) x ERP 4.46% (Damodaran US, 2026-02-16) = 7.84% cost of equity; pretax cost of debt 5.29% (Damodaran) -> 4.18% after tax; weights 82.9%/17.1% (Damodaran industry; no share price available) -> ~7.2%."
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "period": "terminal",
+   "source": "Assumption: roughly long-run nominal GDP/inflation, below the 4.86% risk-free rate."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 31564,
+   "period": "FY2025 (2025-12-31)",
+   "source": "financial_statements KO derived net_debt = total debt 45,436 (LT debt 42,119 + current 1,822 + commercial paper 1,495) - cash 10,270 - ST investments 3,602; accession 0001628280-26-010047"
+  },
+  "diluted_shares": {
+   "value": 4313,
+   "period": "FY2025",
+   "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 4,313,000,000 shares, in millions; accession 0001628280-26-010047"
+  }
+ }
+}

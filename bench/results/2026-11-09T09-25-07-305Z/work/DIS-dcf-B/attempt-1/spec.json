@@ -1,0 +1,49 @@
+{
+ "kind": "dcf",
+ "company": "The Walt Disney Company",
+ "ticker": "DIS",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     88898,
+     91361,
+     94425
+    ],
+    "source": "us-gaap:Revenues, 10-K accession 0001744489-25-000155 (via financial_statements)"
+   },
+   "operating_income": {
+    "values": [
+     12863,
+     15601,
+     17551
+    ],
+    "source": "us-gaap:OperatingIncomeLoss, 10-K accession 0001744489-25-000155"
+   },
+   "d_and_a": {
+    "values": [
+     5369,
+     4990,
+     5326
+    ],
+    "source": "us-gaap:DepreciationDepletionAndAmortization, 10-K accession 0001744489-25-000155"
+   },
+   "capex": {
+    "values": [
+     4969,
+     5412,
+     8024
+    ],
+    "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, 10-K accession 0001744489-25-000155"
+   }
+  }
+ },
+ "assumptions": "{\"projection_labels\":[\"FY2026\",\"FY2027\",\"FY2028\",\"FY2029\",\"FY2030\"],\"revenue_growth\":{\"values\":[0.05,0.05,0.045,0.04,0.035],\"source\":\"Assumption: FY2025 growth was 3.4%, FY2024 2.8%; modest acceleration to ~5% from parks/experiences investment and streaming growth, fading toward GDP-like growth by FY2030.\"},\"ebit_margin\":{\"value\":0.19,\"period\":\"FY2026-FY2030\",\"source\":\"Assumption: FY2025 margin 18.6% (17,551/94,425), up from 17.1% in FY2024 and 14.5% in FY2023; hold near 19% as streaming profitability gains are offset by higher content/park costs.\"},\"tax_rate\":{\"value\":0.21,\"period\":\"FY2026-FY2030\",\"source\":\"Assumption: US federal statutory rate 21%; reported pretax/net figures are distorted by one-offs, so statutory used.\"},\"da_pct_revenue\":{\"value\":0.056,\"period\":\"FY2026-FY2030\",\"source\":\"Assumption: FY2025 D&A 5,326/94,425 = 5.6%; 3-yr range 5.5%-6.0%.\"},\"capex_pct_revenue\":{\"value\":0.075,\"period\":\"FY2026-FY2030\",\"source\":\"Assumption: FY2025 capex 8,024/94,425 = 8.5% on elevated parks/cruise investment; FY2023-24 were 5.6%-5.9%; assume 7.5% average, above D&A given announced expansion, converging down over time.\"},\"wacc\":{\"value\":0.08,\"period\":\"current\",\"source\":\"CAPM: rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 0.859 (Damodaran Entertainment unlevered cash-corrected 0.763, D/E 0.159, tax 21%) x ERP 4.46% (Damodaran US, 2026-02-16) = Ke 8.69%; Kd pre-tax 5.29% (Damodaran) -> 4.18% after tax; weights 86.3/13.7 -> ~8.07%, rounded to 8.0%.\"},\"terminal_growth\":{\"value\":0.025,\"period\":\"terminal\",\"source\":\"Assumption: long-run nominal growth below the 4.86% risk-free rate and near long-term US GDP/inflation; 2.5%.\"},\"mid_year\":true},\n\"bridge\":{\"net_debt\":{\"value\":36331,\"period\":\"FY2025 (2025-09-27)\",\"source\":\"financial_statements derived net_debt = total debt 42,026 (LongTermDebtNoncurrent 35,315 + LongTermDebtCurrent 6,711) - cash 5,695; no short-term investments reported; accession 0001744489-25-000155\"},\"diluted_shares\":{\"value\":1811,\"period\":\"FY2025\",\"source\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 1,811,000,000 shares, converted to millions; accession 0001744489-25-000155\"}}}"
+}

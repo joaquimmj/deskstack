@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "Honeywell International Inc.",
+ "ticker": "HON",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     33009,
+     34717,
+     37442
+    ],
+    "source": "Honeywell FY2025 Annual Report (ARS, accession 0000773840-26-000031), consolidated statement of operations, continuing operations (restated for Solstice spin-off)"
+   },
+   "operating_income": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found on the restated continuing-operations basis (search tool limit reached). Originally reported pre-restatement figures were 7,084 (FY2023) and 7,441 (FY2024) per FY2024 annual report, but are not comparable with the restated revenue, so not used"
+   },
+   "d_and_a": {
+    "values": [
+     1004,
+     1152,
+     1388
+    ],
+    "source": "stockanalysis.com HON cash flow statement (D&A, restated continuing basis); secondary source, not verified to the 10-K"
+   },
+   "capex": {
+    "values": [
+     741,
+     871,
+     986
+    ],
+    "source": "stockanalysis.com HON cash flow statement (capital expenditures, restated continuing basis); secondary source, not verified to the 10-K"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.045,
+    0.05,
+    0.05,
+    0.045,
+    0.04
+   ],
+   "source": "Assumption: FY2025 growth was 7.9% (37,442 vs 34,717) helped by acquisitions; fade to mid-single-digit organic growth typical of diversified industrial/automation peers."
+  },
+  "ebit_margin": {
+   "value": 0.185,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: restated EBIT not found. Originally reported FY2024 operating margin was about 19.3% (7,441/38,498, FY2024 annual report); haircut for restatement/stranded costs. Reviewer should verify."
+  },
+  "tax_rate": {
+   "value": 0.21,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: US statutory 21%; Honeywell's effective rate is roughly 19-22%."
+  },
+  "da_pct_revenue": {
+   "value": 0.037,
+   "period": "FY2026-FY2030",
+   "source": "FY2025 D&A 1,388 / revenue 37,442 = 3.7%"
+  },
+  "capex_pct_revenue": {
+   "value": 0.026,
+   "period": "FY2026-FY2030",
+   "source": "FY2025 capex 986 / revenue 37,442 = 2.6%"
+  },
+  "wacc": {
+   "value": 0.085,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: beta ~1.0, risk-free ~4.3%, ERP ~5%, after-tax cost of debt ~4%, ~15% debt weight, giving roughly 8.5%."
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "period": "terminal",
+   "source": "Assumption: long-run nominal GDP/inflation-like growth, below WACC."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 21657,
+   "period": "FY2025 (Dec 31, 2025)",
+   "source": "Derived: long-term debt 27,141 + current maturities 1,546 + commercial paper/short-term borrowings ~5,900 (stated as $5.9bn at 12/31/2025) - cash 12,487 - short-term investments 443. Sources: Honeywell 4Q25 release tables and 2026 10-Q snippets. Long-term debt column attribution is uncertain, so verify."
+  },
+  "diluted_shares": {
+   "value": 642.8,
+   "period": "FY2025",
+   "source": "Honeywell 4Q25 financial release tables: weighted average shares assuming dilution, full-year 2025 = 642.8 million (shares in millions, same scale as money)"
+  }
+ }
+}

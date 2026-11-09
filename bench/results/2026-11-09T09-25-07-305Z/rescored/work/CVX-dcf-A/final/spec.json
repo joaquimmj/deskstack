@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "Chevron Corporation",
+ "ticker": "CVX",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     196913,
+     193414,
+     184432
+    ],
+    "source": "Chevron FY2025 10-K (acc. 0000093410-26-000078), Sales and other operating revenues; excludes equity-affiliate and other income"
+   },
+   "operating_income": {
+    "values": [
+     30053,
+     28100,
+     20960
+    ],
+    "source": "Derived: Income before income tax (29,584; 27,506; 19,743; from 10-K FY2025 via edgar.tools) + Interest and debt expense (469; 594; 1,217; 10-K). Chevron reports no operating income line; includes equity affiliate income and other income"
+   },
+   "d_and_a": {
+    "values": [
+     17326,
+     17282,
+     20132
+    ],
+    "source": "Chevron FY2025 10-K cash flow statement, Depreciation, depletion and amortization"
+   },
+   "capex": {
+    "values": [
+     15829,
+     16448,
+     17347
+    ],
+    "source": "Chevron FY2025 10-K cash flow statement, Capital expenditures"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.08,
+    0.03,
+    0.02,
+    0.02,
+    0.02
+   ],
+   "source": "Assumption: FY2026 +8% for full-year contribution of Hess (acquired 2025) at flat prices; thereafter 2-3% roughly inflation-level, with commodity prices held flat"
+  },
+  "ebit_margin": {
+   "value": 0.12,
+   "source": "Assumption: FY2025 margin 11.4% (20,960/184,432), FY2024 14.5%, FY2023 15.3%; 12% reflects Hess synergies/cost cuts offset by mid-cycle commodity prices"
+  },
+  "tax_rate": {
+   "value": 0.33,
+   "source": "Assumption: FY2025 effective rate 36.8% (7,258/19,743), FY2024 35.5%, FY2023 27.6%; 33% is a blend leaning to recent levels given high international/Upstream mix"
+  },
+  "da_pct_revenue": {
+   "value": 0.105,
+   "source": "Assumption: FY2025 10.9% (20,132/184,432), FY2024 8.9%; 10.5% reflects higher DD&A base post-Hess, easing slightly"
+  },
+  "capex_pct_revenue": {
+   "value": 0.095,
+   "source": "Assumption: FY2025 9.4% (17,347/184,432), FY2024 8.5%; ~9.5% consistent with ~$17-18B capex run-rate; capex slightly below D&A"
+  },
+  "wacc": {
+   "value": 0.085,
+   "source": "Assumption: ~4.3% risk-free, ~5% ERP, beta ~0.9-1.0 giving ~9% cost of equity, ~5% pre-tax debt cost, ~15% debt weight; not sourced from a data provider"
+  },
+  "terminal_growth": {
+   "value": 0.02,
+   "source": "Assumption: long-run inflation-like growth, below nominal GDP, conservative for an oil major facing energy transition"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 34461,
+   "source": "Chevron Q4 2025 earnings release / FY2025 10-K: net debt at 12/31/2025 = total debt 40,758 less cash 6,293, time deposits 4 (marketable securities nil); includes finance leases in total debt per Chevron's definition (excl. NCI 5,726)",
+   "period": "FY2025"
+  },
+  "diluted_shares": {
+   "value": 1855,
+   "source": "Derived: FY2025 net income attributable to Chevron 12,299 / diluted EPS 6.63 = ~1,855M weighted-average diluted shares; exact FY figure not found in search results (9M 2025 was 1,808M; Hess shares issued in Q3). Reviewer should verify in 10-K",
+   "period": "FY2025"
+  }
+ }
+}

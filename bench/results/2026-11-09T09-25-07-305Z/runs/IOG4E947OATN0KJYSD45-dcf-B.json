@@ -1,0 +1,584 @@
+{
+ "company": "IOG4E947OATN0KJYSD45",
+ "task": "dcf",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "LVMH Moet Hennessy Louis Vuitton",
+   "ticker": "IOG4E947OATN0KJYSD45",
+   "currency": "EUR",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2022",
+     "FY2023",
+     "FY2024"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       79184,
+       86153,
+       84683
+      ],
+      "source": "ESEF ifrs-full:Revenue, reports IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0 (deskstack financial_statements)"
+     },
+     "operating_income": {
+      "values": [
+       21001,
+       null,
+       null
+      ],
+      "source": "FY2022: ifrs-full:ProfitLossFromOperatingActivities, IOG4E947OATN0KJYSD45-2022-12-31-ESEF-FR-0. FY2023 and FY2024 not found: the issuer's tags did not map in deskstack."
+     },
+     "d_and_a": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found in deskstack ESEF data for any year"
+     },
+     "capex": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found in deskstack ESEF data for any year"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2025E",
+     "FY2026E",
+     "FY2027E",
+     "FY2028E",
+     "FY2029E"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.01,
+      0.04,
+      0.05,
+      0.05,
+      0.04
+     ],
+     "source": "Assumption: FY2024 revenue fell 1.7% from FY2023 (filed). Modest recovery in FY2025, then mid-single-digit luxury growth that fades toward a long-run rate."
+    },
+    "ebit_margin": {
+     "value": 0.24,
+     "period": "FY2025E-FY2029E",
+     "source": "Assumption: FY2022 filed margin was 26.5% (21,001/79,184). FY2023 and FY2024 EBIT were not retrieved, so I set a margin below the FY2022 peak. Reviewer should replace it with the filed FY2024 margin."
+    },
+    "tax_rate": {
+     "value": 0.26,
+     "period": "projection",
+     "source": "Assumption: French statutory corporate rate is about 25.8%. Not taken from a filing."
+    },
+    "da_pct_revenue": {
+     "value": 0.05,
+     "period": "projection",
+     "source": "Placeholder assumption: D&A history not found in the data. Set equal to capex so net reinvestment is neutral. Reviewer to replace."
+    },
+    "capex_pct_revenue": {
+     "value": 0.05,
+     "period": "projection",
+     "source": "Placeholder assumption: capex history not found in the data. Reviewer to replace with the filed cash-flow figure."
+    },
+    "wacc": {
+     "value": 0.078,
+     "period": "projection",
+     "source": "CAPM: Rf 3.27% (ECB 10Y AAA, 2026-11-05) + assumed beta about 0.95 x France ERP 5.01% (Damodaran, 2026-02-16) gives cost of equity about 8.0%. Net debt is small relative to equity value, so debt weight is low and WACC is about 7.8%. The beta is an assumption; I did not pull an industry beta."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "period": "terminal",
+     "source": "Assumption: below the Rf of 3.27% and in line with long-run euro nominal growth."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 13311,
+     "period": "FY2024",
+     "source": "deskstack derived net_debt = borrowings non-current 12,091 + current 10,851 - cash 9,631 (ESEF IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0). No short-term investments reported. Lease liabilities excluded."
+    },
+    "diluted_shares": {
+     "value": 499.681046,
+     "period": "FY2024",
+     "source": "ifrs-full:AdjustedWeightedAverageShares 499,681,046 shares, converted to millions (ESEF 2024-12-31 report)"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "LVMH Moet Hennessy Louis Vuitton",
+   "ticker": "IOG4E947OATN0KJYSD45",
+   "currency": "EUR",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2022",
+     "FY2023",
+     "FY2024"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       79184,
+       86153,
+       84683
+      ],
+      "source": "ESEF ifrs-full:Revenue, reports IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0 (deskstack financial_statements)"
+     },
+     "operating_income": {
+      "values": [
+       21001,
+       null,
+       null
+      ],
+      "source": "FY2022: ifrs-full:ProfitLossFromOperatingActivities, IOG4E947OATN0KJYSD45-2022-12-31-ESEF-FR-0. FY2023 and FY2024 not found: the issuer's tags did not map in deskstack."
+     },
+     "d_and_a": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found in deskstack ESEF data for any year"
+     },
+     "capex": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found in deskstack ESEF data for any year"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2025E",
+     "FY2026E",
+     "FY2027E",
+     "FY2028E",
+     "FY2029E"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.01,
+      0.04,
+      0.05,
+      0.05,
+      0.04
+     ],
+     "source": "Assumption: FY2024 revenue fell 1.7% from FY2023 (filed). Modest recovery in FY2025, then mid-single-digit luxury growth that fades toward a long-run rate."
+    },
+    "ebit_margin": {
+     "value": 0.24,
+     "period": "FY2025E-FY2029E",
+     "source": "Assumption: FY2022 filed margin was 26.5% (21,001/79,184). FY2023 and FY2024 EBIT were not retrieved, so I set a margin below the FY2022 peak. Reviewer should replace it with the filed FY2024 margin."
+    },
+    "tax_rate": {
+     "value": 0.26,
+     "period": "projection",
+     "source": "Assumption: French statutory corporate rate is about 25.8%. Not taken from a filing."
+    },
+    "da_pct_revenue": {
+     "value": 0.05,
+     "period": "projection",
+     "source": "Placeholder assumption: D&A history not found in the data. Set equal to capex so net reinvestment is neutral. Reviewer to replace."
+    },
+    "capex_pct_revenue": {
+     "value": 0.05,
+     "period": "projection",
+     "source": "Placeholder assumption: capex history not found in the data. Reviewer to replace with the filed cash-flow figure."
+    },
+    "wacc": {
+     "value": 0.078,
+     "period": "projection",
+     "source": "CAPM: Rf 3.27% (ECB 10Y AAA, 2026-11-05) + assumed beta about 0.95 x France ERP 5.01% (Damodaran, 2026-02-16) gives cost of equity about 8.0%. Net debt is small relative to equity value, so debt weight is low and WACC is about 7.8%. The beta is an assumption; I did not pull an industry beta."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "period": "terminal",
+     "source": "Assumption: below the Rf of 3.27% and in line with long-run euro nominal growth."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 13311,
+     "period": "FY2024",
+     "source": "deskstack derived net_debt = borrowings non-current 12,091 + current 10,851 - cash 9,631 (ESEF IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0). No short-term investments reported. Lease liabilities excluded."
+    },
+    "diluted_shares": {
+     "value": 499.681046,
+     "period": "FY2024",
+     "source": "ifrs-full:AdjustedWeightedAverageShares 499,681,046 shares, converted to millions (ESEF 2024-12-31 report)"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 2,
+  "usage": {
+   "input_tokens": 6,
+   "output_tokens": 2071,
+   "cache_creation_input_tokens": 13415,
+   "cache_read_input_tokens": 7218,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.055703100000000005,
+  "seconds": 15.866,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 1,
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a quick unlevered DCF for LVMH (identifier: IOG4E947OATN0KJYSD45).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7218,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7218,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 185,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.019903,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01PjA7P4fybUnBFYpS1kJS7g",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "IOG4E947OATN0KJYSD45",
+       "years": 3
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01GF2PRLQ7dBJuoYBezEQ5v5",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "EUR"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01QA9xrnYffVWfy6oNuexaz1",
+      "name": "valuation_inputs",
+      "input": {
+       "country": "France"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01PjA7P4fybUnBFYpS1kJS7g",
+      "content": "{\"summary\":\"LVMH MOET HENNESSY LOUIS VUITTON (LEI IOG4E947OATN0KJYSD45, FR), IFRS, EUR. FY2024 (ended 2024-12-31): revenue 84.7B EUR, net income 12.6B EUR. 3 period(s), 2 cited ESEF report(s). Every value cites its IFRS concept and report; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"LVMH MOET HENNESSY LOUIS VUITTON\",\"ticker\":null,\"lei\":\"IOG4E947OATN0KJYSD45\",\"country\":\"FR\",\"region\":\"EU\",\"reporting_standard\":\"IFRS\",\"currency\":\"EUR\",\"fiscal_year_end\":\"1231\",\"financial_company\":false},\"units\":\"Monetary values in EUR, absolute (not thousands or millions). diluted_eps in EUR per share.\",\"periods\":[{\"label\":\"FY2022\",\"type\":\"annual\",\"start\":\"2022-01-01\",\"end\":\"2022-12-31\",\"income_statement\":{\"revenue\":{\"value\":79184000000,\"concept\":\"ifrs-full:Revenue\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"gross_profit\":{\"value\":54196000000,\"concept\":\"ifrs-full:GrossProfit\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"operating_income\":{\"value\":21001000000,\"concept\":\"ifrs-full:ProfitLossFromOperatingActivities\",\"accession\":\"IOG4E947OATN0KJYSD45-2022-12-31-ESEF-FR-0\"},\"interest_expense\":null,\"pretax_income\":null,\"net_income\":{\"value\":14084000000,\"concept\":\"ifrs-full:ProfitLossAttributableToOwnersOfParent\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"diluted_shares\":{\"value\":502480100,\"concept\":\"ifrs-full:AdjustedWeightedAverageShares\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"diluted_eps\":{\"value\":28.03,\"concept\":\"ifrs-full:DilutedEarningsLossPerShare\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":17833000000,\"concept\":\"ifrs-full:CashFlowsFromUsedInOperatingActivities\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"capex\":null,\"d_and_a\":null},\"balance_sheet\":{\"cash\":{\"value\":7300000000,\"concept\":\"ifrs-full:CashAndCashEquivalents\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"short_term_investments\":null,\"total_assets\":{\"value\":134646000000,\"concept\":\"ifrs-full:Assets\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"total_equity\":{\"value\":55111000000,\"concept\":\"ifrs-full:EquityAttributableToOwnersOfParent\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"borrowings\":null,\"borrowings_noncurrent\":{\"value\":10380000000,\"concept\":\"ifrs-full:LongtermBorrowings\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"borrowings_current\":{\"value\":9359000000,\"concept\":\"ifrs-full:CurrentBorrowingsAndCurrentPortionOfNoncurrentBorrowings\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"short_term_borrowings\":null,\"current_portion_of_longterm_borrowings\":null},\"derived\":{\"ebitda\":null,\"free_cash_flow\":null,\"total_debt\":{\"value\":19739000000,\"formula\":\"borrowings_noncurrent + borrowings_current\"},\"net_debt\":{\"value\":12439000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2023\",\"type\":\"annual\",\"start\":\"2023-01-01\",\"end\":\"2023-12-31\",\"income_statement\":{\"revenue\":{\"value\":86153000000,\"concept\":\"ifrs-full:Revenue\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"gross_profit\":{\"value\":59277000000,\"concept\":\"ifrs-full:GrossProfit\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"operating_income\":null,\"interest_expense\":null,\"pretax_income\":null,\"net_income\":{\"value\":15174000000,\"concept\":\"ifrs-full:ProfitLossAttributableToOwnersOfParent\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"diluted_shares\":{\"value\":500304316,\"concept\":\"ifrs-full:AdjustedWeightedAverageShares\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"diluted_eps\":{\"value\":30.33,\"concept\":\"ifrs-full:DilutedEarningsLossPerShare\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":18400000000,\"concept\":\"ifrs-full:CashFlowsFromUsedInOperatingActivities\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"capex\":null,\"d_and_a\":null},\"balance_sheet\":{\"cash\":{\"value\":7774000000,\"concept\":\"ifrs-full:CashAndCashEquivalents\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"short_term_investments\":null,\"total_assets\":{\"value\":143694000000,\"concept\":\"ifrs-full:Assets\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"total_equity\":{\"value\":61017000000,\"concept\":\"ifrs-full:EquityAttributableToOwnersOfParent\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"borrowings\":null,\"borrowings_noncurrent\":{\"value\":11227000000,\"concept\":\"ifrs-full:LongtermBorrowings\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"borrowings_current\":{\"value\":10680000000,\"concept\":\"ifrs-full:CurrentBorrowingsAndCurrentPortionOfNoncurrentBorrowings\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"short_term_borrowings\":null,\"current_portion_of_longterm_borrowings\":null},\"derived\":{\"ebitda\":null,\"free_cash_flow\":null,\"total_debt\":{\"value\":21907000000,\"formula\":\"borrowings_noncurrent + borrowings_current\"},\"net_debt\":{\"value\":14133000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2024-01-01\",\"end\":\"2024-12-31\",\"income_statement\":{\"revenue\":{\"value\":84683000000,\"concept\":\"ifrs-full:Revenue\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"gross_profit\":{\"value\":56765000000,\"concept\":\"ifrs-full:GrossProfit\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"operating_income\":null,\"interest_expense\":null,\"pretax_income\":null,\"net_income\":{\"value\":12550000000,\"concept\":\"ifrs-full:ProfitLossAttributableToOwnersOfParent\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"diluted_shares\":{\"value\":499681046,\"concept\":\"ifrs-full:AdjustedWeightedAverageShares\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"diluted_eps\":{\"value\":25.12,\"concept\":\"ifrs-full:DilutedEarningsLossPerShare\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":18924000000,\"concept\":\"ifrs-full:CashFlowsFromUsedInOperatingActivities\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"capex\":null,\"d_and_a\":null},\"balance_sheet\":{\"cash\":{\"value\":9631000000,\"concept\":\"ifrs-full:CashAndCashEquivalents\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"short_term_investments\":null,\"total_assets\":{\"value\":149190000000,\"concept\":\"ifrs-full:Assets\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"total_equity\":{\"value\":67517000000,\"concept\":\"ifrs-full:EquityAttributableToOwnersOfParent\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"borrowings\":null,\"borrowings_noncurrent\":{\"value\":12091000000,\"concept\":\"ifrs-full:LongtermBorrowings\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"borrowings_current\":{\"value\":10851000000,\"concept\":\"ifrs-full:CurrentBorrowingsAndCurrentPortionOfNoncurrentBorrowings\",\"accession\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\"},\"short_term_borrowings\":null,\"current_portion_of_longterm_borrowings\":null},\"derived\":{\"ebitda\":null,\"free_cash_flow\":null,\"total_debt\":{\"value\":22942000000,\"formula\":\"borrowings_noncurrent + borrowings_current\"},\"net_debt\":{\"value\":13311000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\",\"ESEF report (IFRS as adopted in the EU), from the issuer's tagged consolidated statements. Lines the issuer tagged only with its own (extension) concepts are not mapped and come back null.\",\"No LTM column: the issuer's half-year report is not available in ESEF format.\"],\"sources\":[{\"name\":\"LVMH MOET HENNESSY LOUIS VUITTON, ESEF annual financial report (filings.xbrl.org)\",\"url\":\"https://filings.xbrl.org/IOG4E947OATN0KJYSD45/2022-12-31/ESEF/FR/0/IOG4E947OATN0KJYSD45-2022-12-31AR/reports/ixbrlviewer.html\",\"accession_or_id\":\"IOG4E947OATN0KJYSD45-2022-12-31-ESEF-FR-0\",\"form\":\"ESEF annual report\",\"period\":\"2022-12-31\",\"as_of\":\"2023-04-19\",\"license_note\":\"ESEF report filed under the EU Transparency Directive, via filings.xbrl.org (XBRL International); the repository states no restrictions on use. Cite the report.\"},{\"name\":\"LVMH MOET HENNESSY LOUIS VUITTON, ESEF annual financial report (filings.xbrl.org)\",\"url\":\"https://filings.xbrl.org/IOG4E947OATN0KJYSD45/2024-12-31/ESEF/FR/0/IOG4E947OATN0KJYSD45-2024-12-31-0-fr/reports/ixbrlviewer.html\",\"accession_or_id\":\"IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0\",\"form\":\"ESEF annual report\",\"period\":\"2024-12-31\",\"as_of\":\"2025-03-25\",\"license_note\":\"ESEF report filed under the EU Transparency Directive, via filings.xbrl.org (XBRL International); the repository states no restrictions on use. Cite the report.\"}],\"data_as_of\":\"2026-11-09T09:23:34.355Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01GF2PRLQ7dBJuoYBezEQ5v5",
+      "content": "{\"summary\":\"EUR 10Y government yield: 3.266% (decimal 0.03266) on 2026-11-05 (European Central Bank, Data Portal, euro area yield curves).\",\"region\":\"EUR\",\"tenor\":\"10Y\",\"rate_pct\":3.2663886346,\"rate_decimal\":0.032663886346,\"date\":\"2026-11-05\",\"basis\":\"ECB euro area par yield, 10Y, AAA-rated euro area central government bonds (ECB series title: Svensson model, continuous compounding)\",\"series\":\"YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y\",\"warnings\":[],\"source\":{\"name\":\"European Central Bank, Data Portal, euro area yield curves\",\"url\":\"https://data.ecb.europa.eu/data/datasets/YC/YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y\",\"accession_or_id\":\"YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y/2026-11-05\",\"period\":\"2026-11-05\",\"as_of\":\"2026-11-05\",\"license_note\":\"Source: ECB statistics. Reuse allowed with attribution; figures unmodified.\"},\"sources\":[{\"name\":\"European Central Bank, Data Portal, euro area yield curves\",\"url\":\"https://data.ecb.europa.eu/data/datasets/YC/YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y\",\"accession_or_id\":\"YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y/2026-11-05\",\"period\":\"2026-11-05\",\"as_of\":\"2026-11-05\",\"license_note\":\"Source: ECB statistics. Reuse allowed with attribution; figures unmodified.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01QA9xrnYffVWfy6oNuexaz1",
+      "content": "{\"summary\":\"Country risk data for \\\"France\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"country\":[{\"country\":\"France\",\"region\":\"Western Europe\",\"moodys_rating\":\"Aa3\",\"default_spread\":0.005093987478381426,\"equity_risk_premium\":0.050060069127288796,\"country_risk_premium\":0.007760069127288798,\"basis\":\"Moody's sovereign rating\",\"match\":\"exact\",\"mature_market_erp\":0.0423,\"source\":{\"name\":\"Aswath Damodaran, Country Default Spreads and Risk Premiums\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx\",\"accession_or_id\":\"ctryprem/France\",\"period\":\"2026-02-16\",\"as_of\":\"2026-02-16\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 6197,
+     "cache_read_input_tokens": 7218,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 6197,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1886,
+     "output_tokens_details": {
+      "thinking_tokens": 433
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0358001,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "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"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01UCYL2ofReUEZhLoVQBRzNa",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "LVMH Moet Hennessy Louis Vuitton",
+       "ticker": "IOG4E947OATN0KJYSD45",
+       "currency": "EUR",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2022",
+         "FY2023",
+         "FY2024"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           79184,
+           86153,
+           84683
+          ],
+          "source": "ESEF ifrs-full:Revenue, reports IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0 (deskstack financial_statements)"
+         },
+         "operating_income": {
+          "values": [
+           21001,
+           null,
+           null
+          ],
+          "source": "FY2022: ifrs-full:ProfitLossFromOperatingActivities, IOG4E947OATN0KJYSD45-2022-12-31-ESEF-FR-0. FY2023 and FY2024 not found: the issuer's tags did not map in deskstack."
+         },
+         "d_and_a": {
+          "values": [
+           null,
+           null,
+           null
+          ],
+          "source": "not found in deskstack ESEF data for any year"
+         },
+         "capex": {
+          "values": [
+           null,
+           null,
+           null
+          ],
+          "source": "not found in deskstack ESEF data for any year"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2025E",
+         "FY2026E",
+         "FY2027E",
+         "FY2028E",
+         "FY2029E"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.01,
+          0.04,
+          0.05,
+          0.05,
+          0.04
+         ],
+         "source": "Assumption: FY2024 revenue fell 1.7% from FY2023 (filed). Modest recovery in FY2025, then mid-single-digit luxury growth that fades toward a long-run rate."
+        },
+        "ebit_margin": {
+         "value": 0.24,
+         "period": "FY2025E-FY2029E",
+         "source": "Assumption: FY2022 filed margin was 26.5% (21,001/79,184). FY2023 and FY2024 EBIT were not retrieved, so I set a margin below the FY2022 peak. Reviewer should replace it with the filed FY2024 margin."
+        },
+        "tax_rate": {
+         "value": 0.26,
+         "period": "projection",
+         "source": "Assumption: French statutory corporate rate is about 25.8%. Not taken from a filing."
+        },
+        "da_pct_revenue": {
+         "value": 0.05,
+         "period": "projection",
+         "source": "Placeholder assumption: D&A history not found in the data. Set equal to capex so net reinvestment is neutral. Reviewer to replace."
+        },
+        "capex_pct_revenue": {
+         "value": 0.05,
+         "period": "projection",
+         "source": "Placeholder assumption: capex history not found in the data. Reviewer to replace with the filed cash-flow figure."
+        },
+        "wacc": {
+         "value": 0.078,
+         "period": "projection",
+         "source": "CAPM: Rf 3.27% (ECB 10Y AAA, 2026-11-05) + assumed beta about 0.95 x France ERP 5.01% (Damodaran, 2026-02-16) gives cost of equity about 8.0%. Net debt is small relative to equity value, so debt weight is low and WACC is about 7.8%. The beta is an assumption; I did not pull an industry beta."
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "period": "terminal",
+         "source": "Assumption: below the Rf of 3.27% and in line with long-run euro nominal growth."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 13311,
+         "period": "FY2024",
+         "source": "deskstack derived net_debt = borrowings non-current 12,091 + current 10,851 - cash 9,631 (ESEF IOG4E947OATN0KJYSD45-2024-12-31-ESEF-FR-0). No short-term investments reported. Lease liabilities excluded."
+        },
+        "diluted_shares": {
+         "value": 499.681046,
+         "period": "FY2024",
+         "source": "ifrs-full:AdjustedWeightedAverageShares 499,681,046 shares, converted to millions (ESEF 2024-12-31 report)"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 6,
+  "match": 6,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 17,
+  "unsourced": 3,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "IOG4E947OATN0KJYSD45",
+    "metric": "revenue",
+    "period": "FY2022",
+    "value": 79184,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.revenue[FY2022]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 79184000000,
+    "resolved": "IOG4E947OATN0KJYSD45"
+   },
+   {
+    "company": "IOG4E947OATN0KJYSD45",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 86153,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 86153000000,
+    "resolved": "IOG4E947OATN0KJYSD45"
+   },
+   {
+    "company": "IOG4E947OATN0KJYSD45",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 84683,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 84683000000,
+    "resolved": "IOG4E947OATN0KJYSD45"
+   },
+   {
+    "company": "IOG4E947OATN0KJYSD45",
+    "metric": "operating_income",
+    "period": "FY2022",
+    "value": 21001,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "history.operating_income[FY2022]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 21001000000,
+    "resolved": "IOG4E947OATN0KJYSD45"
+   },
+   {
+    "company": "IOG4E947OATN0KJYSD45",
+    "metric": "net_debt",
+    "period": "FY2024",
+    "value": 13311,
+    "scale": "millions",
+    "currency": "EUR",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 13311000000,
+    "resolved": "IOG4E947OATN0KJYSD45"
+   },
+   {
+    "company": "IOG4E947OATN0KJYSD45",
+    "metric": "diluted_shares",
+    "period": "FY2024",
+    "value": 499.681046,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 499681046,
+    "resolved": "IOG4E947OATN0KJYSD45"
+   }
+  ],
+  "unsourced_refs": [
+   "history.operating_income[FY2022]",
+   "assumptions.da_pct_revenue",
+   "assumptions.capex_pct_revenue"
+  ],
+  "errors": []
+ }
+}

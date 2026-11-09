@@ -5,10 +5,10 @@
  "score": {
   "valid": true,
   "filed": 14,
-  "match": 14,
+  "match": 13,
   "mismatch": 0,
   "other_line": 0,
-  "definition": 0,
+  "definition": 1,
   "not_found": 0,
   "ambiguous": 0,
   "unverifiable": 0,
@@ -185,11 +185,12 @@
     "scale": "millions",
     "currency": "USD",
     "ref": "bridge.net_debt",
-    "status": "match",
+    "status": "definition",
     "hints": [
-     "Computed value: total_debt - cash - short_term_investments."
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
     ],
-    "filed_value": 26230000000,
+    "filed_value": 33350000000,
     "resolved": "CAT"
    },
    {

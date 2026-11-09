@@ -1,0 +1,833 @@
+{
+ "company": "DIS",
+ "task": "dcf",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "The Walt Disney Company",
+   "ticker": "DIS",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       88898,
+       91361,
+       94425
+      ],
+      "source": "us-gaap:Revenues, 10-K accession 0001744489-25-000155 (via financial_statements)"
+     },
+     "operating_income": {
+      "values": [
+       12863,
+       15601,
+       17551
+      ],
+      "source": "us-gaap:OperatingIncomeLoss, 10-K accession 0001744489-25-000155"
+     },
+     "d_and_a": {
+      "values": [
+       5369,
+       4990,
+       5326
+      ],
+      "source": "us-gaap:DepreciationDepletionAndAmortization, 10-K accession 0001744489-25-000155"
+     },
+     "capex": {
+      "values": [
+       4969,
+       5412,
+       8024
+      ],
+      "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, 10-K accession 0001744489-25-000155"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.05,
+      0.05,
+      0.045,
+      0.04,
+      0.035
+     ],
+     "source": "Assumption: FY2025 growth was 3.4%, FY2024 2.8%; modest acceleration to ~5% from parks/experiences investment and streaming growth, fading toward GDP-like growth by FY2030."
+    },
+    "ebit_margin": {
+     "value": 0.19,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 margin 18.6% (17,551/94,425), up from 17.1% in FY2024 and 14.5% in FY2023; hold near 19% as streaming profitability gains are offset by higher content/park costs."
+    },
+    "tax_rate": {
+     "value": 0.21,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: US federal statutory rate 21%; reported pretax/net figures are distorted by one-offs, so statutory used."
+    },
+    "da_pct_revenue": {
+     "value": 0.056,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 D&A 5,326/94,425 = 5.6%; 3-yr range 5.5%-6.0%."
+    },
+    "capex_pct_revenue": {
+     "value": 0.075,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 capex 8,024/94,425 = 8.5% on elevated parks/cruise investment; FY2023-24 were 5.6%-5.9%; assume 7.5% average."
+    },
+    "wacc": {
+     "value": 0.08,
+     "period": "current",
+     "source": "CAPM: rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 0.859 (Damodaran Entertainment unlevered cash-corrected 0.763, D/E 0.159, tax 21%) x ERP 4.46% (Damodaran US, 2026-02-16) = Ke 8.69%; Kd pre-tax 5.29% (Damodaran) -> 4.18% after tax; weights 86.3/13.7 -> ~8.07%, rounded to 8.0%."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "period": "terminal",
+     "source": "Assumption: long-run nominal growth below the 4.86% risk-free rate and near long-term US GDP/inflation; 2.5%."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 36331,
+     "period": "FY2025 (2025-09-27)",
+     "source": "financial_statements derived net_debt = total debt 42,026 (LongTermDebtNoncurrent 35,315 + LongTermDebtCurrent 6,711) - cash 5,695; no short-term investments reported; accession 0001744489-25-000155"
+    },
+    "diluted_shares": {
+     "value": 1811,
+     "period": "FY2025",
+     "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 1,811,000,000 shares, in millions; accession 0001744489-25-000155"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "The Walt Disney Company",
+   "ticker": "DIS",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       88898,
+       91361,
+       94425
+      ],
+      "source": "us-gaap:Revenues, 10-K accession 0001744489-25-000155 (via financial_statements)"
+     },
+     "operating_income": {
+      "values": [
+       12863,
+       15601,
+       17551
+      ],
+      "source": "us-gaap:OperatingIncomeLoss, 10-K accession 0001744489-25-000155"
+     },
+     "d_and_a": {
+      "values": [
+       5369,
+       4990,
+       5326
+      ],
+      "source": "us-gaap:DepreciationDepletionAndAmortization, 10-K accession 0001744489-25-000155"
+     },
+     "capex": {
+      "values": [
+       4969,
+       5412,
+       8024
+      ],
+      "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, 10-K accession 0001744489-25-000155"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.05,
+      0.05,
+      0.045,
+      0.04,
+      0.035
+     ],
+     "source": "Assumption: FY2025 growth was 3.4%, FY2024 2.8%; modest acceleration to ~5% from parks/experiences investment and streaming growth, fading toward GDP-like growth by FY2030."
+    },
+    "ebit_margin": {
+     "value": 0.19,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 margin 18.6% (17,551/94,425), up from 17.1% in FY2024 and 14.5% in FY2023; hold near 19% as streaming profitability gains are offset by higher content/park costs."
+    },
+    "tax_rate": {
+     "value": 0.21,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: US federal statutory rate 21%; reported pretax/net figures are distorted by one-offs, so statutory used."
+    },
+    "da_pct_revenue": {
+     "value": 0.056,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 D&A 5,326/94,425 = 5.6%; 3-yr range 5.5%-6.0%."
+    },
+    "capex_pct_revenue": {
+     "value": 0.075,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: FY2025 capex 8,024/94,425 = 8.5% on elevated parks/cruise investment; FY2023-24 were 5.6%-5.9%; assume 7.5% average."
+    },
+    "wacc": {
+     "value": 0.08,
+     "period": "current",
+     "source": "CAPM: rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 0.859 (Damodaran Entertainment unlevered cash-corrected 0.763, D/E 0.159, tax 21%) x ERP 4.46% (Damodaran US, 2026-02-16) = Ke 8.69%; Kd pre-tax 5.29% (Damodaran) -> 4.18% after tax; weights 86.3/13.7 -> ~8.07%, rounded to 8.0%."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "period": "terminal",
+     "source": "Assumption: long-run nominal growth below the 4.86% risk-free rate and near long-term US GDP/inflation; 2.5%."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 36331,
+     "period": "FY2025 (2025-09-27)",
+     "source": "financial_statements derived net_debt = total debt 42,026 (LongTermDebtNoncurrent 35,315 + LongTermDebtCurrent 6,711) - cash 5,695; no short-term investments reported; accession 0001744489-25-000155"
+    },
+    "diluted_shares": {
+     "value": 1811,
+     "period": "FY2025",
+     "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 1,811,000,000 shares, in millions; accession 0001744489-25-000155"
+    }
+   }
+  },
+  "submit_attempts": 2,
+  "requests": 4,
+  "usage": {
+   "input_tokens": 10,
+   "output_tokens": 3582,
+   "cache_creation_input_tokens": 16573,
+   "cache_read_input_tokens": 35838,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.0844401,
+  "seconds": 22.544,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 2,
+   "submit_model": 2
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a quick unlevered DCF for The Walt Disney Company (identifier: DIS).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7210,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7210,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 221,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.020243,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01AyxLKL35EZ8xarytC6NrHP",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "DIS",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01NbcyvTDsVtG53NqHyU1hmQ",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US",
+       "tenor": "10Y"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_0121mZWTue3weDUNdFivdPD3",
+      "name": "valuation_inputs",
+      "input": {
+       "country": "United States"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01AyxLKL35EZ8xarytC6NrHP",
+      "content": "{\"summary\":\"WALT DISNEY CO/ (DIS), US-GAAP, USD. FY2025 (ended 2025-09-27): revenue 94.4B USD, net income 12.4B USD. 3 period(s), 3 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"WALT DISNEY CO/\",\"ticker\":\"DIS\",\"cik\":1744489,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1003\",\"sic\":\"7990\",\"sic_description\":\"Services-Miscellaneous Amusement & Recreation\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"start\":\"2022-10-02\",\"end\":\"2023-09-30\",\"income_statement\":{\"revenue\":{\"value\":88898000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0001744489-25-000155\"},\"gross_profit\":null,\"operating_income\":{\"value\":12863000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001744489-25-000155\"},\"interest_expense\":{\"value\":-1973000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0001744489-25-000155\"},\"pretax_income\":{\"value\":4769000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001744489-25-000155\"},\"net_income\":{\"value\":2354000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001744489-25-000155\"},\"diluted_shares\":{\"value\":1830000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001744489-25-000155\"},\"diluted_eps\":{\"value\":1.29,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001744489-25-000155\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":9866000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001744489-25-000155\"},\"capex\":{\"value\":4969000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001744489-25-000155\"},\"d_and_a\":{\"value\":5369000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001744489-25-000155\"},\"amortization_intangibles\":{\"value\":1743000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001744489-25-000155\"}},\"balance_sheet\":{\"cash\":{\"value\":14182000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001744489-25-000155\"},\"short_term_investments\":null,\"total_assets\":{\"value\":205579000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001744489-24-000276\"},\"total_equity\":{\"value\":99277000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001744489-24-000276\"},\"ltd_noncurrent\":{\"value\":42101000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001744489-24-000276\"},\"ltd_total\":{\"value\":46431000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001744489-24-000276\"},\"debt_current\":null,\"ltd_current\":{\"value\":4330000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0001744489-24-000276\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":4382000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001744489-23-000216\"}},\"derived\":{\"ebitda\":{\"value\":18232000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":4897000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":46431000000,\"formula\":\"ltd_noncurrent + ltd_current\"},\"net_debt\":{\"value\":32249000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2023-10-01\",\"end\":\"2024-09-28\",\"income_statement\":{\"revenue\":{\"value\":91361000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0001744489-25-000155\"},\"gross_profit\":null,\"operating_income\":{\"value\":15601000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001744489-25-000155\"},\"interest_expense\":{\"value\":-2070000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0001744489-25-000155\"},\"pretax_income\":{\"value\":7569000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001744489-25-000155\"},\"net_income\":{\"value\":4972000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001744489-25-000155\"},\"diluted_shares\":{\"value\":1831000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001744489-25-000155\"},\"diluted_eps\":{\"value\":2.72,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001744489-25-000155\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":13971000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001744489-25-000155\"},\"capex\":{\"value\":5412000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001744489-25-000155\"},\"d_and_a\":{\"value\":4990000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001744489-25-000155\"},\"amortization_intangibles\":{\"value\":1556000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001744489-25-000155\"}},\"balance_sheet\":{\"cash\":{\"value\":6002000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001744489-25-000155\"},\"short_term_investments\":null,\"total_assets\":{\"value\":196219000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001744489-25-000155\"},\"total_equity\":{\"value\":100696000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001744489-25-000155\"},\"ltd_noncurrent\":{\"value\":38970000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001744489-25-000155\"},\"ltd_total\":{\"value\":45815000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001744489-25-000155\"},\"debt_current\":null,\"ltd_current\":{\"value\":6845000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0001744489-25-000155\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":6816000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001744489-24-000276\"}},\"derived\":{\"ebitda\":{\"value\":20591000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":8559000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":45815000000,\"formula\":\"ltd_noncurrent + ltd_current\"},\"net_debt\":{\"value\":39813000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2024-09-29\",\"end\":\"2025-09-27\",\"income_statement\":{\"revenue\":{\"value\":94425000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0001744489-25-000155\"},\"gross_profit\":null,\"operating_income\":{\"value\":17551000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0001744489-25-000155\"},\"interest_expense\":{\"value\":-1812000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0001744489-25-000155\"},\"pretax_income\":{\"value\":12003000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0001744489-25-000155\"},\"net_income\":{\"value\":12404000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0001744489-25-000155\"},\"diluted_shares\":{\"value\":1811000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0001744489-25-000155\"},\"diluted_eps\":{\"value\":6.85,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0001744489-25-000155\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":18101000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0001744489-25-000155\"},\"capex\":{\"value\":8024000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0001744489-25-000155\"},\"d_and_a\":{\"value\":5326000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0001744489-25-000155\"},\"amortization_intangibles\":{\"value\":1467000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0001744489-25-000155\"}},\"balance_sheet\":{\"cash\":{\"value\":5695000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0001744489-25-000155\"},\"short_term_investments\":null,\"total_assets\":{\"value\":197514000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0001744489-25-000155\"},\"total_equity\":{\"value\":109869000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0001744489-25-000155\"},\"ltd_noncurrent\":{\"value\":35315000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0001744489-25-000155\"},\"ltd_total\":{\"value\":42026000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0001744489-25-000155\"},\"debt_current\":null,\"ltd_current\":{\"value\":6711000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0001744489-25-000155\"},\"commercial_paper\":null,\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":6751000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0001744489-25-000155\"}},\"derived\":{\"ebitda\":{\"value\":22877000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":10077000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":42026000000,\"formula\":\"ltd_noncurrent + ltd_current\"},\"net_debt\":{\"value\":36331000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-08-05 (period 2026-06-27) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1744489/000174448923000216/0001744489-23-000216-index.htm\",\"accession_or_id\":\"0001744489-23-000216\",\"form\":\"10-K\",\"period\":\"2023-09-30\",\"as_of\":\"2023-11-21\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1744489/000174448924000276/0001744489-24-000276-index.htm\",\"accession_or_id\":\"0001744489-24-000276\",\"form\":\"10-K\",\"period\":\"2024-09-28\",\"as_of\":\"2024-11-14\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1744489/000174448925000155/0001744489-25-000155-index.htm\",\"accession_or_id\":\"0001744489-25-000155\",\"form\":\"10-K\",\"period\":\"2025-09-27\",\"as_of\":\"2025-11-13\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":1726686902,\"as_of\":\"2026-07-29\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0001744489-26-000057\",\"url\":\"https://www.sec.gov/Archives/edgar/data/1744489/000174448926000057/0001744489-26-000057-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01NbcyvTDsVtG53NqHyU1hmQ",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_0121mZWTue3weDUNdFivdPD3",
+      "content": "{\"summary\":\"Country risk data for \\\"United States\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"country\":[{\"country\":\"United States\",\"region\":\"North America\",\"moodys_rating\":\"Aa1\",\"default_spread\":0.002333679169992019,\"equity_risk_premium\":0.0446,\"country_risk_premium\":0.002333679169992019,\"basis\":\"Moody's sovereign rating\",\"match\":\"exact\",\"mature_market_erp\":0.0423,\"source\":{\"name\":\"Aswath Damodaran, Country Default Spreads and Risk Premiums\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx\",\"accession_or_id\":\"ctryprem/United States\",\"period\":\"2026-02-16\",\"as_of\":\"2026-02-16\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 6605,
+     "cache_read_input_tokens": 7210,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 6605,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 80,
+     "output_tokens_details": {
+      "thinking_tokens": 23
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0187585,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSpQUKEAgTGAI4AUIIdGhpbmtpbmcSDFB4LrdHxoGKaFRYxRoMEDm/GGyGTBgyuH8qIjCJcAjUtRYy9+h1VtSyQpfqiM9djqja1R2Bt4g9bsyY44eIy6AJ15JFzfPA2JzrD1wqwgQiHGD2z/zl+RG4PGQy9rIbx4OuE///LGPwn7J1PbMQvkyMKWarPw27ivAOvyHqWtZNG2xtp/r0iJZZHD9aRpzuYrq4UarOfQsvevlCa1oT+08Wm1Nv7BvPMUqm8txWvJuXB2Qr7tlHhlRJr1o8w1v6JwCwMOV7TIezWfodoJgHO6uOAJ46UbkOgWBS7SuKcL8i2xQl4/EmdlSed+TRasqMq3SMkEhTTbHMIkPFJ3LjS5TXS8iuw6wggzVJ/xZ7I2LCR7RafNe+JpsA8ZS5fBqy6RF0DB9tYRESa9S6B0FcMUxYjBLjYqsHcSVIX8U0/cSilIRdTW7FXUXL09btgFo04RjpE6FUPj86d8Fp+yvDRirFkLbCq58eKpXOmgOVUf7KRiwOehGLJxWUE7fY+6cqIhnxk0Rd0On9a54cXq4/gr9wxIXcVyYqsfCX2iSwBx6wDLaMxniXyUZh9e124q1NraXxUGNoyYUCyKl9a3EQj3TfKEuFkzwlDIOexF9mZ2jU8Y2tvSqu8NzSUlES3ha/jSLUUD0z53FwtNZBRGAU9Ei0og/A1Gyg1PMSi8Z6cf1fTflC+Zp7szp2WzJPU7tklA5Xr00DSj96sd2aLlMFyZymHn9Yc7KtRsXxVTDmV6D4BUCLGMpJUK6Yb3kaTSlCSWJEAcIBwvaP7xhmpdo9AjyawvpK882DClQ1Flw0OA5VUoHNS5gXUARRO4tpSzbuyFyUx0NmY06e3FC3mirkbF8pNux+jQwMJwjFyn1bgTgUVhgB"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_013nAGxk4GnGoPVHR9Bg5ChA",
+      "name": "valuation_inputs",
+      "input": {
+       "industry": "Entertainment"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_013nAGxk4GnGoPVHR9Bg5ChA",
+      "content": "{\"summary\":\"US industry data for \\\"Entertainment\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"industry\":[{\"region\":\"US\",\"industry\":\"Entertainment\",\"firms\":92,\"beta\":0.8251696372652437,\"de_ratio\":0.15913861576824234,\"effective_tax_rate\":0.03304355681192803,\"unlevered_beta\":0.7371838269272858,\"cash_to_firm_value\":0.03364109650880357,\"unlevered_beta_cash_corrected\":0.7628468307830948,\"cost_of_equity\":0.07630256582202988,\"equity_weight\":0.8627095900322758,\"cost_of_debt_pretax\":0.052913,\"after_tax_cost_of_debt\":0.039684750000000005,\"debt_weight\":0.13729040996772424,\"cost_of_capital\":0.07127529087570077,\"match\":\"exact\",\"sources\":[{\"name\":\"Aswath Damodaran, Betas by Sector (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls\",\"accession_or_id\":\"betas/US/Entertainment\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"},{\"name\":\"Aswath Damodaran, Cost of Capital by Industry (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/wacc.xls\",\"accession_or_id\":\"wacc/US/Entertainment\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}],\"note\":\"cost_of_equity and cost_of_capital are Damodaran's US$ estimates using his own risk-free rate (0.0395) and ERP (0.0446) at the update date. For a current WACC, prefer unlevered_beta_cash_corrected, relevered at the company's D/E, with today's risk_free_rate.\"}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 3,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 998,
+     "cache_read_input_tokens": 13815,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 998,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1712,
+     "output_tokens_details": {
+      "thinking_tokens": 193
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.022382,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQS8QcKEAgTGAI4AUIIdGhpbmtpbmcSDF65CQHghaWlWVsBJBoMNUy0scp6dLvLpt2iIjDJGqYutbqGHTwuk7CinLzvB/5XKbfNIn9DzuxQgPc9u6ZUg8RhHDmoB3uv/72PdHUqjgd0D/hbTA8yrXJi0mNwvuZVGqIRFVTj/zEsp2L9MWeJsQjrK4k2NNQP+Qhyj+YWrlbp1+fF85hJ5IpqYtqBtPTt+xsaQaRAT1/YrioWPemqMbSxRr5e8dkvHkpH0hSY1jGO71Kl/3LB7RQjYKbULogBvOJrJhtfeTxewNWirETooXxTtMNf+HdH3N2KjEcHkyaAP1dSv1uScwDsp7fPcNkzeV3JuX0rBTNjCFjocYEmyUymJjNnDsEpVZ844CYnDwibPTsSnIdynmvPwIt+BwvNHx583YkDtx/cEvTO2aqbo0/1dQw9mWPZ8UA/7WGPrCmVH+ZCiz8dhWaO8gHQSMPw3ep9Hl53/U2wPQ5Ga6xfnW23jO0NBT/I1cSRdbwYznNsorwNAPbiVl4d0PrcTxILz8JUkrSgRb3ahvKKGSyAh0rBthCZ8q9Q8yk/a/Z/iY1WP9vkLi0+d5djaWR6vpC8VGj5pz4OHVn8zPrQ8L/B+KATCC+pcpjkNl8bd5xN/gOwTP/EQGJfONa1279BQyHLF2bkSLBc9viwtB5TaWAbzBO4GyOfU0L6bbdibfxvwM4mKylvk0qHT2K40jgGZObGh4OkNg3xUU8IjIdJ7lJpcJQG7mSGtQyJpV/HGcN/fx/gXTG8wr6YnmRvuVXl9qL7kEC8AYZZGwop++j4ggWAtMqYeQhv1QqJR+pFn3XLnmzAhfCWHTwJ/9HGuyC2JjIMbnYCnhcAVa0g65oKOULIG+QHqbMci2wIJMgBoUhj5TpaDa2Lzxv5VMIi8TTYsbCgyWVMZ7kO3pgpobY0V5T5ohM//UQSR8JEIv3jWT43pacvnPUvjT+hsd9Nr5reba0Jo304egM2NKG/yKlnWN+pSJf8ibVEUQCwq3gZ8+wBpTZzQv6ozkarf/YjpDfdmDwN3zj0ykpl14HAvXcAYFqkwJHnzULHqf+McZwpl0+srSKWWxd4QERxkpe4vK/iZ6h5oHN2uU7enKDOGZ4Da8DmC2c+xdYKiwvYOPwbYcdiN6QmST23UTpEi6hm2Zsxj4zE+VJ3dsZgQ42UA9VwgsF0r7iLkxVzzRj67ilpCsrGZGUcXQ2cOecb7b88dJGqYveCOrSO+geEFbsSl1NAj/wZrL4U1d597rXGTWxLa6HTWIyc9yinlsW4G9dNBfjwaVWpXoIRObt2Fw0U1IHa1o1I5Fsyk1Cjq17ej0lG/bKtGAE="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_013kHTHJuv4Zt76C6F2aXEcb",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "The Walt Disney Company",
+       "ticker": "DIS",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           88898,
+           91361,
+           94425
+          ],
+          "source": "us-gaap:Revenues, 10-K accession 0001744489-25-000155 (via financial_statements)"
+         },
+         "operating_income": {
+          "values": [
+           12863,
+           15601,
+           17551
+          ],
+          "source": "us-gaap:OperatingIncomeLoss, 10-K accession 0001744489-25-000155"
+         },
+         "d_and_a": {
+          "values": [
+           5369,
+           4990,
+           5326
+          ],
+          "source": "us-gaap:DepreciationDepletionAndAmortization, 10-K accession 0001744489-25-000155"
+         },
+         "capex": {
+          "values": [
+           4969,
+           5412,
+           8024
+          ],
+          "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, 10-K accession 0001744489-25-000155"
+         }
+        }
+       },
+       "assumptions": "{\"projection_labels\":[\"FY2026\",\"FY2027\",\"FY2028\",\"FY2029\",\"FY2030\"],\"revenue_growth\":{\"values\":[0.05,0.05,0.045,0.04,0.035],\"source\":\"Assumption: FY2025 growth was 3.4%, FY2024 2.8%; modest acceleration to ~5% from parks/experiences investment and streaming growth, fading toward GDP-like growth by FY2030.\"},\"ebit_margin\":{\"value\":0.19,\"period\":\"FY2026-FY2030\",\"source\":\"Assumption: FY2025 margin 18.6% (17,551/94,425), up from 17.1% in FY2024 and 14.5% in FY2023; hold near 19% as streaming profitability gains are offset by higher content/park costs.\"},\"tax_rate\":{\"value\":0.21,\"period\":\"FY2026-FY2030\",\"source\":\"Assumption: US federal statutory rate 21%; reported pretax/net figures are distorted by one-offs, so statutory used.\"},\"da_pct_revenue\":{\"value\":0.056,\"period\":\"FY2026-FY2030\",\"source\":\"Assumption: FY2025 D&A 5,326/94,425 = 5.6%; 3-yr range 5.5%-6.0%.\"},\"capex_pct_revenue\":{\"value\":0.075,\"period\":\"FY2026-FY2030\",\"source\":\"Assumption: FY2025 capex 8,024/94,425 = 8.5% on elevated parks/cruise investment; FY2023-24 were 5.6%-5.9%; assume 7.5% average, above D&A given announced expansion, converging down over time.\"},\"wacc\":{\"value\":0.08,\"period\":\"current\",\"source\":\"CAPM: rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 0.859 (Damodaran Entertainment unlevered cash-corrected 0.763, D/E 0.159, tax 21%) x ERP 4.46% (Damodaran US, 2026-02-16) = Ke 8.69%; Kd pre-tax 5.29% (Damodaran) -> 4.18% after tax; weights 86.3/13.7 -> ~8.07%, rounded to 8.0%.\"},\"terminal_growth\":{\"value\":0.025,\"period\":\"terminal\",\"source\":\"Assumption: long-run nominal growth below the 4.86% risk-free rate and near long-term US GDP/inflation; 2.5%.\"},\"mid_year\":true},\n\"bridge\":{\"net_debt\":{\"value\":36331,\"period\":\"FY2025 (2025-09-27)\",\"source\":\"financial_statements derived net_debt = total debt 42,026 (LongTermDebtNoncurrent 35,315 + LongTermDebtCurrent 6,711) - cash 5,695; no short-term investments reported; accession 0001744489-25-000155\"},\"diluted_shares\":{\"value\":1811,\"period\":\"FY2025\",\"source\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 1,811,000,000 shares, converted to millions; accession 0001744489-25-000155\"}}}"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_013kHTHJuv4Zt76C6F2aXEcb",
+      "content": "Not accepted: Missing 'bridge' in the DCF spec.",
+      "is_error": true
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 4,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 1760,
+     "cache_read_input_tokens": 14813,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 1760,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1569,
+     "output_tokens_details": {
+      "thinking_tokens": 40
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0230566,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSswYKEAgTGAI4AUIIdGhpbmtpbmcSDNlSvr1+Q99ai02hMxoMxpifFcXXi7osXkcnIjAJLtN3KtWyIVR06wkSb7znkb0Gfpzu+wX/EEDYKXfjuJEf/tAJhoBcsXYMpdgLzcsq0AXqWt8i+0BdtC8uwYlBKqeOr+nraNKuYUanzpG/H488jJMcrJVb/SLnKvsMfTkqz2IcS0ywd/8QcYATcLqJz7JN6NI7HooqWzNYUl7bF4ThHCse2leoHWmB6PLSZyc/C31ASZLstgktRj4lJ9UZitUnaBFsx2GvawE16QfDd2vMlI57e7Orrh325O3S73L/Cr6gECpTlUq+/TXI+Wyst2rmclPVhJcuPgkdcl47zNhou03WAfdwf0w6gRb0wZaqRrh5gM/ultvVXn8l3UhphgPM/5ei4FMTPBOeFMbazpJVxqSjrbkLg4YEoMYDlGwQm5ZpVHw+ErP4p1Q7mJlXfrttYBRuBeVi07d21KajJTNzrhA3ogQdJKaAtFYqgBSAPWPnEAccCWaCLsm3CInxtp/8cp/Tigj7MoLsKQxOy854OKQd6CH5674Y+fUUXHMe/NtyQyLJLo+xUYov3XIqUzbo4yIn6R4GcxkZ4ma+Qfzhbl7gAh8DqDb8T6OjQPHlLnYbb9aI3JURNviCxtDggU10QGIlsho7ZB/oRMjR5CMO71KXxgjTvHOIAxZjJ8e35DKRwGtQAo4b9J+zqV32CuKlO9EhQ3UiLrMHr3tnQvTM8F/EC4ZTb4K8R3wHSwuJ6/HEJ/9Ehsj//ymBO8jU5feSl+UhI4ZbZgwi9xBCLvHJXvuLIn6oDG2HZgOOd5FA0dViG4xzpU7KKYKSiP5ne1yt5ACO+fkfpT72iddRE1zZNgXaEqc4AknQL01D5znGxubV0ZeFgHkcUy3boP0KJxe5JCJz/fZKdtTvrDp3HeYszZ3hnEBPip4B+6cC5LIt+4SJNzuLKh3TeqhGYI7giTnQVj7C0wdEKK0P4I3C+oyXppK7hXaOYvTbG/NomV9obmMTTKa7sePeBsHjgc4/CrBo6BS+efW9ZyfcH7xjsMBlC4vknqArDrOdHoxY5pPk/0oYAQ=="
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01UkB93uBCZ9f77fmAzcSER6",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "The Walt Disney Company",
+       "ticker": "DIS",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           88898,
+           91361,
+           94425
+          ],
+          "source": "us-gaap:Revenues, 10-K accession 0001744489-25-000155 (via financial_statements)"
+         },
+         "operating_income": {
+          "values": [
+           12863,
+           15601,
+           17551
+          ],
+          "source": "us-gaap:OperatingIncomeLoss, 10-K accession 0001744489-25-000155"
+         },
+         "d_and_a": {
+          "values": [
+           5369,
+           4990,
+           5326
+          ],
+          "source": "us-gaap:DepreciationDepletionAndAmortization, 10-K accession 0001744489-25-000155"
+         },
+         "capex": {
+          "values": [
+           4969,
+           5412,
+           8024
+          ],
+          "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, 10-K accession 0001744489-25-000155"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.05,
+          0.05,
+          0.045,
+          0.04,
+          0.035
+         ],
+         "source": "Assumption: FY2025 growth was 3.4%, FY2024 2.8%; modest acceleration to ~5% from parks/experiences investment and streaming growth, fading toward GDP-like growth by FY2030."
+        },
+        "ebit_margin": {
+         "value": 0.19,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: FY2025 margin 18.6% (17,551/94,425), up from 17.1% in FY2024 and 14.5% in FY2023; hold near 19% as streaming profitability gains are offset by higher content/park costs."
+        },
+        "tax_rate": {
+         "value": 0.21,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: US federal statutory rate 21%; reported pretax/net figures are distorted by one-offs, so statutory used."
+        },
+        "da_pct_revenue": {
+         "value": 0.056,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: FY2025 D&A 5,326/94,425 = 5.6%; 3-yr range 5.5%-6.0%."
+        },
+        "capex_pct_revenue": {
+         "value": 0.075,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: FY2025 capex 8,024/94,425 = 8.5% on elevated parks/cruise investment; FY2023-24 were 5.6%-5.9%; assume 7.5% average."
+        },
+        "wacc": {
+         "value": 0.08,
+         "period": "current",
+         "source": "CAPM: rf 4.86% (US Treasury 10Y, 2026-11-06) + relevered beta 0.859 (Damodaran Entertainment unlevered cash-corrected 0.763, D/E 0.159, tax 21%) x ERP 4.46% (Damodaran US, 2026-02-16) = Ke 8.69%; Kd pre-tax 5.29% (Damodaran) -> 4.18% after tax; weights 86.3/13.7 -> ~8.07%, rounded to 8.0%."
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "period": "terminal",
+         "source": "Assumption: long-run nominal growth below the 4.86% risk-free rate and near long-term US GDP/inflation; 2.5%."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 36331,
+         "period": "FY2025 (2025-09-27)",
+         "source": "financial_statements derived net_debt = total debt 42,026 (LongTermDebtNoncurrent 35,315 + LongTermDebtCurrent 6,711) - cash 5,695; no short-term investments reported; accession 0001744489-25-000155"
+        },
+        "diluted_shares": {
+         "value": 1811,
+         "period": "FY2025",
+         "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 1,811,000,000 shares, in millions; accession 0001744489-25-000155"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 14,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "DIS",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 88898,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 88898000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 91361,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 91361000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 94425,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 94425000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "operating_income",
+    "period": "FY2023",
+    "value": 12863,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 12863000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 15601,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 15601000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 17551,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 17551000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 5369,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 5369000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 4990,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4990000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 5326,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 5326000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 4969,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 4969000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 5412,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 5412000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 8024,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 8024000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 36331,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 36331000000,
+    "resolved": "DIS"
+   },
+   {
+    "company": "DIS",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 1811,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 1811000000,
+    "resolved": "DIS"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

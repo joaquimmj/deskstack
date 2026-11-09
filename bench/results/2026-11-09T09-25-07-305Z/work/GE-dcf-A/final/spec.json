@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "GE Aerospace",
+ "ticker": "GE",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     null,
+     35100,
+     42300
+    ],
+    "source": "Adjusted revenue (non-GAAP) per GE Aerospace 4Q2024 and 4Q2025 earnings releases (8-K, sec.gov ge4q2024earningsrelease / ge4q2025earningsrelease), rounded to $0.1B. GAAP revenue was $38.7B (FY24) and $45.9B (FY25); adjusted basis used so it matches operating profit basis. FY2023 not found (search quota exhausted)."
+   },
+   "operating_income": {
+    "values": [
+     null,
+     7300,
+     9100
+    ],
+    "source": "Operating profit (non-GAAP) $7.3B FY24 (Q1'25 release guidance table / 4Q24 release) and $9.1B FY25 (2025 Annual Report, geaerospace.com), rounded. GAAP EBIT not found. FY2023 not found."
+   },
+   "d_and_a": {
+    "values": [
+     1179,
+     1184,
+     1220
+    ],
+    "source": "stockanalysis.com GE cash flow statement, Depreciation & Amortization (FY23 1,179; FY24 1,184; FY25 1,220); consistent with bullfincher.io ($1.18B/$1.18B/$1.22B). Secondary data provider, not the 10-K directly."
+   },
+   "capex": {
+    "values": [
+     862,
+     1032,
+     1273
+    ],
+    "source": "stockanalysis.com GE cash flow statement, Capital Expenditures (FY23 862; FY24 1,032; FY25 1,273), shown as positive. Secondary provider; verify against 10-K FY2025 (accession 0000040545-26-000008)."
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.12,
+    0.1,
+    0.09,
+    0.08,
+    0.07
+   ],
+   "source": "Analyst assumption: FY25 adjusted revenue grew ~21% and FY24 ~10% on record backlog/services demand; fade from 12% to 7% as growth normalizes. Company 2026 guidance not found."
+  },
+  "ebit_margin": {
+   "value": 0.22,
+   "source": "Assumption: FY25 operating margin ~21.5% (9.1B/42.3B) and FY24 20.7%; modest expansion to 22% held flat (FLIGHT DECK lean/services mix, offset by tariffs and equipment mix)."
+  },
+  "tax_rate": {
+   "value": 0.19,
+   "source": "Assumption: approximate blended effective rate for GE Aerospace, between 15% US statutory-with-credits and 21%; not sourced from filing, reviewer should verify."
+  },
+  "da_pct_revenue": {
+   "value": 0.027,
+   "source": "Assumption: FY25 D&A 1,220 / GAAP revenue 45.9B = 2.7%, in line with history."
+  },
+  "capex_pct_revenue": {
+   "value": 0.028,
+   "source": "Assumption: FY25 capex 1,273 / GAAP revenue 45.9B = 2.8%; stays elevated for MRO and manufacturing capacity expansion."
+  },
+  "wacc": {
+   "value": 0.09,
+   "source": "Assumption: ~4.3% risk-free + beta ~1.2 x 5% ERP, low-leverage capital structure, investment-grade debt; no provider data retrieved."
+  },
+  "terminal_growth": {
+   "value": 0.03,
+   "source": "Assumption: long-run nominal growth consistent with air-traffic growth and inflation, below WACC."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 8100,
+   "period": "FY2025",
+   "source": "Short-term borrowings 1,686 (10-K FY2025 Note 10, acc. 0000040545-26-000008) + long-term borrowings ~18,800 (Yahoo/Zacks Q4'25 summary, rounded) = ~20,486 total debt, excl. leases; less cash, equivalents and restricted cash 12,400 (same source). Short-term investments not found/assumed 0. Approximate; verify."
+  },
+  "diluted_shares": {
+   "value": 1078,
+   "period": "Q1 2025 proxy",
+   "source": "PROXY: Q1 2025 total average equivalent diluted shares 1,078M (10-Q ge-20250331). FY2025 weighted-average diluted not found; likely overstated due to buybacks. Reviewer should replace with FY2025 10-K figure."
+  }
+ }
+}

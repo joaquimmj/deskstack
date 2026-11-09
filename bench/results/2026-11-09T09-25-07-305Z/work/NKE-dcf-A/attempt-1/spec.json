@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "NIKE, Inc.",
+ "ticker": "NKE",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2024",
+   "FY2025",
+   "FY2026"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     51362,
+     46309,
+     46398
+    ],
+    "source": "NIKE 10-K FY2026 (acc. 0000320187-26-000088) MD&A revenues table: FY2026 46,398; FY2025 46,309; FY2024 51,362"
+   },
+   "operating_income": {
+    "values": [
+     6539,
+     3778,
+     3850
+    ],
+    "source": "NIKE does not report operating income; used EBIT (earnings before interest and taxes) per 10-K: FY2024 6,539, FY2025 3,778 (FY2025 10-K acc. 0000320187-25-000047). FY2026 = pre-tax income 3,900 less net interest income 50 (Q4 FY26 press release tables / 10-K FY2026) = 3,850, derived"
+   },
+   "d_and_a": {
+    "values": [
+     796,
+     775,
+     747
+    ],
+    "source": "FY2024 and FY2025: cash flow statement in NIKE FY2025 annual report (acc. 0001308179-25-000564). FY2026 747: third-party aggregator (stockanalysis.com NKE cash-flow page), not verified against the 10-K"
+   },
+   "capex": {
+    "values": [
+     812,
+     430,
+     null
+    ],
+    "source": "Additions to PP&E per cash flow statement, FY2025 annual report: FY2024 812, FY2025 430. FY2026 not found (search limit reached); FY2026 investing cash flow was -488 total per 10-K but capex split not retrieved"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030",
+   "FY2031"
+  ],
+  "revenue_growth": {
+   "values": [
+    -0.01,
+    0.03,
+    0.05,
+    0.05,
+    0.04
+   ],
+   "source": "Analyst assumption: Q1 FY2027 revenue was down 4% reported (10-Q Aug 2026, acc. 0000320187-26-000193), so FY2027 slightly negative; gradual turnaround recovery in FY2028-FY2030 and fade toward mid-single digit growth by FY2031. FY2026 was flat vs FY2025."
+  },
+  "ebit_margin": {
+   "value": 0.09,
+   "period": "FY2027-FY2031",
+   "source": "Analyst assumption: FY2026 EBIT margin 8.3% (3,850/46,398), FY2025 8.2%, FY2024 12.7%. Assume 9% as partial recovery from trough, below the FY2024 level due to tariffs and wholesale mix. Single flat margin."
+  },
+  "tax_rate": {
+   "value": 0.2,
+   "period": "FY2027-FY2031",
+   "source": "FY2026 effective rate about 20.3% (income tax 792 / pre-tax income 3,900), FY2025 17.1% (666/3,885); assume 20%"
+  },
+  "da_pct_revenue": {
+   "value": 0.016,
+   "period": "FY2027-FY2031",
+   "source": "FY2026 747/46,398 = 1.6%; FY2025 1.7%; FY2024 1.5%"
+  },
+  "capex_pct_revenue": {
+   "value": 0.015,
+   "period": "FY2027-FY2031",
+   "source": "Assumption: FY2024 1.6% (812/51,362), FY2025 0.9% (430/46,309); FY2026 capex not found. 1.5% assumed, roughly in line with D&A."
+  },
+  "wacc": {
+   "value": 0.085,
+   "period": "n/a",
+   "source": "Analyst assumption: large-cap consumer brand, beta about 1.0-1.1, risk-free about 4.2%, ERP about 5%, A+/A1 rated and low leverage, so cost of equity approximately equals WACC at about 8.5%. Not from a data provider."
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "period": "n/a",
+   "source": "Analyst assumption: long-run nominal GDP/inflation, below WACC; brand with global growth runway"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": null,
+   "period": "FY2026 (May 31, 2026)",
+   "source": "Not found: search limit reached before retrieving the May 31, 2026 balance sheet. Partial data: total debt about 7,942 (current portion 2,000 + long-term 5,942, per third-party debt analysis page); cash about 7,563 derived from FY2025 cash 7,464 + FY2026 net cash increase 99; short-term investments for FY2026 not found. Reviewer must complete."
+  },
+  "diluted_shares": {
+   "value": 1480,
+   "period": "FY2026",
+   "source": "Approximate, derived: FY2026 net income 3,108 / diluted EPS 2.10 (Q4 FY26 press release tables) is about 1,480 million. Not taken from the filing; consistent with Q1 FY27 diluted 1,484.2 and Q1 FY26 1,479.0. Replace with the 10-K weighted average diluted figure."
+  }
+ }
+}

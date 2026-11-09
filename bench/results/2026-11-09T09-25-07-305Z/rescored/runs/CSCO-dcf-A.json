@@ -1,0 +1,198 @@
+{
+ "company": "CSCO",
+ "task": "dcf",
+ "arm": "A",
+ "score": {
+  "valid": true,
+  "filed": 12,
+  "match": 4,
+  "mismatch": 7,
+  "other_line": 0,
+  "definition": 1,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {
+   "other": 7
+  },
+  "typed": 23,
+  "unsourced": 2,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "CSCO",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 53803,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 53803000000,
+    "resolved": "CSCO"
+   },
+   {
+    "company": "CSCO",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 56654,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 56654000000,
+    "resolved": "CSCO"
+   },
+   {
+    "company": "CSCO",
+    "metric": "revenue",
+    "period": "FY2026",
+    "value": 63325,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 63325000000,
+    "resolved": "CSCO"
+   },
+   {
+    "company": "CSCO",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 13074,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 12181000000,
+    "resolved": "CSCO"
+   },
+   {
+    "company": "CSCO",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 12516,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 11760000000,
+    "resolved": "CSCO"
+   },
+   {
+    "company": "CSCO",
+    "metric": "operating_income",
+    "period": "FY2026",
+    "value": 16086,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2026]",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 15368000000,
+    "resolved": "CSCO"
+   },
+   {
+    "company": "CSCO",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 2208,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 700000000,
+    "resolved": "CSCO"
+   },
+   {
+    "company": "CSCO",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 2902,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 700000000,
+    "resolved": "CSCO"
+   },
+   {
+    "company": "CSCO",
+    "metric": "d_and_a",
+    "period": "FY2026",
+    "value": 2563,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2026]",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 700000000,
+    "resolved": "CSCO"
+   },
+   {
+    "company": "CSCO",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 905,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 905000000,
+    "resolved": "CSCO"
+   },
+   {
+    "company": "CSCO",
+    "metric": "net_debt",
+    "period": "FY2026",
+    "value": 15267,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "definition",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments.",
+     "computed figure: differs from deskstack's definition, which varies between analysts"
+    ],
+    "filed_value": 13615000000,
+    "resolved": "CSCO"
+   },
+   {
+    "company": "CSCO",
+    "metric": "diluted_shares",
+    "period": "FY2026",
+    "value": 3984,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "mismatch",
+    "cause": "other",
+    "hints": [],
+    "filed_value": 3987000000,
+    "resolved": "CSCO"
+   }
+  ],
+  "unsourced_refs": [
+   "history.capex[FY2025]",
+   "assumptions.capex_pct_revenue"
+  ],
+  "errors": []
+ }
+}

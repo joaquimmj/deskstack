@@ -1,0 +1,871 @@
+{
+ "company": "AAPL",
+ "task": "dcf",
+ "arm": "C",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Apple Inc.",
+   "ticker": "AAPL",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       391035,
+       416161,
+       478834
+      ],
+      "source": "financial_statements AAPL, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K accession 0000320193-26-000026"
+     },
+     "operating_income": {
+      "values": [
+       123216,
+       133050,
+       158063
+      ],
+      "source": "financial_statements AAPL, us-gaap:OperatingIncomeLoss, accession 0000320193-26-000026"
+     },
+     "d_and_a": {
+      "values": [
+       11445,
+       11698,
+       13423
+      ],
+      "source": "financial_statements AAPL, us-gaap:DepreciationDepletionAndAmortization, accession 0000320193-26-000026"
+     },
+     "capex": {
+      "values": [
+       9447,
+       12715,
+       9041
+      ],
+      "source": "financial_statements AAPL, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000320193-26-000026"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.08,
+      0.07,
+      0.06,
+      0.05,
+      0.04
+     ],
+     "source": "Assumption: FY2026 growth was 15.1% (478,834 vs 416,161); fade from 8% toward ~4% as the base scales and converges toward terminal growth."
+    },
+    "ebit_margin": {
+     "value": 0.33,
+     "period": "FY2026",
+     "source": "Assumption: held at FY2026 actual 33.0% (158,063/478,834), accession 0000320193-26-000026; no further expansion assumed."
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "period": "FY2026",
+     "source": "Assumption: FY2026 effective rate = 1 - net income 132,175 / pretax income 159,237 = 17.0%, accession 0000320193-26-000026."
+    },
+    "da_pct_revenue": {
+     "value": 0.028,
+     "period": "FY2026",
+     "source": "Assumption: FY2026 D&A 13,423 / revenue 478,834 = 2.8%."
+    },
+    "capex_pct_revenue": {
+     "value": 0.019,
+     "period": "FY2026",
+     "source": "Assumption: FY2026 capex 9,041 / revenue 478,834 = 1.9%; 3-yr range 1.9-3.1%."
+    },
+    "wacc": {
+     "value": 0.095,
+     "source": "Assumption: CAPM cost of equity = 10Y UST 4.86% (Treasury 2026-11-06) + beta ~1.05 (my assumption; industry beta not fetched) x US ERP 4.46% (Damodaran 2026-02-16) = ~9.5%; debt is ~2% of capital so WACC ~ cost of equity."
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "source": "Assumption: below the 4.86% risk-free rate and long-run nominal US GDP growth; mature-company perpetuity."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 23389,
+     "period": "FY2026",
+     "source": "financial_statements AAPL derived net_debt = total debt 80,111 (LT debt noncurrent 68,208 + current 9,906 + commercial paper 1,997) - cash 36,305 - marketable securities 20,417; accession 0000320193-26-000026"
+    },
+    "diluted_shares": {
+     "value": 14720.306,
+     "period": "FY2026",
+     "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 14,720,306,000 shares, in millions; accession 0000320193-26-000026"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Apple Inc.",
+   "ticker": "AAPL",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       391035,
+       416161,
+       478834
+      ],
+      "source": "financial_statements AAPL, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K accession 0000320193-26-000026"
+     },
+     "operating_income": {
+      "values": [
+       123216,
+       133050,
+       158063
+      ],
+      "source": "financial_statements AAPL, us-gaap:OperatingIncomeLoss, accession 0000320193-26-000026"
+     },
+     "d_and_a": {
+      "values": [
+       11445,
+       11698,
+       13423
+      ],
+      "source": "financial_statements AAPL, us-gaap:DepreciationDepletionAndAmortization, accession 0000320193-26-000026"
+     },
+     "capex": {
+      "values": [
+       9447,
+       12715,
+       9041
+      ],
+      "source": "financial_statements AAPL, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000320193-26-000026"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.08,
+      0.07,
+      0.06,
+      0.05,
+      0.04
+     ],
+     "source": "Assumption: FY2026 growth was 15.1% (478,834 vs 416,161); fade from 8% toward ~4% as the base scales and converges toward terminal growth."
+    },
+    "ebit_margin": {
+     "value": 0.33,
+     "period": "FY2026",
+     "source": "Assumption: held at FY2026 actual 33.0% (158,063/478,834), accession 0000320193-26-000026; no further expansion assumed, conservative given services mix."
+    },
+    "tax_rate": {
+     "value": 0.17,
+     "period": "FY2026",
+     "source": "Assumption: FY2026 effective rate = 1 - net income 132,175 / pretax income 159,237 = 17.0%, accession 0000320193-26-000026."
+    },
+    "da_pct_revenue": {
+     "value": 0.028,
+     "period": "FY2026",
+     "source": "Assumption: FY2026 D&A 13,423 / revenue 478,834 = 2.8%."
+    },
+    "capex_pct_revenue": {
+     "value": 0.019,
+     "period": "FY2026",
+     "source": "Assumption: FY2026 capex 9,041 / revenue 478,834 = 1.9%; 3-yr range 1.9-3.1%."
+    },
+    "wacc": {
+     "value": 0.095,
+     "source": "Assumption: CAPM cost of equity = 10Y UST 4.86% (Treasury 2026-11-06) + beta ~1.05 (my assumption, industry beta not fetched) x US ERP 4.46% (Damodaran 2026-02-16) = ~9.5%; debt is ~2% of capital so WACC ~ cost of equity."
+    },
+    "terminal_growth": {
+     "value": 0.03,
+     "source": "Assumption: below the 4.86% risk-free rate and long-run nominal US GDP growth; rationale of a mature-company perpetuity."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 23389,
+     "period": "FY2026",
+     "source": "financial_statements AAPL derived net_debt = total debt 80,111 (LT debt noncurrent 68,208 + current 9,906 + commercial paper 1,997) - cash 36,305 - marketable securities 20,417; accession 0000320193-26-000026"
+    },
+    "diluted_shares": {
+     "value": 14720.306,
+     "period": "FY2026",
+     "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 14,720,306,000 shares, converted to millions; accession 0000320193-26-000026"
+    }
+   }
+  },
+  "submit_attempts": 2,
+  "requests": 4,
+  "usage": {
+   "input_tokens": 14,
+   "output_tokens": 3671,
+   "cache_creation_input_tokens": 16261,
+   "cache_read_input_tokens": 37148,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.0848201,
+  "seconds": 24.233,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 1,
+   "submit_model": 2
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure. After you submit, independent reviewers will check the model and you will get one chance to fix it.\n\nBuild a quick unlevered DCF for Apple Inc. (identifier: AAPL).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7236,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7236,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 197,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.020068,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01NQzpfBAvsJoxMs1riZUDRw",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "AAPL",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01KN1DiC9iL3y3XVdHSXj9wA",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01C5W4WJ21HUmmWR7FP5uWEB",
+      "name": "valuation_inputs",
+      "input": {
+       "country": "United States"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01NQzpfBAvsJoxMs1riZUDRw",
+      "content": "{\"summary\":\"Apple Inc. (AAPL), US-GAAP, USD. FY2026 (ended 2026-09-26): revenue 478.8B USD, net income 132.2B USD. 3 period(s), 3 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Apple Inc.\",\"ticker\":\"AAPL\",\"cik\":320193,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"0926\",\"sic\":\"3571\",\"sic_description\":\"Electronic Computers\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2023-10-01\",\"end\":\"2024-09-28\",\"income_statement\":{\"revenue\":{\"value\":391035000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000320193-26-000026\"},\"gross_profit\":{\"value\":180683000000,\"concept\":\"us-gaap:GrossProfit\",\"accession\":\"0000320193-26-000026\"},\"operating_income\":{\"value\":123216000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000320193-26-000026\"},\"interest_expense\":null,\"pretax_income\":{\"value\":123485000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000320193-26-000026\"},\"net_income\":{\"value\":93736000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000320193-26-000026\"},\"diluted_shares\":{\"value\":15408095000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000320193-26-000026\"},\"diluted_eps\":{\"value\":6.08,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000320193-26-000026\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":118254000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000320193-26-000026\"},\"capex\":{\"value\":9447000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000320193-26-000026\"},\"d_and_a\":{\"value\":11445000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000320193-26-000026\"},\"amortization_intangibles\":{\"value\":3600000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000320193-26-000026\"}},\"balance_sheet\":{\"cash\":{\"value\":29943000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000320193-25-000079\"},\"short_term_investments\":{\"value\":35228000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0000320193-25-000079\"},\"total_assets\":{\"value\":364980000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000320193-25-000079\"},\"total_equity\":{\"value\":56950000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000320193-26-000026\"},\"ltd_noncurrent\":{\"value\":85750000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000320193-25-000079\"},\"ltd_total\":{\"value\":96662000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000320193-25-000079\"},\"debt_current\":null,\"ltd_current\":{\"value\":10912000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000320193-25-000079\"},\"commercial_paper\":{\"value\":9967000000,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000320193-25-000079\"},\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":10930000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000320193-24-000123\"}},\"derived\":{\"ebitda\":{\"value\":134661000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":108807000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":106629000000,\"formula\":\"ltd_noncurrent + ltd_current + commercial_paper\"},\"net_debt\":{\"value\":41458000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2024-09-29\",\"end\":\"2025-09-27\",\"income_statement\":{\"revenue\":{\"value\":416161000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000320193-26-000026\"},\"gross_profit\":{\"value\":195201000000,\"concept\":\"us-gaap:GrossProfit\",\"accession\":\"0000320193-26-000026\"},\"operating_income\":{\"value\":133050000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000320193-26-000026\"},\"interest_expense\":null,\"pretax_income\":{\"value\":132729000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000320193-26-000026\"},\"net_income\":{\"value\":112010000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000320193-26-000026\"},\"diluted_shares\":{\"value\":15004697000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000320193-26-000026\"},\"diluted_eps\":{\"value\":7.46,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000320193-26-000026\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":111482000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000320193-26-000026\"},\"capex\":{\"value\":12715000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000320193-26-000026\"},\"d_and_a\":{\"value\":11698000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000320193-26-000026\"},\"amortization_intangibles\":{\"value\":3700000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000320193-26-000026\"}},\"balance_sheet\":{\"cash\":{\"value\":35934000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000320193-26-000026\"},\"short_term_investments\":{\"value\":18763000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0000320193-26-000026\"},\"total_assets\":{\"value\":359241000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000320193-26-000026\"},\"total_equity\":{\"value\":73733000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000320193-26-000026\"},\"ltd_noncurrent\":{\"value\":78328000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000320193-26-000026\"},\"ltd_total\":{\"value\":90678000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000320193-26-000026\"},\"debt_current\":null,\"ltd_current\":{\"value\":12350000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000320193-26-000026\"},\"commercial_paper\":{\"value\":7979000000,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000320193-26-000026\"},\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":12393000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000320193-25-000079\"}},\"derived\":{\"ebitda\":{\"value\":144748000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":98767000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":98657000000,\"formula\":\"ltd_noncurrent + ltd_current + commercial_paper\"},\"net_debt\":{\"value\":43960000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2026\",\"type\":\"annual\",\"start\":\"2025-09-28\",\"end\":\"2026-09-26\",\"income_statement\":{\"revenue\":{\"value\":478834000000,\"concept\":\"us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax\",\"accession\":\"0000320193-26-000026\"},\"gross_profit\":{\"value\":233602000000,\"concept\":\"us-gaap:GrossProfit\",\"accession\":\"0000320193-26-000026\"},\"operating_income\":{\"value\":158063000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000320193-26-000026\"},\"interest_expense\":null,\"pretax_income\":{\"value\":159237000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000320193-26-000026\"},\"net_income\":{\"value\":132175000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000320193-26-000026\"},\"diluted_shares\":{\"value\":14720306000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000320193-26-000026\"},\"diluted_eps\":{\"value\":8.98,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000320193-26-000026\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":145097000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000320193-26-000026\"},\"capex\":{\"value\":9041000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000320193-26-000026\"},\"d_and_a\":{\"value\":13423000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000320193-26-000026\"},\"amortization_intangibles\":{\"value\":4900000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000320193-26-000026\"}},\"balance_sheet\":{\"cash\":{\"value\":36305000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000320193-26-000026\"},\"short_term_investments\":{\"value\":20417000000,\"concept\":\"us-gaap:MarketableSecuritiesCurrent\",\"accession\":\"0000320193-26-000026\"},\"total_assets\":{\"value\":404548000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000320193-26-000026\"},\"total_equity\":{\"value\":112093000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000320193-26-000026\"},\"ltd_noncurrent\":{\"value\":68208000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000320193-26-000026\"},\"ltd_total\":{\"value\":78114000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000320193-26-000026\"},\"debt_current\":null,\"ltd_current\":{\"value\":9906000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000320193-26-000026\"},\"commercial_paper\":{\"value\":1997000000,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000320193-26-000026\"},\"short_term_borrowings\":null,\"ltd_due_12m\":{\"value\":9991000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000320193-26-000026\"}},\"derived\":{\"ebitda\":{\"value\":171486000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":136056000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":80111000000,\"formula\":\"ltd_noncurrent + ltd_current + commercial_paper\"},\"net_debt\":{\"value\":23389000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/320193/000032019324000123/0000320193-24-000123-index.htm\",\"accession_or_id\":\"0000320193-24-000123\",\"form\":\"10-K\",\"period\":\"2024-09-28\",\"as_of\":\"2024-11-01\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/0000320193-25-000079-index.htm\",\"accession_or_id\":\"0000320193-25-000079\",\"form\":\"10-K\",\"period\":\"2025-09-27\",\"as_of\":\"2025-10-31\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm\",\"accession_or_id\":\"0000320193-26-000026\",\"form\":\"10-K\",\"period\":\"2026-09-26\",\"as_of\":\"2026-11-03\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":14532182000,\"as_of\":\"2026-10-23\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000320193-26-000026\",\"url\":\"https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01KN1DiC9iL3y3XVdHSXj9wA",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01C5W4WJ21HUmmWR7FP5uWEB",
+      "content": "{\"summary\":\"Country risk data for \\\"United States\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"country\":[{\"country\":\"United States\",\"region\":\"North America\",\"moodys_rating\":\"Aa1\",\"default_spread\":0.002333679169992019,\"equity_risk_premium\":0.0446,\"country_risk_premium\":0.002333679169992019,\"basis\":\"Moody's sovereign rating\",\"match\":\"exact\",\"mature_market_erp\":0.0423,\"source\":{\"name\":\"Aswath Damodaran, Country Default Spreads and Risk Premiums\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx\",\"accession_or_id\":\"ctryprem/United States\",\"period\":\"2026-02-16\",\"as_of\":\"2026-02-16\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 6819,
+     "cache_read_input_tokens": 7236,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 6819,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1650,
+     "output_tokens_details": {
+      "thinking_tokens": 242
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.034998699999999994,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSkwgKEAgTGAI4AUIIdGhpbmtpbmcSDA0M6lNc7AmHee8NjhoM5rHbKiNdzIo6u0JIIjCtuDp7TqQKo4SLlXKkz0TCYF3PryIbwiaa4pnQjpE+nI3QGeROift0mH4V7rCLp+4qsAfVL3pBfzzEAiMCKux/I1lzRViAFqQgwBHOX07+M0XJpTPFf7MxYYEu0cKEUTIG9ZiSy5yPqiA5r+rnjeSG5EYEhQXNSxkM5OsTnAY8kH4vX77cr0T/NWLEocdC72zMasH/iFMNDAVxQePe9pYg0asCkjahgvWyZ4HiaVeGZneggqrIZX3gfXzgzbikEyFo7j9ul0FNdiu53+bUrmBwltd0gUnnEILoAbcNHzDhd87EqdH9Qd58KlhN0UljN8o2yJWj4I9Y9/unHw32EyId9TsTthPO4kAPj66L/s6MTIbSVXrTYiRjRD7sPC1H/womh1tr+ot7bpW9u3mb1idrwOu97YFWXhiqjBWyV+rC3W4pBADI3srejIOb/4OtqzfXD4xbikO2uyvOURRcLrPUX+a9LtTFM+RZm9ARjPB7vmUq8XsEi4Ucz7J7IIaIDXmc+1Ng3J2gsliIcUFn5x/hXRL2ny6yTiACui5QXXBrVXweorPbbCMCAw6jlXUzqsL/6K7rRzmN3po+rSP7vgge0eQOpBv6wLAs9NIV8LRHkv+Y6Q2PDoaqgqnMJXBSb1/xCYiTRAcl5cvS62CPu78r1vASJCUGR0h5mWgJ4IFCktmbblN3ze0xlH7bqUFabIcy47uEpU3e09fICmnlv5P5+Tm2SOyrhHQDrCsA9CyjdEl35orxbSgkJafDBlcrDIYNLFnAkgteyaFEIbB+ZpfJRwZ+swrHb67qCh8+KQjOGefIhz8LA6ukvpq6wb8hHr1oCdo3awN9bkFwJkiyiPxBccJqZC07MfVQOXvuJk+12V1a2CfEVxJ6jjUsj1uSJRnGf63T+V/kDmkGB7JaDFaaMJInzeYQGFHKYYtWIjr9U+i201oyPrUN48Kb85yzL4wsjXK9QmvAG5dSAzn3Ly2djSF87G4CT/cNJhpm2PaHTd6EyJxwOjLK61X5eSBORXMYrW7t7YeyytaZp4D8byZhnAdDF2hLCvXURUDDgTbpkdTYh5NClN8Pilpd4kQ8htHSG/nlWJOR73y+KbzWPZ0bHffaNVzHs4m5BXN/a2JjIXEF+CYn6OuQ/XMyws9G4NvrYGAx0ePfN/GeRsRZ0argXlOuFudbbshPDGeq0Lc5aVGLPFeUD91mNUSWJZPWYIRxrgFdyxkM7z6qQl1a/m7oE5GcuZzsw9HZaIUrHgdx9MjrW1/HZuK1wYmqpelCaeDwZP/sNHYYCuj2pfrYkw5AOR6thVOg+iTcqHV/5DRPfgFj+hgB"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_0171tD8ngNqTeM5L3xu3PD2n",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Apple Inc.",
+       "ticker": "AAPL",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2024",
+         "FY2025",
+         "FY2026"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           391035,
+           416161,
+           478834
+          ],
+          "source": "financial_statements AAPL, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K accession 0000320193-26-000026"
+         },
+         "operating_income": {
+          "values": [
+           123216,
+           133050,
+           158063
+          ],
+          "source": "financial_statements AAPL, us-gaap:OperatingIncomeLoss, accession 0000320193-26-000026"
+         },
+         "d_and_a": {
+          "values": [
+           11445,
+           11698,
+           13423
+          ],
+          "source": "financial_statements AAPL, us-gaap:DepreciationDepletionAndAmortization, accession 0000320193-26-000026"
+         },
+         "capex": {
+          "values": [
+           9447,
+           12715,
+           9041
+          ],
+          "source": "financial_statements AAPL, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000320193-26-000026"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030",
+         "FY2031"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.08,
+          0.07,
+          0.06,
+          0.05,
+          0.04
+         ],
+         "source": "Assumption: FY2026 growth was 15.1% (478,834 vs 416,161); fade from 8% toward ~4% as the base scales and converges toward terminal growth."
+        },
+        "ebit_margin": {
+         "value": 0.33,
+         "period": "FY2026",
+         "source": "Assumption: held at FY2026 actual 33.0% (158,063/478,834), accession 0000320193-26-000026; no further expansion assumed, conservative given services mix."
+        },
+        "tax_rate": {
+         "value": 0.17,
+         "period": "FY2026",
+         "source": "Assumption: FY2026 effective rate = 1 - net income 132,175 / pretax income 159,237 = 17.0%, accession 0000320193-26-000026."
+        },
+        "da_pct_revenue": {
+         "value": 0.028,
+         "period": "FY2026",
+         "source": "Assumption: FY2026 D&A 13,423 / revenue 478,834 = 2.8%."
+        },
+        "capex_pct_revenue": {
+         "value": 0.019,
+         "period": "FY2026",
+         "source": "Assumption: FY2026 capex 9,041 / revenue 478,834 = 1.9%; 3-yr range 1.9-3.1%."
+        },
+        "wacc": {
+         "value": 0.095,
+         "source": "Assumption: CAPM cost of equity = 10Y UST 4.86% (Treasury 2026-11-06) + beta ~1.05 (my assumption, industry beta not fetched) x US ERP 4.46% (Damodaran 2026-02-16) = ~9.5%; debt is ~2% of capital so WACC ~ cost of equity."
+        },
+        "terminal_growth": {
+         "value": 0.03,
+         "source": "Assumption: below the 4.86% risk-free rate and long-run nominal US GDP growth; rationale of a mature-company perpetuity."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 23389,
+         "period": "FY2026",
+         "source": "financial_statements AAPL derived net_debt = total debt 80,111 (LT debt noncurrent 68,208 + current 9,906 + commercial paper 1,997) - cash 36,305 - marketable securities 20,417; accession 0000320193-26-000026"
+        },
+        "diluted_shares": {
+         "value": 14720.306,
+         "period": "FY2026",
+         "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 14,720,306,000 shares, converted to millions; accession 0000320193-26-000026"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_0171tD8ngNqTeM5L3xu3PD2n",
+      "content": "accepted"
+     },
+     {
+      "type": "text",
+      "text": "Independent review of your model:\n\nAssociate (tie-out with verify_value): 14 of 14 filed figures match the filings.\n\nVP review (deterministic checker): 0 blocker, 0 major.\n\nFix what is wrong (check each figure against its filing), then call submit_model again with the full corrected model."
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 3,
+    "stop_reason": "end_turn",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 1802,
+     "cache_read_input_tokens": 14055,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 1802,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 387,
+     "output_tokens_details": {
+      "thinking_tokens": 178
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.011194,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSjwkKEAgTGAI4AUIIdGhpbmtpbmcSDDBHRYF7oOKkNH4JrBoM2tKyDQYKA6/mWumYIjA5rJMOa55ns5CTfxJ33XFroD8Zt9/Vs8ITaLz53JszZcISwBYWAgj/sBrjBL5KPrEqrAjYJpIpEXhg+c2DKCIlOl/8K3LSqZ4yNqpZ+Tjhj4DXd/0qL0jd9449XUH0dz7FY+uuiuw867nvQzc+zSAtw/WYG9xoXZ0sdtFfuEE4vc9caGyS+WvBlXgGuEnai3iAGkW22RnwM0jIhFuCHbEwNUyevoL9kNmYHY6yAEXaAV1WnjBdJvbd2/N1Pjehx17Kn/5wbhSjt3bSPiPHGNw7ndChZqLvUaOsE50sYmTjVqvi2NcLxuIWeL8yEKuG/WG5gHah5SeOk6zbOCZ21TPgciWTHH7LkLlMblNa+852kn2IQRwD+QsFR1nA3tSqXfFfO2KMHwXi9nd37WBtCz0LsKatk9UKrHk4vmUy0YFl8E7Gol4VO8Tb/PVzeZS/KTIryw7FsQhuDm+RmjjaVWSFHvGttN0ua60GY9SxR2YrgKShWsb6o7Km2h2cInih6I/tFnsiTg36EoEE0rlm3UiJHHl5BZnd2ugE6Tl9xENrR+7sP51v2Pc+AP2YvujledwilCUJiAScFiFWP2YELVTTOQxRufNaEddhRh9cc8lIWQmNj2PZa2D7tHMkl/hKL7fCxIrrxkSXrRhsyA8DxDxjI7yCKWxLRxbdSl8UtywMf1LeD1iScEiP2ThVrzRZHoUO+9N2GkqgtqkBVuY0Mu/7jfxN09iy7imOzmN1SqesMozNEqoiZ/52EA7s9o7yDjPkLLiyIn8oUd+45XziWGvuQJHAtuU2jY6gDuo3J9IKmW6z1YeyMI9SJGgDcLW6TiXxD+VbUQeD0WQvXPmpUvmBgVNY+DZSp5NKfLSawFe8mB/fIgDz+QhCLYgtxT48pj+kcUvhPgY9bU2syhfxTxVozUOZE1p01LP2HrrHYpuCMVJgeWLi1v+UCmFmxM9UIH/8f1ASSV5QYK0w73jHBKXVyexnFOqGRoT3NHj2ddeja8OX4V4+xQrM2vqPXkb2o8Agb7w9H4H4OUFMY1ScWGBwC4OnXX0Xs11wB1ozfHFAOKAVHryFbW149pXYqhcRPdZEY0cbHRmDLS8UAmEC7VsOLGWnpQ55949P7qe3WYisd8TNQ+jHuIoHYwuBF+3khdg/qn5AWxFDkFW9bOMXeg048q4g8gXjOwyIOKa5QSAon7jU/nnEYHbK+CjcE4XBdt36+tKMlJzcGef1qU7cpqMTBUtqFlGK/FidlPgClBVYkFgDbJmfHfdsS65PH7GeUECiOSG2eb/ltWKj9Qa9iAEbYudWHtH/XDRPOUzZ91iXqa3TPissYbSmpQ6hERLnb6A0E+/eYGWtr1MHGnsGIBAEy1XzMb9a36OnCX3ESISaivI1Ms9+WrRAq08qWshgYtDVMZE/D0oN/e++cLWLA0g1YmaE014sRBLA0MiQAhOLEC9pKQv4LtV9xzJB6SeClEADrDlv7qKESIQV0mLnAGUYAQ=="
+     },
+     {
+      "type": "text",
+      "text": "I found nothing to fix, so I haven't resubmitted. The associate matched all 14 filed figures to the filings, and the VP check found no blockers or major issues. The submitted model stands as accepted.\n\nOne weakness for the human reviewer: the WACC of 9.5% uses an assumed beta of about 1.05. I did not pull a Damodaran industry beta, and the model labels it as my assumption. The risk-free rate (4.86%) and equity risk premium (4.46%) are both sourced. Replacing the beta with a sourced, relevered industry beta would tighten the WACC. Say if you want me to do that and resubmit."
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": "Call submit_model now with the complete model."
+   },
+   {
+    "role": "assistant",
+    "request": 4,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 404,
+     "cache_read_input_tokens": 15857,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 404,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1437,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0185594,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_018CMBZMavi7CqPTjxA1sDSG",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Apple Inc.",
+       "ticker": "AAPL",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2024",
+         "FY2025",
+         "FY2026"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           391035,
+           416161,
+           478834
+          ],
+          "source": "financial_statements AAPL, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax, 10-K accession 0000320193-26-000026"
+         },
+         "operating_income": {
+          "values": [
+           123216,
+           133050,
+           158063
+          ],
+          "source": "financial_statements AAPL, us-gaap:OperatingIncomeLoss, accession 0000320193-26-000026"
+         },
+         "d_and_a": {
+          "values": [
+           11445,
+           11698,
+           13423
+          ],
+          "source": "financial_statements AAPL, us-gaap:DepreciationDepletionAndAmortization, accession 0000320193-26-000026"
+         },
+         "capex": {
+          "values": [
+           9447,
+           12715,
+           9041
+          ],
+          "source": "financial_statements AAPL, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000320193-26-000026"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030",
+         "FY2031"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.08,
+          0.07,
+          0.06,
+          0.05,
+          0.04
+         ],
+         "source": "Assumption: FY2026 growth was 15.1% (478,834 vs 416,161); fade from 8% toward ~4% as the base scales and converges toward terminal growth."
+        },
+        "ebit_margin": {
+         "value": 0.33,
+         "period": "FY2026",
+         "source": "Assumption: held at FY2026 actual 33.0% (158,063/478,834), accession 0000320193-26-000026; no further expansion assumed."
+        },
+        "tax_rate": {
+         "value": 0.17,
+         "period": "FY2026",
+         "source": "Assumption: FY2026 effective rate = 1 - net income 132,175 / pretax income 159,237 = 17.0%, accession 0000320193-26-000026."
+        },
+        "da_pct_revenue": {
+         "value": 0.028,
+         "period": "FY2026",
+         "source": "Assumption: FY2026 D&A 13,423 / revenue 478,834 = 2.8%."
+        },
+        "capex_pct_revenue": {
+         "value": 0.019,
+         "period": "FY2026",
+         "source": "Assumption: FY2026 capex 9,041 / revenue 478,834 = 1.9%; 3-yr range 1.9-3.1%."
+        },
+        "wacc": {
+         "value": 0.095,
+         "source": "Assumption: CAPM cost of equity = 10Y UST 4.86% (Treasury 2026-11-06) + beta ~1.05 (my assumption; industry beta not fetched) x US ERP 4.46% (Damodaran 2026-02-16) = ~9.5%; debt is ~2% of capital so WACC ~ cost of equity."
+        },
+        "terminal_growth": {
+         "value": 0.03,
+         "source": "Assumption: below the 4.86% risk-free rate and long-run nominal US GDP growth; mature-company perpetuity."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 23389,
+         "period": "FY2026",
+         "source": "financial_statements AAPL derived net_debt = total debt 80,111 (LT debt noncurrent 68,208 + current 9,906 + commercial paper 1,997) - cash 36,305 - marketable securities 20,417; accession 0000320193-26-000026"
+        },
+        "diluted_shares": {
+         "value": 14720.306,
+         "period": "FY2026",
+         "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 14,720,306,000 shares, in millions; accession 0000320193-26-000026"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ],
+  "review": "Associate (tie-out with verify_value): 14 of 14 filed figures match the filings.\n\nVP review (deterministic checker): 0 blocker, 0 major.\n\nFix what is wrong (check each figure against its filing), then call submit_model again with the full corrected model."
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 14,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "AAPL",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 391035,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 391035000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 416161,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 416161000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "revenue",
+    "period": "FY2026",
+    "value": 478834,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 478834000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 123216,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 123216000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 133050,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 133050000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "operating_income",
+    "period": "FY2026",
+    "value": 158063,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 158063000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 11445,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 11445000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 11698,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 11698000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "d_and_a",
+    "period": "FY2026",
+    "value": 13423,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 13423000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 9447,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 9447000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 12715,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 12715000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "capex",
+    "period": "FY2026",
+    "value": 9041,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 9041000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "net_debt",
+    "period": "FY2026",
+    "value": 23389,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 23389000000,
+    "resolved": "AAPL"
+   },
+   {
+    "company": "AAPL",
+    "metric": "diluted_shares",
+    "period": "FY2026",
+    "value": 14720.306,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 14720306000,
+    "resolved": "AAPL"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

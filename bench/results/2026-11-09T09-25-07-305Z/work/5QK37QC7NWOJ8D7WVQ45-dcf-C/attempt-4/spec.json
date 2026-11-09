@@ -1,0 +1,106 @@
+{
+ "kind": "dcf",
+ "company": "Iberdrola SA",
+ "ticker": "5QK37QC7NWOJ8D7WVQ45",
+ "currency": "EUR",
+ "scale": "units",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     49335000000,
+     42988000000,
+     44076000000
+    ],
+    "source": "ESEF ifrs-full:Revenue; reports 5QK37QC7NWOJ8D7WVQ45-2024-12-31-ESEF-ES-0 (FY2023) and -2025-12-31-ESEF-ES-0 (FY2024, FY2025)"
+   },
+   "operating_income": {
+    "values": [
+     8973000000,
+     7639000000,
+     9755000000
+    ],
+    "source": "ESEF ifrs-full:ProfitLossFromOperatingActivities; same reports"
+   },
+   "d_and_a": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: D&A not mapped in financial_statements (null in all three years); verify_value also not_found; not filled from memory"
+   },
+   "capex": {
+    "values": [
+     7336000000,
+     7665000000,
+     7607000000
+    ],
+    "source": "ESEF ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities; same reports"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.03,
+    0.03,
+    0.025,
+    0.025,
+    0.02
+   ],
+   "source": "Assumption: FY2025 revenue grew 2.5% (44,076m vs 42,988m); modest growth from network and renewables investment, fading toward terminal growth"
+  },
+  "ebit_margin": {
+   "value": 0.22,
+   "period": "FY2025",
+   "source": "Assumption: held near FY2025 actual 22.1% (9,755m/44,076m, ESEF)"
+  },
+  "tax_rate": {
+   "value": 0.25,
+   "source": "Assumption: Spanish statutory corporate tax rate 25%; Damodaran Europe utilities effective rate 20.9% is lower, so statutory used conservatively"
+  },
+  "da_pct_revenue": {
+   "value": 0.13,
+   "source": "Assumption, not a filed figure (D&A not found): set below capex intensity of ~17% for a utility with a growing asset base; reviewer should replace with filed D&A"
+  },
+  "capex_pct_revenue": {
+   "value": 0.17,
+   "period": "FY2025",
+   "source": "FY2025 capex 7,607m / revenue 44,076m = 17.3% (ESEF, key_metrics); rounded to 17%"
+  },
+  "wacc": {
+   "value": 0.057,
+   "source": "CAPM: rf 3.266% (ECB 10Y AAA, 2026-11-05) + relevered beta 0.695 (Damodaran Europe Utility unlevered cash-corrected 0.4115, D/E 0.918, tax 25%) x Spain ERP 5.78% = CoE 7.3%; pretax Kd 5.18% (Damodaran) -> 3.9% after tax; weights 52/48 (Damodaran industry) => ~5.7%"
+  },
+  "terminal_growth": {
+   "value": 0.015,
+   "source": "Assumption: lowered from 2% to 1.5% (below euro-area inflation target ~2% and 10Y rf 3.27%) to reduce terminal-value dependence flagged by review; a utility with low WACC is inherently terminal-heavy"
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 0,
+   "period": "FY2025",
+   "source": "NOT FOUND - PLACEHOLDER 0, NOT A FILED FIGURE: total debt is null in the ESEF data and verify_value returns not_found (cash 3,670m EUR). Equity value is overstated until the real net debt is supplied."
+  },
+  "diluted_shares": {
+   "value": 1,
+   "period": "FY2025",
+   "source": "NOT FOUND - PLACEHOLDER 1, NOT A FILED FIGURE: weighted diluted shares are null in the ESEF data and verify_value returns not_found. Per-share value is meaningless until the real count is supplied."
+  }
+ }
+}

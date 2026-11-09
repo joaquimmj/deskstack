@@ -1,0 +1,701 @@
+{
+ "company": "PFE",
+ "task": "dcf",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Pfizer Inc.",
+   "ticker": "PFE",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       59553,
+       63627,
+       62579
+      ],
+      "source": "deskstack financial_statements, us-gaap:Revenues, 10-K accession 0000078003-26-000026"
+     },
+     "operating_income": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found: operating income is not reported in the deskstack XBRL data for PFE; not estimated"
+     },
+     "d_and_a": {
+      "values": [
+       6290,
+       7013,
+       6592
+      ],
+      "source": "us-gaap:DepreciationDepletionAndAmortization, accession 0000078003-26-000026"
+     },
+     "capex": {
+      "values": [
+       3907,
+       2909,
+       2629
+      ],
+      "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000078003-26-000026"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0,
+      0.01,
+      0.02,
+      0.025,
+      0.025
+     ],
+     "source": "Assumption: flat near term given FY2025 revenue -1.6% and FY2023-25 CAGR 2.5% (key_metrics); patent-expiry headwinds offset by new launches, recovering to about the CAGR"
+    },
+    "ebit_margin": {
+     "value": 0.2,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: historical EBIT not available from the data tool. A proxy of pretax income plus interest expense (FY2025: 7,520+2,671=10,191, 16.3% of revenue) is depressed by intangible amortization, so I assume 20% with cost-savings; reviewer should replace it with the 10-K operating income."
+    },
+    "tax_rate": {
+     "value": 0.15,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: blended effective rate between the US statutory 21% and Pfizer's lower foreign rates; Damodaran industry effective rate is only 3.0%, so I did not use it"
+    },
+    "da_pct_revenue": {
+     "value": 0.105,
+     "period": "FY2026-FY2030",
+     "source": "FY2025 D&A 6,592 / revenue 62,579 = 10.5% (accession 0000078003-26-000026)"
+    },
+    "capex_pct_revenue": {
+     "value": 0.042,
+     "period": "FY2026-FY2030",
+     "source": "FY2025 capex 2,629 / revenue 62,579 = 4.2% (key_metrics capex_to_revenue)"
+    },
+    "wacc": {
+     "value": 0.088,
+     "period": "current",
+     "source": "CAPM: Rf 4.86% (US 10Y, 2026-11-06) + relevered beta 1.02 x ERP 4.46% (Damodaran) = 9.4% cost of equity. Beta is the unlevered cash-corrected 0.915 relevered at D/E 0.145 and a 21% tax rate. Pre-tax cost of debt 6.02%, 4.5% after tax (Damodaran). Weights 87.3% equity and 12.7% debt (Damodaran industry) give about 8.8%."
+    },
+    "terminal_growth": {
+     "value": 0.02,
+     "period": "terminal",
+     "source": "Assumption: long-run nominal growth below the 4.86% risk-free rate and in line with inflation; mature pharma"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 54470,
+     "period": "FY2025",
+     "source": "deskstack derived net_debt = total debt 64,795 (LTD noncurrent 61,641 + current debt 3,154) - cash 1,142 - short-term investments 9,183; accession 0000078003-26-000026"
+    },
+    "diluted_shares": {
+     "value": 5713,
+     "period": "FY2025",
+     "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 5,713,000,000 shares, in millions, accession 0000078003-26-000026"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Pfizer Inc.",
+   "ticker": "PFE",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2023",
+     "FY2024",
+     "FY2025"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       59553,
+       63627,
+       62579
+      ],
+      "source": "deskstack financial_statements, us-gaap:Revenues, 10-K accession 0000078003-26-000026"
+     },
+     "operating_income": {
+      "values": [
+       null,
+       null,
+       null
+      ],
+      "source": "not found: operating income is not reported in the deskstack XBRL data for PFE; not estimated"
+     },
+     "d_and_a": {
+      "values": [
+       6290,
+       7013,
+       6592
+      ],
+      "source": "us-gaap:DepreciationDepletionAndAmortization, accession 0000078003-26-000026"
+     },
+     "capex": {
+      "values": [
+       3907,
+       2909,
+       2629
+      ],
+      "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000078003-26-000026"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2026",
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030"
+    ],
+    "revenue_growth": {
+     "values": [
+      0,
+      0.01,
+      0.02,
+      0.025,
+      0.025
+     ],
+     "source": "Assumption: flat near term given FY2025 revenue -1.6% and FY2023-25 CAGR 2.5% (key_metrics); patent-expiry headwinds offset by new launches, recovering to about the CAGR"
+    },
+    "ebit_margin": {
+     "value": 0.2,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: historical EBIT not available from the data tool. A proxy of pretax income plus interest expense (FY2025: 7,520+2,671=10,191, 16.3% of revenue) is depressed by intangible amortization, so I assume 20% with cost-savings; reviewer should replace it with the 10-K operating income."
+    },
+    "tax_rate": {
+     "value": 0.15,
+     "period": "FY2026-FY2030",
+     "source": "Assumption: blended effective rate between the US statutory 21% and Pfizer's lower foreign rates; Damodaran industry effective rate is only 3.0%, so I did not use it"
+    },
+    "da_pct_revenue": {
+     "value": 0.105,
+     "period": "FY2026-FY2030",
+     "source": "FY2025 D&A 6,592 / revenue 62,579 = 10.5% (accession 0000078003-26-000026)"
+    },
+    "capex_pct_revenue": {
+     "value": 0.042,
+     "period": "FY2026-FY2030",
+     "source": "FY2025 capex 2,629 / revenue 62,579 = 4.2% (key_metrics capex_to_revenue)"
+    },
+    "wacc": {
+     "value": 0.088,
+     "period": "current",
+     "source": "CAPM: Rf 4.86% (US 10Y, 2026-11-06) + relevered beta 1.02 x ERP 4.46% (Damodaran) = 9.4% cost of equity. Beta is the unlevered cash-corrected 0.915 relevered at D/E 0.145 and a 21% tax rate. Pre-tax cost of debt 6.02%, 4.5% after tax (Damodaran). Weights 87.3% equity and 12.7% debt (Damodaran industry) give about 8.8%."
+    },
+    "terminal_growth": {
+     "value": 0.02,
+     "period": "terminal",
+     "source": "Assumption: long-run nominal growth below the 4.86% risk-free rate and in line with inflation; mature pharma"
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 54470,
+     "period": "FY2025",
+     "source": "deskstack derived net_debt = total debt 64,795 (LTD noncurrent 61,641 + current debt 3,154) - cash 1,142 - short-term investments 9,183; accession 0000078003-26-000026"
+    },
+    "diluted_shares": {
+     "value": 5713,
+     "period": "FY2025",
+     "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 5,713,000,000 shares, in millions, accession 0000078003-26-000026"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 3,
+  "usage": {
+   "input_tokens": 8,
+   "output_tokens": 2465,
+   "cache_creation_input_tokens": 16717,
+   "cache_read_input_tokens": 21255,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.07070950000000001,
+  "seconds": 19.146,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 1,
+   "key_metrics": 1,
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a quick unlevered DCF for Pfizer Inc. (identifier: PFE).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7210,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7210,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 209,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.020123,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_019gA8qYLXu2Ge92A13o3pCf",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "PFE",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01WD18bScePeitbCAxdc29B5",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01UP8LX1kFKy2G4DdvRqoThT",
+      "name": "valuation_inputs",
+      "input": {
+       "industry": "Drugs (Pharmaceutical)"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_019gA8qYLXu2Ge92A13o3pCf",
+      "content": "{\"summary\":\"PFIZER INC (PFE), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 62.6B USD, net income 7.8B USD. 3 period(s), 3 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"PFIZER INC\",\"ticker\":\"PFE\",\"cik\":78003,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2834\",\"sic_description\":\"Pharmaceutical Preparations\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"start\":\"2023-01-01\",\"end\":\"2023-12-31\",\"income_statement\":{\"revenue\":{\"value\":59553000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000078003-26-000026\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":2209000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0000078003-26-000026\"},\"pretax_income\":{\"value\":1058000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000078003-26-000026\"},\"net_income\":{\"value\":2119000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000078003-26-000026\"},\"diluted_shares\":{\"value\":5709000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000078003-26-000026\"},\"diluted_eps\":{\"value\":0.37,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000078003-26-000026\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":8700000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000078003-26-000026\"},\"capex\":{\"value\":3907000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000078003-26-000026\"},\"d_and_a\":{\"value\":6290000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000078003-26-000026\"},\"amortization_intangibles\":{\"value\":4700000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000078003-24-000039\"}},\"balance_sheet\":{\"cash\":{\"value\":2853000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000078003-25-000054\"},\"short_term_investments\":{\"value\":4400000000,\"concept\":\"us-gaap:AvailableForSaleSecuritiesDebtSecuritiesCurrent\",\"accession\":\"0000078003-25-000054\"},\"total_assets\":{\"value\":226501000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000078003-25-000054\"},\"total_equity\":{\"value\":89014000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000078003-25-000054\"},\"ltd_noncurrent\":{\"value\":61538000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000078003-25-000054\"},\"ltd_total\":null,\"debt_current\":{\"value\":10350000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000078003-25-000054\"},\"ltd_current\":{\"value\":2254000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000078003-25-000054\"},\"commercial_paper\":{\"value\":7965000000,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000078003-25-000054\"},\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":4793000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":71888000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":64635000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2024-01-01\",\"end\":\"2024-12-31\",\"income_statement\":{\"revenue\":{\"value\":63627000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000078003-26-000026\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":3091000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0000078003-26-000026\"},\"pretax_income\":{\"value\":8023000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000078003-26-000026\"},\"net_income\":{\"value\":8031000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000078003-26-000026\"},\"diluted_shares\":{\"value\":5700000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000078003-26-000026\"},\"diluted_eps\":{\"value\":1.41,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000078003-26-000026\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":12744000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000078003-26-000026\"},\"capex\":{\"value\":2909000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000078003-26-000026\"},\"d_and_a\":{\"value\":7013000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000078003-26-000026\"},\"amortization_intangibles\":{\"value\":5300000000,\"concept\":\"us-gaap:AmortizationOfIntangibleAssets\",\"accession\":\"0000078003-25-000054\"}},\"balance_sheet\":{\"cash\":{\"value\":1043000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000078003-26-000026\"},\"short_term_investments\":{\"value\":10881000000,\"concept\":\"us-gaap:AvailableForSaleSecuritiesDebtSecuritiesCurrent\",\"accession\":\"0000078003-26-000026\"},\"total_assets\":{\"value\":213396000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000078003-26-000026\"},\"total_equity\":{\"value\":88203000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000078003-26-000026\"},\"ltd_noncurrent\":{\"value\":57405000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000078003-26-000026\"},\"ltd_total\":null,\"debt_current\":{\"value\":6946000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000078003-26-000026\"},\"ltd_current\":{\"value\":3747000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000078003-26-000026\"},\"commercial_paper\":{\"value\":2453000000,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000078003-26-000026\"},\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":9835000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":64351000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":52427000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2025-01-01\",\"end\":\"2025-12-31\",\"income_statement\":{\"revenue\":{\"value\":62579000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000078003-26-000026\"},\"gross_profit\":null,\"operating_income\":null,\"interest_expense\":{\"value\":2671000000,\"concept\":\"us-gaap:InterestExpense\",\"accession\":\"0000078003-26-000026\"},\"pretax_income\":{\"value\":7520000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000078003-26-000026\"},\"net_income\":{\"value\":7771000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000078003-26-000026\"},\"diluted_shares\":{\"value\":5713000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000078003-26-000026\"},\"diluted_eps\":{\"value\":1.36,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000078003-26-000026\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":11704000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000078003-26-000026\"},\"capex\":{\"value\":2629000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000078003-26-000026\"},\"d_and_a\":{\"value\":6592000000,\"concept\":\"us-gaap:DepreciationDepletionAndAmortization\",\"accession\":\"0000078003-26-000026\"}},\"balance_sheet\":{\"cash\":{\"value\":1142000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000078003-26-000026\"},\"short_term_investments\":{\"value\":9183000000,\"concept\":\"us-gaap:AvailableForSaleSecuritiesDebtSecuritiesCurrent\",\"accession\":\"0000078003-26-000026\"},\"total_assets\":{\"value\":208160000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000078003-26-000026\"},\"total_equity\":{\"value\":86476000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000078003-26-000026\"},\"ltd_noncurrent\":{\"value\":61641000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000078003-26-000026\"},\"ltd_total\":null,\"debt_current\":{\"value\":3154000000,\"concept\":\"us-gaap:DebtCurrent\",\"accession\":\"0000078003-26-000026\"},\"ltd_current\":{\"value\":2997000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000078003-26-000026\"},\"commercial_paper\":{\"value\":0,\"concept\":\"us-gaap:CommercialPaper\",\"accession\":\"0000078003-26-000026\"},\"short_term_borrowings\":null,\"ltd_due_12m\":null},\"derived\":{\"ebitda\":null,\"free_cash_flow\":{\"value\":9075000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":64795000000,\"formula\":\"ltd_noncurrent + debt_current\"},\"net_debt\":{\"value\":54470000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-11-03 (period 2026-09-27) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/78003/000007800324000039/0000078003-24-000039-index.htm\",\"accession_or_id\":\"0000078003-24-000039\",\"form\":\"10-K\",\"period\":\"2023-12-31\",\"as_of\":\"2024-02-22\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/0000078003-25-000054-index.htm\",\"accession_or_id\":\"0000078003-25-000054\",\"form\":\"10-K\",\"period\":\"2024-12-31\",\"as_of\":\"2025-02-27\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/78003/000007800326000026/0000078003-26-000026-index.htm\",\"accession_or_id\":\"0000078003-26-000026\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-26\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":5699853733,\"as_of\":\"2026-10-28\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000078003-26-000127\",\"url\":\"https://www.sec.gov/Archives/edgar/data/78003/000007800326000127/0000078003-26-000127-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01WD18bScePeitbCAxdc29B5",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01UP8LX1kFKy2G4DdvRqoThT",
+      "content": "{\"summary\":\"US industry data for \\\"Drugs (Pharmaceutical)\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"industry\":[{\"region\":\"US\",\"industry\":\"Drugs (Pharmaceutical)\",\"firms\":228,\"beta\":0.9828330980612211,\"de_ratio\":0.14537075884184583,\"effective_tax_rate\":0.029938702770438724,\"unlevered_beta\":0.8862112018778732,\"cash_to_firm_value\":0.031607075278297876,\"unlevered_beta_cash_corrected\":0.915135973481584,\"cost_of_equity\":0.08333435617353047,\"equity_weight\":0.8730797362167346,\"cost_of_debt_pretax\":0.060195,\"after_tax_cost_of_debt\":0.04514625,\"debt_weight\":0.12692026378326537,\"cost_of_capital\":0.07848751166460263,\"match\":\"exact\",\"sources\":[{\"name\":\"Aswath Damodaran, Betas by Sector (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls\",\"accession_or_id\":\"betas/US/Drugs (Pharmaceutical)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"},{\"name\":\"Aswath Damodaran, Cost of Capital by Industry (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/wacc.xls\",\"accession_or_id\":\"wacc/US/Drugs (Pharmaceutical)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}],\"note\":\"cost_of_equity and cost_of_capital are Damodaran's US$ estimates using his own risk-free rate (0.0395) and ERP (0.0446) at the update date. For a current WACC, prefer unlevered_beta_cash_corrected, relevered at the company's D/E, with today's risk_free_rate.\"}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 6835,
+     "cache_read_input_tokens": 7210,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 6835,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 224,
+     "output_tokens_details": {
+      "thinking_tokens": 124
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0207735,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQSxQcKEAgTGAI4AUIIdGhpbmtpbmcSDMQX8df8JFoJS3sQtxoMg79N4NhbiaV4zlP7IjA+857s4ycnZu6PJYdLMOTH/SrsVl36QykSDGkE8THgZx6RVgcXR23iCCYRo0zfqvsq4gb5vCWUhIh2vuV/cfT1npQfnsyU0UR/CZJjymBW9U3huqojMJApxMzGrm8B/dlHE/sPi2ucLKki98vCsTf9AkHr0DOHTnVLK7p+c9Fe3QEOuSx5CbbCzTYaC5q5fJTXfR4XPTsEwyVks3ehiU5JsXETCrxtm1CNK5ZSU8Uxd9Vs22hXbNUvji17OSWCj8aVNd2l6luTYV/G1ZX4ub2qhjeO9fo5XdhUlGGtO1KNr+UtdUR5z+jn6o0fe3fc4Bd2EWqwx6sZ4mimnKiJ+q78zFQAv0SdnlPWqiF+npDcdA++ak9lVCnOMWtcl780CYrNAQaq5jBsMUex8Riqbfj3l/JF3jXM3xq+WmkmuiN1oEfZbqkeBEttW+UGnK8vz+JyHCwTof8Tos2tLRKYCJ6k3bShcAjf4KqE3xIJ2vFvOHm0S99FpZOAzCPiOdLn+ONczSs6NBtHFwjk+BEbgMqLgo1Dx9tyw4jSQdg00qAXUwCECQPKygW3gruQKK1MnZIS1daHffRg8cIJGcRAs3Zi4ICX3A7Wjs6QKhh+heTINlgL7Ik0eA9cWepBVxmLJvzPYzpPtL8INAlOPAQKQc9Kj6CB8TxDmwHv1cGXJ4IHEAbS7KCqjBgC0Y0Se5TBxY55MNu1K9EtuP/lbZvfi0NeSaH8T4CXuCqGefeK1BTkCQhQsMmpKHaR6I125BiUutYw9EeJoIkDW1di6NYPUeUxa+8x1M+JefxQ5EMGvKqXTevfY+YM5S8yKpt8quW3V5AlNfuLyzfGVw1PrOQEwa8k+bwkDlQ0BngWSe3B1CdOOXR/g0WY/yPrjJVH97kWpDQMTHAGm5Va7e9NTSVQSK5WZnTJ6b6amZK6seBvU3uzCtrrCQHV7VmIy6KSe/t6POXBaSUniXRE8a/CAPNod0DCoZogHxM22BEQzaPztaXVZjfFtGnLSWVUerWsds3pfOmqEsvZ775HVjnF3UXn0JTv+uuFEWJkzLIEQqzZ5b1mw2m3E/Jb6hTgakW5fTi9xjxtOn+zzWad+P7BFdL9FKaT5w3k/3Z4lvVPe+8DZ5uEFkUNQapc7/HmHhfY3bMGydQ7wbbGDEZbKsXPdePkUcCTnxloCvtgRNq1iFSsPFGjqmtrcI7/X/qtyMS9OcS3vqE09K7uVBgB"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_019paqM734zmFA1oNkQLcJZ7",
+      "name": "key_metrics",
+      "input": {
+       "ticker": "PFE",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_019paqM734zmFA1oNkQLcJZ7",
+      "content": "{\"summary\":\"PFIZER INC (PFE): 3 period(s) of ratios computed by deskstack from reported figures. Each shows its formula; inputs are in financial_statements.\",\"company\":{\"name\":\"PFIZER INC\",\"ticker\":\"PFE\",\"cik\":78003,\"exchange\":\"NYSE\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"1231\",\"sic\":\"2834\",\"sic_description\":\"Pharmaceutical Preparations\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Ratios are decimals (0.25 = 25%). net_debt_to_ebitda and interest_coverage are multiples (x).\",\"computed\":true,\"revenue_cagr\":{\"value\":0.025091157826043764,\"formula\":\"(revenue(FY2025) / revenue(FY2023))^(1/2) - 1\"},\"periods\":[{\"label\":\"FY2023\",\"type\":\"annual\",\"end\":\"2023-12-31\",\"metrics\":{\"revenue_growth\":{\"value\":-0.41138621200889547,\"formula\":\"revenue / revenue(FY2022) - 1\"},\"net_income_growth\":{\"value\":-0.932455692974627,\"formula\":\"net_income / net_income(FY2022) - 1\"},\"gross_margin\":null,\"operating_margin\":null,\"net_margin\":{\"value\":0.03558175070945208,\"formula\":\"net_income / revenue\"},\"fcf_margin\":{\"value\":0.08048293117055395,\"formula\":\"free_cash_flow / revenue\"},\"capex_to_revenue\":{\"value\":0.06560542709855087,\"formula\":\"capex / revenue\"},\"fcf_conversion\":{\"value\":2.261915998112317,\"formula\":\"free_cash_flow / net_income\"},\"roe\":{\"value\":0.02294842290510356,\"formula\":\"net_income / average(total_equity at 2023-12-31, total_equity at 2022-12-31)\"},\"roa\":{\"value\":0.010002218519445086,\"formula\":\"net_income / average(total_assets at 2023-12-31, total_assets at 2022-12-31)\"},\"ebitda_margin\":null,\"net_debt_to_ebitda\":null,\"interest_coverage\":null,\"effective_tax_rate_proxy\":null,\"roic\":null}},{\"label\":\"FY2024\",\"type\":\"annual\",\"end\":\"2024-12-31\",\"metrics\":{\"revenue_growth\":{\"value\":0.068409651906705,\"formula\":\"revenue / revenue(FY2023) - 1\"},\"net_income_growth\":{\"value\":2.789995280792827,\"formula\":\"net_income / net_income(FY2023) - 1\"},\"gross_margin\":null,\"operating_margin\":null,\"net_margin\":{\"value\":0.1262200009429959,\"formula\":\"net_income / revenue\"},\"fcf_margin\":{\"value\":0.15457274427522907,\"formula\":\"free_cash_flow / revenue\"},\"capex_to_revenue\":{\"value\":0.04571958445314096,\"formula\":\"capex / revenue\"},\"fcf_conversion\":{\"value\":1.2246295604532438,\"formula\":\"free_cash_flow / net_income\"},\"roe\":{\"value\":0.09063464566040504,\"formula\":\"net_income / average(total_equity at 2024-12-31, total_equity at 2023-12-31)\"},\"roa\":{\"value\":0.036513092837641536,\"formula\":\"net_income / average(total_assets at 2024-12-31, total_assets at 2023-12-31)\"},\"ebitda_margin\":null,\"net_debt_to_ebitda\":null,\"interest_coverage\":null,\"effective_tax_rate_proxy\":null,\"roic\":null}},{\"label\":\"FY2025\",\"type\":\"annual\",\"end\":\"2025-12-31\",\"metrics\":{\"revenue_growth\":{\"value\":-0.01647099501783833,\"formula\":\"revenue / revenue(FY2024) - 1\"},\"net_income_growth\":{\"value\":-0.032374548624081734,\"formula\":\"net_income / net_income(FY2024) - 1\"},\"gross_margin\":null,\"operating_margin\":null,\"net_margin\":{\"value\":0.12417903769635182,\"formula\":\"net_income / revenue\"},\"fcf_margin\":{\"value\":0.14501669889259974,\"formula\":\"free_cash_flow / revenue\"},\"capex_to_revenue\":{\"value\":0.04201089822464405,\"formula\":\"capex / revenue\"},\"fcf_conversion\":{\"value\":1.1678033715094582,\"formula\":\"free_cash_flow / net_income\"},\"roe\":{\"value\":0.08897463347053738,\"formula\":\"net_income / average(total_equity at 2025-12-31, total_equity at 2024-12-31)\"},\"roa\":{\"value\":0.036868174097866004,\"formula\":\"net_income / average(total_assets at 2025-12-31, total_assets at 2024-12-31)\"},\"ebitda_margin\":null,\"net_debt_to_ebitda\":null,\"interest_coverage\":null,\"effective_tax_rate_proxy\":null,\"roic\":null}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-11-03 (period 2026-09-27) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/78003/000007800323000024/0000078003-23-000024-index.htm\",\"accession_or_id\":\"0000078003-23-000024\",\"form\":\"10-K\",\"period\":\"2022-12-31\",\"as_of\":\"2023-02-23\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/78003/000007800324000039/0000078003-24-000039-index.htm\",\"accession_or_id\":\"0000078003-24-000039\",\"form\":\"10-K\",\"period\":\"2023-12-31\",\"as_of\":\"2024-02-22\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/78003/000007800325000054/0000078003-25-000054-index.htm\",\"accession_or_id\":\"0000078003-25-000054\",\"form\":\"10-K\",\"period\":\"2024-12-31\",\"as_of\":\"2025-02-27\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/78003/000007800326000026/0000078003-26-000026-index.htm\",\"accession_or_id\":\"0000078003-26-000026\",\"form\":\"10-K\",\"period\":\"2025-12-31\",\"as_of\":\"2026-02-26\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 3,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 2672,
+     "cache_read_input_tokens": 14045,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 2672,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 2032,
+     "output_tokens_details": {
+      "thinking_tokens": 538
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.029813,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "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"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01PtjK2bjxZ7bXxUKVXHu4fW",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Pfizer Inc.",
+       "ticker": "PFE",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2023",
+         "FY2024",
+         "FY2025"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           59553,
+           63627,
+           62579
+          ],
+          "source": "deskstack financial_statements, us-gaap:Revenues, 10-K accession 0000078003-26-000026"
+         },
+         "operating_income": {
+          "values": [
+           null,
+           null,
+           null
+          ],
+          "source": "not found: operating income is not reported in the deskstack XBRL data for PFE; not estimated"
+         },
+         "d_and_a": {
+          "values": [
+           6290,
+           7013,
+           6592
+          ],
+          "source": "us-gaap:DepreciationDepletionAndAmortization, accession 0000078003-26-000026"
+         },
+         "capex": {
+          "values": [
+           3907,
+           2909,
+           2629
+          ],
+          "source": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment, accession 0000078003-26-000026"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2026",
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030"
+        ],
+        "revenue_growth": {
+         "values": [
+          0,
+          0.01,
+          0.02,
+          0.025,
+          0.025
+         ],
+         "source": "Assumption: flat near term given FY2025 revenue -1.6% and FY2023-25 CAGR 2.5% (key_metrics); patent-expiry headwinds offset by new launches, recovering to about the CAGR"
+        },
+        "ebit_margin": {
+         "value": 0.2,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: historical EBIT not available from the data tool. A proxy of pretax income plus interest expense (FY2025: 7,520+2,671=10,191, 16.3% of revenue) is depressed by intangible amortization, so I assume 20% with cost-savings; reviewer should replace it with the 10-K operating income."
+        },
+        "tax_rate": {
+         "value": 0.15,
+         "period": "FY2026-FY2030",
+         "source": "Assumption: blended effective rate between the US statutory 21% and Pfizer's lower foreign rates; Damodaran industry effective rate is only 3.0%, so I did not use it"
+        },
+        "da_pct_revenue": {
+         "value": 0.105,
+         "period": "FY2026-FY2030",
+         "source": "FY2025 D&A 6,592 / revenue 62,579 = 10.5% (accession 0000078003-26-000026)"
+        },
+        "capex_pct_revenue": {
+         "value": 0.042,
+         "period": "FY2026-FY2030",
+         "source": "FY2025 capex 2,629 / revenue 62,579 = 4.2% (key_metrics capex_to_revenue)"
+        },
+        "wacc": {
+         "value": 0.088,
+         "period": "current",
+         "source": "CAPM: Rf 4.86% (US 10Y, 2026-11-06) + relevered beta 1.02 x ERP 4.46% (Damodaran) = 9.4% cost of equity. Beta is the unlevered cash-corrected 0.915 relevered at D/E 0.145 and a 21% tax rate. Pre-tax cost of debt 6.02%, 4.5% after tax (Damodaran). Weights 87.3% equity and 12.7% debt (Damodaran industry) give about 8.8%."
+        },
+        "terminal_growth": {
+         "value": 0.02,
+         "period": "terminal",
+         "source": "Assumption: long-run nominal growth below the 4.86% risk-free rate and in line with inflation; mature pharma"
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 54470,
+         "period": "FY2025",
+         "source": "deskstack derived net_debt = total debt 64,795 (LTD noncurrent 61,641 + current debt 3,154) - cash 1,142 - short-term investments 9,183; accession 0000078003-26-000026"
+        },
+        "diluted_shares": {
+         "value": 5713,
+         "period": "FY2025",
+         "source": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding 5,713,000,000 shares, in millions, accession 0000078003-26-000026"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 11,
+  "match": 11,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 22,
+  "unsourced": 1,
+  "checker": {
+   "blocker": 0,
+   "major": 0,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "PFE",
+    "metric": "revenue",
+    "period": "FY2023",
+    "value": 59553,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 59553000000,
+    "resolved": "PFE"
+   },
+   {
+    "company": "PFE",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 63627,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 63627000000,
+    "resolved": "PFE"
+   },
+   {
+    "company": "PFE",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 62579,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 62579000000,
+    "resolved": "PFE"
+   },
+   {
+    "company": "PFE",
+    "metric": "d_and_a",
+    "period": "FY2023",
+    "value": 6290,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 6290000000,
+    "resolved": "PFE"
+   },
+   {
+    "company": "PFE",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 7013,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 7013000000,
+    "resolved": "PFE"
+   },
+   {
+    "company": "PFE",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 6592,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 6592000000,
+    "resolved": "PFE"
+   },
+   {
+    "company": "PFE",
+    "metric": "capex",
+    "period": "FY2023",
+    "value": 3907,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2023]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 3907000000,
+    "resolved": "PFE"
+   },
+   {
+    "company": "PFE",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 2909,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2909000000,
+    "resolved": "PFE"
+   },
+   {
+    "company": "PFE",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 2629,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 2629000000,
+    "resolved": "PFE"
+   },
+   {
+    "company": "PFE",
+    "metric": "net_debt",
+    "period": "FY2025",
+    "value": 54470,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 54470000000,
+    "resolved": "PFE"
+   },
+   {
+    "company": "PFE",
+    "metric": "diluted_shares",
+    "period": "FY2025",
+    "value": 5713,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 5713000000,
+    "resolved": "PFE"
+   }
+  ],
+  "unsourced_refs": [
+   "assumptions.ebit_margin"
+  ],
+  "errors": []
+ }
+}

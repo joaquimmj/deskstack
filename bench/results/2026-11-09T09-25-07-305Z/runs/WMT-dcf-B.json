@@ -1,0 +1,702 @@
+{
+ "company": "WMT",
+ "task": "dcf",
+ "arm": "B",
+ "run": {
+  "status": "submitted",
+  "submission": {
+   "kind": "dcf",
+   "company": "Walmart Inc.",
+   "ticker": "WMT",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       648125,
+       680985,
+       713163
+      ],
+      "source": "WMT 10-K FY2026, accession 0000104169-26-000055, us-gaap:Revenues"
+     },
+     "operating_income": {
+      "values": [
+       27012,
+       29348,
+       29825
+      ],
+      "source": "WMT 10-K FY2026, accession 0000104169-26-000055, us-gaap:OperatingIncomeLoss"
+     },
+     "d_and_a": {
+      "values": [
+       11853,
+       12973,
+       14203
+      ],
+      "source": "WMT 10-K FY2026, accession 0000104169-26-000055, us-gaap:DepreciationAmortizationAndAccretionNet"
+     },
+     "capex": {
+      "values": [
+       20606,
+       23783,
+       26642
+      ],
+      "source": "WMT 10-K FY2026, accession 0000104169-26-000055, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.045,
+      0.045,
+      0.04,
+      0.04,
+      0.035
+     ],
+     "source": "Assumption: FY2025 growth 5.1% and FY2026 4.7% (computed from 10-K 0000104169-26-000055 revenue); fade from ~4.5% toward 3.5% as the base grows and the business matures."
+    },
+    "ebit_margin": {
+     "value": 0.043,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: FY2026 margin 4.18% (29,825/713,163), FY2025 4.31%; hold ~4.3% with modest mix benefit from advertising/membership offsetting investment."
+    },
+    "tax_rate": {
+     "value": 0.24,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: approx. 21% US federal statutory plus state and foreign taxes; Damodaran US Retail (General) effective rate is 19.1%, so 24% is conservative. Not taken directly from the filing."
+    },
+    "da_pct_revenue": {
+     "value": 0.02,
+     "period": "FY2027-FY2031",
+     "source": "FY2026 D&A 14,203 / revenue 713,163 = 1.99% (10-K 0000104169-26-000055); held flat."
+    },
+    "capex_pct_revenue": {
+     "value": 0.037,
+     "period": "FY2027-FY2031",
+     "source": "FY2026 capex 26,642 / revenue 713,163 = 3.74%; FY2025 3.49%; hold ~3.7% reflecting ongoing automation and store investment."
+    },
+    "wacc": {
+     "value": 0.082,
+     "period": "as of 2026-11-06",
+     "source": "CAPM: rf 4.86% (US Treasury 10Y par yield 2026-11-06) + relevered beta 0.83 x ERP 4.46% (Damodaran US, 2026-02-16) = 8.56% cost of equity. Beta: Damodaran Retail (General) cash-corrected unlevered 0.781 relevered at D/E 0.079 (industry D/E, no market price used) with 21% tax. Pretax cost of debt 5.07% (Damodaran), after tax 3.8%; weights 92.6%/7.4% -> WACC ~8.2%."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "period": "terminal",
+     "source": "Assumption: long-run nominal US growth/inflation, below the 4.86% risk-free rate."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 34035,
+     "period": "FY2026 (2026-01-31)",
+     "source": "financial_statements derived: total debt 44,762 (LT debt noncurrent 34,624 + current 3,542 + short-term borrowings 6,596) - cash 10,727; no short-term investments; 10-K 0000104169-26-000055. Excludes leases."
+    },
+    "diluted_shares": {
+     "value": 8022,
+     "period": "FY2026",
+     "source": "Weighted average diluted shares 8,022,000,000, us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding, 10-K 0000104169-26-000055, expressed in millions"
+    }
+   }
+  },
+  "first_submission": {
+   "kind": "dcf",
+   "company": "Walmart Inc.",
+   "ticker": "WMT",
+   "currency": "USD",
+   "scale": "millions",
+   "history": {
+    "periods": [
+     "FY2024",
+     "FY2025",
+     "FY2026"
+    ],
+    "lines": {
+     "revenue": {
+      "values": [
+       648125,
+       680985,
+       713163
+      ],
+      "source": "WMT 10-K FY2026, accession 0000104169-26-000055, us-gaap:Revenues"
+     },
+     "operating_income": {
+      "values": [
+       27012,
+       29348,
+       29825
+      ],
+      "source": "WMT 10-K FY2026, accession 0000104169-26-000055, us-gaap:OperatingIncomeLoss"
+     },
+     "d_and_a": {
+      "values": [
+       11853,
+       12973,
+       14203
+      ],
+      "source": "WMT 10-K FY2026, accession 0000104169-26-000055, us-gaap:DepreciationAmortizationAndAccretionNet"
+     },
+     "capex": {
+      "values": [
+       20606,
+       23783,
+       26642
+      ],
+      "source": "WMT 10-K FY2026, accession 0000104169-26-000055, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+     }
+    }
+   },
+   "assumptions": {
+    "projection_labels": [
+     "FY2027",
+     "FY2028",
+     "FY2029",
+     "FY2030",
+     "FY2031"
+    ],
+    "revenue_growth": {
+     "values": [
+      0.045,
+      0.045,
+      0.04,
+      0.04,
+      0.035
+     ],
+     "source": "Assumption: FY2025 growth 5.1% and FY2026 4.7% (computed from 10-K 0000104169-26-000055 revenue); fade from ~4.5% toward 3.5% as the base grows and the business matures."
+    },
+    "ebit_margin": {
+     "value": 0.043,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: FY2026 margin 4.18% (29,825/713,163), FY2025 4.31%; hold ~4.3% with modest mix benefit from advertising/membership offsetting investment."
+    },
+    "tax_rate": {
+     "value": 0.24,
+     "period": "FY2027-FY2031",
+     "source": "Assumption: approx. 21% US federal statutory plus state and foreign taxes; Damodaran US Retail (General) effective rate is 19.1%, so 24% is conservative. Not taken directly from the filing."
+    },
+    "da_pct_revenue": {
+     "value": 0.02,
+     "period": "FY2027-FY2031",
+     "source": "FY2026 D&A 14,203 / revenue 713,163 = 1.99% (10-K 0000104169-26-000055); held flat."
+    },
+    "capex_pct_revenue": {
+     "value": 0.037,
+     "period": "FY2027-FY2031",
+     "source": "FY2026 capex 26,642 / revenue 713,163 = 3.74%; FY2025 3.49%; hold ~3.7% reflecting ongoing automation and store investment."
+    },
+    "wacc": {
+     "value": 0.082,
+     "period": "as of 2026-11-06",
+     "source": "CAPM: rf 4.86% (US Treasury 10Y par yield 2026-11-06) + relevered beta 0.83 x ERP 4.46% (Damodaran US, 2026-02-16) = 8.56% cost of equity. Beta: Damodaran Retail (General) cash-corrected unlevered 0.781 relevered at D/E 0.079 (industry D/E, no market price used) with 21% tax. Pretax cost of debt 5.07% (Damodaran), after tax 3.8%; weights 92.6%/7.4% -> WACC ~8.2%."
+    },
+    "terminal_growth": {
+     "value": 0.025,
+     "period": "terminal",
+     "source": "Assumption: long-run nominal US growth/inflation, below the 4.86% risk-free rate."
+    },
+    "mid_year": true
+   },
+   "bridge": {
+    "net_debt": {
+     "value": 34035,
+     "period": "FY2026 (2026-01-31)",
+     "source": "financial_statements derived: total debt 44,762 (LT debt noncurrent 34,624 + current 3,542 + short-term borrowings 6,596) - cash 10,727; no short-term investments; 10-K 0000104169-26-000055. Excludes leases."
+    },
+    "diluted_shares": {
+     "value": 8022,
+     "period": "FY2026",
+     "source": "Weighted average diluted shares 8,022,000,000, us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding, 10-K 0000104169-26-000055, expressed in millions"
+    }
+   }
+  },
+  "submit_attempts": 1,
+  "requests": 2,
+  "usage": {
+   "input_tokens": 6,
+   "output_tokens": 2257,
+   "cache_creation_input_tokens": 14505,
+   "cache_read_input_tokens": 7209,
+   "server_tool_use": {
+    "web_search_requests": 0
+   }
+  },
+  "cost": 0.0602863,
+  "seconds": 15.299,
+  "tool_calls": {
+   "financial_statements": 1,
+   "risk_free_rate": 1,
+   "valuation_inputs": 2,
+   "submit_model": 1
+  },
+  "transcript": [
+   {
+    "role": "user",
+    "content": "Tools: the deskstack data tools (SEC and EU ESEF filings, rates, Damodaran inputs). Use them for every filed figure.\n\nBuild a quick unlevered DCF for Walmart Inc. (identifier: WMT).\n- History: revenue, operating income (EBIT), D&A and capex for the last three filed fiscal years.\n- Five projected years with your assumptions: revenue growth per year, EBIT margin, tax rate, D&A and capex as % of\n  revenue, WACC and terminal growth, each with its rationale as the source.\n- Bridge: net debt and diluted shares at the last fiscal year end (shares in the same scale as the money figures).\nSubmit it with submit_model, kind \"dcf\"."
+   },
+   {
+    "role": "assistant",
+    "request": 1,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 4,
+     "cache_creation_input_tokens": 7209,
+     "cache_read_input_tokens": 0,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7209,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 275,
+     "output_tokens_details": {
+      "thinking_tokens": 0
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0207805,
+    "content": [
+     {
+      "type": "tool_use",
+      "id": "toolu_01TU4WpBJXyd9ZFRhvhM9ypk",
+      "name": "financial_statements",
+      "input": {
+       "ticker": "WMT",
+       "years": 3,
+       "include_ltm": false
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01J4W8nuo57Kfzr72j5GgZ1h",
+      "name": "risk_free_rate",
+      "input": {
+       "region": "US",
+       "tenor": "10Y"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01PBFMZoH4YUNptjJAzKykZS",
+      "name": "valuation_inputs",
+      "input": {
+       "country": "United States"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01QxAKABFdHp3uxYmUbkA8Es",
+      "name": "valuation_inputs",
+      "input": {
+       "industry": "Retail (General)"
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   },
+   {
+    "role": "user",
+    "content": [
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01TU4WpBJXyd9ZFRhvhM9ypk",
+      "content": "{\"summary\":\"Walmart Inc. (WMT), US-GAAP, USD. FY2026 (ended 2026-01-31): revenue 713.2B USD, net income 21.9B USD. 3 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.\",\"company\":{\"name\":\"Walmart Inc.\",\"ticker\":\"WMT\",\"cik\":104169,\"exchange\":\"Nasdaq\",\"region\":\"US\",\"reporting_standard\":\"US-GAAP\",\"currency\":\"USD\",\"fiscal_year_end\":\"0131\",\"sic\":\"5331\",\"sic_description\":\"Retail-Variety Stores\",\"financial_company\":false,\"foreign_private_issuer\":false},\"units\":\"Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.\",\"periods\":[{\"label\":\"FY2024\",\"type\":\"annual\",\"start\":\"2023-02-01\",\"end\":\"2024-01-31\",\"income_statement\":{\"revenue\":{\"value\":648125000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000104169-26-000055\"},\"gross_profit\":null,\"operating_income\":{\"value\":27012000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000104169-26-000055\"},\"interest_expense\":{\"value\":2259000000,\"concept\":\"us-gaap:InterestExpenseDebt\",\"accession\":\"0000104169-26-000055\"},\"pretax_income\":{\"value\":21848000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000104169-26-000055\"},\"net_income\":{\"value\":15511000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000104169-26-000055\"},\"diluted_shares\":{\"value\":8108000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000104169-26-000055\"},\"diluted_eps\":{\"value\":1.91,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000104169-26-000055\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":35726000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000104169-26-000055\"},\"capex\":{\"value\":20606000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000104169-26-000055\"},\"d_and_a\":{\"value\":11853000000,\"concept\":\"us-gaap:DepreciationAmortizationAndAccretionNet\",\"accession\":\"0000104169-26-000055\"}},\"balance_sheet\":{\"cash\":{\"value\":9867000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000104169-25-000021\"},\"short_term_investments\":null,\"total_assets\":{\"value\":252399000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000104169-26-000055\"},\"total_equity\":{\"value\":83861000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000104169-25-000021\"},\"ltd_noncurrent\":{\"value\":36132000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000104169-25-000021\"},\"ltd_total\":{\"value\":39579000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000104169-25-000021\"},\"debt_current\":null,\"ltd_current\":{\"value\":3447000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000104169-25-000021\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":878000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000104169-25-000021\"},\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":38865000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":15120000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":40457000000,\"formula\":\"ltd_noncurrent + ltd_current + short_term_borrowings\"},\"net_debt\":{\"value\":30590000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2025\",\"type\":\"annual\",\"start\":\"2024-02-01\",\"end\":\"2025-01-31\",\"income_statement\":{\"revenue\":{\"value\":680985000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000104169-26-000055\"},\"gross_profit\":null,\"operating_income\":{\"value\":29348000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000104169-26-000055\"},\"interest_expense\":{\"value\":2249000000,\"concept\":\"us-gaap:InterestExpenseDebt\",\"accession\":\"0000104169-26-000055\"},\"pretax_income\":{\"value\":26309000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000104169-26-000055\"},\"net_income\":{\"value\":19436000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000104169-26-000055\"},\"diluted_shares\":{\"value\":8081000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000104169-26-000055\"},\"diluted_eps\":{\"value\":2.41,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000104169-26-000055\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":36443000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000104169-26-000055\"},\"capex\":{\"value\":23783000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000104169-26-000055\"},\"d_and_a\":{\"value\":12973000000,\"concept\":\"us-gaap:DepreciationAmortizationAndAccretionNet\",\"accession\":\"0000104169-26-000055\"}},\"balance_sheet\":{\"cash\":{\"value\":9037000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000104169-26-000055\"},\"short_term_investments\":null,\"total_assets\":{\"value\":260823000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000104169-26-000055\"},\"total_equity\":{\"value\":91013000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000104169-26-000055\"},\"ltd_noncurrent\":{\"value\":33401000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000104169-26-000055\"},\"ltd_total\":{\"value\":35999000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000104169-26-000055\"},\"debt_current\":null,\"ltd_current\":{\"value\":2598000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000104169-26-000055\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":3068000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000104169-26-000055\"},\"ltd_due_12m\":null},\"derived\":{\"ebitda\":{\"value\":42321000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":12660000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":39067000000,\"formula\":\"ltd_noncurrent + ltd_current + short_term_borrowings\"},\"net_debt\":{\"value\":30030000000,\"formula\":\"total_debt - cash - short_term_investments\"}}},{\"label\":\"FY2026\",\"type\":\"annual\",\"start\":\"2025-02-01\",\"end\":\"2026-01-31\",\"income_statement\":{\"revenue\":{\"value\":713163000000,\"concept\":\"us-gaap:Revenues\",\"accession\":\"0000104169-26-000055\"},\"gross_profit\":null,\"operating_income\":{\"value\":29825000000,\"concept\":\"us-gaap:OperatingIncomeLoss\",\"accession\":\"0000104169-26-000055\"},\"interest_expense\":{\"value\":2318000000,\"concept\":\"us-gaap:InterestExpenseDebt\",\"accession\":\"0000104169-26-000055\"},\"pretax_income\":{\"value\":29469000000,\"concept\":\"us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest\",\"accession\":\"0000104169-26-000055\"},\"net_income\":{\"value\":21893000000,\"concept\":\"us-gaap:NetIncomeLoss\",\"accession\":\"0000104169-26-000055\"},\"diluted_shares\":{\"value\":8022000000,\"concept\":\"us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding\",\"accession\":\"0000104169-26-000055\"},\"diluted_eps\":{\"value\":2.73,\"concept\":\"us-gaap:EarningsPerShareDiluted\",\"accession\":\"0000104169-26-000055\"}},\"cash_flow\":{\"operating_cash_flow\":{\"value\":41565000000,\"concept\":\"us-gaap:NetCashProvidedByUsedInOperatingActivities\",\"accession\":\"0000104169-26-000055\"},\"capex\":{\"value\":26642000000,\"concept\":\"us-gaap:PaymentsToAcquirePropertyPlantAndEquipment\",\"accession\":\"0000104169-26-000055\"},\"d_and_a\":{\"value\":14203000000,\"concept\":\"us-gaap:DepreciationAmortizationAndAccretionNet\",\"accession\":\"0000104169-26-000055\"}},\"balance_sheet\":{\"cash\":{\"value\":10727000000,\"concept\":\"us-gaap:CashAndCashEquivalentsAtCarryingValue\",\"accession\":\"0000104169-26-000055\"},\"short_term_investments\":null,\"total_assets\":{\"value\":284668000000,\"concept\":\"us-gaap:Assets\",\"accession\":\"0000104169-26-000055\"},\"total_equity\":{\"value\":99617000000,\"concept\":\"us-gaap:StockholdersEquity\",\"accession\":\"0000104169-26-000055\"},\"ltd_noncurrent\":{\"value\":34624000000,\"concept\":\"us-gaap:LongTermDebtNoncurrent\",\"accession\":\"0000104169-26-000055\"},\"ltd_total\":{\"value\":38166000000,\"concept\":\"us-gaap:LongTermDebt\",\"accession\":\"0000104169-26-000055\"},\"debt_current\":null,\"ltd_current\":{\"value\":3542000000,\"concept\":\"us-gaap:LongTermDebtCurrent\",\"accession\":\"0000104169-26-000055\"},\"commercial_paper\":null,\"short_term_borrowings\":{\"value\":6596000000,\"concept\":\"us-gaap:ShortTermBorrowings\",\"accession\":\"0000104169-26-000055\"},\"ltd_due_12m\":{\"value\":3542000000,\"concept\":\"us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths\",\"accession\":\"0000104169-26-000055\"}},\"derived\":{\"ebitda\":{\"value\":44028000000,\"formula\":\"operating_income + d_and_a\"},\"free_cash_flow\":{\"value\":14923000000,\"formula\":\"operating_cash_flow - capex\"},\"total_debt\":{\"value\":44762000000,\"formula\":\"ltd_noncurrent + ltd_current + short_term_borrowings\"},\"net_debt\":{\"value\":34035000000,\"formula\":\"total_debt - cash - short_term_investments\"}}}],\"warnings\":[\"EDGAR lists a 10-Q filed 2026-08-28 (period 2026-07-31) that the XBRL company-facts data does not include yet; figures stop at the prior filing. Read that filing (or the company's earnings press release) for the newest quarter.\"],\"notes\":[\"Values are as most recently reported (restatements included); each cites its filing.\",\"Balance-sheet items are period-end instants. Share counts are weighted diluted.\",\"Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).\"],\"sources\":[{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/104169/000010416925000021/0000104169-25-000021-index.htm\",\"accession_or_id\":\"0000104169-25-000021\",\"form\":\"10-K\",\"period\":\"2025-01-31\",\"as_of\":\"2025-03-14\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"},{\"name\":\"SEC EDGAR\",\"url\":\"https://www.sec.gov/Archives/edgar/data/104169/000010416926000055/0000104169-26-000055-index.htm\",\"accession_or_id\":\"0000104169-26-000055\",\"form\":\"10-K\",\"period\":\"2026-01-31\",\"as_of\":\"2026-03-13\",\"license_note\":\"SEC EDGAR filing data: U.S. government work, public domain. Cite the filing.\"}],\"data_as_of\":\"2026-11-09T09:20:58.778Z\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\",\"shares_outstanding\":{\"value\":7933746241,\"as_of\":\"2026-08-26\",\"classes_summed\":1,\"concept\":\"dei:EntityCommonStockSharesOutstanding\",\"accession\":\"0000104169-26-000154\",\"url\":\"https://www.sec.gov/Archives/edgar/data/104169/000010416926000154/0000104169-26-000154-index.htm\"}}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01J4W8nuo57Kfzr72j5GgZ1h",
+      "content": "{\"summary\":\"US 10Y government yield: 4.860% (decimal 0.04860) on 2026-11-06 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).\",\"region\":\"US\",\"tenor\":\"10Y\",\"rate_pct\":4.86,\"rate_decimal\":0.0486,\"date\":\"2026-11-06\",\"basis\":\"US Treasury par yield, 10Y, bond-equivalent basis\",\"series\":\"daily_treasury_yield_curve \\\"10 Yr\\\"\",\"warnings\":[],\"source\":{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"},\"sources\":[{\"name\":\"U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates\",\"url\":\"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve\",\"accession_or_id\":\"daily_treasury_yield_curve/2026-11-06/10 Yr\",\"period\":\"2026-11-06\",\"as_of\":\"2026-11-06\",\"license_note\":\"U.S. government data, free to reuse; cite U.S. Treasury.\"}],\"note\":\"Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01PBFMZoH4YUNptjJAzKykZS",
+      "content": "{\"summary\":\"Country risk data for \\\"United States\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"country\":[{\"country\":\"United States\",\"region\":\"North America\",\"moodys_rating\":\"Aa1\",\"default_spread\":0.002333679169992019,\"equity_risk_premium\":0.0446,\"country_risk_premium\":0.002333679169992019,\"basis\":\"Moody's sovereign rating\",\"match\":\"exact\",\"mature_market_erp\":0.0423,\"source\":{\"name\":\"Aswath Damodaran, Country Default Spreads and Risk Premiums\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx\",\"accession_or_id\":\"ctryprem/United States\",\"period\":\"2026-02-16\",\"as_of\":\"2026-02-16\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     },
+     {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01QxAKABFdHp3uxYmUbkA8Es",
+      "content": "{\"summary\":\"US industry data for \\\"Retail (General)\\\". Damodaran datasets updated 2026-01-05, 2026-02-16.\",\"industry\":[{\"region\":\"US\",\"industry\":\"Retail (General)\",\"firms\":23,\"beta\":0.8052405395912856,\"de_ratio\":0.07943684178442863,\"effective_tax_rate\":0.19099933477629175,\"unlevered_beta\":0.7599637023048608,\"cash_to_firm_value\":0.02684541547980239,\"unlevered_beta_cash_corrected\":0.7809280399984467,\"cost_of_equity\":0.07541372806577135,\"equity_weight\":0.9264089952191082,\"cost_of_debt_pretax\":0.050671999999999995,\"after_tax_cost_of_debt\":0.038003999999999996,\"debt_weight\":0.07359100478089176,\"cost_of_capital\":0.0726607085888313,\"match\":\"exact\",\"sources\":[{\"name\":\"Aswath Damodaran, Betas by Sector (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls\",\"accession_or_id\":\"betas/US/Retail (General)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"},{\"name\":\"Aswath Damodaran, Cost of Capital by Industry (US)\",\"url\":\"https://pages.stern.nyu.edu/~adamodar/pc/datasets/wacc.xls\",\"accession_or_id\":\"wacc/US/Retail (General)\",\"period\":\"2026-01-05\",\"as_of\":\"2026-01-05\",\"license_note\":\"Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source.\"}],\"note\":\"cost_of_equity and cost_of_capital are Damodaran's US$ estimates using his own risk-free rate (0.0395) and ERP (0.0446) at the update date. For a current WACC, prefer unlevered_beta_cash_corrected, relevered at the company's D/E, with today's risk_free_rate.\"}],\"units\":\"Decimals (0.05 = 5%). Betas and D/E are plain numbers.\",\"warnings\":[],\"attribution\":\"Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.\",\"disclaimer\":\"Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.\"}"
+     }
+    ]
+   },
+   {
+    "role": "assistant",
+    "request": 2,
+    "stop_reason": "tool_use",
+    "usage": {
+     "input_tokens": 2,
+     "cache_creation_input_tokens": 7296,
+     "cache_read_input_tokens": 7209,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 7296,
+      "ephemeral_1h_input_tokens": 0
+     },
+     "output_tokens": 1982,
+     "output_tokens_details": {
+      "thinking_tokens": 399
+     },
+     "service_tier": "standard",
+     "inference_geo": "global",
+     "speed": "standard"
+    },
+    "cost": 0.0395058,
+    "content": [
+     {
+      "type": "thinking",
+      "thinking": "",
+      "signature": "CAQStgoKEAgTGAI4AUIIdGhpbmtpbmcSDKNMgFkW/JrP3nQLfRoMqdvCo57x903tDNu7IjAORrSXwRdxSeuw3W0m2ySsiafRGyZZulIpjS8xmqSRbvpuL0MSF2yvv6annRVKE3kq0wmfdxJwRLOai7PYeLeEnhFMxg/OJ+RfsLSWNO/Bwwv2CQ93v6OodANtgXVYfCr2YKbgtsbnpyVLYxGQPjsZuanHSwpKEkWXMUbX5wPrQI2pebaXJOv6akylap2yvY4bzId5Xsjau9yUua3JGWN/imMaqJA/QeJV5KhbUJJBTMRpyWZ8gSdzAAxs4vYLtNNwf1OHmt6d6gxgQD4lHL0DWaNWPID9miCE0KepOPmwpoTxnJW/e7g080xygN9BWZZCJTBTyRqke0aa3HhgCoTzsAwUGdZwhBoZtzH0WdKR4vKbyvtL8V1Su5MbHgL5NCJk8NrJhLaFHA2xNsyRCQ/MRlgO3Apn0nBFzqJruZ97uFzQZZmPiICDjG0J1NVP4aJ6KCwxq8FR1AMETYIWWSLIQe96ekBsrXeeyMbHFGiUbXRzrk/xG0RviWN3IBqolX5NBDZe2+f3rXVOkUFKVHffEqt7pL6O+8z3rqW8OWBygWAl6UW67WpfA1pjQR22Xuvm32d3r5njky7IttwR8qFWrwhdDJOGalCZ9Cg5csXkGNZMvgb7xnbd31Hfv6kS1cEJppadIHQFjsXy3qzL8Yl2xd453KwP2o3NkEJAQwL7gXNzmw9eQ5m9SoG3g3RQC6wbBewQ4HhF+RX3eCEi78wZRUH/wtuw/mJ2C531mf3tswjcIH4mfnnYKnFeHgeCbHjCOzcjkq7y+a63gWl0tGHspp6yY0ZDzGuf31Qm056bBdQU/S4Rj9cYOvnSNXpbP6QuuxRPdpOPiEFJ4GfSf/kg2Ry6dATl/xXqYr+yNHZMZ3SdfkqDO6CpMxfMiJousWriTJGkHkkAEyod7B7rboUuxuVtD7YjwELgjhNUqG4jgHc0QpMC3xBcbKkIl0+FfclnCF0QNFiP8Wafi4s/s3SLKDHTtm6XrdCjPJ6xZs8ezskbGwBN9oKfS6l4AKnF0mciiKZPvxjunxqxXIZfBVWZoTcyvh9S8IVeOsfnceNYRZVnU4N+09XI724lRt2Qa0r+zWw/nO6+KNyrqPFU5bxxqIibB0a3/jZKp0LSrKMb9XxWZn+JsCBVDoHAT5LVKxyoTbYTAEzVYnktbCR/C0wPYuUNTU6IDHyIz7aOtAjYscI0FshBOL6L3DcMvwc5PJeTh+fUj54wKrhfalcRAlVJhaIbp+DnJgfpfqIoVLpu3NKaMhna/KnLK0m9NG9vG1hiCZdMct00SI3aSRvzclKiYC5J+dA5FmE7EUaRhVKyxD+ISAfMEe34VxkZx7AOAFfR4HQhWIR3zehpMUTIvs5wRizmnjaIx3F+F749j29s25E5EQ1lDyCvk6waVGCss2JYfU7Y+giaLmPegumMzMejvtMxjyp60aMmV7H1/UC1KhW6R0VUInyKYVtKtGlHclHmxCdJ6qODcej+EWzfmba0tf4B0kxgG4jo6ojjTxhCcoyBgOFpJp3Mih+2hyzwPEnd7YYhHNpODQTN041KlI5Qc3NSlq+n9kD9LDzQdPWWUgkdcnggmqfX4148RqK51GvhRWPSUfk0aZvdgk8e55EZay9Rl1GRlx31SsoPhqdFzLC/gtuexLFEyL5P9nYBHqYjVcDTwkzeqkMMyxY56VRbeJfqvFA/Dqc0P7ud86xA2Cljz+DE1RgB"
+     },
+     {
+      "type": "tool_use",
+      "id": "toolu_01EQjqLeYhh9bmhRg1Yy7ApA",
+      "name": "submit_model",
+      "input": {
+       "kind": "dcf",
+       "company": "Walmart Inc.",
+       "ticker": "WMT",
+       "currency": "USD",
+       "scale": "millions",
+       "history": {
+        "periods": [
+         "FY2024",
+         "FY2025",
+         "FY2026"
+        ],
+        "lines": {
+         "revenue": {
+          "values": [
+           648125,
+           680985,
+           713163
+          ],
+          "source": "WMT 10-K FY2026, accession 0000104169-26-000055, us-gaap:Revenues"
+         },
+         "operating_income": {
+          "values": [
+           27012,
+           29348,
+           29825
+          ],
+          "source": "WMT 10-K FY2026, accession 0000104169-26-000055, us-gaap:OperatingIncomeLoss"
+         },
+         "d_and_a": {
+          "values": [
+           11853,
+           12973,
+           14203
+          ],
+          "source": "WMT 10-K FY2026, accession 0000104169-26-000055, us-gaap:DepreciationAmortizationAndAccretionNet"
+         },
+         "capex": {
+          "values": [
+           20606,
+           23783,
+           26642
+          ],
+          "source": "WMT 10-K FY2026, accession 0000104169-26-000055, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
+         }
+        }
+       },
+       "assumptions": {
+        "projection_labels": [
+         "FY2027",
+         "FY2028",
+         "FY2029",
+         "FY2030",
+         "FY2031"
+        ],
+        "revenue_growth": {
+         "values": [
+          0.045,
+          0.045,
+          0.04,
+          0.04,
+          0.035
+         ],
+         "source": "Assumption: FY2025 growth 5.1% and FY2026 4.7% (computed from 10-K 0000104169-26-000055 revenue); fade from ~4.5% toward 3.5% as the base grows and the business matures."
+        },
+        "ebit_margin": {
+         "value": 0.043,
+         "period": "FY2027-FY2031",
+         "source": "Assumption: FY2026 margin 4.18% (29,825/713,163), FY2025 4.31%; hold ~4.3% with modest mix benefit from advertising/membership offsetting investment."
+        },
+        "tax_rate": {
+         "value": 0.24,
+         "period": "FY2027-FY2031",
+         "source": "Assumption: approx. 21% US federal statutory plus state and foreign taxes; Damodaran US Retail (General) effective rate is 19.1%, so 24% is conservative. Not taken directly from the filing."
+        },
+        "da_pct_revenue": {
+         "value": 0.02,
+         "period": "FY2027-FY2031",
+         "source": "FY2026 D&A 14,203 / revenue 713,163 = 1.99% (10-K 0000104169-26-000055); held flat."
+        },
+        "capex_pct_revenue": {
+         "value": 0.037,
+         "period": "FY2027-FY2031",
+         "source": "FY2026 capex 26,642 / revenue 713,163 = 3.74%; FY2025 3.49%; hold ~3.7% reflecting ongoing automation and store investment."
+        },
+        "wacc": {
+         "value": 0.082,
+         "period": "as of 2026-11-06",
+         "source": "CAPM: rf 4.86% (US Treasury 10Y par yield 2026-11-06) + relevered beta 0.83 x ERP 4.46% (Damodaran US, 2026-02-16) = 8.56% cost of equity. Beta: Damodaran Retail (General) cash-corrected unlevered 0.781 relevered at D/E 0.079 (industry D/E, no market price used) with 21% tax. Pretax cost of debt 5.07% (Damodaran), after tax 3.8%; weights 92.6%/7.4% -> WACC ~8.2%."
+        },
+        "terminal_growth": {
+         "value": 0.025,
+         "period": "terminal",
+         "source": "Assumption: long-run nominal US growth/inflation, below the 4.86% risk-free rate."
+        },
+        "mid_year": true
+       },
+       "bridge": {
+        "net_debt": {
+         "value": 34035,
+         "period": "FY2026 (2026-01-31)",
+         "source": "financial_statements derived: total debt 44,762 (LT debt noncurrent 34,624 + current 3,542 + short-term borrowings 6,596) - cash 10,727; no short-term investments; 10-K 0000104169-26-000055. Excludes leases."
+        },
+        "diluted_shares": {
+         "value": 8022,
+         "period": "FY2026",
+         "source": "Weighted average diluted shares 8,022,000,000, us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding, 10-K 0000104169-26-000055, expressed in millions"
+        }
+       }
+      },
+      "caller": {
+       "type": "direct"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "score": {
+  "valid": true,
+  "filed": 14,
+  "match": 14,
+  "mismatch": 0,
+  "other_line": 0,
+  "definition": 0,
+  "not_found": 0,
+  "ambiguous": 0,
+  "unverifiable": 0,
+  "causes": {},
+  "typed": 25,
+  "unsourced": 0,
+  "checker": {
+   "blocker": 0,
+   "major": 1,
+   "minor": 0
+  },
+  "items": [
+   {
+    "company": "WMT",
+    "metric": "revenue",
+    "period": "FY2024",
+    "value": 648125,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 648125000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "revenue",
+    "period": "FY2025",
+    "value": 680985,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 680985000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "revenue",
+    "period": "FY2026",
+    "value": 713163,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.revenue[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 713163000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "operating_income",
+    "period": "FY2024",
+    "value": 27012,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 27012000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "operating_income",
+    "period": "FY2025",
+    "value": 29348,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 29348000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "operating_income",
+    "period": "FY2026",
+    "value": 29825,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.operating_income[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 29825000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "d_and_a",
+    "period": "FY2024",
+    "value": 11853,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 11853000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "d_and_a",
+    "period": "FY2025",
+    "value": 12973,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 12973000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "d_and_a",
+    "period": "FY2026",
+    "value": 14203,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.d_and_a[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 14203000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "capex",
+    "period": "FY2024",
+    "value": 20606,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2024]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 20606000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "capex",
+    "period": "FY2025",
+    "value": 23783,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2025]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 23783000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "capex",
+    "period": "FY2026",
+    "value": 26642,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "history.capex[FY2026]",
+    "status": "match",
+    "hints": [],
+    "filed_value": 26642000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "net_debt",
+    "period": "FY2026",
+    "value": 34035,
+    "scale": "millions",
+    "currency": "USD",
+    "ref": "bridge.net_debt",
+    "status": "match",
+    "hints": [
+     "Computed value: total_debt - cash - short_term_investments."
+    ],
+    "filed_value": 34035000000,
+    "resolved": "WMT"
+   },
+   {
+    "company": "WMT",
+    "metric": "diluted_shares",
+    "period": "FY2026",
+    "value": 8022,
+    "scale": "millions",
+    "ref": "bridge.diluted_shares",
+    "status": "match",
+    "hints": [],
+    "filed_value": 8022000000,
+    "resolved": "WMT"
+   }
+  ],
+  "unsourced_refs": [],
+  "errors": []
+ }
+}

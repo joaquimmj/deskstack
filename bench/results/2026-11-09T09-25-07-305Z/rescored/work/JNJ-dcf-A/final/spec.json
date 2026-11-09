@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "Johnson & Johnson",
+ "ticker": "JNJ",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     85159,
+     88821,
+     94193
+    ],
+    "source": "Sales to customers, JNJ FY2025 10-K (accession 0000200406-26-000016) / app.edgar.tools/companies/JNJ"
+   },
+   "operating_income": {
+    "values": [
+     21207,
+     20804,
+     25287
+    ],
+    "source": "Derived: pretax earnings (15,062/16,687/32,581) + interest expense (772/755/971) - interest income (1,261/1,332/1,056) + other (income) expense, net (6,634/4,694/-7,209); J&J reports no operating income line, so non-operating other items (incl. litigation charges, FY2025 gains) are excluded. Inputs from app.edgar.tools/companies/JNJ and FY2025 10-K."
+   },
+   "d_and_a": {
+    "values": [
+     7486,
+     7339,
+     7503
+    ],
+    "source": "Depreciation and amortization of property and intangibles, cash flow statement, app.edgar.tools/companies/JNJ (FY2023, FY2024, FY2025 10-K)"
+   },
+   "capex": {
+    "values": [
+     4543,
+     4424,
+     4832
+    ],
+    "source": "Additions to property, plant and equipment, cash flow statement, app.edgar.tools/companies/JNJ; FY2025 4,832 confirmed in JNJ 2025 Annual Report (FCF 24,530-4,832... = 19,698)"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.055,
+    0.05,
+    0.05,
+    0.045,
+    0.04
+   ],
+   "source": "Assumption: FY2025 growth was 6.0% (94,193 vs 88,821); FY2024 4.3%. Fade from ~5.5% toward 4% as large products (Stelara) face LOE/biosimilar pressure, offset by pipeline and MedTech growth. Not company guidance."
+  },
+  "ebit_margin": {
+   "value": 0.27,
+   "source": "Assumption: derived FY2025 margin 26.8% (25,287/94,193), FY2024 23.4%, FY2023 24.9%; held ~27% on operating leverage, offset by R&D and amortization of acquisitions."
+  },
+  "tax_rate": {
+   "value": 0.16,
+   "source": "Assumption: approx. J&J historical effective tax rate mid-teens to ~17% (e.g. 17.8% H1 2025 per Q2 2025 release); rounded to 16%, with Pillar Two upside risk."
+  },
+  "da_pct_revenue": {
+   "value": 0.08,
+   "source": "Assumption: FY2025 D&A 7,503/94,193 = 8.0%; FY2024 8.3%; FY2023 8.8%."
+  },
+  "capex_pct_revenue": {
+   "value": 0.052,
+   "source": "Assumption: FY2025 capex 4,832/94,193 = 5.1%; FY2024 5.0%; modest rise for US manufacturing investment."
+  },
+  "wacc": {
+   "value": 0.075,
+   "source": "Assumption: low-beta (~0.5-0.6) mega-cap pharma/medtech, rf ~4.3%, ERP ~5%, AAA credit with ~10% debt weight; WACC approx 7-7.5%. Not computed from a data provider."
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "source": "Assumption: long-run nominal GDP/inflation-ish growth, below WACC; healthcare demand supports 2-3%."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 27800,
+   "source": "JNJ FY2025 10-K (accession 0000200406-26-000016), MD&A: net debt (debt less cash and current marketable securities) of $27.8bn at Dec 28, 2025 (debt $47.9bn, cash $19.7bn)",
+   "period": "FY2025"
+  },
+  "diluted_shares": {
+   "value": 2429.4,
+   "source": "Average shares outstanding diluted FY2025, JNJ FY2025 10-K / Q4 2025 earnings release (millions)",
+   "period": "FY2025"
+  }
+ }
+}
