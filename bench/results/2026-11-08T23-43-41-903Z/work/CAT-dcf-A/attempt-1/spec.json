@@ -1,0 +1,104 @@
+{
+ "kind": "dcf",
+ "company": "Caterpillar Inc.",
+ "ticker": "CAT",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     67060,
+     64809,
+     67589
+    ],
+    "source": "FY2025 Form 10-K (cat-20251231.htm / ARS cat015318-ars.pdf): total sales and revenues 2025 $67.589bn, 2024 $64.809bn; 2023 $67.06bn (reported as $67.1bn in 4Q23 release; exact figure from prior 10-K, not re-verified in this session)"
+   },
+   "operating_income": {
+    "values": [
+     12966,
+     13072,
+     11151
+    ],
+    "source": "FY2025 Form 10-K ARS cat015318-ars.pdf, consolidated results of operations: Operating profit 11,151 / 13,072 / 12,966 (2025/2024/2023)"
+   },
+   "d_and_a": {
+    "values": [
+     2144,
+     2153,
+     2262
+    ],
+    "source": "FY2025 10-K Statement 5 cash flow: Depreciation and amortization 2,262 / 2,153 / 2,144 (2025/2024/2023)"
+   },
+   "capex": {
+    "values": [
+     3092,
+     3215,
+     4286
+    ],
+    "source": "FY2025 10-K Statement 5: Capex excl. equipment leased to others (1,597/1,988/2,821 for 2023/24/25) PLUS expenditures for equipment leased to others (1,495/1,227/1,465); gross of disposal proceeds; included leased since D&A includes leased-asset depreciation"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026E",
+   "FY2027E",
+   "FY2028E",
+   "FY2029E",
+   "FY2030E"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.05,
+    0.05,
+    0.045,
+    0.04,
+    0.035
+   ],
+   "source": "Assumption: FY2025 growth was 4.3%; Q3'25 +10% and management commentary points to higher volumes (data-center power, services); fades to GDP-plus levels over cycle."
+  },
+  "ebit_margin": {
+   "value": 0.17,
+   "source": "Assumption: FY2025 operating margin 16.5% (11,151/67,589) depressed by tariffs; FY2023-24 were 19.3%/20.2%; assume modest recovery to 17% held flat, below the cycle peak."
+  },
+  "tax_rate": {
+   "value": 0.22,
+   "source": "Assumption: approximate normalized effective rate near the 21% US statutory plus state/foreign mix; not verified against FY2025 10-K effective rate."
+  },
+  "da_pct_revenue": {
+   "value": 0.033,
+   "source": "FY2025 actual 2,262/67,589 = 3.3%; held flat."
+  },
+  "capex_pct_revenue": {
+   "value": 0.06,
+   "source": "Assumption: FY2025 gross capex 6.3% of revenue (4,286/67,589); management guides higher 2026 capex (~$3.5bn for MP&E, per 4Q25 call) so stays elevated, trending slightly lower."
+  },
+  "wacc": {
+   "value": 0.085,
+   "source": "Assumption: cost of equity ~9.5% (beta ~1.1, rf ~4.3%, ERP ~5%) and after-tax cost of debt ~4%, with mid-single-digit-% debt weight of mkt cap; rounded to 8.5%. Not from a data provider."
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "source": "Assumption: long-run nominal GDP/inflation-ish growth, below WACC."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 33344,
+   "source": "FY2025 10-K / 4Q25 release balance sheet at 12/31/2025: short-term borrowings 5,514 + LT debt due within one year 7,120 + LT debt due after one year 30,696 = 43,330 consolidated (includes Financial Products debt), less cash, cash equivalents and restricted cash 9,986 (Statement 5; ~$10.0bn enterprise cash). No separate short-term investments found. Note: consolidated net debt incl. captive finance debt; reviewer may prefer ME&T-only.",
+   "period": "FY2025"
+  },
+  "diluted_shares": {
+   "value": 472.3,
+   "source": "Derived, not directly read: FY2025 profit $8,884m / diluted profit per share $18.81 = ~472.3m shares (millions). Weighted-average diluted share count from the 10-K not retrieved (search limit hit); reviewer should confirm.",
+   "period": "FY2025"
+  }
+ }
+}
