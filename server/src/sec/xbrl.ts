@@ -22,7 +22,7 @@
 // ifrs-full with their own concept map, in their reporting currency. A filer
 // with both taxonomies (Sony) is read from whichever has the latest fiscal year.
 
-import { CAPEX_FROM_OTHER_PRODUCTIVE_ASSETS, OPERATING_INCOME_FROM_COSTS } from "../config";
+import { CAPEX_FROM_OTHER_PRODUCTIVE_ASSETS, DA_EXCLUDES_INTANGIBLES, OPERATING_INCOME_FROM_COSTS } from "../config";
 
 export const DURATION_CONCEPTS: Record<string, string[]> = {
   revenue: [
@@ -88,11 +88,20 @@ export const INSTANT_CONCEPTS: Record<string, string[]> = {
 
 /** Synthetic key under which esef/extract.ts keeps an issuer's own capex concept (the cell shows the real one). */
 export const EXT_CAPEX_KEY = "PurchaseOfPropertyPlantAndEquipmentAndIntangibleAssetsExtension";
+/** Synthetic keys for the other lines esef/extract.ts takes from an issuer's own concepts (EXTENSIONS there). */
+export const EXT_KEYS = {
+  capex: EXT_CAPEX_KEY,
+  operating_income: "ProfitLossFromOperatingActivitiesExtension",
+  d_and_a: "DepreciationAmortisationAndImpairmentExtension",
+  depreciation: "DepreciationOfPropertyPlantAndEquipmentExtension",
+  amortization: "AmortisationOfIntangibleAssetsExtension",
+} as const;
 
 export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
   revenue: ["Revenue", "RevenueFromContractsWithCustomers", "RevenueFromSaleOfGoods"],
   gross_profit: ["GrossProfit"],
-  operating_income: ["ProfitLossFromOperatingActivities"],
+  // Last: an issuer's own EBIT concept (Airbus: profit before financial result and income taxes).
+  operating_income: ["ProfitLossFromOperatingActivities", EXT_KEYS.operating_income],
   pretax_income: ["ProfitLossBeforeTax"],
   net_income: ["ProfitLossAttributableToOwnersOfParent", "ProfitLoss"],
   // EPS's own numerator (after coupons on hybrid / AT1 instruments): used to derive an untagged share count.
@@ -105,7 +114,14 @@ export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
     "AdjustmentsForDepreciationAndAmortisationExpense",
     "AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss",
     "DepreciationAmortisationAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss",
+    // Last: an issuer's own "amortissements et dépréciations" (Sanofi), which includes impairment.
+    EXT_KEYS.d_and_a,
   ],
+  // An issuer's own PP&E depreciation and intangible amortization (Schneider): adjustRow adds them when no D&A is tagged.
+  depreciation_ext: [EXT_KEYS.depreciation],
+  amortization_ext: [EXT_KEYS.amortization],
+  // Right-of-use depreciation tagged on its own: the two parts above would then miss it, so they aren't added.
+  rou_depreciation_ext: ["DepreciationRightofuseAssets"],
   operating_cash_flow: ["CashFlowsFromUsedInOperatingActivities"],
   capex: [
     "PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
@@ -118,7 +134,11 @@ export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
   ],
   diluted_shares: ["AdjustedWeightedAverageShares"],
   // Basic EPS last: some filers (Inditex) tag no diluted figure; adjustRow notes it on the cell.
-  diluted_eps: ["DilutedEarningsLossPerShare", "BasicAndDilutedEarningsLossPerShare", "BasicEarningsLossPerShare"],
+  // Last: EPS from continuing operations, for filers that tag no total EPS (Iberdrola); adjustRow notes it.
+  diluted_eps: [
+    "DilutedEarningsLossPerShare", "BasicAndDilutedEarningsLossPerShare", "BasicEarningsLossPerShare",
+    "DilutedEarningsLossPerShareFromContinuingOperations", "BasicEarningsLossPerShareFromContinuingOperations",
+  ],
 };
 
 export const IFRS_INSTANT_CONCEPTS: Record<string, string[]> = {
@@ -493,7 +513,7 @@ const accs = (...cells: Cell[]) => [...new Set(cells.flatMap((c) => c.accessions
  * - D&A tagged as depreciation alone, with intangible amortization on its own line: the two are added;
  * - operating income for filers in OPERATING_INCOME_FROM_COSTS: revenue - costs and expenses;
  * - D&A tagged only together with impairment (IFRS): noted, and EBITDA's formula says so (derive);
- * - basic EPS standing in for an untagged diluted EPS (IFRS): noted;
+ * - basic EPS standing in for an untagged diluted EPS (IFRS): noted; likewise EPS from continuing operations;
  * - no share count tagged (IFRS, annual columns): net income to ordinary holders (else to owners) / EPS, as a
  *   computed cell with its precision and, for the owners' figure, the hybrid-coupon caveat; only for a profit and an
  *   EPS of at least 0.50 (EPS is rounded to cents);
@@ -506,14 +526,32 @@ const withNote = (c: Cell, note: string): Cell => ({ ...c, note: c.note ? `${c.n
 function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false): void {
   const dep = row.d_and_a;
   const am = row.amortization_intangibles;
-  if (dep && am && dep.concept === "us-gaap:Depreciation") {
+  const narrowDa = ctx.cik !== undefined ? DA_EXCLUDES_INTANGIBLES[ctx.cik] : undefined;
+  if (dep && am && (dep.concept === "us-gaap:Depreciation" || narrowDa)) {
     row.d_and_a = {
       value: dep.value + am.value,
-      concept: "us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets",
+      concept: `${dep.concept} + us-gaap:AmortizationOfIntangibleAssets`,
       accessions: accs(dep, am),
       formula: "depreciation + amortization of intangible assets (tagged separately)",
+      ...(narrowDa ? { note: narrowDa } : {}),
     };
   }
+  const dx = row.depreciation_ext;
+  const ax = row.amortization_ext;
+  // Review (PR #14): both parts from one filing, nothing tagged beside them, and annual columns only (an LTM sum
+  // could be defined differently from the annual D&A next to it).
+  const oneFiling = dx && ax && dx.accession !== undefined && dx.accession === ax.accession;
+  if (!ltm && !row.d_and_a && dx && ax && oneFiling && !row.rou_depreciation_ext) {
+    row.d_and_a = {
+      value: dx.value + ax.value,
+      concept: `${dx.concept} + ${ax.concept}`,
+      accessions: accs(dx, ax),
+      formula: "depreciation of PP&E + amortization of intangible assets (the issuer's own concepts)",
+    };
+  }
+  delete row.depreciation_ext;
+  delete row.amortization_ext;
+  delete row.rou_depreciation_ext;
   const why = ctx.cik !== undefined ? OPERATING_INCOME_FROM_COSTS[ctx.cik] : undefined;
   const rev = row.revenue;
   const ce = row.costs_and_expenses;
@@ -529,13 +567,16 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false): voi
   if (IMPAIRMENT_DA.test(row.d_and_a?.concept ?? "")) {
     row.d_and_a = withNote(row.d_and_a!, "includes impairment: the filer tags no D&A line without it, so EBITDA includes impairment too");
   }
-  const basicEps = row.diluted_eps?.concept === "ifrs-full:BasicEarningsLossPerShare";
+  const basicEps = /^ifrs-full:BasicEarningsLossPerShare(FromContinuingOperations)?$/.test(row.diluted_eps?.concept ?? "");
   if (basicEps) row.diluted_eps = withNote(row.diluted_eps!, "basic EPS: the filer tags no diluted EPS");
+  const continuing = /FromContinuingOperations$/.test(row.diluted_eps?.concept ?? "");
+  if (continuing) row.diluted_eps = withNote(row.diluted_eps!, "EPS from continuing operations: the filer tags no total EPS");
   const ordinary = row.net_income_ordinary;
   const owners = row.net_income?.concept === "ifrs-full:ProfitLossAttributableToOwnersOfParent" ? row.net_income : null;
   const num = ordinary ?? owners;
   const eps = row.diluted_eps;
-  if (!ltm && !row.diluted_shares && num && eps && num.value > 0 && eps.value >= 0.5) {
+  // Not from continuing-operations EPS: net income also includes discontinued operations.
+  if (!ltm && !continuing && !row.diluted_shares && num && eps && num.value > 0 && eps.value >= 0.5) {
     const band = `±${((0.005 / eps.value) * 100).toFixed(1)}%`;
     const den = basicEps ? "basic EPS (no diluted EPS or share count tagged)" : "diluted_eps (no share count tagged)";
     row.diluted_shares = {
@@ -574,7 +615,8 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false): voi
   }
 }
 
-const IMPAIRMENT_DA = /ImpairmentLossReversalOfImpairmentLoss/;
+// "Dépréciation" is French for impairment (Sanofi's "amortissements et dépréciations").
+const IMPAIRMENT_DA = /ImpairmentLossReversalOfImpairmentLoss|AmortissementsEtDepreciations/i;
 
 function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | null>, tx: Taxonomy): Record<string, Derived | null> {
   const v = (src: Record<string, Cell | null>, k: string): number | null => src[k]?.value ?? null;
@@ -803,8 +845,8 @@ export function standardize(cf: CompanyFacts, years = 5, includeLtm = true, opts
   if (opts.source === "esef") {
     notes.push(
       "ESEF report (IFRS as adopted in the EU), from the issuer's tagged consolidated statements. Lines the " +
-        "issuer tagged only with its own (extension) concepts are not mapped and come back null, except capex " +
-        "(an issuer's own concept for purchases of PP&E and intangibles, shown with its real name).",
+        "issuer tagged only with its own (extension) concepts are not mapped and come back null, except capex, " +
+        "EBIT and D&A from a short list of whole concept names, shown with their real names.",
     );
     if (!columns.some((c) => c.type === "ltm")) {
       notes.push("No LTM column: the issuer's half-year report is not available in ESEF format.");

@@ -3,7 +3,7 @@
 // Same fixtures, same expected values; deliberate changes are marked "CHANGE".
 
 import { describe, expect, it } from "vitest";
-import { ifrsTotalDebt, NoAnnualFacts, sharesOutstanding, standardize, totalDebt, type RawFact } from "../src/sec/xbrl";
+import { EXT_KEYS, ifrsTotalDebt, NoAnnualFacts, sharesOutstanding, standardize, totalDebt, type RawFact } from "../src/sec/xbrl";
 import { companyfacts, fact, facts } from "./helpers";
 
 const col = (r: ReturnType<typeof standardize>, label: string) => {
@@ -162,6 +162,21 @@ describe("real filings", () => {
     expect(p.values.diluted_eps!.note).toMatch(/basic EPS: the filer tags no diluted EPS/);
   });
 
+  it("an IFRS filer that tags EPS only from continuing operations gets it, with a note, and no derived shares (Iberdrola)", () => {
+    // Iberdrola FY2025: diluted EPS from continuing operations 0.843 EUR; no total EPS, no share count tagged.
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "ib-25", "2026-03-01", "ESEF", 2025)];
+    const p = standardize({ cik: 0, entityName: "Iberdrola", facts: { "ifrs-full": {
+      Revenue: { units: { EUR: y(45_000e6) } },
+      ProfitLossAttributableToOwnersOfParent: { units: { EUR: y(5_600e6) } },
+      BasicEarningsLossPerShareFromContinuingOperations: { units: { "EUR/shares": y(0.845) } },
+      DilutedEarningsLossPerShareFromContinuingOperations: { units: { "EUR/shares": y(0.843) } },
+    } } } as never, 5, false).periods[0]!.values;
+    expect(p.diluted_eps).toMatchObject({ value: 0.843, concept: "ifrs-full:DilutedEarningsLossPerShareFromContinuingOperations" });
+    expect(p.diluted_eps!.note).toMatch(/continuing operations/);
+    // Net income includes discontinued operations, so net income / this EPS is not a share count.
+    expect(p.diluted_shares).toBeNull();
+  });
+
   it("with no share count tagged, diluted shares are derived from net income and EPS, and say so", () => {
     const y = (v: number) => [fact(v, "2025-02-01", "2026-01-31", "i-25", "2026-03-20", "ESEF", 2025)];
     const facts = (extra: Record<string, { units: Record<string, RawFact[]> }>) =>
@@ -223,6 +238,47 @@ describe("real filings", () => {
       AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss: { units: { USD: y(13_847e6) } },
     } } } as never, 5, false).periods[0]!;
     expect(p.derived.ebitda).toEqual({ value: 33_847e6, formula: "operating_income + d_and_a (includes impairment)" });
+  });
+
+  it("an issuer's two own D&A parts are added only from one filing, and never in the LTM column (review, PR #14)", () => {
+    const own = (v: number, accn: string, filed: string, src: string, start = "2024-01-01", end = "2024-12-31", form = "ESEF") =>
+      ({ ...fact(v, start, end, accn, filed, form, 2024), src });
+    const ifrs = (ns: Record<string, RawFact[]>) => ({ cik: 0, entityName: "X", facts: { "ifrs-full": Object.fromEntries(
+      Object.entries(ns).map(([k, v]) => [k, { units: { EUR: v } }])) } }) as never;
+    // FY2024 report: 100 + 50. FY2025 report restates 2024 depreciation to 80 but doesn't tag 2024 amortization.
+    const mixed = standardize(ifrs({
+      Revenue: [fact(1000, "2024-01-01", "2024-12-31", "r24", "2025-03-01", "ESEF", 2024)],
+      [EXT_KEYS.depreciation]: [own(100, "r24", "2025-03-01", "x:DepreciationOfPropertyPlantAndEquipment"), own(80, "r25", "2026-03-01", "x:DepreciationOfPropertyPlantAndEquipment")],
+      [EXT_KEYS.amortization]: [own(50, "r24", "2025-03-01", "x:AmortisationOfIntangibleAssets")],
+    }), 5, false).periods[0]!.values;
+    expect(mixed.d_and_a).toBeNull(); // 130 is in neither filing
+    // With a half-year report: the annual column adds the parts, the LTM column doesn't (its D&A could be defined
+    // differently from the annual one).
+    const fy = (k: string, v: number) => own(v, "r24", "2025-03-01", k);
+    const hy = (k: string, v: number, y: number) => own(v, "h25", "2025-09-01", k, `${y}-01-01`, `${y}-06-30`, "ESEF-HY");
+    const D = "x:DepreciationOfPropertyPlantAndEquipment", A = "x:AmortisationOfIntangibleAssets";
+    const withHy = standardize(ifrs({
+      Revenue: [fact(1000, "2024-01-01", "2024-12-31", "r24", "2025-03-01", "ESEF", 2024),
+        fact(520, "2025-01-01", "2025-06-30", "h25", "2025-09-01", "ESEF-HY", 2025), fact(480, "2024-01-01", "2024-06-30", "h25", "2025-09-01", "ESEF-HY", 2025)],
+      [EXT_KEYS.depreciation]: [fy(D, 100), hy(D, 55, 2025), hy(D, 45, 2024)],
+      [EXT_KEYS.amortization]: [fy(A, 50), hy(A, 30, 2025), hy(A, 25, 2024)],
+    }), 5, true);
+    expect(withHy.periods.find((p) => p.label === "FY2024")!.values.d_and_a!.value).toBe(150);
+    const ltm = withHy.periods.find((p) => /LTM/.test(p.label));
+    expect(ltm, "an LTM column").toBeDefined();
+    expect(ltm!.values.d_and_a).toBeNull();
+  });
+
+  it("Cisco's D&A adds intangible amortization to its property-and-equipment-only D&A tag; nobody else's does", () => {
+    // Cisco FY2026 10-K: DepreciationDepletionAndAmortization 700 (property and equipment only), intangibles 916.
+    const y = (v: number) => [fact(v, "2025-07-27", "2026-07-25", "c-26", "2026-09-05", "10-K", 2026)];
+    const facts = { Revenues: y(56_000), DepreciationDepletionAndAmortization: y(700), AmortizationOfIntangibleAssets: y(916) };
+    const csco = standardize({ ...companyfacts(facts), cik: 858877 }, 5, false).periods[0]!.values.d_and_a!;
+    expect(csco.value).toBe(1616);
+    expect(csco.formula).toMatch(/depreciation \+ amortization of intangible assets/);
+    expect(csco.note).toMatch(/property and equipment only/);
+    // Any other filer's DepreciationDepletionAndAmortization already includes amortization: kept as tagged.
+    expect(standardize(companyfacts(facts), 5, false).periods[0]!.values.d_and_a!.value).toBe(700);
   });
 
   it("Verizon-style capex says which line it is (review)", () => {
