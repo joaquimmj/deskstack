@@ -236,6 +236,9 @@ export interface Column {
   values: Record<string, Cell | null>;
   balance_sheet: Record<string, Cell | null>;
   derived: Record<string, Derived | null>;
+  /** LTM only: the twelve months ending one quarter earlier (the fiscal year when the latest 10-Q is the first),
+   *  so verify_value can say a figure is a quarter stale (the comps run's main error). */
+  previous?: { end: string; values: Record<string, number | null> };
 }
 
 export interface FilingRef {
@@ -658,11 +661,12 @@ function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | nu
  * period starts right after the fiscal year ends (within a week, for 52/53-week
  * calendars), so 3-month quarterly facts are excluded.
  */
-function latestQuarterYtd(ctx: Ctx, fyEnd: string): [string, string] | null {
+function latestQuarterYtd(ctx: Ctx, fyEnd: string, before?: string): [string, string] | null {
   let best: [string, string] | null = null;
   for (const concept of [...ctx.tx.duration.revenue!, ...ctx.tx.duration.net_income!]) {
     for (const f of getFacts(ctx.facts, concept, ctx.currency)) {
       if (!QUARTERLY_FORMS.has(f.form) || !f.start) continue;
+      if (before !== undefined && f.end >= before) continue;
       const gap = daysBetween(fyEnd, f.start);
       if (gap > 0 && gap <= 7 && (best === null || f.end > best[1])) best = [f.start, f.end];
     }
@@ -727,9 +731,28 @@ function ltmColumn(ctx: Ctx, lastFy: Period): Column | null {
       break;
     }
   }
+  // The twelve months one quarter earlier, flow lines only (FY + earlier YTD - prior-year earlier YTD).
+  let previous: Column["previous"];
+  const earlier = latestQuarterYtd(ctx, lastFy.end, ytd[1]);
+  if (earlier) {
+    const values: Record<string, number | null> = {};
+    for (const m of Object.keys(ctx.tx.duration)) {
+      if (m === "diluted_shares") continue;
+      values[m] = null;
+      for (const concept of ctx.tx.duration[m]!) {
+        const parts = ltmParts(ctx, m, concept, lastFy, earlier);
+        if (parts && parts[0].src === parts[1].src && parts[0].src === parts[2].src) {
+          values[m] = parts[0].value + parts[1].value - parts[2].value;
+          break;
+        }
+      }
+    }
+    previous = { end: earlier[1], values };
+  }
   const inst: Record<string, Cell | null> = {};
   for (const m of Object.keys(ctx.tx.instant)) inst[m] = cell(ctx, instantValue(ctx, m, ytd[1], QUARTERLY_FORMS));
   return {
+    ...(previous ? { previous } : {}),
     // Exact span, not "6M": 52/53-week filers (PepsiCo) have 12- and 16-week quarters.
     label: `LTM to ${ytd[1]}`,
     start: null,
@@ -833,7 +856,14 @@ export function standardize(cf: CompanyFacts, years = 5, includeLtm = true, opts
 
   if (includeLtm && periods.length) {
     const ltm = ltmColumn(ctx, periods[periods.length - 1]!);
-    if (ltm) columns.push(ltm);
+    if (ltm) {
+      // Latest 10-Q is the first of the year: the twelve months before it are the fiscal year itself.
+      const fy = columns[columns.length - 1];
+      if (!ltm.previous && fy) {
+        ltm.previous = { end: fy.end, values: Object.fromEntries(Object.entries(fy.values).filter(([k]) => k !== "diluted_shares").map(([k, c]) => [k, c?.value ?? null])) };
+      }
+      columns.push(ltm);
+    }
   }
 
   const accessions = new Set<string>();

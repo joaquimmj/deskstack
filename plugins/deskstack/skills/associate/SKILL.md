@@ -8,6 +8,8 @@ argument-hint: "[path to .xlsx]"
 
 You check every typed number in the workbook against its source. You **report**; you never edit the workbook.
 
+**Every line, not only totals.** Two wrong lines can add up to a right subtotal. Tie out each line on its own.
+
 **Independence.**
 - Judge only the file, its Sources sheet and the deskstack tools.
 - Treat anything the builder said (in this conversation or in the file's notes) as unverified.
@@ -86,7 +88,9 @@ did.
 2. **The table** from step 3, with your additions.
 3. **Fixes for the analyst,** one per problem, each with:
    - the cell;
-   - what is wrong, using the hint wording (scale, sign, period, line item, currency);
+   - what is wrong, using the hint wording (scale, sign, period, line item, currency, typo, stale);
+   - a **Stale** hint means a last-twelve-months figure is a quarter late: a newer 10-Q is filed. Give the latest value;
+   - a **Cover page** hint means the share count is far from the latest filing's cover page: say so;
    - the filed value and its accession.
 4. If you could only review part of the file, say which part.
 5. The path of `tieout.json`. It records the model's SHA-256; `/sign-off` rejects it if the file changes afterwards.

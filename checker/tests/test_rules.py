@@ -174,3 +174,82 @@ def test_a_broken_rule_does_not_hide_the_others(tmp_path, monkeypatch):
     r = run(m, tmp_path)
     assert "DS001" in rules(r)
     assert any(f["rule"] == "DS000" and "bad sheet" in f["message"] for f in r["findings"])
+
+
+# ---- stars brief lot 2: the errors AI-built models make (Wall Street Prep 2026, deskstack's own benchmarks) ----
+def set_source(m, ref, text):
+    for row in m.sheet("Sources").iter_rows():
+        if row[0].value == ref:
+            row[1].value = text
+
+
+def m_placeholder_zero(m):
+    m.inp("Inputs", "B12", 0.0)  # shares outstanding left as 0
+    set_source(m, "Inputs!B12", "NOT FOUND - placeholder 0")
+
+
+def m_placeholder_label(m):
+    set_source(m, "Inputs!B11", "TBD: estimate, to replace")
+
+
+def m_synthetic_history(m):
+    m.text("Hist", "A1", "History (USD in millions)")
+    m.text("Hist", "A3", "Revenue")
+    for col, v in zip("BCDE", [800.0, 840.0, 882.0, 926.1]):  # exactly 5% a year, to the decimal
+        m.inp("Hist", f"{col}3", v)
+        n = len([k for k in m.sheet("Sources").iter_rows() if any(x.value for x in k)]) + 1
+        m.text("Sources", f"A{n}", f"Hist!{col}3")
+        m.text("Sources", f"B{n}", "Company 10-K")
+
+
+def m_plug(m):
+    m.text("BS", "A9", "Balancing plug")
+    m.inp("BS", "C9", 15.0)
+    n = len([k for k in m.sheet("Sources").iter_rows() if any(x.value for x in k)]) + 1
+    m.text("Sources", f"A{n}", "BS!C9")
+    m.text("Sources", f"B{n}", "model")
+
+
+def m_interest_typed(m):
+    m.text("DCF", "A22", "Debt")
+    m.text("DCF", "A23", "Interest expense")
+    for col in "CDEFG":
+        m.f("DCF", f"{col}22", "=Inputs!$B$11", 300.0)
+        m.inp("DCF", f"{col}23", 15.0)  # typed every year, not debt x rate
+        n = len([k for k in m.sheet("Sources").iter_rows() if any(x.value for x in k)]) + 1
+        m.text("Sources", f"A{n}", f"DCF!{col}23")
+        m.text("Sources", f"B{n}", "assumption")
+
+
+def m_shares_flat_with_buybacks(m):
+    m.text("DCF", "A24", "Share buybacks")
+    m.text("DCF", "A25", "Diluted shares")
+    for col in "CDEFG":
+        m.f("DCF", f"{col}24", "=Inputs!$B$12*0", 50.0)
+        m.f("DCF", f"{col}25", "=Inputs!$B$12", 100.0)
+
+
+LOT2 = [
+    ("DS016", m_placeholder_zero),
+    ("DS016", m_placeholder_label),
+    ("DS017", m_synthetic_history),
+    ("DS018", m_plug),
+    ("DS019", m_interest_typed),
+    ("DS020", m_shares_flat_with_buybacks),
+]
+
+
+@pytest.mark.parametrize("rule, mutate", LOT2)
+def test_lot2_planted_error_is_caught(tmp_path, rule, mutate):
+    m = clean_dcf()
+    mutate(m)
+    found = rules(run(m, tmp_path), severities=("blocker", "major", "minor"))
+    assert rule in found, f"{rule} not raised; got {sorted(found)}"
+
+
+def test_lot2_rules_are_documented():
+    from deskstack_check.rules import RULE_INFO
+
+    readme = (Path(__file__).parent.parent / "README.md").read_text()
+    for rule in ("DS016", "DS017", "DS018", "DS019", "DS020"):
+        assert rule in RULE_INFO and f"| {rule} |" in readme, rule

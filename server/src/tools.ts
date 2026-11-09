@@ -356,7 +356,7 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
       guarded(async () => {
         const r = await resolveRecord(company);
         const std = r.rec.financials!;
-        const results = verifyItems(std, items);
+        const results = verifyItems(std, items, { sharesOutstanding: "shares_outstanding" in r.rec ? r.rec.shares_outstanding : null });
         const cited = new Set(results.flatMap((x) => x.accessions));
         const counts = summarize(results);
         const name = std.entity_name ?? r.rec.name;

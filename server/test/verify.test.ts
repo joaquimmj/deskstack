@@ -5,7 +5,7 @@ import { SNAPSHOT_YEARS } from "../src/config";
 import { standardize } from "../src/sec/xbrl";
 import { resolveMetric, resolvePeriod, summarize, transposition, verifyItems, type VerifyItem } from "../src/verify";
 import { tteRecord } from "./esef-fixture";
-import { facts } from "./helpers";
+import { companyfacts, fact, facts } from "./helpers";
 
 const aapl = standardize(facts("AAPL"), SNAPSHOT_YEARS, true);
 const jpm = standardize(facts("JPM"), SNAPSHOT_YEARS, true);
@@ -195,5 +195,43 @@ describe("verify_value: periods and batches", () => {
     expect(r.hints.some((h) => /^About this figure: .*segment/.test(h))).toBe(true);
     // No note, no hint.
     expect(one(aapl, { metric: "revenue", period: "FY2024", value: 391_035, scale: "millions" }).note).toBeUndefined();
+  });
+
+  it("an LTM figure one quarter late says it's stale and which 10-Q to use (comps run: 15 of 16 errors; stars brief lot 2)", () => {
+    const q = (v: number, start: string, end: string, accn: string, filed: string) => fact(v, start, end, accn, filed, "10-Q", 2026);
+    const std = standardize(companyfacts({
+      Revenues: [
+        fact(1000, "2025-01-01", "2025-12-31", "k25", "2026-02-10", "10-K", 2025),
+        q(560, "2026-01-01", "2026-06-30", "q2", "2026-08-01"), q(500, "2025-01-01", "2025-06-30", "q2", "2026-08-01"),
+        q(870, "2026-01-01", "2026-09-30", "q3", "2026-11-01"), q(760, "2025-01-01", "2025-09-30", "q3", "2026-11-01"),
+      ],
+    }), 5, true);
+    const ok = one(std, { metric: "revenue", period: "LTM", value: 1110, scale: "units" });
+    expect(ok.status).toBe("match"); // 1000 + 870 - 760
+    const stale = one(std, { metric: "revenue", period: "LTM", value: 1060, scale: "units" }); // 1000 + 560 - 500
+    expect(stale.status).toBe("mismatch");
+    expect(stale.hints[0]).toMatch(/^Stale: .*twelve months to 2026-06-30.*2026-09-30/);
+  });
+
+  it("a diluted share count far from the latest cover page gets a hint (stars brief lot 2)", () => {
+    const cover = { value: 14_700_000_000, as_of: "2026-10-17", classes_summed: 1, concept: "dei:EntityCommonStockSharesOutstanding", accession: "0000320193-26-000001", url: "https://www.sec.gov/x" };
+    const filed = aapl.periods.find((c) => c.label === "FY2025")!.values.diluted_shares!.value;
+    const far = verifyItems(aapl, [{ metric: "diluted_shares", period: "FY2025", value: filed * 1.25, scale: "units" }], { sharesOutstanding: cover })[0]!;
+    expect(far.hints.some((h) => /^Cover page: 14,700,000,000 shares outstanding as of 2026-10-17/.test(h))).toBe(true);
+    const near = verifyItems(aapl, [{ metric: "diluted_shares", period: "FY2025", value: 14_800_000_000, scale: "units" }], { sharesOutstanding: cover })[0]!;
+    expect(near.hints.some((h) => /^Cover page/.test(h))).toBe(false);
+  });
+
+  it("two wrong lines that cancel out are both flagged, though the subtotal matches (Wall Street Prep 2026; stars brief lot 2)", () => {
+    const fy = aapl.periods.find((c) => c.label === "FY2025")!;
+    const oi = fy.values.operating_income!.value / 1e6;
+    const da = fy.values.d_and_a!.value / 1e6;
+    const ebitda = fy.derived.ebitda!.value / 1e6;
+    const [a, b, total] = verifyItems(aapl, [
+      { metric: "operating_income", period: "FY2025", value: oi - 500, scale: "millions" },
+      { metric: "d_and_a", period: "FY2025", value: da + 500, scale: "millions" },
+      { metric: "ebitda", period: "FY2025", value: ebitda, scale: "millions" },
+    ]);
+    expect([a!.status, b!.status, total!.status]).toEqual(["mismatch", "mismatch", "match"]);
   });
 });
