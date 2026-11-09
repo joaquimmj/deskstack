@@ -1,0 +1,110 @@
+{
+ "kind": "dcf",
+ "company": "TotalEnergies SE",
+ "ticker": "529900S21EQ1BO4ESM68",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2023",
+   "FY2024",
+   "FY2025"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     237128,
+     214550,
+     201196
+    ],
+    "source": "ESEF annual report 529900S21EQ1BO4ESM68-2025-12-31-ESEF-FR-0, ifrs-full:RevenueFromContractsWithCustomers, USD millions"
+   },
+   "operating_income": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: operating income not mapped/reported as a standard tag in the deskstack ESEF data for FY2023-FY2025"
+   },
+   "d_and_a": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: D&A null in deskstack ESEF data for FY2023-FY2025"
+   },
+   "capex": {
+    "values": [
+     null,
+     null,
+     null
+    ],
+    "source": "not found: capex null in deskstack ESEF data for FY2023-FY2025"
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2026",
+   "FY2027",
+   "FY2028",
+   "FY2029",
+   "FY2030"
+  ],
+  "revenue_growth": {
+   "values": [
+    -0.03,
+    0,
+    0.01,
+    0.015,
+    0.015
+   ],
+   "source": "Assumption: revenue fell 9.5% in FY2024 and 6.2% in FY2025 (filed revenue); decline moderates then flat-to-low growth, in line with mature energy demand. No forecast data source."
+  },
+  "ebit_margin": {
+   "value": 0.1,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: EBIT history not available from the tools (not found), so 10% is an unanchored placeholder for a mid-cycle integrated oil major margin; reviewer must replace with filed EBIT/revenue."
+  },
+  "tax_rate": {
+   "value": 0.35,
+   "period": "FY2026-FY2030",
+   "source": "Assumption: between French statutory rate and Damodaran Europe Oil/Gas Integrated effective tax rate 40.3% (2026-01-05), reflecting high-tax upstream mix."
+  },
+  "da_pct_revenue": {
+   "value": 0.08,
+   "period": "FY2026-FY2030",
+   "source": "Assumption placeholder: D&A history not found in tools; reviewer to replace with filed D&A/revenue."
+  },
+  "capex_pct_revenue": {
+   "value": 0.09,
+   "period": "FY2026-FY2030",
+   "source": "Assumption placeholder: capex history not found in tools; set slightly above D&A for sustaining plus transition investment; reviewer to replace."
+  },
+  "wacc": {
+   "value": 0.07,
+   "period": "valuation date 2026-11",
+   "source": "Assumption. CAPM check: EUR 10Y AAA yield 3.266% (ECB, 2026-11-05) + relevered beta ~0.465 (Damodaran Europe Oil/Gas Integrated cash-corrected unlevered beta 0.406, D/E 0.194, 25% tax) x France ERP 5.006% = ~5.6% cost of equity; cost of debt 5.18% pre-tax; weights 84/16 gives ~5.3% mechanical WACC. Raised to 7.0% for commodity-price and energy-transition risk and USD cash flows vs EUR risk-free rate."
+  },
+  "terminal_growth": {
+   "value": 0.015,
+   "period": "terminal",
+   "source": "Assumption: below the 3.27% EUR risk-free rate and long-run nominal growth, reflecting mature, transitioning energy demand."
+  },
+  "mid_year": true
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 34831,
+   "period": "FY2025",
+   "source": "financial_statements derived net_debt = borrowings_noncurrent 48,995 + borrowings_current 12,038 - cash 26,202 (USD millions), ESEF 529900S21EQ1BO4ESM68-2025-12-31-ESEF-FR-0; no short-term investments reported; excludes leases"
+  },
+  "diluted_shares": {
+   "value": 2271,
+   "period": "FY2025",
+   "source": "Diluted weighted shares not reported in tool data (null). Approximation: attributable net income 13,127M / diluted EPS 5.78 (ESEF report) = ~2,271M shares; EPS may be after hybrid coupons so reviewer should verify against the filing."
+  }
+ }
+}
