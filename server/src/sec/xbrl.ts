@@ -146,6 +146,8 @@ export const IFRS_INSTANT_CONCEPTS: Record<string, string[]> = {
   // IFRS has no general short-term investments line. Short-term deposits are the clear case (Inditex: EUR 5.7B).
   // OtherCurrentFinancialAssets is left out on purpose: it mixes derivatives and receivables.
   short_term_investments: ["ShorttermDepositsNotClassifiedAsCashEquivalents"],
+  // Not a metric: read only so net debt can say it was not deducted (TotalEnergies tags nothing cleaner).
+  other_current_financial_assets: ["OtherCurrentFinancialAssets"],
   total_assets: ["Assets"],
   total_equity: ["EquityAttributableToOwnersOfParent", "Equity"],
   // IFRS Borrowings is current + non-current; the pieces are the fallback.
@@ -222,6 +224,7 @@ export interface Cell {
 export interface Derived {
   value: number;
   formula: string;
+  note?: string;
 }
 
 export interface Column {
@@ -635,9 +638,16 @@ function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | nu
   if (debt !== null && cash !== null) {
     const sti = v(inst, "short_term_investments") ?? 0;
     out.net_debt = { value: debt - cash - sti, formula: "total_debt - cash - short_term_investments" };
+    const ocfa = v(inst, "other_current_financial_assets");
+    if (tx === IFRS && inst.short_term_investments == null && ocfa) {
+      out.net_debt.note =
+        `does not deduct other current financial assets (${Math.round(ocfa / 1e6).toLocaleString("en-US")} million), ` +
+        "which the filer tags only together with derivatives and receivables; check its net debt definition";
+    }
   } else {
     out.net_debt = null;
   }
+  delete inst.other_current_financial_assets; // an input to the note above, not a balance-sheet line
   return out;
 }
 

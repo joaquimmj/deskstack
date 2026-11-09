@@ -63,7 +63,7 @@ Every value carries its source: filing, accession or report, period. The 8 tools
 
 ## Accuracy
 
-- **The golden set:** 100 questions with known answers from the filings. It covers:
+- **The golden set:** 101 questions with known answers from the filings. It covers:
   - US and EU issuers, and IFRS 20-F filers;
   - a bank;
   - restatements and a stock split;

@@ -197,6 +197,25 @@ describe("real filings", () => {
     expect(facts({ AdjustedWeightedAverageShares: { units: { shares: y(3_050e6) } } }).diluted_shares!.value).toBe(3_050e6);
   });
 
+  it("IFRS net debt says when current financial assets are tagged only mixed with derivatives (TotalEnergies; stars brief lot 1)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "t-25", "2026-03-20", "ESEF", 2025)];
+    const at = (v: number) => [fact(v, null, "2025-12-31", "t-25", "2026-03-20", "ESEF", 2025)];
+    const run = (extra: Record<string, { units: Record<string, RawFact[]> }>) => standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+      Revenue: { units: { USD: y(180_000e6) } },
+      CashAndCashEquivalents: { units: { USD: at(26_202e6) } },
+      Borrowings: { units: { USD: at(50_000e6) } },
+      ...extra,
+    } } } as never, 5, false).periods[0]!;
+    const tte = run({ OtherCurrentFinancialAssets: { units: { USD: at(3_332e6) } } });
+    expect(tte.derived.net_debt!.value).toBe(50_000e6 - 26_202e6); // not deducted: it mixes derivatives and receivables
+    expect(tte.derived.net_debt!.note).toMatch(/3,332/);
+    expect(tte.balance_sheet).not.toHaveProperty("other_current_financial_assets");
+    // Clean short-term deposits are deducted, and then there is nothing to warn about (Inditex).
+    const itx = run({ ShorttermDepositsNotClassifiedAsCashEquivalents: { units: { USD: at(5_684e6) } }, OtherCurrentFinancialAssets: { units: { USD: at(100e6) } } });
+    expect(itx.derived.net_debt!.value).toBe(50_000e6 - 26_202e6 - 5_684e6);
+    expect(itx.derived.net_debt!.note).toBeUndefined();
+  });
+
   it("an IFRS filer that tags D&A only with impairment gets that figure, with a note (TotalEnergies, Ahold)", () => {
     const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "t-25", "2026-03-20", "ESEF", 2025)];
     const base = { Revenue: { units: { USD: y(180_000e6) } }, ProfitLossFromOperatingActivities: { units: { USD: y(20_000e6) } } };

@@ -183,4 +183,17 @@ describe("verify_value: periods and batches", () => {
       "revenue",
     ]);
   });
+
+  it("returns the filed figure's note, e.g. a segment total tagged as operating income (stars brief lot 1)", () => {
+    const std = structuredClone(aapl);
+    const col = std.periods.find((c) => c.label === "FY2024")!;
+    const oi = col.values.operating_income!;
+    col.values.operating_income = { ...oi, note: "Disney tags its total segment operating income as OperatingIncomeLoss" };
+    const r = one(std, { metric: "operating_income", period: "FY2024", value: oi.value / 1e6, scale: "millions" });
+    expect(r.status).toBe("match");
+    expect(r.note).toMatch(/segment operating income/);
+    expect(r.hints.some((h) => /^About this figure: .*segment/.test(h))).toBe(true);
+    // No note, no hint.
+    expect(one(aapl, { metric: "revenue", period: "FY2024", value: 391_035, scale: "millions" }).note).toBeUndefined();
+  });
 });
