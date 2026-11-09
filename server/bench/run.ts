@@ -6,6 +6,7 @@
 // Options: --set pilot|full  --tasks dcf,comps  --arms A,B,C  --only <company id>  --model claude-sonnet-5-5
 //          --rescore <run dir>   (score an earlier run again: no API calls, nothing spent; set SEC_USER_AGENT)
 //          --effort low|medium|high  --budget <usd>  --max-run-cost <usd>  --ledger <file>  --out <dir>
+//          --only <id,id,...>  --max-searches <n>   (arm A's web searches per request, 1-50; default 12)
 // --budget is a hard cap on everything spent through --ledger (default bench/results/ledger.json), across re-runs:
 // the spend is written after every request, so a crash and a re-run continue from what was already spent.
 // The API key comes from the environment (ANTHROPIC_API_KEY or `ant auth login`); it is never read from a file here
@@ -25,7 +26,7 @@ import { DUAL_FILERS } from "../src/config";
 import type { Connector } from "./connector";
 
 const ROOT = join(import.meta.dirname, "..", "..");
-const VALUE_OPTS = ["--rescore", "--connector", "--set", "--tasks", "--arms", "--only", "--model", "--effort", "--budget", "--max-run-cost", "--ledger", "--out"];
+const VALUE_OPTS = ["--rescore", "--connector", "--set", "--tasks", "--arms", "--only", "--model", "--effort", "--budget", "--max-run-cost", "--max-searches", "--ledger", "--out"];
 
 function parse(argv: string[]) {
   const opts: Record<string, string> = {};
@@ -140,9 +141,12 @@ async function main() {
   if (!url) throw new Error("--connector URL is required (the deployed deskstack MCP endpoint, or a local wrangler dev)");
   if (!PRICES[model]) throw new Error(`no price for ${model} in bench/pricing.ts`);
   const all = JSON.parse(readFileSync(join(ROOT, "bench", "companies.json"), "utf8")).companies as Array<{ id: string; name: string; pilot?: boolean }>;
-  const only = opts["--only"];
-  const companies = all.filter((c) => (only ? c.id === only : set === "full" || c.pilot));
-  if (!companies.length) throw new Error(`no company matches${only ? ` --only ${only}` : ""}`);
+  const only = opts["--only"] ? new Set(opts["--only"].split(",").map((s) => s.trim()).filter(Boolean)) : null;
+  const companies = all.filter((c) => (only ? only.has(c.id) : set === "full" || c.pilot));
+  if (only && companies.length !== only.size) throw new Error(`--only: unknown id(s) ${[...only].filter((id) => !all.some((c) => c.id === id)).join(", ")}`);
+  const maxSearches = Number(opts["--max-searches"] ?? 12);
+  if (!Number.isInteger(maxSearches) || maxSearches < 1 || maxSearches > 50) throw new Error("--max-searches must be an integer from 1 to 50");
+  if (!companies.length) throw new Error(`no company matches${only ? ` --only ${[...only].join(",")}` : ""}`);
   const plan = companies.flatMap((c) => tasks.flatMap((t) => arms.map((a) => ({ company: c, task: t, arm: a }))));
   const ledger = {
     read: () => (existsSync(ledgerPath) ? Number(JSON.parse(readFileSync(ledgerPath, "utf8")).spent_usd) || 0 : 0),
@@ -163,7 +167,7 @@ async function main() {
   const started = new Date().toISOString();
   const out = opts["--out"] ?? join(ROOT, "bench", "results", started.replace(/[:.]/g, "-"));
   mkdirSync(join(out, "runs"), { recursive: true });
-  const meta = { started, model, effort, set, tasks, arms, budget: cap, spent_before: already, prompts_version: PROMPTS_VERSION, connector: url, prices: p, companies: companies.map((c) => c.id) };
+  const meta = { started, model, effort, max_searches: maxSearches, set, tasks, arms, budget: cap, spent_before: already, prompts_version: PROMPTS_VERSION, connector: url, prices: p, companies: companies.map((c) => c.id) };
   writeFileSync(join(out, "plan.json"), JSON.stringify(meta, null, 1) + "\n");
 
   // maxRetries 0: the loop retries only 429/529 itself (not billed) and counts a timed-out request as billed.
@@ -176,7 +180,7 @@ async function main() {
     for (const { company, task, arm } of plan) {
       const name = `${company.id}-${task}-${arm}`;
       const workdir = join(out, "work", name);
-      const r = await runOne({ client, connector, budget, model, effort, company, task, arm, workdir, maxRunCost });
+      const r = await runOne({ client, connector, budget, model, effort, company, task, arm, workdir, maxRunCost, webSearchMaxUses: maxSearches });
       const file = join(out, "runs", `${name}.json`);
       writeFileSync(file, JSON.stringify({ company: company.id, task, arm, run: r }, null, 1) + "\n"); // the cost is on disk before scoring
       let score;
