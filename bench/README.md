@@ -8,7 +8,7 @@ How many numbers in an AI-built financial model are wrong or unsourced, with and
 |---|---|
 | **Set** | `companies.json`: 50 companies (35 US, 15 EU), mixed sectors, no banks or insurers. Frozen on 2026-11-08 before any run. The pilot is the 5 flagged `pilot` (Apple, Coca-Cola, Caterpillar, TotalEnergies, Inditex) |
 | **Tasks** | A quick DCF and a comps table, from scratch |
-| **Arm A** | Claude with web search only, up to 12 searches per request (`webSearchMaxUses` in `server/bench/agent.ts`). A model that runs out can still submit; numbers it leaves as labelled placeholders are reported apart, not as wrong |
+| **Arm A** | Claude with web search only, up to 12 searches per request (`webSearchMaxUses` in `server/bench/agent.ts`). A model that runs out can still submit. Numbers a model leaves as labelled placeholders ("not found, 0 is a placeholder") are reported on their own line, with how many came after the cap |
 | **Arm B** | Claude with the deskstack data tools |
 | **Arm C** | B, then one review round, then a fix. The review is the associate's tie-out (`verify_value` on every filed figure) and the VP's deterministic checker findings |
 | **Model** | `claude-sonnet-5-5`, effort `medium`, the same frozen prompts for every arm (`server/bench/prompts.ts`, v2). They give every arm the same conventions: positive capex and D&A, and the EBITDA and net-debt definitions. Only the tools differ, and B and C also get the deskstack server's MCP instructions, as real MCP clients do |
