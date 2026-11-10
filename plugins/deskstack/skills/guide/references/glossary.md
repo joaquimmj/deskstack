@@ -65,3 +65,41 @@ Each entry: English, then French. Keep answers short and tie them to the user's 
 - EN: A company's reporting year. Apple's FY2025 ended 2025-09-27; always state the end date when it isn't December.
 - FR : Exercice comptable. L'exercice 2025 d'Apple s'est terminé le 27/09/2025 ; préciser la date quand ce n'est pas
   décembre.
+
+## Checker findings, the newer rules
+
+**DS016 placeholder**
+- EN: A typed number whose label or source says it wasn't found ("NOT FOUND", "TBD", a 0 left in place). A ratio
+  computed from it is wrong. Find the filed figure, or leave the cell empty and say it is missing.
+- FR : Un chiffre saisi dont le libellé ou la source dit qu'il est introuvable (« NOT FOUND », « TBD », un 0 laissé en
+  place). Un ratio calculé dessus est faux. Trouver le chiffre déposé, ou laisser la cellule vide et le dire.
+
+**DS017 synthetic series**
+- EN: Four or more typed figures that grow at one exact rate, or are all round thousands. Filed history rarely does:
+  the numbers may have been made up rather than read from the filing.
+- FR : Quatre chiffres saisis ou plus qui croissent à un taux exactement constant, ou tous ronds au millier. Un
+  historique déposé l'est rarement : les chiffres ont peut-être été inventés plutôt que lus dans le dépôt.
+
+**DS018 plug**
+- EN: A non-zero line labelled as a plug or balancing item. It hides why the model doesn't balance; find the cause.
+- FR : Une ligne non nulle libellée « plug » ou « ajustement d'équilibre ». Elle masque la raison du déséquilibre ;
+  chercher la cause.
+
+**DS019 interest and debt**
+- EN: Interest typed instead of computed from debt and cash (major), or debt flat with no repayment schedule (minor).
+- FR : Des intérêts saisis au lieu d'être calculés à partir de la dette et de la trésorerie (majeur), ou une dette
+  constante sans échéancier (mineur).
+
+**DS020 flat share count**
+- EN: A share count that stays the same across periods while the model has buybacks. Buybacks and dilution change
+  it every period.
+- FR : Un nombre d'actions constant d'une période à l'autre alors que le modèle prévoit des rachats. Rachats et
+  dilution le font varier à chaque période.
+
+**DS021 percent units**
+- EN: A rate typed as a whole number (5 for 5%): a percent cell then shows 500%, and a formula multiplies by 5. Type
+  it as a decimal (0.05), like the model's other rates. A model that types every rate as a whole percent, and
+  divides by 100 where it uses them, is not flagged.
+- FR : Un taux saisi en nombre entier (5 pour 5 %) : une cellule au format pourcentage affiche alors 500 %, et une
+  formule multiplie par 5. Le saisir en décimale (0,05), comme les autres taux du modèle. Un modèle qui saisit tous
+  ses taux en entiers et divise par 100 là où il les utilise n'est pas signalé.

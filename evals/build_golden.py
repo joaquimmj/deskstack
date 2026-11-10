@@ -170,6 +170,14 @@ ESEF = [
      [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('cash', 'CashAndCashEquivalents')], ['eu', 'uksef', 'gb', 'february-fye', '53-week year']),
     ("2138002P5RNKC5W2JZ46", "Tesco", "FY2024", "2138002P5RNKC5W2JZ46-2026-02-28-ESEF-GB-0", "2024-02-25", "2025-02-22",
      [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('cash', 'CashAndCashEquivalents')], ['eu', 'uksef', 'gb', 'february-fye', 'comparative']),
+    ("549300HGV012CNC8JD22", "Volvo", "FY2025", "549300HGV012CNC8JD22-2025-12-31-ESEF-SE-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ["eu", "esef", "se", "stars-batch-2"]),
+    ("5967007LIEEXZXJ9HK73", "Kongsberg", "FY2025", "5967007LIEEXZXJ9HK73-2025-12-31-ESEF-NO-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('operating_income', 'ProfitLossFromOperatingActivities'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ["eu", "esef", "no", "stars-batch-2"]),
+    ("549300PZS8G8RG6RVZ52", "Orkla", "FY2025", "549300PZS8G8RG6RVZ52-2025-12-31-ESEF-NO-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('operating_income', 'ProfitLossFromOperatingActivities'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ["eu", "esef", "no", "stars-batch-2"]),
+    ("549300DV5KJ23OKVTW34", "D'Ieteren", "FY2025", "549300DV5KJ23OKVTW34-2025-12-31-ESEF-BE-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('operating_income', 'ProfitLossFromOperatingActivities'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ["eu", "esef", "be", "stars-batch-2"]),
 ]
 
 # Behavior checks: (id, question, call, read, expected, tags)
