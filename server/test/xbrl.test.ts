@@ -234,6 +234,21 @@ describe("real filings", () => {
     expect(total.periods[0]!.values.revenue!.value).toBe(1_779e6);
   });
 
+  it("IFRS total equity says when it includes minorities, the owners' share being untagged (Orkla, Corticeira; review 2026-11-10)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
+    const at = (v: number) => [fact(v, null, "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
+    const eq = (f: Record<string, { units: Record<string, RawFact[]> }>) => standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+      Revenue: { units: { NOK: y(71_044e6) } }, ...f } } } as never, 5, false).periods[0]!.balance_sheet.total_equity!;
+    const orkla = eq({ Equity: { units: { NOK: at(52_147e6) } }, NoncontrollingInterests: { units: { NOK: at(3_483e6) } } });
+    expect(orkla.value).toBe(52_147e6); // the tagged total, never an estimate of the owners' share
+    expect(orkla.note).toMatch(/includes 3,483 million of non-controlling interests/);
+    expect(eq({ Equity: { units: { NOK: at(52_147e6) } } }).note).toBeUndefined();
+    const owners = eq({ Equity: { units: { NOK: at(52_147e6) } }, EquityAttributableToOwnersOfParent: { units: { NOK: at(48_664e6) } },
+      NoncontrollingInterests: { units: { NOK: at(3_483e6) } } });
+    expect(owners.value).toBe(48_664e6);
+    expect(owners.note).toBeUndefined();
+  });
+
   it("IFRS net debt says when current financial assets are tagged only mixed with derivatives (TotalEnergies; stars brief lot 1)", () => {
     const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "t-25", "2026-03-20", "ESEF", 2025)];
     const at = (v: number) => [fact(v, null, "2025-12-31", "t-25", "2026-03-20", "ESEF", 2025)];

@@ -155,6 +155,8 @@ export const IFRS_INSTANT_CONCEPTS: Record<string, string[]> = {
   other_current_financial_assets: ["OtherCurrentFinancialAssets"],
   total_assets: ["Assets"],
   total_equity: ["EquityAttributableToOwnersOfParent", "Equity"],
+  // An input only: derive() notes it when total equity falls back to Equity, which includes minorities (Orkla).
+  equity_nci: ["NoncontrollingInterests"],
   // IFRS Borrowings is current + non-current; the pieces are the fallback.
   borrowings: ["Borrowings"],
   borrowings_noncurrent: ["LongtermBorrowings", "NoncurrentPortionOfNoncurrentLoansReceived"],
@@ -683,6 +685,15 @@ function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | nu
     out.net_debt = null;
   }
   delete inst.other_current_financial_assets; // an input to the note above, not a balance-sheet line
+  const nciEq = inst.equity_nci;
+  if (inst.total_equity?.concept === "ifrs-full:Equity" && nciEq && nciEq.value !== 0) {
+    inst.total_equity = withNote(
+      inst.total_equity,
+      `total equity: includes ${Math.round(nciEq.value / 1e6).toLocaleString("en-US")} million of non-controlling interests; ` +
+        "the filer tags no equity attributable to owners of the parent",
+    );
+  }
+  delete inst.equity_nci;
   return out;
 }
 
