@@ -51,7 +51,11 @@ period-end for balance sheet) before comparing with US companies.
 - Every number carries its XBRL concept and filing accession; each response has a \`sources\` array. \
 Cite the filing when you use a number, and never fill a missing (null) value from memory: say it is \
 not reported, or ask the user.
-- EBITDA, free cash flow, total debt and net debt are computed and show their formula.
+- EBITDA, free cash flow, total debt and net debt are computed and show their formula. A figure with a \
+\`note\` is a fallback or has a caveat (e.g. D&A that is depreciation only): read it before using the number.
+- Bridge from enterprise value to equity value: EV - net_debt - noncontrolling_interests (balance sheet). \
+Net debt leaves lease_liabilities out (its note gives the amount); EBITDA under IFRS 16 is before lease costs, so \
+treat leases the same way on both sides and say which you chose.
 - Banks and insurers are flagged \`financial_company\`: EBITDA/EV multiples and a standard FCF DCF \
 don't apply.
 - This server has no share prices. For market cap, use shares outstanding from financial_statements \

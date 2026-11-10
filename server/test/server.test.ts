@@ -390,3 +390,12 @@ describe("guardrails", () => {
     expect(j.mcp_endpoint).toBe("https://ft.test/mcp");
   });
 });
+
+describe("server instructions (review 2026-11-10)", () => {
+  it("say how to bridge to equity value with the lines the balance sheet now has", async () => {
+    const { INSTRUCTIONS } = await import("../src/tools");
+    expect(INSTRUCTIONS).toMatch(/noncontrolling_interests/);
+    expect(INSTRUCTIONS).toMatch(/lease_liabilities/);
+    expect(INSTRUCTIONS).toMatch(/note/);
+  });
+});
