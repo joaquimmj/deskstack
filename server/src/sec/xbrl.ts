@@ -39,6 +39,8 @@ export const DURATION_CONCEPTS: Record<string, string[]> = {
     "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
   ],
   net_income: ["NetIncomeLoss", "NetIncomeLossAvailableToCommonStockholdersBasic", "ProfitLoss"],
+  // An input only: adjustRow notes it when net income falls back to ProfitLoss, which includes minorities.
+  net_income_nci: ["NetIncomeLossAttributableToNoncontrollingInterest"],
   interest_expense: ["InterestExpense", "InterestExpenseNonoperating", "InterestExpenseDebt"],
   d_and_a: [
     "DepreciationDepletionAndAmortization",
@@ -70,6 +72,8 @@ export const INSTANT_CONCEPTS: Record<string, string[]> = {
   ],
   total_assets: ["Assets"],
   total_equity: ["StockholdersEquity", "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"],
+  // An input only: derive() notes it when total equity falls back to the figure including minorities.
+  equity_nci: ["MinorityInterest"],
   // Debt components; combined by totalDebt below.
   ltd_noncurrent: [
     "LongTermDebtNoncurrent",
@@ -543,6 +547,8 @@ const accs = (...cells: Cell[]) => [...new Set(cells.flatMap((c) => c.accessions
  * - a diluted share count off by a thousand or a million (McDonald's FY2025: 716.4), rescaled only when
  *   net income / diluted EPS confirms the corrected figure within 3%.
  */
+/** Total-equity concepts that include non-controlling interests: noted when chosen because the owners' share is untagged. */
+const EQUITY_WITH_MINORITIES = new Set(["ifrs-full:Equity", "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"]);
 const withNote = (c: Cell, note: string): Cell => ({ ...c, note: c.note ? `${c.note}; ${note}` : note });
 
 function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false, label = ""): void {
@@ -617,9 +623,9 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false, labe
     );
   }
   const nci = row.net_income_nci;
-  if (row.net_income?.concept === "ifrs-full:ProfitLoss" && nci && nci.value !== 0) {
+  if (/^(ifrs-full|us-gaap):ProfitLoss$/.test(row.net_income?.concept ?? "") && nci && nci.value !== 0) {
     row.net_income = withNote(
-      row.net_income,
+      row.net_income!,
       `consolidated profit: includes ${Math.round(nci.value / 1e6).toLocaleString("en-US")} million attributable to ` +
         "non-controlling interests; the filer tags no profit attributable to owners of the parent",
     );
@@ -718,14 +724,21 @@ function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | nu
   delete inst.lease_liabilities_noncurrent;
   delete inst.lease_liabilities_current;
   const nciEq = inst.equity_nci;
-  if (inst.total_equity?.concept === "ifrs-full:Equity" && nciEq && nciEq.value !== 0) {
+  if (EQUITY_WITH_MINORITIES.has(inst.total_equity?.concept ?? "") && nciEq && nciEq.value !== 0) {
     inst.total_equity = withNote(
-      inst.total_equity,
+      inst.total_equity!,
       `total equity: includes ${Math.round(nciEq.value / 1e6).toLocaleString("en-US")} million of non-controlling interests; ` +
         "the filer tags no equity attributable to owners of the parent",
     );
   }
   delete inst.equity_nci;
+  if (inst.cash?.concept === "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents") {
+    inst.cash = withNote(
+      inst.cash,
+      "includes restricted cash and restricted cash equivalents: the filer tags no cash and cash equivalents line " +
+        "without them, so net debt deducts cash the company may not be free to use",
+    );
+  }
   return out;
 }
 

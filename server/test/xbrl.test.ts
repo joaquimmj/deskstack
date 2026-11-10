@@ -234,6 +234,29 @@ describe("real filings", () => {
     expect(total.periods[0]!.values.revenue!.value).toBe(1_779e6);
   });
 
+  it("US GAAP fallbacks say when equity or net income includes minorities, or cash includes restricted cash (review 2026-11-10)", () => {
+    const d = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
+    const i = (v: number) => [fact(v, null, "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
+    const p = (g: Record<string, RawFact[]>) => standardize(companyfacts({ Revenues: d(400_000e6), ...g }), 5, false).periods[0]!;
+    const unh = p({
+      StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest: i(98_268e6), MinorityInterest: i(5_564e6),
+      ProfitLoss: d(15_000e6), NetIncomeLossAttributableToNoncontrollingInterest: d(600e6),
+      CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents: i(25_000e6),
+    });
+    expect(unh.balance_sheet.total_equity!.value).toBe(98_268e6);
+    expect(unh.balance_sheet.total_equity!.note).toMatch(/includes 5,564 million of non-controlling interests/);
+    expect(unh.values.net_income!.note).toMatch(/^consolidated profit: includes 600 million attributable to non-controlling interests/);
+    expect(unh.balance_sheet.cash!.note).toMatch(/^includes restricted cash/);
+    const clean = p({
+      StockholdersEquity: i(92_704e6), StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest: i(98_268e6),
+      MinorityInterest: i(5_564e6), NetIncomeLoss: d(14_400e6), CashAndCashEquivalentsAtCarryingValue: i(24_000e6),
+    });
+    expect(clean.balance_sheet.total_equity).toMatchObject({ value: 92_704e6 });
+    expect(clean.balance_sheet.total_equity!.note).toBeUndefined();
+    expect(clean.values.net_income!.note).toBeUndefined();
+    expect(clean.balance_sheet.cash!.note).toBeUndefined();
+  });
+
   it("IFRS net debt says how much lease liability it leaves out (IFRS 16; review 2026-11-10)", () => {
     const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
     const at = (v: number) => [fact(v, null, "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
