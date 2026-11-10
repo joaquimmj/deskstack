@@ -157,7 +157,7 @@ the ones both raised. Details: [docs/ROLES.md](docs/ROLES.md#companion-mode).
 |---|---|---|
 | Financial statements (US) | SEC EDGAR XBRL (10-K, 10-Q, 20-F) | US-listed companies, including IFRS foreign filers; annual years plus LTM |
 | Financial statements (Europe and UK) | ESEF and UKSEF annual reports via [filings.xbrl.org](https://filings.xbrl.org) | 159 large issuers in 14 countries: 55 UK listed companies, and 104 issuers in France, the Netherlands, Spain, Italy, Finland, Belgium, Denmark, Sweden, Norway, Austria, Portugal, Ireland and Luxembourg; annual |
-| Financial statements (Brazil) | CVM open data: annual DFP statements, under the [ODbL](https://opendatacommons.org/licenses/odbl/1-0/) | 20 large non-financial listed companies, by CVM id or B3 ticker; annual |
+| Financial statements (Brazil) | CVM open data: annual DFP and quarterly ITR statements, under the [ODbL](https://opendatacommons.org/licenses/odbl/1-0/) | 20 large non-financial listed companies, by CVM id or B3 ticker; annual years plus LTM |
 | Risk-free rates | U.S. Treasury par yield curve; ECB euro area par yields | Daily, 1 month to 30 years |
 | Exchange rates | ECB reference rates | 30+ currencies, latest, on a date or as a period average |
 | Valuation inputs | Aswath Damodaran's public datasets (NYU Stern) | ERP and country risk by country; betas and cost of capital by industry |
@@ -167,11 +167,11 @@ Every value carries its source: filing, accession or report, period. The 8 tools
 
 ## Accuracy
 
-- **The golden set:** 272 questions with known answers from the filings. It covers:
+- **The golden set:** 282 questions with known answers from the filings. It covers:
   - US issuers and IFRS 20-F filers;
   - at least 10 questions for each of the 14 European countries covered, the UK included, each answer read by
     Arelle from the published report;
-  - 34 questions for Brazil, each answer read from CVM's published CSVs by a separate Python reader
+  - 44 questions for Brazil, 10 of them on the last twelve months, each answer read from CVM's published CSVs by a separate Python reader
     (`evals/cvm_reader.py`), since no second parser exists for them;
   - a bank;
   - restatements and a stock split;
@@ -186,7 +186,7 @@ Every value carries its source: filing, accession or report, period. The 8 tools
 - No consensus estimates.
 - European and UK coverage is partial and annual only. There are no German issuers, because their reports aren't in
   the public ESEF repository. Some UK companies tag no total assets; that line is then `null`.
-- Brazilian coverage is 20 companies, annual only, from CVM's fixed chart of accounts. Capex, D&A and EPS aren't
+- Brazilian coverage is 20 companies, annual years plus LTM, from CVM's fixed chart of accounts. Capex, D&A and EPS aren't
   fixed lines there, so they are `null`, and so is EBITDA. Total equity includes minority interests. Banks and
   insurers aren't covered yet.
 - IFRS 20-F filers have no LTM.

@@ -1,5 +1,6 @@
 // Build snapshot/v1/br/ from CVM's open data (Brazil): annual DFP statements and B3 tickers from the FCA forms.
 //
+// Annual DFP statements plus this year's quarterly ITR statements (for LTM).
 // Usage: tsx scripts/build-cvm.ts [--out snapshot] [--cache .cvm-cache] [--from <dir with the ZIPs>] [--only 009512,004170]
 // Issuers: data/br-issuers.json. One ZIP a year (about 13 MB); a ZIP already in the cache is reused unless it is
 // the current or previous year's, which CVM updates weekly with resubmissions.
@@ -32,7 +33,7 @@ const issuers: BrIssuer[] = (JSON.parse(readFileSync(join(import.meta.dirname, "
   .filter((i) => !ONLY || ONLY.includes(i.cd_cvm));
 const want = new Set(issuers.map((i) => i.cd_cvm));
 
-async function zipPath(kind: "DFP" | "FCA", year: number): Promise<string | null> {
+async function zipPath(kind: "DFP" | "ITR" | "FCA", year: number): Promise<string | null> {
   const name = `${kind.toLowerCase()}_cia_aberta_${year}.zip`;
   if (FROM) return existsSync(join(FROM, name)) ? join(FROM, name) : null;
   mkdirSync(CACHE, { recursive: true });
@@ -83,6 +84,20 @@ for (let y = THIS_YEAR - SNAPSHOT_YEARS; y <= THIS_YEAR; y++) {
   const yr = extractDfpYear(files, want, y);
   years.push(yr);
   console.log(`DFP ${y}: ${yr.filings.length} filing(s), ${yr.facts.length} line(s)`);
+}
+
+// The latest quarterly statements (ITR), for the LTM column: this year's, which also hold last year's same periods.
+// (CVM files no ITR for the fourth quarter: after a DFP and before the next ITR, LTM is the fiscal year itself.)
+{
+  const p = await zipPath("ITR", THIS_YEAR);
+  if (p) {
+    const files = await csvs(p, (n) => n === `itr_cia_aberta_${THIS_YEAR}.csv` || /_(DRE|BPA|BPP|DFC_MI|DFC_MD)_con_\d{4}\.csv$/.test(n));
+    const yr = extractDfpYear(files, want, THIS_YEAR, "itr");
+    years.push(yr);
+    console.log(`ITR ${THIS_YEAR}: ${yr.filings.length} filing(s), ${yr.facts.length} line(s)`);
+  } else {
+    console.log(`ITR ${THIS_YEAR}: not published yet`);
+  }
 }
 
 let tickers = new Map<string, string[]>();

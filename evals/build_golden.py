@@ -346,6 +346,24 @@ def build() -> dict:
                          "accession": a["source"]["filing"]},
                 "expected": a["value"], "unit": a["unit"], "source": a["source"],
             })
+    ltm = json.loads(CVM_ANSWERS.read_text())["ltm"]
+    names = {cd: name for cd, name, *_ in CVM}
+    for a in ltm:
+        metric = {"3.01": "revenue", "3.11.01": "net_income"}.get(a["code"]) if a["statement"] == "DRE" else None
+        if not metric:
+            continue
+        name = names[a["cd_cvm"]]
+        label = f"LTM to {a['end']}"
+        qs.append({
+            "id": f"{name.lower()}-ltm-{metric.replace('_', '-')}",
+            "question": f"What was {name}'s {LABEL[metric]} for the last twelve months to {a['end']}?",
+            "tags": ["br", "cvm", "ltm"],
+            "call": {"tool": "financial_statements", "args": {"ticker": f"CVM{int(a['cd_cvm'])}", "years": 2}},
+            "read": {"kind": "fs", "period": label, "group": GROUP[metric], "key": metric, "end": a["end"]},
+            "expected": a["value"], "unit": None,
+            "source": {"type": "cvm-ltm", "formula": a["formula"], "fy_filing": a["fy_filing"], "itr_filing": a["itr_filing"],
+                       "parser": "python csv (evals/cvm_reader.py)"},
+        })
     for date in ("2026-10-30", "2025-12-31"):
         a = treasury_answer(date, "10 Yr")
         qs.append({"id": f"ust10y-{date}", "question": f"What was the US 10-year Treasury par yield on {date}?", "tags": ["rates", "us"],

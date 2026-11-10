@@ -1,4 +1,4 @@
-// Brazilian records built from the recorded CVM files (test/fixtures/cvm), through the real extractor and builder.
+// Brazilian records built from the recorded CVM files (DFP 2023-2025, ITR 2026) (test/fixtures/cvm), through the real extractor and builder.
 
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
@@ -20,7 +20,7 @@ export function brRecords(): EuRecord[] {
   if (memo) return memo;
   const files = new Map(readdirSync(DIR).filter((f) => f.endsWith(".csv")).map((f) => [f, readFileSync(join(DIR, f), "utf8")]));
   const want = new Set(BR_FIXTURE_ISSUERS.map((i) => i.cd_cvm));
-  const years = [2023, 2024, 2025].map((y) => extractDfpYear(files, want, y));
+  const years = [...[2023, 2024, 2025].map((y) => extractDfpYear(files, want, y)), extractDfpYear(files, want, 2026, "itr")];
   const tickers = tickersFromFca(files.get("fca_cia_aberta_valor_mobiliario_2026.csv")!);
   memo = BR_FIXTURE_ISSUERS.map((i) => {
     const cnpj = years.flatMap((y) => y.filings).find((f) => f.cd_cvm === i.cd_cvm)!.cnpj;

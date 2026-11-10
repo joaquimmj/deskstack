@@ -7,8 +7,11 @@
 
 import type { CompanyFacts, RawFact } from "../sec/xbrl";
 
-/** Form name the standardizer treats as annual (sec/xbrl.ts ANNUAL_FORMS). */
+/** Form names the standardizer reads (sec/xbrl.ts ANNUAL_FORMS and QUARTERLY_FORMS). */
 export const CVM_ANNUAL_FORM = "DFP";
+export const CVM_QUARTERLY_FORM = "ITR";
+/** "dfp": annual statements. "itr": quarterly (year to date and the quarter, with last year's same periods). */
+export type CvmDoc = "dfp" | "itr";
 
 export type CvmStatement = "DRE" | "BPA" | "BPP" | "DFC_MI" | "DFC_MD";
 
@@ -43,8 +46,9 @@ const SCALE: Record<string, number> = { UNIDADE: 1, MIL: 1_000 };
 const CURRENCY: Record<string, string> = { REAL: "BRL" };
 
 export interface CvmFiling {
-  /** Stable citation id: CVM's document number. */
+  /** Stable citation id: CVM's document number, e.g. CVM-DFP-155122 or CVM-ITR-160282. */
   id: string;
+  form: typeof CVM_ANNUAL_FORM | typeof CVM_QUARTERLY_FORM;
   cd_cvm: string;
   cnpj: string;
   name: string;
@@ -84,19 +88,22 @@ export function parseCsv(text: string): Array<Record<string, string>> {
 }
 
 /**
- * One year's DFP files (already decoded from Latin-1), for the companies asked: the latest version of each
- * company's filing, and its fixed-account lines for the current year and the comparative year it restates.
+ * One year's DFP (annual) or ITR (quarterly) files, already decoded from Latin-1, for the companies asked: the latest
+ * version of each company's filing per reference date, and its fixed-account lines. A DFP holds the year and the
+ * comparative year it restates; an ITR holds the year to date, the quarter, and last year's same periods.
  * `files` maps a file name (as in the ZIP) to its text.
  */
-export function extractDfpYear(files: Map<string, string>, want: Set<string>, year: number): CvmYear {
-  const index = files.get(`dfp_cia_aberta_${year}.csv`);
-  if (!index) throw new Error(`dfp_cia_aberta_${year}.csv is missing from the DFP files`);
+export function extractDfpYear(files: Map<string, string>, want: Set<string>, year: number, doc: CvmDoc = "dfp"): CvmYear {
+  const form = doc === "dfp" ? CVM_ANNUAL_FORM : CVM_QUARTERLY_FORM;
+  const index = files.get(`${doc}_cia_aberta_${year}.csv`);
+  if (!index) throw new Error(`${doc}_cia_aberta_${year}.csv is missing from the ${form} files`);
   // Latest version per company and reference date.
   const latest = new Map<string, CvmFiling>();
   for (const r of parseCsv(index)) {
     if (!want.has(r.CD_CVM!)) continue;
     const f: CvmFiling = {
-      id: `CVM-DFP-${r.ID_DOC}`,
+      id: `CVM-${form}-${r.ID_DOC}`,
+      form,
       cd_cvm: r.CD_CVM!,
       cnpj: r.CNPJ_CIA!,
       name: r.DENOM_CIA!,
@@ -114,7 +121,7 @@ export function extractDfpYear(files: Map<string, string>, want: Set<string>, ye
   const revenueLabel: Record<string, string> = {};
   const seen = new Set<string>();
   for (const acc of CVM_ACCOUNTS) {
-    const text = files.get(`dfp_cia_aberta_${acc.st}_con_${year}.csv`);
+    const text = files.get(`${doc}_cia_aberta_${acc.st}_con_${year}.csv`);
     if (!text) continue;
     for (const r of parseCsv(text)) {
       if (r.CD_CONTA !== acc.code || !want.has(r.CD_CVM!)) continue;
@@ -145,7 +152,7 @@ export function toCompanyFacts(name: string, years: CvmYear[], cdCvm: string): C
     for (const f of y.facts) {
       const filing = filings.get(f.filing);
       if (!filing) continue;
-      const row: RawFact = { val: f.value, end: f.end, accn: f.filing, filed: filing.received, form: CVM_ANNUAL_FORM, fy: Number(filing.refer.slice(0, 4)) };
+      const row: RawFact = { val: f.value, end: f.end, accn: f.filing, filed: filing.received, form: filing.form, fy: Number(filing.refer.slice(0, 4)) };
       if (f.start) row.start = f.start;
       ((ns[f.concept] ??= { units: {} }).units[f.currency] ??= []).push(row);
     }

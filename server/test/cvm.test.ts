@@ -78,6 +78,38 @@ describe("CVM extraction", () => {
   });
 });
 
+describe("CVM quarterly statements (ITR): LTM", () => {
+  const rec = (code: string) => brRecords().find((r) => r.cvm!.code === code)!;
+  const ltm = (code: string) => rec(code).financials!.periods.find((p) => p.type === "ltm")!;
+
+  it("builds the LTM as FY + YTD - prior YTD from the latest ITR (expected values worked from the CSVs)", () => {
+    expect(ltm("009512")).toMatchObject({ label: "LTM to 2026-06-30", end: "2026-06-30" });
+    expect(ltm("009512").values.revenue).toMatchObject({ value: 548_493_000_000, formula: "FY + YTD - prior YTD" });
+    expect(ltm("005410")).toMatchObject({ label: "LTM to 2026-09-30" }); // WEG has filed its third quarter
+    expect(ltm("005410").values.revenue!.value).toBe(40_719_467_000);
+  });
+
+  it("reads only the latest version of a resubmitted ITR (Vale's second quarter has three)", () => {
+    const ids = Object.keys(rec("004170").filings);
+    expect(ids).toContain("CVM-ITR-159978");
+    expect(ids).not.toContain("CVM-ITR-159847");
+    expect(ids).not.toContain("CVM-ITR-159855");
+  });
+
+  it("verify_value ties an LTM figure, and calls one a quarter late stale", async () => {
+    const r = await call(env(), "verify_value", {
+      company: "WEGE3",
+      items: [
+        { metric: "revenue", period: "LTM", value: 40_719.467, scale: "millions" },
+        { metric: "revenue", period: "LTM", value: 40_130.18, scale: "millions" }, // the twelve months to June
+      ],
+    });
+    expect(r.json.results.map((x: { status: string }) => x.status)).toEqual(["match", "mismatch"]);
+    expect(r.json.results[1].hints[0]).toMatch(/^Stale: .*2026-06-30.*2026-09-30/);
+    expect(r.json.sources.some((x: { form: string }) => x.form === "ITR")).toBe(true);
+  });
+});
+
 describe("CVM through the tools", () => {
   it("company_lookup finds a Brazilian company by B3 ticker, id or name", async () => {
     for (const q of ["PETR4", "CVM9512", "petrobras"]) {

@@ -59,9 +59,51 @@ def read() -> list[dict]:
     return sorted(best.values(), key=lambda a: (a["cd_cvm"], a["statement"], a["code"], a["end"]))
 
 
+def read_ltm() -> list[dict]:
+    """LTM for each company's latest ITR: the last DFP's fiscal year + this year to date - last year's same period."""
+    itr = {}
+    for path in sorted(FIX.glob("itr_cia_aberta_20??.csv")):
+        for r in rows(path.name):
+            key = (r["CD_CVM"], r["DT_REFER"])
+            if key not in itr or int(r["VERSAO"]) > int(itr[key]["VERSAO"]):
+                itr[key] = r
+    latest = {}
+    for (cd, refer), f in itr.items():
+        if cd not in latest or refer > latest[cd]["DT_REFER"]:
+            latest[cd] = f
+    annual = {(a["cd_cvm"], a["statement"], a["code"], a["end"]): a for a in read() if a["start"]}
+    out = []
+    for cd, f in sorted(latest.items()):
+        end = f["DT_REFER"]
+        y = int(end[:4])
+        fy_end = f"{y - 1}-12-31"
+        for path in sorted(FIX.glob(f"itr_cia_aberta_*_con_{y}.csv")):
+            st = next(s for s in STATEMENTS if f"_{s}_con_" in path.name)
+            stmt = "DFC" if st.startswith("DFC") else st
+            if stmt in ("BPA", "BPP"):
+                continue
+            ytd, prior = {}, {}
+            for r in rows(path.name):
+                if r["CD_CVM"] != cd or r["DT_REFER"] != end or r["VERSAO"] != f["VERSAO"] or (stmt, r["CD_CONTA"]) not in ASKED:
+                    continue
+                v = round(float(r["VL_CONTA"]) * SCALE[r["ESCALA_MOEDA"]])
+                if r["DT_INI_EXERC"] == f"{y}-01-01" and r["DT_FIM_EXERC"] == end:
+                    ytd[r["CD_CONTA"]] = v
+                elif r["DT_INI_EXERC"] == f"{y - 1}-01-01" and r["DT_FIM_EXERC"] == f"{y - 1}{end[4:]}":
+                    prior[r["CD_CONTA"]] = v
+            for code in sorted(ytd):
+                fy = annual.get((cd, stmt, code, fy_end))
+                if fy is None or code not in prior:
+                    continue
+                out.append({"cd_cvm": cd, "statement": stmt, "code": code, "end": end, "value": fy["value"] + ytd[code] - prior[code],
+                            "formula": "FY + YTD - prior YTD", "fy_filing": fy["filing"], "itr_filing": f"CVM-ITR-{f['ID_DOC']}"})
+    return out
+
+
 if __name__ == "__main__":
     answers = read()
+    ltm = read_ltm()
     OUT.write_text(json.dumps({"_note": "Written by evals/cvm_reader.py from server/test/fixtures/cvm. Contains information from the CVM "
                                          "Open Data Portal (https://dados.cvm.gov.br/), under the ODbL.",
-                               "parser": "python csv (evals/cvm_reader.py)", "answers": answers}, indent=1, ensure_ascii=False) + "\n")
-    print(f"Wrote {OUT} ({len(answers)} answers)")
+                               "parser": "python csv (evals/cvm_reader.py)", "answers": answers, "ltm": ltm}, indent=1, ensure_ascii=False) + "\n")
+    print(f"Wrote {OUT} ({len(answers)} answers, {len(ltm)} LTM)")

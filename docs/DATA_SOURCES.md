@@ -282,7 +282,8 @@ resubmissions; DFP since 2010, ITR since 2011.
   terms. The Brazilian snapshot files would carry their own ODbL notice and a download link.
 
 **How deskstack meets them** (2026-11-10, `server/scripts/build-cvm.ts`):
-- 20 large non-financial companies (`server/data/br-issuers.json`), consolidated DFP statements, by fixed account code.
+- 20 large non-financial companies (`server/data/br-issuers.json`), consolidated DFP statements and this year's ITR
+  quarterly statements (for LTM), by fixed account code.
 - Every Brazilian answer carries the notice above in `attribution`, and each source's `license_note` names the ODbL.
 - Each file under `v1/br/` states the licence. `v1/br/dataset.json` is the whole derived database, a static file
   anyone can download (§4.6). B3 tickers come from CVM's FCA forms, also ODbL.

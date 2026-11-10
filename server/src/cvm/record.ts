@@ -33,7 +33,7 @@ export function buildBrRecord(issuer: BrIssuer, years: CvmYear[], cvm: { cnpj: s
   let financials: Standardized | null = null;
   let error: string | null = null;
   try {
-    financials = standardize(toCompanyFacts(issuer.name, years, issuer.cd_cvm), SNAPSHOT_YEARS, false, {
+    financials = standardize(toCompanyFacts(issuer.name, years, issuer.cd_cvm), SNAPSHOT_YEARS, true, {
       source: "cvm",
       filingUrl: (a) => byId.get(a)?.url ?? CVM_PORTAL,
     });
@@ -51,7 +51,7 @@ export function buildBrRecord(issuer: BrIssuer, years: CvmYear[], cvm: { cnpj: s
       viewer_url: null,
       report_url: f.url,
       package_url: null,
-      kind: "annual",
+      kind: f.form === "ITR" ? "half-year" : "annual",
       report_end: f.refer,
     };
   }
