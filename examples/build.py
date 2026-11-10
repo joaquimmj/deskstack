@@ -254,6 +254,28 @@ def _deterministic(xlsx: Path, recorded: str) -> None:
     tmp.replace(xlsx)
 
 
+def _first_diff(new: bytes, old: bytes, width: int = 160) -> str:
+    """The first place two texts part, with a little context: enough to read a CI-only difference from its log."""
+    i = next((k for k, (x, y) in enumerate(zip(new, old)) if x != y), min(len(new), len(old)))
+    lo = max(0, i - width // 2)
+    show = lambda b: b[lo:i + width // 2].decode("utf-8", "replace")
+    return f"at byte {i}: new {show(new)!r} / committed {show(old)!r}"
+
+
+def _why(new: Path, old: Path) -> str:
+    """What differs between a rebuilt output and the committed one: the workbook parts that changed, or a text's
+    first differing place."""
+    if new.suffix == ".xlsx":
+        with zipfile.ZipFile(new) as a, zipfile.ZipFile(old) as b:
+            na, nb = set(a.namelist()), set(b.namelist())
+            out = [f"part {m} only in {'new' if m in na else 'committed'}" for m in sorted(na ^ nb)]
+            out += [f"part {m} {_first_diff(a.read(m), b.read(m))}" for m in sorted(na & nb) if a.read(m) != b.read(m)]
+            if not out:
+                out = ["same parts, different zip bytes (headers)"]
+            return "; ".join(out[:3])
+    return _first_diff(new.read_bytes(), old.read_bytes())
+
+
 def _write(path: Path, obj) -> None:
     path.write_text(obj if isinstance(obj, str) else json.dumps(obj, indent=1, ensure_ascii=False) + "\n")
 
@@ -321,8 +343,10 @@ def main(argv: list[str]) -> int:
                 bad.append(str(e))
                 continue
             for f in OUTPUTS:
-                if not (HERE / n / f).exists() or not filecmp.cmp(tmp / f, HERE / n / f, shallow=False):
-                    bad.append(f"examples/{n}/{f} is out of date. Run: python3 examples/build.py")
+                if not (HERE / n / f).exists():
+                    bad.append(f"examples/{n}/{f} is missing. Run: python3 examples/build.py")
+                elif not filecmp.cmp(tmp / f, HERE / n / f, shallow=False):
+                    bad.append(f"examples/{n}/{f} is out of date ({_why(tmp / f, HERE / n / f)}). Run: python3 examples/build.py")
     for b in bad:
         print(b, file=sys.stderr)
     return 1 if bad else 0

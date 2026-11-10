@@ -55,3 +55,20 @@ def test_the_demo_recording_is_current():
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     assert (ROOT / "site" / "media" / "demo" / "demo.cast").read_text() == mod.cast()
+
+
+def test_check_says_what_differs(tmp_path):
+    """--check names the part of the file that changed, so a CI-only difference can be read from the log."""
+    import zipfile
+
+    def xlsx(p, cell):
+        with zipfile.ZipFile(p, "w") as z:
+            z.writestr("[Content_Types].xml", "<Types/>")
+            z.writestr("xl/worksheets/sheet1.xml", f"<sheetData><c r='A1'><v>{cell}</v></c></sheetData>")
+        return p
+
+    why = _load()._why(xlsx(tmp_path / "new.xlsx", "0.1"), xlsx(tmp_path / "old.xlsx", "0.10000000000000001"))
+    assert "xl/worksheets/sheet1.xml" in why and "0.1" in why and "[Content_Types].xml" not in why
+    (tmp_path / "a.json").write_text('{\n "x": 1,\n "y": 2\n}\n')
+    (tmp_path / "b.json").write_text('{\n "x": 1,\n "y": 3\n}\n')
+    assert '"y": 2' in _load()._why(tmp_path / "a.json", tmp_path / "b.json")
