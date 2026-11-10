@@ -130,8 +130,18 @@ def render(L: dict, prefix: str, home: str) -> str:
     b_cards = []
     for k, (h, p) in enumerate(L["b_cards"]):
         extra = f'<a href="{GH}/blob/main/bench/ROBUSTNESS.md">{L["b_robust"]} {ARROW}</a>' if k == 1 else ""
-        b_cards.append(f'<article class="card reveal"><h3>{h}</h3><p>{p}</p>{extra}</article>')
-    data_cards = "".join(f'<article class="src-card reveal"><span class="src-tag">{a}</span><h3>{b}</h3><p>{c}</p></article>' for a, b, c in L["data"])
+        b_cards.append(f'<article class="card"><h3>{h}</h3><p>{p}</p>{extra}</article>')
+    data_cards = "".join(f'<article class="src-card"><span class="src-tag">{a}</span><h3>{b}</h3><p>{c}</p></article>' for a, b, c in L["data"])
+    plans = []
+    for k, c in enumerate(L["p_cards"]):
+        href = c["href"].replace("GH", GH)
+        badge = f'<span class="badge">{c["badge"]}</span>' if c["badge"] else ""
+        ms = "".join(f'<div><b>{a}</b><span>{b}</span></div>' for a, b in c["m"])
+        items = "".join(f"<li>{TICK}{x}</li>" for x in c["items"])
+        plans.append(f'<article class="plan{" dark" if k == 0 else ""}"><div class="plan-h"><h3>{c["name"]}</h3>{badge}</div><p class="plan-lede">{c["lede"]}</p>'
+                     f'<p class="price"><b>{c["price"]}</b> <span>{c["per"]}</span></p>'
+                     f'<a class="btn {"light" if k == 0 else "ink"} wide" href="{href}">{c["btn"]} {ARROW}</a>'
+                     f'<div class="plan-m">{ms}</div><ul class="plan-list">{items}</ul></article>')
     faq = "".join(f'<details><summary>{q}<i aria-hidden="true"></i></summary><p>{a}</p></details>' for q, a in L["faq"])
 
     fl = L["f_links"]
@@ -149,7 +159,8 @@ def render(L: dict, prefix: str, home: str) -> str:
         "hero_cells": "".join(cells), "stats": stats, "tabs": "".join(tabs), "panels": "".join(panels),
         "lane_steps": lane_steps, "dk_steps": dk_steps, "dk_hints": hints, "verify_json": VERIFY_JSON,
         "bench_tables": "".join(tables), "b_cards": "".join(b_cards), "data_cards": data_cards, "faq": faq,
-        "f_col1": f_col1, "f_col2": f_col2, "f_col3": f_col3, "tut_path": tut_path,
+        "f_col1": f_col1, "f_col2": f_col2, "f_col3": f_col3, "tut_path": tut_path, "plans": "".join(plans),
+        "comps_analysis": L["benches"][1]["analysis"],
         "desc_attr": html.escape(L["desc"], quote=True), "title_text": html.escape(L["title"]),
         # Cache-busting: a hash of the assets, so a deploy never serves new HTML with old CSS or JS.
         "ver": hashlib.sha256(b"".join((SITE / f).read_bytes() for f in ("style.css", "app.js", "config.js"))).hexdigest()[:10],
