@@ -14,7 +14,7 @@ Reviewers report; nothing changes without your OK.
 
 ## Install
 
-1. **Connector (data).** In Claude, open **Settings → Connectors → Add custom connector**. Paste
+1. **Connector (data).** In Claude, open **Customize → Connectors → Add custom connector**. Paste
    `https://deskstack.deskstack-server.workers.dev/mcp`, with no sign-in. In Claude Code the plugin declares the connector itself (`.mcp.json`).
 2. **Plugin.** Open **Customize → Plugins → Add marketplace**, paste this repository's GitHub URL, then install
    **deskstack**.
