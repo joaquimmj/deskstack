@@ -130,8 +130,10 @@ export function extractDfpYear(files: Map<string, string>, want: Set<string>, ye
       if (acc.code === "3.01") revenueLabel[filing.cd_cvm] = r.DS_CONTA!;
       const scale = SCALE[r.ESCALA_MOEDA!];
       const currency = CURRENCY[r.MOEDA!];
-      const v = Number(r.VL_CONTA);
-      if (!scale || !currency || !Number.isFinite(v)) continue; // unknown scale or currency: never guessed
+      const raw = (r.VL_CONTA ?? "").trim();
+      const v = Number(raw);
+      // An unknown scale or currency, or an empty amount (Number("") is 0), is skipped: never guessed, never a cited 0.
+      if (!scale || !currency || !raw || !Number.isFinite(v)) continue;
       const end = r.DT_FIM_EXERC!;
       const start = acc.instant ? undefined : r.DT_INI_EXERC!;
       // DFC is filed either indirect (MI) or direct (MD): the same line once is enough.
@@ -178,4 +180,11 @@ export function tickersFromFca(text: string): Map<string, string[]> {
     out.set(r.CNPJ_Companhia!, list);
   }
   return new Map([...out].map(([k, v]) => [k, v.sort((a, b) => Number(b.ordinary) - Number(a.ordinary) || a.code.localeCompare(b.code)).map((t) => t.code)]));
+}
+
+/** Two years of FCA tickers per CNPJ: this year's form when a company has filed it (by 31 May), else last year's. */
+export function mergeTickers(current: Map<string, string[]>, previous: Map<string, string[]>): Map<string, string[]> {
+  const out = new Map(previous);
+  for (const [k, v] of current) out.set(k, v);
+  return out;
 }

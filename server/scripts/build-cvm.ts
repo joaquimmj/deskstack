@@ -14,8 +14,8 @@ import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
 import yauzl from "yauzl";
 import { PRODUCT_NAME, REPO_URL, SNAPSHOT_SCHEMA, SNAPSHOT_YEARS } from "../src/config";
-import { extractDfpYear, tickersFromFca, type CvmYear } from "../src/cvm/extract";
-import { brId, buildBrRecord, CVM_NOTICE, CVM_PORTAL, ODBL_URL, type BrIssuer } from "../src/cvm/record";
+import { extractDfpYear, mergeTickers, tickersFromFca, type CvmYear } from "../src/cvm/extract";
+import { brId, brIndexRow, buildBrRecord, CVM_NOTICE, CVM_PORTAL, ODBL_URL, type BrIssuer } from "../src/cvm/record";
 
 const arg = (n: string) => {
   const i = process.argv.indexOf(`--${n}`);
@@ -86,31 +86,32 @@ for (let y = THIS_YEAR - SNAPSHOT_YEARS; y <= THIS_YEAR; y++) {
   console.log(`DFP ${y}: ${yr.filings.length} filing(s), ${yr.facts.length} line(s)`);
 }
 
-// The latest quarterly statements (ITR), for the LTM column: this year's, which also hold last year's same periods.
+// Quarterly statements (ITR), for the LTM column: this year's and last year's. Between January and the DFP's
+// publication the latest fiscal year is two years back, and last year's third-quarter ITR is the one that follows it.
 // (CVM files no ITR for the fourth quarter: after a DFP and before the next ITR, LTM is the fiscal year itself.)
-{
-  const p = await zipPath("ITR", THIS_YEAR);
-  if (p) {
-    const files = await csvs(p, (n) => n === `itr_cia_aberta_${THIS_YEAR}.csv` || /_(DRE|BPA|BPP|DFC_MI|DFC_MD)_con_\d{4}\.csv$/.test(n));
-    const yr = extractDfpYear(files, want, THIS_YEAR, "itr");
-    years.push(yr);
-    console.log(`ITR ${THIS_YEAR}: ${yr.filings.length} filing(s), ${yr.facts.length} line(s)`);
-  } else {
-    console.log(`ITR ${THIS_YEAR}: not published yet`);
+for (const y of [THIS_YEAR - 1, THIS_YEAR]) {
+  const p = await zipPath("ITR", y);
+  if (!p) {
+    console.log(`ITR ${y}: not published yet`);
+    continue;
   }
+  const files = await csvs(p, (n) => n === `itr_cia_aberta_${y}.csv` || /_(DRE|BPA|BPP|DFC_MI|DFC_MD)_con_\d{4}\.csv$/.test(n));
+  const yr = extractDfpYear(files, want, y, "itr");
+  years.push(yr);
+  console.log(`ITR ${y}: ${yr.filings.length} filing(s), ${yr.facts.length} line(s)`);
 }
 
+// Tickers from the FCA forms of the last two years, merged: companies have until 31 May to file this year's.
 let tickers = new Map<string, string[]>();
-for (const y of [THIS_YEAR, THIS_YEAR - 1]) {
+for (const y of [THIS_YEAR - 1, THIS_YEAR]) {
   const p = await zipPath("FCA", y);
   if (!p) continue;
   const f = await csvs(p, (n) => n === `fca_cia_aberta_valor_mobiliario_${y}.csv`);
   const text = f.get(`fca_cia_aberta_valor_mobiliario_${y}.csv`);
-  if (text) {
-    tickers = tickersFromFca(text);
-    console.log(`FCA ${y}: tickers for ${tickers.size} companies`);
-    break;
-  }
+  if (!text) continue;
+  const t = tickersFromFca(text);
+  tickers = mergeTickers(t, tickers);
+  console.log(`FCA ${y}: tickers for ${t.size} companies`);
 }
 
 mkdirSync(join(OUT, "v1", "br", "co"), { recursive: true });
@@ -129,9 +130,9 @@ for (const issuer of issuers) {
   }
   writeFileSync(join(OUT, "v1", "br", "co", `${id}.json`), JSON.stringify(rec));
   dataset[id] = rec;
-  const last = rec.financials!.periods.at(-1);
-  index.push([id, issuer.name, rec.cvm!.tickers, rec.financials!.currency, last?.end.slice(5).replace("-", "") ?? null]);
-  console.log(`${id} ${issuer.name} ${rec.cvm!.tickers.join("/")}: ${rec.financials!.periods.length} year(s)`);
+  index.push(brIndexRow(rec));
+  const annual = rec.financials!.periods.filter((p) => p.type === "annual").length;
+  console.log(`${id} ${issuer.name} ${rec.cvm!.tickers.join("/")}: ${annual} year(s)${rec.financials!.periods.some((p) => p.type === "ltm") ? " + LTM" : ""}`);
 }
 
 const license = { license: "ODbL-1.0", license_url: ODBL_URL, notice: CVM_NOTICE, source: CVM_PORTAL, derived_by: `${PRODUCT_NAME} (${REPO_URL})` };

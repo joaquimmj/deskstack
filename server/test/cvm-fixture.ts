@@ -3,7 +3,7 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { extractDfpYear, tickersFromFca } from "../src/cvm/extract";
-import { brId, buildBrRecord } from "../src/cvm/record";
+import { brIndexRow, buildBrRecord } from "../src/cvm/record";
 import type { EuRecord } from "../src/esef/record";
 
 const DIR = join(import.meta.dirname, "fixtures", "cvm");
@@ -37,7 +37,7 @@ export function brAssets(): Map<string, unknown> {
   const recs = brRecords();
   files.set("/v1/br/companies.json", {
     fields: ["id", "name", "tickers", "currency", "fiscal_year_end"],
-    data: recs.map((r) => [brId(r.cvm!.code), r.name, r.cvm!.tickers, r.financials!.currency, "1231"]),
+    data: recs.map((r) => brIndexRow(r)),
   });
   files.set("/v1/br/manifest.json", { built_at: "2026-11-10T04:00:00Z" });
   for (const r of recs) files.set(`/v1/br/co/${r.lei}.json`, r);

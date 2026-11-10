@@ -178,6 +178,12 @@ ESEF = [
      [('revenue', 'Revenue'), ('operating_income', 'ProfitLossFromOperatingActivities'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ["eu", "esef", "no", "stars-batch-2"]),
     ("549300DV5KJ23OKVTW34", "D'Ieteren", "FY2025", "549300DV5KJ23OKVTW34-2025-12-31-ESEF-BE-0", "2025-01-01", "2025-12-31",
      [('revenue', 'Revenue'), ('operating_income', 'ProfitLossFromOperatingActivities'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ["eu", "esef", "be", "stars-batch-2"]),
+    ("21380068P1DRHMJ8KU70", "Shell", "FY2025", "21380068P1DRHMJ8KU70-2025-12-31-ESEF-GB-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ["eu", "esef", "gb", "stars-batch-2"]),
+    ("213800UPS1QEE4TD3T45", "DCC", "FY2026", "213800UPS1QEE4TD3T45-2026-03-31-ESEF-GB-0", "2025-04-01", "2026-03-31",
+     [('revenue', 'Revenue'), ('operating_income', 'ProfitLossFromOperatingActivities'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ["eu", "esef", "gb", "stars-batch-2"]),
+    ("2138007FRGLUR9KGBT40", "Halma", "FY2026", "2138007FRGLUR9KGBT40-2026-03-31-ESEF-GB-0", "2025-04-01", "2026-03-31",
+     [('revenue', 'Revenue'), ('operating_income', 'ProfitLossFromOperatingActivities'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ["eu", "esef", "gb", "stars-batch-2"]),
 ]
 
 # Behavior checks: (id, question, call, read, expected, tags)

@@ -205,7 +205,7 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
     const t = ticker.trim().toUpperCase();
     // Brazil: deskstack's CVM id, or a B3 ticker (PETR4) found in the Brazilian index.
     const brId = BR_ID_RE.test(t)
-      ? t
+      ? `CVM${Number(t.slice(3))}` // CVM writes codes zero-padded (009512)
       : /^[A-Z]{4}\d{1,2}$/.test(t)
         ? (await repo.brCompanies()).find((c) => c.tickers.includes(t))?.id
         : undefined;

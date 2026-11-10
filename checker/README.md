@@ -5,7 +5,8 @@ Checks any spreadsheet financial model (`.xlsx`), whether an AI or a person buil
 - **Offline:** 21 deterministic model checks, built on [openpyxl](https://openpyxl.readthedocs.io) (MIT). Only
   public, widely known modelling practices are checked. It reports findings and never grades a person.
 - **With `--verify`:** every typed figure is tied to the SEC or ESEF filing through the free
-  [deskstack](https://github.com/joaquimmj/deskstack) connector. Only those figures are sent.
+  [deskstack](https://github.com/joaquimmj/deskstack) connector. Only those figures are sent, each with its line item, period
+  and cell reference (e.g. `Inputs!C5`).
 
 ```bash
 pipx run deskstack-check model.xlsx              # readable report

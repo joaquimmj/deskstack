@@ -173,7 +173,8 @@ export class Repo {
 
   /** A Brazilian company's record by deskstack id (CVM9512); a ToolError explains coverage when it isn't built. */
   async brRecord(id: string): Promise<EuRecord> {
-    const rec = /^CVM\d{1,6}$/.test(id) ? await this.asset<EuRecord>(`/br/co/${id}.json`) : null;
+    const norm = /^CVM\d{1,6}$/.test(id) ? `CVM${Number(id.slice(3))}` : null;
+    const rec = norm ? await this.asset<EuRecord>(`/br/co/${norm}.json`) : null;
     if (!rec) {
       throw new ToolError(
         `${id} is not in the Brazilian coverage yet. Covered companies are listed by company_lookup (region BR): ` +
