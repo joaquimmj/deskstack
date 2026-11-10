@@ -431,9 +431,16 @@ def build_comps(spec: dict, out: str | Path, tamper=None) -> Path:
         vals = {}
         for j, (k, h) in enumerate(COMPS_COLS):
             item = _need(p, k, f"peers[{i}] ({name})")
+            if k == "market_cap" and isinstance(item, dict) and item.get("value") is None:
+                vals[k] = None  # deskstack has no prices: a market cap nobody gave stays empty, never estimated
+                continue
             v = _num(item["value"], f"{name} {k}")
             vals[k] = v
             b.inp(s, f"{L(4 + j)}{r}", v, f"{name} {h}", item.get("period", period), item.get("source"), num)
+        if vals["market_cap"] is None:
+            for c in "IJKL":
+                b.text(s, f"{c}{r}", "n.a.")
+            continue
         ev = vals["market_cap"] + vals["net_debt"]
         b.f(s, f"I{r}", f"=G{r}+H{r}", ev, num)
         evr = ev / vals["revenue"] if vals["revenue"] > 0 else "n.m."
@@ -452,7 +459,8 @@ def build_comps(spec: dict, out: str | Path, tamper=None) -> Path:
         vals = [x for x in _col_values(b, s, c, p1, last) if isinstance(x, float)]
         b.f(s, f"{c}{rmed}", f'=IFERROR(MEDIAN({c}{p1}:{c}{last}),"n.m.")', statistics.median(vals) if vals else "n.m.", "0.0x")
         b.f(s, f"{c}{rmean}", f'=IFERROR(AVERAGE({c}{p1}:{c}{last}),"n.m.")', statistics.fmean(vals) if vals else "n.m.", "0.0x")
-    b.text(s, f"A{rmean + 2}", "n.m. = not meaningful (negative or zero denominator). Market cap is a typed input: price x shares, cited.")
+    b.text(s, f"A{rmean + 2}", "n.m. = not meaningful (negative or zero denominator). Market cap is a typed input: price x shares, cited."
+           + (" n.a. = not available: no market cap given." if any(isinstance(p.get("market_cap"), dict) and p["market_cap"].get("value") is None for p in peers) else ""))
     b.sheet(s).column_dimensions["A"].width = 30
     for j in range(2, 13):
         b.sheet(s).column_dimensions[L(j)].width = 13

@@ -16,7 +16,7 @@
   model. They report; they never edit.
 - **Nothing ships without your OK.** The final file is exported only after you approve it in your own words.
 
-[Website](https://joaquimmj.github.io/deskstack/) · [Tutorial](docs/TUTORIAL.md) · [Tutoriel (FR)](docs/TUTORIEL.md)
+[Website](https://joaquimmj.github.io/deskstack/) · [Examples](examples/README.md) · [Tutorial](docs/TUTORIAL.md) · [Tutoriel (FR)](docs/TUTORIEL.md)
 
 > **Public beta.** The hosted connector is online at `https://deskstack.deskstack-server.workers.dev/mcp`. Feedback
 > and issues are welcome.
@@ -56,6 +56,9 @@ read by hand against the filing.
 | Figure from an aggregator or Wikipedia | Cisco and Verizon operating income; Schneider operating income, rounded | `/associate`: mismatch, with the filed value and its source |
 | Estimate typed as a filed figure | Netflix capex as operating cash flow minus free cash flow | `/associate`: mismatch; `/vp-review` rule DS016 also flags a figure labelled as an estimate with no filing cited |
 | Placeholder left at 0 | Cigna, CVS and Humana in UnitedHealth's comps, labelled "NOT FOUND" (7 figures) | `/vp-review` rule DS016: a typed 0 labelled as not found |
+
+To see these caught, open [examples/errors-caught](examples/errors-caught/): a Microsoft DCF with four of these errors
+typed in on purpose, and the reports that find all four.
 
 `verify_value` also names the usual causes of a mismatch: wrong scale, opposite sign, another period, another line
 item, another currency, two digits swapped. The 20 model rules are listed in [checker/README.md](checker/README.md).

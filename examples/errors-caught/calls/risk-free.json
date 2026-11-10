@@ -1,0 +1,40 @@
+{
+ "tool": "risk_free_rate",
+ "args": {
+  "region": "US",
+  "tenor": "10Y"
+ },
+ "connector": "https://deskstack.deskstack-server.workers.dev/mcp",
+ "recorded_at": "2026-11-10",
+ "response": {
+  "summary": "US 10Y government yield: 4.880% (decimal 0.04880) on 2026-11-09 (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates).",
+  "region": "US",
+  "tenor": "10Y",
+  "rate_pct": 4.88,
+  "rate_decimal": 0.0488,
+  "date": "2026-11-09",
+  "basis": "US Treasury par yield, 10Y, bond-equivalent basis",
+  "series": "daily_treasury_yield_curve \"10 Yr\"",
+  "warnings": [],
+  "source": {
+   "name": "U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates",
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
+   "accession_or_id": "daily_treasury_yield_curve/2026-11-09/10 Yr",
+   "period": "2026-11-09",
+   "as_of": "2026-11-09",
+   "license_note": "U.S. government data, free to reuse; cite U.S. Treasury."
+  },
+  "sources": [
+   {
+    "name": "U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates",
+    "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
+    "accession_or_id": "daily_treasury_yield_curve/2026-11-09/10 Yr",
+    "period": "2026-11-09",
+    "as_of": "2026-11-09",
+    "license_note": "U.S. government data, free to reuse; cite U.S. Treasury."
+   }
+  ],
+  "note": "Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.",
+  "disclaimer": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice."
+ }
+}

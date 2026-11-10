@@ -1,0 +1,509 @@
+{
+ "tool": "financial_statements",
+ "args": {
+  "ticker": "724500K5PTPSST86UQ23",
+  "years": 4
+ },
+ "connector": "https://deskstack.deskstack-server.workers.dev/mcp",
+ "recorded_at": "2026-11-10",
+ "response": {
+  "summary": "Heineken N.V. (LEI 724500K5PTPSST86UQ23, NL), IFRS, EUR. FY2025 (ended 2025-12-31): revenue 34.3B EUR, net income 1.9B EUR. 4 period(s), 3 cited ESEF report(s). Every value cites its IFRS concept and report; cite the matching `sources` entry when you use a number.",
+  "company": {
+   "name": "Heineken N.V.",
+   "ticker": null,
+   "lei": "724500K5PTPSST86UQ23",
+   "country": "NL",
+   "region": "EU",
+   "reporting_standard": "IFRS",
+   "currency": "EUR",
+   "fiscal_year_end": "1231",
+   "financial_company": false
+  },
+  "units": "Monetary values in EUR, absolute (not thousands or millions). diluted_eps in EUR per share.",
+  "periods": [
+   {
+    "label": "FY2022",
+    "type": "annual",
+    "start": "2022-01-01",
+    "end": "2022-12-31",
+    "income_statement": {
+     "revenue": {
+      "value": 34676000000,
+      "concept": "ifrs-full:Revenue",
+      "accession": "724500K5PTPSST86UQ23-2023-12-31-ESEF-NL-0"
+     },
+     "gross_profit": null,
+     "operating_income": {
+      "value": 4283000000,
+      "concept": "ifrs-full:ProfitLossFromOperatingActivities",
+      "accession": "724500K5PTPSST86UQ23-2023-12-31-ESEF-NL-0"
+     },
+     "interest_expense": {
+      "value": 458000000,
+      "concept": "ifrs-full:InterestExpense",
+      "accession": "724500K5PTPSST86UQ23-2023-12-31-ESEF-NL-0"
+     },
+     "pretax_income": {
+      "value": 4170000000,
+      "concept": "ifrs-full:ProfitLossBeforeTax",
+      "accession": "724500K5PTPSST86UQ23-2023-12-31-ESEF-NL-0"
+     },
+     "net_income": {
+      "value": 2682000000,
+      "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
+      "accession": "724500K5PTPSST86UQ23-2023-12-31-ESEF-NL-0"
+     },
+     "diluted_shares": {
+      "value": 576026120,
+      "concept": "ifrs-full:AdjustedWeightedAverageShares",
+      "accession": "724500K5PTPSST86UQ23-2023-12-31-ESEF-NL-0"
+     },
+     "diluted_eps": {
+      "value": 4.65,
+      "concept": "ifrs-full:DilutedEarningsLossPerShare",
+      "accession": "724500K5PTPSST86UQ23-2023-12-31-ESEF-NL-0"
+     }
+    },
+    "cash_flow": {
+     "operating_cash_flow": {
+      "value": 4496000000,
+      "concept": "ifrs-full:CashFlowsFromUsedInOperatingActivities",
+      "accession": "724500K5PTPSST86UQ23-2023-12-31-ESEF-NL-0"
+     },
+     "capex": {
+      "value": 1791000000,
+      "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
+      "accession": "724500K5PTPSST86UQ23-2023-12-31-ESEF-NL-0"
+     },
+     "d_and_a": {
+      "value": 1886000000,
+      "concept": "ifrs-full:AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss",
+      "accession": "724500K5PTPSST86UQ23-2023-12-31-ESEF-NL-0",
+      "note": "includes impairment: the filer tags no D&A line without it, so EBITDA includes impairment too"
+     }
+    },
+    "balance_sheet": {
+     "cash": {
+      "value": 2765000000,
+      "concept": "ifrs-full:CashAndCashEquivalents",
+      "accession": "724500K5PTPSST86UQ23-2023-12-31-ESEF-NL-0"
+     },
+     "short_term_investments": null,
+     "total_assets": {
+      "value": 52406000000,
+      "concept": "ifrs-full:Assets",
+      "accession": "724500K5PTPSST86UQ23-2023-12-31-ESEF-NL-0"
+     },
+     "total_equity": {
+      "value": 19551000000,
+      "concept": "ifrs-full:EquityAttributableToOwnersOfParent",
+      "accession": "724500K5PTPSST86UQ23-2023-12-31-ESEF-NL-0"
+     },
+     "borrowings": null,
+     "borrowings_noncurrent": {
+      "value": 12893000000,
+      "concept": "ifrs-full:LongtermBorrowings",
+      "accession": "724500K5PTPSST86UQ23-2023-12-31-ESEF-NL-0"
+     },
+     "borrowings_current": null,
+     "short_term_borrowings": {
+      "value": 3484000000,
+      "concept": "ifrs-full:ShorttermBorrowings",
+      "accession": "724500K5PTPSST86UQ23-2023-12-31-ESEF-NL-0"
+     },
+     "current_portion_of_longterm_borrowings": null
+    },
+    "derived": {
+     "ebitda": {
+      "value": 6169000000,
+      "formula": "operating_income + d_and_a (includes impairment)"
+     },
+     "free_cash_flow": {
+      "value": 2705000000,
+      "formula": "operating_cash_flow - capex"
+     },
+     "total_debt": {
+      "value": 16377000000,
+      "formula": "borrowings_noncurrent + short_term_borrowings"
+     },
+     "net_debt": {
+      "value": 13612000000,
+      "formula": "total_debt - cash - short_term_investments"
+     }
+    }
+   },
+   {
+    "label": "FY2023",
+    "type": "annual",
+    "start": "2023-01-01",
+    "end": "2023-12-31",
+    "income_statement": {
+     "revenue": {
+      "value": 36375000000,
+      "concept": "ifrs-full:Revenue",
+      "accession": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+     },
+     "gross_profit": null,
+     "operating_income": {
+      "value": 3229000000,
+      "concept": "ifrs-full:ProfitLossFromOperatingActivities",
+      "accession": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+     },
+     "interest_expense": {
+      "value": 640000000,
+      "concept": "ifrs-full:InterestExpense",
+      "accession": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+     },
+     "pretax_income": {
+      "value": 2522000000,
+      "concept": "ifrs-full:ProfitLossBeforeTax",
+      "accession": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+     },
+     "net_income": {
+      "value": 2304000000,
+      "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
+      "accession": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+     },
+     "diluted_shares": {
+      "value": 563979620,
+      "concept": "ifrs-full:AdjustedWeightedAverageShares",
+      "accession": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+     },
+     "diluted_eps": {
+      "value": 4.09,
+      "concept": "ifrs-full:DilutedEarningsLossPerShare",
+      "accession": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+     }
+    },
+    "cash_flow": {
+     "operating_cash_flow": {
+      "value": 4430000000,
+      "concept": "ifrs-full:CashFlowsFromUsedInOperatingActivities",
+      "accession": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+     },
+     "capex": {
+      "value": 2434000000,
+      "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
+      "accession": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+     },
+     "d_and_a": {
+      "value": 3096000000,
+      "concept": "ifrs-full:AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss",
+      "accession": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0",
+      "note": "includes impairment: the filer tags no D&A line without it, so EBITDA includes impairment too"
+     }
+    },
+    "balance_sheet": {
+     "cash": {
+      "value": 2377000000,
+      "concept": "ifrs-full:CashAndCashEquivalents",
+      "accession": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+     },
+     "short_term_investments": null,
+     "total_assets": {
+      "value": 55153000000,
+      "concept": "ifrs-full:Assets",
+      "accession": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+     },
+     "total_equity": {
+      "value": 20056000000,
+      "concept": "ifrs-full:EquityAttributableToOwnersOfParent",
+      "accession": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+     },
+     "borrowings": null,
+     "borrowings_noncurrent": {
+      "value": 14046000000,
+      "concept": "ifrs-full:LongtermBorrowings",
+      "accession": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+     },
+     "borrowings_current": null,
+     "short_term_borrowings": {
+      "value": 4192000000,
+      "concept": "ifrs-full:ShorttermBorrowings",
+      "accession": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+     },
+     "current_portion_of_longterm_borrowings": null
+    },
+    "derived": {
+     "ebitda": {
+      "value": 6325000000,
+      "formula": "operating_income + d_and_a (includes impairment)"
+     },
+     "free_cash_flow": {
+      "value": 1996000000,
+      "formula": "operating_cash_flow - capex"
+     },
+     "total_debt": {
+      "value": 18238000000,
+      "formula": "borrowings_noncurrent + short_term_borrowings"
+     },
+     "net_debt": {
+      "value": 15861000000,
+      "formula": "total_debt - cash - short_term_investments"
+     }
+    }
+   },
+   {
+    "label": "FY2024",
+    "type": "annual",
+    "start": "2024-01-01",
+    "end": "2024-12-31",
+    "income_statement": {
+     "revenue": {
+      "value": 35955000000,
+      "concept": "ifrs-full:Revenue",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "gross_profit": null,
+     "operating_income": {
+      "value": 3517000000,
+      "concept": "ifrs-full:ProfitLossFromOperatingActivities",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "interest_expense": {
+      "value": 680000000,
+      "concept": "ifrs-full:InterestExpense",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "pretax_income": {
+      "value": 2007000000,
+      "concept": "ifrs-full:ProfitLossBeforeTax",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "net_income": {
+      "value": 978000000,
+      "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "diluted_shares": {
+      "value": 560639030,
+      "concept": "ifrs-full:AdjustedWeightedAverageShares",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "diluted_eps": {
+      "value": 1.74,
+      "concept": "ifrs-full:DilutedEarningsLossPerShare",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     }
+    },
+    "cash_flow": {
+     "operating_cash_flow": {
+      "value": 5503000000,
+      "concept": "ifrs-full:CashFlowsFromUsedInOperatingActivities",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "capex": {
+      "value": 2184000000,
+      "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "d_and_a": {
+      "value": 2605000000,
+      "concept": "ifrs-full:AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0",
+      "note": "includes impairment: the filer tags no D&A line without it, so EBITDA includes impairment too"
+     }
+    },
+    "balance_sheet": {
+     "cash": {
+      "value": 2350000000,
+      "concept": "ifrs-full:CashAndCashEquivalents",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "short_term_investments": null,
+     "total_assets": {
+      "value": 53773000000,
+      "concept": "ifrs-full:Assets",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "total_equity": {
+      "value": 19581000000,
+      "concept": "ifrs-full:EquityAttributableToOwnersOfParent",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "borrowings": null,
+     "borrowings_noncurrent": {
+      "value": 13783000000,
+      "concept": "ifrs-full:LongtermBorrowings",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "borrowings_current": null,
+     "short_term_borrowings": {
+      "value": 3266000000,
+      "concept": "ifrs-full:ShorttermBorrowings",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "current_portion_of_longterm_borrowings": null
+    },
+    "derived": {
+     "ebitda": {
+      "value": 6122000000,
+      "formula": "operating_income + d_and_a (includes impairment)"
+     },
+     "free_cash_flow": {
+      "value": 3319000000,
+      "formula": "operating_cash_flow - capex"
+     },
+     "total_debt": {
+      "value": 17049000000,
+      "formula": "borrowings_noncurrent + short_term_borrowings"
+     },
+     "net_debt": {
+      "value": 14699000000,
+      "formula": "total_debt - cash - short_term_investments"
+     }
+    }
+   },
+   {
+    "label": "FY2025",
+    "type": "annual",
+    "start": "2025-01-01",
+    "end": "2025-12-31",
+    "income_statement": {
+     "revenue": {
+      "value": 34257000000,
+      "concept": "ifrs-full:Revenue",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "gross_profit": null,
+     "operating_income": {
+      "value": 3406000000,
+      "concept": "ifrs-full:ProfitLossFromOperatingActivities",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "interest_expense": {
+      "value": 620000000,
+      "concept": "ifrs-full:InterestExpense",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "pretax_income": {
+      "value": 2995000000,
+      "concept": "ifrs-full:ProfitLossBeforeTax",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "net_income": {
+      "value": 1885000000,
+      "concept": "ifrs-full:ProfitLossAttributableToOwnersOfParent",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "diluted_shares": {
+      "value": 557024742,
+      "concept": "ifrs-full:AdjustedWeightedAverageShares",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "diluted_eps": {
+      "value": 3.38,
+      "concept": "ifrs-full:DilutedEarningsLossPerShare",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     }
+    },
+    "cash_flow": {
+     "operating_cash_flow": {
+      "value": 5012000000,
+      "concept": "ifrs-full:CashFlowsFromUsedInOperatingActivities",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "capex": {
+      "value": 2133000000,
+      "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "d_and_a": {
+      "value": 2609000000,
+      "concept": "ifrs-full:AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0",
+      "note": "includes impairment: the filer tags no D&A line without it, so EBITDA includes impairment too"
+     }
+    },
+    "balance_sheet": {
+     "cash": {
+      "value": 4773000000,
+      "concept": "ifrs-full:CashAndCashEquivalents",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "short_term_investments": null,
+     "total_assets": {
+      "value": 53753000000,
+      "concept": "ifrs-full:Assets",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "total_equity": {
+      "value": 17978000000,
+      "concept": "ifrs-full:EquityAttributableToOwnersOfParent",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "borrowings": null,
+     "borrowings_noncurrent": {
+      "value": 16191000000,
+      "concept": "ifrs-full:LongtermBorrowings",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "borrowings_current": null,
+     "short_term_borrowings": {
+      "value": 3088000000,
+      "concept": "ifrs-full:ShorttermBorrowings",
+      "accession": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+     },
+     "current_portion_of_longterm_borrowings": null
+    },
+    "derived": {
+     "ebitda": {
+      "value": 6015000000,
+      "formula": "operating_income + d_and_a (includes impairment)"
+     },
+     "free_cash_flow": {
+      "value": 2879000000,
+      "formula": "operating_cash_flow - capex"
+     },
+     "total_debt": {
+      "value": 19279000000,
+      "formula": "borrowings_noncurrent + short_term_borrowings"
+     },
+     "net_debt": {
+      "value": 14506000000,
+      "formula": "total_debt - cash - short_term_investments"
+     }
+    }
+   }
+  ],
+  "warnings": [],
+  "notes": [
+   "Values are as most recently reported (restatements included); each cites its filing.",
+   "Balance-sheet items are period-end instants. Share counts are weighted diluted; where none is tagged (some IFRS filers) the count is computed from net income and EPS, with its formula and precision.",
+   "Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful).",
+   "ESEF report (IFRS as adopted in the EU), from the issuer's tagged consolidated statements. Lines the issuer tagged only with its own (extension) concepts are not mapped and come back null, except capex, EBIT and D&A from a short list of whole concept names, shown with their real names.",
+   "No LTM column: the issuer's half-year report is not available in ESEF format."
+  ],
+  "sources": [
+   {
+    "name": "Heineken N.V., ESEF annual financial report (filings.xbrl.org)",
+    "url": "https://filings.xbrl.org/724500K5PTPSST86UQ23/2023-12-31/ESEF/NL/0/heia-2023-12-31-en/reports/ixbrlviewer.html",
+    "accession_or_id": "724500K5PTPSST86UQ23-2023-12-31-ESEF-NL-0",
+    "form": "ESEF annual report",
+    "period": "2023-12-31",
+    "as_of": "2024-02-27",
+    "license_note": "ESEF report filed under the EU Transparency Directive, via filings.xbrl.org (XBRL International); the repository states no restrictions on use. Cite the report."
+   },
+   {
+    "name": "Heineken N.V., ESEF annual financial report (filings.xbrl.org)",
+    "url": "https://filings.xbrl.org/724500K5PTPSST86UQ23/2024-12-31/ESEF/NL/0/heia-2024-12-31-en/reports/ixbrlviewer.html",
+    "accession_or_id": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0",
+    "form": "ESEF annual report",
+    "period": "2024-12-31",
+    "as_of": "2025-02-20",
+    "license_note": "ESEF report filed under the EU Transparency Directive, via filings.xbrl.org (XBRL International); the repository states no restrictions on use. Cite the report."
+   },
+   {
+    "name": "Heineken N.V., ESEF annual financial report (filings.xbrl.org)",
+    "url": "https://filings.xbrl.org/724500K5PTPSST86UQ23/2025-12-31/ESEF/NL/0/heia-2025-12-31-en/reports/ixbrlviewer.html",
+    "accession_or_id": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0",
+    "form": "ESEF annual report",
+    "period": "2025-12-31",
+    "as_of": "2026-02-11",
+    "license_note": "ESEF report filed under the EU Transparency Directive, via filings.xbrl.org (XBRL International); the repository states no restrictions on use. Cite the report."
+   }
+  ],
+  "data_as_of": "2026-11-09T23:04:33.362Z",
+  "disclaimer": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice."
+ }
+}
