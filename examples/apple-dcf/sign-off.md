@@ -1,5 +1,5 @@
 ## Sign-off summary: model.xlsx
-File SHA-256: `5a99743ad1c8b1f5137cd8ae883a4a590aea94b8997469dcd216ff3bba06bf53`
+File SHA-256: `11b8afd66b2829e085f3c84838f62f9a28515aa259cdcb5e8935f45bf4e30c64`
 
 | Check | Status | Detail |
 |---|---|---|
@@ -10,7 +10,7 @@ File SHA-256: `5a99743ad1c8b1f5137cd8ae883a4a590aea94b8997469dcd216ff3bba06bf53`
 
 **Open items: 0** (0 blocking). Missing reviews: none.
 
-Approval token: `0a90ef64d67f` (it changes if the file, a report or an open item changes).
+Approval token: `62f10d086340` (it changes if the file, a report or an open item changes).
 
 Nothing is exported until you approve in your own words. Blocking items must be fixed, or accepted with a reason that is recorded on the sign-off sheet.
 

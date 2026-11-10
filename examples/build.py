@@ -27,8 +27,13 @@ import tempfile
 import zipfile
 from pathlib import Path
 
+import os
+
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent / "checker"))
+# Same bytes whether or not lxml is installed: openpyxl writes "/>" through lxml and " />" through the standard
+# library, and every report carries the workbook's hash. Read when openpyxl is first imported.
+os.environ["OPENPYXL_LXML"] = "False"
 
 from deskstack_check import check, to_markdown  # noqa: E402
 from deskstack_check.build import build_comps, build_dcf  # noqa: E402
@@ -282,6 +287,11 @@ def _write(path: Path, obj) -> None:
 
 def build_case(name: str, src: Path, out: Path) -> None:
     """Builds one example from src/calls into out (src == out for an in-place rebuild)."""
+    import openpyxl.xml
+
+    if openpyxl.xml.LXML:
+        raise RuntimeError("openpyxl was imported with lxml on, so the workbook bytes would differ from CI's. "
+                           "Run with OPENPYXL_LXML=False set before openpyxl is imported.")
     out.mkdir(parents=True, exist_ok=True)
     spec = CASES[name](src)
     recorded = max(json.loads(f.read_text())["recorded_at"] for f in (src / "calls").glob("*.json") if f.name != "verify.json")
