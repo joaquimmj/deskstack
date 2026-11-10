@@ -10,7 +10,9 @@ export interface GoldenQuestion {
     | { kind: "fs"; period: string; group: string; key: string; end?: string; accession?: string }
     | { kind: "path"; path: string }
     | { kind: "has_ltm" }
-    | { kind: "period_end"; period: string };
+    | { kind: "period_end"; period: string }
+    /** True when the cell's note starts with `starts`: a fallback must say what it is. */
+    | { kind: "fs_note"; period: string; group: string; key: string; starts: string; end?: undefined; accession?: undefined };
   expected: number | string | boolean | null;
   /** True when the answer only holds on the recorded fixtures (e.g. "has an LTM period" until the next 10-Q). */
   fixture_only?: boolean;
@@ -52,6 +54,7 @@ export function read(q: GoldenQuestion, out: any, strictCitations = true): unkno
   if (group == null || typeof group !== "object") throw new Error(`no ${r.group} in ${r.period}`);
   if (!(r.key in group)) throw new Error(`no ${r.key} in ${r.group}`);
   const cell = group[r.key];
+  if (r.kind === "fs_note") return typeof cell?.note === "string" && cell.note.startsWith(r.starts);
   if (cell == null) return null;
   // On recorded fixtures the answer must cite the filing that reports it (the latest annual filing for that period).
   // Live, a later annual filing can report the same period again (next year's 10-K): citing it is right, as long as

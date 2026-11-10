@@ -50,7 +50,34 @@ function oneYearApart(col: Column, prev: Column | null): boolean {
   return d >= 350 && d <= 380;
 }
 
+/** A cell's caveats: its own note, and for a derived figure the notes of the cells its formula names (EBITDA takes
+ * the D&A's). */
+function inputNotes(col: Column, key: string, seen = new Set<string>()): string[] {
+  if (seen.has(key)) return [];
+  seen.add(key);
+  const c = (col.values[key] ?? col.balance_sheet[key] ?? col.derived[key]) as { note?: string; formula?: string } | null | undefined;
+  if (!c) return [];
+  const own = c.note ? [`${key}: ${c.note}`] : [];
+  const derived = col.derived[key] && c.formula ? (c.formula.match(/[a-z][a-z_]*/g) ?? []).flatMap((k) => inputNotes(col, k, seen)) : [];
+  return [...own, ...derived];
+}
+
+/** Each ratio says what its inputs' notes say, so key_metrics alone shows the caveat (Merck's EBITDA margin). */
+function withInputNotes(col: Column, m: Record<string, Metric | null>): Record<string, Metric | null> {
+  for (const metric of Object.values(m)) {
+    if (!metric) continue;
+    const seen = new Set<string>();
+    const notes = [...new Set((metric.formula.match(/[a-z][a-z_]*/g) ?? []).flatMap((k) => inputNotes(col, k, seen)))];
+    if (notes.length) metric.note = [metric.note, `inputs: ${notes.join("; ")}`].filter(Boolean).join("; ");
+  }
+  return m;
+}
+
 export function metricsFor(col: Column, prev: Column | null, financial: boolean): Record<string, Metric | null> {
+  return withInputNotes(col, rawMetrics(col, prev, financial));
+}
+
+function rawMetrics(col: Column, prev: Column | null, financial: boolean): Record<string, Metric | null> {
   const g = getter(col);
   const p = prev ? getter(prev) : null;
   const rev = g("revenue");
