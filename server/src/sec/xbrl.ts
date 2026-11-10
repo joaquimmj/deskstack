@@ -74,6 +74,13 @@ export const INSTANT_CONCEPTS: Record<string, string[]> = {
   total_equity: ["StockholdersEquity", "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"],
   // Minorities: a line of its own (the EV bridge adds it), and derive() notes it when total equity includes them.
   noncontrolling_interests: ["MinorityInterest"],
+  // Inputs to the lease_liabilities line derive() builds (operating + finance, each from its total or its two parts).
+  op_lease: ["OperatingLeaseLiability"],
+  op_lease_noncurrent: ["OperatingLeaseLiabilityNoncurrent"],
+  op_lease_current: ["OperatingLeaseLiabilityCurrent"],
+  fin_lease: ["FinanceLeaseLiability"],
+  fin_lease_noncurrent: ["FinanceLeaseLiabilityNoncurrent"],
+  fin_lease_current: ["FinanceLeaseLiabilityCurrent"],
   // Debt components; combined by totalDebt below.
   ltd_noncurrent: [
     "LongTermDebtNoncurrent",
@@ -721,6 +728,27 @@ function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | nu
   }
   delete inst.lease_liabilities_noncurrent;
   delete inst.lease_liabilities_current;
+  // US filers that tag long-term debt only together with finance leases: total debt then includes them.
+  const usedDebt = (formula.match(/[a-z_0-9]+/g) ?? []).map((k) => inst[k]?.concept ?? "");
+  const debtHasFinanceLeases = tx !== IFRS && usedDebt.some((c) => /(Capital|Finance)Lease/.test(c));
+  let leaseKinds = "";
+  if (tx !== IFRS) {
+    const part = (total: string, nc: string, cur: string): Cell[] =>
+      inst[total] ? [inst[total]!] : [inst[nc], inst[cur]].filter((c): c is Cell => !!c);
+    const op = part("op_lease", "op_lease_noncurrent", "op_lease_current");
+    const fin = debtHasFinanceLeases ? [] : part("fin_lease", "fin_lease_noncurrent", "fin_lease_current");
+    const all = [...op, ...fin];
+    if (all.length) {
+      leaseKinds = op.length && fin.length ? "operating and finance" : op.length ? "operating" : "finance";
+      inst.lease_liabilities = {
+        value: all.reduce((t, c) => t + c.value, 0),
+        concept: all.map((c) => c.concept).join(" + "),
+        accessions: accs(...all),
+        formula: op.length && fin.length ? "operating + finance lease liabilities" : `${leaseKinds} lease liabilities`,
+      };
+    }
+    for (const k of ["op_lease", "op_lease_noncurrent", "op_lease_current", "fin_lease", "fin_lease_noncurrent", "fin_lease_current"]) delete inst[k];
+  }
   const cash = v(inst, "cash");
   if (debt !== null && cash !== null) {
     const sti = v(inst, "short_term_investments") ?? 0;
@@ -733,18 +761,19 @@ function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | nu
         "the company's own net debt definition";
     }
     const leases = v(inst, "lease_liabilities");
-    if (tx === IFRS && leases) {
-      const lease =
-        `excludes ${Math.round(leases / 1e6).toLocaleString("en-US")} million of lease liabilities (IFRS 16); many ` +
-        "issuers include them in their own net debt";
+    if (leases) {
+      const amount = `${Math.round(leases / 1e6).toLocaleString("en-US")} million`;
+      const lease = tx === IFRS
+        ? `excludes ${amount} of lease liabilities (IFRS 16); many issuers include them in their own net debt`
+        : leaseKinds === "operating"
+          ? `excludes ${amount} of operating lease liabilities`
+          : `excludes ${amount} of lease liabilities (${leaseKinds})`;
       out.net_debt.note = out.net_debt.note ? `${out.net_debt.note}; ${lease}` : lease;
     }
   } else {
     out.net_debt = null;
   }
-  // US filers that tag long-term debt only together with finance leases: total debt then includes them.
-  const usedDebt = (formula.match(/[a-z_0-9]+/g) ?? []).map((k) => inst[k]?.concept ?? "");
-  if (tx !== IFRS && out.total_debt && usedDebt.some((c) => /(Capital|Finance)Lease/.test(c))) {
+  if (out.total_debt && debtHasFinanceLeases) {
     const lease = "includes finance lease obligations: the filer tags its long-term debt only together with them";
     out.total_debt.note = lease;
     if (out.net_debt) out.net_debt.note = out.net_debt.note ? `${out.net_debt.note}; ${lease}` : lease;
