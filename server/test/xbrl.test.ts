@@ -234,6 +234,20 @@ describe("real filings", () => {
     expect(total.periods[0]!.values.revenue!.value).toBe(1_779e6);
   });
 
+  it("IFRS net debt says how much lease liability it leaves out (IFRS 16; review 2026-11-10)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
+    const at = (v: number) => [fact(v, null, "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
+    const nd = (f: object) => standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+      Revenue: { units: { EUR: y(10_000e6) } }, Borrowings: { units: { EUR: at(3_000e6) } },
+      CashAndCashEquivalents: { units: { EUR: at(1_000e6) } }, ...f } } } as never, 5, false).periods[0]!.derived.net_debt!;
+    const parts = nd({ NoncurrentLeaseLiabilities: { units: { EUR: at(4_812e6) } }, CurrentLeaseLiabilities: { units: { EUR: at(1_330e6) } } });
+    expect(parts.value).toBe(2_000e6); // unchanged: leases stay out of total debt
+    expect(parts.note).toMatch(/^excludes 6,142 million of lease liabilities \(IFRS 16\)/);
+    const total = nd({ LeaseLiabilities: { units: { EUR: at(900e6) } }, NoncurrentLeaseLiabilities: { units: { EUR: at(700e6) } } });
+    expect(total.note).toMatch(/^excludes 900 million of lease liabilities/);
+    expect(nd({}).note).toBeUndefined();
+  });
+
   it("IFRS capex says when it is the broad line with intangibles and investment property (review 2026-11-10)", () => {
     const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
     const BROAD = "PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets";
