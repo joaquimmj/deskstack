@@ -224,6 +224,18 @@ BEHAVIOR = [
      {"tool": "financial_statements", "args": {"ticker": "AAPL", "years": 2}}, {"kind": "period_end", "period": "FY2025"}, "2025-09-27", ["us", "52-53-week year"]),
     ("itx-fye", "Does Inditex's FY2025 end on 2026-01-31?",
      {"tool": "financial_statements", "args": {"ticker": "549300TTCXZOGZM2EY83", "years": 5}}, {"kind": "period_end", "period": "FY2025"}, "2026-01-31", ["eu", "esef", "january-fye"]),
+    # Fallbacks say what they are (review 2026-11-10). Checked against the filings: Alphabet tags only Depreciation
+    # for FY2025, Coca-Cola only LongTermDebtAndCapitalLeaseObligations, Orkla no equity attributable to owners.
+    ("googl-fy2025-da-depreciation-only", "Does Alphabet's FY2025 D&A say it is depreciation only (no amortization tagged)?",
+     {"tool": "financial_statements", "args": {"ticker": "GOOGL", "years": 2}}, {"kind": "fs_note", "period": "FY2025", "group": "cash_flow", "key": "d_and_a", "starts": "depreciation only"}, True, ["us", "note", "ebitda"]),
+    ("googl-fy2025-ebitda-margin-caveat", "Does Alphabet's FY2025 EBITDA margin carry the D&A caveat?",
+     {"tool": "key_metrics", "args": {"ticker": "GOOGL", "years": 1}}, {"kind": "fs_note", "period": "FY2025", "group": "metrics", "key": "ebitda_margin", "starts": "inputs: d_and_a: depreciation only"}, True, ["us", "note", "metrics"]),
+    ("ko-fy2025-debt-finance-leases", "Does Coca-Cola's FY2025 total debt say it includes finance leases?",
+     {"tool": "financial_statements", "args": {"ticker": "KO", "years": 2}}, {"kind": "fs_note", "period": "FY2025", "group": "derived", "key": "total_debt", "starts": "includes finance lease obligations"}, True, ["us", "note", "debt"]),
+    ("orkla-fy2025-equity-minorities", "Does Orkla's FY2025 total equity say it includes 3,483 million of non-controlling interests?",
+     {"tool": "financial_statements", "args": {"ticker": "549300PZS8G8RG6RVZ52", "years": 2}}, {"kind": "fs_note", "period": "FY2025", "group": "balance_sheet", "key": "total_equity", "starts": "total equity: includes 3,483 million of non-controlling interests"}, True, ["eu", "esef", "no", "note"]),
+    ("itx-fy2025-net-debt-leases", "Does Inditex's FY2025 net debt say it leaves out 5,933 million of lease liabilities?",
+     {"tool": "financial_statements", "args": {"ticker": "549300TTCXZOGZM2EY83", "years": 2}}, {"kind": "fs_note", "period": "FY2025", "group": "derived", "key": "net_debt", "starts": "excludes 5,933 million of lease liabilities (IFRS 16)"}, True, ["eu", "esef", "es", "note", "debt"]),
 ]
 
 
