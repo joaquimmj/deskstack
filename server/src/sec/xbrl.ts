@@ -132,7 +132,7 @@ export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
   capex: [
     "PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
     "PurchaseOfPropertyPlantAndEquipment",
-    // Broader (includes intangibles); the concept name is reported with the value.
+    // Broader (includes intangibles and investment property): adjustRow notes it on the cell.
     "PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets",
     // Last: an issuer's own concept for purchases of PP&E and intangibles (TotalEnergies, Airbus, VINCI, AB InBev,
     // Stellantis), kept by esef/extract.ts under this key; the cell shows the real concept and a note.
@@ -597,6 +597,13 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false, labe
   }
   if (IMPAIRMENT_DA.test(row.d_and_a?.concept ?? "")) {
     row.d_and_a = withNote(row.d_and_a!, "includes impairment: the filer tags no D&A line without it, so EBITDA includes impairment too");
+  }
+  if (row.capex?.concept === "ifrs-full:PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets") {
+    row.capex = withNote(
+      row.capex,
+      "includes purchases of intangible assets, investment property and other non-current assets: the filer tags no " +
+        "line for property, plant and equipment alone",
+    );
   }
   if (row.interest_expense?.concept === "ifrs-full:FinanceCosts") {
     row.interest_expense = withNote(

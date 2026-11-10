@@ -234,6 +234,19 @@ describe("real filings", () => {
     expect(total.periods[0]!.values.revenue!.value).toBe(1_779e6);
   });
 
+  it("IFRS capex says when it is the broad line with intangibles and investment property (review 2026-11-10)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
+    const BROAD = "PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets";
+    const capex = (f: object) => standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+      Revenue: { units: { EUR: y(10_000e6) } }, ...f } } } as never, 5, false).periods[0]!.values.capex!;
+    const broad = capex({ [BROAD]: { units: { EUR: y(-950e6) } } });
+    expect(broad.concept).toBe(`ifrs-full:${BROAD}`);
+    expect(broad.note).toMatch(/^includes purchases of intangible assets, investment property and other non-current assets/);
+    const ppe = capex({ PurchaseOfPropertyPlantAndEquipment: { units: { EUR: y(-700e6) } }, [BROAD]: { units: { EUR: y(-950e6) } } });
+    expect(ppe.concept).toBe("ifrs-full:PurchaseOfPropertyPlantAndEquipment");
+    expect(ppe.note).toBeUndefined();
+  });
+
   it("IFRS interest expense says when it is the broader finance costs line (IAS 1; review 2026-11-10)", () => {
     const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
     const ie = (f: object) => standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
