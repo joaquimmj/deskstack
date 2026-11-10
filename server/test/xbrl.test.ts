@@ -234,6 +234,18 @@ describe("real filings", () => {
     expect(total.periods[0]!.values.revenue!.value).toBe(1_779e6);
   });
 
+  it("IFRS interest expense says when it is the broader finance costs line (IAS 1; review 2026-11-10)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
+    const ie = (f: object) => standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+      Revenue: { units: { EUR: y(10_000e6) } }, ...f } } } as never, 5, false).periods[0]!.values.interest_expense!;
+    const fc = ie({ FinanceCosts: { units: { EUR: y(412e6) } } });
+    expect(fc.value).toBe(412e6);
+    expect(fc.note).toMatch(/^finance costs: the filer tags no interest expense line/);
+    const both = ie({ InterestExpense: { units: { EUR: y(300e6) } }, FinanceCosts: { units: { EUR: y(412e6) } } });
+    expect(both.value).toBe(300e6);
+    expect(both.note).toBeUndefined();
+  });
+
   it("IFRS total equity says when it includes minorities, the owners' share being untagged (Orkla, Corticeira; review 2026-11-10)", () => {
     const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
     const at = (v: number) => [fact(v, null, "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
