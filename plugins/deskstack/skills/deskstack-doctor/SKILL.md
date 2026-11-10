@@ -14,7 +14,7 @@ Call the `data_status` tool.
 - **It answers:** pass. Report the server `version`, the snapshot's `built_at` and how old it is, and the number of
   European issuers.
   - A snapshot older than 3 days is a warning: the nightly update may have failed. The data still works.
-- **The tool doesn't exist here:** fail. The connector isn't added. Fix: Settings → Connectors → Add custom connector,
+- **The tool doesn't exist here:** fail. The connector isn't added. Fix: Customize → Connectors → Add custom connector,
   paste `https://deskstack.deskstack-server.workers.dev/mcp`, no sign-in. In Claude Code:
   `claude mcp add --transport http deskstack https://deskstack.deskstack-server.workers.dev/mcp`.
 - **It returns the daily-capacity or rate-limit message:** warning. Quote the message: it says when service comes

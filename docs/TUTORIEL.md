@@ -11,7 +11,7 @@ Vous allez construire un DCF rapide d'Apple à partir de ses comptes déposés, 
 
 ## 1. Ajouter le connecteur de données (1 minute)
 
-1. **Ouvrez le formulaire :** dans Claude, allez dans **Paramètres → Connecteurs → Ajouter un connecteur personnalisé**.
+1. **Ouvrez le formulaire :** dans Claude, allez dans **Customize → Connectors → Add custom connector** (Personnaliser → Connecteurs → Ajouter un connecteur personnalisé).
 2. **Remplissez-le :** nommez-le `deskstack` et collez `https://deskstack.deskstack-server.workers.dev/mcp`. Aucune connexion n'est demandée. Vous pouvez
    aussi lancer votre propre copie ([auto-hébergement](SELF_HOSTING.md)).
 3. **Vérifiez que ça marche :** demandez *« Avec deskstack, quel a été le chiffre d'affaires d'Apple sur l'exercice
@@ -73,7 +73,7 @@ Dans la même conversation de relecture :
 
   Il compare ensuite vos hypothèses à l'historique déposé d'Apple.
 - **`/md-redteam`** argumente contre la valorisation. Donnez-lui le cours du jour : il vous dit ce que le marché
-  suppose, par exemple *« à 230 $, le marché suppose un WACC de 6,0 % »*. Il liste aussi les cinq objections les plus
+  suppose, par exemple, sur le [modèle d'exemple d'Apple](../examples/apple-dcf/), *« à 230 $, le marché suppose un WACC de 7,74 % »*. Il liste aussi les cinq objections les plus
   fortes, avec leur effet sur la valeur par action.
 - **`/compliance`** vérifie la tenue : mention de non-conseil, sources, saisies datées, aucun signe d'information non
   publique.
@@ -99,7 +99,7 @@ conversation.
 
 | Symptôme | Que faire |
 |---|---|
-| « connector not connected » | Vérifiez **Paramètres → Connecteurs** : deskstack doit être *Connecté* |
+| « connector not connected » | Vérifiez **Customize → Connectors** (Personnaliser → Connecteurs) : deskstack doit être *Connecté* |
 | Les scripts ne se lancent pas | Activez l'exécution de code dans **Paramètres → Capacités** |
 | Une entreprise européenne est introuvable | La couverture compte 232 grands émetteurs dans 14 pays, Royaume-Uni compris, et aucun allemand. Essayez son LEI, ou `/eu-company` |
 | Une banque ou un assureur | Un DCF classique ne s'y applique pas. L'analyste propose le PER ou le P/B à la place |

@@ -10,7 +10,7 @@ reviewed and challenged, and sign it off. No terminal needed.
 
 ## 1. Add the data connector (1 minute)
 
-1. **Open the dialog:** in Claude, go to **Settings → Connectors → Add custom connector**.
+1. **Open the dialog:** in Claude, go to **Customize → Connectors → Add custom connector**.
 2. **Fill it in:** name it `deskstack` and paste `https://deskstack.deskstack-server.workers.dev/mcp`. No sign-in is needed. You can also run your own copy
    ([self-hosting](SELF_HOSTING.md)).
 3. **Check it works:** ask *"Using deskstack, what was Apple's revenue in FY2025? Cite the filing."* The answer
@@ -71,7 +71,7 @@ In the same review conversation:
 
   It then compares your assumptions with Apple's filed history.
 - **`/md-redteam`** argues against the valuation. Give it today's share price and it tells you what the market
-  implies: for example, *"at $230 the market implies a WACC of 6.0%"*. It also lists the five strongest objections,
+  implies: for example, on the [Apple example model](../examples/apple-dcf/), *"at $230 the market implies a WACC of 7.74%"*. It also lists the five strongest objections,
   with their impact on value per share.
 - **`/compliance`** checks the hygiene: disclaimer, citations, dated inputs, no sign of non-public information.
 
@@ -93,7 +93,7 @@ Code and Cowork, the reviewers run as separate agents automatically, so you don'
 
 | Symptom | What to do |
 |---|---|
-| "connector not connected" | Check **Settings → Connectors**: deskstack must show *Connected* |
+| "connector not connected" | Check **Customize → Connectors**: deskstack must show *Connected* |
 | The scripts don't run | Turn on code execution in **Settings → Capabilities** |
 | A European company isn't found | Coverage is 232 large issuers in 14 countries, the UK included, and no German ones. Try its LEI, or ask `/eu-company` |
 | A bank or insurer | A standard DCF doesn't fit them. The analyst offers P/E or P/B instead |
