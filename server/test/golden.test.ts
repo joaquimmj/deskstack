@@ -17,6 +17,14 @@ const golden = JSON.parse(readFileSync(join(import.meta.dirname, "..", "..", "ev
 const KNOWN_MISSES: Record<string, string> = {};
 const SEC = ["AAPL", "MSFT", "GOOGL", "KO", "CAT", "JPM", "SAP", "TM", "UL"];
 
+// Stars brief lot 2 bis: one issuer per further country, from recorded reports (test/fixtures/esef/issuers.json).
+type FixtureIssuer = { lei: string; name: string; country: string; currency: string; fye: string; filings: { id: string; published: string }[] };
+const MORE_EU = (JSON.parse(readFileSync(join(import.meta.dirname, "fixtures", "esef", "issuers.json"), "utf8")) as { issuers: FixtureIssuer[] }).issuers;
+const moreEu = () => MORE_EU.map((i) => ({
+  lei: i.lei, name: i.name, country: i.country, currency: i.currency, fye: i.fye,
+  record: buildEuRecord({ lei: i.lei, name: i.name, country: i.country }, i.filings.map((f) => ({ meta: meta(f.id, f.published), data: esefFixture(f.id) }))),
+}));
+
 const itxRecord = () =>
   buildEuRecord(ITX, [
     { meta: meta("549300TTCXZOGZM2EY83-2025-01-31-ESEF-ES-0", "2025-04-30"), data: esefFixture("549300TTCXZOGZM2EY83-2025-01-31-ESEF-ES-0") },
@@ -45,6 +53,7 @@ describe("golden set (recorded fixtures)", () => {
       ASSETS: fixtureAssets(SEC, [
         { lei: TTE.lei, name: TTE.name, country: "FR", currency: "USD", fye: "1231", record: tteRecord() },
         { lei: ITX.lei, name: ITX.name, country: "ES", currency: "EUR", fye: "0131", record: itxRecord() },
+        ...moreEu(),
       ]),
       DAILY_CAP: "100000",
       PER_IP_PER_MINUTE: "100000",

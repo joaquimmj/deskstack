@@ -27,7 +27,7 @@ python3 scripts/deskstack.py check model.xlsx
 python3 scripts/deskstack.py check model.xlsx --json > review.json   # for /sign-off (add --audit audit.md in companion mode)
 ```
 
-It reports rule findings DS001–DS015 in the `audit-xls` table format plus `Rule` and `Found by` columns:
+It reports rule findings DS001–DS020 in the `audit-xls` table format plus `Rule` and `Found by` columns:
 
 | Findings | Rules |
 |---|---|
@@ -38,6 +38,9 @@ It reports rule findings DS001–DS015 in the `audit-xls` table format plus `Rul
 | Balance sheet and cash tie | DS008, DS009 |
 | Terminal value share, WACC vs g, g vs GDP | DS010–DS012 |
 | Units mix, sign flips, discount timing | DS013–DS015 |
+| Placeholders and estimates, too-regular history | DS016, DS017 |
+| Balancing plugs, interest not built from debt | DS018, DS019 |
+| Share count flat despite buybacks | DS020 |
 
 - Report its findings **as they are**: they are deterministic, not opinions.
 - **DS000** ("no cached formula results") means the value checks only saw typed numbers. Ask the user to open and

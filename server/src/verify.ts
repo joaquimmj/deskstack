@@ -6,7 +6,7 @@
 // error (thousands vs millions), a flipped sign, the wrong currency, a figure
 // from another period, or a different line item. Pure: no I/O.
 
-import type { Cell, Column, Derived, Standardized } from "./sec/xbrl";
+import type { Cell, Column, Derived, SharesOutstanding, Standardized } from "./sec/xbrl";
 
 export type Status = "match" | "mismatch" | "not_found" | "ambiguous";
 export type Scale = "units" | "thousands" | "millions" | "billions";
@@ -45,6 +45,8 @@ export interface VerifyResult {
   relative_difference: number | null;
   concept: string | null;
   computed: boolean;
+  /** The filed figure's own caveat (a segment total, a figure including impairment, basic EPS...), when it has one. */
+  note?: string;
   accessions: string[];
   /** How far off the claimed value may be and still match, in units, and why. */
   allowance: { units: number; basis: string };
@@ -104,6 +106,14 @@ const ALIASES: Record<string, string> = {
   "total debt": "total_debt",
   "gross debt": "total_debt",
   "net debt": "net_debt",
+  "lease liabilities": "lease_liabilities",
+  "lease liability": "lease_liabilities",
+  "minority interest": "noncontrolling_interests",
+  "minority interests": "noncontrolling_interests",
+  "minorities": "noncontrolling_interests",
+  "non-controlling interests": "noncontrolling_interests",
+  "noncontrolling interests": "noncontrolling_interests",
+  nci: "noncontrolling_interests",
 };
 
 export function resolveMetric(m: string): string | null {
@@ -115,7 +125,7 @@ const KNOWN: Record<string, true> = Object.fromEntries(
   [
     "revenue", "gross_profit", "operating_income", "pretax_income", "net_income", "interest_expense", "d_and_a",
     "operating_cash_flow", "capex", "diluted_shares", "diluted_eps", "cash", "short_term_investments", "total_assets",
-    "total_equity", "ebitda", "free_cash_flow", "total_debt", "net_debt",
+    "total_equity", "ebitda", "free_cash_flow", "total_debt", "net_debt", "lease_liabilities", "noncontrolling_interests",
   ].map((k) => [k, true]),
 );
 
@@ -181,8 +191,32 @@ function within(claimed: number, filed: number, allowance: number): boolean {
 
 const fmt = (v: number) => (Math.abs(v) >= 1e6 ? v.toExponential(4) : String(Math.round(v * 1e4) / 1e4));
 
-export function verifyItems(std: Standardized, items: VerifyItem[]): VerifyResult[] {
-  return items.map((it) => {
+export interface VerifyOptions {
+  /** The latest cover-page share count (dei:EntityCommonStockSharesOutstanding), SEC filers only. */
+  sharesOutstanding?: SharesOutstanding | null;
+}
+
+export function verifyItems(std: Standardized, items: VerifyItem[], opts: VerifyOptions = {}): VerifyResult[] {
+  return items.map((it) => withCoverPage(verifyOne(std, it), it, opts));
+}
+
+/** A diluted share count more than 10% from the latest cover page: say so (a stale count, buybacks, dilution). */
+function withCoverPage(r: VerifyResult, it: VerifyItem, opts: VerifyOptions): VerifyResult {
+  const so = opts.sharesOutstanding;
+  if (!so || r.resolved_metric !== "diluted_shares" || !(so.value > 0)) return r;
+  const claimed = it.value * SCALE[it.scale ?? "units"];
+  const gap = claimed / so.value - 1;
+  if (Math.abs(gap) > 0.1) {
+    r.hints.push(
+      `Cover page: ${so.value.toLocaleString("en-US")} shares outstanding as of ${so.as_of} (${so.accession}); ` +
+        `the count used is ${(gap * 100).toFixed(0)}% ${gap > 0 ? "above" : "below"} it. Check for buybacks, dilution or a stale count.`,
+    );
+  }
+  return r;
+}
+
+function verifyOne(std: Standardized, it: VerifyItem): VerifyResult {
+  {
     const scale = it.scale ?? "units";
     const claimedUnits = it.value * SCALE[scale];
     const metric = resolveMetric(it.metric);
@@ -239,10 +273,23 @@ export function verifyItems(std: Standardized, items: VerifyItem[]): VerifyResul
     base.computed = !base.concept;
     base.accessions = "accessions" in cell && cell.accessions ? cell.accessions : "accession" in cell && cell.accession ? [cell.accession] : [];
     if (base.computed && "formula" in cell) base.hints.push(`Computed value: ${cell.formula}.`);
+    if ("note" in cell && cell.note) {
+      base.note = cell.note;
+      base.hints.push(`About this figure: ${cell.note}.`);
+    }
 
     const allow = allowanceFor(it, scale, filed);
     base.allowance = allow;
     const tolFor = (f: number) => allowanceFor(it, scale, f).units;
+    // A last-twelve-months figure a quarter late (an aggregator's "TTM" after a new 10-Q): say so first.
+    const prevValue = col.type === "ltm" ? col.previous?.values[metric] : undefined;
+    if (prevValue != null && Math.abs(claimedUnits - filed) > allow.units && Math.abs(claimedUnits - prevValue) <= tolFor(prevValue)) {
+      base.status = "mismatch";
+      base.hints.unshift(
+        `Stale: the value matches the twelve months to ${col.previous!.end}, but a later filing covers the twelve months to ${col.end}. Use the latest: ${filed}.`,
+      );
+      return base;
+    }
     if (it.currency && it.currency.toUpperCase() !== std.currency) {
       base.status = "mismatch";
       base.hints.push(`Currency: the value is stated in ${it.currency.toUpperCase()} but the company reports in ${std.currency}; convert with fx_rate first.`);
@@ -267,13 +314,30 @@ export function verifyItems(std: Standardized, items: VerifyItem[]): VerifyResul
       const oc = cellOf(other, metric);
       if (oc && within(claimedUnits, oc.value, tolFor(oc.value))) base.hints.push(`Period: the value matches ${metric} for ${other.label} (ended ${other.end}), not ${col.label}.`);
     }
+    // Definition: the value is the same line under another common definition (net debt with leases, equity
+    // without minorities).
+    const lease = col.balance_sheet.lease_liabilities?.value || undefined;
+    const nci = col.balance_sheet.noncontrolling_interests?.value || undefined;
+    const mn = (x: number) => `${(x / 1e6).toLocaleString("en-US", { maximumFractionDigits: 1 })} million`;
+    const alt: Array<[number | undefined, string]> =
+      metric === "net_debt" || metric === "total_debt"
+        ? [[lease === undefined ? undefined : filed + lease, `${metric} plus lease liabilities (${mn(lease ?? 0)}); deskstack's ${metric} leaves leases out`]]
+        : metric === "total_equity"
+          ? [
+              [nci === undefined ? undefined : filed - nci, `total_equity minus non-controlling interests (${mn(nci ?? 0)}): the owners' share`],
+              [nci === undefined ? undefined : filed + nci, `total_equity plus non-controlling interests (${mn(nci ?? 0)})`],
+            ]
+          : [];
+    for (const [value, what] of alt) {
+      if (value !== undefined && within(claimedUnits, value, tolFor(value))) base.hints.push(`Definition: the value matches ${what}.`);
+    }
     for (const k of Object.keys(KNOWN)) {
       if (k === metric) continue;
       const oc = cellOf(col, k);
       if (oc && oc.value !== 0 && within(claimedUnits, oc.value, tolFor(oc.value))) base.hints.push(`Line item: the value matches ${k} for ${col.label}, not ${metric}.`);
     }
     return base;
-  });
+  }
 }
 
 /**

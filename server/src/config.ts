@@ -67,3 +67,6 @@ export const CAPEX_FROM_OTHER_PRODUCTIVE_ASSETS: Record<number, string> = {
 export const DA_EXCLUDES_INTANGIBLES: Record<number, string> = {
   858877: "Cisco tags D&A for property and equipment only; amortization of intangible assets is added",
 };
+
+/** The Brazilian derived database, offered whole under the ODbL (§4.6): a static file of the snapshot. */
+export const BR_DATASET_URL = "https://deskstack.deskstack-server.workers.dev/v1/br/dataset.json";

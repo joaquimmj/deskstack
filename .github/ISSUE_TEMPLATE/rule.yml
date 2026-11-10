@@ -1,0 +1,32 @@
+name: Checker rule
+description: Propose a model check for /vp-review and deskstack-check.
+labels: [rule]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Rules follow public, widely known modelling practice only, and they report a problem in the model, never a grade for a person.
+  - type: textarea
+    id: error
+    attributes:
+      label: The error it catches
+      description: What goes wrong in the workbook, and why it matters.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: A real or minimal example
+      description: Cells and formulas, or a small workbook with no confidential data.
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity you suggest
+      options: [blocker, major, minor]
+  - type: input
+    id: practice
+    attributes:
+      label: Public source for the practice
+      description: A textbook, a public guide or a well-known modelling standard.

@@ -71,3 +71,20 @@ describe("key metrics", () => {
     expect(ltm.metrics.roic).toBeNull();
   });
 });
+
+describe("ratios carry their inputs' notes (review 2026-11-10)", () => {
+  it("EBITDA margin and leverage say the D&A is depreciation only; coverage says interest is finance costs", async () => {
+    const { companyfacts, fact } = await import("./helpers");
+    const d = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
+    const i = (v: number) => [fact(v, null, "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
+    const s = standardize(companyfacts({
+      Revenues: d(60_000e6), OperatingIncomeLoss: d(20_000e6), Depreciation: d(3_045e6), InterestExpense: d(1_000e6),
+      LongTermDebtNoncurrent: i(30_000e6), CashAndCashEquivalentsAtCarryingValue: i(5_000e6),
+    }), SNAPSHOT_YEARS, false);
+    const m = keyMetrics(s, 1, false, false).periods.at(-1)!.metrics;
+    expect(m.ebitda_margin!.note).toMatch(/^inputs: d_and_a: depreciation only/);
+    expect(m.net_debt_to_ebitda!.note).toMatch(/d_and_a: depreciation only/);
+    expect(m.operating_margin!.note).toBeUndefined();
+    expect(m.interest_coverage!.note).toBeUndefined();
+  });
+});

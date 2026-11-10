@@ -5,7 +5,7 @@ import { SNAPSHOT_YEARS } from "../src/config";
 import { standardize } from "../src/sec/xbrl";
 import { resolveMetric, resolvePeriod, summarize, transposition, verifyItems, type VerifyItem } from "../src/verify";
 import { tteRecord } from "./esef-fixture";
-import { facts } from "./helpers";
+import { companyfacts, fact, facts } from "./helpers";
 
 const aapl = standardize(facts("AAPL"), SNAPSHOT_YEARS, true);
 const jpm = standardize(facts("JPM"), SNAPSHOT_YEARS, true);
@@ -182,5 +182,89 @@ describe("verify_value: periods and batches", () => {
       "net_debt",
       "revenue",
     ]);
+  });
+
+  it("returns the filed figure's note, e.g. a segment total tagged as operating income (stars brief lot 1)", () => {
+    const std = structuredClone(aapl);
+    const col = std.periods.find((c) => c.label === "FY2024")!;
+    const oi = col.values.operating_income!;
+    col.values.operating_income = { ...oi, note: "Disney tags its total segment operating income as OperatingIncomeLoss" };
+    const r = one(std, { metric: "operating_income", period: "FY2024", value: oi.value / 1e6, scale: "millions" });
+    expect(r.status).toBe("match");
+    expect(r.note).toMatch(/segment operating income/);
+    expect(r.hints.some((h) => /^About this figure: .*segment/.test(h))).toBe(true);
+    // No note, no hint.
+    expect(one(aapl, { metric: "revenue", period: "FY2024", value: 391_035, scale: "millions" }).note).toBeUndefined();
+  });
+
+  it("an LTM figure one quarter late says it's stale and which 10-Q to use (comps run: 15 of 16 errors; stars brief lot 2)", () => {
+    const q = (v: number, start: string, end: string, accn: string, filed: string) => fact(v, start, end, accn, filed, "10-Q", 2026);
+    const std = standardize(companyfacts({
+      Revenues: [
+        fact(1000, "2025-01-01", "2025-12-31", "k25", "2026-02-10", "10-K", 2025),
+        q(560, "2026-01-01", "2026-06-30", "q2", "2026-08-01"), q(500, "2025-01-01", "2025-06-30", "q2", "2026-08-01"),
+        q(870, "2026-01-01", "2026-09-30", "q3", "2026-11-01"), q(760, "2025-01-01", "2025-09-30", "q3", "2026-11-01"),
+      ],
+    }), 5, true);
+    const ok = one(std, { metric: "revenue", period: "LTM", value: 1110, scale: "units" });
+    expect(ok.status).toBe("match"); // 1000 + 870 - 760
+    const stale = one(std, { metric: "revenue", period: "LTM", value: 1060, scale: "units" }); // 1000 + 560 - 500
+    expect(stale.status).toBe("mismatch");
+    expect(stale.hints[0]).toMatch(/^Stale: .*twelve months to 2026-06-30.*2026-09-30/);
+  });
+
+  it("a diluted share count far from the latest cover page gets a hint (stars brief lot 2)", () => {
+    const cover = { value: 14_700_000_000, as_of: "2026-10-17", classes_summed: 1, concept: "dei:EntityCommonStockSharesOutstanding", accession: "0000320193-26-000001", url: "https://www.sec.gov/x" };
+    const filed = aapl.periods.find((c) => c.label === "FY2025")!.values.diluted_shares!.value;
+    const far = verifyItems(aapl, [{ metric: "diluted_shares", period: "FY2025", value: filed * 1.25, scale: "units" }], { sharesOutstanding: cover })[0]!;
+    expect(far.hints.some((h) => /^Cover page: 14,700,000,000 shares outstanding as of 2026-10-17/.test(h))).toBe(true);
+    const near = verifyItems(aapl, [{ metric: "diluted_shares", period: "FY2025", value: 14_800_000_000, scale: "units" }], { sharesOutstanding: cover })[0]!;
+    expect(near.hints.some((h) => /^Cover page/.test(h))).toBe(false);
+  });
+
+  it("two wrong lines that cancel out are both flagged, though the subtotal matches (Wall Street Prep 2026; stars brief lot 2)", () => {
+    const fy = aapl.periods.find((c) => c.label === "FY2025")!;
+    const oi = fy.values.operating_income!.value / 1e6;
+    const da = fy.values.d_and_a!.value / 1e6;
+    const ebitda = fy.derived.ebitda!.value / 1e6;
+    const [a, b, total] = verifyItems(aapl, [
+      { metric: "operating_income", period: "FY2025", value: oi - 500, scale: "millions" },
+      { metric: "d_and_a", period: "FY2025", value: da + 500, scale: "millions" },
+      { metric: "ebitda", period: "FY2025", value: ebitda, scale: "millions" },
+    ]);
+    expect([a!.status, b!.status, total!.status]).toEqual(["mismatch", "mismatch", "match"]);
+  });
+});
+
+describe("verify_value explains a definition gap (review 2026-11-10)", () => {
+  const rec = async (lei: string, name: string, country: string) => {
+    const { buildEuRecord } = await import("../src/esef/record");
+    const { esefFixture, meta } = await import("./esef-fixture");
+    const { readdirSync } = await import("node:fs");
+    const { join } = await import("node:path");
+    const ids = readdirSync(join(import.meta.dirname, "fixtures", "esef")).filter((f) => f.startsWith(lei)).map((f) => f.replace(/\.json$/, ""));
+    return buildEuRecord({ lei, name, country }, ids.map((id) => ({ meta: meta(id, "2026-04-30"), data: esefFixture(id) }))).financials!;
+  };
+
+  it("keeps lease liabilities and minorities as cited balance-sheet lines", async () => {
+    const itx = (await rec("549300TTCXZOGZM2EY83", "Inditex", "ES")).periods.find((p) => p.label === "FY2025")!;
+    expect(Math.round(itx.balance_sheet.lease_liabilities!.value / 1e6)).toBe(5_933);
+    expect(itx.balance_sheet.lease_liabilities!.concept).toMatch(/LeaseLiabilities/);
+    const ork = (await rec("549300PZS8G8RG6RVZ52", "Orkla", "NO")).periods.find((p) => p.label === "FY2025")!;
+    expect(ork.balance_sheet.noncontrolling_interests).toMatchObject({ value: 3_483e6, concept: "ifrs-full:NoncontrollingInterests" });
+  });
+
+  it("net debt including leases, and equity without minorities, get a Definition hint", async () => {
+    const itx = await rec("549300TTCXZOGZM2EY83", "Inditex", "ES");
+    const fy = itx.periods.find((p) => p.label === "FY2025")!;
+    const withLeases = (fy.derived.net_debt!.value + fy.balance_sheet.lease_liabilities!.value) / 1e6;
+    const nd = verifyItems(itx, [{ metric: "net debt", period: "FY2025", value: withLeases, scale: "millions" }])[0]!;
+    expect(nd.status).toBe("mismatch");
+    expect(nd.hints.join(" ")).toMatch(/Definition: the value matches net_debt plus lease liabilities/);
+    const ork = await rec("549300PZS8G8RG6RVZ52", "Orkla", "NO");
+    const eq = verifyItems(ork, [{ metric: "equity", period: "FY2025", value: 52_147 - 3_483, scale: "millions" }])[0]!;
+    expect(eq.hints.join(" ")).toMatch(/Definition: the value matches total_equity minus non-controlling interests/);
+    const lease = verifyItems(itx, [{ metric: "lease liabilities", period: "FY2025", value: fy.balance_sheet.lease_liabilities!.value / 1e6, scale: "millions" }])[0]!;
+    expect(lease.status).toBe("match");
   });
 });

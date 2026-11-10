@@ -1,0 +1,488 @@
+{
+ "tool": "verify_value",
+ "connector": "https://deskstack.deskstack-server.workers.dev/mcp",
+ "recorded_at": "2026-11-10",
+ "batches": [
+  {
+   "request": {
+    "company": "AAPL",
+    "items": [
+     {
+      "metric": "revenue",
+      "period": "FY2024",
+      "value": 391035,
+      "scale": "millions",
+      "ref": "Inputs!B5",
+      "currency": "USD"
+     },
+     {
+      "metric": "revenue",
+      "period": "FY2025",
+      "value": 416161,
+      "scale": "millions",
+      "ref": "Inputs!C5",
+      "currency": "USD"
+     },
+     {
+      "metric": "revenue",
+      "period": "FY2026",
+      "value": 478834,
+      "scale": "millions",
+      "ref": "Inputs!D5",
+      "currency": "USD"
+     },
+     {
+      "metric": "operating_income",
+      "period": "FY2024",
+      "value": 123216,
+      "scale": "millions",
+      "ref": "Inputs!B6",
+      "currency": "USD"
+     },
+     {
+      "metric": "operating_income",
+      "period": "FY2025",
+      "value": 133050,
+      "scale": "millions",
+      "ref": "Inputs!C6",
+      "currency": "USD"
+     },
+     {
+      "metric": "operating_income",
+      "period": "FY2026",
+      "value": 158063,
+      "scale": "millions",
+      "ref": "Inputs!D6",
+      "currency": "USD"
+     },
+     {
+      "metric": "d_and_a",
+      "period": "FY2024",
+      "value": 11445,
+      "scale": "millions",
+      "ref": "Inputs!B7",
+      "currency": "USD"
+     },
+     {
+      "metric": "d_and_a",
+      "period": "FY2025",
+      "value": 11698,
+      "scale": "millions",
+      "ref": "Inputs!C7",
+      "currency": "USD"
+     },
+     {
+      "metric": "d_and_a",
+      "period": "FY2026",
+      "value": 13423,
+      "scale": "millions",
+      "ref": "Inputs!D7",
+      "currency": "USD"
+     },
+     {
+      "metric": "capex",
+      "period": "FY2024",
+      "value": 9447,
+      "scale": "millions",
+      "ref": "Inputs!B8",
+      "currency": "USD"
+     },
+     {
+      "metric": "capex",
+      "period": "FY2025",
+      "value": 12715,
+      "scale": "millions",
+      "ref": "Inputs!C8",
+      "currency": "USD"
+     },
+     {
+      "metric": "capex",
+      "period": "FY2026",
+      "value": 9041,
+      "scale": "millions",
+      "ref": "Inputs!D8",
+      "currency": "USD"
+     },
+     {
+      "metric": "net_debt",
+      "period": "FY2026",
+      "value": 23389,
+      "scale": "millions",
+      "ref": "Inputs!B22",
+      "currency": "USD"
+     },
+     {
+      "metric": "diluted_shares",
+      "period": "FY2026",
+      "value": 14720.306,
+      "scale": "millions",
+      "ref": "Inputs!B23",
+      "currency": "USD"
+     }
+    ]
+   },
+   "response": {
+    "summary": "Apple Inc.: 14 of 14 value(s) match the filings. Read each item's hints before changing a number.",
+    "company": {
+     "name": "Apple Inc.",
+     "ticker": "AAPL",
+     "cik": 320193,
+     "exchange": "Nasdaq",
+     "region": "US",
+     "reporting_standard": "US-GAAP",
+     "currency": "USD",
+     "fiscal_year_end": "0926",
+     "sic": "3571",
+     "sic_description": "Electronic Computers",
+     "financial_company": false,
+     "foreign_private_issuer": false
+    },
+    "currency": "USD",
+    "counts": {
+     "total": 14,
+     "match": 14,
+     "mismatch": 0,
+     "not_found": 0,
+     "ambiguous": 0
+    },
+    "results": [
+     {
+      "ref": "Inputs!B5",
+      "metric": "revenue",
+      "resolved_metric": "revenue",
+      "period": "FY2024",
+      "resolved_period": "FY2024 (ended 2024-09-28)",
+      "status": "match",
+      "claimed": 391035,
+      "claimed_units": 391035000000,
+      "filed": 391035000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "computed": false,
+      "accessions": [
+       "0000320193-26-000026"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!C5",
+      "metric": "revenue",
+      "resolved_metric": "revenue",
+      "period": "FY2025",
+      "resolved_period": "FY2025 (ended 2025-09-27)",
+      "status": "match",
+      "claimed": 416161,
+      "claimed_units": 416161000000,
+      "filed": 416161000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "computed": false,
+      "accessions": [
+       "0000320193-26-000026"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!D5",
+      "metric": "revenue",
+      "resolved_metric": "revenue",
+      "period": "FY2026",
+      "resolved_period": "FY2026 (ended 2026-09-26)",
+      "status": "match",
+      "claimed": 478834,
+      "claimed_units": 478834000000,
+      "filed": 478834000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "computed": false,
+      "accessions": [
+       "0000320193-26-000026"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!B6",
+      "metric": "operating_income",
+      "resolved_metric": "operating_income",
+      "period": "FY2024",
+      "resolved_period": "FY2024 (ended 2024-09-28)",
+      "status": "match",
+      "claimed": 123216,
+      "claimed_units": 123216000000,
+      "filed": 123216000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:OperatingIncomeLoss",
+      "computed": false,
+      "accessions": [
+       "0000320193-26-000026"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!C6",
+      "metric": "operating_income",
+      "resolved_metric": "operating_income",
+      "period": "FY2025",
+      "resolved_period": "FY2025 (ended 2025-09-27)",
+      "status": "match",
+      "claimed": 133050,
+      "claimed_units": 133050000000,
+      "filed": 133050000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:OperatingIncomeLoss",
+      "computed": false,
+      "accessions": [
+       "0000320193-26-000026"
+      ],
+      "allowance": {
+       "units": 5000000,
+       "basis": "rounding of the value as written (±5.0000e+6)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!D6",
+      "metric": "operating_income",
+      "resolved_metric": "operating_income",
+      "period": "FY2026",
+      "resolved_period": "FY2026 (ended 2026-09-26)",
+      "status": "match",
+      "claimed": 158063,
+      "claimed_units": 158063000000,
+      "filed": 158063000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:OperatingIncomeLoss",
+      "computed": false,
+      "accessions": [
+       "0000320193-26-000026"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!B7",
+      "metric": "d_and_a",
+      "resolved_metric": "d_and_a",
+      "period": "FY2024",
+      "resolved_period": "FY2024 (ended 2024-09-28)",
+      "status": "match",
+      "claimed": 11445,
+      "claimed_units": 11445000000,
+      "filed": 11445000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:DepreciationDepletionAndAmortization",
+      "computed": false,
+      "accessions": [
+       "0000320193-26-000026"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!C7",
+      "metric": "d_and_a",
+      "resolved_metric": "d_and_a",
+      "period": "FY2025",
+      "resolved_period": "FY2025 (ended 2025-09-27)",
+      "status": "match",
+      "claimed": 11698,
+      "claimed_units": 11698000000,
+      "filed": 11698000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:DepreciationDepletionAndAmortization",
+      "computed": false,
+      "accessions": [
+       "0000320193-26-000026"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!D7",
+      "metric": "d_and_a",
+      "resolved_metric": "d_and_a",
+      "period": "FY2026",
+      "resolved_period": "FY2026 (ended 2026-09-26)",
+      "status": "match",
+      "claimed": 13423,
+      "claimed_units": 13423000000,
+      "filed": 13423000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:DepreciationDepletionAndAmortization",
+      "computed": false,
+      "accessions": [
+       "0000320193-26-000026"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!B8",
+      "metric": "capex",
+      "resolved_metric": "capex",
+      "period": "FY2024",
+      "resolved_period": "FY2024 (ended 2024-09-28)",
+      "status": "match",
+      "claimed": 9447,
+      "claimed_units": 9447000000,
+      "filed": 9447000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "computed": false,
+      "accessions": [
+       "0000320193-26-000026"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!C8",
+      "metric": "capex",
+      "resolved_metric": "capex",
+      "period": "FY2025",
+      "resolved_period": "FY2025 (ended 2025-09-27)",
+      "status": "match",
+      "claimed": 12715,
+      "claimed_units": 12715000000,
+      "filed": 12715000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "computed": false,
+      "accessions": [
+       "0000320193-26-000026"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!D8",
+      "metric": "capex",
+      "resolved_metric": "capex",
+      "period": "FY2026",
+      "resolved_period": "FY2026 (ended 2026-09-26)",
+      "status": "match",
+      "claimed": 9041,
+      "claimed_units": 9041000000,
+      "filed": 9041000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "computed": false,
+      "accessions": [
+       "0000320193-26-000026"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!B22",
+      "metric": "net_debt",
+      "resolved_metric": "net_debt",
+      "period": "FY2026",
+      "resolved_period": "FY2026 (ended 2026-09-26)",
+      "status": "match",
+      "claimed": 23389,
+      "claimed_units": 23389000000,
+      "filed": 23389000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": null,
+      "computed": true,
+      "accessions": [],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": [
+       "Computed value: total_debt - cash - short_term_investments."
+      ]
+     },
+     {
+      "ref": "Inputs!B23",
+      "metric": "diluted_shares",
+      "resolved_metric": "diluted_shares",
+      "period": "FY2026",
+      "resolved_period": "FY2026 (ended 2026-09-26)",
+      "status": "match",
+      "claimed": 14720.306,
+      "claimed_units": 14720306000,
+      "filed": 14720306000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+      "computed": false,
+      "accessions": [
+       "0000320193-26-000026"
+      ],
+      "allowance": {
+       "units": 14720.305999999999,
+       "basis": "rounding of the value as written (±14720.306)"
+      },
+      "hints": []
+     }
+    ],
+    "sources": [
+     {
+      "name": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm",
+      "accession_or_id": "0000320193-26-000026",
+      "form": "10-K",
+      "period": "2026-09-26",
+      "as_of": "2026-11-03",
+      "license_note": "SEC EDGAR filing data: U.S. government work, public domain. Cite the filing."
+     }
+    ],
+    "note": "Computed lines (EBITDA, free cash flow, total debt, net debt) are checked against deskstack's own formula from the filed inputs, shown in the hints. A match means the number agrees with the filing; it does not validate assumptions or forecasts.",
+    "disclaimer": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice."
+   }
+  }
+ ]
+}

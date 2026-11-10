@@ -13,8 +13,77 @@
     "n_data": "Data",
     "n_faq": "FAQ",
     "n_install": "Install",
-    "h1a": "Every number in your model,",
-    "h1b": "tied out to the filing.",
+    "banner": "New: comps benchmark, 50 companies. 0 of 1,021 figures wrong with deskstack's data.",
+    "banner_link": "Read the analysis",
+    "n_price": "Pricing",
+    "tag_how": "The team",
+    "tag_dark": "Tie-out",
+    "tag_bench": "Benchmark",
+    "tag_data": "Data",
+    "tag_install": "Install",
+    "tag_price": "Pricing",
+    "tag_faq": "FAQ",
+    "x_roles": "Explore the roles",
+    "x_tools": "Explore the tools",
+    "x_bench": "Explore the benchmark",
+    "x_data": "Explore the data",
+    "x_tut": "Read the tutorial",
+    "p_t": "Free. Hosted or yours.",
+    "p_p": "No account, no card, no trial. The hosted connector has a daily capacity shared by everyone; for more, run your own copy.",
+    "p_cards": [
+      {
+        "name": "Hosted",
+        "badge": "Ready now",
+        "lede": "Paste one URL into Claude and start.",
+        "price": "$0",
+        "per": "forever",
+        "btn": "Install in Claude",
+        "href": "#install",
+        "m": [
+          [
+            "90,000",
+            "calls a day, shared"
+          ],
+          [
+            "60",
+            "calls a minute per address"
+          ]
+        ],
+        "items": [
+          "Every data tool and the review roles",
+          "US filings, European ESEF reports, rates, FX, Damodaran",
+          "Citations on every figure",
+          "No sign-in; nothing stored"
+        ]
+      },
+      {
+        "name": "Self-hosted",
+        "badge": "",
+        "lede": "Your own copy, on your own free Cloudflare account.",
+        "price": "$0",
+        "per": "on Cloudflare's free plan",
+        "btn": "Self-hosting guide",
+        "href": "GH/blob/main/docs/SELF_HOSTING.md",
+        "m": [
+          [
+            "Yours",
+            "daily capacity"
+          ],
+          [
+            "Yours",
+            "rate limits"
+          ]
+        ],
+        "items": [
+          "Same code, MIT license",
+          "Deploys in a few minutes",
+          "Nightly data refresh with GitHub Actions (fork, add three secrets)",
+          "Your own logs and settings"
+        ]
+      }
+    ],
+    "h1a": "AI-built models get numbers wrong.",
+    "h1b": "deskstack checks every one against the filings.",
     "lede_b": "A deal team inside Claude.",
     "lede": "One agent builds the model from free, cited data. Others tie every number to the SEC or European filing. Nothing ships until you sign off.",
     "cta": "Install in Claude",
@@ -178,7 +247,7 @@
     ],
     "dk_card2_t": "Watch it catch a typo",
     "dk_card2_p": "The review scripts on Apple's FY2025 DCF with one planted typo. The model review can't see it; the tie-out to the 10-K can.",
-    "demo_alt": "Terminal recording: /associate finds 13 of 14 figures match Apple's 10-K and flags revenue FY2024 391,053 against a filed 391,035 as swapped digits; /vp-review finds the model clean; after the fix, /sign-off shows all checks passing and waits for approval.",
+    "demo_alt": "Replay of /deal-team on Apple: the analyst builds the DCF from cited data; /associate finds 13 of 14 figures match the filings and flags FY2025 revenue 416,116 against a filed 416,161 as swapped digits; after the fix all 14 match; the red team, compliance and sign-off follow, and nothing is exported without approval.",
     "b_t1": "We measured it.",
     "b_t2": "Then read every wrong figure by hand.",
     "b_p": "Claude Sonnet 5.5 built a DCF and a comps table for each of 50 companies (35 US, 15 European), three ways. Every reported figure was scored against the filing.",
@@ -275,8 +344,13 @@
       ],
       [
         "filings.xbrl.org",
-        "Financial statements, Europe",
-        "ESEF annual reports of about 30 large issuers in France, the Netherlands, Spain, Finland, Italy and Belgium."
+        "Financial statements, Europe and UK",
+        "ESEF and UKSEF annual reports of 232 large issuers in 14 countries: 72 UK listed companies, and issuers from France and the Netherlands to Spain, Italy and the Nordics."
+      ],
+      [
+        "CVM open data",
+        "Financial statements, Brazil",
+        "Annual DFP and quarterly ITR statements of 20 large listed companies, by CVM id or B3 ticker. Under the ODbL: the derived data is free to download whole."
       ],
       [
         "U.S. Treasury · ECB",
@@ -359,10 +433,100 @@
       "bench": "Benchmark",
       "privacy": "Privacy",
       "security": "Security",
-      "license": "MIT license"
+      "license": "MIT license",
+      "examples": "Examples",
+      "leaderboard": "Leaderboard"
     },
     "f_credit": "Data from SEC EDGAR, XBRL International's filings.xbrl.org, the U.S. Treasury, ECB statistics and Aswath Damodaran (NYU Stern). SEC XBRL handling builds on open-finance-mcp by Nathanael Johnson.",
-    "f_disc": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed. Not investment advice."
+    "f_disc": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed. Not investment advice.",
+    "n_examples": "Examples",
+    "tag_catch": "What it catches",
+    "w_t1": "Real errors,",
+    "w_t2": "from the benchmark.",
+    "w_p": "Claude with web search alone made these errors building DCFs and comps tables. Each was read by hand against the filing, and each is caught by a deskstack check.",
+    "w_h": [
+      "Error",
+      "Real example",
+      "What catches it"
+    ],
+    "catches": [
+      [
+        "Last twelve months a quarter late",
+        "FedEx, Fortinet, Motorola Solutions: an aggregator's \"TTM\" to June, after the September 10-Qs (15 figures)",
+        "<code>/associate</code>: <code>verify_value</code> says <i>Stale</i> and gives the latest twelve months"
+      ],
+      [
+        "A quarter written as the year",
+        "Boeing net income: the fourth quarter (8,220) as the full year (2,235)",
+        "<code>/associate</code>: mismatch against the filed annual figure"
+      ],
+      [
+        "Share count derived or from the wrong period",
+        "Boeing, Pfizer, GE diluted shares: net income ÷ EPS, a six-month count, a Q1 count",
+        "<code>/associate</code>: mismatch, and a flag when diluted shares are more than 10% from the cover page"
+      ],
+      [
+        "Non-GAAP or segment figure for the group",
+        "GE \"adjusted revenue\"; Stellantis D&amp;A for industrial activities only",
+        "<code>/associate</code>: mismatch against the group's filed line"
+      ],
+      [
+        "Figure from an aggregator or Wikipedia",
+        "Cisco and Verizon operating income; Schneider operating income, rounded",
+        "<code>/associate</code>: mismatch, with the filed value and its source"
+      ],
+      [
+        "Estimate typed as a filed figure",
+        "Netflix capex as operating cash flow minus free cash flow",
+        "<code>/associate</code>: mismatch; rule DS016 also flags a figure labelled as an estimate with no filing cited"
+      ],
+      [
+        "Placeholder left at 0",
+        "Cigna, CVS and Humana in UnitedHealth's comps, labelled \"NOT FOUND\" (7 figures)",
+        "<code>/vp-review</code> rule DS016: a typed 0 labelled as not found"
+      ]
+    ],
+    "tag_cli": "Without Claude",
+    "k_t1": "Check any AI-built model",
+    "k_t2": "in one command.",
+    "k_p": "<code>deskstack-check</code> checks any .xlsx model, whether Claude, ChatGPT, Copilot, another tool or a person built it. Offline, it runs the 21 model checks. With <code>--verify</code>, it also ties every typed figure to the filing; only those figures are sent, each with its line item, period and cell reference.",
+    "k_cmd": "pipx run deskstack-check model.xlsx --verify",
+    "k_soon": "Soon on PyPI. Today, from a clone: <code>pipx run --spec ./checker deskstack-check model.xlsx</code>.",
+    "k_out": "$ deskstack-check model.xlsx --verify\nmodel.xlsx  (deskstack_check 0.2.0, sha256 ced59305c2dd)\nModel checks: 0 blocker, 0 major, 0 minor, 0 info\nTie-out to the filings (AAPL): 13 of 14 match, 1 do not\n  MISMATCH  Inputs!C5  Revenue FY2025  416,116  filed 416,161\n           Typo: two adjacent digits look swapped (filed 416,161, written 416,116).\nFAIL (fails on blocker)",
+    "k_action_t": "In a repository",
+    "k_action_p": "The GitHub Action checks every workbook on each push and writes the report in the job summary.",
+    "k_action": "- uses: joaquimmj/deskstack@main\n  with:\n    files: \"models/**/*.xlsx\"\n    verify: \"true\"\n    fail-on: blocker",
+    "x_cli": "Command reference",
+    "tag_ex": "Examples",
+    "e_t1": "Download a reviewed model,",
+    "e_t2": "with every report.",
+    "e_p": "Built with deskstack's real tools from recorded responses: the workbook, the tie-out, the model review, compliance and the sign-off page.",
+    "examples": [
+      [
+        "Apple quick DCF",
+        "14 of 14 filed figures tie to the 10-K. Ready for sign-off.",
+        "examples/apple-dcf"
+      ],
+      [
+        "US tech comps",
+        "Apple against Microsoft, Alphabet, Amazon, Meta and Nvidia: 24 of 24 figures tie. Market caps stay empty without a price.",
+        "examples/us-tech-comps"
+      ],
+      [
+        "Heineken DCF",
+        "From its ESEF annual reports, in euros. 14 of 14 tie; the review flags a terminal value at 82% of EV.",
+        "examples/heineken-dcf"
+      ],
+      [
+        "Errors caught",
+        "A Microsoft DCF with four benchmark errors typed in on purpose. All four are caught.",
+        "examples/errors-caught"
+      ]
+    ],
+    "e_lb": "The <a href=\"{{prefix}}leaderboard/\">leaderboard</a> compares models on the same 50 companies: Claude Sonnet 5.5 so far, more soon.",
+    "x_ex": "All examples",
+    "og_alt": "deskstack: AI-built models get numbers wrong. deskstack checks every one against the filings. Apple's FY2025 revenue typed as 416,116 is flagged: filed 416,161.",
+    "x_caught": "See them caught"
   },
   "fr": {
     "lang": "fr",
@@ -378,8 +542,77 @@
     "n_data": "Données",
     "n_faq": "FAQ",
     "n_install": "Installer",
-    "h1a": "Chaque chiffre de votre modèle,",
-    "h1b": "rapproché du dépôt officiel.",
+    "banner": "Nouveau : benchmark des comparables, 50 sociétés. 0 chiffre faux sur 1 021 avec les données deskstack.",
+    "banner_link": "Lire l'analyse",
+    "n_price": "Tarifs",
+    "tag_how": "L'équipe",
+    "tag_dark": "Pointage",
+    "tag_bench": "Benchmark",
+    "tag_data": "Données",
+    "tag_install": "Installation",
+    "tag_price": "Tarifs",
+    "tag_faq": "FAQ",
+    "x_roles": "Voir les rôles",
+    "x_tools": "Voir les outils",
+    "x_bench": "Voir le benchmark",
+    "x_data": "Voir les données",
+    "x_tut": "Lire le tutoriel",
+    "p_t": "Gratuit. Hébergé ou chez vous.",
+    "p_p": "Sans compte, sans carte, sans essai. Le connecteur hébergé a une capacité quotidienne partagée ; pour plus, lancez votre propre copie.",
+    "p_cards": [
+      {
+        "name": "Hébergé",
+        "badge": "Disponible",
+        "lede": "Collez une URL dans Claude et c'est parti.",
+        "price": "0 $",
+        "per": "pour toujours",
+        "btn": "Installer dans Claude",
+        "href": "#install",
+        "m": [
+          [
+            "90 000",
+            "appels par jour, partagés"
+          ],
+          [
+            "60",
+            "appels par minute par adresse"
+          ]
+        ],
+        "items": [
+          "Tous les outils de données et les rôles de revue",
+          "Dépôts américains, rapports ESEF européens, taux, change, Damodaran",
+          "Une citation sur chaque chiffre",
+          "Sans connexion ; rien n'est conservé"
+        ]
+      },
+      {
+        "name": "Auto-hébergé",
+        "badge": "",
+        "lede": "Votre propre copie, sur votre compte Cloudflare gratuit.",
+        "price": "0 $",
+        "per": "sur l'offre gratuite de Cloudflare",
+        "btn": "Guide d'auto-hébergement",
+        "href": "GH/blob/main/docs/SELF_HOSTING.md",
+        "m": [
+          [
+            "À vous",
+            "capacité quotidienne"
+          ],
+          [
+            "À vous",
+            "limites de débit"
+          ]
+        ],
+        "items": [
+          "Le même code, licence MIT",
+          "Se déploie en quelques minutes",
+          "Données rafraîchies chaque nuit par GitHub Actions (fork et trois secrets)",
+          "Vos propres journaux et réglages"
+        ]
+      }
+    ],
+    "h1a": "Les modèles faits par une IA se trompent de chiffres.",
+    "h1b": "deskstack vérifie chacun face aux dépôts.",
     "lede_b": "Une équipe deal dans Claude.",
     "lede": "Un agent construit le modèle à partir de données gratuites et sourcées. D'autres rapprochent chaque chiffre du dépôt SEC ou européen. Rien ne sort sans votre accord.",
     "cta": "Installer dans Claude",
@@ -543,7 +776,7 @@
     ],
     "dk_card2_t": "Le voir repérer une coquille",
     "dk_card2_p": "Les scripts de revue sur le DCF FY2025 d'Apple, avec une coquille glissée. La revue du modèle ne la voit pas ; le rapprochement avec le 10-K, si.",
-    "demo_alt": "Enregistrement de terminal : /associate trouve 13 chiffres sur 14 conformes au 10-K d'Apple et signale le CA FY2024 391 053 contre 391 035 déposé, deux chiffres inversés ; /vp-review trouve le modèle propre ; après correction, /sign-off montre tous les contrôles au vert et attend l'accord.",
+    "demo_alt": "Rejeu de /deal-team sur Apple : l'analyste construit le DCF à partir de données citées ; /associate trouve 13 chiffres sur 14 conformes aux dépôts et signale le CA FY2025 416 116 contre 416 161 déposé, deux chiffres inversés ; après correction, les 14 concordent ; red team, conformité et sign-off suivent, et rien n'est exporté sans accord.",
     "b_t1": "Nous l'avons mesuré.",
     "b_t2": "Puis relu chaque chiffre faux à la main.",
     "b_p": "Claude Sonnet 5.5 a construit un DCF et un tableau de comparables pour chacune de 50 entreprises (35 américaines, 15 européennes), de trois façons. Chaque chiffre publié a été noté contre le dépôt.",
@@ -640,8 +873,13 @@
       ],
       [
         "filings.xbrl.org",
-        "États financiers, Europe",
-        "Rapports annuels ESEF d'une trentaine de grands émetteurs en France, aux Pays-Bas, en Espagne, en Finlande, en Italie et en Belgique."
+        "États financiers, Europe et Royaume-Uni",
+        "Rapports annuels ESEF et UKSEF de 232 grands émetteurs dans 14 pays : 72 sociétés cotées au Royaume-Uni, et des émetteurs de la France et des Pays-Bas à l'Espagne, l'Italie et les pays nordiques."
+      ],
+      [
+        "Données ouvertes CVM",
+        "États financiers, Brésil",
+        "États annuels DFP et trimestriels ITR de 20 grandes sociétés cotées, par identifiant CVM ou ticker B3. Sous licence ODbL : les données dérivées sont téléchargeables en entier."
       ],
       [
         "Trésor américain · BCE",
@@ -724,9 +962,99 @@
       "bench": "Benchmark",
       "privacy": "Confidentialité",
       "security": "Sécurité",
-      "license": "Licence MIT"
+      "license": "Licence MIT",
+      "examples": "Exemples",
+      "leaderboard": "Classement"
     },
     "f_credit": "Données de SEC EDGAR, filings.xbrl.org (XBRL International), du Trésor américain, de la BCE et d'Aswath Damodaran (NYU Stern). Le traitement XBRL de la SEC s'appuie sur open-finance-mcp de Nathanael Johnson.",
-    "f_disc": "Projet open source indépendant. Ni affilié à Anthropic ni approuvé par elle. Les données peuvent être incomplètes ou en retard. Pas un conseil en investissement."
+    "f_disc": "Projet open source indépendant. Ni affilié à Anthropic ni approuvé par elle. Les données peuvent être incomplètes ou en retard. Pas un conseil en investissement.",
+    "n_examples": "Exemples",
+    "tag_catch": "Ce qu'il attrape",
+    "w_t1": "De vraies erreurs,",
+    "w_t2": "tirées du benchmark.",
+    "w_p": "Claude, avec la seule recherche web, a fait ces erreurs en construisant des DCF et des tableaux de comparables. Chacune a été relue à la main face au dépôt, et chacune est attrapée par un contrôle deskstack.",
+    "w_h": [
+      "Erreur",
+      "Exemple réel",
+      "Ce qui l'attrape"
+    ],
+    "catches": [
+      [
+        "Douze derniers mois en retard d'un trimestre",
+        "FedEx, Fortinet, Motorola Solutions : le « TTM » d'un agrégateur arrêté à juin, après les 10-Q de septembre (15 chiffres)",
+        "<code>/associate</code> : <code>verify_value</code> indique <i>Stale</i> et donne les douze derniers mois"
+      ],
+      [
+        "Un trimestre pris pour l'année",
+        "Résultat net de Boeing : le quatrième trimestre (8 220) à la place de l'année (2 235)",
+        "<code>/associate</code> : écart avec le chiffre annuel déposé"
+      ],
+      [
+        "Nombre d'actions déduit ou de la mauvaise période",
+        "Actions diluées de Boeing, Pfizer, GE : résultat net ÷ BPA, un nombre sur six mois, un nombre du T1",
+        "<code>/associate</code> : écart, et une alerte quand les actions diluées s'écartent de plus de 10 % de la page de garde"
+      ],
+      [
+        "Chiffre non-GAAP ou d'un segment pris pour le groupe",
+        "Le « chiffre d'affaires ajusté » de GE ; les D&amp;A des seules activités industrielles de Stellantis",
+        "<code>/associate</code> : écart avec la ligne déposée du groupe"
+      ],
+      [
+        "Chiffre venu d'un agrégateur ou de Wikipédia",
+        "Résultat d'exploitation de Cisco et Verizon ; celui de Schneider, arrondi",
+        "<code>/associate</code> : écart, avec la valeur déposée et sa source"
+      ],
+      [
+        "Estimation saisie comme un chiffre déposé",
+        "Capex de Netflix calculé comme flux d'exploitation moins flux libre",
+        "<code>/associate</code> : écart ; la règle DS016 signale aussi un chiffre présenté comme estimation sans dépôt cité"
+      ],
+      [
+        "Zéro laissé en attente",
+        "Cigna, CVS et Humana dans les comparables d'UnitedHealth, marqués « NOT FOUND » (7 chiffres)",
+        "<code>/vp-review</code>, règle DS016 : un 0 saisi et marqué comme introuvable"
+      ]
+    ],
+    "tag_cli": "Sans Claude",
+    "k_t1": "Vérifiez n'importe quel modèle fait par une IA",
+    "k_t2": "en une commande.",
+    "k_p": "<code>deskstack-check</code> vérifie n'importe quel modèle .xlsx, qu'il vienne de Claude, de ChatGPT, de Copilot, d'un autre outil ou d'une personne. Hors ligne, il lance les 21 contrôles du modèle. Avec <code>--verify</code>, il rapproche aussi chaque chiffre saisi du dépôt ; seuls ces chiffres sont envoyés, chacun avec sa ligne, sa période et sa cellule.",
+    "k_cmd": "pipx run deskstack-check model.xlsx --verify",
+    "k_soon": "Bientôt sur PyPI. Aujourd'hui, depuis un clone : <code>pipx run --spec ./checker deskstack-check model.xlsx</code>.",
+    "k_out": "$ deskstack-check model.xlsx --verify\nmodel.xlsx  (deskstack_check 0.2.0, sha256 ced59305c2dd)\nModel checks: 0 blocker, 0 major, 0 minor, 0 info\nTie-out to the filings (AAPL): 13 of 14 match, 1 do not\n  MISMATCH  Inputs!C5  Revenue FY2025  416,116  filed 416,161\n           Typo: two adjacent digits look swapped (filed 416,161, written 416,116).\nFAIL (fails on blocker)",
+    "k_action_t": "Dans un dépôt",
+    "k_action_p": "L'action GitHub vérifie chaque classeur à chaque push et écrit le rapport dans le résumé du job.",
+    "k_action": "- uses: joaquimmj/deskstack@main\n  with:\n    files: \"models/**/*.xlsx\"\n    verify: \"true\"\n    fail-on: blocker",
+    "x_cli": "Référence de la commande",
+    "tag_ex": "Exemples",
+    "e_t1": "Téléchargez un modèle relu,",
+    "e_t2": "avec tous ses rapports.",
+    "e_p": "Construits avec les vrais outils de deskstack, à partir de réponses enregistrées : le classeur, le rapprochement, la revue du modèle, la conformité et la page de validation.",
+    "examples": [
+      [
+        "DCF rapide d'Apple",
+        "14 chiffres déposés sur 14 concordent avec le 10-K. Prêt pour la validation.",
+        "examples/apple-dcf"
+      ],
+      [
+        "Comparables tech US",
+        "Apple face à Microsoft, Alphabet, Amazon, Meta et Nvidia : 24 chiffres sur 24 concordent. Les capitalisations restent vides sans cours.",
+        "examples/us-tech-comps"
+      ],
+      [
+        "DCF d'Heineken",
+        "À partir de ses rapports annuels ESEF, en euros. 14 sur 14 concordent ; la revue signale une valeur terminale à 82 % de la valeur d'entreprise.",
+        "examples/heineken-dcf"
+      ],
+      [
+        "Erreurs attrapées",
+        "Un DCF de Microsoft où quatre erreurs du benchmark ont été saisies exprès. Les quatre sont attrapées.",
+        "examples/errors-caught"
+      ]
+    ],
+    "e_lb": "Le <a href=\"{{prefix}}leaderboard/\">classement</a> compare les modèles sur les mêmes 50 sociétés : Claude Sonnet 5.5 pour l'instant, d'autres bientôt.",
+    "x_ex": "Tous les exemples",
+    "og_alt": "deskstack : les modèles construits par une IA se trompent de chiffres. deskstack vérifie chacun face aux dépôts. Le CA FY2025 d'Apple saisi 416 116 est signalé : déposé 416 161.",
+    "x_caught": "Les voir attrapées"
   }
 }

@@ -1,0 +1,86 @@
+{
+ "report": "compliance",
+ "file": "model.xlsx",
+ "model_sha256": "d2da60dedad0be570deb2fb61c8cdd53f74efa2bd39f8c73ecb28146d2268f34",
+ "memo": null,
+ "counts": {
+  "pass": 9,
+  "fail": 1,
+  "warn": 0
+ },
+ "result": "fail",
+ "items": [
+  {
+   "id": "C01",
+   "check": "Draft / not-investment-advice disclaimer",
+   "status": "pass",
+   "detail": "Found.",
+   "refs": []
+  },
+  {
+   "id": "C02",
+   "check": "Sources sheet",
+   "status": "pass",
+   "detail": "Present.",
+   "refs": []
+  },
+  {
+   "id": "C03",
+   "check": "Every typed number cited",
+   "status": "pass",
+   "detail": "All cited.",
+   "refs": []
+  },
+  {
+   "id": "C04",
+   "check": "No placeholder or memory citations",
+   "status": "fail",
+   "detail": "Citations that say TBD, approx., from memory, unknown or end with '?'.",
+   "refs": [
+    "Sources!A8"
+   ]
+  },
+  {
+   "id": "C05",
+   "check": "User-provided inputs are dated",
+   "status": "pass",
+   "detail": "All dated.",
+   "refs": []
+  },
+  {
+   "id": "C06",
+   "check": "No sign of non-public information",
+   "status": "pass",
+   "detail": "None found.",
+   "refs": []
+  },
+  {
+   "id": "C07",
+   "check": "No recommendation or promise language",
+   "status": "pass",
+   "detail": "None found.",
+   "refs": []
+  },
+  {
+   "id": "C08",
+   "check": "No links to other workbooks",
+   "status": "pass",
+   "detail": "None.",
+   "refs": []
+  },
+  {
+   "id": "C09",
+   "check": "No hidden sheets",
+   "status": "pass",
+   "detail": "None.",
+   "refs": []
+  },
+  {
+   "id": "C11",
+   "check": "No instructions addressed to an AI or a reviewer",
+   "status": "pass",
+   "detail": "None found.",
+   "refs": []
+  }
+ ]
+}

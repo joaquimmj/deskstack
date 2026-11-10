@@ -41,7 +41,7 @@ Example: `examples/dcf.json` (Apple, FY2025 10-K).
 |---|---|
 | `target` | Ticker of the company being valued. Its row comes first, in bold; the median and mean cover the peers only |
 | `currency`, `scale`, `period` | Default currency, scale, and the period of the figures (e.g. "LTM" or "FY2025") |
-| `peers[]` | `name`, `ticker`, optional `currency`, and `revenue`, `ebitda`, `net_income`, `market_cap`, `net_debt`, each `{"value", "source"}` with an optional `"period"` |
+| `peers[]` | `name`, `ticker`, optional `currency`, and `revenue`, `ebitda`, `net_income`, `market_cap`, `net_debt`, each `{"value", "source"}` with an optional `"period"`. `market_cap` may be `{"value": null, "source": "Not given"}` when the user gives no price: EV and the multiples then show "n.a." |
 
 - **Per-figure periods:** when a figure's period differs from the spec's `period` (LTM for one peer, FY2025 for an
   EU peer that has no LTM), set it on that figure: `{"value": ..., "period": "FY2025", "source": "..."}`. The

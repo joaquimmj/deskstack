@@ -1,0 +1,42 @@
+{
+ "model": "model.xlsx",
+ "sha256": "2270d24a474cb26dcb7ffc9f68fb218b619e9f855838c5a9d5cf18eccd6be682",
+ "checks": [
+  {
+   "check": "Tie-out to filings (/associate)",
+   "key": "tieout",
+   "status": "fail",
+   "detail": "13 match, 1 mismatch, 0 not found, 0 ambiguous, 0 not checked, 0 unsourced"
+  },
+  {
+   "check": "Model review (/vp-review)",
+   "key": "review",
+   "status": "pass",
+   "detail": "0 blocker, 0 major, 0 minor"
+  },
+  {
+   "check": "Compliance (/compliance)",
+   "key": "compliance",
+   "status": "pass",
+   "detail": "10 pass, 0 fail, 0 warn"
+  },
+  {
+   "check": "Red team (/md-redteam)",
+   "key": "redteam",
+   "status": "missing",
+   "detail": "No red-team memo (optional)."
+  }
+ ],
+ "open_items": [
+  {
+   "from": "tie-out",
+   "severity": "blocker",
+   "ref": "Inputs!C5",
+   "issue": "Revenue: mismatch. Typo: two adjacent digits look swapped (filed 416,161, written 416,116)."
+  }
+ ],
+ "blocking": 1,
+ "missing": [],
+ "ready": false,
+ "token": "076abd8841c7"
+}
