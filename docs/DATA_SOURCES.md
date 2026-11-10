@@ -246,7 +246,7 @@ each filing's receipt number.
 
 **UNVERIFIED:** the Public Data Act's own text (not read); an attribution requirement in it.
 
-## 13. CVM open data (Brazil) — OK, with ODbL obligations
+## 13. CVM open data (Brazil) — OK, with ODbL obligations; served since 2026-11-10
 
 Read 2026-11-10.
 
@@ -280,6 +280,12 @@ resubmissions; DFP since 2010, ITR since 2011.
   available under the Open Database License (ODbL)."
 - The ODbL covers the Brazilian data only. The rest of deskstack's code stays MIT and its other data keeps its own
   terms. The Brazilian snapshot files would carry their own ODbL notice and a download link.
+
+**How deskstack meets them** (2026-11-10, `server/scripts/build-cvm.ts`):
+- 20 large non-financial companies (`server/data/br-issuers.json`), consolidated DFP statements, by fixed account code.
+- Every Brazilian answer carries the notice above in `attribution`, and each source's `license_note` names the ODbL.
+- Each file under `v1/br/` states the licence. `v1/br/dataset.json` is the whole derived database, a static file
+  anyone can download (§4.6). B3 tickers come from CVM's FCA forms, also ODbL.
 
 **UNVERIFIED:** whether the ODbL version is 1.0 (inferred from the Open Definition link); any rights in the statement
 contents under Brazilian law beyond the database licence; the terms of the file repository (dados.cvm.gov.br/dados).

@@ -3,6 +3,7 @@
 
 import { DISCLAIMER } from "./config";
 import { isFinancial, stalenessWarning } from "./sec/filings";
+import { CVM_NOTICE } from "./cvm/record";
 import type { EuRecord } from "./esef/record";
 import type { CompanyRecord } from "./sec/record";
 import type { Cell, Column, Derived, Standardized } from "./sec/xbrl";
@@ -178,8 +179,26 @@ const ESEF_LICENSE =
   "ESEF report filed under the EU Transparency Directive, via filings.xbrl.org (XBRL International); " +
   "the repository states no restrictions on use. Cite the report.";
 
+const CVM_LICENSE =
+  "CVM open data (Brazil), Open Database License (ODbL 1.0). Contains information from the CVM Open Data Portal " +
+  "(https://dados.cvm.gov.br/), made available under the ODbL; cite the portal and the filing.";
+
 export function euSourcesFor(rec: EuRecord, cited: Set<string>): Source[] {
   const std = rec.financials!;
+  if (rec.kind === "cvm") {
+    return [...cited].sort().map((a) => {
+      const f = rec.filings[a];
+      return {
+        name: `${rec.name}, DFP annual financial statements (CVM Open Data Portal)`,
+        url: std.filings[a]?.url ?? "",
+        accession_or_id: a,
+        form: "DFP",
+        period: f?.report_end ?? null,
+        as_of: (f?.published ?? f?.processed ?? "").slice(0, 10) || null,
+        license_note: CVM_LICENSE,
+      };
+    });
+  }
   return [...cited].sort().map((a) => {
     const f = rec.filings[a];
     return {
@@ -197,6 +216,22 @@ export function euSourcesFor(rec: EuRecord, cited: Set<string>): Source[] {
 export function euCompanyBlock(rec: EuRecord) {
   const std = rec.financials!;
   const lastAnnual = std.periods.filter((p) => p.type === "annual").at(-1);
+  if (rec.kind === "cvm") {
+    return {
+      name: std.entity_name ?? rec.name,
+      ticker: rec.cvm?.tickers[0] ?? null,
+      id: rec.lei,
+      tickers: rec.cvm?.tickers ?? [],
+      cvm_code: rec.cvm?.code ?? null,
+      cnpj: rec.cvm?.cnpj ?? null,
+      country: "BR",
+      region: "BR",
+      reporting_standard: "IFRS (CVM DFP)",
+      currency: std.currency,
+      fiscal_year_end: lastAnnual ? lastAnnual.end.slice(5).replace("-", "") : null,
+      financial_company: rec.financial,
+    };
+  }
   return {
     name: std.entity_name ?? rec.name,
     ticker: null,
@@ -222,18 +257,22 @@ export function euFinancialStatements(rec: EuRecord, years: number, includeLtm: 
   const sources = euSourcesFor(rec, cited);
   const cur = std.currency;
   const last = columns.filter((c) => c.type === "annual").at(-1);
+  const cvm = rec.kind === "cvm";
   const summary =
-    `${std.entity_name ?? rec.name} (LEI ${rec.lei}, ${rec.country}), IFRS, ${cur}. ` +
+    `${std.entity_name ?? rec.name} (${cvm ? `${rec.lei}${rec.cvm?.tickers.length ? `, ${rec.cvm.tickers.join("/")}` : ""}` : `LEI ${rec.lei}`}, ${rec.country}), IFRS, ${cur}. ` +
     (last
       ? `${last.label} (ended ${last.end}): revenue ${fmt(last.values.revenue?.value, cur)}, ` +
         `net income ${fmt(last.values.net_income?.value, cur)}. `
       : "") +
-    `${columns.length} period(s), ${sources.length} cited ESEF report(s). Every value cites its IFRS concept and report; ` +
+    (cvm
+      ? `${columns.length} period(s), ${sources.length} cited CVM DFP filing(s). Every value cites its filing. `
+      : `${columns.length} period(s), ${sources.length} cited ESEF report(s). Every value cites its IFRS concept and report; `) +
     "cite the matching `sources` entry when you use a number.";
   return {
     summary,
     company: euCompanyBlock(rec),
     units: `Monetary values in ${cur}, absolute (not thousands or millions). diluted_eps in ${cur} per share.`,
+    ...(cvm ? { attribution: CVM_NOTICE } : {}),
     periods: columns.map(shapeColumn),
     warnings: euWarnings(rec),
     notes: std.notes,

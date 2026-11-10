@@ -22,3 +22,14 @@ deskstack is MIT-licensed (see `LICENSE`). It includes work adapted from the pro
 - Unmodified copies live under `plugins/deskstack/skills/*/scripts/_vendor/`, with their license files in
   `_vendor/licenses/`. They let the skills' scripts run where packages can't be installed (claude.ai code execution
   with restricted egress). `plugins/sync_vendor.py` writes them.
+
+## CVM open data (Brazil): ODbL 1.0
+
+- Source: Comissão de Valores Mobiliários, Portal de Dados Abertos, https://dados.cvm.gov.br/ (DFP annual statements
+  and FCA forms of listed companies). Licence: Open Database License 1.0,
+  https://opendatacommons.org/licenses/odbl/1-0/.
+- Contains information from the CVM Open Data Portal (https://dados.cvm.gov.br/), made available under the Open
+  Database License (ODbL).
+- Derived databases, offered under the same licence: the recorded files in `server/test/fixtures/cvm/`,
+  `evals/fixtures/cvm-answers.json`, and the snapshot's `v1/br/` files (whole copy: `v1/br/dataset.json`). The code
+  that reads them is MIT, like the rest of the repository.
