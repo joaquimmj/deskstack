@@ -191,9 +191,13 @@ Every value carries its source: filing, accession or report, period. The 8 tools
   the public ESEF repository. Some UK companies tag no total assets, and some issuers tag only parts of revenue (goods and services, as NOS,
   REN, Sonae and Altri do); those lines are then `null`, with a note.
 - Brazilian coverage is 20 companies, annual years plus LTM, from CVM's fixed chart of accounts. Capex, D&A and EPS aren't
-  fixed lines there, so they are `null`, and so is EBITDA. Total equity includes minority interests. Banks and
-  insurers aren't covered yet.
+  fixed lines there, so they are `null`, and so is EBITDA. Total equity includes minority interests; the minorities
+  are served on their own line and the equity note gives the amount. Lease liabilities aren't a fixed line either.
+  Banks and insurers aren't covered yet.
 - IFRS 20-F filers have no LTM.
+- When a filer tags a line only in a broader or narrower form (D&A without amortization, capex with intangibles,
+  debt with finance leases, interest as total finance costs), the figure is served as filed with a note, not
+  adjusted. Ratios built on it repeat the note.
 - Banks and insurers are flagged; EBITDA and EV metrics don't apply to them.
 - The benchmark's 0 is partly by construction (see [Benchmark](#benchmark)). It ran on one model, Claude Sonnet 5.5.
 - **Reviewers reduce errors but don't replace a human reviewer.** Everything is a draft until you sign it off.
