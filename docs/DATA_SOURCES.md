@@ -30,6 +30,7 @@ Status: M0 audit, 2026-11-08. The per-source audit below is the source of truth 
 | 7 | Eurostat API | No | None stated | CC BY 4.0; commercial reuse allowed (exceptions below) | Acknowledge source + flag changes | **OK** |
 | 8 | Damodaran datasets | No (static xls/xlsx) | n/a | No licence; "no strings attached" | Acknowledgement appreciated | **CAUTION**: informal terms; vendor-derived |
 | 9 | Price/market-cap APIs (FMP, AV, Tiingo, Finnhub, Twelve Data, Massive, EODHD, Marketstack, Stooq) | Yes (all) | Free tiers 25/day to 1,000/day | **None** allows hosted redistribution on a free key; BYOK varies | Varies | **BLOCKER** for a shared key; BYOK is CAUTION/OK (see §9) |
+| 10 | Companies House (UK private companies: accounts bulk data, API) | API: free key. Bulk accounts: none | API: 600 requests per 5 minutes per key | **No licence stated** for the data or the API (see §10). "We impose no rules or requirements on how the information on the public register is used" | OGL default line if OGL applies (UNVERIFIED) | **STOPPED**: licence to confirm with Companies House before any code |
 
 ---
 
@@ -133,6 +134,57 @@ Yahoo Finance: **excluded**. Its API terms bar selling, sharing or sublicensing 
 - **Recommended: BYOK with Tiingo.** Users send their own token in a request header, e.g. `X-Tiingo-Token`. The Worker forwards it to `api.tiingo.com/tiingo/daily/{ticker}/prices`. Responses are shown only to that caller, and price data is **never written to the shared cache**; at most use a per-request memo keyed by a hash of the token. This is the only provider with a written developer program for software where users supply their own token. Its free limits are the most generous: 1,000 req/day with raw and adjusted EOD. Obligations: register by email, display "Price data: Tiingo", never log tokens or ask for passwords, and say that commercial users (e.g. PE firms) need their own Tiingo commercial plan ($50/mo).
 - **Runner-up: BYOK with Massive.** Its individual ToS §7 is the clearest text permitting "AI tools, agents, hosting providers" to process data on the user's behalf. But the free tier is 5 req/min, US-only, EOD with 2-year history, and non-business use only.
 - **Rejected:** a single server key on any free or cheap plan. Every provider reviewed requires a paid redistribution, display or B2B licence for that. Twelve Data's free tier forbids display. Stooq is captcha-gated. FMP and EODHD forbid display or use on behalf of others. The one lead worth an email is Alpha Vantage's "verified open-source or educational projects" program; get written scope before relying on it.
+
+## 10. Companies House (UK private companies) — STOPPED until the licence is confirmed
+
+Read 2026-11-10. Not served, and no code written. Stars brief rule: stop and ask when the terms aren't published.
+
+**What it is.** The Free Accounts Data Product is a free daily ZIP of the accounts filed electronically the day before
+(https://download.companieshouse.gov.uk/en_accountsdata.html).
+- Files: one instance document per filing, iXBRL (`.html`), XBRL (`.xml`) or a ZIP of iXBRL, named
+  `Prod223_<n>_<company number>_<balance sheet date>`.
+- Schedule: a new file Tuesday to Saturday. Daily files stay 60 days, then only monthly files.
+- Size: about 60 to 160 MiB a day, up to 598 MiB (2026-10-01).
+- Coverage: "about 75% of the 2.2 million accounts we expect to be filed each year". The GOV.UK data-products page
+  says 60%; the two pages disagree.
+- No payment: "Each data file is provided free of charge and is not supported."
+
+**Rate limit (API).** "You can make up to 600 requests within a five-minute period." Over it, `429 Too Many Requests`
+until the window resets. "We reserve the right to ban without notice applications that regularly exceed or attempt
+to bypass the rate limits."
+(https://developer-specs.company-information.service.gov.uk/guides/rateLimiting)
+
+**Licence: not stated.**
+- The accounts download page states no licence, copyright or re-use terms.
+- The API pages (developer.company-information.service.gov.uk and its guidelines) state none either. They end with
+  "© Crown copyright".
+- The old terms page (resources.companieshouse.gov.uk/legal/termsAndConditions.shtml) now redirects to a "Service
+  information" page with no terms.
+- The service's "Policies" link leads to https://www.gov.uk/guidance/search-the-companies-house-register. It says the
+  data is free and "not intended to be a source for bulk downloads" (that is about the search service).
+- The closest statement, from https://www.gov.uk/guidance/companies-house-data-products: "We impose no rules or
+  requirements on how the information on the public register is used, and we're not responsible for your use of the
+  company data. You are responsible for complying with any applicable data protection, copyright and other
+  legislation and regulations." This is permissive, but it isn't a licence.
+- GOV.UK pages end with "All content is available under the Open Government Licence v3.0, except where otherwise
+  stated". That covers the pages' content. Whether it covers the register data is UNVERIFIED.
+
+**If the OGL applies.** It allows "copy, publish, distribute and transmit", including commercially. It requires the
+attribution "Contains public sector information licensed under the Open Government Licence v3.0." unless the
+provider gives its own. It does not cover personal data
+(https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
+
+**Personal data.** Companies House says re-users "become controllers of your personal data" under UK GDPR
+(personal information charter). deskstack would serve only company accounts: no officers, no persons with
+significant control, no addresses. The ECCTA 2023 suppression rules for bulk and API data are UNVERIFIED (not on the
+pages read).
+
+**Next step.** Ask Companies House whether the OGL v3.0 covers the Free Accounts Data Product and the API, for a free
+hosted service that extracts accounts figures and cites each filing. A draft email is ready for the owner to send.
+
+**UNVERIFIED:** an explicit licence for the bulk accounts data and for the API; a Companies House attribution
+statement; ECCTA rules for re-users; the file count per daily ZIP; the share of filings with a profit and loss
+account.
 
 ## Open questions / unverified
 1. Whether the SEC has ever blocked Cloudflare Workers egress ranges. No report found. Test from a deployed Worker with a declared UA, and check whether Cloudflare offers fixed egress IPs for Workers.
