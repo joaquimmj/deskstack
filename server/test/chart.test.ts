@@ -36,3 +36,19 @@ describe("benchmark chart", () => {
     expect(committed).toBe(renderChart(loadPanels(ROOT)));
   });
 });
+
+describe("leaderboard", () => {
+  it("has one row per model, task and setup from the analysed full runs, as the analyses read them", async () => {
+    const { loadBoard } = await import("../bench/leaderboard");
+    const rows = loadBoard(ROOT);
+    expect(rows.map((r) => [r.task, r.model, r.arm, r.wrong, r.filed, r.avgSeconds])).toEqual([
+      ["dcf", "claude-sonnet-5-5", "A", 20, 573, 58], ["dcf", "claude-sonnet-5-5", "B", 0, 593, 18], ["dcf", "claude-sonnet-5-5", "C", 0, 606, 32],
+      ["comps", "claude-sonnet-5-5", "A", 16, 445, 171], ["comps", "claude-sonnet-5-5", "B", 0, 1021, 36], ["comps", "claude-sonnet-5-5", "C", 0, 1010, 51],
+    ]);
+  });
+
+  it("site/leaderboard/index.html is current (regenerate: cd server && npx tsx bench/leaderboard.ts)", async () => {
+    const { loadBoard, renderBoard } = await import("../bench/leaderboard");
+    expect(readFileSync(join(ROOT, "site", "leaderboard", "index.html"), "utf8")).toBe(renderBoard(loadBoard(ROOT)));
+  });
+});
