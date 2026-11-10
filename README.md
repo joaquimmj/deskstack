@@ -168,7 +168,7 @@ Every value carries its source: filing, accession or report, period. The 8 tools
 
 ## Accuracy
 
-- **The golden set:** 361 questions with known answers from the filings. It covers:
+- **The golden set:** 362 questions with known answers from the filings. It covers:
   - US issuers and IFRS 20-F filers;
   - at least 10 questions for each of the 14 European countries covered, the UK included, each answer read by
     Arelle from the published report;

@@ -74,7 +74,7 @@ SEC = [
     ("GOOGL", "FY2021", "2021-12-31", [("diluted_eps", "EarningsPerShareDiluted")], ["us", "stock-split"]),
     ("KO", "FY2025", "2025-12-31", [("revenue", "Revenues"), ("gross_profit", "GrossProfit"), ("operating_income", "OperatingIncomeLoss"),
      ("net_income", "NetIncomeLoss"), ("operating_cash_flow", "NetCashProvidedByUsedInOperatingActivities"), ("diluted_eps", "EarningsPerShareDiluted"),
-     ("total_assets", "Assets")], ["us"]),
+     ("total_assets", "Assets"), ("noncontrolling_interests", "MinorityInterest")], ["us"]),
     ("KO", "FY2024", "2024-12-31", [("revenue", "Revenues"), ("net_income", "NetIncomeLoss")], ["us"]),
     ("CAT", "FY2025", "2025-12-31", [("revenue", "Revenues"), ("operating_income", "OperatingIncomeLoss"), ("net_income", "NetIncomeLoss|NetIncomeLossAvailableToCommonStockholdersBasic"),
      ("operating_cash_flow", "NetCashProvidedByUsedInOperatingActivities"), ("diluted_eps", "EarningsPerShareDiluted")], ["us", "industrial"]),
