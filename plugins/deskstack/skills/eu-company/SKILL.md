@@ -8,8 +8,9 @@ argument-hint: "<company name or LEI>"
 
 1. **Find it:** `company_lookup` with the name or LEI.
    - European issuers resolve to an LEI.
-   - If none is found, say that coverage is about 100 large issuers in 13 countries (France, the Netherlands, Spain,
-     Italy, Finland, Belgium, the Nordics, Austria, Portugal, Ireland, Luxembourg). German issuers aren't in the public
+   - If none is found, say that coverage is 232 large issuers in 14 countries (the UK, France, the Netherlands,
+     Spain, Italy, Finland, Belgium, the Nordics, Austria, Portugal, Ireland, Luxembourg); `data_status` gives the count
+     by country. German issuers aren't in the public
      ESEF repository.
 2. **Financials:** `financial_statements` with the LEI → annual IFRS figures, each line with its concept and report.
    - Some lines an issuer tags only with its own concepts come back `null`: say "not reported in the ESEF data",

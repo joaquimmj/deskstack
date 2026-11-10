@@ -1,40 +1,121 @@
 # deskstack
 
-**AI-built models get numbers wrong. deskstack checks every one against the filings.**
-
-[![CI](https://github.com/joaquimmj/deskstack/actions/workflows/ci.yml/badge.svg)](https://github.com/joaquimmj/deskstack/actions/workflows/ci.yml)
-[![golden set](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/joaquimmj/deskstack/main/site/badges/golden.json)](evals/README.md)
-[![license: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![plugin version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjoaquimmj%2Fdeskstack%2Fmain%2Fplugins%2Fdeskstack%2F.claude-plugin%2Fplugin.json&query=%24.version&label=plugin)](plugins/deskstack)
-[![stars](https://img.shields.io/github/stars/joaquimmj/deskstack?style=flat)](https://star-history.com/#joaquimmj/deskstack&Date)
+**Claude builds your DCFs and comps from SEC and European filings, and a second agent checks every number against
+the filing.** In the benchmark, 0 of 3,230 reported figures were wrong with deskstack, against 36 of 1,018 (3.5%)
+with web search only.
 
 ![Replay of /deal-team on Apple: /associate catches FY2025 revenue typed as 416,116 where the filing says 416,161, the fix ties all 14 figures, and sign-off waits for approval](site/media/demo.gif)
 
-- **Free data with a source, US and Europe.** Every figure comes with its filing, period and link. Missing stays
-  `null`, never an estimate.
-- **Independent reviewers.** One agent builds the model. Others tie every number to the filing and review the
-  model. They report; they never edit.
-- **Nothing ships without your OK.** The final file is exported only after you approve it in your own words.
+[![golden set](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/joaquimmj/deskstack/main/site/badges/golden.json)](evals/README.md)
+[![CI](https://github.com/joaquimmj/deskstack/actions/workflows/ci.yml/badge.svg)](https://github.com/joaquimmj/deskstack/actions/workflows/ci.yml)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![works in the Claude app](https://img.shields.io/badge/works%20in-the%20Claude%20app-d4a27f)](#set-up-in-the-claude-app)
+
+If it saves you a tie-out, a star helps others find it.
 
 [Website](https://joaquimmj.github.io/deskstack/) · [Examples](examples/README.md) · [Tutorial](docs/TUTORIAL.md) · [Tutoriel (FR)](docs/TUTORIEL.md)
 
 > **Public beta.** The hosted connector is online at `https://deskstack.deskstack-server.workers.dev/mcp`. Feedback
 > and issues are welcome.
 
-## Install in 30 seconds
+## Why
 
-1. **Data:** in Claude, open **Settings → Connectors → Add custom connector** and paste
-   `https://deskstack.deskstack-server.workers.dev/mcp`, with no sign-in. You can also run your own copy
-   ([self-hosting](docs/SELF_HOSTING.md)).
+With web search only, Claude fills gaps with numbers that aren't in the filing. In the benchmark (50 companies, a
+DCF and a comps table each):
+
+- **DCF:** share counts derived from net income ÷ EPS, or taken from six months or one quarter; capex estimated as
+  operating cash flow minus free cash flow; non-GAAP "adjusted revenue"; a segment's D&A used for the group's;
+  figures from aggregator sites or Wikipedia. 20 wrong figures, in 12 of the 50 models. Claude flagged about half
+  of them in its own notes, but the numbers went into the model.
+- **Comps:** 15 of the 16 wrong figures were last-twelve-months figures a quarter late, from an aggregator that
+  still showed the twelve months to June after the September 10-Qs were filed. 7 more were left as 0 placeholders.
+
+deskstack gives Claude the filed figures, each with its filing, and reviewers that check every typed number. In
+[examples/apple-dcf-typo](examples/apple-dcf-typo/), Apple's FY2025 revenue is typed as 416,116: `/associate` says
+the 10-K reports 416,161 and that two digits look swapped. `/md-redteam` shows what a price implies: at $230 a share,
+the [Apple example model](examples/apple-dcf/) implies a WACC of 7.74%, against the 10.6% it uses.
+
+## Benchmark
+
+How many reported figures in an AI-built model are wrong, with and without deskstack. 50 companies (35 US, 15
+European), three setups, Claude Sonnet 5.5. Every figure the scorer called wrong was read by hand against the filing.
+
+| Task | Web search only | deskstack data | deskstack + reviewers |
+|---|---|---|---|
+| DCF | **20 of 573 wrong (3.5%)**<br>$0.23 · 58 s | **0 of 593**<br>$0.07 · 18 s | **0 of 606**<br>$0.10 · 32 s |
+| Comps | **16 of 445 wrong (3.6%)**, and 7 left as 0<br>$0.56 · 171 s | **0 of 1,021**<br>$0.17 · 36 s | **0 of 1,010**<br>$0.22 · 51 s |
+
+Cost and time are averages per model. "Wrong" means the figure differs from the filing for the period asked. Not every
+run finished: 49 of 50 DCFs with deskstack data, 45 of 50 comps tables with web search only. Analyses:
+[DCF](bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md), [comps](bench/results/2026-11-09T13-04-05-468Z/ANALYSIS.md).
+
+**Read the 0 with care.** It is partly by construction: the deskstack setups read the same data the scorer checks
+against, so the 0 says the models copied deskstack's figures faithfully. Whether those figures are right is checked
+separately, by the golden set and a nightly re-read with other XBRL parsers ([Accuracy](#accuracy)). Each analysis
+also lists what the run found wrong in deskstack itself, and what was fixed. With 30 searches per request and high
+effort instead of 12 and medium, web search still wrote a wrong figure (1 of 117), and left none as 0
+([robustness check](bench/ROBUSTNESS.md)). The runner, the frozen company set and the method are in
+[bench/](bench/README.md); the chart version is [bench/benchmark.svg](bench/benchmark.svg).
+
+## Set up in the Claude app
+
+deskstack has two parts. The **data connector** gives Claude filed figures, each with its source; you add it once,
+by pasting a URL. The **plugin** adds the roles: commands you type in a chat, such as `/analyst` or `/associate`.
+
+The connector works on any Claude account; a free account can add one custom connector. The plugin needs a paid
+plan, and code execution turned on in **Settings → Capabilities**. No terminal is needed.
+
+1. **Data:** in Claude, open **Customize → Connectors → Add custom connector** and paste
+   `https://deskstack.deskstack-server.workers.dev/mcp`, with no sign-in. Check it: ask *"Using deskstack, what was
+   Apple's revenue in FY2025? Cite the filing."* The answer should be $416,161 million, citing an Apple 10-K and its
+   accession number. You can also run your own copy ([self-hosting](docs/SELF_HOSTING.md)).
 2. **Roles:** open **Customize → Plugins → Add marketplace**, paste `https://github.com/joaquimmj/deskstack`, then
-   install **deskstack**. In Claude Code: `/plugin install deskstack --marketplace joaquimmj/deskstack` (2.1.275+).
+   install **deskstack**.
 3. **Try it:** `/deal-team Apple quick-dcf`. If something fails, `/deskstack-doctor` checks the connector, the plugin
    version, Python and the bundled scripts, and says how to fix what doesn't work.
 
 The tutorial walks through a first reviewed DCF in about 10 minutes: [English](docs/TUTORIAL.md) ·
-[français](docs/TUTORIEL.md).
+[français](docs/TUTORIEL.md). In Claude Code: `/plugin install deskstack --marketplace joaquimmj/deskstack` (2.1.275+).
+
+## What you get
+
+A workbook with blue inputs, formulas, and a **Sources** sheet that cites the filing behind every typed number:
+
+![The Sources sheet of examples/apple-dcf/model.xlsx: each typed cell with its line item, period, value, 10-K accession, link and XBRL concept](docs/media/sources-sheet.png)
+
+Review reports from each role, and one sign-off page. Nothing is exported until you approve it in your own words:
+
+![The sign-off page of examples/apple-dcf: tie-out, model review and compliance pass, approval token, nothing exported until you approve](docs/media/sign-off.png)
+
+Both images are rendered from the files in [examples/apple-dcf](examples/apple-dcf/) by
+[docs/media/make_media.py](docs/media/make_media.py). Open the workbook and every report there, or the
+[four other examples](examples/README.md), including a model with errors typed in on purpose.
+
+## What it catches
+
+Real errors from the [benchmark](#benchmark), each read by hand against the filing.
+
+| Error | Real example | What catches it |
+|---|---|---|
+| Last twelve months a quarter late | FedEx, Fortinet, Motorola Solutions: an aggregator's "TTM" to June, after the September 10-Qs were filed (15 figures) | `/associate`: `verify_value` says *Stale* and gives the latest twelve months |
+| A quarter written as the year | Boeing net income: the fourth quarter (8,220) as the full year (2,235) | `/associate`: mismatch against the filed annual figure |
+| Share count derived or from the wrong period | Boeing, Pfizer, GE diluted shares: net income ÷ EPS, a six-month count, a Q1 count | `/associate`: mismatch, and a flag when diluted shares are more than 10% from the cover page |
+| Non-GAAP or segment figure for the group | GE "adjusted revenue"; Stellantis D&A for industrial activities only | `/associate`: mismatch against the group's filed line |
+| Figure from an aggregator or Wikipedia | Cisco and Verizon operating income; Schneider operating income, rounded | `/associate`: mismatch, with the filed value and its source |
+| Estimate typed as a filed figure | Netflix capex as operating cash flow minus free cash flow | `/associate`: mismatch; `/vp-review` rule DS016 also flags a figure labelled as an estimate with no filing cited |
+| Placeholder left at 0 | Cigna, CVS and Humana in UnitedHealth's comps, labelled "NOT FOUND" (7 figures) | `/vp-review` rule DS016: a typed 0 labelled as not found |
+
+To see these caught, open [examples/errors-caught](examples/errors-caught/): a Microsoft DCF with four of these errors
+typed in on purpose, and the reports that find all four.
+
+`verify_value` also names the usual causes of a mismatch: wrong scale, opposite sign, another period, another line
+item, another currency, two digits swapped, or another common definition (net debt with leases, equity without
+minorities). The 21 model rules are listed in [checker/README.md](checker/README.md).
 
 ## Check any AI-built model in one command
+
+For teams with a terminal or a repository; the Claude app doesn't need it.
+
 
 `deskstack-check` checks any `.xlsx` model, whether Claude, ChatGPT, Copilot, another tool or a person built it.
 
@@ -76,48 +157,6 @@ The exit code is 0 for a pass, 1 for a fail, and 2 when the file can't be read o
     verify: "true"        # optional: tie figures to the filings
     fail-on: blocker
 ```
-
-## What it catches
-
-Real errors from the [benchmark](#benchmark): Claude with web search only, building a DCF or a comps table. Each was
-read by hand against the filing.
-
-| Error | Real example | What catches it |
-|---|---|---|
-| Last twelve months a quarter late | FedEx, Fortinet, Motorola Solutions: an aggregator's "TTM" to June, after the September 10-Qs were filed (15 figures) | `/associate`: `verify_value` says *Stale* and gives the latest twelve months |
-| A quarter written as the year | Boeing net income: the fourth quarter (8,220) as the full year (2,235) | `/associate`: mismatch against the filed annual figure |
-| Share count derived or from the wrong period | Boeing, Pfizer, GE diluted shares: net income ÷ EPS, a six-month count, a Q1 count | `/associate`: mismatch, and a flag when diluted shares are more than 10% from the cover page |
-| Non-GAAP or segment figure for the group | GE "adjusted revenue"; Stellantis D&A for industrial activities only | `/associate`: mismatch against the group's filed line |
-| Figure from an aggregator or Wikipedia | Cisco and Verizon operating income; Schneider operating income, rounded | `/associate`: mismatch, with the filed value and its source |
-| Estimate typed as a filed figure | Netflix capex as operating cash flow minus free cash flow | `/associate`: mismatch; `/vp-review` rule DS016 also flags a figure labelled as an estimate with no filing cited |
-| Placeholder left at 0 | Cigna, CVS and Humana in UnitedHealth's comps, labelled "NOT FOUND" (7 figures) | `/vp-review` rule DS016: a typed 0 labelled as not found |
-
-To see these caught, open [examples/errors-caught](examples/errors-caught/): a Microsoft DCF with four of these errors
-typed in on purpose, and the reports that find all four.
-
-`verify_value` also names the usual causes of a mismatch: wrong scale, opposite sign, another period, another line
-item, another currency, two digits swapped. The 21 model rules are listed in [checker/README.md](checker/README.md).
-
-## Benchmark
-
-How many reported figures in an AI-built model are wrong, with and without deskstack. 50 companies (35 US, 15
-European), a DCF and a comps table each, three setups, Claude Sonnet 5.5. Every figure the scorer called wrong was
-then read by hand against the filing.
-
-![Wrong reported figures by setup: web search only 20 of 573 (DCF) and 16 of 445 (comps); deskstack data and deskstack with reviewers 0 in both](bench/benchmark.svg)
-
-- **DCF:** with web search only, 20 of 573 reported figures were wrong (3.5%, in 12 of 50 models). With deskstack's
-  data: 0, at a third of the cost ($0.07-0.10 vs $0.23 per model) and 2-3× faster
-  ([analysis](bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md)).
-- **Comps:** with web search only, 16 of 445 were wrong (3.6%). 15 of them were twelve-month figures a quarter out of
-  date. 7 more were left as 0 placeholders. With deskstack's data: 0 of 1,021, at a third of the cost ($0.17-0.22 vs
-  $0.56 per table) and 3-5× faster ([analysis](bench/results/2026-11-09T13-04-05-468Z/ANALYSIS.md)).
-
-**Read the 0 with care.** It is partly by construction: setups B and C read the same data the scorer checks against.
-That data is checked independently by the golden set and a nightly re-read with other XBRL parsers
-([Accuracy](#accuracy)). Each analysis also lists what the run found wrong in deskstack itself, and what was fixed.
-The runner, the frozen company set and the method are in [bench/](bench/README.md). The chart is drawn from the
-analyses by `server/bench/chart.ts`.
 
 ## The roles
 
@@ -200,6 +239,7 @@ Every value carries its source: filing, accession or report, period. The 8 tools
   adjusted. Ratios built on it repeat the note.
 - Banks and insurers are flagged; EBITDA and EV metrics don't apply to them.
 - The benchmark's 0 is partly by construction (see [Benchmark](#benchmark)). It ran on one model, Claude Sonnet 5.5.
+- It checks figures against filings. It never says buy or sell, and it is not investment advice.
 - **Reviewers reduce errors but don't replace a human reviewer.** Everything is a draft until you sign it off.
 
 ## How it stays free
@@ -212,27 +252,36 @@ Every value carries its source: filing, accession or report, period. The 8 tools
   service comes back (the daily cap resets at 00:00 UTC) and how to self-host.
 - **Privacy:** the server stores no user data and logs no prompts ([PRIVACY.md](PRIVACY.md)).
 
+## How it compares
+
+| | What it gives you | What it leaves out |
+|---|---|---|
+| deskstack | Filed figures from SEC, ESEF and CVM, each cited; reviewers that tie every typed number to the filing; free | Share prices, consensus estimates, private companies |
+| Web search in Claude | Whatever pages the search finds | A check against the filing: 36 of 1,018 figures were wrong in the [benchmark](#benchmark) |
+| Anthropic's `financial-analysis` plugin | Model building and a spreadsheet audit (`audit-xls`) | Not a competitor: deskstack's reviewers run on its workbooks as they are, so use both ([companion mode](docs/ROLES.md#companion-mode)) |
+| Paid terminals (CapIQ, FactSet) | Prices, consensus estimates, private company data | Free access |
+
 ## FAQ
 
-**Is it free?** Yes. The data comes from free public sources, and the hosted server runs on free tiers. If the daily
-cap is reached, run your own copy.
+**Does it work on the free plan?** The data connector does: a free account can add one custom connector. The roles
+are a plugin, and plugins need a paid plan.
 
-**Is the 0% real?** The 0 wrong figures are what the hand reading found. But setups B and C read the data the scorer
-checks against, so the 0 says the models copied deskstack's figures faithfully. Whether those figures are right is
-checked separately, by the golden set and the nightly re-read.
+**Claude Code or Cowork?** Both work, with the same plugin. There, the reviewers run as separate agents that don't see
+the builder's reasoning ([docs/ROLES.md](docs/ROLES.md)).
 
-**Does it change my model?** No. Reviewers only report. The analyst applies a fix only when you ask.
+**Which companies are covered?** US-listed companies that file XBRL with the SEC, including IFRS foreign filers; 232
+large European and UK issuers; 20 Brazilian companies. `company_lookup` says when one isn't covered
+([coverage](#data-sources-and-coverage)).
 
-**Where does my workbook go?** The workbook checks are scripts in the plugin. They run where Claude runs your skills:
-on your machine in Claude Code, in Claude's sandbox in the apps. Only the tool calls reach the deskstack server, which
-stores no user data and logs no prompts.
+**Is my data stored?** No. The workbook checks run where Claude runs your skills: on your machine in Claude Code, in
+Claude's sandbox in the apps. Only the tool calls reach the deskstack server, which stores no user data and logs no
+prompts ([PRIVACY.md](PRIVACY.md)).
 
-**Can I use a company that isn't covered?** For US-listed companies, coverage follows SEC filings. In Europe,
-`company_lookup` says if an issuer isn't covered; `data_status` lists the countries. Missing figures stay `null`.
+**Why no share prices?** We found no free price source whose terms allow serving prices to everyone
+([docs/DATA_SOURCES.md](docs/DATA_SOURCES.md)). A market cap uses a price you give, with its date.
 
-**Is it investment advice?** No. It checks figures against filings. It never says buy or sell.
-
-**Is it from Anthropic?** No. It is an independent open-source project that runs inside Claude.
+**Can I self-host?** Yes, at no cost: `scripts/self-host.sh` deploys your own copy on Cloudflare's free plan
+([docs/SELF_HOSTING.md](docs/SELF_HOSTING.md)).
 
 ## Contributing
 
