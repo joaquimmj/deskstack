@@ -30,6 +30,10 @@ Status: M0 audit, 2026-11-08. The per-source audit below is the source of truth 
 | 7 | Eurostat API | No | None stated | CC BY 4.0; commercial reuse allowed (exceptions below) | Acknowledge source + flag changes | **OK** |
 | 8 | Damodaran datasets | No (static xls/xlsx) | n/a | No licence; "no strings attached" | Acknowledgement appreciated | **CAUTION**: informal terms; vendor-derived |
 | 9 | Price/market-cap APIs (FMP, AV, Tiingo, Finnhub, Twelve Data, Massive, EODHD, Marketstack, Stooq) | Yes (all) | Free tiers 25/day to 1,000/day | **None** allows hosted redistribution on a free key; BYOK varies | Varies | **BLOCKER** for a shared key; BYOK is CAUTION/OK (see §9) |
+| 10 | Companies House (UK private companies: accounts bulk data, API) | API: free key. Bulk accounts: none | API: 600 requests per 5 minutes per key | **No licence stated** for the data or the API (see §10). "We impose no rules or requirements on how the information on the public register is used" | OGL default line if OGL applies (UNVERIFIED) | **STOPPED**: licence to confirm with Companies House before any code |
+| 11 | EDINET (Japan, FSA): API v2 | Yes, free (account with phone verification) | No number published; bursts banned ("短時間における大量のアクセス") | Public Data License 1.0, compatible with CC BY 4.0: "商用利用も可能です". Numeric data isn't copyrighted. The EDINET taxonomy is excluded | "出典：EDINET閲覧（提出）サイト（URL）、PDL1.0（URL）", plus a note when edited | **OK** (key needed) |
+| 12 | OpenDART (Korea, FSS) | Yes, free; one key per member, never usable by a third party | 20,000 calls a day for an individual key (all 83 APIs together); over 1,000 a minute may be blocked | Public data under the Public Data Act: use "not restricted" if it doesn't infringe the public interest or others' rights; redistribution at the user's own responsibility | None found | **OK** (key needed; a batch job holds the key) |
+| 13 | CVM open data (Brazil): DFP and ITR | No | None numeric; the portal "may limit simultaneous accesses" | ODbL 1.0: attribution, share-alike for a derived database, keep open. CVM terms: free for anyone, cite the portal | Cite "Portal de Dados Abertos da CVM, https://dados.cvm.gov.br/" plus the ODbL notice | **OK**, with ODbL obligations on our snapshot |
 
 ---
 
@@ -54,6 +58,9 @@ Status: M0 audit, 2026-11-08. The per-source audit below is the source of truth 
 - **Update frequency:** "try to keep our index as up-to-date as possible", but there may be "significant lag" after the filing is lodged with the OAM (about.html).
 - **Endpoints:** `/api/filings` (JSON:API; `filter[country]=GB`, complex `filter=[{name,op,val}]`, `include=entity`, `sort=-processed`, `page[size]` ≤1000), `/api/entities`, `/api/validation_messages`, and bulk `/indexes/filings-{YEAR}.json`, which supports `If-Modified-Since`/304 (docs/api, read 2026-11-08).
 - **Risk reasoning:** Usage is permissive, but there is no licence and no SLA. Cache by `sha256`. Prefer the yearly index files for discovery.
+- **Re-read 2026-11-10 (stars brief lot 2 bis, Europe and UK listed):** about.html still says "At present, there are no restrictions on the ways that the data can be used". No licence is named, no attribution is required, and no paid access is needed. The API docs still ask for a user agent with a contact email and still reserve the right to add rate limits. Nothing forbids redistribution or use in a free hosted service, so the brief's stop conditions do not apply. Live counts: GB 2,970 filings, FR 1,185, DE 0, IE 0.
+- **UKSEF:** UK listed companies file UKSEF reports, in the same repository and the same xBRL-JSON format, so they go through the same extractor. Irish issuers that list in London appear under GB (Kerry, Glanbia, Irish Continental, Cairn Homes). UNVERIFIED: whether every UK listed company files there; we serve only those we found and checked.
+- **What we check before serving a country:** recorded fixtures, at least 10 golden questions whose answers Arelle reads from the published report (`evals/esef_arelle.py`), and a coverage line in the README and in `data_status`. `server/scripts/build-esef.ts` writes `v1/eu/coverage.json`: issuers served and rejected, with the reason.
 
 ## 3. GLEIF API — OK
 - **Terms:** https://www.gleif.org/en/meta/lei-data-terms-of-use (read 2026-11-08). LEI data is "provided under the CC0 licence". Don't claim IP in LEI data. Don't imply GLEIF endorsement. The logo needs permission. Liquidated damages of CHF 100,000 per breach apply to those clauses. Data is provided "AS IS".
@@ -130,6 +137,159 @@ Yahoo Finance: **excluded**. Its API terms bar selling, sharing or sublicensing 
 - **Recommended: BYOK with Tiingo.** Users send their own token in a request header, e.g. `X-Tiingo-Token`. The Worker forwards it to `api.tiingo.com/tiingo/daily/{ticker}/prices`. Responses are shown only to that caller, and price data is **never written to the shared cache**; at most use a per-request memo keyed by a hash of the token. This is the only provider with a written developer program for software where users supply their own token. Its free limits are the most generous: 1,000 req/day with raw and adjusted EOD. Obligations: register by email, display "Price data: Tiingo", never log tokens or ask for passwords, and say that commercial users (e.g. PE firms) need their own Tiingo commercial plan ($50/mo).
 - **Runner-up: BYOK with Massive.** Its individual ToS §7 is the clearest text permitting "AI tools, agents, hosting providers" to process data on the user's behalf. But the free tier is 5 req/min, US-only, EOD with 2-year history, and non-business use only.
 - **Rejected:** a single server key on any free or cheap plan. Every provider reviewed requires a paid redistribution, display or B2B licence for that. Twelve Data's free tier forbids display. Stooq is captcha-gated. FMP and EODHD forbid display or use on behalf of others. The one lead worth an email is Alpha Vantage's "verified open-source or educational projects" program; get written scope before relying on it.
+
+## 10. Companies House (UK private companies) — STOPPED until the licence is confirmed
+
+Read 2026-11-10. Not served, and no code written. Stars brief rule: stop and ask when the terms aren't published.
+
+**What it is.** The Free Accounts Data Product is a free daily ZIP of the accounts filed electronically the day before
+(https://download.companieshouse.gov.uk/en_accountsdata.html).
+- Files: one instance document per filing, iXBRL (`.html`), XBRL (`.xml`) or a ZIP of iXBRL, named
+  `Prod223_<n>_<company number>_<balance sheet date>`.
+- Schedule: a new file Tuesday to Saturday. Daily files stay 60 days, then only monthly files.
+- Size: about 60 to 160 MiB a day, up to 598 MiB (2026-10-01).
+- Coverage: "about 75% of the 2.2 million accounts we expect to be filed each year". The GOV.UK data-products page
+  says 60%; the two pages disagree.
+- No payment: "Each data file is provided free of charge and is not supported."
+
+**Rate limit (API).** "You can make up to 600 requests within a five-minute period." Over it, `429 Too Many Requests`
+until the window resets. "We reserve the right to ban without notice applications that regularly exceed or attempt
+to bypass the rate limits."
+(https://developer-specs.company-information.service.gov.uk/guides/rateLimiting)
+
+**Licence: not stated.**
+- The accounts download page states no licence, copyright or re-use terms.
+- The API pages (developer.company-information.service.gov.uk and its guidelines) state none either. They end with
+  "© Crown copyright".
+- The old terms page (resources.companieshouse.gov.uk/legal/termsAndConditions.shtml) now redirects to a "Service
+  information" page with no terms.
+- The service's "Policies" link leads to https://www.gov.uk/guidance/search-the-companies-house-register. It says the
+  data is free and "not intended to be a source for bulk downloads" (that is about the search service).
+- The closest statement, from https://www.gov.uk/guidance/companies-house-data-products: "We impose no rules or
+  requirements on how the information on the public register is used, and we're not responsible for your use of the
+  company data. You are responsible for complying with any applicable data protection, copyright and other
+  legislation and regulations." This is permissive, but it isn't a licence.
+- GOV.UK pages end with "All content is available under the Open Government Licence v3.0, except where otherwise
+  stated". That covers the pages' content. Whether it covers the register data is UNVERIFIED.
+
+**If the OGL applies.** It allows "copy, publish, distribute and transmit", including commercially. It requires the
+attribution "Contains public sector information licensed under the Open Government Licence v3.0." unless the
+provider gives its own. It does not cover personal data
+(https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
+
+**Personal data.** Companies House says re-users "become controllers of your personal data" under UK GDPR
+(personal information charter). deskstack would serve only company accounts: no officers, no persons with
+significant control, no addresses. The ECCTA 2023 suppression rules for bulk and API data are UNVERIFIED (not on the
+pages read).
+
+**Next step.** Ask Companies House whether the OGL v3.0 covers the Free Accounts Data Product and the API, for a free
+hosted service that extracts accounts figures and cites each filing. A draft email is ready for the owner to send.
+
+**UNVERIFIED:** an explicit licence for the bulk accounts data and for the API; a Companies House attribution
+statement; ECCTA rules for re-users; the file count per daily ZIP; the share of filings with a profit and loss
+account.
+
+## 11. EDINET (Japan) — OK, needs a free API key
+
+Read 2026-11-10.
+
+**Terms.** https://disclosure2dl.edinet-fsa.go.jp/guide/static/disclosure/WZEK0030.html ("EDINET 利用規約", revised
+2025-04-25, linked from the API specification).
+- Content on EDINET can be used by anyone under the Public Data License 1.0 ("公共データ利用規約（第1.0版）", PDL1.0).
+- PDL1.0 (https://www.digital.go.jp/resources/open_data/public_data_license_v1.0) allows copying, public
+  transmission and adaptation, "商用利用も可能です" (commercial use is allowed). It is declared compatible with CC BY 4.0.
+- It also says "数値データ、簡単な表・グラフ等は著作権による保護の対象ではありません" (numeric data and simple tables
+  aren't protected by copyright) and are freely usable.
+- Third-party rights (PDL1.0 §1.2): content whose copyright belongs to someone other than the state needs that
+  owner's permission. Filed reports are written by the companies; the figures we would extract are numeric data
+  (above). We would not republish report text.
+- Not covered by the PDL: logos, and the **EDINET taxonomy**. The FSA forbids modifying or translating the taxonomy
+  without permission (https://www.fsa.go.jp/search/EDINET_Taxonomy_Legal_Statement.html). We would cite element names,
+  never redistribute or translate the taxonomy.
+
+**Attribution.** "出典：EDINET閲覧（提出）サイト（当該ページのURL）、PDL1.0（規約原文ページのURL）". When content is
+edited or extracted, also say so and who did it, e.g. "EDINET閲覧（提出）サイト（URL）より抜粋して作成", and never
+present edited figures as the government's own.
+
+**Access and limits.** The API needs a free key: an account with SMS verification
+(EDINET API仕様書 Version 2, ESE140206.pdf, updated 2026-06-03). No numeric limit is published. Banned: "短時間に
+おける大量のアクセス" (heavy access in a short time). Scraping the website is banned; the API is the allowed route.
+
+**UNVERIFIED:** a numeric rate limit; whether any filing contains figures under third-party rights beyond numeric data.
+
+## 12. OpenDART (Korea) — OK, needs a free API key held by a batch job
+
+Read 2026-11-10.
+
+**Terms.** https://opendart.fss.or.kr/intro/terms.do, in force since 2020-01-21.
+- Art. 11 ①: the service is free in principle ("원칙적으로 무료"); any paid service would be announced in advance.
+- Art. 16: copyright in the API service and programs belongs to the FSS. Other matters follow the Copyright Act and
+  the Public Data Act.
+- Art. 19 ②: "회원은 ID 및 비밀번호, 인증키를 제3자에게 이용하게 해서는 안 됩니다" (a member must not let a third
+  party use their ID, password or key). Art. 19 ⑤: one key per member.
+
+**Commercial use and redistribution.** OpenDART FAQ "공시정보를 상업적으로 사용해도 되나요?" (2020-01-18): the data
+is public data under the Public Data Act, so "공익이나 타인의 권리를 침해하지 않는 선에서 데이터의 공개 및 활용은
+제한되지 않습니다" (its disclosure and use are not restricted as long as they don't infringe the public interest or
+others' rights). The FSS doesn't review services built on it, and "재배포 및 재가공과 관련한 모든 책임은 이용자 부담"
+(all responsibility for redistribution and reprocessing rests with the user).
+
+**Limits.** FAQ "오픈API 이용한도는 어떻게 되나요?": individuals 20,000 calls a day across all 83 APIs; corporate members
+(business registration and IP) have no limit on two of them. "과도한 네트워크 접속(분당 1,000회 이상)" (over 1,000 a
+minute) may be restricted.
+
+**What it means for us.** The key stays in the batch job that builds the static snapshot, as for the SEC; end users
+never use it, which keeps Art. 19 ②. The Worker calls nothing live.
+
+**Attribution.** None required on the pages read. We would still cite "Financial Supervisory Service, OpenDART" and
+each filing's receipt number.
+
+**UNVERIFIED:** the Public Data Act's own text (not read); an attribution requirement in it.
+
+## 13. CVM open data (Brazil) — OK, with ODbL obligations; served since 2026-11-10
+
+Read 2026-11-10.
+
+**Licence.** The DFP (annual) and ITR (quarterly) dataset pages give "Licença Aberta para Bases de Dados (ODbL) do
+Open Data Commons", linked to ODbL 1.0 (https://dados.cvm.gov.br/dataset/cia_aberta-doc-dfp,
+https://dados.cvm.gov.br/dataset/cia_aberta-doc-itr).
+
+**CVM's terms of use** (https://dados.cvm.gov.br/about, published 05/08/2024).
+- The data is "serviço público gratuito a qualquer pessoa física ou jurídica" (a free public service to any person
+  or company), "tal como está" (as is).
+- Any secondary use must cite the source, "declarando que eles foram acessados pelo Portal de Dados Abertos da CVM,
+  disponível em https://dados.cvm.gov.br/".
+- The data must not be presented "de forma incorreta ou enganosa" (incorrectly or misleadingly).
+- The portal "pode empregar mecanismos para limitar a quantidade de acessos simultâneos" (may limit simultaneous
+  access, e.g. robots). No numeric limit.
+
+**The data.** One ZIP per year (dfp_cia_aberta_2025.zip, 12.9 MB; itr 2026, 22 MB), updated weekly with
+resubmissions; DFP since 2010, ITR since 2011.
+- Each ZIP holds semicolon-separated CSVs in Latin-1: BPA and BPP (balance sheet), DRE (income statement), DFC
+  (cash flow, direct and indirect), DMPL, DRA, DVA, each consolidated (`_con`) and individual (`_ind`).
+- Columns include `CNPJ_CIA`, `CD_CVM`, `DENOM_CIA`, `MOEDA`, `ESCALA_MOEDA` (e.g. MIL), `ORDEM_EXERC` (ÚLTIMO or
+  PENÚLTIMO), `DT_INI_EXERC`, `DT_FIM_EXERC`, `CD_CONTA` (a fixed chart of accounts, e.g. 3.01 revenue), `DS_CONTA`,
+  `VL_CONTA`, `ST_CONTA_FIXA`.
+
+**What the ODbL means for the snapshot** (ODbL 1.0 text, https://opendatacommons.org/licenses/odbl/1-0/):
+- Extracting a substantial part of the data into our snapshot makes it a **Derivative Database** (§4.4(b)).
+- Serving it publicly is public use. So that snapshot must be offered **under the ODbL** (§4.4(a)), with the licence
+  or its URI (§4.2), and a **machine-readable copy of the whole derived database must be free to download** (§4.6).
+- Figures in a tool answer are a **Produced Work**. Each needs a notice that the content comes from the database and
+  is under the ODbL (§4.3), e.g. "Contains information from the CVM Open Data Portal (dados.cvm.gov.br), made
+  available under the Open Database License (ODbL)."
+- The ODbL covers the Brazilian data only. The rest of deskstack's code stays MIT and its other data keeps its own
+  terms. The Brazilian snapshot files would carry their own ODbL notice and a download link.
+
+**How deskstack meets them** (2026-11-10, `server/scripts/build-cvm.ts`):
+- 20 large non-financial companies (`server/data/br-issuers.json`), consolidated DFP statements and this year's ITR
+  quarterly statements (for LTM), by fixed account code.
+- Every Brazilian answer carries the notice above in `attribution`, and each source's `license_note` names the ODbL.
+- Each file under `v1/br/` states the licence. `v1/br/dataset.json` is the whole derived database, a static file
+  anyone can download (§4.6). B3 tickers come from CVM's FCA forms, also ODbL.
+
+**UNVERIFIED:** whether the ODbL version is 1.0 (inferred from the Open Definition link); any rights in the statement
+contents under Brazilian law beyond the database licence; the terms of the file repository (dados.cvm.gov.br/dados).
 
 ## Open questions / unverified
 1. Whether the SEC has ever blocked Cloudflare Workers egress ranges. No report found. Test from a deployed Worker with a declared UA, and check whether Cloudflare offers fixed egress IPs for Workers.

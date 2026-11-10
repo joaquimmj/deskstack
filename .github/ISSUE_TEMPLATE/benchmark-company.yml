@@ -1,0 +1,26 @@
+name: Benchmark company
+description: Suggest a company for the benchmark's next run.
+labels: [benchmark]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The benchmark scores AI-built models against the filings. New companies join a frozen set before a run, never after.
+  - type: input
+    id: company
+    attributes:
+      label: Company, and ticker or LEI
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it is a useful test
+      description: For example a fiscal year that isn't December, a restatement, segments, IFRS, a bank.
+    validations:
+      required: true
+  - type: dropdown
+    id: covered
+    attributes:
+      label: Does deskstack cover it today?
+      options: ["Yes (company_lookup finds it)", "No", "Not sure"]

@@ -7,6 +7,9 @@ Thanks for helping. Every change keeps four promises:
 - reviewers report rather than edit;
 - checks use only public, widely known practice.
 
+**A first contribution?** [docs/STARTER_ISSUES.md](docs/STARTER_ISSUES.md) lists ten small issues, each with where
+to work and when it's done.
+
 ## Ground rules
 
 - **Data:** official or openly licensed sources only. Record their terms in `docs/DATA_SOURCES.md` before

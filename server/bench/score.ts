@@ -202,7 +202,7 @@ export async function resolvePeer(c: Connector, name: string, written: string, c
   return id;
 }
 
-const CAUSES: Array<[string, RegExp]> = [["scale", /^Scale:/], ["sign", /^Sign:/], ["currency", /^Currency:/], ["period", /^Period:/], ["line item", /^Line item:/], ["typo", /^Typo:/]];
+const CAUSES: Array<[string, RegExp]> = [["scale", /^Scale:/], ["sign", /^Sign:/], ["currency", /^Currency:/], ["period", /^Period:/], ["line item", /^Line item:/], ["typo", /^Typo:/], ["stale", /^Stale:/]];
 
 export async function verify(connector: Connector, items: Item[], o: Opts = {}, errors: string[] = []): Promise<ScoredItem[]> {
   const out: ScoredItem[] = [];

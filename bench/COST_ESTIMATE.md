@@ -87,3 +87,20 @@ plan leaves it out.
 - The owner sets the API key in their own shell (`ANTHROPIC_API_KEY`). It is never pasted in chat or committed.
 - Every run's raw output, token usage and dollar cost lands in `bench/results/` (brief §8.2: reproducible, honest
   reporting).
+
+## More models for the leaderboard (estimate, 2026-11-10; nothing spent)
+
+**Method.** The token counts recorded for every run of the two main runs (`runs/*.json`, 150 runs each), priced at
+each model's list price in `server/bench/pricing.ts`. Checked on Sonnet itself: re-priced $20.04 for the DCF run,
+against $20.03 actually spent. **Assumption:** another model uses about the same tokens. It won't exactly: a model
+that reads more pages or writes longer answers costs more.
+
+| Model | DCF, arms A+B+C | Comps, arms A+B+C | Both tasks | Arms A+B only (web search vs deskstack data) |
+|---|---|---|---|---|
+| Claude Sonnet 5.5 (recorded) | $20.03 | $47.09 | $67.12 | - |
+| Claude Opus 5.5 | $33.65 | $74.28 | about $108 | about $78 |
+| Claude Haiku 5.5 | $5.34 | $12.48 | about $18 | about $17 |
+
+Web search is billed per search ($10 per 1,000), the same for every model, so arm A's share doesn't shrink with a
+cheaper model. **Budget:** the ledger stands at $93.57 of the approved $100; any of these runs needs a new approval
+and a raised `--budget`.

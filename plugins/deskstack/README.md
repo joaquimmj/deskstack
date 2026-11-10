@@ -34,13 +34,14 @@ This needs Claude Code 2.1.275 or later. On older versions run `/plugin marketpl
 |---|---|---|
 | `analyst` | Builder | Pulls cited data, agrees the assumptions with you, builds the workbook (blue inputs, Sources sheet, disclaimer), self-checks, hands off for review |
 | `associate` | Tie-out | Extracts every typed number, runs `verify_value` in batches, reports match / mismatch / not found with scale, sign, period and line-item hints |
-| `vp-review` | Model review | Checker rules DS001–DS015 (audit-xls table format), then assumptions vs filed history |
+| `vp-review` | Model review | Checker rules DS001–DS020 (audit-xls table format), then assumptions vs filed history |
 | `md-redteam` | Challenge | Sensitivities, the WACC × growth grid, the assumptions the price implies, top 5 objections, IC questions |
 | `compliance` | Hygiene | Disclaimer, every number cited, dated user inputs, no sign of non-public information, no buy/sell language |
 | `sign-off` | Human gate | One page of every check. A signed copy is exported only after you approve in your own words; open blockers need your stated reason |
 | `deal-team` | Orchestrator | analyst → associate → VP → fixes → MD → compliance → sign-off, with progress at each step |
 | `conventions` | House rules | Formatting, sourcing, units, disclaimer |
 | `guide` | Help | Plain-language explanations (EN/FR) and setup |
+| `deskstack-doctor` | Setup check | Checks the connector, the plugin version, Python and each role's bundled scripts; says how to fix what fails |
 | `quick-dcf`, `comps`, `company-snapshot`, `wacc`, `eu-company` | One-shots | Common tasks; follow with `/associate` and `/vp-review` |
 
 **Agents** (Claude Code and Cowork): `deskstack:associate`, `deskstack:vp-review` and `deskstack:md-redteam` run the

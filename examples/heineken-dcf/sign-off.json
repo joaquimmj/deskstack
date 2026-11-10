@@ -1,0 +1,42 @@
+{
+ "model": "model.xlsx",
+ "sha256": "8ab3af161d82fc0345c9347a41614f986dd7f09c7fd53fc769e60fd632c63546",
+ "checks": [
+  {
+   "check": "Tie-out to filings (/associate)",
+   "key": "tieout",
+   "status": "pass",
+   "detail": "14 match, 0 mismatch, 0 not found, 0 ambiguous, 0 not checked, 0 unsourced"
+  },
+  {
+   "check": "Model review (/vp-review)",
+   "key": "review",
+   "status": "warn",
+   "detail": "0 blocker, 1 major, 0 minor"
+  },
+  {
+   "check": "Compliance (/compliance)",
+   "key": "compliance",
+   "status": "pass",
+   "detail": "10 pass, 0 fail, 0 warn"
+  },
+  {
+   "check": "Red team (/md-redteam)",
+   "key": "redteam",
+   "status": "missing",
+   "detail": "No red-team memo (optional)."
+  }
+ ],
+ "open_items": [
+  {
+   "from": "model review",
+   "severity": "major",
+   "ref": "DCF!B15",
+   "issue": "DS010: Terminal value is 82% of enterprise value (> 75%): the valuation rests on the terminal assumptions."
+  }
+ ],
+ "blocking": 0,
+ "missing": [],
+ "ready": true,
+ "token": "519e6d48d4b1"
+}

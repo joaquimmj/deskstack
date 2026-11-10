@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deskstack-check"
+dynamic = ["version"]
+description = "Check any spreadsheet financial model: 21 offline model checks, and an optional tie-out of every figure to SEC and ESEF filings."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.8"
+dependencies = ["openpyxl>=3.1,<4"]
+keywords = ["finance", "excel", "xlsx", "dcf", "valuation", "audit", "xbrl", "sec"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Financial and Insurance Industry",
+  "Topic :: Office/Business :: Financial :: Spreadsheet",
+]
+
+[project.urls]
+Homepage = "https://github.com/joaquimmj/deskstack"
+Source = "https://github.com/joaquimmj/deskstack/tree/main/checker"
+Issues = "https://github.com/joaquimmj/deskstack/issues"
+
+[project.scripts]
+deskstack-check = "deskstack_check.cli:main"
+
+[tool.setuptools]
+packages = ["deskstack_check"]
+
+[tool.setuptools.dynamic]
+version = { attr = "deskstack_check.__version__" }

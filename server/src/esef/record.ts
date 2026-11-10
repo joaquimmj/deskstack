@@ -22,7 +22,8 @@ export interface EuFilingRef extends EsefFilingMeta {
 
 export interface EuRecord {
   schema: number;
-  kind: "esef";
+  /** "esef": a European issuer by LEI. "cvm": a Brazilian listed company (src/cvm/record.ts), `lei` holds its id. */
+  kind: "esef" | "cvm";
   lei: string;
   name: string;
   country: string;
@@ -33,6 +34,8 @@ export interface EuRecord {
   filings: Record<string, EuFilingRef>;
   built_at: string;
   origin: "snapshot";
+  /** Brazilian companies only: CVM code, CNPJ and B3 tickers (from CVM's FCA forms). */
+  cvm?: { code: string; cnpj: string; tickers: string[] };
 }
 
 /** The human-readable report on filings.xbrl.org (the iXBRL viewer), else the repository's filing page. */

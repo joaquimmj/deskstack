@@ -1,0 +1,505 @@
+{
+ "tool": "verify_value",
+ "connector": "https://deskstack.deskstack-server.workers.dev/mcp",
+ "recorded_at": "2026-11-10",
+ "batches": [
+  {
+   "request": {
+    "company": "MSFT",
+    "items": [
+     {
+      "metric": "revenue",
+      "period": "FY2025",
+      "value": 281724,
+      "scale": "millions",
+      "ref": "Inputs!B5",
+      "currency": "USD"
+     },
+     {
+      "metric": "revenue",
+      "period": "FY2026",
+      "value": 331839,
+      "scale": "millions",
+      "ref": "Inputs!C5",
+      "currency": "USD"
+     },
+     {
+      "metric": "revenue",
+      "period": "LTM",
+      "value": 331839,
+      "scale": "millions",
+      "ref": "Inputs!D5",
+      "currency": "USD"
+     },
+     {
+      "metric": "operating_income",
+      "period": "FY2025",
+      "value": 128528,
+      "scale": "millions",
+      "ref": "Inputs!B6",
+      "currency": "USD"
+     },
+     {
+      "metric": "operating_income",
+      "period": "FY2026",
+      "value": 153237,
+      "scale": "millions",
+      "ref": "Inputs!C6",
+      "currency": "USD"
+     },
+     {
+      "metric": "operating_income",
+      "period": "LTM",
+      "value": 155237,
+      "scale": "millions",
+      "ref": "Inputs!D6",
+      "currency": "USD"
+     },
+     {
+      "metric": "d_and_a",
+      "period": "FY2025",
+      "value": 0,
+      "scale": "millions",
+      "ref": "Inputs!B7",
+      "currency": "USD"
+     },
+     {
+      "metric": "d_and_a",
+      "period": "FY2026",
+      "value": 41000,
+      "scale": "millions",
+      "ref": "Inputs!C7",
+      "currency": "USD"
+     },
+     {
+      "metric": "d_and_a",
+      "period": "LTM",
+      "value": 42500,
+      "scale": "millions",
+      "ref": "Inputs!D7",
+      "currency": "USD"
+     },
+     {
+      "metric": "capex",
+      "period": "FY2025",
+      "value": 64551,
+      "scale": "millions",
+      "ref": "Inputs!B8",
+      "currency": "USD"
+     },
+     {
+      "metric": "capex",
+      "period": "FY2026",
+      "value": 115948,
+      "scale": "millions",
+      "ref": "Inputs!C8",
+      "currency": "USD"
+     },
+     {
+      "metric": "capex",
+      "period": "LTM",
+      "value": 135921,
+      "scale": "millions",
+      "ref": "Inputs!D8",
+      "currency": "USD"
+     },
+     {
+      "metric": "net_debt",
+      "period": "FY2026",
+      "value": -36549,
+      "scale": "millions",
+      "ref": "Inputs!B22",
+      "currency": "USD"
+     },
+     {
+      "metric": "diluted_shares",
+      "period": "FY2026",
+      "value": 7946.017,
+      "scale": "millions",
+      "ref": "Inputs!B23",
+      "currency": "USD"
+     }
+    ]
+   },
+   "response": {
+    "summary": "MICROSOFT CORP: 8 of 14 value(s) match the filings, 6 mismatch. Read each item's hints before changing a number.",
+    "company": {
+     "name": "MICROSOFT CORP",
+     "ticker": "MSFT",
+     "cik": 789019,
+     "exchange": "Nasdaq",
+     "region": "US",
+     "reporting_standard": "US-GAAP",
+     "currency": "USD",
+     "fiscal_year_end": "0630",
+     "sic": "7372",
+     "sic_description": "Services-Prepackaged Software",
+     "financial_company": false,
+     "foreign_private_issuer": false
+    },
+    "currency": "USD",
+    "counts": {
+     "total": 14,
+     "match": 8,
+     "mismatch": 6,
+     "not_found": 0,
+     "ambiguous": 0
+    },
+    "results": [
+     {
+      "ref": "Inputs!B5",
+      "metric": "revenue",
+      "resolved_metric": "revenue",
+      "period": "FY2025",
+      "resolved_period": "FY2025 (ended 2025-06-30)",
+      "status": "match",
+      "claimed": 281724,
+      "claimed_units": 281724000000,
+      "filed": 281724000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "computed": false,
+      "accessions": [
+       "0001193125-26-323660"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!C5",
+      "metric": "revenue",
+      "resolved_metric": "revenue",
+      "period": "FY2026",
+      "resolved_period": "FY2026 (ended 2026-06-30)",
+      "status": "match",
+      "claimed": 331839,
+      "claimed_units": 331839000000,
+      "filed": 331839000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "computed": false,
+      "accessions": [
+       "0001193125-26-323660"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!D5",
+      "metric": "revenue",
+      "resolved_metric": "revenue",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "mismatch",
+      "claimed": 331839,
+      "claimed_units": 331839000000,
+      "filed": 346445000000,
+      "difference": -14606000000,
+      "relative_difference": -0.0421596501609202,
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "computed": false,
+      "accessions": [
+       "0001193125-26-323660",
+       "0001193125-26-436133"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": [
+       "Period: the value matches revenue for FY2026 (ended 2026-06-30), not LTM to 2026-09-30."
+      ]
+     },
+     {
+      "ref": "Inputs!B6",
+      "metric": "operating_income",
+      "resolved_metric": "operating_income",
+      "period": "FY2025",
+      "resolved_period": "FY2025 (ended 2025-06-30)",
+      "status": "match",
+      "claimed": 128528,
+      "claimed_units": 128528000000,
+      "filed": 128528000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:OperatingIncomeLoss",
+      "computed": false,
+      "accessions": [
+       "0001193125-26-323660"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!C6",
+      "metric": "operating_income",
+      "resolved_metric": "operating_income",
+      "period": "FY2026",
+      "resolved_period": "FY2026 (ended 2026-06-30)",
+      "status": "mismatch",
+      "claimed": 153237,
+      "claimed_units": 153237000000,
+      "filed": 155237000000,
+      "difference": -2000000000,
+      "relative_difference": -0.012883526478867795,
+      "concept": "us-gaap:OperatingIncomeLoss",
+      "computed": false,
+      "accessions": [
+       "0001193125-26-323660"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!D6",
+      "metric": "operating_income",
+      "resolved_metric": "operating_income",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "mismatch",
+      "claimed": 155237,
+      "claimed_units": 155237000000,
+      "filed": 163191000000,
+      "difference": -7954000000,
+      "relative_difference": -0.048740432989564375,
+      "concept": "us-gaap:OperatingIncomeLoss",
+      "computed": false,
+      "accessions": [
+       "0001193125-26-323660",
+       "0001193125-26-436133"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": [
+       "Period: the value matches operating_income for FY2026 (ended 2026-06-30), not LTM to 2026-09-30."
+      ]
+     },
+     {
+      "ref": "Inputs!B7",
+      "metric": "d_and_a",
+      "resolved_metric": "d_and_a",
+      "period": "FY2025",
+      "resolved_period": "FY2025 (ended 2025-06-30)",
+      "status": "mismatch",
+      "claimed": 0,
+      "claimed_units": 0,
+      "filed": 28000000000,
+      "difference": -28000000000,
+      "relative_difference": -1,
+      "concept": "us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets",
+      "computed": false,
+      "accessions": [
+       "0001193125-26-323660"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!C7",
+      "metric": "d_and_a",
+      "resolved_metric": "d_and_a",
+      "period": "FY2026",
+      "resolved_period": "FY2026 (ended 2026-06-30)",
+      "status": "mismatch",
+      "claimed": 41000,
+      "claimed_units": 41000000000,
+      "filed": 39000000000,
+      "difference": 2000000000,
+      "relative_difference": 0.05128205128205128,
+      "concept": "us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets",
+      "computed": false,
+      "accessions": [
+       "0001193125-26-323660"
+      ],
+      "allowance": {
+       "units": 390000000,
+       "basis": "rounding of the value as written (±3.9000e+8)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!D7",
+      "metric": "d_and_a",
+      "resolved_metric": "d_and_a",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": 42500,
+      "claimed_units": 42500000000,
+      "filed": 42500000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets",
+      "computed": false,
+      "accessions": [
+       "0001193125-26-323660",
+       "0001193125-26-436133"
+      ],
+      "allowance": {
+       "units": 50000000,
+       "basis": "rounding of the value as written (±5.0000e+7)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!B8",
+      "metric": "capex",
+      "resolved_metric": "capex",
+      "period": "FY2025",
+      "resolved_period": "FY2025 (ended 2025-06-30)",
+      "status": "match",
+      "claimed": 64551,
+      "claimed_units": 64551000000,
+      "filed": 64551000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "computed": false,
+      "accessions": [
+       "0001193125-26-323660"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!C8",
+      "metric": "capex",
+      "resolved_metric": "capex",
+      "period": "FY2026",
+      "resolved_period": "FY2026 (ended 2026-06-30)",
+      "status": "match",
+      "claimed": 115948,
+      "claimed_units": 115948000000,
+      "filed": 115948000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "computed": false,
+      "accessions": [
+       "0001193125-26-323660"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!D8",
+      "metric": "capex",
+      "resolved_metric": "capex",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": 135921,
+      "claimed_units": 135921000000,
+      "filed": 135921000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "computed": false,
+      "accessions": [
+       "0001193125-26-323660",
+       "0001193125-26-436133"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!B22",
+      "metric": "net_debt",
+      "resolved_metric": "net_debt",
+      "period": "FY2026",
+      "resolved_period": "FY2026 (ended 2026-06-30)",
+      "status": "match",
+      "claimed": -36549,
+      "claimed_units": -36549000000,
+      "filed": -36549000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": null,
+      "computed": true,
+      "accessions": [],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": [
+       "Computed value: total_debt - cash - short_term_investments."
+      ]
+     },
+     {
+      "ref": "Inputs!B23",
+      "metric": "diluted_shares",
+      "resolved_metric": "diluted_shares",
+      "period": "FY2026",
+      "resolved_period": "FY2026 (ended 2026-06-30)",
+      "status": "mismatch",
+      "claimed": 7946.017,
+      "claimed_units": 7946017000,
+      "filed": 7453000000,
+      "difference": 493017000,
+      "relative_difference": 0.06615014088286596,
+      "concept": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+      "computed": false,
+      "accessions": [
+       "0001193125-26-323660"
+      ],
+      "allowance": {
+       "units": 7453,
+       "basis": "rounding of the value as written (±7453)"
+      },
+      "hints": []
+     }
+    ],
+    "sources": [
+     {
+      "name": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/0001193125-26-323660-index.htm",
+      "accession_or_id": "0001193125-26-323660",
+      "form": "10-K",
+      "period": "2026-06-30",
+      "as_of": "2026-07-29",
+      "license_note": "SEC EDGAR filing data: U.S. government work, public domain. Cite the filing."
+     },
+     {
+      "name": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
+      "accession_or_id": "0001193125-26-436133",
+      "form": "10-Q",
+      "period": "2026-09-30",
+      "as_of": "2026-10-28",
+      "license_note": "SEC EDGAR filing data: U.S. government work, public domain. Cite the filing."
+     }
+    ],
+    "note": "Computed lines (EBITDA, free cash flow, total debt, net debt) are checked against deskstack's own formula from the filed inputs, shown in the hints. A match means the number agrees with the filing; it does not validate assumptions or forecasts.",
+    "disclaimer": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice."
+   }
+  }
+ ]
+}

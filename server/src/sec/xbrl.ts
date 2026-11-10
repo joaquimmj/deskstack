@@ -39,6 +39,8 @@ export const DURATION_CONCEPTS: Record<string, string[]> = {
     "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
   ],
   net_income: ["NetIncomeLoss", "NetIncomeLossAvailableToCommonStockholdersBasic", "ProfitLoss"],
+  // An input only: adjustRow notes it when net income falls back to ProfitLoss, which includes minorities.
+  net_income_nci: ["NetIncomeLossAttributableToNoncontrollingInterest"],
   interest_expense: ["InterestExpense", "InterestExpenseNonoperating", "InterestExpenseDebt"],
   d_and_a: [
     "DepreciationDepletionAndAmortization",
@@ -70,6 +72,15 @@ export const INSTANT_CONCEPTS: Record<string, string[]> = {
   ],
   total_assets: ["Assets"],
   total_equity: ["StockholdersEquity", "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"],
+  // Minorities: a line of its own (the EV bridge adds it), and derive() notes it when total equity includes them.
+  noncontrolling_interests: ["MinorityInterest"],
+  // Inputs to the lease_liabilities line derive() builds (operating + finance, each from its total or its two parts).
+  op_lease: ["OperatingLeaseLiability"],
+  op_lease_noncurrent: ["OperatingLeaseLiabilityNoncurrent"],
+  op_lease_current: ["OperatingLeaseLiabilityCurrent"],
+  fin_lease: ["FinanceLeaseLiability"],
+  fin_lease_noncurrent: ["FinanceLeaseLiabilityNoncurrent"],
+  fin_lease_current: ["FinanceLeaseLiabilityCurrent"],
   // Debt components; combined by totalDebt below.
   ltd_noncurrent: [
     "LongTermDebtNoncurrent",
@@ -106,6 +117,12 @@ export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
   net_income: ["ProfitLossAttributableToOwnersOfParent", "ProfitLoss"],
   // EPS's own numerator (after coupons on hybrid / AT1 instruments): used to derive an untagged share count.
   net_income_ordinary: ["ProfitLossAttributableToOrdinaryEquityHoldersOfParentEntity"],
+  // An input only: adjustRow notes it when net income falls back to consolidated profit (OMV).
+  net_income_nci: ["ProfitLossAttributableToNoncontrollingInterests"],
+  // Inputs only: other parts of revenue. When one is tagged, sale of goods alone is not total revenue (NOS, REN).
+  revenue_services: ["RevenueFromRenderingOfServices"],
+  revenue_construction: ["RevenueFromConstructionContracts", "RevenueRecognisedOnExchangingConstructionServicesForIntangibleAsset"],
+  // FinanceCosts (the IAS 1 line) is broader than interest on debt: adjustRow notes it on the cell.
   interest_expense: ["InterestExpense", "FinanceCosts"],
   // Impairment-inclusive D&A concepts come last, for filers that tag nothing else (TotalEnergies, AB InBev, Ahold,
   // Iberdrola); adjustRow notes it on the cell, since EBITDA then includes impairment.
@@ -126,7 +143,7 @@ export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
   capex: [
     "PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
     "PurchaseOfPropertyPlantAndEquipment",
-    // Broader (includes intangibles); the concept name is reported with the value.
+    // Broader (includes intangibles and investment property): adjustRow notes it on the cell.
     "PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets",
     // Last: an issuer's own concept for purchases of PP&E and intangibles (TotalEnergies, Airbus, VINCI, AB InBev,
     // Stellantis), kept by esef/extract.ts under this key; the cell shows the real concept and a note.
@@ -146,8 +163,17 @@ export const IFRS_INSTANT_CONCEPTS: Record<string, string[]> = {
   // IFRS has no general short-term investments line. Short-term deposits are the clear case (Inditex: EUR 5.7B).
   // OtherCurrentFinancialAssets is left out on purpose: it mixes derivatives and receivables.
   short_term_investments: ["ShorttermDepositsNotClassifiedAsCashEquivalents"],
+  // Not a metric: read only so net debt can say it was not deducted (TotalEnergies tags nothing cleaner).
+  other_current_financial_assets: ["OtherCurrentFinancialAssets"],
   total_assets: ["Assets"],
   total_equity: ["EquityAttributableToOwnersOfParent", "Equity"],
+  // Minorities: a line of its own (the EV bridge adds it), and derive() notes it when total equity includes them (Orkla).
+  noncontrolling_interests: ["NoncontrollingInterests"],
+  // IFRS 16 lease liabilities: a line of its own (net debt leaves them out and says how much); the two parts below
+  // are added when the total isn't tagged.
+  lease_liabilities: ["LeaseLiabilities"],
+  lease_liabilities_noncurrent: ["NoncurrentLeaseLiabilities"],
+  lease_liabilities_current: ["CurrentLeaseLiabilities"],
   // IFRS Borrowings is current + non-current; the pieces are the fallback.
   borrowings: ["Borrowings"],
   borrowings_noncurrent: ["LongtermBorrowings", "NoncurrentPortionOfNoncurrentLoansReceived"],
@@ -161,8 +187,10 @@ export const IFRS_INSTANT_CONCEPTS: Record<string, string[]> = {
 };
 
 // "ESEF" / "ESEF-HY": European annual and half-year reports (src/esef/extract.ts).
-export const ANNUAL_FORMS = new Set(["10-K", "10-K/A", "10-KT", "20-F", "20-F/A", "40-F", "40-F/A", "ESEF"]);
-export const QUARTERLY_FORMS = new Set(["10-Q", "10-Q/A", "ESEF-HY"]); // 6-K interims carry no XBRL financials
+// "DFP": Brazilian annual statements from CVM's open data (src/cvm/extract.ts).
+export const ANNUAL_FORMS = new Set(["10-K", "10-K/A", "10-KT", "20-F", "20-F/A", "40-F", "40-F/A", "ESEF", "DFP"]);
+// "ITR": Brazilian quarterly statements from CVM's open data.
+export const QUARTERLY_FORMS = new Set(["10-Q", "10-Q/A", "ESEF-HY", "ITR"]); // 6-K interims carry no XBRL financials
 
 /** The filer has no usable annual facts in either taxonomy (new registrant, fund...). */
 export class NoAnnualFacts extends Error {
@@ -222,6 +250,7 @@ export interface Cell {
 export interface Derived {
   value: number;
   formula: string;
+  note?: string;
 }
 
 export interface Column {
@@ -233,6 +262,9 @@ export interface Column {
   values: Record<string, Cell | null>;
   balance_sheet: Record<string, Cell | null>;
   derived: Record<string, Derived | null>;
+  /** LTM only: the twelve months ending one quarter earlier (the fiscal year when the latest 10-Q is the first),
+   *  so verify_value can say a figure is a quarter stale (the comps run's main error). */
+  previous?: { end: string; values: Record<string, number | null> };
 }
 
 export interface FilingRef {
@@ -265,6 +297,8 @@ interface Ctx {
   facts: Namespace;
   currency: string;
   cik?: number;
+  /** Company-level notes adjustRow adds, e.g. why a line is null for a year. */
+  notes?: string[];
 }
 
 // ---- helpers ---------------------------------------------------------------
@@ -521,9 +555,24 @@ const accs = (...cells: Cell[]) => [...new Set(cells.flatMap((c) => c.accessions
  * - a diluted share count off by a thousand or a million (McDonald's FY2025: 716.4), rescaled only when
  *   net income / diluted EPS confirms the corrected figure within 3%.
  */
+/** Total-equity concepts that include non-controlling interests: noted when chosen because the owners' share is untagged. */
+const EQUITY_WITH_MINORITIES = new Set(["ifrs-full:Equity", "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"]);
 const withNote = (c: Cell, note: string): Cell => ({ ...c, note: c.note ? `${c.note}; ${note}` : note });
 
-function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false): void {
+function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false, label = ""): void {
+  // Sale of goods is total revenue only when the filer tags no other part of revenue for the period.
+  const parts: Array<[string, Cell | null | undefined]> = [["rendering of services", row.revenue_services], ["construction services", row.revenue_construction]];
+  const other = parts.filter(([, c]) => c && c.value !== 0);
+  if (row.revenue?.concept === "ifrs-full:RevenueFromSaleOfGoods" && other.length) {
+    const m = (v: number) => `${(Math.abs(v) < 10e6 ? (v / 1e6).toFixed(1) : Math.round(v / 1e6).toLocaleString("en-US"))} million`;
+    (ctx.notes ??= []).push(
+      `${label || "A period"}: revenue is null. The filer tags only parts of it (sale of goods ${m(row.revenue.value)}, ` +
+        other.map(([n, c]) => `${n} ${m(c!.value)}`).join(", ") + "), not total revenue; read the total from the report.",
+    );
+    row.revenue = null;
+  }
+  delete row.revenue_services;
+  delete row.revenue_construction;
   const dep = row.d_and_a;
   const am = row.amortization_intangibles;
   const narrowDa = ctx.cik !== undefined ? DA_EXCLUDES_INTANGIBLES[ctx.cik] : undefined;
@@ -564,9 +613,46 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false): voi
       note: why,
     };
   }
+  // US fallbacks whose content differs from the metric's name.
+  const daConcept = row.d_and_a?.concept;
+  if (daConcept === "us-gaap:Depreciation") {
+    row.d_and_a = withNote(row.d_and_a!, "depreciation only: the filer tags no amortization of intangible assets or D&A total, so EBITDA leaves amortization out");
+  } else if (daConcept === "us-gaap:DepreciationAmortizationAndAccretionNet") {
+    row.d_and_a = withNote(row.d_and_a!, "includes accretion (of asset retirement obligations or discounts): the filer tags no D&A line without it");
+  }
+  if (row.capex?.concept === "us-gaap:PaymentsToAcquireProductiveAssets") {
+    row.capex = withNote(
+      row.capex,
+      "purchases of productive assets: can include intangible and other long-lived assets besides property, plant and " +
+        "equipment; the filer tags no line for property, plant and equipment alone",
+    );
+  }
   if (IMPAIRMENT_DA.test(row.d_and_a?.concept ?? "")) {
     row.d_and_a = withNote(row.d_and_a!, "includes impairment: the filer tags no D&A line without it, so EBITDA includes impairment too");
   }
+  if (row.capex?.concept === "ifrs-full:PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets") {
+    row.capex = withNote(
+      row.capex,
+      "includes purchases of intangible assets, investment property and other non-current assets: the filer tags no " +
+        "line for property, plant and equipment alone",
+    );
+  }
+  if (row.interest_expense?.concept === "ifrs-full:FinanceCosts") {
+    row.interest_expense = withNote(
+      row.interest_expense,
+      "finance costs: the filer tags no interest expense line; IAS 1 finance costs can also include lease interest, " +
+        "unwinding of discounts and other financial expenses, so interest_coverage is lower than on debt interest alone",
+    );
+  }
+  const nci = row.net_income_nci;
+  if (/^(ifrs-full|us-gaap):ProfitLoss$/.test(row.net_income?.concept ?? "") && nci && nci.value !== 0) {
+    row.net_income = withNote(
+      row.net_income!,
+      `consolidated profit: includes ${Math.round(nci.value / 1e6).toLocaleString("en-US")} million attributable to ` +
+        "non-controlling interests; the filer tags no profit attributable to owners of the parent",
+    );
+  }
+  delete row.net_income_nci;
   const basicEps = /^ifrs-full:BasicEarningsLossPerShare(FromContinuingOperations)?$/.test(row.diluted_eps?.concept ?? "");
   if (basicEps) row.diluted_eps = withNote(row.diluted_eps!, "basic EPS: the filer tags no diluted EPS");
   const continuing = /FromContinuingOperations$/.test(row.diluted_eps?.concept ?? "");
@@ -631,12 +717,83 @@ function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | nu
     cfo !== null && capex !== null ? { value: cfo - capex, formula: "operating_cash_flow - capex" } : null;
   const [debt, formula] = (tx === IFRS ? ifrsTotalDebt : totalDebt)(inst);
   out.total_debt = debt === null ? null : { value: debt, formula };
+  const leaseParts = [inst.lease_liabilities_noncurrent, inst.lease_liabilities_current].filter((c): c is Cell => !!c);
+  if (tx === IFRS && !inst.lease_liabilities && leaseParts.length) {
+    inst.lease_liabilities = {
+      value: leaseParts.reduce((t, c) => t + c.value, 0),
+      concept: leaseParts.map((c) => c.concept).join(" + "),
+      accessions: accs(...leaseParts),
+      formula: leaseParts.length === 2 ? "non-current + current lease liabilities" : `${leaseParts[0]!.concept} (the only part tagged)`,
+    };
+  }
+  delete inst.lease_liabilities_noncurrent;
+  delete inst.lease_liabilities_current;
+  // US filers that tag long-term debt only together with finance leases: total debt then includes them.
+  const usedDebt = (formula.match(/[a-z_0-9]+/g) ?? []).map((k) => inst[k]?.concept ?? "");
+  const debtHasFinanceLeases = tx !== IFRS && usedDebt.some((c) => /(Capital|Finance)Lease/.test(c));
+  let leaseKinds = "";
+  if (tx !== IFRS) {
+    const part = (total: string, nc: string, cur: string): Cell[] =>
+      inst[total] ? [inst[total]!] : [inst[nc], inst[cur]].filter((c): c is Cell => !!c);
+    const op = part("op_lease", "op_lease_noncurrent", "op_lease_current");
+    const fin = debtHasFinanceLeases ? [] : part("fin_lease", "fin_lease_noncurrent", "fin_lease_current");
+    const all = [...op, ...fin];
+    if (all.length) {
+      leaseKinds = op.length && fin.length ? "operating and finance" : op.length ? "operating" : "finance";
+      inst.lease_liabilities = {
+        value: all.reduce((t, c) => t + c.value, 0),
+        concept: all.map((c) => c.concept).join(" + "),
+        accessions: accs(...all),
+        formula: op.length && fin.length ? "operating + finance lease liabilities" : `${leaseKinds} lease liabilities`,
+      };
+    }
+    for (const k of ["op_lease", "op_lease_noncurrent", "op_lease_current", "fin_lease", "fin_lease_noncurrent", "fin_lease_current"]) delete inst[k];
+  }
   const cash = v(inst, "cash");
   if (debt !== null && cash !== null) {
     const sti = v(inst, "short_term_investments") ?? 0;
     out.net_debt = { value: debt - cash - sti, formula: "total_debt - cash - short_term_investments" };
+    const ocfa = v(inst, "other_current_financial_assets");
+    if (tx === IFRS && inst.short_term_investments == null && ocfa) {
+      out.net_debt.note =
+        `does not deduct other current financial assets (${Math.round(ocfa / 1e6).toLocaleString("en-US")} million), ` +
+        "a line that can mix investments, derivatives and receivables, so the cash-like part isn't known; check " +
+        "the company's own net debt definition";
+    }
+    const leases = v(inst, "lease_liabilities");
+    if (leases) {
+      const amount = `${Math.round(leases / 1e6).toLocaleString("en-US")} million`;
+      const lease = tx === IFRS
+        ? `excludes ${amount} of lease liabilities (IFRS 16); many issuers include them in their own net debt`
+        : leaseKinds === "operating"
+          ? `excludes ${amount} of operating lease liabilities`
+          : `excludes ${amount} of lease liabilities (${leaseKinds})`;
+      out.net_debt.note = out.net_debt.note ? `${out.net_debt.note}; ${lease}` : lease;
+    }
   } else {
     out.net_debt = null;
+  }
+  if (out.total_debt && debtHasFinanceLeases) {
+    const lease = "includes finance lease obligations: the filer tags its long-term debt only together with them";
+    out.total_debt.note = lease;
+    if (out.net_debt) out.net_debt.note = out.net_debt.note ? `${out.net_debt.note}; ${lease}` : lease;
+  }
+  // Inputs to the notes above, not balance-sheet lines of their own.
+  delete inst.other_current_financial_assets;
+  const nciEq = inst.noncontrolling_interests;
+  if (EQUITY_WITH_MINORITIES.has(inst.total_equity?.concept ?? "") && nciEq && nciEq.value !== 0) {
+    inst.total_equity = withNote(
+      inst.total_equity!,
+      `total equity: includes ${Math.round(nciEq.value / 1e6).toLocaleString("en-US")} million of non-controlling interests; ` +
+        "the filer tags no equity attributable to owners of the parent",
+    );
+  }
+  if (inst.cash?.concept === "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents") {
+    inst.cash = withNote(
+      inst.cash,
+      "includes restricted cash and restricted cash equivalents: the filer tags no cash and cash equivalents line " +
+        "without them, so net debt deducts cash the company may not be free to use",
+    );
   }
   return out;
 }
@@ -648,11 +805,12 @@ function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | nu
  * period starts right after the fiscal year ends (within a week, for 52/53-week
  * calendars), so 3-month quarterly facts are excluded.
  */
-function latestQuarterYtd(ctx: Ctx, fyEnd: string): [string, string] | null {
+function latestQuarterYtd(ctx: Ctx, fyEnd: string, before?: string): [string, string] | null {
   let best: [string, string] | null = null;
   for (const concept of [...ctx.tx.duration.revenue!, ...ctx.tx.duration.net_income!]) {
     for (const f of getFacts(ctx.facts, concept, ctx.currency)) {
       if (!QUARTERLY_FORMS.has(f.form) || !f.start) continue;
+      if (before !== undefined && f.end >= before) continue;
       const gap = daysBetween(fyEnd, f.start);
       if (gap > 0 && gap <= 7 && (best === null || f.end > best[1])) best = [f.start, f.end];
     }
@@ -717,9 +875,28 @@ function ltmColumn(ctx: Ctx, lastFy: Period): Column | null {
       break;
     }
   }
+  // The twelve months one quarter earlier, flow lines only (FY + earlier YTD - prior-year earlier YTD).
+  let previous: Column["previous"];
+  const earlier = latestQuarterYtd(ctx, lastFy.end, ytd[1]);
+  if (earlier) {
+    const values: Record<string, number | null> = {};
+    for (const m of Object.keys(ctx.tx.duration)) {
+      if (m === "diluted_shares") continue;
+      values[m] = null;
+      for (const concept of ctx.tx.duration[m]!) {
+        const parts = ltmParts(ctx, m, concept, lastFy, earlier);
+        if (parts && parts[0].src === parts[1].src && parts[0].src === parts[2].src) {
+          values[m] = parts[0].value + parts[1].value - parts[2].value;
+          break;
+        }
+      }
+    }
+    previous = { end: earlier[1], values };
+  }
   const inst: Record<string, Cell | null> = {};
   for (const m of Object.keys(ctx.tx.instant)) inst[m] = cell(ctx, instantValue(ctx, m, ytd[1], QUARTERLY_FORMS));
   return {
+    ...(previous ? { previous } : {}),
     // Exact span, not "6M": 52/53-week filers (PepsiCo) have 12- and 16-week quarters.
     label: `LTM to ${ytd[1]}`,
     start: null,
@@ -798,7 +975,7 @@ function filingIndex(ns: Namespace): Map<string, { form: string | null; filed: s
 
 export interface StandardizeOptions {
   /** Where the facts come from: SEC companyfacts (default) or ESEF reports. Changes notes and citation URLs. */
-  source?: "sec" | "esef";
+  source?: "sec" | "esef" | "cvm";
   /** Citation URL for an accession / filing id (default: the SEC EDGAR filing index). */
   filingUrl?: (accession: string) => string;
 }
@@ -817,13 +994,20 @@ export function standardize(cf: CompanyFacts, years = 5, includeLtm = true, opts
     for (const m of Object.keys(ctx.tx.duration)) row[m] = cell(ctx, durationValue(ctx, m, p.start, p.end, ANNUAL_FORMS));
     const inst: Record<string, Cell | null> = {};
     for (const m of Object.keys(ctx.tx.instant)) inst[m] = cell(ctx, instantValue(ctx, m, p.end, ANNUAL_FORMS));
-    adjustRow(row, ctx);
+    adjustRow(row, ctx, false, p.label);
     columns.push({ ...p, type: "annual", values: row, balance_sheet: inst, derived: derive(row, inst, ctx.tx) });
   }
 
   if (includeLtm && periods.length) {
     const ltm = ltmColumn(ctx, periods[periods.length - 1]!);
-    if (ltm) columns.push(ltm);
+    if (ltm) {
+      // Latest 10-Q is the first of the year: the twelve months before it are the fiscal year itself.
+      const fy = columns[columns.length - 1];
+      if (!ltm.previous && fy) {
+        ltm.previous = { end: fy.end, values: Object.fromEntries(Object.entries(fy.values).filter(([k]) => k !== "diluted_shares").map(([k, c]) => [k, c?.value ?? null])) };
+      }
+      columns.push(ltm);
+    }
   }
 
   const accessions = new Set<string>();
@@ -842,6 +1026,7 @@ export function standardize(cf: CompanyFacts, years = 5, includeLtm = true, opts
     "Derived metrics show their formula. EBITDA is null when operating income is not " +
       "reported (common for banks and insurers, where EBITDA is not meaningful).",
   ];
+  notes.push(...new Set(ctx.notes ?? []));
   if (opts.source === "esef") {
     notes.push(
       "ESEF report (IFRS as adopted in the EU), from the issuer's tagged consolidated statements. Lines the " +
@@ -851,6 +1036,15 @@ export function standardize(cf: CompanyFacts, years = 5, includeLtm = true, opts
     if (!columns.some((c) => c.type === "ltm")) {
       notes.push("No LTM column: the issuer's half-year report is not available in ESEF format.");
     }
+  } else if (opts.source === "cvm") {
+    notes.push(
+      "CVM DFP (Brazil, IFRS as issued through the CPC), consolidated statements, read by CVM's fixed chart of " +
+        "accounts (e.g. 3.01 revenue, 3.05 profit before financial result and taxes as operating income). Capex, D&A " +
+        "and EPS are not fixed lines in that chart, so they are null. Total equity is consolidated, including " +
+        "non-controlling interests. Annual fiscal years from the DFP, plus LTM from the latest ITR (quarterly) when one " +
+        "follows the last DFP. Contains information from the CVM Open Data Portal " +
+        "(https://dados.cvm.gov.br/), made available under the Open Database License (ODbL).",
+    );
   } else if (ctx.tx === IFRS) {
     notes.push(
       "IFRS filer (20-F/40-F): figures follow IFRS, not US GAAP. Interim results are furnished " +

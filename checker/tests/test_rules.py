@@ -174,3 +174,133 @@ def test_a_broken_rule_does_not_hide_the_others(tmp_path, monkeypatch):
     r = run(m, tmp_path)
     assert "DS001" in rules(r)
     assert any(f["rule"] == "DS000" and "bad sheet" in f["message"] for f in r["findings"])
+
+
+# ---- stars brief lot 2: the errors AI-built models make (Wall Street Prep 2026, deskstack's own benchmarks) ----
+def set_source(m, ref, text):
+    for row in m.sheet("Sources").iter_rows():
+        if row[0].value == ref:
+            row[1].value = text
+
+
+def m_placeholder_zero(m):
+    m.inp("Inputs", "B12", 0.0)  # shares outstanding left as 0
+    set_source(m, "Inputs!B12", "NOT FOUND - placeholder 0")
+
+
+def m_placeholder_label(m):
+    set_source(m, "Inputs!B11", "TBD: estimate, to replace")
+
+
+def m_rate_whole_number(m):
+    m.sheet("Inputs")["B4"].value = 5.0  # revenue growth "5" among decimal rates (0.2, 0.25, 0.09...)
+
+
+def m_rate_percent_format(m):
+    c = m.sheet("Inputs")["B5"]
+    c.value, c.number_format = 20.0, "0.0%"  # EBIT margin shows as 2000.0%
+
+
+def m_synthetic_history(m):
+    m.text("Hist", "A1", "History (USD in millions)")
+    m.text("Hist", "A3", "Revenue")
+    for col, v in zip("BCDE", [800.0, 840.0, 882.0, 926.1]):  # exactly 5% a year, to the decimal
+        m.inp("Hist", f"{col}3", v)
+        n = len([k for k in m.sheet("Sources").iter_rows() if any(x.value for x in k)]) + 1
+        m.text("Sources", f"A{n}", f"Hist!{col}3")
+        m.text("Sources", f"B{n}", "Company 10-K")
+
+
+def m_plug(m):
+    m.text("BS", "A9", "Balancing plug")
+    m.inp("BS", "C9", 15.0)
+    n = len([k for k in m.sheet("Sources").iter_rows() if any(x.value for x in k)]) + 1
+    m.text("Sources", f"A{n}", "BS!C9")
+    m.text("Sources", f"B{n}", "model")
+
+
+def m_interest_typed(m):
+    m.text("DCF", "A22", "Debt")
+    m.text("DCF", "A23", "Interest expense")
+    for col in "CDEFG":
+        m.f("DCF", f"{col}22", "=Inputs!$B$11", 300.0)
+        m.inp("DCF", f"{col}23", 15.0)  # typed every year, not debt x rate
+        n = len([k for k in m.sheet("Sources").iter_rows() if any(x.value for x in k)]) + 1
+        m.text("Sources", f"A{n}", f"DCF!{col}23")
+        m.text("Sources", f"B{n}", "assumption")
+
+
+def m_shares_flat_with_buybacks(m):
+    m.text("DCF", "A24", "Share buybacks")
+    m.text("DCF", "A25", "Diluted shares")
+    for col in "CDEFG":
+        m.f("DCF", f"{col}24", "=Inputs!$B$12*0", 50.0)
+        m.f("DCF", f"{col}25", "=Inputs!$B$12", 100.0)
+
+
+LOT2 = [
+    ("DS021", m_rate_whole_number),
+    ("DS021", m_rate_percent_format),
+    ("DS016", m_placeholder_zero),
+    ("DS016", m_placeholder_label),
+    ("DS017", m_synthetic_history),
+    ("DS018", m_plug),
+    ("DS019", m_interest_typed),
+    ("DS020", m_shares_flat_with_buybacks),
+]
+
+
+@pytest.mark.parametrize("rule, mutate", LOT2)
+def test_lot2_planted_error_is_caught(tmp_path, rule, mutate):
+    m = clean_dcf()
+    mutate(m)
+    found = rules(run(m, tmp_path), severities=("blocker", "major", "minor"))
+    assert rule in found, f"{rule} not raised; got {sorted(found)}"
+
+
+def test_lot2_rules_are_documented():
+    from deskstack_check.rules import RULE_INFO
+
+    readme = (Path(__file__).parent.parent / "README.md").read_text()
+    for rule in ("DS016", "DS017", "DS018", "DS019", "DS020"):
+        assert rule in RULE_INFO and f"| {rule} |" in readme, rule
+
+
+def test_ds021_leaves_a_model_that_types_every_rate_as_a_whole_number_alone(tmp_path):
+    """A consistent convention (9 for 9%, divided by 100 in the formulas) is not an error; DS011 reads it too."""
+    m = clean_dcf()
+    ws = m.sheet("Inputs")
+    for r in range(3, 13):
+        label, c = ws[f"A{r}"].value or "", ws[f"B{r}"]
+        if any(k in label.lower() for k in ("growth", "margin", "tax rate", "%", "wacc")) and isinstance(c.value, float) and c.value < 1:
+            c.value = round(c.value * 100, 4)
+    assert "DS021" not in rules(run(m, tmp_path))
+
+
+def test_ds021_says_what_the_cell_shows(tmp_path):
+    m = clean_dcf()
+    m_rate_percent_format(m)
+    f = next(f for f in run(m, tmp_path)["findings"] if f["rule"] == "DS021")
+    assert f["ref"] == "Inputs!B5" and f["severity"] == "major" and "2000%" in f["message"]
+
+
+def test_ds021_no_false_positives_found_in_review(tmp_path):
+    """Review 2026-11-10: a literal % in the format, growth above 100%, a beta or a spread on a rate row."""
+    m = clean_dcf()
+    ws = m.sheet("Inputs")
+    ws["B4"].value, ws["B4"].number_format = 1.5, "0%"  # 150% revenue growth: unusual, not a units error
+    m.text("Inputs", "A20", "Cost of equity")
+    m.text("Inputs", "B20", "Beta")
+    m.inp("Inputs", "C20", 1.2)
+    m.text("Inputs", "A21", "Cost of debt")
+    m.text("Inputs", "B21", "spread (bps)")
+    m.inp("Inputs", "C21", 75.0)
+    assert "DS021" not in rules(run(m, tmp_path))
+
+
+def test_ds021_a_literal_percent_sign_is_not_a_percent_cell(tmp_path):
+    m = clean_dcf()
+    c = m.sheet("Inputs")["B5"]
+    c.value, c.number_format = 20.0, '0.0"%"'  # shows "20.0%" without multiplying by 100
+    f = next(f for f in run(m, tmp_path)["findings"] if f["rule"] == "DS021")
+    assert "percent cell" not in f["message"] and "other" in f["message"]  # still out of line with the decimal rates

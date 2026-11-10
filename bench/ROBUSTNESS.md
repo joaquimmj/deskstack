@@ -43,8 +43,8 @@ unchanged.
 
 ## Result, 2026-11-09
 
-Runs: A12 in `results/2026-11-09T19-12-17-173Z/`; A30 in `results/2026-11-09T19-39-56-942Z/` (the 2 that finished)
-and `results/2026-11-09T20-18-34-250Z/` (the 7 re-run after the amendment). Every mismatch was read by hand.
+Runs: A12 in `results/exploratory/2026-11-09T19-12-17-173Z/`; A30 in `results/exploratory/2026-11-09T19-39-56-942Z/` (the 2 that finished)
+and `results/exploratory/2026-11-09T20-18-34-250Z/` (the 7 re-run after the amendment). Every mismatch was read by hand.
 
 | Setting | Tables | Filed figures | Wrong for the period asked | Left as 0 | Spend (incl. capped runs) |
 |---|---|---|---|---|---|
