@@ -1,0 +1,82 @@
+name: deskstack-check
+description: Check spreadsheet financial models. 20 model checks offline, and optionally every figure tied to SEC and ESEF filings.
+author: Joaquim
+branding:
+  icon: check-square
+  color: green
+
+inputs:
+  files:
+    description: Workbooks to check. Glob patterns, separated by spaces or new lines (e.g. "models/**/*.xlsx").
+    required: false
+    default: "**/*.xlsx"
+  verify:
+    description: '"true" to tie every typed figure to the filings through the deskstack connector (sends only those figures).'
+    required: false
+    default: "false"
+  company:
+    description: Ticker, CIK or LEI, for workbooks that don't name their company as "Name (TICKER)".
+    required: false
+    default: ""
+  connector:
+    description: Your own deskstack server's /mcp URL. Empty means the public one.
+    required: false
+    default: ""
+  fail-on:
+    description: blocker, major, minor or never. A figure that doesn't tie to the filing counts as a blocker.
+    required: false
+    default: blocker
+
+outputs:
+  passed:
+    description: '"true" when no workbook has a finding at or above fail-on.'
+    value: ${{ steps.check.outputs.passed }}
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+    - name: Install deskstack-check
+      shell: bash
+      run: python -m pip install --quiet "$GITHUB_ACTION_PATH/checker"
+    - id: check
+      name: Check the workbooks
+      shell: bash
+      # Inputs go through the environment, never into the script text.
+      env:
+        DS_FILES: ${{ inputs.files }}
+        DS_VERIFY: ${{ inputs.verify }}
+        DS_COMPANY: ${{ inputs.company }}
+        DS_CONNECTOR: ${{ inputs.connector }}
+        DS_FAIL_ON: ${{ inputs.fail-on }}
+      run: |
+        files=()
+        while IFS= read -r f; do [ -n "$f" ] && files+=("$f"); done < <(python - <<'PY'
+        import glob, os
+        seen = []
+        for pat in os.environ["DS_FILES"].split():
+            for f in sorted(glob.glob(pat, recursive=True)):
+                if f.lower().endswith(".xlsx") and not os.path.basename(f).startswith("~$") and f not in seen:
+                    seen.append(f)
+        print("\n".join(seen))
+        PY
+        )
+        if [ "${#files[@]}" -eq 0 ]; then
+          echo "No .xlsx file matches: $DS_FILES"
+          echo "passed=true" >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
+        args=(--fail-on "$DS_FAIL_ON")
+        [ "$DS_VERIFY" = "true" ] && args+=(--verify)
+        [ -n "$DS_COMPANY" ] && args+=(--company "$DS_COMPANY")
+        [ -n "$DS_CONNECTOR" ] && args+=(--connector "$DS_CONNECTOR")
+        set +e
+        report="$(deskstack-check "${files[@]}" "${args[@]}" --markdown 2>&1)"
+        rc=$?
+        set -e
+        printf '%s\n' "$report"
+        { echo "## deskstack-check"; echo; printf '%s\n' "$report"; } >> "$GITHUB_STEP_SUMMARY"
+        if [ "$rc" -eq 0 ]; then echo "passed=true" >> "$GITHUB_OUTPUT"; else echo "passed=false" >> "$GITHUB_OUTPUT"; fi
+        exit "$rc"
