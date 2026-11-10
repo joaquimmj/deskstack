@@ -184,6 +184,16 @@ ESEF = [
      [('revenue', 'Revenue'), ('operating_income', 'ProfitLossFromOperatingActivities'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ["eu", "esef", "gb", "stars-batch-2"]),
     ("2138007FRGLUR9KGBT40", "Halma", "FY2026", "2138007FRGLUR9KGBT40-2026-03-31-ESEF-GB-0", "2025-04-01", "2026-03-31",
      [('revenue', 'Revenue'), ('operating_income', 'ProfitLossFromOperatingActivities'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ["eu", "esef", "gb", "stars-batch-2"]),
+    ("815600A0C9AFC1F2A709", "Pirelli", "FY2025", "815600A0C9AFC1F2A709-2025-12-31-ESEF-IT-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('operating_income', 'ProfitLossFromOperatingActivities'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ["eu", "esef", "it", "stars-batch-3"]),
+    ("5299007OWYZ6I1E46843", "Pandora", "FY2025", "5299007OWYZ6I1E46843-2025-12-31-ESEF-DK-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('operating_income', 'ProfitLossFromOperatingActivities'), ('net_income', 'ProfitLoss'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ["eu", "esef", "dk", "stars-batch-3"]),
+    ("259400A8SZP10GB5IB19", "Jeronimo Martins", "FY2025", "259400A8SZP10GB5IB19-2025-12-31-ESEF-PT-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('operating_income', 'ProfitLossFromOperatingActivities'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ["eu", "esef", "pt", "stars-batch-3"]),
+    ("5299006UDSEJCTTEJS30", "Verbund", "FY2025", "5299006UDSEJCTTEJS30-2025-12-31-ESEF-AT-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('operating_income', 'ProfitLossFromOperatingActivities'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ["eu", "esef", "at", "stars-batch-3"]),
+    ("213800MXXDGQ3ITPXI41", "FLSmidth", "FY2025", "213800MXXDGQ3ITPXI41-2025-12-31-ESEF-DK-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('operating_income', 'ProfitLossFromOperatingActivities'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ["eu", "esef", "dk", "stars-batch-3"]),
 ]
 
 # Behavior checks: (id, question, call, read, expected, tags)
@@ -192,6 +202,8 @@ BEHAVIOR = [
      {"tool": "financial_statements", "args": {"ticker": "JPM", "years": 1}}, {"kind": "path", "path": "company.financial_company"}, True, ["us", "bank"]),
     ("jpm-no-operating-income", "Does JPMorgan Chase's FY2025 operating income come back null (banks don't report it)?",
      {"tool": "financial_statements", "args": {"ticker": "JPM", "years": 2}}, {"kind": "fs", "period": "FY2025", "group": "income_statement", "key": "operating_income"}, None, ["us", "bank", "null"]),
+    ("nos-fy2025-no-total-revenue", "Does NOS's FY2025 revenue come back null, since NOS tags only parts of it (goods, services)?",
+     {"tool": "financial_statements", "args": {"ticker": "5493004DM8FGIY6QKF37", "years": 2}}, {"kind": "fs", "period": "FY2025", "group": "income_statement", "key": "revenue"}, None, ["eu", "esef", "pt", "null"]),
     ("jpm-no-capex", "Does JPMorgan Chase's FY2025 capex come back null rather than 0?",
      {"tool": "financial_statements", "args": {"ticker": "JPM", "years": 2}}, {"kind": "fs", "period": "FY2025", "group": "cash_flow", "key": "capex"}, None, ["us", "bank", "null"]),
     ("aapl-not-financial", "Is Apple not flagged as a financial company?",
