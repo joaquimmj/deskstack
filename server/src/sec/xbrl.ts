@@ -111,6 +111,7 @@ export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
   // Inputs only: other parts of revenue. When one is tagged, sale of goods alone is not total revenue (NOS, REN).
   revenue_services: ["RevenueFromRenderingOfServices"],
   revenue_construction: ["RevenueFromConstructionContracts", "RevenueRecognisedOnExchangingConstructionServicesForIntangibleAsset"],
+  // FinanceCosts (the IAS 1 line) is broader than interest on debt: adjustRow notes it on the cell.
   interest_expense: ["InterestExpense", "FinanceCosts"],
   // Impairment-inclusive D&A concepts come last, for filers that tag nothing else (TotalEnergies, AB InBev, Ahold,
   // Iberdrola); adjustRow notes it on the cell, since EBITDA then includes impairment.
@@ -596,6 +597,13 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false, labe
   }
   if (IMPAIRMENT_DA.test(row.d_and_a?.concept ?? "")) {
     row.d_and_a = withNote(row.d_and_a!, "includes impairment: the filer tags no D&A line without it, so EBITDA includes impairment too");
+  }
+  if (row.interest_expense?.concept === "ifrs-full:FinanceCosts") {
+    row.interest_expense = withNote(
+      row.interest_expense,
+      "finance costs: the filer tags no interest expense line; IAS 1 finance costs can also include lease interest, " +
+        "unwinding of discounts and other financial expenses, so interest_coverage is lower than on debt interest alone",
+    );
   }
   const nci = row.net_income_nci;
   if (row.net_income?.concept === "ifrs-full:ProfitLoss" && nci && nci.value !== 0) {
