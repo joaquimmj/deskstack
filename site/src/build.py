@@ -148,7 +148,7 @@ def render(L: dict, prefix: str, home: str) -> str:
     fl = L["f_links"]
     col = lambda items: "".join(f'<a href="{u}">{fl[k] if k in fl else k}</a>' for k, u in items)
     tut_path = "docs/TUTORIEL.md" if L["lang"] == "fr" else "docs/TUTORIAL.md"
-    f_col1 = col([(L["n_install"], "#install"), ("bench", f"{GH}/blob/main/docs/BENCHMARK.md"), ("examples", f"{GH}/tree/main/examples"), ("GitHub", GH)])
+    f_col1 = col([(L["n_install"], "#install"), ("bench", f"{GH}/blob/main/docs/BENCHMARK.md"), ("leaderboard", f"{prefix}leaderboard/"), ("examples", f"{GH}/tree/main/examples"), ("GitHub", GH)])
     f_col2 = col([("tutorial", f"{GH}/blob/main/{tut_path}"), ("tools", f"{GH}/blob/main/docs/TOOLS.md"), ("roles", f"{GH}/blob/main/docs/ROLES.md"), ("data", f"{GH}/blob/main/docs/DATA_SOURCES.md"), ("self", f"{GH}/blob/main/docs/SELF_HOSTING.md")])
     f_col3 = col([("privacy", f"{GH}/blob/main/PRIVACY.md"), ("license", f"{GH}/blob/main/LICENSE")])
 
