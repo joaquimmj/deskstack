@@ -59,8 +59,11 @@ effort instead of 12 and medium, web search still wrote a wrong figure (1 of 117
 
 ## Set up in the Claude app
 
-The data connector works on any Claude account; a free account can add one custom connector. The roles are a plugin:
-they need a paid plan, and code execution turned on in **Settings → Capabilities**.
+deskstack has two parts. The **data connector** gives Claude filed figures, each with its source; you add it once,
+by pasting a URL. The **plugin** adds the roles: commands you type in a chat, such as `/analyst` or `/associate`.
+
+The connector works on any Claude account; a free account can add one custom connector. The plugin needs a paid
+plan, and code execution turned on in **Settings → Capabilities**. No terminal is needed.
 
 1. **Data:** in Claude, open **Customize → Connectors → Add custom connector** and paste
    `https://deskstack.deskstack-server.workers.dev/mcp`, with no sign-in. Check it: ask *"Using deskstack, what was
@@ -106,9 +109,13 @@ To see these caught, open [examples/errors-caught](examples/errors-caught/): a M
 typed in on purpose, and the reports that find all four.
 
 `verify_value` also names the usual causes of a mismatch: wrong scale, opposite sign, another period, another line
-item, another currency, two digits swapped. The 21 model rules are listed in [checker/README.md](checker/README.md).
+item, another currency, two digits swapped, or another common definition (net debt with leases, equity without
+minorities). The 21 model rules are listed in [checker/README.md](checker/README.md).
 
 ## Check any AI-built model in one command
+
+For teams with a terminal or a repository; the Claude app doesn't need it.
+
 
 `deskstack-check` checks any `.xlsx` model, whether Claude, ChatGPT, Copilot, another tool or a person built it.
 
