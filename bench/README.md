@@ -58,10 +58,13 @@ SEC_USER_AGENT="name email" npx tsx bench/run.ts --rescore ../bench/results/<run
   pricing page before a paid run.
 - **Before deploy.** The pilot can run against a local `wrangler dev` with the fixture snapshot. Its 5 companies are
   all in the fixtures.
-- **Output.** Results land in `bench/results/<timestamp>/` and are meant to be committed:
-  - `plan.json`;
-  - one `runs/<company>-<task>-<arm>.json` per run, with the full transcript, the submission and the score;
-  - `summary.json` and `summary.md`.
+- **Output.** Results land in `bench/results/<timestamp>/`:
+  - `plan.json`, `summary.json` and `summary.md`, committed;
+  - `ANALYSIS.md`, the hand reading, committed;
+  - one `runs/<company>-<task>-<arm>.json` per run, with the full transcript, the submission and the score, plus the
+    working files in `work/`. These raw files are not committed. They are archived on a GitHub release, and
+    `bench/fetch-raw.sh` downloads them, checks the archive's SHA-256 and puts them back in place.
+- **Exploratory runs** (one arm only, such as the robustness check) go in `bench/results/exploratory/`.
 
 **Status:** main run done on 2026-11-09 (50 companies × DCF × 3 arms): [bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md](../bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md). The runner and scorer are tested offline with a scripted model (`server/test/bench.test.ts`).
 No paid run yet. The $20 pilot is approved (see `COST_ESTIMATE.md`) and waits for the API key.

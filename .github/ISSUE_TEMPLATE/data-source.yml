@@ -1,0 +1,35 @@
+name: Data source
+description: Propose an official or openly licensed source of financial data.
+labels: [data source]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Every source needs published terms that allow use in a free hosted service, with no paid access. Sources are added only once checked: recorded fixtures, at least 10 golden questions, and a cross-check when another parser exists.
+  - type: input
+    id: source
+    attributes:
+      label: Source and link
+    validations:
+      required: true
+  - type: textarea
+    id: data
+    attributes:
+      label: What data, for which companies or countries
+    validations:
+      required: true
+  - type: textarea
+    id: terms
+    attributes:
+      label: Licence or terms
+      description: Quote the sentences that allow redistribution, with their link. Say if you couldn't find any.
+    validations:
+      required: true
+  - type: input
+    id: limits
+    attributes:
+      label: Rate limits and keys
+  - type: input
+    id: attribution
+    attributes:
+      label: Attribution it asks for
