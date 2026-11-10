@@ -234,6 +234,20 @@ describe("real filings", () => {
     expect(total.periods[0]!.values.revenue!.value).toBe(1_779e6);
   });
 
+  it("US total debt says when its long-term debt line includes finance leases (review 2026-11-10)", () => {
+    const d = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
+    const i = (v: number) => [fact(v, null, "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
+    const der = (g: Record<string, RawFact[]>) =>
+      standardize(companyfacts({ Revenues: d(50_000e6), CashAndCashEquivalentsAtCarryingValue: i(2_000e6), ...g }), 5, false).periods[0]!.derived;
+    const lease = der({ LongTermDebtAndCapitalLeaseObligations: i(12_000e6), LongTermDebtAndCapitalLeaseObligationsCurrent: i(1_000e6) });
+    expect(lease.total_debt!.value).toBe(13_000e6);
+    expect(lease.total_debt!.note).toMatch(/^includes finance lease obligations/);
+    expect(lease.net_debt!.note).toMatch(/includes finance lease obligations/);
+    const plain = der({ LongTermDebtNoncurrent: i(12_000e6), LongTermDebtCurrent: i(1_000e6) });
+    expect(plain.total_debt!.note).toBeUndefined();
+    expect(plain.net_debt!.note).toBeUndefined();
+  });
+
   it("US GAAP fallbacks say when equity or net income includes minorities, or cash includes restricted cash (review 2026-11-10)", () => {
     const d = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
     const i = (v: number) => [fact(v, null, "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
