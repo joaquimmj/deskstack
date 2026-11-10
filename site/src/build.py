@@ -14,6 +14,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 SITE = HERE.parent
 GH = "https://github.com/joaquimmj/deskstack"
+SITE_URL = "https://joaquimmj.github.io/deskstack/"
 TICK = '<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><path pathLength="1" d="M4 13.5l5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 LOGO = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 12.5l3.2 3.2L17.5 8" fill="none" stroke="#107c41" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 FAVICON = "data:image/svg+xml," + LOGO.replace('"', "'").replace("#", "%23").replace("currentColor", "%23111418").replace(' aria-hidden=\'true\'', " xmlns='http://www.w3.org/2000/svg'")
@@ -147,10 +148,16 @@ def render(L: dict, prefix: str, home: str) -> str:
     fl = L["f_links"]
     col = lambda items: "".join(f'<a href="{u}">{fl[k] if k in fl else k}</a>' for k, u in items)
     tut_path = "docs/TUTORIEL.md" if L["lang"] == "fr" else "docs/TUTORIAL.md"
-    f_col1 = col([(L["n_install"], "#install"), ("bench", f"{GH}/blob/main/docs/BENCHMARK.md"), ("GitHub", GH)])
+    f_col1 = col([(L["n_install"], "#install"), ("bench", f"{GH}/blob/main/docs/BENCHMARK.md"), ("examples", f"{GH}/tree/main/examples"), ("GitHub", GH)])
     f_col2 = col([("tutorial", f"{GH}/blob/main/{tut_path}"), ("tools", f"{GH}/blob/main/docs/TOOLS.md"), ("roles", f"{GH}/blob/main/docs/ROLES.md"), ("data", f"{GH}/blob/main/docs/DATA_SOURCES.md"), ("self", f"{GH}/blob/main/docs/SELF_HOSTING.md")])
     f_col3 = col([("privacy", f"{GH}/blob/main/PRIVACY.md"), ("license", f"{GH}/blob/main/LICENSE")])
 
+    catch_head = "".join(f'<th scope="col">{h}</th>' for h in L["w_h"])
+    h = L["w_h"]
+    catch_rows = "".join(f'<tr><th scope="row">{a}</th><td data-label="{h[1]}">{b}</td><td data-label="{h[2]}">{c}</td></tr>' for a, b, c in L["catches"])
+    example_cards = "".join(f'<article class="card"><h3>{t}</h3><p>{d}</p><a href="{GH}/tree/main/{path}">{path} {ARROW}</a></article>'
+                            for t, d, path in L["examples"])
+    page_url = SITE_URL + ("fr/" if L["lang"] == "fr" else "")
     values = {
         **{k: v for k, v in L.items() if isinstance(v, str)},
         "prefix": prefix, "home": home, "gh": GH, "logo": LOGO, "favicon": FAVICON, "tick": TICK, "arrow": ARROW, "gh_icon": GH_ICON,
@@ -161,6 +168,10 @@ def render(L: dict, prefix: str, home: str) -> str:
         "bench_tables": "".join(tables), "b_cards": "".join(b_cards), "data_cards": data_cards, "faq": faq,
         "f_col1": f_col1, "f_col2": f_col2, "f_col3": f_col3, "tut_path": tut_path, "plans": "".join(plans),
         "comps_analysis": L["benches"][1]["analysis"],
+        "catch_table": f"<thead><tr>{catch_head}</tr></thead><tbody>{catch_rows}</tbody>", "example_cards": example_cards,
+        "k_out_html": html.escape(L["k_out"]), "k_action_html": html.escape(L["k_action"]),
+        "og_url": page_url, "site_url": SITE_URL, "og_image": SITE_URL + "media/social-preview.png", "og_locale": "fr_FR" if L["lang"] == "fr" else "en_US",
+        "og_alt": html.escape(L["og_alt"], quote=True),
         "desc_attr": html.escape(L["desc"], quote=True), "title_text": html.escape(L["title"]),
         # Cache-busting: a hash of the assets, so a deploy never serves new HTML with old CSS or JS.
         "ver": hashlib.sha256(b"".join((SITE / f).read_bytes() for f in ("style.css", "app.js", "config.js"))).hexdigest()[:10],

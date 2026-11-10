@@ -494,3 +494,23 @@ h1, h2, h3 { color: var(--ink); font-weight: 500; margin: 0; }
   .end-copy { padding: 32px 24px; }
   .end-grid .sel { left: 72px; top: 44px; }
 }
+
+/* Stars brief lot 10: what it catches, the command line, the examples. */
+.bcard table.catches td { color: var(--ink-2); font-size: 14.5px; vertical-align: top; }
+.bcard table.catches tbody th { width: 24%; vertical-align: top; }
+.bcard table.catches code, .sub code, .hint code { font-size: 0.92em; }
+.cli-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 22px; align-items: start; }
+.cli-grid .urlbox { margin: 0 0 14px; }
+pre.term { margin: 0; padding: 14px 16px; font: 400 12.5px/1.6 var(--mono); color: var(--ink); background: var(--sheet); border: 1px solid var(--grid); border-radius: 10px; overflow-x: auto; white-space: pre; }
+pre.term.small { font-size: 12px; }
+.cards4 { margin-top: 22px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.cards4 .card a { overflow-wrap: anywhere; }
+@media (max-width: 1040px) { .cli-grid { grid-template-columns: 1fr; } .cards4 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 720px) { .cards4 { grid-template-columns: 1fr; } .bcard table.catches tbody th { width: auto; } }
+@media (max-width: 720px) {
+  .bcard table.catches thead { display: none; }
+  .bcard table.catches tr { display: block; padding: 14px 0; border-bottom: 1px solid var(--grid); }
+  .bcard table.catches tr:last-child { border-bottom: 0; }
+  .bcard table.catches th, .bcard table.catches td { display: block; border: 0; padding: 4px 0; }
+  .bcard table.catches td::before { content: attr(data-label); display: block; font-size: 12px; color: var(--ink-3); margin-top: 6px; }
+}

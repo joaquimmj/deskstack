@@ -6,7 +6,21 @@
 <title>{{title_text}}</title>
 <meta name="description" content="{{desc_attr}}">
 <meta name="theme-color" content="#f6f7f8">
-<link rel="alternate" hreflang="{{other_lang}}" href="{{other_href}}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="deskstack">
+<meta property="og:title" content="{{title_text}}">
+<meta property="og:description" content="{{desc_attr}}">
+<meta property="og:url" content="{{og_url}}">
+<meta property="og:image" content="{{og_image}}">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="{{og_alt}}">
+<meta property="og:locale" content="{{og_locale}}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{{og_url}}">
+<link rel="alternate" hreflang="en" href="{{site_url}}">
+<link rel="alternate" hreflang="fr" href="{{site_url}}fr/">
+<link rel="alternate" hreflang="x-default" href="{{site_url}}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{prefix}}style.css?v={{ver}}">
@@ -22,6 +36,7 @@
     <nav class="links" aria-label="{{nav}}">
       <a href="#how">{{n_how}}</a>
       <a href="#bench">{{n_bench}}</a>
+      <a href="#examples">{{n_examples}}</a>
       <a href="#data">{{n_data}}</a>
       <a href="#pricing">{{n_price}}</a>
       <a href="#faq">{{n_faq}}</a>
@@ -126,6 +141,42 @@
     </div>
     <div class="bench reveal">{{bench_tables}}</div>
     <div class="cards3 grouped reveal">{{b_cards}}</div>
+  </div>
+</section>
+
+<section id="catches" class="block white" aria-labelledby="catch-t">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="tag">{{tag_catch}}</span><h2 class="h2" id="catch-t">{{w_t1}} <span>{{w_t2}}</span></h2><p class="sub">{{w_p}}</p></div>
+      <a class="btn ghost sm" href="{{gh}}/tree/main/examples/errors-caught">{{x_caught}} {{arrow}}</a>
+    </div>
+    <div class="bcard reveal"><div class="scroll"><table class="catches">{{catch_table}}</table></div></div>
+  </div>
+</section>
+
+<section id="cli" class="block" aria-labelledby="cli-t">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="tag">{{tag_cli}}</span><h2 class="h2" id="cli-t">{{k_t1}} <span>{{k_t2}}</span></h2><p class="sub">{{k_p}}</p></div>
+      <a class="btn ghost sm" href="{{gh}}/tree/main/checker">{{x_cli}} {{arrow}}</a>
+    </div>
+    <div class="cli-grid reveal">
+      <div class="win"><div class="win-bar"><i></i><i></i><i></i><span>deskstack-check</span></div>
+        <div class="win-body"><div class="urlbox"><code id="cli-cmd">{{k_cmd}}</code><button class="btn ink sm" type="button" data-copy="cli-cmd" data-done="{{copied}}" data-fallback="{{selected}}">{{copy}}</button></div>
+        <pre class="term">{{k_out_html}}</pre><p class="hint">{{k_soon}}</p></div></div>
+      <article class="card"><h3>{{k_action_t}}</h3><p>{{k_action_p}}</p><pre class="term small">{{k_action_html}}</pre></article>
+    </div>
+  </div>
+</section>
+
+<section id="examples" class="block white" aria-labelledby="ex-t">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="tag">{{tag_ex}}</span><h2 class="h2" id="ex-t">{{e_t1}} <span>{{e_t2}}</span></h2><p class="sub">{{e_p}}</p></div>
+      <a class="btn ghost sm" href="{{gh}}/tree/main/examples">{{x_ex}} {{arrow}}</a>
+    </div>
+    <div class="cards4 reveal">{{example_cards}}</div>
+    <p class="fine">{{e_lb}}</p>
   </div>
 </section>
 
