@@ -1,5 +1,5 @@
 ## Sign-off summary: model.xlsx
-File SHA-256: `6f783b4a45a8b552fa96e9e0842a52bd60e36ed16017dc04f8252feb8265a1ae`
+File SHA-256: `d2da60dedad0be570deb2fb61c8cdd53f74efa2bd39f8c73ecb28146d2268f34`
 
 | Check | Status | Detail |
 |---|---|---|
@@ -18,7 +18,7 @@ File SHA-256: `6f783b4a45a8b552fa96e9e0842a52bd60e36ed16017dc04f8252feb8265a1ae`
 7. [major] `Inputs!B7` (model review): DS016: Looks like a placeholder 0: its label or source says 'NOT FOUND'.
 8. [blocker] `Sources!A8` (compliance): C04 No placeholder or memory citations: Citations that say TBD, approx., from memory, unknown or end with '?'.
 
-Approval token: `5626b8e3cdd6` (it changes if the file, a report or an open item changes).
+Approval token: `cf58a21a2e06` (it changes if the file, a report or an open item changes).
 
 Nothing is exported until you approve in your own words. Blocking items must be fixed, or accepted with a reason that is recorded on the sign-off sheet.
 

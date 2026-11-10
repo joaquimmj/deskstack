@@ -189,7 +189,7 @@ def dcf_math(rev0: float, growth: list[float], a: dict, mid: bool, net_debt: flo
     w, g = a["wacc"], a["terminal_growth"]
     tv = rows["fcf"][-1] * (1 + g) / (w - g)
     pv_tv = tv / (1 + w) ** n
-    sum_pv = sum(rows["pv"])
+    sum_pv = math.fsum(rows["pv"])  # correctly rounded: sum() changed in Python 3.12, and cached values are hashed
     ev = pv_tv + sum_pv
     eq = ev - net_debt
     return {**rows, "tv": tv, "pv_tv": pv_tv, "sum_pv": sum_pv, "ev": ev, "equity": eq,
