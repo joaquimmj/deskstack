@@ -11,7 +11,7 @@ Roles never fix each other's work silently:
 |---|---|---|
 | `/analyst <company> <quick-dcf\|comps>` | Builds the deliverable from deskstack data. It agrees the assumptions with you first, cites every typed number, and asks rather than invents | An Excel workbook: blue inputs, black formulas, green links, a Sources sheet, a Cover with the disclaimer |
 | `/associate` | Extracts every typed number and ties it to the filing with `verify_value` | A tie-out report: each number, its status, the filed value, the note and the source; problems first |
-| `/vp-review` | Runs the checker's 15 rules, then compares the assumptions with filed history | A review report, ranked blocker / major / minor, with cell references, in the `audit-xls` table format |
+| `/vp-review` | Runs the checker's 20 rules, then compares the assumptions with filed history | A review report, ranked blocker / major / minor, with cell references, in the `audit-xls` table format |
 | `/md-redteam` | Argues against the valuation | A memo: the top five objections with their value-per-share impact, the bear case, what the market price implies, the questions for the analyst |
 | `/compliance` | Runs hygiene checks | A pass/fail list: disclaimer, citations, dated user inputs, no sign of non-public information, no buy/sell or promise language, no external links, no hidden sheets |
 | `/sign-off` | The human gate | One page of every check and every open item, with an approval token. A signed copy is written only after you approve in your own words (see below) |
