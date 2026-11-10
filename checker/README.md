@@ -1,20 +1,39 @@
-# deskstack_check
+# deskstack-check
 
-Deterministic checks for financial models in `.xlsx`, used by the `/vp-review` skill. Built on
-[openpyxl](https://openpyxl.readthedocs.io) (MIT). Only public, widely known modeling practices are
-checked. It reports findings and never grades a person.
+Checks any spreadsheet financial model (`.xlsx`), whether an AI or a person built it.
+
+- **Offline:** 20 deterministic model checks, built on [openpyxl](https://openpyxl.readthedocs.io) (MIT). Only
+  public, widely known modelling practices are checked. It reports findings and never grades a person.
+- **With `--verify`:** every typed figure is tied to the SEC or ESEF filing through the free
+  [deskstack](https://github.com/joaquimmj/deskstack) connector. Only those figures are sent.
 
 ```bash
-python -m deskstack_check model.xlsx                     # model check, markdown (audit-xls table + Rule, Found by)
-python -m deskstack_check model.xlsx --json              # machine-readable
-python -m deskstack_check check model.xlsx --audit a.md  # merge an audit-xls findings table (companion mode)
-python -m deskstack_check extract model.xlsx             # typed numbers + draft verify_value batches (JSON)
-python -m deskstack_check tieout model.xlsx results.json # tie-out report from verify_value results
-python -m deskstack_check build spec.json out.xlsx       # build a cited DCF or comps workbook
-python -m deskstack_check sensitivity model.xlsx --price 230   # tornado, WACC x g grid, implied inputs (/md-redteam)
-python -m deskstack_check compliance model.xlsx --memo memo.md # pass/fail hygiene list (/compliance)
-python -m deskstack_check signoff model.xlsx --tieout t.json --review r.json --compliance c.json   # summary, exit 3
-python -m deskstack_check signoff ... --approve "I approve" --by NAME --out final.xlsx            # signed copy
+pipx run deskstack-check model.xlsx              # readable report
+pipx run deskstack-check model.xlsx --verify     # also tie figures to the filings
+pipx run deskstack-check model.xlsx --markdown   # or --json
+```
+
+Options:
+
+- `--company ID`: a ticker, CIK or LEI, when the workbook doesn't name its company as "Name (TICKER)".
+- `--connector URL`: a self-hosted deskstack server.
+- `--fail-on LEVEL`: `blocker` (default), `major`, `minor` or `never`. A figure that doesn't tie to the filing counts
+  as a blocker.
+
+The exit code is 0 for a pass, 1 for a fail, and 2 when a file can't be read or the connector fails. A GitHub Action
+runs the same checks in a repository ([action.yml](https://github.com/joaquimmj/deskstack/blob/main/action.yml)).
+
+The deskstack plugin's roles use the same package:
+
+```bash
+deskstack-check model.xlsx                               # model check (also: python -m deskstack_check model.xlsx)
+deskstack-check check model.xlsx --audit a.md            # merge an audit-xls findings table (companion mode)
+deskstack-check extract model.xlsx                       # typed numbers + draft verify_value batches (JSON)
+deskstack-check tieout model.xlsx results.json           # tie-out report from verify_value results
+deskstack-check build spec.json out.xlsx                 # build a cited DCF or comps workbook
+deskstack-check sensitivity model.xlsx --price 230       # tornado, WACC x g grid, implied inputs (/md-redteam)
+deskstack-check compliance model.xlsx --memo memo.md     # pass/fail hygiene list (/compliance)
+deskstack-check signoff model.xlsx --tieout t.json --review r.json --compliance c.json   # summary, exit 3
 ```
 
 The plugin's skills run vendored copies of this package (`python3 plugins/sync_vendor.py` refreshes them; a test

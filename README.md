@@ -31,17 +31,50 @@
 3. **Try it:** `/deal-team Apple quick-dcf`. If something fails, `/deskstack-doctor` checks the connector, the plugin
    version, Python and the bundled scripts, and says how to fix what doesn't work.
 
-**Check a workbook from a terminal** (soon, once the package is on PyPI):
-
-```bash
-pipx run deskstack-check model.xlsx
-```
-
-Until then, the same checker runs from a clone, with openpyxl installed: `python -m deskstack_check model.xlsx` in
-`checker/` ([checker/README.md](checker/README.md)).
-
 The tutorial walks through a first reviewed DCF in about 10 minutes: [English](docs/TUTORIAL.md) ·
 [français](docs/TUTORIEL.md).
+
+## Check any AI-built model in one command
+
+`deskstack-check` checks any `.xlsx` model, whether Claude, ChatGPT, Copilot, another tool or a person built it.
+
+- **Offline:** the 20 model checks (hardcodes, broken rows, balance sheet, terminal value, placeholders…).
+- **With `--verify`:** every typed figure is also tied to the SEC or ESEF filing through the deskstack connector.
+  Only those figures are sent.
+
+```bash
+pipx run deskstack-check model.xlsx            # soon: the package isn't on PyPI yet
+pipx run --spec ./checker deskstack-check model.xlsx   # today, from a clone
+```
+
+```text
+$ deskstack-check examples/apple-dcf-typo/model.xlsx --verify
+examples/apple-dcf-typo/model.xlsx  (deskstack_check 0.2.0, sha256 ced59305c2dd)
+Model checks: 0 blocker, 0 major, 0 minor, 0 info
+Tie-out to the filings (AAPL): 13 of 14 match, 1 do not
+  MISMATCH  Inputs!C5  Revenue FY2025  416,116  filed 416,161
+           Typo: two adjacent digits look swapped (filed 416,161, written 416,116).
+FAIL (fails on blocker)
+```
+
+Options:
+
+- `--markdown` or `--json`: other output formats.
+- `--company AAPL`: the company, when the workbook doesn't name it as "Name (TICKER)".
+- `--connector URL`: your self-hosted server.
+- `--fail-on major`: the level that fails. The default is `blocker`; a figure that doesn't tie counts as one.
+
+The exit code is 0 for a pass, 1 for a fail, and 2 when the file can't be read or the connector fails.
+
+**In a repository,** the GitHub Action checks every workbook on each push and writes the report in the job summary:
+
+```yaml
+- uses: joaquimmj/deskstack@main
+  with:
+    files: "models/**/*.xlsx"
+    verify: "true"        # optional: tie figures to the filings
+    fail-on: blocker
+```
 
 ## What it catches
 
