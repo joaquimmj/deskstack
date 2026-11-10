@@ -88,9 +88,14 @@ did.
 2. **The table** from step 3, with your additions.
 3. **Fixes for the analyst,** one per problem, each with:
    - the cell;
-   - what is wrong, using the hint wording (scale, sign, period, line item, currency, typo, stale);
+   - what is wrong, using the hint wording (scale, sign, period, line item, currency, typo, stale, definition);
    - a **Stale** hint means a last-twelve-months figure is a quarter late: a newer 10-Q is filed. Give the latest value;
    - a **Cover page** hint means the share count is far from the latest filing's cover page: say so;
+   - a **Definition** hint means the number is the filed line under another common definition (net debt with
+     leases, equity without minorities). That can be a choice, not an error: flag it, and ask the analyst to state
+     the definition and use it on both sides of the bridge;
+   - an **About this figure** hint is the filed figure's own caveat (D&A without amortization, capex with
+     intangibles): repeat it next to the number;
    - the filed value and its accession.
 4. If you could only review part of the file, say which part.
 5. The path of `tieout.json`. It records the model's SHA-256; `/sign-off` rejects it if the file changes afterwards.
