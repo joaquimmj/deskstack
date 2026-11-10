@@ -7,6 +7,18 @@ Roles never fix each other's work silently:
 - the analyst applies fixes only when you agree;
 - nothing is exported before you sign off.
 
+```mermaid
+flowchart LR
+  A["/analyst<br>builds the workbook<br>from cited data"] --> B["/associate<br>ties every number<br>to the filing"]
+  B --> C["/vp-review<br>20 model checks"]
+  C -- "findings you accept" --> F["/analyst<br>fixes, rebuilds"]
+  F -- "reviews run again" --> B
+  C --> D["/md-redteam<br>sensitivities,<br>objections"]
+  D --> E["/compliance<br>disclaimer, citations"]
+  E --> G["/sign-off<br>one page of every check"]
+  G -- "your approval,<br>in your own words" --> H[("signed copy")]
+```
+
 | Command | Role | Output |
 |---|---|---|
 | `/analyst <company> <quick-dcf\|comps>` | Builds the deliverable from deskstack data. It agrees the assumptions with you first, cites every typed number, and asks rather than invents | An Excel workbook: blue inputs, black formulas, green links, a Sources sheet, a Cover with the disclaimer |

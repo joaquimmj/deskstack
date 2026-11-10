@@ -1,0 +1,424 @@
+{
+ "report": "tieout",
+ "file": "model.xlsx",
+ "model_sha256": "ced59305c2dde8c77edce781342cd1ede99312f082c73fe8d6dc9a60207a40f4",
+ "counts": {
+  "mismatch": 1,
+  "assumption": 11,
+  "match": 13,
+  "unsourced": 0
+ },
+ "rows": [
+  {
+   "ref": "Inputs!C5",
+   "label": "Revenue",
+   "value": 416116,
+   "company": "AAPL",
+   "period": "FY2025",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "Revenue | 10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax (deskstack financial_statements, recorded 2026-11-10)",
+   "metric": "revenue",
+   "status": "mismatch",
+   "filed_value": 416161.0,
+   "difference": -45000000,
+   "hints": [
+    "Typo: two adjacent digits look swapped (filed 416,161, written 416,116)."
+   ],
+   "accessions": [
+    "0000320193-26-000026"
+   ],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!B12",
+   "label": "Revenue growth FY2027E",
+   "value": 0.1292,
+   "company": "AAPL",
+   "period": "FY2027",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "Revenue growth | Analyst assumption (example rule): FY2026 growth of 15.1%, capped at 15%, fading in a straight line toward terminal growth of 2.5%",
+   "status": "assumption",
+   "hints": [],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!B13",
+   "label": "EBIT margin FY2027E",
+   "value": 0.3216,
+   "company": "AAPL",
+   "period": "FY2027",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "EBIT margin | Analyst assumption (example rule): average operating margin FY2024-FY2026",
+   "status": "assumption",
+   "hints": [],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!B14",
+   "label": "Tax rate FY2027E",
+   "value": 0.1699,
+   "company": "AAPL",
+   "period": "FY2027",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "Tax rate | Analyst assumption (example rule): 1 - net income / pretax income, FY2026",
+   "status": "assumption",
+   "hints": [],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!B15",
+   "label": "D&A % revenue FY2027E",
+   "value": 0.028,
+   "company": "AAPL",
+   "period": "FY2027",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "D&A % revenue | Analyst assumption (example rule): FY2026 D&A / revenue",
+   "status": "assumption",
+   "hints": [],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!B16",
+   "label": "Capex % revenue FY2027E",
+   "value": 0.0189,
+   "company": "AAPL",
+   "period": "FY2027",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "Capex % revenue | Analyst assumption (example rule): FY2026 capex / revenue",
+   "status": "assumption",
+   "hints": [],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!B17",
+   "label": "WACC FY2027E",
+   "value": 0.106,
+   "company": "AAPL",
+   "period": "FY2027",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "WACC | Analyst assumption (example rule): Damodaran Computers/Peripherals (US) weights, 95.6% x cost of equity [risk-free 4.88% (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates, 2026-11-09) + beta 1.35 x ERP 4.46% (United States)] + 4.4% x after-tax cost of debt 3.97% (deskstack valuation_inputs)",
+   "status": "assumption",
+   "hints": [],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!B18",
+   "label": "Terminal growth FY2027E",
+   "value": 0.025,
+   "company": "AAPL",
+   "period": "FY2027",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "Terminal growth | Analyst assumption (example rule): below long-run nominal GDP",
+   "status": "assumption",
+   "hints": [],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!C12",
+   "label": "Revenue growth FY2028E",
+   "value": 0.1083,
+   "company": "AAPL",
+   "period": "FY2028",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "Revenue growth | Analyst assumption (example rule): FY2026 growth of 15.1%, capped at 15%, fading in a straight line toward terminal growth of 2.5%",
+   "status": "assumption",
+   "hints": [],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!D12",
+   "label": "Revenue growth FY2029E",
+   "value": 0.0875,
+   "company": "AAPL",
+   "period": "FY2029",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "Revenue growth | Analyst assumption (example rule): FY2026 growth of 15.1%, capped at 15%, fading in a straight line toward terminal growth of 2.5%",
+   "status": "assumption",
+   "hints": [],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!E12",
+   "label": "Revenue growth FY2030E",
+   "value": 0.0667,
+   "company": "AAPL",
+   "period": "FY2030",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "Revenue growth | Analyst assumption (example rule): FY2026 growth of 15.1%, capped at 15%, fading in a straight line toward terminal growth of 2.5%",
+   "status": "assumption",
+   "hints": [],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!F12",
+   "label": "Revenue growth FY2031E",
+   "value": 0.0458,
+   "company": "AAPL",
+   "period": "FY2031",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "Revenue growth | Analyst assumption (example rule): FY2026 growth of 15.1%, capped at 15%, fading in a straight line toward terminal growth of 2.5%",
+   "status": "assumption",
+   "hints": [],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!B22",
+   "label": "Net debt",
+   "value": 23389,
+   "company": "AAPL",
+   "period": "FY2026",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "Net debt | Computed by deskstack: total_debt - cash - short_term_investments, 10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm (financial_statements, recorded 2026-11-10)",
+   "metric": "net_debt",
+   "status": "match",
+   "filed_value": 23389.0,
+   "difference": 0,
+   "hints": [
+    "Computed value: total_debt - cash - short_term_investments."
+   ],
+   "accessions": [],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!B23",
+   "label": "Diluted shares (millions)",
+   "value": 14720.306,
+   "company": "AAPL",
+   "period": "FY2026",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "Diluted shares | 10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding (deskstack financial_statements, recorded 2026-11-10)",
+   "metric": "diluted_shares",
+   "status": "match",
+   "filed_value": 14720.306,
+   "difference": 0,
+   "hints": [],
+   "accessions": [
+    "0000320193-26-000026"
+   ],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!B5",
+   "label": "Revenue",
+   "value": 391035,
+   "company": "AAPL",
+   "period": "FY2024",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "Revenue | 10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax (deskstack financial_statements, recorded 2026-11-10)",
+   "metric": "revenue",
+   "status": "match",
+   "filed_value": 391035.0,
+   "difference": 0,
+   "hints": [],
+   "accessions": [
+    "0000320193-26-000026"
+   ],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!B6",
+   "label": "EBIT (operating income)",
+   "value": 123216,
+   "company": "AAPL",
+   "period": "FY2024",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "EBIT (operating income) | 10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:OperatingIncomeLoss (deskstack financial_statements, recorded 2026-11-10)",
+   "metric": "operating_income",
+   "status": "match",
+   "filed_value": 123216.0,
+   "difference": 0,
+   "hints": [],
+   "accessions": [
+    "0000320193-26-000026"
+   ],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!B7",
+   "label": "D&A",
+   "value": 11445,
+   "company": "AAPL",
+   "period": "FY2024",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "D&A | 10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:DepreciationDepletionAndAmortization (deskstack financial_statements, recorded 2026-11-10)",
+   "metric": "d_and_a",
+   "status": "match",
+   "filed_value": 11445.0,
+   "difference": 0,
+   "hints": [],
+   "accessions": [
+    "0000320193-26-000026"
+   ],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!B8",
+   "label": "Capex",
+   "value": 9447,
+   "company": "AAPL",
+   "period": "FY2024",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "Capex | 10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment (deskstack financial_statements, recorded 2026-11-10)",
+   "metric": "capex",
+   "status": "match",
+   "filed_value": 9447.0,
+   "difference": 0,
+   "hints": [],
+   "accessions": [
+    "0000320193-26-000026"
+   ],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!C6",
+   "label": "EBIT (operating income)",
+   "value": 133050,
+   "company": "AAPL",
+   "period": "FY2025",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "EBIT (operating income) | 10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:OperatingIncomeLoss (deskstack financial_statements, recorded 2026-11-10)",
+   "metric": "operating_income",
+   "status": "match",
+   "filed_value": 133050.0,
+   "difference": 0,
+   "hints": [],
+   "accessions": [
+    "0000320193-26-000026"
+   ],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!C7",
+   "label": "D&A",
+   "value": 11698,
+   "company": "AAPL",
+   "period": "FY2025",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "D&A | 10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:DepreciationDepletionAndAmortization (deskstack financial_statements, recorded 2026-11-10)",
+   "metric": "d_and_a",
+   "status": "match",
+   "filed_value": 11698.0,
+   "difference": 0,
+   "hints": [],
+   "accessions": [
+    "0000320193-26-000026"
+   ],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!C8",
+   "label": "Capex",
+   "value": 12715,
+   "company": "AAPL",
+   "period": "FY2025",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "Capex | 10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment (deskstack financial_statements, recorded 2026-11-10)",
+   "metric": "capex",
+   "status": "match",
+   "filed_value": 12715.0,
+   "difference": 0,
+   "hints": [],
+   "accessions": [
+    "0000320193-26-000026"
+   ],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!D5",
+   "label": "Revenue",
+   "value": 478834,
+   "company": "AAPL",
+   "period": "FY2026",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "Revenue | 10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax (deskstack financial_statements, recorded 2026-11-10)",
+   "metric": "revenue",
+   "status": "match",
+   "filed_value": 478834.0,
+   "difference": 0,
+   "hints": [],
+   "accessions": [
+    "0000320193-26-000026"
+   ],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!D6",
+   "label": "EBIT (operating income)",
+   "value": 158063,
+   "company": "AAPL",
+   "period": "FY2026",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "EBIT (operating income) | 10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:OperatingIncomeLoss (deskstack financial_statements, recorded 2026-11-10)",
+   "metric": "operating_income",
+   "status": "match",
+   "filed_value": 158063.0,
+   "difference": 0,
+   "hints": [],
+   "accessions": [
+    "0000320193-26-000026"
+   ],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!D7",
+   "label": "D&A",
+   "value": 13423,
+   "company": "AAPL",
+   "period": "FY2026",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "D&A | 10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:DepreciationDepletionAndAmortization (deskstack financial_statements, recorded 2026-11-10)",
+   "metric": "d_and_a",
+   "status": "match",
+   "filed_value": 13423.0,
+   "difference": 0,
+   "hints": [],
+   "accessions": [
+    "0000320193-26-000026"
+   ],
+   "flags": []
+  },
+  {
+   "ref": "Inputs!D8",
+   "label": "Capex",
+   "value": 9041,
+   "company": "AAPL",
+   "period": "FY2026",
+   "scale": "millions",
+   "currency": "USD",
+   "source": "Capex | 10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment (deskstack financial_statements, recorded 2026-11-10)",
+   "metric": "capex",
+   "status": "match",
+   "filed_value": 9041.0,
+   "difference": 0,
+   "hints": [],
+   "accessions": [
+    "0000320193-26-000026"
+   ],
+   "flags": []
+  }
+ ]
+}

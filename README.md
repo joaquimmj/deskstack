@@ -8,7 +8,7 @@
 [![plugin version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjoaquimmj%2Fdeskstack%2Fmain%2Fplugins%2Fdeskstack%2F.claude-plugin%2Fplugin.json&query=%24.version&label=plugin)](plugins/deskstack)
 [![stars](https://img.shields.io/github/stars/joaquimmj/deskstack?style=flat)](https://star-history.com/#joaquimmj/deskstack&Date)
 
-![/associate ties an Apple DCF to the 10-K and catches a typed revenue of 391,053 where the filing says 391,035](site/media/demo.gif)
+![Replay of /deal-team on Apple: /associate catches FY2025 revenue typed as 416,116 where the filing says 416,161, the fix ties all 14 figures, and sign-off waits for approval](site/media/demo.gif)
 
 - **Free data with a source, US and Europe.** Every figure comes with its filing, period and link. Missing stays
   `null`, never an estimate.
@@ -85,6 +85,18 @@ The runner, the frozen company set and the method are in [bench/](bench/README.m
 analyses by `server/bench/chart.ts`.
 
 ## The roles
+
+```mermaid
+flowchart LR
+  A["/analyst<br>builds the workbook<br>from cited data"] --> B["/associate<br>ties every number<br>to the filing"]
+  B --> C["/vp-review<br>20 model checks"]
+  C -- "findings you accept" --> F["/analyst<br>fixes, rebuilds"]
+  F -- "reviews run again" --> B
+  C --> D["/md-redteam<br>sensitivities,<br>objections"]
+  D --> E["/compliance<br>disclaimer, citations"]
+  E --> G["/sign-off<br>one page of every check"]
+  G -- "your approval,<br>in your own words" --> H[("signed copy")]
+```
 
 | Command | Role | What it does |
 |---|---|---|

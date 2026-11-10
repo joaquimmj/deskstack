@@ -3,6 +3,7 @@
 //
 //   npx tsx scripts/examples.ts data     # the calls in examples/plan.json -> examples/<case>/calls/<id>.json
 //   npx tsx scripts/examples.ts verify   # verify_value on examples/<case>/batches.json -> examples/<case>/calls/verify.json
+//   npx tsx scripts/examples.ts data apple-dcf   # one case only
 //
 // examples/refresh.sh runs the whole loop. Each recorded file keeps the request, the response and the date.
 
@@ -25,7 +26,10 @@ if (mode !== "data" && mode !== "verify") {
 const today = new Date().toISOString().slice(0, 10);
 const c = await mcpConnector(plan.connector);
 try {
+  const only = process.argv[3];
+  if (only && !(only in plan.cases)) throw new Error(`no case ${only} in examples/plan.json`);
   for (const [name, calls] of Object.entries(plan.cases)) {
+    if (only && name !== only) continue;
     const dir = join(EX, name, "calls");
     mkdirSync(dir, { recursive: true });
     if (mode === "data") {
