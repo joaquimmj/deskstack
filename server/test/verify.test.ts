@@ -235,3 +235,36 @@ describe("verify_value: periods and batches", () => {
     expect([a!.status, b!.status, total!.status]).toEqual(["mismatch", "mismatch", "match"]);
   });
 });
+
+describe("verify_value explains a definition gap (review 2026-11-10)", () => {
+  const rec = async (lei: string, name: string, country: string) => {
+    const { buildEuRecord } = await import("../src/esef/record");
+    const { esefFixture, meta } = await import("./esef-fixture");
+    const { readdirSync } = await import("node:fs");
+    const { join } = await import("node:path");
+    const ids = readdirSync(join(import.meta.dirname, "fixtures", "esef")).filter((f) => f.startsWith(lei)).map((f) => f.replace(/\.json$/, ""));
+    return buildEuRecord({ lei, name, country }, ids.map((id) => ({ meta: meta(id, "2026-04-30"), data: esefFixture(id) }))).financials!;
+  };
+
+  it("keeps lease liabilities and minorities as cited balance-sheet lines", async () => {
+    const itx = (await rec("549300TTCXZOGZM2EY83", "Inditex", "ES")).periods.find((p) => p.label === "FY2025")!;
+    expect(Math.round(itx.balance_sheet.lease_liabilities!.value / 1e6)).toBe(5_933);
+    expect(itx.balance_sheet.lease_liabilities!.concept).toMatch(/LeaseLiabilities/);
+    const ork = (await rec("549300PZS8G8RG6RVZ52", "Orkla", "NO")).periods.find((p) => p.label === "FY2025")!;
+    expect(ork.balance_sheet.noncontrolling_interests).toMatchObject({ value: 3_483e6, concept: "ifrs-full:NoncontrollingInterests" });
+  });
+
+  it("net debt including leases, and equity without minorities, get a Definition hint", async () => {
+    const itx = await rec("549300TTCXZOGZM2EY83", "Inditex", "ES");
+    const fy = itx.periods.find((p) => p.label === "FY2025")!;
+    const withLeases = (fy.derived.net_debt!.value + fy.balance_sheet.lease_liabilities!.value) / 1e6;
+    const nd = verifyItems(itx, [{ metric: "net debt", period: "FY2025", value: withLeases, scale: "millions" }])[0]!;
+    expect(nd.status).toBe("mismatch");
+    expect(nd.hints.join(" ")).toMatch(/Definition: the value matches net_debt plus lease liabilities/);
+    const ork = await rec("549300PZS8G8RG6RVZ52", "Orkla", "NO");
+    const eq = verifyItems(ork, [{ metric: "equity", period: "FY2025", value: 52_147 - 3_483, scale: "millions" }])[0]!;
+    expect(eq.hints.join(" ")).toMatch(/Definition: the value matches total_equity minus non-controlling interests/);
+    const lease = verifyItems(itx, [{ metric: "lease liabilities", period: "FY2025", value: fy.balance_sheet.lease_liabilities!.value / 1e6, scale: "millions" }])[0]!;
+    expect(lease.status).toBe("match");
+  });
+});

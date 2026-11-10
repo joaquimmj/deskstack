@@ -72,8 +72,8 @@ export const INSTANT_CONCEPTS: Record<string, string[]> = {
   ],
   total_assets: ["Assets"],
   total_equity: ["StockholdersEquity", "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"],
-  // An input only: derive() notes it when total equity falls back to the figure including minorities.
-  equity_nci: ["MinorityInterest"],
+  // Minorities: a line of its own (the EV bridge adds it), and derive() notes it when total equity includes them.
+  noncontrolling_interests: ["MinorityInterest"],
   // Debt components; combined by totalDebt below.
   ltd_noncurrent: [
     "LongTermDebtNoncurrent",
@@ -160,9 +160,10 @@ export const IFRS_INSTANT_CONCEPTS: Record<string, string[]> = {
   other_current_financial_assets: ["OtherCurrentFinancialAssets"],
   total_assets: ["Assets"],
   total_equity: ["EquityAttributableToOwnersOfParent", "Equity"],
-  // An input only: derive() notes it when total equity falls back to Equity, which includes minorities (Orkla).
-  equity_nci: ["NoncontrollingInterests"],
-  // Inputs only: derive() says how much lease liability net debt leaves out (IFRS 16 puts all leases on the balance sheet).
+  // Minorities: a line of its own (the EV bridge adds it), and derive() notes it when total equity includes them (Orkla).
+  noncontrolling_interests: ["NoncontrollingInterests"],
+  // IFRS 16 lease liabilities: a line of its own (net debt leaves them out and says how much); the two parts below
+  // are added when the total isn't tagged.
   lease_liabilities: ["LeaseLiabilities"],
   lease_liabilities_noncurrent: ["NoncurrentLeaseLiabilities"],
   lease_liabilities_current: ["CurrentLeaseLiabilities"],
@@ -709,6 +710,17 @@ function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | nu
     cfo !== null && capex !== null ? { value: cfo - capex, formula: "operating_cash_flow - capex" } : null;
   const [debt, formula] = (tx === IFRS ? ifrsTotalDebt : totalDebt)(inst);
   out.total_debt = debt === null ? null : { value: debt, formula };
+  const leaseParts = [inst.lease_liabilities_noncurrent, inst.lease_liabilities_current].filter((c): c is Cell => !!c);
+  if (tx === IFRS && !inst.lease_liabilities && leaseParts.length) {
+    inst.lease_liabilities = {
+      value: leaseParts.reduce((t, c) => t + c.value, 0),
+      concept: leaseParts.map((c) => c.concept).join(" + "),
+      accessions: accs(...leaseParts),
+      formula: leaseParts.length === 2 ? "non-current + current lease liabilities" : `${leaseParts[0]!.concept} (the only part tagged)`,
+    };
+  }
+  delete inst.lease_liabilities_noncurrent;
+  delete inst.lease_liabilities_current;
   const cash = v(inst, "cash");
   if (debt !== null && cash !== null) {
     const sti = v(inst, "short_term_investments") ?? 0;
@@ -720,9 +732,7 @@ function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | nu
         "a line that can mix investments, derivatives and receivables, so the cash-like part isn't known; check " +
         "the company's own net debt definition";
     }
-    const leaseParts = [v(inst, "lease_liabilities_noncurrent"), v(inst, "lease_liabilities_current")];
-    const leases = v(inst, "lease_liabilities") ??
-      (leaseParts.some((x) => x !== null) ? leaseParts.reduce<number>((t, x) => t + (x ?? 0), 0) : null);
+    const leases = v(inst, "lease_liabilities");
     if (tx === IFRS && leases) {
       const lease =
         `excludes ${Math.round(leases / 1e6).toLocaleString("en-US")} million of lease liabilities (IFRS 16); many ` +
@@ -741,10 +751,7 @@ function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | nu
   }
   // Inputs to the notes above, not balance-sheet lines of their own.
   delete inst.other_current_financial_assets;
-  delete inst.lease_liabilities;
-  delete inst.lease_liabilities_noncurrent;
-  delete inst.lease_liabilities_current;
-  const nciEq = inst.equity_nci;
+  const nciEq = inst.noncontrolling_interests;
   if (EQUITY_WITH_MINORITIES.has(inst.total_equity?.concept ?? "") && nciEq && nciEq.value !== 0) {
     inst.total_equity = withNote(
       inst.total_equity!,
@@ -752,7 +759,6 @@ function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | nu
         "the filer tags no equity attributable to owners of the parent",
     );
   }
-  delete inst.equity_nci;
   if (inst.cash?.concept === "us-gaap:CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents") {
     inst.cash = withNote(
       inst.cash,
