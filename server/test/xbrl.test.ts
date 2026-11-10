@@ -217,6 +217,23 @@ describe("real filings", () => {
     expect(owners.note).toBeUndefined();
   });
 
+  it("IFRS revenue is never one component of it: sale of goods alone, next to services, is not total revenue (NOS, REN; review 2026-11-10)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "n-25", "2026-03-20", "ESEF", 2025)];
+    const std = (f: Record<string, { units: Record<string, RawFact[]> }>) => standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+      ProfitLoss: { units: { EUR: y(246e6) } }, ...f } } } as never, 5, false);
+    // NOS: goods 170 and services 1,609, no total tagged.
+    const nos = std({ RevenueFromSaleOfGoods: { units: { EUR: y(170.416e6) } }, RevenueFromRenderingOfServices: { units: { EUR: y(1_609.226e6) } } });
+    expect(nos.periods[0]!.values.revenue).toBeNull();
+    expect(nos.notes.join(" ")).toMatch(/FY2025.*revenue is null.*sale of goods 170 million.*rendering of services 1,609 million/);
+    // A company that only sells goods (Moncler-like): sale of goods is its revenue.
+    const goods = std({ RevenueFromSaleOfGoods: { units: { EUR: y(3_100e6) } } });
+    expect(goods.periods[0]!.values.revenue!.value).toBe(3_100e6);
+    // A tagged total always wins.
+    const total = std({ Revenue: { units: { EUR: y(1_779e6) } }, RevenueFromSaleOfGoods: { units: { EUR: y(170e6) } },
+      RevenueFromRenderingOfServices: { units: { EUR: y(1_609e6) } } });
+    expect(total.periods[0]!.values.revenue!.value).toBe(1_779e6);
+  });
+
   it("IFRS net debt says when current financial assets are tagged only mixed with derivatives (TotalEnergies; stars brief lot 1)", () => {
     const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "t-25", "2026-03-20", "ESEF", 2025)];
     const at = (v: number) => [fact(v, null, "2025-12-31", "t-25", "2026-03-20", "ESEF", 2025)];

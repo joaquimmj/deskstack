@@ -108,6 +108,9 @@ export const IFRS_DURATION_CONCEPTS: Record<string, string[]> = {
   net_income_ordinary: ["ProfitLossAttributableToOrdinaryEquityHoldersOfParentEntity"],
   // An input only: adjustRow notes it when net income falls back to consolidated profit (OMV).
   net_income_nci: ["ProfitLossAttributableToNoncontrollingInterests"],
+  // Inputs only: other parts of revenue. When one is tagged, sale of goods alone is not total revenue (NOS, REN).
+  revenue_services: ["RevenueFromRenderingOfServices"],
+  revenue_construction: ["RevenueFromConstructionContracts", "RevenueRecognisedOnExchangingConstructionServicesForIntangibleAsset"],
   interest_expense: ["InterestExpense", "FinanceCosts"],
   // Impairment-inclusive D&A concepts come last, for filers that tag nothing else (TotalEnergies, AB InBev, Ahold,
   // Iberdrola); adjustRow notes it on the cell, since EBITDA then includes impairment.
@@ -275,6 +278,8 @@ interface Ctx {
   facts: Namespace;
   currency: string;
   cik?: number;
+  /** Company-level notes adjustRow adds, e.g. why a line is null for a year. */
+  notes?: string[];
 }
 
 // ---- helpers ---------------------------------------------------------------
@@ -533,7 +538,20 @@ const accs = (...cells: Cell[]) => [...new Set(cells.flatMap((c) => c.accessions
  */
 const withNote = (c: Cell, note: string): Cell => ({ ...c, note: c.note ? `${c.note}; ${note}` : note });
 
-function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false): void {
+function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false, label = ""): void {
+  // Sale of goods is total revenue only when the filer tags no other part of revenue for the period.
+  const parts: Array<[string, Cell | null | undefined]> = [["rendering of services", row.revenue_services], ["construction services", row.revenue_construction]];
+  const other = parts.filter(([, c]) => c && c.value !== 0);
+  if (row.revenue?.concept === "ifrs-full:RevenueFromSaleOfGoods" && other.length) {
+    const m = (v: number) => `${(Math.abs(v) < 10e6 ? (v / 1e6).toFixed(1) : Math.round(v / 1e6).toLocaleString("en-US"))} million`;
+    (ctx.notes ??= []).push(
+      `${label || "A period"}: revenue is null. The filer tags only parts of it (sale of goods ${m(row.revenue.value)}, ` +
+        other.map(([n, c]) => `${n} ${m(c!.value)}`).join(", ") + "), not total revenue; read the total from the report.",
+    );
+    row.revenue = null;
+  }
+  delete row.revenue_services;
+  delete row.revenue_construction;
   const dep = row.d_and_a;
   const am = row.amortization_intangibles;
   const narrowDa = ctx.cik !== undefined ? DA_EXCLUDES_INTANGIBLES[ctx.cik] : undefined;
@@ -864,7 +882,7 @@ export function standardize(cf: CompanyFacts, years = 5, includeLtm = true, opts
     for (const m of Object.keys(ctx.tx.duration)) row[m] = cell(ctx, durationValue(ctx, m, p.start, p.end, ANNUAL_FORMS));
     const inst: Record<string, Cell | null> = {};
     for (const m of Object.keys(ctx.tx.instant)) inst[m] = cell(ctx, instantValue(ctx, m, p.end, ANNUAL_FORMS));
-    adjustRow(row, ctx);
+    adjustRow(row, ctx, false, p.label);
     columns.push({ ...p, type: "annual", values: row, balance_sheet: inst, derived: derive(row, inst, ctx.tx) });
   }
 
@@ -896,6 +914,7 @@ export function standardize(cf: CompanyFacts, years = 5, includeLtm = true, opts
     "Derived metrics show their formula. EBITDA is null when operating income is not " +
       "reported (common for banks and insurers, where EBITDA is not meaningful).",
   ];
+  notes.push(...new Set(ctx.notes ?? []));
   if (opts.source === "esef") {
     notes.push(
       "ESEF report (IFRS as adopted in the EU), from the issuer's tagged consolidated statements. Lines the " +
