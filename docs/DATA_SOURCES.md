@@ -31,6 +31,9 @@ Status: M0 audit, 2026-11-08. The per-source audit below is the source of truth 
 | 8 | Damodaran datasets | No (static xls/xlsx) | n/a | No licence; "no strings attached" | Acknowledgement appreciated | **CAUTION**: informal terms; vendor-derived |
 | 9 | Price/market-cap APIs (FMP, AV, Tiingo, Finnhub, Twelve Data, Massive, EODHD, Marketstack, Stooq) | Yes (all) | Free tiers 25/day to 1,000/day | **None** allows hosted redistribution on a free key; BYOK varies | Varies | **BLOCKER** for a shared key; BYOK is CAUTION/OK (see §9) |
 | 10 | Companies House (UK private companies: accounts bulk data, API) | API: free key. Bulk accounts: none | API: 600 requests per 5 minutes per key | **No licence stated** for the data or the API (see §10). "We impose no rules or requirements on how the information on the public register is used" | OGL default line if OGL applies (UNVERIFIED) | **STOPPED**: licence to confirm with Companies House before any code |
+| 11 | EDINET (Japan, FSA): API v2 | Yes, free (account with phone verification) | No number published; bursts banned ("短時間における大量のアクセス") | Public Data License 1.0, compatible with CC BY 4.0: "商用利用も可能です". Numeric data isn't copyrighted. The EDINET taxonomy is excluded | "出典：EDINET閲覧（提出）サイト（URL）、PDL1.0（URL）", plus a note when edited | **OK** (key needed) |
+| 12 | OpenDART (Korea, FSS) | Yes, free; one key per member, never usable by a third party | 20,000 calls a day for an individual key (all 83 APIs together); over 1,000 a minute may be blocked | Public data under the Public Data Act: use "not restricted" if it doesn't infringe the public interest or others' rights; redistribution at the user's own responsibility | None found | **OK** (key needed; a batch job holds the key) |
+| 13 | CVM open data (Brazil): DFP and ITR | No | None numeric; the portal "may limit simultaneous accesses" | ODbL 1.0: attribution, share-alike for a derived database, keep open. CVM terms: free for anyone, cite the portal | Cite "Portal de Dados Abertos da CVM, https://dados.cvm.gov.br/" plus the ODbL notice | **OK**, with ODbL obligations on our snapshot |
 
 ---
 
@@ -185,6 +188,101 @@ hosted service that extracts accounts figures and cites each filing. A draft ema
 **UNVERIFIED:** an explicit licence for the bulk accounts data and for the API; a Companies House attribution
 statement; ECCTA rules for re-users; the file count per daily ZIP; the share of filings with a profit and loss
 account.
+
+## 11. EDINET (Japan) — OK, needs a free API key
+
+Read 2026-11-10.
+
+**Terms.** https://disclosure2dl.edinet-fsa.go.jp/guide/static/disclosure/WZEK0030.html ("EDINET 利用規約", revised
+2025-04-25, linked from the API specification).
+- Content on EDINET can be used by anyone under the Public Data License 1.0 ("公共データ利用規約（第1.0版）", PDL1.0).
+- PDL1.0 (https://www.digital.go.jp/resources/open_data/public_data_license_v1.0) allows copying, public
+  transmission and adaptation, "商用利用も可能です" (commercial use is allowed). It is declared compatible with CC BY 4.0.
+- It also says "数値データ、簡単な表・グラフ等は著作権による保護の対象ではありません" (numeric data and simple tables
+  aren't protected by copyright) and are freely usable.
+- Third-party rights (PDL1.0 §1.2): content whose copyright belongs to someone other than the state needs that
+  owner's permission. Filed reports are written by the companies; the figures we would extract are numeric data
+  (above). We would not republish report text.
+- Not covered by the PDL: logos, and the **EDINET taxonomy**. The FSA forbids modifying or translating the taxonomy
+  without permission (https://www.fsa.go.jp/search/EDINET_Taxonomy_Legal_Statement.html). We would cite element names,
+  never redistribute or translate the taxonomy.
+
+**Attribution.** "出典：EDINET閲覧（提出）サイト（当該ページのURL）、PDL1.0（規約原文ページのURL）". When content is
+edited or extracted, also say so and who did it, e.g. "EDINET閲覧（提出）サイト（URL）より抜粋して作成", and never
+present edited figures as the government's own.
+
+**Access and limits.** The API needs a free key: an account with SMS verification
+(EDINET API仕様書 Version 2, ESE140206.pdf, updated 2026-06-03). No numeric limit is published. Banned: "短時間に
+おける大量のアクセス" (heavy access in a short time). Scraping the website is banned; the API is the allowed route.
+
+**UNVERIFIED:** a numeric rate limit; whether any filing contains figures under third-party rights beyond numeric data.
+
+## 12. OpenDART (Korea) — OK, needs a free API key held by a batch job
+
+Read 2026-11-10.
+
+**Terms.** https://opendart.fss.or.kr/intro/terms.do, in force since 2020-01-21.
+- Art. 11 ①: the service is free in principle ("원칙적으로 무료"); any paid service would be announced in advance.
+- Art. 16: copyright in the API service and programs belongs to the FSS. Other matters follow the Copyright Act and
+  the Public Data Act.
+- Art. 19 ②: "회원은 ID 및 비밀번호, 인증키를 제3자에게 이용하게 해서는 안 됩니다" (a member must not let a third
+  party use their ID, password or key). Art. 19 ⑤: one key per member.
+
+**Commercial use and redistribution.** OpenDART FAQ "공시정보를 상업적으로 사용해도 되나요?" (2020-01-18): the data
+is public data under the Public Data Act, so "공익이나 타인의 권리를 침해하지 않는 선에서 데이터의 공개 및 활용은
+제한되지 않습니다" (its disclosure and use are not restricted as long as they don't infringe the public interest or
+others' rights). The FSS doesn't review services built on it, and "재배포 및 재가공과 관련한 모든 책임은 이용자 부담"
+(all responsibility for redistribution and reprocessing rests with the user).
+
+**Limits.** FAQ "오픈API 이용한도는 어떻게 되나요?": individuals 20,000 calls a day across all 83 APIs; corporate members
+(business registration and IP) have no limit on two of them. "과도한 네트워크 접속(분당 1,000회 이상)" (over 1,000 a
+minute) may be restricted.
+
+**What it means for us.** The key stays in the batch job that builds the static snapshot, as for the SEC; end users
+never use it, which keeps Art. 19 ②. The Worker calls nothing live.
+
+**Attribution.** None required on the pages read. We would still cite "Financial Supervisory Service, OpenDART" and
+each filing's receipt number.
+
+**UNVERIFIED:** the Public Data Act's own text (not read); an attribution requirement in it.
+
+## 13. CVM open data (Brazil) — OK, with ODbL obligations
+
+Read 2026-11-10.
+
+**Licence.** The DFP (annual) and ITR (quarterly) dataset pages give "Licença Aberta para Bases de Dados (ODbL) do
+Open Data Commons", linked to ODbL 1.0 (https://dados.cvm.gov.br/dataset/cia_aberta-doc-dfp,
+https://dados.cvm.gov.br/dataset/cia_aberta-doc-itr).
+
+**CVM's terms of use** (https://dados.cvm.gov.br/about, published 05/08/2024).
+- The data is "serviço público gratuito a qualquer pessoa física ou jurídica" (a free public service to any person
+  or company), "tal como está" (as is).
+- Any secondary use must cite the source, "declarando que eles foram acessados pelo Portal de Dados Abertos da CVM,
+  disponível em https://dados.cvm.gov.br/".
+- The data must not be presented "de forma incorreta ou enganosa" (incorrectly or misleadingly).
+- The portal "pode empregar mecanismos para limitar a quantidade de acessos simultâneos" (may limit simultaneous
+  access, e.g. robots). No numeric limit.
+
+**The data.** One ZIP per year (dfp_cia_aberta_2025.zip, 12.9 MB; itr 2026, 22 MB), updated weekly with
+resubmissions; DFP since 2010, ITR since 2011.
+- Each ZIP holds semicolon-separated CSVs in Latin-1: BPA and BPP (balance sheet), DRE (income statement), DFC
+  (cash flow, direct and indirect), DMPL, DRA, DVA, each consolidated (`_con`) and individual (`_ind`).
+- Columns include `CNPJ_CIA`, `CD_CVM`, `DENOM_CIA`, `MOEDA`, `ESCALA_MOEDA` (e.g. MIL), `ORDEM_EXERC` (ÚLTIMO or
+  PENÚLTIMO), `DT_INI_EXERC`, `DT_FIM_EXERC`, `CD_CONTA` (a fixed chart of accounts, e.g. 3.01 revenue), `DS_CONTA`,
+  `VL_CONTA`, `ST_CONTA_FIXA`.
+
+**What the ODbL means for the snapshot** (ODbL 1.0 text, https://opendatacommons.org/licenses/odbl/1-0/):
+- Extracting a substantial part of the data into our snapshot makes it a **Derivative Database** (§4.4(b)).
+- Serving it publicly is public use. So that snapshot must be offered **under the ODbL** (§4.4(a)), with the licence
+  or its URI (§4.2), and a **machine-readable copy of the whole derived database must be free to download** (§4.6).
+- Figures in a tool answer are a **Produced Work**. Each needs a notice that the content comes from the database and
+  is under the ODbL (§4.3), e.g. "Contains information from the CVM Open Data Portal (dados.cvm.gov.br), made
+  available under the Open Database License (ODbL)."
+- The ODbL covers the Brazilian data only. The rest of deskstack's code stays MIT and its other data keeps its own
+  terms. The Brazilian snapshot files would carry their own ODbL notice and a download link.
+
+**UNVERIFIED:** whether the ODbL version is 1.0 (inferred from the Open Definition link); any rights in the statement
+contents under Brazilian law beyond the database licence; the terms of the file repository (dados.cvm.gov.br/dados).
 
 ## Open questions / unverified
 1. Whether the SEC has ever blocked Cloudflare Workers egress ranges. No report found. Test from a deployed Worker with a declared UA, and check whether Cloudflare offers fixed egress IPs for Workers.
