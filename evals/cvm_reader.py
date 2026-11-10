@@ -22,8 +22,8 @@ FIX = ROOT / "server" / "test" / "fixtures" / "cvm"
 OUT = ROOT / "evals" / "fixtures" / "cvm-answers.json"
 SCALE = {"MIL": 1000, "UNIDADE": 1}
 STATEMENTS = ("DRE", "BPA", "BPP", "DFC_MI", "DFC_MD")
-# The lines the golden questions ask: revenue, EBIT, owners' profit, total assets, cash, equity, operating cash flow.
-ASKED = {("DRE", "3.01"), ("DRE", "3.05"), ("DRE", "3.11.01"), ("BPA", "1"), ("BPA", "1.01.01"), ("BPP", "2.03"), ("DFC", "6.01")}
+# The lines the golden questions ask: revenue, EBIT, owners' profit, total assets, cash, equity, minorities, operating cash flow.
+ASKED = {("DRE", "3.01"), ("DRE", "3.05"), ("DRE", "3.11.01"), ("BPA", "1"), ("BPA", "1.01.01"), ("BPP", "2.03"), ("BPP", "2.03.09"), ("DFC", "6.01")}
 
 
 def rows(name: str):

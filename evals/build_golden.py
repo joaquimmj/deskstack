@@ -41,10 +41,11 @@ GROUP = {
     "diluted_eps": "income_statement", "pretax_income": "income_statement", "gross_profit": "income_statement",
     "operating_cash_flow": "cash_flow", "capex": "cash_flow", "d_and_a": "cash_flow",
     "total_assets": "balance_sheet", "cash": "balance_sheet", "total_equity": "balance_sheet",
-    "short_term_investments": "balance_sheet",
+    "short_term_investments": "balance_sheet", "noncontrolling_interests": "balance_sheet",
 }
-INSTANT = {"total_assets", "cash", "total_equity", "short_term_investments"}
+INSTANT = {"total_assets", "cash", "total_equity", "short_term_investments", "noncontrolling_interests"}
 LABEL = {
+    "noncontrolling_interests": "non-controlling interests",
     "revenue": "revenue", "operating_income": "operating income", "net_income": "net income", "diluted_eps": "diluted EPS",
     "pretax_income": "pre-tax income", "gross_profit": "gross profit", "operating_cash_flow": "operating cash flow",
     "capex": "capital expenditures", "d_and_a": "depreciation and amortization", "total_assets": "total assets",
@@ -307,11 +308,11 @@ CVM_ANSWERS = ROOT / "evals" / "fixtures" / "cvm-answers.json"
 _BR_LINES = [("revenue", "DRE", "3.01"), ("operating_income", "DRE", "3.05"), ("net_income", "DRE", "3.11.01"),
              ("total_assets", "BPA", "1"), ("cash", "BPA", "1.01.01"), ("operating_cash_flow", "DFC", "6.01")]
 CVM = [
-    ("009512", "Petrobras", "FY2025", "2025-01-01", "2025-12-31", _BR_LINES, ["br", "cvm"]),
+    ("009512", "Petrobras", "FY2025", "2025-01-01", "2025-12-31", _BR_LINES + [("noncontrolling_interests", "BPP", "2.03.09")], ["br", "cvm"]),
     ("009512", "Petrobras", "FY2024", "2024-01-01", "2024-12-31", [("revenue", "DRE", "3.01"), ("net_income", "DRE", "3.11.01")], ["br", "cvm", "comparative"]),
-    ("004170", "Vale", "FY2025", "2025-01-01", "2025-12-31", _BR_LINES, ["br", "cvm"]),
+    ("004170", "Vale", "FY2025", "2025-01-01", "2025-12-31", _BR_LINES + [("noncontrolling_interests", "BPP", "2.03.09")], ["br", "cvm"]),
     ("005410", "WEG", "FY2025", "2025-01-01", "2025-12-31", _BR_LINES, ["br", "cvm"]),
-    ("023264", "Ambev", "FY2025", "2025-01-01", "2025-12-31", _BR_LINES, ["br", "cvm"]),
+    ("023264", "Ambev", "FY2025", "2025-01-01", "2025-12-31", _BR_LINES + [("noncontrolling_interests", "BPP", "2.03.09")], ["br", "cvm"]),
     ("020087", "Embraer", "FY2025", "2025-01-01", "2025-12-31", _BR_LINES, ["br", "cvm"]),
     ("020087", "Embraer", "FY2024", "2024-01-01", "2024-12-31", [("revenue", "DRE", "3.01"), ("total_assets", "BPA", "1")], ["br", "cvm", "comparative"]),
 ]
