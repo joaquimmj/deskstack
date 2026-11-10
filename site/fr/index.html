@@ -6,10 +6,24 @@
 <title>deskstack : chaque chiffre rapproché du dépôt officiel</title>
 <meta name="description" content="Des données financières gratuites et sourcées pour Claude, et une équipe de revue qui rapproche chaque chiffre de votre modèle du dépôt SEC ou ESEF. Open source.">
 <meta name="theme-color" content="#f6f7f8">
-<link rel="alternate" hreflang="en" href="../">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="deskstack">
+<meta property="og:title" content="deskstack : chaque chiffre rapproché du dépôt officiel">
+<meta property="og:description" content="Des données financières gratuites et sourcées pour Claude, et une équipe de revue qui rapproche chaque chiffre de votre modèle du dépôt SEC ou ESEF. Open source.">
+<meta property="og:url" content="https://joaquimmj.github.io/deskstack/fr/">
+<meta property="og:image" content="https://joaquimmj.github.io/deskstack/media/social-preview.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="deskstack : les modèles construits par une IA se trompent de chiffres. deskstack vérifie chacun face aux dépôts. Le CA FY2025 d&#x27;Apple saisi 416 116 est signalé : déposé 416 161.">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://joaquimmj.github.io/deskstack/fr/">
+<link rel="alternate" hreflang="en" href="https://joaquimmj.github.io/deskstack/">
+<link rel="alternate" hreflang="fr" href="https://joaquimmj.github.io/deskstack/fr/">
+<link rel="alternate" hreflang="x-default" href="https://joaquimmj.github.io/deskstack/">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=78782f586c">
+<link rel="stylesheet" href="../style.css?v=048c15db67">
 <link rel="icon" href="data:image/svg+xml,<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><rect x='2.5' y='2.5' width='19' height='19' rx='2' fill='none' stroke='%23111418' stroke-width='2'/><path d='M7 12.5l3.2 3.2L17.5 8' fill='none' stroke='%23107c41' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -22,6 +36,7 @@
     <nav class="links" aria-label="Principal">
       <a href="#how">Fonctionnement</a>
       <a href="#bench">Benchmark</a>
+      <a href="#examples">Exemples</a>
       <a href="#data">Données</a>
       <a href="#pricing">Tarifs</a>
       <a href="#faq">FAQ</a>
@@ -52,7 +67,7 @@
       <code>=DESKSTACK.TIEOUT(Inputs!D3, "AAPL 10-K FY2025")</code>
       <span class="avatars"><i class="a1">A</i><i class="a2">Y</i></span>
     </div>
-    <div class="selection"><h1 id="hero-t">Chaque chiffre de votre modèle,<br><em>rapproché du dépôt officiel.</em></h1><i class="handle"></i></div>
+    <div class="selection"><h1 id="hero-t">Les modèles faits par une IA se trompent de chiffres.<br><em>deskstack vérifie chacun face aux dépôts.</em></h1><i class="handle"></i></div>
     <p class="lede"><b>Une équipe deal dans Claude.</b> Un agent construit le modèle à partir de données gratuites et sourcées. D'autres rapprochent chaque chiffre du dépôt SEC ou européen. Rien ne sort sans votre accord.</p>
     <div class="actions">
       <a class="btn go" href="#install">Installer dans Claude <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -137,13 +152,59 @@
   </div>
 </section>
 
+<section id="catches" class="block white" aria-labelledby="catch-t">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="tag">Ce qu'il attrape</span><h2 class="h2" id="catch-t">De vraies erreurs, <span>tirées du benchmark.</span></h2><p class="sub">Claude, avec la seule recherche web, a fait ces erreurs en construisant des DCF et des tableaux de comparables. Chacune a été relue à la main face au dépôt, et chacune est attrapée par un contrôle deskstack.</p></div>
+      <a class="btn ghost sm" href="https://github.com/joaquimmj/deskstack/tree/main/examples/errors-caught">Les voir attrapées <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="bcard reveal"><div class="scroll"><table class="catches"><thead><tr><th scope="col">Erreur</th><th scope="col">Exemple réel</th><th scope="col">Ce qui l'attrape</th></tr></thead><tbody><tr><th scope="row">Douze derniers mois en retard d'un trimestre</th><td data-label="Exemple réel">FedEx, Fortinet, Motorola Solutions : le « TTM » d'un agrégateur arrêté à juin, après les 10-Q de septembre (15 chiffres)</td><td data-label="Ce qui l'attrape"><code>/associate</code> : <code>verify_value</code> indique <i>Stale</i> et donne les douze derniers mois</td></tr><tr><th scope="row">Un trimestre pris pour l'année</th><td data-label="Exemple réel">Résultat net de Boeing : le quatrième trimestre (8 220) à la place de l'année (2 235)</td><td data-label="Ce qui l'attrape"><code>/associate</code> : écart avec le chiffre annuel déposé</td></tr><tr><th scope="row">Nombre d'actions déduit ou de la mauvaise période</th><td data-label="Exemple réel">Actions diluées de Boeing, Pfizer, GE : résultat net ÷ BPA, un nombre sur six mois, un nombre du T1</td><td data-label="Ce qui l'attrape"><code>/associate</code> : écart, et une alerte quand les actions diluées s'écartent de plus de 10 % de la page de garde</td></tr><tr><th scope="row">Chiffre non-GAAP ou d'un segment pris pour le groupe</th><td data-label="Exemple réel">Le « chiffre d'affaires ajusté » de GE ; les D&amp;A des seules activités industrielles de Stellantis</td><td data-label="Ce qui l'attrape"><code>/associate</code> : écart avec la ligne déposée du groupe</td></tr><tr><th scope="row">Chiffre venu d'un agrégateur ou de Wikipédia</th><td data-label="Exemple réel">Résultat d'exploitation de Cisco et Verizon ; celui de Schneider, arrondi</td><td data-label="Ce qui l'attrape"><code>/associate</code> : écart, avec la valeur déposée et sa source</td></tr><tr><th scope="row">Estimation saisie comme un chiffre déposé</th><td data-label="Exemple réel">Capex de Netflix calculé comme flux d'exploitation moins flux libre</td><td data-label="Ce qui l'attrape"><code>/associate</code> : écart ; la règle DS016 signale aussi un chiffre présenté comme estimation sans dépôt cité</td></tr><tr><th scope="row">Zéro laissé en attente</th><td data-label="Exemple réel">Cigna, CVS et Humana dans les comparables d'UnitedHealth, marqués « NOT FOUND » (7 chiffres)</td><td data-label="Ce qui l'attrape"><code>/vp-review</code>, règle DS016 : un 0 saisi et marqué comme introuvable</td></tr></tbody></table></div></div>
+  </div>
+</section>
+
+<section id="cli" class="block" aria-labelledby="cli-t">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="tag">Sans Claude</span><h2 class="h2" id="cli-t">Vérifiez n'importe quel modèle fait par une IA <span>en une commande.</span></h2><p class="sub"><code>deskstack-check</code> vérifie n'importe quel modèle .xlsx, qu'il vienne de Claude, de ChatGPT, de Copilot, d'un autre outil ou d'une personne. Hors ligne, il lance les 20 contrôles du modèle. Avec <code>--verify</code>, il rapproche aussi chaque chiffre saisi du dépôt ; seuls ces chiffres sont envoyés.</p></div>
+      <a class="btn ghost sm" href="https://github.com/joaquimmj/deskstack/tree/main/checker">Référence de la commande <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="cli-grid reveal">
+      <div class="win"><div class="win-bar"><i></i><i></i><i></i><span>deskstack-check</span></div>
+        <div class="win-body"><div class="urlbox"><code id="cli-cmd">pipx run deskstack-check model.xlsx --verify</code><button class="btn ink sm" type="button" data-copy="cli-cmd" data-done="Copié" data-fallback="Sélectionné : faites Ctrl+C">Copier</button></div>
+        <pre class="term">$ deskstack-check model.xlsx --verify
+model.xlsx  (deskstack_check 0.2.0, sha256 ced59305c2dd)
+Model checks: 0 blocker, 0 major, 0 minor, 0 info
+Tie-out to the filings (AAPL): 13 of 14 match, 1 do not
+  MISMATCH  Inputs!C5  Revenue FY2025  416,116  filed 416,161
+           Typo: two adjacent digits look swapped (filed 416,161, written 416,116).
+FAIL (fails on blocker)</pre><p class="hint">Bientôt sur PyPI. Aujourd'hui, depuis un clone : <code>pipx run --spec ./checker deskstack-check model.xlsx</code>.</p></div></div>
+      <article class="card"><h3>Dans un dépôt</h3><p>L'action GitHub vérifie chaque classeur à chaque push et écrit le rapport dans le résumé du job.</p><pre class="term small">- uses: joaquimmj/deskstack@main
+  with:
+    files: &quot;models/**/*.xlsx&quot;
+    verify: &quot;true&quot;
+    fail-on: blocker</pre></article>
+    </div>
+  </div>
+</section>
+
+<section id="examples" class="block white" aria-labelledby="ex-t">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="tag">Exemples</span><h2 class="h2" id="ex-t">Téléchargez un modèle relu, <span>avec tous ses rapports.</span></h2><p class="sub">Construits avec les vrais outils de deskstack, à partir de réponses enregistrées : le classeur, le rapprochement, la revue du modèle, la conformité et la page de validation.</p></div>
+      <a class="btn ghost sm" href="https://github.com/joaquimmj/deskstack/tree/main/examples">Tous les exemples <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="cards4 reveal"><article class="card"><h3>DCF rapide d'Apple</h3><p>14 chiffres déposés sur 14 concordent avec le 10-K. Prêt pour la validation.</p><a href="https://github.com/joaquimmj/deskstack/tree/main/examples/apple-dcf">examples/apple-dcf <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article><article class="card"><h3>Comparables tech US</h3><p>Apple face à Microsoft, Alphabet, Amazon, Meta et Nvidia : 24 chiffres sur 24 concordent. Les capitalisations restent vides sans cours.</p><a href="https://github.com/joaquimmj/deskstack/tree/main/examples/us-tech-comps">examples/us-tech-comps <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article><article class="card"><h3>DCF d'Heineken</h3><p>À partir de ses rapports annuels ESEF, en euros. 14 sur 14 concordent ; la revue signale une valeur terminale à 82 % de la valeur d'entreprise.</p><a href="https://github.com/joaquimmj/deskstack/tree/main/examples/heineken-dcf">examples/heineken-dcf <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article><article class="card"><h3>Erreurs attrapées</h3><p>Un DCF de Microsoft où quatre erreurs du benchmark ont été saisies exprès. Les quatre sont attrapées.</p><a href="https://github.com/joaquimmj/deskstack/tree/main/examples/errors-caught">examples/errors-caught <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article></div>
+    <p class="fine">Classement des modèles sur plusieurs sociétés : bientôt.</p>
+  </div>
+</section>
+
 <section id="data" class="block white" aria-labelledby="data-t">
   <div class="wrap">
     <div class="head reveal">
       <div><span class="tag">Données</span><h2 class="h2" id="data-t">Des données gratuites, <span>avec la source sur chaque chiffre.</span></h2><p class="sub">Uniquement des dépôts officiels et des jeux de données publics. Un chiffre non déposé reste vide ; il n'est jamais estimé.</p></div>
       <a class="btn ghost sm" href="https://github.com/joaquimmj/deskstack/blob/main/docs/DATA_SOURCES.md">Voir les données <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
-    <div class="sources reveal"><article class="src-card"><span class="src-tag">SEC EDGAR</span><h3>États financiers, États-Unis</h3><p>Dépôts 10-K, 10-Q et 20-F : annuels et douze derniers mois, pour les sociétés cotées aux États-Unis, y compris les émetteurs étrangers en IFRS.</p></article><article class="src-card"><span class="src-tag">filings.xbrl.org</span><h3>États financiers, Europe</h3><p>Rapports annuels ESEF d'une centaine de grands émetteurs dans 13 pays, de la France et des Pays-Bas à l'Espagne, l'Italie et les pays nordiques.</p></article><article class="src-card"><span class="src-tag">Trésor américain · BCE</span><h3>Taux sans risque</h3><p>Rendements quotidiens de 1 mois à 30 ans.</p></article><article class="src-card"><span class="src-tag">Banque centrale européenne</span><h3>Taux de change</h3><p>Plus de 30 devises, à une date ou en moyenne sur une période.</p></article><article class="src-card"><span class="src-tag">Aswath Damodaran, NYU Stern</span><h3>Paramètres de valorisation</h3><p>Prime de risque par pays ; bêtas et coût du capital par secteur.</p></article><article class="src-card"><span class="src-tag">Chaque réponse</span><h3>Une citation</h3><p>Source, URL, numéro de dépôt, période et date sur chaque chiffre, pour ouvrir le dépôt d'où il vient.</p></article></div>
+    <div class="sources reveal"><article class="src-card"><span class="src-tag">SEC EDGAR</span><h3>États financiers, États-Unis</h3><p>Dépôts 10-K, 10-Q et 20-F : annuels et douze derniers mois, pour les sociétés cotées aux États-Unis, y compris les émetteurs étrangers en IFRS.</p></article><article class="src-card"><span class="src-tag">filings.xbrl.org</span><h3>États financiers, Europe et Royaume-Uni</h3><p>Rapports annuels ESEF et UKSEF de 159 grands émetteurs dans 14 pays : 55 sociétés cotées au Royaume-Uni, et des émetteurs de la France et des Pays-Bas à l'Espagne, l'Italie et les pays nordiques.</p></article><article class="src-card"><span class="src-tag">Trésor américain · BCE</span><h3>Taux sans risque</h3><p>Rendements quotidiens de 1 mois à 30 ans.</p></article><article class="src-card"><span class="src-tag">Banque centrale européenne</span><h3>Taux de change</h3><p>Plus de 30 devises, à une date ou en moyenne sur une période.</p></article><article class="src-card"><span class="src-tag">Aswath Damodaran, NYU Stern</span><h3>Paramètres de valorisation</h3><p>Prime de risque par pays ; bêtas et coût du capital par secteur.</p></article><article class="src-card"><span class="src-tag">Chaque réponse</span><h3>Une citation</h3><p>Source, URL, numéro de dépôt, période et date sur chaque chiffre, pour ouvrir le dépôt d'où il vient.</p></article></div>
     <div class="accuracy reveal">
       <div><h3>Exactitude, vérifiée chaque nuit</h3><p>Des questions de référence répondues exactement comme déposé, contre le connecteur en ligne, et chaque réponse relue depuis le dépôt par un parseur indépendant.</p></div>
       <div class="acc-badge" aria-hidden="true"><b>99/99</b><span>golden</span><b>83/83</b><span>re-read</span></div>
@@ -217,7 +278,7 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand"><a class="brand" href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 12.5l3.2 3.2L17.5 8" fill="none" stroke="#107c41" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>deskstack</span></a><p>Des données financières gratuites et sourcées pour Claude, et une équipe de revue qui rapproche chaque chiffre de votre modèle du dépôt SEC ou ESEF. Open source.</p></div>
-      <nav aria-label="Produit"><h3>Produit</h3><a href="#install">Installer</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/BENCHMARK.md">Benchmark</a><a href="https://github.com/joaquimmj/deskstack">GitHub</a></nav>
+      <nav aria-label="Produit"><h3>Produit</h3><a href="#install">Installer</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/BENCHMARK.md">Benchmark</a><a href="https://github.com/joaquimmj/deskstack/tree/main/examples">Exemples</a><a href="https://github.com/joaquimmj/deskstack">GitHub</a></nav>
       <nav aria-label="Docs"><h3>Docs</h3><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/TUTORIEL.md">Tutoriel</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/TOOLS.md">Outils de données</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/ROLES.md">Rôles</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/DATA_SOURCES.md">Sources de données</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/SELF_HOSTING.md">Auto-hébergement</a></nav>
       <nav aria-label="Projet"><h3>Projet</h3><a href="https://github.com/joaquimmj/deskstack/blob/main/PRIVACY.md">Confidentialité</a><a href="https://github.com/joaquimmj/deskstack/blob/main/LICENSE">Licence MIT</a></nav>
     </div>
@@ -225,7 +286,7 @@
     <p class="credit">Projet open source indépendant. Ni affilié à Anthropic ni approuvé par elle. Les données peuvent être incomplètes ou en retard. Pas un conseil en investissement.</p>
   </div>
 </footer>
-<script src="../config.js?v=78782f586c"></script>
-<script src="../app.js?v=78782f586c"></script>
+<script src="../config.js?v=048c15db67"></script>
+<script src="../app.js?v=048c15db67"></script>
 </body>
 </html>

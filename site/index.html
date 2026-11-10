@@ -6,10 +6,24 @@
 <title>deskstack: every number tied out to the filing</title>
 <meta name="description" content="Free, cited financial data for Claude, and a review team that ties every number in your model to the SEC or ESEF filing. Open source.">
 <meta name="theme-color" content="#f6f7f8">
-<link rel="alternate" hreflang="fr" href="fr/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="deskstack">
+<meta property="og:title" content="deskstack: every number tied out to the filing">
+<meta property="og:description" content="Free, cited financial data for Claude, and a review team that ties every number in your model to the SEC or ESEF filing. Open source.">
+<meta property="og:url" content="https://joaquimmj.github.io/deskstack/">
+<meta property="og:image" content="https://joaquimmj.github.io/deskstack/media/social-preview.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="deskstack: AI-built models get numbers wrong. deskstack checks every one against the filings. Apple&#x27;s FY2025 revenue typed as 416,116 is flagged: filed 416,161.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://joaquimmj.github.io/deskstack/">
+<link rel="alternate" hreflang="en" href="https://joaquimmj.github.io/deskstack/">
+<link rel="alternate" hreflang="fr" href="https://joaquimmj.github.io/deskstack/fr/">
+<link rel="alternate" hreflang="x-default" href="https://joaquimmj.github.io/deskstack/">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=78782f586c">
+<link rel="stylesheet" href="style.css?v=048c15db67">
 <link rel="icon" href="data:image/svg+xml,<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><rect x='2.5' y='2.5' width='19' height='19' rx='2' fill='none' stroke='%23111418' stroke-width='2'/><path d='M7 12.5l3.2 3.2L17.5 8' fill='none' stroke='%23107c41' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -22,6 +36,7 @@
     <nav class="links" aria-label="Main">
       <a href="#how">How it works</a>
       <a href="#bench">Benchmark</a>
+      <a href="#examples">Examples</a>
       <a href="#data">Data</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
@@ -52,7 +67,7 @@
       <code>=DESKSTACK.TIEOUT(Inputs!D3, "AAPL 10-K FY2025")</code>
       <span class="avatars"><i class="a1">A</i><i class="a2">Y</i></span>
     </div>
-    <div class="selection"><h1 id="hero-t">Every number in your model,<br><em>tied out to the filing.</em></h1><i class="handle"></i></div>
+    <div class="selection"><h1 id="hero-t">AI-built models get numbers wrong.<br><em>deskstack checks every one against the filings.</em></h1><i class="handle"></i></div>
     <p class="lede"><b>A deal team inside Claude.</b> One agent builds the model from free, cited data. Others tie every number to the SEC or European filing. Nothing ships until you sign off.</p>
     <div class="actions">
       <a class="btn go" href="#install">Install in Claude <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -137,13 +152,59 @@
   </div>
 </section>
 
+<section id="catches" class="block white" aria-labelledby="catch-t">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="tag">What it catches</span><h2 class="h2" id="catch-t">Real errors, <span>from the benchmark.</span></h2><p class="sub">Claude with web search alone made these errors building DCFs and comps tables. Each was read by hand against the filing, and each is caught by a deskstack check.</p></div>
+      <a class="btn ghost sm" href="https://github.com/joaquimmj/deskstack/tree/main/examples/errors-caught">See them caught <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="bcard reveal"><div class="scroll"><table class="catches"><thead><tr><th scope="col">Error</th><th scope="col">Real example</th><th scope="col">What catches it</th></tr></thead><tbody><tr><th scope="row">Last twelve months a quarter late</th><td data-label="Real example">FedEx, Fortinet, Motorola Solutions: an aggregator's "TTM" to June, after the September 10-Qs (15 figures)</td><td data-label="What catches it"><code>/associate</code>: <code>verify_value</code> says <i>Stale</i> and gives the latest twelve months</td></tr><tr><th scope="row">A quarter written as the year</th><td data-label="Real example">Boeing net income: the fourth quarter (8,220) as the full year (2,235)</td><td data-label="What catches it"><code>/associate</code>: mismatch against the filed annual figure</td></tr><tr><th scope="row">Share count derived or from the wrong period</th><td data-label="Real example">Boeing, Pfizer, GE diluted shares: net income ÷ EPS, a six-month count, a Q1 count</td><td data-label="What catches it"><code>/associate</code>: mismatch, and a flag when diluted shares are more than 10% from the cover page</td></tr><tr><th scope="row">Non-GAAP or segment figure for the group</th><td data-label="Real example">GE "adjusted revenue"; Stellantis D&amp;A for industrial activities only</td><td data-label="What catches it"><code>/associate</code>: mismatch against the group's filed line</td></tr><tr><th scope="row">Figure from an aggregator or Wikipedia</th><td data-label="Real example">Cisco and Verizon operating income; Schneider operating income, rounded</td><td data-label="What catches it"><code>/associate</code>: mismatch, with the filed value and its source</td></tr><tr><th scope="row">Estimate typed as a filed figure</th><td data-label="Real example">Netflix capex as operating cash flow minus free cash flow</td><td data-label="What catches it"><code>/associate</code>: mismatch; rule DS016 also flags a figure labelled as an estimate with no filing cited</td></tr><tr><th scope="row">Placeholder left at 0</th><td data-label="Real example">Cigna, CVS and Humana in UnitedHealth's comps, labelled "NOT FOUND" (7 figures)</td><td data-label="What catches it"><code>/vp-review</code> rule DS016: a typed 0 labelled as not found</td></tr></tbody></table></div></div>
+  </div>
+</section>
+
+<section id="cli" class="block" aria-labelledby="cli-t">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="tag">Without Claude</span><h2 class="h2" id="cli-t">Check any AI-built model <span>in one command.</span></h2><p class="sub"><code>deskstack-check</code> checks any .xlsx model, whether Claude, ChatGPT, Copilot, another tool or a person built it. Offline, it runs the 20 model checks. With <code>--verify</code>, it also ties every typed figure to the filing; only those figures are sent.</p></div>
+      <a class="btn ghost sm" href="https://github.com/joaquimmj/deskstack/tree/main/checker">Command reference <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="cli-grid reveal">
+      <div class="win"><div class="win-bar"><i></i><i></i><i></i><span>deskstack-check</span></div>
+        <div class="win-body"><div class="urlbox"><code id="cli-cmd">pipx run deskstack-check model.xlsx --verify</code><button class="btn ink sm" type="button" data-copy="cli-cmd" data-done="Copied" data-fallback="Selected: press Ctrl+C">Copy</button></div>
+        <pre class="term">$ deskstack-check model.xlsx --verify
+model.xlsx  (deskstack_check 0.2.0, sha256 ced59305c2dd)
+Model checks: 0 blocker, 0 major, 0 minor, 0 info
+Tie-out to the filings (AAPL): 13 of 14 match, 1 do not
+  MISMATCH  Inputs!C5  Revenue FY2025  416,116  filed 416,161
+           Typo: two adjacent digits look swapped (filed 416,161, written 416,116).
+FAIL (fails on blocker)</pre><p class="hint">Soon on PyPI. Today, from a clone: <code>pipx run --spec ./checker deskstack-check model.xlsx</code>.</p></div></div>
+      <article class="card"><h3>In a repository</h3><p>The GitHub Action checks every workbook on each push and writes the report in the job summary.</p><pre class="term small">- uses: joaquimmj/deskstack@main
+  with:
+    files: &quot;models/**/*.xlsx&quot;
+    verify: &quot;true&quot;
+    fail-on: blocker</pre></article>
+    </div>
+  </div>
+</section>
+
+<section id="examples" class="block white" aria-labelledby="ex-t">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="tag">Examples</span><h2 class="h2" id="ex-t">Download a reviewed model, <span>with every report.</span></h2><p class="sub">Built with deskstack's real tools from recorded responses: the workbook, the tie-out, the model review, compliance and the sign-off page.</p></div>
+      <a class="btn ghost sm" href="https://github.com/joaquimmj/deskstack/tree/main/examples">All examples <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="cards4 reveal"><article class="card"><h3>Apple quick DCF</h3><p>14 of 14 filed figures tie to the 10-K. Ready for sign-off.</p><a href="https://github.com/joaquimmj/deskstack/tree/main/examples/apple-dcf">examples/apple-dcf <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article><article class="card"><h3>US tech comps</h3><p>Apple against Microsoft, Alphabet, Amazon, Meta and Nvidia: 24 of 24 figures tie. Market caps stay empty without a price.</p><a href="https://github.com/joaquimmj/deskstack/tree/main/examples/us-tech-comps">examples/us-tech-comps <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article><article class="card"><h3>Heineken DCF</h3><p>From its ESEF annual reports, in euros. 14 of 14 tie; the review flags a terminal value at 82% of EV.</p><a href="https://github.com/joaquimmj/deskstack/tree/main/examples/heineken-dcf">examples/heineken-dcf <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article><article class="card"><h3>Errors caught</h3><p>A Microsoft DCF with four benchmark errors typed in on purpose. All four are caught.</p><a href="https://github.com/joaquimmj/deskstack/tree/main/examples/errors-caught">examples/errors-caught <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article></div>
+    <p class="fine">Leaderboard of models across companies: soon.</p>
+  </div>
+</section>
+
 <section id="data" class="block white" aria-labelledby="data-t">
   <div class="wrap">
     <div class="head reveal">
       <div><span class="tag">Data</span><h2 class="h2" id="data-t">Free data, <span>with the source on every figure.</span></h2><p class="sub">Official filings and public datasets only. A figure that isn't filed stays empty; it is never estimated.</p></div>
       <a class="btn ghost sm" href="https://github.com/joaquimmj/deskstack/blob/main/docs/DATA_SOURCES.md">Explore the data <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
-    <div class="sources reveal"><article class="src-card"><span class="src-tag">SEC EDGAR</span><h3>Financial statements, US</h3><p>10-K, 10-Q and 20-F filings: annual and last twelve months, for US-listed companies including foreign filers under IFRS.</p></article><article class="src-card"><span class="src-tag">filings.xbrl.org</span><h3>Financial statements, Europe</h3><p>ESEF annual reports of about 100 large issuers in 13 countries, from France and the Netherlands to Spain, Italy and the Nordics.</p></article><article class="src-card"><span class="src-tag">U.S. Treasury · ECB</span><h3>Risk-free rates</h3><p>Daily yields from 1 month to 30 years.</p></article><article class="src-card"><span class="src-tag">European Central Bank</span><h3>Exchange rates</h3><p>30+ currencies, on a date or averaged over a period.</p></article><article class="src-card"><span class="src-tag">Aswath Damodaran, NYU Stern</span><h3>Valuation inputs</h3><p>Equity risk premium by country; betas and cost of capital by industry.</p></article><article class="src-card"><span class="src-tag">Every answer</span><h3>A citation</h3><p>Source, URL, accession or ID, period and as-of date on each figure, so you can open the filing it came from.</p></article></div>
+    <div class="sources reveal"><article class="src-card"><span class="src-tag">SEC EDGAR</span><h3>Financial statements, US</h3><p>10-K, 10-Q and 20-F filings: annual and last twelve months, for US-listed companies including foreign filers under IFRS.</p></article><article class="src-card"><span class="src-tag">filings.xbrl.org</span><h3>Financial statements, Europe and UK</h3><p>ESEF and UKSEF annual reports of 159 large issuers in 14 countries: 55 UK listed companies, and issuers from France and the Netherlands to Spain, Italy and the Nordics.</p></article><article class="src-card"><span class="src-tag">U.S. Treasury · ECB</span><h3>Risk-free rates</h3><p>Daily yields from 1 month to 30 years.</p></article><article class="src-card"><span class="src-tag">European Central Bank</span><h3>Exchange rates</h3><p>30+ currencies, on a date or averaged over a period.</p></article><article class="src-card"><span class="src-tag">Aswath Damodaran, NYU Stern</span><h3>Valuation inputs</h3><p>Equity risk premium by country; betas and cost of capital by industry.</p></article><article class="src-card"><span class="src-tag">Every answer</span><h3>A citation</h3><p>Source, URL, accession or ID, period and as-of date on each figure, so you can open the filing it came from.</p></article></div>
     <div class="accuracy reveal">
       <div><h3>Accuracy, checked every night</h3><p>Golden questions answered exactly as filed, against the live connector, and every answer re-read from the filing by an independent parser.</p></div>
       <div class="acc-badge" aria-hidden="true"><b>99/99</b><span>golden</span><b>83/83</b><span>re-read</span></div>
@@ -217,7 +278,7 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand"><a class="brand" href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 12.5l3.2 3.2L17.5 8" fill="none" stroke="#107c41" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>deskstack</span></a><p>Free, cited financial data for Claude, and a review team that ties every number in your model to the SEC or ESEF filing. Open source.</p></div>
-      <nav aria-label="Product"><h3>Product</h3><a href="#install">Install</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/BENCHMARK.md">Benchmark</a><a href="https://github.com/joaquimmj/deskstack">GitHub</a></nav>
+      <nav aria-label="Product"><h3>Product</h3><a href="#install">Install</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/BENCHMARK.md">Benchmark</a><a href="https://github.com/joaquimmj/deskstack/tree/main/examples">Examples</a><a href="https://github.com/joaquimmj/deskstack">GitHub</a></nav>
       <nav aria-label="Docs"><h3>Docs</h3><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/TUTORIAL.md">Tutorial</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/TOOLS.md">Data tools</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/ROLES.md">Roles</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/DATA_SOURCES.md">Data sources</a><a href="https://github.com/joaquimmj/deskstack/blob/main/docs/SELF_HOSTING.md">Self-hosting</a></nav>
       <nav aria-label="Project"><h3>Project</h3><a href="https://github.com/joaquimmj/deskstack/blob/main/PRIVACY.md">Privacy</a><a href="https://github.com/joaquimmj/deskstack/blob/main/LICENSE">MIT license</a></nav>
     </div>
@@ -225,7 +286,7 @@
     <p class="credit">Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed. Not investment advice.</p>
   </div>
 </footer>
-<script src="config.js?v=78782f586c"></script>
-<script src="app.js?v=78782f586c"></script>
+<script src="config.js?v=048c15db67"></script>
+<script src="app.js?v=048c15db67"></script>
 </body>
 </html>
