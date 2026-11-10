@@ -35,7 +35,7 @@ flowchart LR
 - A refusal, a question or a condition ("not yet", "approve once fixed") is never taken as approval.
 - If the file changed after the reviews, the export is refused.
 
-**One-shot skills:** `/quick-dcf`, `/comps`, `/company-snapshot`, `/wacc`, `/eu-company`, `/guide`. A `conventions`
+**One-shot skills:** `/quick-dcf`, `/comps`, `/company-snapshot`, `/wacc`, `/eu-company`, `/guide`, and `/deskstack-doctor` to check the setup. A `conventions`
 skill holds the house rules every role follows.
 
 ## Independence

@@ -68,9 +68,9 @@ function fail(message: string): ToolResult {
   return { content: [{ type: "text", text: message }], isError: true };
 }
 
-export function buildServer(deps: Deps, refuse?: string): McpServer {
+export function buildServer(deps: Deps, refuse?: () => string): McpServer {
   /** Turn anticipated failures into messages that tell the model what to do next. */
-  const guarded = (run: () => Promise<ToolResult>) => (refuse ? Promise.resolve(fail(refuse)) : guardedRun(run));
+  const guarded = (run: () => Promise<ToolResult>) => (refuse ? Promise.resolve(fail(refuse())) : guardedRun(run));
   return registerTools(deps, guarded);
 }
 
