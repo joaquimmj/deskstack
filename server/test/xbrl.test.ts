@@ -239,19 +239,19 @@ describe("real filings", () => {
     const i = (v: number) => [fact(v, null, "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
     const p = (g: Record<string, RawFact[]>) => standardize(companyfacts({ Revenues: d(400_000e6), ...g }), 5, false).periods[0]!;
     const unh = p({
-      StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest: i(98_268e6), MinorityInterest: i(5_564e6),
+      StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest: i(98_268e6), MinorityInterest: i(5_610e6), // UnitedHealth FY2024, accession 0000731766-26-000062 (no untagged-dimension StockholdersEquity since 2014)
       ProfitLoss: d(15_000e6), NetIncomeLossAttributableToNoncontrollingInterest: d(600e6),
       CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents: i(25_000e6),
     });
     expect(unh.balance_sheet.total_equity!.value).toBe(98_268e6);
-    expect(unh.balance_sheet.total_equity!.note).toMatch(/includes 5,564 million of non-controlling interests/);
+    expect(unh.balance_sheet.total_equity!.note).toMatch(/includes 5,610 million of non-controlling interests/);
     expect(unh.values.net_income!.note).toMatch(/^consolidated profit: includes 600 million attributable to non-controlling interests/);
     expect(unh.balance_sheet.cash!.note).toMatch(/^includes restricted cash/);
     const clean = p({
-      StockholdersEquity: i(92_704e6), StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest: i(98_268e6),
-      MinorityInterest: i(5_564e6), NetIncomeLoss: d(14_400e6), CashAndCashEquivalentsAtCarryingValue: i(24_000e6),
+      StockholdersEquity: i(92_658e6), StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest: i(98_268e6),
+      MinorityInterest: i(5_610e6), NetIncomeLoss: d(14_400e6), CashAndCashEquivalentsAtCarryingValue: i(24_000e6),
     });
-    expect(clean.balance_sheet.total_equity).toMatchObject({ value: 92_704e6 });
+    expect(clean.balance_sheet.total_equity).toMatchObject({ value: 92_658e6 });
     expect(clean.balance_sheet.total_equity!.note).toBeUndefined();
     expect(clean.values.net_income!.note).toBeUndefined();
     expect(clean.balance_sheet.cash!.note).toBeUndefined();
