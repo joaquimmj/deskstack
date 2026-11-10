@@ -2,7 +2,7 @@
 
 Checks any spreadsheet financial model (`.xlsx`), whether an AI or a person built it.
 
-- **Offline:** 20 deterministic model checks, built on [openpyxl](https://openpyxl.readthedocs.io) (MIT). Only
+- **Offline:** 21 deterministic model checks, built on [openpyxl](https://openpyxl.readthedocs.io) (MIT). Only
   public, widely known modelling practices are checked. It reports findings and never grades a person.
 - **With `--verify`:** every typed figure is tied to the SEC or ESEF filing through the free
   [deskstack](https://github.com/joaquimmj/deskstack) connector. Only those figures are sent.
@@ -17,6 +17,7 @@ Options:
 
 - `--company ID`: a ticker, CIK or LEI, when the workbook doesn't name its company as "Name (TICKER)".
 - `--connector URL`: a self-hosted deskstack server.
+- `--ignore DS010,DS017`: leave out rules a team accepts on purpose; the report says which were ignored.
 - `--fail-on LEVEL`: `blocker` (default), `major`, `minor` or `never`. A figure that doesn't tie to the filing counts
   as a blocker.
 
@@ -61,6 +62,7 @@ fails when they are stale).
 | DS018 | major | A non-zero line labeled as a plug or balancing item |
 | DS019 | major / minor | Interest typed or not computed from debt and cash (major); debt flat with no repayment schedule (minor) |
 | DS020 | minor | A share count flat across periods while the model has buybacks |
+| DS021 | major | A rate typed as a whole number (5 for 5%): shown as 500% in a percent cell, or out of line with the model's other rates, which are decimals |
 
 Value-based rules (DS008–DS015) read the results Excel cached when it last saved the file. A file
 written by a script and never opened in Excel has none, and the report says so (DS000, info).

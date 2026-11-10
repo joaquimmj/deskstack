@@ -17,17 +17,18 @@ plug), DS019 (interest and debt) and DS020 (a flat share count).
 **Done when:** each rule has a short EN and FR entry in the glossary's format, saying what the rule catches and why it
 matters.
 
-## 2. `deskstack-check --ignore DS010`
+## 2. Brazil: capex and D&A from a strict label match
 
-**Labels:** `good first issue`, `checker`
+**Labels:** `good first issue`, `data`
 
-Teams sometimes accept a finding on purpose, such as a terminal value above 75% of EV. Today they can only lower
-`--fail-on`.
+Brazilian companies come back with capex and D&A as `null`: CVM's fixed chart of accounts has no line for them, so
+EBITDA and free cash flow are `null` too. The lines exist, but under each company's own labels (e.g. "Depreciação e
+amortização" in the cash flow statement, "Aquisição de imobilizado" in investing).
 
-**Where:** `checker/deskstack_check/cli.py`, tests in `checker/tests/test_cli.py`, and the `action.yml` inputs.
+**Where:** `server/src/cvm/extract.ts`, tests in `server/test/cvm.test.ts`, answers in `evals/cvm_reader.py`.
 
-**Done when:** `--ignore DS010,DS017` drops those rules from the report and from the exit code; the report says
-which rules were ignored; tests cover both.
+**Done when:** a figure is taken only when exactly one line matches a strict label rule, with a note saying so; any
+other case stays `null`; golden questions cover at least three companies.
 
 ## 3. `deskstack-check rules`
 
@@ -40,18 +41,18 @@ There is no way to list the checks from the command line.
 **Done when:** `deskstack-check rules` prints each rule's id, severity, category and suggested fix, and a test checks
 that every rule appears.
 
-## 4. A rule for a percentage typed as a whole number
+## 4. More Brazilian companies
 
-**Labels:** `good first issue`, `checker`, `rule`
+**Labels:** `good first issue`, `data`
 
-An assumption cell holding `5` where the model means 5% (0.05) makes growth 500%. It's a widely known modelling
-error.
+Brazil has 20 companies (`server/data/br-issuers.json`). Other large non-financial listed companies file the same CVM
+statements.
 
-**Where:** a new DS021 in `checker/deskstack_check/rules.py`, with its `RULE_INFO` entry and a row in
-`checker/README.md`. Tests in `checker/tests/test_rules.py`.
+**Where:** `server/data/br-issuers.json`, then `npx tsx server/scripts/build-cvm.ts --only <codes>`. Tickers come
+from CVM's FCA forms.
 
-**Done when:** a typed value above 1 in a row labelled as a rate (growth, margin, tax rate, WACC) is flagged; the
-clean demo models stay clean; `python3 plugins/sync_vendor.py` has refreshed the plugin's copies.
+**Done when:** ten more companies are served, none is a bank or insurer (their line 3.01 isn't sales), each has a
+ticker or is listed by its CVM id, and the golden set has a question for each from `evals/cvm_reader.py`.
 
 ## 5. `data_status` shows how old the snapshot is
 

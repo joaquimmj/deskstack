@@ -38,7 +38,7 @@ The tutorial walks through a first reviewed DCF in about 10 minutes: [English](d
 
 `deskstack-check` checks any `.xlsx` model, whether Claude, ChatGPT, Copilot, another tool or a person built it.
 
-- **Offline:** the 20 model checks (hardcodes, broken rows, balance sheet, terminal value, placeholders…).
+- **Offline:** the 21 model checks (hardcodes, broken rows, balance sheet, terminal value, placeholders…).
 - **With `--verify`:** every typed figure is also tied to the SEC or ESEF filing through the deskstack connector.
   Only those figures are sent.
 
@@ -62,6 +62,7 @@ Options:
 - `--markdown` or `--json`: other output formats.
 - `--company AAPL`: the company, when the workbook doesn't name it as "Name (TICKER)".
 - `--connector URL`: your self-hosted server.
+- `--ignore DS010,DS017`: leave out rules your team accepts on purpose; the report says which.
 - `--fail-on major`: the level that fails. The default is `blocker`; a figure that doesn't tie counts as one.
 
 The exit code is 0 for a pass, 1 for a fail, and 2 when the file can't be read or the connector fails.
@@ -95,7 +96,7 @@ To see these caught, open [examples/errors-caught](examples/errors-caught/): a M
 typed in on purpose, and the reports that find all four.
 
 `verify_value` also names the usual causes of a mismatch: wrong scale, opposite sign, another period, another line
-item, another currency, two digits swapped. The 20 model rules are listed in [checker/README.md](checker/README.md).
+item, another currency, two digits swapped. The 21 model rules are listed in [checker/README.md](checker/README.md).
 
 ## Benchmark
 
@@ -123,7 +124,7 @@ analyses by `server/bench/chart.ts`.
 ```mermaid
 flowchart LR
   A["/analyst<br>builds the workbook<br>from cited data"] --> B["/associate<br>ties every number<br>to the filing"]
-  B --> C["/vp-review<br>20 model checks"]
+  B --> C["/vp-review<br>21 model checks"]
   C -- "findings you accept" --> F["/analyst<br>fixes, rebuilds"]
   F -- "reviews run again" --> B
   C --> D["/md-redteam<br>sensitivities,<br>objections"]
@@ -136,7 +137,7 @@ flowchart LR
 |---|---|---|
 | `/analyst` | Builder | Pulls cited data, agrees the assumptions with you, builds the workbook (blue inputs, a Sources sheet, a disclaimer) |
 | `/associate` | Tie-out | Checks every typed number against the filing with `verify_value`, and flags wrong scale, sign, period, line item, currency or a stale twelve months |
-| `/vp-review` | Model review | Runs 20 deterministic checks (hardcodes, broken rows, balance sheet, terminal value, placeholders, plugs…), then compares the assumptions with filed history |
+| `/vp-review` | Model review | Runs 21 deterministic checks (hardcodes, broken rows, balance sheet, terminal value, placeholders, plugs…), then compares the assumptions with filed history |
 | `/md-redteam` | Challenge | Sensitivities, the assumptions the market price implies, the top five objections |
 | `/compliance` | Hygiene | Disclaimer, citations, dated user inputs, no sign of non-public information, no buy/sell language |
 | `/sign-off` | Human gate | One page of every check. A signed copy is exported only after you approve in your own words |

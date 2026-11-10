@@ -40,6 +40,7 @@ class CellInfo:
     constant: object | None
     cached: object | None
     font_color: str | None
+    number_format: str | None = None  # Excel's display format, e.g. "0.0%"
 
     @property
     def ref(self) -> str:
@@ -115,6 +116,7 @@ def load(path: str, include_layout: bool = False) -> Workbook:
                     constant=None if formula else raw,
                     cached=cached,
                     font_color=_color(cell),
+                    number_format=cell.number_format if cell.number_format != "General" else None,
                 )
         wb.cells[name] = cells
     return wb
