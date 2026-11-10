@@ -363,7 +363,8 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
         "period ('FY2024', 'LTM', 'latest' or an end date), the value and its scale (units, thousands, millions, " +
         "billions). Each item comes back as match / mismatch / not_found / ambiguous with the filed value, the " +
         "difference, the source, and hints for common errors: wrong scale, flipped sign, wrong currency, a figure " +
-        "from another period, or a different line item. Use it to tie out every hardcoded input before sharing work.",
+        "from another period, a different line item, or another common definition (net debt with leases, equity " +
+        "without minorities). Use it to tie out every hardcoded input before sharing work.",
       inputSchema: z.object({
         company: z.string().min(1).max(24).describe("Ticker, CIK, LEI (EU issuers) or CVM id / B3 ticker (Brazil), as for financial_statements"),
         items: z

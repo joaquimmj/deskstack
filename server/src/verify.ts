@@ -106,6 +106,14 @@ const ALIASES: Record<string, string> = {
   "total debt": "total_debt",
   "gross debt": "total_debt",
   "net debt": "net_debt",
+  "lease liabilities": "lease_liabilities",
+  "lease liability": "lease_liabilities",
+  "minority interest": "noncontrolling_interests",
+  "minority interests": "noncontrolling_interests",
+  "minorities": "noncontrolling_interests",
+  "non-controlling interests": "noncontrolling_interests",
+  "noncontrolling interests": "noncontrolling_interests",
+  nci: "noncontrolling_interests",
 };
 
 export function resolveMetric(m: string): string | null {
@@ -117,7 +125,7 @@ const KNOWN: Record<string, true> = Object.fromEntries(
   [
     "revenue", "gross_profit", "operating_income", "pretax_income", "net_income", "interest_expense", "d_and_a",
     "operating_cash_flow", "capex", "diluted_shares", "diluted_eps", "cash", "short_term_investments", "total_assets",
-    "total_equity", "ebitda", "free_cash_flow", "total_debt", "net_debt",
+    "total_equity", "ebitda", "free_cash_flow", "total_debt", "net_debt", "lease_liabilities", "noncontrolling_interests",
   ].map((k) => [k, true]),
 );
 
@@ -305,6 +313,23 @@ function verifyOne(std: Standardized, it: VerifyItem): VerifyResult {
       if (other === col) continue;
       const oc = cellOf(other, metric);
       if (oc && within(claimedUnits, oc.value, tolFor(oc.value))) base.hints.push(`Period: the value matches ${metric} for ${other.label} (ended ${other.end}), not ${col.label}.`);
+    }
+    // Definition: the value is the same line under another common definition (net debt with leases, equity
+    // without minorities).
+    const lease = col.balance_sheet.lease_liabilities?.value || undefined;
+    const nci = col.balance_sheet.noncontrolling_interests?.value || undefined;
+    const mn = (x: number) => `${(x / 1e6).toLocaleString("en-US", { maximumFractionDigits: 1 })} million`;
+    const alt: Array<[number | undefined, string]> =
+      metric === "net_debt" || metric === "total_debt"
+        ? [[lease === undefined ? undefined : filed + lease, `${metric} plus lease liabilities (${mn(lease ?? 0)}); deskstack's ${metric} leaves leases out`]]
+        : metric === "total_equity"
+          ? [
+              [nci === undefined ? undefined : filed - nci, `total_equity minus non-controlling interests (${mn(nci ?? 0)}): the owners' share`],
+              [nci === undefined ? undefined : filed + nci, `total_equity plus non-controlling interests (${mn(nci ?? 0)})`],
+            ]
+          : [];
+    for (const [value, what] of alt) {
+      if (value !== undefined && within(claimedUnits, value, tolFor(value))) base.hints.push(`Definition: the value matches ${what}.`);
     }
     for (const k of Object.keys(KNOWN)) {
       if (k === metric) continue;
