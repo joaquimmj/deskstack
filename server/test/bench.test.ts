@@ -84,7 +84,9 @@ const opts = (o: Partial<Parameters<typeof runOne>[0]> & { client: MessagesClien
   arm: "B" as const, workdir: mkdtempSync(join(tmpdir(), "bench-")), ...o,
 });
 
-describe("deskstack-bench (offline)", () => {
+// These tests run the Python checker (review and scoring), several seconds each on a loaded machine: past the
+// 5 s default (review 2026-11-10: arm B, arm C and "mismatches carry their cause" timed out under load).
+describe("deskstack-bench (offline)", { timeout: 60_000 }, () => {
   it("prices a request from its usage", () => {
     // 1000 in × $2 + 500 out × $10 + 2000 write × $2.5 + 10000 read × $0.2, per million; + 1 search × $0.01
     expect(cost("claude-sonnet-5-5", { input_tokens: 1000, output_tokens: 500, cache_creation_input_tokens: 2000, cache_read_input_tokens: 10000, server_tool_use: { web_search_requests: 1 } })).toBeCloseTo(0.002 + 0.005 + 0.005 + 0.002 + 0.01, 9);
@@ -129,7 +131,7 @@ describe("deskstack-bench (offline)", () => {
     expect(JSON.stringify(sent[1].messages.at(-1))).toMatch(/Not accepted: .*Rates are decimals/);
   });
 
-  it("arm C: the review shows the tie-out mismatch, the fix is resubmitted and scores clean", { timeout: 30_000 }, async () => {
+  it("arm C: the review shows the tie-out mismatch, the fix is resubmitted and scores clean", async () => {
     const planted = structuredClone(DCF);
     planted.history.lines.revenue.values[2] = 416161000; // thousands typed into a model in millions
     const { client, sent } = fakeClient([{ tool: "submit_model", input: planted }, { tool: "submit_model", input: DCF }]);
@@ -310,7 +312,7 @@ describe("deskstack-bench (offline)", () => {
   });
 });
 
-describe("second reading of mismatches (pilot 2026-11-08)", () => {
+describe("second reading of mismatches (pilot 2026-11-08)", { timeout: 60_000 }, () => {
   it("tolerance is half a unit of the last digit written, at the submitted scale", () => {
     expect(tolerance(218_945, 1e6)).toBe(0.5e6);
     expect(tolerance(2_447.754, 1e6)).toBeCloseTo(500, 6);
