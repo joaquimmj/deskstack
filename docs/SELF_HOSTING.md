@@ -47,7 +47,7 @@ npx wrangler login
    - **Brazilian companies** (CVM open data, a few minutes): `npx tsx scripts/build-cvm.ts`. The data is under the
      ODbL: keep the attribution, and keep `v1/br/dataset.json` downloadable.
 3. **Deploy:** `npm run deploy`. Wrangler prints your URL, `https://deskstack.<you>.workers.dev`.
-4. **Connect it in Claude:** Settings → Connectors → Add custom connector. Paste `https://deskstack.<you>.workers.dev/mcp`, with no sign-in.
+4. **Connect it in Claude:** Customize → Connectors → Add custom connector. Paste `https://deskstack.<you>.workers.dev/mcp`, with no sign-in.
 
 **Daily cap and per-IP limit.** `wrangler.jsonc` binds both: a rate limiter (`IP_LIMITER`, 60 requests a minute
 per IP and Cloudflare location) and a D1 counter (`USAGE`) that enforces `DAILY_CAP`. The D1 `database_id` in the file

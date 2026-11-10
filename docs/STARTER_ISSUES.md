@@ -100,11 +100,11 @@ CONTRIBUTING.md says to add recorded fixtures for a new source, but not how to r
 **Done when:** a short section walks through recording one issuer's reports and adding its golden questions, and
 someone else has followed it once.
 
-## 9. More issuers from Sweden, Norway and Belgium
+## 9. More issuers from Luxembourg, Belgium and Austria
 
 **Labels:** `good first issue`, `data`
 
-These countries have 3 issuers each in `server/data/eu-issuers.json`, against 34 for France.
+Luxembourg has 1 issuer in `server/data/eu-issuers.json`, Belgium and Austria 7 each, against 34 for France.
 
 **Where:** `server/data/eu-issuers.json`, then `npx tsx server/scripts/build-esef.ts --only <LEI,LEI>`. Golden
 questions go in `evals/build_golden.py`.
