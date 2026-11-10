@@ -15,6 +15,7 @@
 </head>
 <body>
 <a class="skip" href="#install">{{skip}}</a>
+<div class="banner"><span>{{banner}}</span> <a href="{{gh}}/blob/main/{{comps_analysis}}">{{banner_link}} {{arrow}}</a></div>
 <header class="bar">
   <div class="wrap bar-in">
     <a class="brand" href="{{home}}">{{logo}}<span>deskstack</span></a>
@@ -22,12 +23,13 @@
       <a href="#how">{{n_how}}</a>
       <a href="#bench">{{n_bench}}</a>
       <a href="#data">{{n_data}}</a>
+      <a href="#pricing">{{n_price}}</a>
       <a href="#faq">{{n_faq}}</a>
     </nav>
     <div class="bar-end">
-      <a class="gh" href="{{gh}}" aria-label="GitHub">{{gh_icon}}<span>GitHub</span></a>
       <a class="lang" href="{{other_href}}" hreflang="{{other_lang}}" lang="{{other_lang}}">{{other_name}}</a>
-      <a class="btn go sm" href="#install">{{n_install}}</a>
+      <a class="pill-sm" href="{{gh}}" aria-label="GitHub">{{gh_icon}}<span>GitHub</span></a>
+      <a class="pill-sm go" href="#install">{{n_install}}</a>
     </div>
   </div>
 </header>
@@ -68,8 +70,10 @@
 
 <section id="how" class="block" aria-labelledby="sc-t">
   <div class="wrap">
-    <h2 class="h2 reveal" id="sc-t">{{sc_t1}} <span>{{sc_t2}}</span></h2>
-    <p class="sub reveal">{{sc_p}}</p>
+    <div class="head reveal">
+      <div><span class="tag">{{tag_how}}</span><h2 class="h2" id="sc-t">{{sc_t1}} <span>{{sc_t2}}</span></h2><p class="sub">{{sc_p}}</p></div>
+      <a class="btn ghost sm" href="{{gh}}/blob/main/docs/ROLES.md">{{x_roles}} {{arrow}}</a>
+    </div>
     <div class="showcase reveal">
       <div class="tablist" role="tablist" aria-label="{{sc_t1}}">{{tabs}}</div>
       <div class="stage">{{panels}}</div>
@@ -93,8 +97,10 @@
 <section class="night" aria-labelledby="dk-t">
   <div class="glow" aria-hidden="true"></div>
   <div class="wrap">
-    <h2 class="h2 reveal" id="dk-t">{{dk_t1}} <span>{{dk_t2}}</span></h2>
-    <p class="sub reveal">{{dk_p}}</p>
+    <div class="head reveal">
+      <div><span class="tag dark">{{tag_dark}}</span><h2 class="h2" id="dk-t">{{dk_t1}} <span>{{dk_t2}}</span></h2><p class="sub">{{dk_p}}</p></div>
+      <a class="btn ghost sm on-dark" href="{{gh}}/blob/main/docs/TOOLS.md">{{x_tools}} {{arrow}}</a>
+    </div>
     <ol class="stepper reveal">{{dk_steps}}</ol>
     <div class="night-grid">
       <article class="ncard reveal">
@@ -114,18 +120,22 @@
 
 <section id="bench" class="block" aria-labelledby="bench-t">
   <div class="wrap">
-    <h2 class="h2 reveal" id="bench-t">{{b_t1}} <span>{{b_t2}}</span></h2>
-    <p class="sub reveal">{{b_p}}</p>
+    <div class="head reveal">
+      <div><span class="tag">{{tag_bench}}</span><h2 class="h2" id="bench-t">{{b_t1}} <span>{{b_t2}}</span></h2><p class="sub">{{b_p}}</p></div>
+      <a class="btn ghost sm" href="{{gh}}/blob/main/docs/BENCHMARK.md">{{x_bench}} {{arrow}}</a>
+    </div>
     <div class="bench reveal">{{bench_tables}}</div>
-    <div class="cards3">{{b_cards}}</div>
+    <div class="cards3 grouped reveal">{{b_cards}}</div>
   </div>
 </section>
 
 <section id="data" class="block white" aria-labelledby="data-t">
   <div class="wrap">
-    <h2 class="h2 reveal" id="data-t">{{d_t1}} <span>{{d_t2}}</span></h2>
-    <p class="sub reveal">{{d_p}}</p>
-    <div class="sources">{{data_cards}}</div>
+    <div class="head reveal">
+      <div><span class="tag">{{tag_data}}</span><h2 class="h2" id="data-t">{{d_t1}} <span>{{d_t2}}</span></h2><p class="sub">{{d_p}}</p></div>
+      <a class="btn ghost sm" href="{{gh}}/blob/main/docs/DATA_SOURCES.md">{{x_data}} {{arrow}}</a>
+    </div>
+    <div class="sources reveal">{{data_cards}}</div>
     <div class="accuracy reveal">
       <div><h3>{{acc_t}}</h3><p>{{acc_p}}</p></div>
       <div class="acc-badge" aria-hidden="true"><b>99/99</b><span>golden</span><b>83/83</b><span>re-read</span></div>
@@ -136,44 +146,60 @@
 
 <section id="install" class="block" aria-labelledby="install-t">
   <div class="wrap">
-    <h2 class="h2 reveal" id="install-t">{{i_t1}} <span>{{i_t2}}</span></h2>
-    <p class="sub reveal">{{i_p}}</p>
-    <ol class="steps">
-      <li class="reveal">
+    <div class="head reveal">
+      <div><span class="tag">{{tag_install}}</span><h2 class="h2" id="install-t">{{i_t1}} <span>{{i_t2}}</span></h2><p class="sub">{{i_p}}</p></div>
+      <a class="btn ghost sm" href="{{gh}}/blob/main/{{tut_path}}">{{x_tut}} {{arrow}}</a>
+    </div>
+    <ol class="steps reveal">
+      <li>
         <h3>{{s1}}</h3>
         <p>{{s1p}}</p>
         <div class="urlbox" data-connector data-placeholder="{{placeholder}}"><code id="connector-url">{{placeholder}}</code><button class="btn ink sm" type="button" data-copy="connector-url" data-done="{{copied}}" data-fallback="{{selected}}">{{copy}}</button></div>
         <p class="pending" data-pending hidden>{{pending}}</p>
       </li>
-      <li class="reveal">
+      <li>
         <h3>{{s2}}</h3>
         <p>{{s2p}}</p>
         <div class="urlbox"><code id="market-url">{{gh}}</code><button class="btn ink sm" type="button" data-copy="market-url" data-done="{{copied}}" data-fallback="{{selected}}">{{copy}}</button></div>
       </li>
-      <li class="reveal">
+      <li>
         <h3>{{s3}}</h3>
         <p>{{s3p}}</p>
         <div class="urlbox"><code id="first-cmd">/deal-team Apple quick-dcf</code><button class="btn ink sm" type="button" data-copy="first-cmd" data-done="{{copied}}" data-fallback="{{selected}}">{{copy}}</button></div>
       </li>
     </ol>
-    <p class="tut"><a href="{{gh}}/blob/main/{{tut_path}}">{{tut}} {{arrow}}</a></p>
+  </div>
+</section>
+
+<section id="pricing" class="block white" aria-labelledby="price-t">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="tag">{{tag_price}}</span>
+      <h2 class="h2" id="price-t">{{p_t}}</h2>
+      <p class="sub">{{p_p}}</p>
+    </div>
+    <div class="plans reveal">{{plans}}</div>
   </div>
 </section>
 
 <section id="faq" class="block faq-block" aria-labelledby="faq-t">
   <div class="wrap faq-wrap">
-    <h2 class="h2" id="faq-t">{{q_t1}}<br><span>{{q_t2}}</span></h2>
+    <div><span class="tag">{{tag_faq}}</span><h2 class="h2" id="faq-t">{{q_t1}}<br><span>{{q_t2}}</span></h2></div>
     <div class="faq">{{faq}}</div>
   </div>
 </section>
 
 <section class="end" aria-labelledby="end-t">
-  <div class="sheet faint" aria-hidden="true"><div class="cols">{{col_heads}}</div><div class="cells"></div></div>
   <div class="wrap">
-    <h2 class="h2" id="end-t">{{end_t1}}<br><span>{{end_t2}}</span></h2>
-    <div class="actions">
-      <a class="btn go" href="#install">{{cta}} {{arrow}}</a>
-      <a class="btn ghost" href="{{gh}}">GitHub</a>
+    <div class="end-card">
+      <div class="end-copy">
+        <h2 class="h2" id="end-t">{{end_t1}}<br><span>{{end_t2}}</span></h2>
+        <div class="actions left">
+          <a class="btn go" href="#install">{{cta}} {{arrow}}</a>
+          <a class="btn ghost" href="{{gh}}">GitHub</a>
+        </div>
+      </div>
+      <div class="end-grid" aria-hidden="true"><i class="sel"></i></div>
     </div>
   </div>
 </section>
@@ -182,7 +208,7 @@
 <footer class="foot">
   <div class="wrap">
     <div class="foot-top">
-      <a class="brand" href="{{home}}">{{logo}}<span>deskstack</span></a>
+      <div class="foot-brand"><a class="brand" href="{{home}}">{{logo}}<span>deskstack</span></a><p>{{desc}}</p></div>
       <nav aria-label="{{f_product}}"><h3>{{f_product}}</h3>{{f_col1}}</nav>
       <nav aria-label="{{f_docs}}"><h3>{{f_docs}}</h3>{{f_col2}}</nav>
       <nav aria-label="{{f_project}}"><h3>{{f_project}}</h3>{{f_col3}}</nav>
