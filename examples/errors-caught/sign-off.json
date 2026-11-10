@@ -1,0 +1,84 @@
+{
+ "model": "model.xlsx",
+ "sha256": "6f783b4a45a8b552fa96e9e0842a52bd60e36ed16017dc04f8252feb8265a1ae",
+ "checks": [
+  {
+   "check": "Tie-out to filings (/associate)",
+   "key": "tieout",
+   "status": "fail",
+   "detail": "8 match, 6 mismatch, 0 not found, 0 ambiguous, 0 not checked, 0 unsourced"
+  },
+  {
+   "check": "Model review (/vp-review)",
+   "key": "review",
+   "status": "warn",
+   "detail": "0 blocker, 1 major, 0 minor"
+  },
+  {
+   "check": "Compliance (/compliance)",
+   "key": "compliance",
+   "status": "fail",
+   "detail": "9 pass, 1 fail, 0 warn"
+  },
+  {
+   "check": "Red team (/md-redteam)",
+   "key": "redteam",
+   "status": "missing",
+   "detail": "No red-team memo (optional)."
+  }
+ ],
+ "open_items": [
+  {
+   "from": "tie-out",
+   "severity": "blocker",
+   "ref": "Inputs!B23",
+   "issue": "Diluted shares (millions): mismatch."
+  },
+  {
+   "from": "tie-out",
+   "severity": "blocker",
+   "ref": "Inputs!B7",
+   "issue": "D&A: mismatch."
+  },
+  {
+   "from": "tie-out",
+   "severity": "blocker",
+   "ref": "Inputs!C6",
+   "issue": "EBIT (operating income): mismatch."
+  },
+  {
+   "from": "tie-out",
+   "severity": "blocker",
+   "ref": "Inputs!C7",
+   "issue": "D&A: mismatch."
+  },
+  {
+   "from": "tie-out",
+   "severity": "blocker",
+   "ref": "Inputs!D5",
+   "issue": "Revenue: mismatch. Period: the value matches revenue for FY2026 (ended 2026-06-30), not LTM to 2026-09-30."
+  },
+  {
+   "from": "tie-out",
+   "severity": "blocker",
+   "ref": "Inputs!D6",
+   "issue": "EBIT (operating income): mismatch. Period: the value matches operating_income for FY2026 (ended 2026-06-30), not LTM to 2026-09-30."
+  },
+  {
+   "from": "model review",
+   "severity": "major",
+   "ref": "Inputs!B7",
+   "issue": "DS016: Looks like a placeholder 0: its label or source says 'NOT FOUND'."
+  },
+  {
+   "from": "compliance",
+   "severity": "blocker",
+   "ref": "Sources!A8",
+   "issue": "C04 No placeholder or memory citations: Citations that say TBD, approx., from memory, unknown or end with '?'."
+  }
+ ],
+ "blocking": 7,
+ "missing": [],
+ "ready": false,
+ "token": "5626b8e3cdd6"
+}

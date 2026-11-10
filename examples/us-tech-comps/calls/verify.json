@@ -1,0 +1,1088 @@
+{
+ "tool": "verify_value",
+ "connector": "https://deskstack.deskstack-server.workers.dev/mcp",
+ "recorded_at": "2026-11-10",
+ "batches": [
+  {
+   "request": {
+    "company": "AAPL",
+    "items": [
+     {
+      "metric": "revenue",
+      "period": "FY2026",
+      "value": 478834,
+      "scale": "millions",
+      "ref": "Comps!D4",
+      "currency": "USD"
+     },
+     {
+      "metric": "ebitda",
+      "period": "FY2026",
+      "value": 171486,
+      "scale": "millions",
+      "ref": "Comps!E4",
+      "currency": "USD"
+     },
+     {
+      "metric": "net_income",
+      "period": "FY2026",
+      "value": 132175,
+      "scale": "millions",
+      "ref": "Comps!F4",
+      "currency": "USD"
+     },
+     {
+      "metric": "net_debt",
+      "period": "FY2026",
+      "value": 23389,
+      "scale": "millions",
+      "ref": "Comps!H4",
+      "currency": "USD"
+     }
+    ]
+   },
+   "response": {
+    "summary": "Apple Inc.: 4 of 4 value(s) match the filings. Read each item's hints before changing a number.",
+    "company": {
+     "name": "Apple Inc.",
+     "ticker": "AAPL",
+     "cik": 320193,
+     "exchange": "Nasdaq",
+     "region": "US",
+     "reporting_standard": "US-GAAP",
+     "currency": "USD",
+     "fiscal_year_end": "0926",
+     "sic": "3571",
+     "sic_description": "Electronic Computers",
+     "financial_company": false,
+     "foreign_private_issuer": false
+    },
+    "currency": "USD",
+    "counts": {
+     "total": 4,
+     "match": 4,
+     "mismatch": 0,
+     "not_found": 0,
+     "ambiguous": 0
+    },
+    "results": [
+     {
+      "ref": "Comps!D4",
+      "metric": "revenue",
+      "resolved_metric": "revenue",
+      "period": "FY2026",
+      "resolved_period": "FY2026 (ended 2026-09-26)",
+      "status": "match",
+      "claimed": 478834,
+      "claimed_units": 478834000000,
+      "filed": 478834000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "computed": false,
+      "accessions": [
+       "0000320193-26-000026"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Comps!E4",
+      "metric": "ebitda",
+      "resolved_metric": "ebitda",
+      "period": "FY2026",
+      "resolved_period": "FY2026 (ended 2026-09-26)",
+      "status": "match",
+      "claimed": 171486,
+      "claimed_units": 171486000000,
+      "filed": 171486000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": null,
+      "computed": true,
+      "accessions": [],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": [
+       "Computed value: operating_income + d_and_a."
+      ]
+     },
+     {
+      "ref": "Comps!F4",
+      "metric": "net_income",
+      "resolved_metric": "net_income",
+      "period": "FY2026",
+      "resolved_period": "FY2026 (ended 2026-09-26)",
+      "status": "match",
+      "claimed": 132175,
+      "claimed_units": 132175000000,
+      "filed": 132175000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:NetIncomeLoss",
+      "computed": false,
+      "accessions": [
+       "0000320193-26-000026"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Comps!H4",
+      "metric": "net_debt",
+      "resolved_metric": "net_debt",
+      "period": "FY2026",
+      "resolved_period": "FY2026 (ended 2026-09-26)",
+      "status": "match",
+      "claimed": 23389,
+      "claimed_units": 23389000000,
+      "filed": 23389000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": null,
+      "computed": true,
+      "accessions": [],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": [
+       "Computed value: total_debt - cash - short_term_investments."
+      ]
+     }
+    ],
+    "sources": [
+     {
+      "name": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm",
+      "accession_or_id": "0000320193-26-000026",
+      "form": "10-K",
+      "period": "2026-09-26",
+      "as_of": "2026-11-03",
+      "license_note": "SEC EDGAR filing data: U.S. government work, public domain. Cite the filing."
+     }
+    ],
+    "note": "Computed lines (EBITDA, free cash flow, total debt, net debt) are checked against deskstack's own formula from the filed inputs, shown in the hints. A match means the number agrees with the filing; it does not validate assumptions or forecasts.",
+    "disclaimer": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice."
+   }
+  },
+  {
+   "request": {
+    "company": "MSFT",
+    "items": [
+     {
+      "metric": "revenue",
+      "period": "LTM",
+      "value": 346445,
+      "scale": "millions",
+      "ref": "Comps!D5",
+      "currency": "USD"
+     },
+     {
+      "metric": "ebitda",
+      "period": "LTM",
+      "value": 205691,
+      "scale": "millions",
+      "ref": "Comps!E5",
+      "currency": "USD"
+     },
+     {
+      "metric": "net_income",
+      "period": "LTM",
+      "value": 142631,
+      "scale": "millions",
+      "ref": "Comps!F5",
+      "currency": "USD"
+     },
+     {
+      "metric": "net_debt",
+      "period": "LTM",
+      "value": -29028,
+      "scale": "millions",
+      "ref": "Comps!H5",
+      "currency": "USD"
+     }
+    ]
+   },
+   "response": {
+    "summary": "MICROSOFT CORP: 4 of 4 value(s) match the filings. Read each item's hints before changing a number.",
+    "company": {
+     "name": "MICROSOFT CORP",
+     "ticker": "MSFT",
+     "cik": 789019,
+     "exchange": "Nasdaq",
+     "region": "US",
+     "reporting_standard": "US-GAAP",
+     "currency": "USD",
+     "fiscal_year_end": "0630",
+     "sic": "7372",
+     "sic_description": "Services-Prepackaged Software",
+     "financial_company": false,
+     "foreign_private_issuer": false
+    },
+    "currency": "USD",
+    "counts": {
+     "total": 4,
+     "match": 4,
+     "mismatch": 0,
+     "not_found": 0,
+     "ambiguous": 0
+    },
+    "results": [
+     {
+      "ref": "Comps!D5",
+      "metric": "revenue",
+      "resolved_metric": "revenue",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": 346445,
+      "claimed_units": 346445000000,
+      "filed": 346445000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "computed": false,
+      "accessions": [
+       "0001193125-26-323660",
+       "0001193125-26-436133"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Comps!E5",
+      "metric": "ebitda",
+      "resolved_metric": "ebitda",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": 205691,
+      "claimed_units": 205691000000,
+      "filed": 205691000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": null,
+      "computed": true,
+      "accessions": [],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": [
+       "Computed value: operating_income + d_and_a."
+      ]
+     },
+     {
+      "ref": "Comps!F5",
+      "metric": "net_income",
+      "resolved_metric": "net_income",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": 142631,
+      "claimed_units": 142631000000,
+      "filed": 142631000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:NetIncomeLoss",
+      "computed": false,
+      "accessions": [
+       "0001193125-26-323660",
+       "0001193125-26-436133"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Comps!H5",
+      "metric": "net_debt",
+      "resolved_metric": "net_debt",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": -29028,
+      "claimed_units": -29028000000,
+      "filed": -29028000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": null,
+      "computed": true,
+      "accessions": [],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": [
+       "Computed value: total_debt - cash - short_term_investments."
+      ]
+     }
+    ],
+    "sources": [
+     {
+      "name": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/0001193125-26-323660-index.htm",
+      "accession_or_id": "0001193125-26-323660",
+      "form": "10-K",
+      "period": "2026-06-30",
+      "as_of": "2026-07-29",
+      "license_note": "SEC EDGAR filing data: U.S. government work, public domain. Cite the filing."
+     },
+     {
+      "name": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
+      "accession_or_id": "0001193125-26-436133",
+      "form": "10-Q",
+      "period": "2026-09-30",
+      "as_of": "2026-10-28",
+      "license_note": "SEC EDGAR filing data: U.S. government work, public domain. Cite the filing."
+     }
+    ],
+    "note": "Computed lines (EBITDA, free cash flow, total debt, net debt) are checked against deskstack's own formula from the filed inputs, shown in the hints. A match means the number agrees with the filing; it does not validate assumptions or forecasts.",
+    "disclaimer": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice."
+   }
+  },
+  {
+   "request": {
+    "company": "GOOGL",
+    "items": [
+     {
+      "metric": "revenue",
+      "period": "LTM",
+      "value": 471098,
+      "scale": "millions",
+      "ref": "Comps!D6",
+      "currency": "USD"
+     },
+     {
+      "metric": "ebitda",
+      "period": "LTM",
+      "value": 184971,
+      "scale": "millions",
+      "ref": "Comps!E6",
+      "currency": "USD"
+     },
+     {
+      "metric": "net_income",
+      "period": "LTM",
+      "value": 235694,
+      "scale": "millions",
+      "ref": "Comps!F6",
+      "currency": "USD"
+     },
+     {
+      "metric": "net_debt",
+      "period": "LTM",
+      "value": -138980,
+      "scale": "millions",
+      "ref": "Comps!H6",
+      "currency": "USD"
+     }
+    ]
+   },
+   "response": {
+    "summary": "Alphabet Inc.: 4 of 4 value(s) match the filings. Read each item's hints before changing a number.",
+    "company": {
+     "name": "Alphabet Inc.",
+     "ticker": "GOOGL",
+     "cik": 1652044,
+     "exchange": "Nasdaq",
+     "region": "US",
+     "reporting_standard": "US-GAAP",
+     "currency": "USD",
+     "fiscal_year_end": "1231",
+     "sic": "7370",
+     "sic_description": "Services-Computer Programming, Data Processing, Etc.",
+     "financial_company": false,
+     "foreign_private_issuer": false
+    },
+    "currency": "USD",
+    "counts": {
+     "total": 4,
+     "match": 4,
+     "mismatch": 0,
+     "not_found": 0,
+     "ambiguous": 0
+    },
+    "results": [
+     {
+      "ref": "Comps!D6",
+      "metric": "revenue",
+      "resolved_metric": "revenue",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": 471098,
+      "claimed_units": 471098000000,
+      "filed": 471098000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:Revenues",
+      "computed": false,
+      "accessions": [
+       "0001652044-26-000018",
+       "0001652044-26-000084"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Comps!E6",
+      "metric": "ebitda",
+      "resolved_metric": "ebitda",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": 184971,
+      "claimed_units": 184971000000,
+      "filed": 184971000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": null,
+      "computed": true,
+      "accessions": [],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": [
+       "Computed value: operating_income + d_and_a."
+      ]
+     },
+     {
+      "ref": "Comps!F6",
+      "metric": "net_income",
+      "resolved_metric": "net_income",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": 235694,
+      "claimed_units": 235694000000,
+      "filed": 235694000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:NetIncomeLoss",
+      "computed": false,
+      "accessions": [
+       "0001652044-26-000018",
+       "0001652044-26-000084"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Comps!H6",
+      "metric": "net_debt",
+      "resolved_metric": "net_debt",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": -138980,
+      "claimed_units": -138980000000,
+      "filed": -138980000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": null,
+      "computed": true,
+      "accessions": [],
+      "allowance": {
+       "units": 5000000,
+       "basis": "rounding of the value as written (±5.0000e+6)"
+      },
+      "hints": [
+       "Computed value: total_debt - cash - short_term_investments."
+      ]
+     }
+    ],
+    "sources": [
+     {
+      "name": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
+      "accession_or_id": "0001652044-26-000018",
+      "form": "10-K",
+      "period": "2025-12-31",
+      "as_of": "2026-02-05",
+      "license_note": "SEC EDGAR filing data: U.S. government work, public domain. Cite the filing."
+     },
+     {
+      "name": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
+      "accession_or_id": "0001652044-26-000084",
+      "form": "10-Q",
+      "period": "2026-09-30",
+      "as_of": "2026-10-29",
+      "license_note": "SEC EDGAR filing data: U.S. government work, public domain. Cite the filing."
+     }
+    ],
+    "note": "Computed lines (EBITDA, free cash flow, total debt, net debt) are checked against deskstack's own formula from the filed inputs, shown in the hints. A match means the number agrees with the filing; it does not validate assumptions or forecasts.",
+    "disclaimer": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice."
+   }
+  },
+  {
+   "request": {
+    "company": "AMZN",
+    "items": [
+     {
+      "metric": "revenue",
+      "period": "LTM",
+      "value": 797455,
+      "scale": "millions",
+      "ref": "Comps!D7",
+      "currency": "USD"
+     },
+     {
+      "metric": "ebitda",
+      "period": "LTM",
+      "value": 183719,
+      "scale": "millions",
+      "ref": "Comps!E7",
+      "currency": "USD"
+     },
+     {
+      "metric": "net_income",
+      "period": "LTM",
+      "value": 134779,
+      "scale": "millions",
+      "ref": "Comps!F7",
+      "currency": "USD"
+     },
+     {
+      "metric": "net_debt",
+      "period": "LTM",
+      "value": 66106,
+      "scale": "millions",
+      "ref": "Comps!H7",
+      "currency": "USD"
+     }
+    ]
+   },
+   "response": {
+    "summary": "AMAZON.COM, INC.: 4 of 4 value(s) match the filings. Read each item's hints before changing a number.",
+    "company": {
+     "name": "AMAZON.COM, INC.",
+     "ticker": "AMZN",
+     "cik": 1018724,
+     "exchange": "Nasdaq",
+     "region": "US",
+     "reporting_standard": "US-GAAP",
+     "currency": "USD",
+     "fiscal_year_end": "1231",
+     "sic": "5961",
+     "sic_description": "Retail-Catalog & Mail-Order Houses",
+     "financial_company": false,
+     "foreign_private_issuer": false
+    },
+    "currency": "USD",
+    "counts": {
+     "total": 4,
+     "match": 4,
+     "mismatch": 0,
+     "not_found": 0,
+     "ambiguous": 0
+    },
+    "results": [
+     {
+      "ref": "Comps!D7",
+      "metric": "revenue",
+      "resolved_metric": "revenue",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": 797455,
+      "claimed_units": 797455000000,
+      "filed": 797455000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "computed": false,
+      "accessions": [
+       "0001018724-26-000004",
+       "0001018724-26-000040"
+      ],
+      "allowance": {
+       "units": 797455,
+       "basis": "rounding of the value as written (±797455)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Comps!E7",
+      "metric": "ebitda",
+      "resolved_metric": "ebitda",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": 183719,
+      "claimed_units": 183719000000,
+      "filed": 183719000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": null,
+      "computed": true,
+      "accessions": [],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": [
+       "Computed value: operating_income + d_and_a."
+      ]
+     },
+     {
+      "ref": "Comps!F7",
+      "metric": "net_income",
+      "resolved_metric": "net_income",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": 134779,
+      "claimed_units": 134779000000,
+      "filed": 134779000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:NetIncomeLoss",
+      "computed": false,
+      "accessions": [
+       "0001018724-26-000004",
+       "0001018724-26-000040"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Comps!H7",
+      "metric": "net_debt",
+      "resolved_metric": "net_debt",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": 66106,
+      "claimed_units": 66106000000,
+      "filed": 66106000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": null,
+      "computed": true,
+      "accessions": [],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": [
+       "Computed value: total_debt - cash - short_term_investments."
+      ]
+     }
+    ],
+    "sources": [
+     {
+      "name": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/0001018724-26-000004-index.htm",
+      "accession_or_id": "0001018724-26-000004",
+      "form": "10-K",
+      "period": "2025-12-31",
+      "as_of": "2026-02-06",
+      "license_note": "SEC EDGAR filing data: U.S. government work, public domain. Cite the filing."
+     },
+     {
+      "name": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
+      "accession_or_id": "0001018724-26-000040",
+      "form": "10-Q",
+      "period": "2026-09-30",
+      "as_of": "2026-10-30",
+      "license_note": "SEC EDGAR filing data: U.S. government work, public domain. Cite the filing."
+     }
+    ],
+    "note": "Computed lines (EBITDA, free cash flow, total debt, net debt) are checked against deskstack's own formula from the filed inputs, shown in the hints. A match means the number agrees with the filing; it does not validate assumptions or forecasts.",
+    "disclaimer": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice."
+   }
+  },
+  {
+   "request": {
+    "company": "META",
+    "items": [
+     {
+      "metric": "revenue",
+      "period": "LTM",
+      "value": 241605,
+      "scale": "millions",
+      "ref": "Comps!D8",
+      "currency": "USD"
+     },
+     {
+      "metric": "ebitda",
+      "period": "LTM",
+      "value": 104300,
+      "scale": "millions",
+      "ref": "Comps!E8",
+      "currency": "USD"
+     },
+     {
+      "metric": "net_income",
+      "period": "LTM",
+      "value": 75249,
+      "scale": "millions",
+      "ref": "Comps!F8",
+      "currency": "USD"
+     },
+     {
+      "metric": "net_debt",
+      "period": "LTM",
+      "value": 1220,
+      "scale": "millions",
+      "ref": "Comps!H8",
+      "currency": "USD"
+     }
+    ]
+   },
+   "response": {
+    "summary": "Meta Platforms, Inc.: 4 of 4 value(s) match the filings. Read each item's hints before changing a number.",
+    "company": {
+     "name": "Meta Platforms, Inc.",
+     "ticker": "META",
+     "cik": 1326801,
+     "exchange": "Nasdaq",
+     "region": "US",
+     "reporting_standard": "US-GAAP",
+     "currency": "USD",
+     "fiscal_year_end": "1231",
+     "sic": "7370",
+     "sic_description": "Services-Computer Programming, Data Processing, Etc.",
+     "financial_company": false,
+     "foreign_private_issuer": false
+    },
+    "currency": "USD",
+    "counts": {
+     "total": 4,
+     "match": 4,
+     "mismatch": 0,
+     "not_found": 0,
+     "ambiguous": 0
+    },
+    "results": [
+     {
+      "ref": "Comps!D8",
+      "metric": "revenue",
+      "resolved_metric": "revenue",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": 241605,
+      "claimed_units": 241605000000,
+      "filed": 241605000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "computed": false,
+      "accessions": [
+       "0001628280-26-003942",
+       "0001628280-26-066773"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Comps!E8",
+      "metric": "ebitda",
+      "resolved_metric": "ebitda",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": 104300,
+      "claimed_units": 104300000000,
+      "filed": 104300000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": null,
+      "computed": true,
+      "accessions": [],
+      "allowance": {
+       "units": 50000000,
+       "basis": "rounding of the value as written (±5.0000e+7)"
+      },
+      "hints": [
+       "Computed value: operating_income + d_and_a."
+      ]
+     },
+     {
+      "ref": "Comps!F8",
+      "metric": "net_income",
+      "resolved_metric": "net_income",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": 75249,
+      "claimed_units": 75249000000,
+      "filed": 75249000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:NetIncomeLoss",
+      "computed": false,
+      "accessions": [
+       "0001628280-26-003942",
+       "0001628280-26-066773"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Comps!H8",
+      "metric": "net_debt",
+      "resolved_metric": "net_debt",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-09-30 (ended 2026-09-30)",
+      "status": "match",
+      "claimed": 1220,
+      "claimed_units": 1220000000,
+      "filed": 1220000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": null,
+      "computed": true,
+      "accessions": [],
+      "allowance": {
+       "units": 5000000,
+       "basis": "rounding of the value as written (±5.0000e+6)"
+      },
+      "hints": [
+       "Computed value: total_debt - cash - short_term_investments."
+      ]
+     }
+    ],
+    "sources": [
+     {
+      "name": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026003942/0001628280-26-003942-index.htm",
+      "accession_or_id": "0001628280-26-003942",
+      "form": "10-K",
+      "period": "2025-12-31",
+      "as_of": "2026-01-29",
+      "license_note": "SEC EDGAR filing data: U.S. government work, public domain. Cite the filing."
+     },
+     {
+      "name": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/0001628280-26-066773-index.htm",
+      "accession_or_id": "0001628280-26-066773",
+      "form": "10-Q",
+      "period": "2026-09-30",
+      "as_of": "2026-10-22",
+      "license_note": "SEC EDGAR filing data: U.S. government work, public domain. Cite the filing."
+     }
+    ],
+    "note": "Computed lines (EBITDA, free cash flow, total debt, net debt) are checked against deskstack's own formula from the filed inputs, shown in the hints. A match means the number agrees with the filing; it does not validate assumptions or forecasts.",
+    "disclaimer": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice."
+   }
+  },
+  {
+   "request": {
+    "company": "NVDA",
+    "items": [
+     {
+      "metric": "revenue",
+      "period": "LTM",
+      "value": 302970,
+      "scale": "millions",
+      "ref": "Comps!D9",
+      "currency": "USD"
+     },
+     {
+      "metric": "ebitda",
+      "period": "LTM",
+      "value": 201266,
+      "scale": "millions",
+      "ref": "Comps!E9",
+      "currency": "USD"
+     },
+     {
+      "metric": "net_income",
+      "period": "LTM",
+      "value": 192880,
+      "scale": "millions",
+      "ref": "Comps!F9",
+      "currency": "USD"
+     },
+     {
+      "metric": "net_debt",
+      "period": "LTM",
+      "value": 10923,
+      "scale": "millions",
+      "ref": "Comps!H9",
+      "currency": "USD"
+     }
+    ]
+   },
+   "response": {
+    "summary": "NVIDIA CORP: 4 of 4 value(s) match the filings. Read each item's hints before changing a number.",
+    "company": {
+     "name": "NVIDIA CORP",
+     "ticker": "NVDA",
+     "cik": 1045810,
+     "exchange": "Nasdaq",
+     "region": "US",
+     "reporting_standard": "US-GAAP",
+     "currency": "USD",
+     "fiscal_year_end": "0131",
+     "sic": "3674",
+     "sic_description": "Semiconductors & Related Devices",
+     "financial_company": false,
+     "foreign_private_issuer": false
+    },
+    "currency": "USD",
+    "counts": {
+     "total": 4,
+     "match": 4,
+     "mismatch": 0,
+     "not_found": 0,
+     "ambiguous": 0
+    },
+    "results": [
+     {
+      "ref": "Comps!D9",
+      "metric": "revenue",
+      "resolved_metric": "revenue",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-07-26 (ended 2026-07-26)",
+      "status": "match",
+      "claimed": 302970,
+      "claimed_units": 302970000000,
+      "filed": 302970000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:Revenues",
+      "computed": false,
+      "accessions": [
+       "0001045810-26-000021",
+       "0001045810-26-000075"
+      ],
+      "allowance": {
+       "units": 5000000,
+       "basis": "rounding of the value as written (±5.0000e+6)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Comps!E9",
+      "metric": "ebitda",
+      "resolved_metric": "ebitda",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-07-26 (ended 2026-07-26)",
+      "status": "match",
+      "claimed": 201266,
+      "claimed_units": 201266000000,
+      "filed": 201266000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": null,
+      "computed": true,
+      "accessions": [],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": [
+       "Computed value: operating_income + d_and_a."
+      ]
+     },
+     {
+      "ref": "Comps!F9",
+      "metric": "net_income",
+      "resolved_metric": "net_income",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-07-26 (ended 2026-07-26)",
+      "status": "match",
+      "claimed": 192880,
+      "claimed_units": 192880000000,
+      "filed": 192880000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "us-gaap:NetIncomeLoss",
+      "computed": false,
+      "accessions": [
+       "0001045810-26-000021",
+       "0001045810-26-000075"
+      ],
+      "allowance": {
+       "units": 5000000,
+       "basis": "rounding of the value as written (±5.0000e+6)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Comps!H9",
+      "metric": "net_debt",
+      "resolved_metric": "net_debt",
+      "period": "LTM",
+      "resolved_period": "LTM to 2026-07-26 (ended 2026-07-26)",
+      "status": "match",
+      "claimed": 10923,
+      "claimed_units": 10923000000,
+      "filed": 10923000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": null,
+      "computed": true,
+      "accessions": [],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": [
+       "Computed value: total_debt - cash - short_term_investments."
+      ]
+     }
+    ],
+    "sources": [
+     {
+      "name": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/0001045810-26-000021-index.htm",
+      "accession_or_id": "0001045810-26-000021",
+      "form": "10-K",
+      "period": "2026-01-25",
+      "as_of": "2026-02-25",
+      "license_note": "SEC EDGAR filing data: U.S. government work, public domain. Cite the filing."
+     },
+     {
+      "name": "SEC EDGAR",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/0001045810-26-000075-index.htm",
+      "accession_or_id": "0001045810-26-000075",
+      "form": "10-Q",
+      "period": "2026-07-26",
+      "as_of": "2026-08-26",
+      "license_note": "SEC EDGAR filing data: U.S. government work, public domain. Cite the filing."
+     }
+    ],
+    "note": "Computed lines (EBITDA, free cash flow, total debt, net debt) are checked against deskstack's own formula from the filed inputs, shown in the hints. A match means the number agrees with the filing; it does not validate assumptions or forecasts.",
+    "disclaimer": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice."
+   }
+  }
+ ]
+}
