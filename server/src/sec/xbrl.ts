@@ -718,6 +718,13 @@ function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | nu
   } else {
     out.net_debt = null;
   }
+  // US filers that tag long-term debt only together with finance leases: total debt then includes them.
+  const usedDebt = (formula.match(/[a-z_0-9]+/g) ?? []).map((k) => inst[k]?.concept ?? "");
+  if (tx !== IFRS && out.total_debt && usedDebt.some((c) => /(Capital|Finance)Lease/.test(c))) {
+    const lease = "includes finance lease obligations: the filer tags its long-term debt only together with them";
+    out.total_debt.note = lease;
+    if (out.net_debt) out.net_debt.note = out.net_debt.note ? `${out.net_debt.note}; ${lease}` : lease;
+  }
   // Inputs to the notes above, not balance-sheet lines of their own.
   delete inst.other_current_financial_assets;
   delete inst.lease_liabilities;

@@ -61,7 +61,8 @@ Each computed line carries its formula, so a different definition is visible.
   net income ÷ diluted EPS confirms the corrected figure within 3%, with a note giving the filed value.
 - **Net debt** is total debt − cash − short-term investments. A European issuer that tags its current financial assets
   only mixed with derivatives and receivables (TotalEnergies) gets net debt without them, and a note giving the amount.
-- **Total debt** excludes leases. For a European issuer, net debt carries a note with the lease liabilities it leaves
+- **Total debt** excludes leases, except for a US filer that tags its long-term debt only together with finance
+  leases: total debt then includes them, and a note says so. For a European issuer, net debt carries a note with the lease liabilities it leaves
   out (IFRS 16). If no current-debt line is tagged, the 12-month maturity of long-term debt stands
   in for the current portion, and the formula names it.
 - **Net debt** is total debt − cash − short-term investments. Short-term investments are marketable securities and
