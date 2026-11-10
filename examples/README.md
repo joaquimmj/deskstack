@@ -1,6 +1,6 @@
 # Examples
 
-Four deliverables built with deskstack's real tools, with every review report. Download a folder and open
+Five deliverables built with deskstack's real tools, with every review report. Download a folder and open
 `model.xlsx` next to its reports.
 
 | Folder | What it is | Result |
@@ -8,6 +8,7 @@ Four deliverables built with deskstack's real tools, with every review report. D
 | [apple-dcf](apple-dcf/) | Apple quick DCF, FY2024-FY2026 history | 14 of 14 filed figures tie to the 10-K. No model finding. Ready for sign-off |
 | [us-tech-comps](us-tech-comps/) | Apple against Microsoft, Alphabet, Amazon, Meta and Nvidia, latest twelve months | 24 of 24 figures tie to the filings. Market caps are empty: see below |
 | [heineken-dcf](heineken-dcf/) | Heineken N.V. quick DCF, from its ESEF annual reports, in euros | 14 of 14 figures tie to the reports. `/vp-review` flags the terminal value at 82% of EV |
+| [apple-dcf-typo](apple-dcf-typo/) | The Apple DCF with FY2025 revenue keyed with two digits swapped: the demo GIF's model | `/associate` flags it: "two adjacent digits look swapped" |
 | [errors-caught](errors-caught/) | A Microsoft DCF with four errors from the benchmark typed in on purpose | All four caught: 6 mismatches in the tie-out, a placeholder rule in the review, a failed citation check |
 
 Each folder holds:

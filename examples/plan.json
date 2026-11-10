@@ -3,27 +3,165 @@
   "connector": "https://deskstack.deskstack-server.workers.dev/mcp",
   "cases": {
     "apple-dcf": [
-      { "id": "statements", "tool": "financial_statements", "args": { "ticker": "AAPL", "years": 4 } },
-      { "id": "risk-free", "tool": "risk_free_rate", "args": { "region": "US", "tenor": "10Y" } },
-      { "id": "valuation-inputs", "tool": "valuation_inputs", "args": { "country": "United States", "industry": "Computers/Peripherals" } }
+      {
+        "id": "statements",
+        "tool": "financial_statements",
+        "args": {
+          "ticker": "AAPL",
+          "years": 4
+        }
+      },
+      {
+        "id": "risk-free",
+        "tool": "risk_free_rate",
+        "args": {
+          "region": "US",
+          "tenor": "10Y"
+        }
+      },
+      {
+        "id": "valuation-inputs",
+        "tool": "valuation_inputs",
+        "args": {
+          "country": "United States",
+          "industry": "Computers/Peripherals"
+        }
+      }
     ],
     "us-tech-comps": [
-      { "id": "AAPL", "tool": "financial_statements", "args": { "ticker": "AAPL", "years": 1, "include_ltm": true } },
-      { "id": "MSFT", "tool": "financial_statements", "args": { "ticker": "MSFT", "years": 1, "include_ltm": true } },
-      { "id": "GOOGL", "tool": "financial_statements", "args": { "ticker": "GOOGL", "years": 1, "include_ltm": true } },
-      { "id": "AMZN", "tool": "financial_statements", "args": { "ticker": "AMZN", "years": 1, "include_ltm": true } },
-      { "id": "META", "tool": "financial_statements", "args": { "ticker": "META", "years": 1, "include_ltm": true } },
-      { "id": "NVDA", "tool": "financial_statements", "args": { "ticker": "NVDA", "years": 1, "include_ltm": true } }
+      {
+        "id": "AAPL",
+        "tool": "financial_statements",
+        "args": {
+          "ticker": "AAPL",
+          "years": 1,
+          "include_ltm": true
+        }
+      },
+      {
+        "id": "MSFT",
+        "tool": "financial_statements",
+        "args": {
+          "ticker": "MSFT",
+          "years": 1,
+          "include_ltm": true
+        }
+      },
+      {
+        "id": "GOOGL",
+        "tool": "financial_statements",
+        "args": {
+          "ticker": "GOOGL",
+          "years": 1,
+          "include_ltm": true
+        }
+      },
+      {
+        "id": "AMZN",
+        "tool": "financial_statements",
+        "args": {
+          "ticker": "AMZN",
+          "years": 1,
+          "include_ltm": true
+        }
+      },
+      {
+        "id": "META",
+        "tool": "financial_statements",
+        "args": {
+          "ticker": "META",
+          "years": 1,
+          "include_ltm": true
+        }
+      },
+      {
+        "id": "NVDA",
+        "tool": "financial_statements",
+        "args": {
+          "ticker": "NVDA",
+          "years": 1,
+          "include_ltm": true
+        }
+      }
     ],
     "heineken-dcf": [
-      { "id": "statements", "tool": "financial_statements", "args": { "ticker": "724500K5PTPSST86UQ23", "years": 4 } },
-      { "id": "risk-free", "tool": "risk_free_rate", "args": { "region": "EUR", "tenor": "10Y" } },
-      { "id": "valuation-inputs", "tool": "valuation_inputs", "args": { "country": "Netherlands", "industry": "Beverage (Alcoholic)" } }
+      {
+        "id": "statements",
+        "tool": "financial_statements",
+        "args": {
+          "ticker": "724500K5PTPSST86UQ23",
+          "years": 4
+        }
+      },
+      {
+        "id": "risk-free",
+        "tool": "risk_free_rate",
+        "args": {
+          "region": "EUR",
+          "tenor": "10Y"
+        }
+      },
+      {
+        "id": "valuation-inputs",
+        "tool": "valuation_inputs",
+        "args": {
+          "country": "Netherlands",
+          "industry": "Beverage (Alcoholic)"
+        }
+      }
     ],
     "errors-caught": [
-      { "id": "statements", "tool": "financial_statements", "args": { "ticker": "MSFT", "years": 3, "include_ltm": true } },
-      { "id": "risk-free", "tool": "risk_free_rate", "args": { "region": "US", "tenor": "10Y" } },
-      { "id": "valuation-inputs", "tool": "valuation_inputs", "args": { "country": "United States", "industry": "Software (System & Application)" } }
+      {
+        "id": "statements",
+        "tool": "financial_statements",
+        "args": {
+          "ticker": "MSFT",
+          "years": 3,
+          "include_ltm": true
+        }
+      },
+      {
+        "id": "risk-free",
+        "tool": "risk_free_rate",
+        "args": {
+          "region": "US",
+          "tenor": "10Y"
+        }
+      },
+      {
+        "id": "valuation-inputs",
+        "tool": "valuation_inputs",
+        "args": {
+          "country": "United States",
+          "industry": "Software (System & Application)"
+        }
+      }
+    ],
+    "apple-dcf-typo": [
+      {
+        "id": "statements",
+        "tool": "financial_statements",
+        "args": {
+          "ticker": "AAPL",
+          "years": 4
+        }
+      },
+      {
+        "id": "risk-free",
+        "tool": "risk_free_rate",
+        "args": {
+          "region": "US",
+          "tenor": "10Y"
+        }
+      },
+      {
+        "id": "valuation-inputs",
+        "tool": "valuation_inputs",
+        "args": {
+          "country": "United States",
+          "industry": "Computers/Peripherals"
+        }
+      }
     ]
   }
 }

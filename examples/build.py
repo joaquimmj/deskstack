@@ -183,6 +183,15 @@ def us_tech_comps(case: Path) -> dict:
             "period": "latest twelve months", "peers": peers}
 
 
+def apple_dcf_typo(case: Path) -> dict:
+    """The demo GIF's model: Apple's DCF with FY2025 revenue keyed with two adjacent digits swapped."""
+    spec = dcf_spec(case)
+    rev = spec["history"]["lines"]["revenue"]
+    digits = str(int(rev["values"][1]))
+    rev["values"][1] = float(digits[:-2] + digits[-1] + digits[-2])
+    return spec
+
+
 # The real errors from the benchmark (bench/results/*/ANALYSIS.md), planted in a Microsoft DCF built from real data.
 PLANTED = {
     "stale-ltm": "LTM revenue and operating income typed from the twelve months to June (FY2026), after the September 10-Q",
@@ -216,7 +225,7 @@ def errors_caught(case: Path) -> dict:
     return spec
 
 
-CASES = {"apple-dcf": apple_dcf, "us-tech-comps": us_tech_comps, "heineken-dcf": heineken_dcf, "errors-caught": errors_caught}
+CASES = {"apple-dcf": apple_dcf, "apple-dcf-typo": apple_dcf_typo, "us-tech-comps": us_tech_comps, "heineken-dcf": heineken_dcf, "errors-caught": errors_caught}
 
 
 # ---- build -------------------------------------------------------------------------------

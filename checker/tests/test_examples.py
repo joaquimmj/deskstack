@@ -46,3 +46,12 @@ def test_the_planted_errors_are_all_caught():
     assert not so["ready"] and so["blocking"] >= 6
     # The placeholder keeps the label the model gave it.
     assert spec["history"]["lines"]["d_and_a"]["sources"][0] == "NOT FOUND - placeholder 0"
+
+
+def test_the_demo_recording_is_current():
+    """site/media/demo/demo.cast replays the real outputs in examples/. Regenerate: python3 site/media/demo/make_cast.py,
+    then render the GIF: python3 site/media/demo/render_gif.py."""
+    spec = importlib.util.spec_from_file_location("make_cast", ROOT / "site" / "media" / "demo" / "make_cast.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    assert (ROOT / "site" / "media" / "demo" / "demo.cast").read_text() == mod.cast()
