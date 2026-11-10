@@ -146,6 +146,13 @@ ESEF = [
     # The 2024 report tags only total profit for FY2023; the owners' share is tagged in the 2023 report.
     ("635400TLVVBNXLFHWC59", "Kerry", "FY2023", "635400TLVVBNXLFHWC59-2023-12-31-ESEF-GB-0", "2023-01-01", "2023-12-31",
      [('net_income', 'ProfitLossAttributableToOwnersOfParent')], ['eu', 'esef', 'ie']),
+    # Ireland (review 2026-11-10): Glanbia (52/53-week year to 3 January 2026), Irish Continental, Cairn Homes.
+    ("635400SRMCBHVMSKJS84", "Glanbia", "FY2025", "635400SRMCBHVMSKJS84-2026-01-03-ESEF-GB-0", "2025-01-05", "2026-01-03",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'ie', '52-53-week year', 'usd-reporter']),
+    ("635400FQKB6QXERQOC74", "Irish Continental Group", "FY2025", "635400FQKB6QXERQOC74-2025-12-31-ESEF-GB-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLoss'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'ie']),
+    ("635400DPX6WP2KKDOA83", "Cairn Homes", "FY2025", "635400DPX6WP2KKDOA83-2025-12-31-ESEF-GB-0", "2025-01-01", "2025-12-31",
+     [('revenue', 'Revenue'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'ie']),
     ("2EULGUTUI56JI9SAL165", "ArcelorMittal", "FY2024", "2EULGUTUI56JI9SAL165-2024-12-31-ESEF-LU-0", "2024-01-01", "2024-12-31",
      [('revenue', 'RevenueFromContractsWithCustomers'), ('net_income', 'ProfitLossAttributableToOwnersOfParent'), ('operating_cash_flow', 'CashFlowsFromUsedInOperatingActivities'), ('total_assets', 'Assets'), ('cash', 'CashAndCashEquivalents')], ['eu', 'esef', 'lu']),
     ("2EULGUTUI56JI9SAL165", "ArcelorMittal", "FY2023", "2EULGUTUI56JI9SAL165-2024-12-31-ESEF-LU-0", "2023-01-01", "2023-12-31",

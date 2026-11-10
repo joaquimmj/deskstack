@@ -564,8 +564,8 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
             europe_esef:
               `${eu.length} large European and UK listed issuers in ${countries.length} countries (${countries.map(([c, n]) => `${c} ${n}`).join(", ")}), ` +
               "from their ESEF or UKSEF annual reports via filings.xbrl.org; annual only (half-year reports are rare). " +
-              "No German filings and none lodged in Ireland: they are not in the public repository. Irish issuers listed " +
-              "in London (Kerry) file UKSEF and are served.",
+              "No German filings and none lodged in Ireland: they are not in the public repository. Irish issuers whose " +
+              "reports reach it through the UK (Kerry, Glanbia, Irish Continental, Cairn Homes) are served.",
             europe_by_country: Object.fromEntries(countries),
             brazil_cvm: br.length
               ? `${br.length} large non-financial Brazilian listed companies, from their annual DFP and quarterly ITR statements in ` +
