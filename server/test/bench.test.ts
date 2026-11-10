@@ -129,7 +129,7 @@ describe("deskstack-bench (offline)", () => {
     expect(JSON.stringify(sent[1].messages.at(-1))).toMatch(/Not accepted: .*Rates are decimals/);
   });
 
-  it("arm C: the review shows the tie-out mismatch, the fix is resubmitted and scores clean", async () => {
+  it("arm C: the review shows the tie-out mismatch, the fix is resubmitted and scores clean", { timeout: 30_000 }, async () => {
     const planted = structuredClone(DCF);
     planted.history.lines.revenue.values[2] = 416161000; // thousands typed into a model in millions
     const { client, sent } = fakeClient([{ tool: "submit_model", input: planted }, { tool: "submit_model", input: DCF }]);

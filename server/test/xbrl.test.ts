@@ -234,6 +234,23 @@ describe("real filings", () => {
     expect(total.periods[0]!.values.revenue!.value).toBe(1_779e6);
   });
 
+  it("US lease liabilities: a cited line, left out of net debt with a note (Microsoft FY2026, Coca-Cola FY2025; review 2026-11-10)", () => {
+    const d = (v: number, y = 2025) => [fact(v, `${y}-01-01`, `${y}-12-31`, "u", `${y + 1}-02-20`, "10-K", y)];
+    const i = (v: number, y = 2025) => [fact(v, null, `${y}-12-31`, "u", `${y + 1}-02-20`, "10-K", y)];
+    const col = (g: Record<string, RawFact[]>) =>
+      standardize(companyfacts({ Revenues: d(300_000e6), CashAndCashEquivalentsAtCarryingValue: i(30_000e6), ...g }), 5, false).periods[0]!;
+    const msft = col({ LongTermDebtNoncurrent: i(40_000e6), OperatingLeaseLiability: i(21_925e6), FinanceLeaseLiability: i(66_594e6) });
+    expect(msft.balance_sheet.lease_liabilities).toMatchObject({ value: 88_519e6, formula: "operating + finance lease liabilities" });
+    expect(msft.derived.net_debt!.value).toBe(10_000e6); // unchanged
+    expect(msft.derived.net_debt!.note).toMatch(/^excludes 88,519 million of lease liabilities \(operating and finance\)/);
+    const ko = col({ LongTermDebtAndCapitalLeaseObligations: i(42_119e6), OperatingLeaseLiability: i(1_722e6), FinanceLeaseLiability: i(100e6) });
+    expect(ko.balance_sheet.lease_liabilities).toMatchObject({ value: 1_722e6 }); // finance leases are already in its debt
+    expect(ko.derived.net_debt!.note).toMatch(/excludes 1,722 million of operating lease liabilities/);
+    expect(ko.derived.net_debt!.note).toMatch(/includes finance lease obligations/);
+    const parts = col({ LongTermDebtNoncurrent: i(1e9), OperatingLeaseLiabilityNoncurrent: i(749e6), OperatingLeaseLiabilityCurrent: i(135e6) });
+    expect(parts.balance_sheet.lease_liabilities!.value).toBe(884e6);
+  });
+
   it("US D&A and capex say when they are narrower or broader than their name (review 2026-11-10)", () => {
     const d = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
     const vals = (g: Record<string, RawFact[]>) => standardize(companyfacts({ Revenues: d(60_000e6), ...g }), 5, false).periods[0]!.values;
