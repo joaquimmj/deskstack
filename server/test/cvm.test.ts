@@ -62,6 +62,14 @@ describe("CVM extraction", () => {
     expect(fy.derived.ebitda).toBeNull();
   });
 
+  it("minorities come from fixed line 2.03.09, and consolidated equity says it includes them (review 2026-11-10)", () => {
+    // Petrobras BPP 2025: 2.03 = 417,587,000 and 2.03.09 = 1,801,000 thousand reais.
+    const bs = year("FY2025").balance_sheet;
+    expect(bs.noncontrolling_interests).toMatchObject({ value: 1_801_000_000, concept: "ifrs-full:NoncontrollingInterests" });
+    expect(bs.total_equity!.value).toBe(417_587_000_000);
+    expect(bs.total_equity!.note).toMatch(/includes 1,801 million of non-controlling interests/);
+  });
+
   it("net debt says it did not deduct the current financial investments (Aplicações Financeiras)", () => {
     expect(year("FY2025").derived.net_debt!.note).toMatch(/^does not deduct other current financial assets/);
   });

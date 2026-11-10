@@ -35,6 +35,9 @@ export const CVM_ACCOUNTS: Array<{ st: CvmStatement; code: string; concept: stri
   // Patrimônio Líquido Consolidado: includes minorities. CVM has no fixed line for the owners' share alone, and a
   // computed one would not be a filed figure, so total equity here is consolidated (the notes say so).
   { st: "BPP", code: "2.03", concept: "Equity", instant: true },
+  // Participação dos Acionistas Não Controladores: a fixed line, so minorities are served and total equity says it
+  // includes them.
+  { st: "BPP", code: "2.03.09", concept: "NoncontrollingInterests", instant: true },
   { st: "DFC_MI", code: "6.01", concept: "CashFlowsFromUsedInOperatingActivities", instant: false }, // Caixa Líquido Atividades Operacionais
   { st: "DFC_MD", code: "6.01", concept: "CashFlowsFromUsedInOperatingActivities", instant: false },
 ];
