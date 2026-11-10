@@ -3,18 +3,18 @@
 Ten small issues for a first contribution, ready to open with the `good first issue` label. Each says where to work
 and when it's done. CONTRIBUTING.md has the setup and the four promises every change keeps.
 
-## 1. Glossary entries for the newer checker rules
+## 1. Glossary entries for the checker's first rules
 
 **Labels:** `good first issue`, `docs`
 
 The `/guide` skill explains terms in English and French from `plugins/deskstack/skills/guide/references/glossary.md`.
-It has no entry for the five rules added most recently: DS016 (placeholder 0), DS017 (a synthetic series), DS018 (a
-plug), DS019 (interest and debt) and DS020 (a flat share count).
+It explains rules DS016 to DS021, but not the first fifteen (DS001 hardcoded number in a formula to DS015 discount
+timing).
 
 **Where:** the glossary. The rule texts are in `checker/deskstack_check/rules.py` (`RULE_INFO`) and
 `checker/README.md`.
 
-**Done when:** each rule has a short EN and FR entry in the glossary's format, saying what the rule catches and why it
+**Done when:** each rule has a short EN and FR entry in the glossary's format, saying what it catches and why it
 matters.
 
 ## 2. Brazil: capex and D&A from a strict label match
