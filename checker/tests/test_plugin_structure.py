@@ -81,3 +81,37 @@ def test_launcher_runs_without_any_installed_package(tmp_path, skill):
     assert "DS001" in r.stdout, r.stdout + r.stderr
     r = subprocess.run([sys.executable, "-I", "-S", str(launcher), "extract", str(model)], capture_output=True, text=True, cwd=tmp_path)
     assert json.loads(r.stdout)["counts"]["filed"] == 14, r.stderr
+
+
+DOCTOR = PLUGIN / "skills" / "deskstack-doctor" / "scripts" / "doctor.py"
+
+
+def _doctor(plugin_root: Path) -> tuple[int, dict]:
+    script = plugin_root / "skills" / "deskstack-doctor" / "scripts" / "doctor.py"
+    p = subprocess.run([sys.executable, "-I", str(script), "--json"], capture_output=True, text=True)
+    return p.returncode, json.loads(p.stdout)
+
+
+def test_doctor_passes_on_the_plugin_as_shipped():
+    """/deskstack-doctor (stars brief lot 7): Python, plugin version, each role's bundled scripts and openpyxl."""
+    rc, r = _doctor(PLUGIN)
+    pl = json.loads((PLUGIN / ".claude-plugin" / "plugin.json").read_text())
+    assert rc == 0, r
+    assert r["plugin_version"] == pl["version"]
+    by = {c["check"]: c for c in r["checks"]}
+    assert by["Python"]["status"] == "pass"
+    for role in ("analyst", "associate", "vp-review", "md-redteam", "compliance", "sign-off"):
+        assert by[f"/{role} scripts"]["status"] == "pass", by[f"/{role} scripts"]
+        assert "openpyxl 3.1.5" in by[f"/{role} scripts"]["detail"]
+
+
+def test_doctor_says_what_is_broken_and_how_to_fix_it(tmp_path):
+    import shutil
+
+    copy = tmp_path / "deskstack"
+    shutil.copytree(PLUGIN, copy)
+    shutil.rmtree(copy / "skills" / "vp-review" / "scripts" / "_vendor" / "openpyxl")
+    rc, r = _doctor(copy)
+    assert rc == 1
+    bad = next(c for c in r["checks"] if c["check"] == "/vp-review scripts")
+    assert bad["status"] == "fail" and "reinstall" in bad["fix"].lower()

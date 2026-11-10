@@ -41,6 +41,7 @@ This needs Claude Code 2.1.275 or later. On older versions run `/plugin marketpl
 | `deal-team` | Orchestrator | analyst → associate → VP → fixes → MD → compliance → sign-off, with progress at each step |
 | `conventions` | House rules | Formatting, sourcing, units, disclaimer |
 | `guide` | Help | Plain-language explanations (EN/FR) and setup |
+| `deskstack-doctor` | Setup check | Checks the connector, the plugin version, Python and each role's bundled scripts; says how to fix what fails |
 | `quick-dcf`, `comps`, `company-snapshot`, `wacc`, `eu-company` | One-shots | Common tasks; follow with `/associate` and `/vp-review` |
 
 **Agents** (Claude Code and Cowork): `deskstack:associate`, `deskstack:vp-review` and `deskstack:md-redteam` run the

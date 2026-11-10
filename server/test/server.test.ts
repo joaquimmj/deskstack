@@ -319,7 +319,7 @@ describe("guardrails", () => {
     for (let i = 0; i < 5; i++) last = await client.callTool({ name: "data_status", arguments: {} });
     await client.close();
     expect(last!.isError).toBe(true);
-    expect((last!.content as Array<{ text: string }>)[0]!.text).toMatch(/Too many requests/);
+    expect((last!.content as Array<{ text: string }>)[0]!.text).toMatch(/more than 3 requests in a minute.*Retry in a minute.*SELF_HOSTING/s);
   });
 
   it("per-IP limit also holds in each isolate when the Cloudflare limiter lets a burst through (security audit, 2026-11-09)", async () => {
@@ -331,7 +331,7 @@ describe("guardrails", () => {
     for (let i = 0; i < 5; i++) last = await client.callTool({ name: "data_status", arguments: {} });
     await client.close();
     expect(last!.isError).toBe(true);
-    expect((last!.content as Array<{ text: string }>)[0]!.text).toMatch(/Too many requests/);
+    expect((last!.content as Array<{ text: string }>)[0]!.text).toMatch(/more than 3 requests in a minute/);
   });
 
   it("daily cap answers with the self-host message", async () => {
@@ -358,7 +358,7 @@ describe("guardrails", () => {
     const r = await client.callTool({ name: "data_status", arguments: {} });
     await client.close();
     expect(r.isError).toBe(true);
-    expect((r.content as Array<{ text: string }>)[0]!.text).toMatch(/free daily capacity/);
+    expect((r.content as Array<{ text: string }>)[0]!.text).toMatch(/free daily capacity is used up.*resets at 00:00 UTC, in (\d+ h \d+ min|less than a minute).*SELF_HOSTING/s);
   });
 
   it("rejects a foreign browser Origin", async () => {

@@ -28,7 +28,8 @@
    ([self-hosting](docs/SELF_HOSTING.md)).
 2. **Roles:** open **Customize → Plugins → Add marketplace**, paste `https://github.com/joaquimmj/deskstack`, then
    install **deskstack**. In Claude Code: `/plugin install deskstack --marketplace joaquimmj/deskstack` (2.1.275+).
-3. **Try it:** `/deal-team Apple quick-dcf`.
+3. **Try it:** `/deal-team Apple quick-dcf`. If something fails, `/deskstack-doctor` checks the connector, the plugin
+   version, Python and the bundled scripts, and says how to fix what doesn't work.
 
 **Check a workbook from a terminal** (soon, once the package is on PyPI):
 
@@ -158,7 +159,10 @@ Every value carries its source: filing, accession or report, period. The 8 tools
 
 - **Free hosting:** the server runs on Cloudflare Workers' Free plan, with a daily cap and a per-IP limit.
 - **Static snapshot:** SEC data comes from a nightly snapshot served as static files.
-- **Self-hosting:** your own copy takes a few minutes and costs nothing ([docs/SELF_HOSTING.md](docs/SELF_HOSTING.md)).
+- **Self-hosting:** your own copy costs nothing. `scripts/self-host.sh` deploys it in one command
+  ([docs/SELF_HOSTING.md](docs/SELF_HOSTING.md)).
+- **When the shared server is busy:** past the daily cap or the per-minute limit, every tool says what happened, when
+  service comes back (the daily cap resets at 00:00 UTC) and how to self-host.
 - **Privacy:** the server stores no user data and logs no prompts ([PRIVACY.md](PRIVACY.md)).
 
 ## FAQ
