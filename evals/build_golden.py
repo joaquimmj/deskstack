@@ -8,6 +8,8 @@ the filed facts:
     report the period, the latest one wins, so restatements count. The original value is kept when it differs.
   - ESEF: the values Arelle reads from each published report (evals/fixtures/esef-arelle.json, written by
     esef_arelle.py), not deskstack's own extractor.
+  - CVM (Brazil): the published CSVs read by account code with plain Python (evals/fixtures/cvm-answers.json, written
+    by cvm_reader.py), not deskstack's own extractor. No second parser exists for CVM's CSVs.
   - Rates: the Treasury and ECB CSVs, by date.
 A few questions check behavior instead of a number: a bank flagged as financial, null where a figure doesn't apply.
 
@@ -262,6 +264,32 @@ def esef_answer(report: str, concept: str, start: str, end: str, instant: bool) 
         "parser": data["parser"], "url": f"https://filings.xbrl.org/{report}"}}
 
 
+# Brazil: CVM DFP, read by fixed account code. (cd_cvm, name, period label, start, end, [(metric, statement, code)], tags)
+CVM_ANSWERS = ROOT / "evals" / "fixtures" / "cvm-answers.json"
+_BR_LINES = [("revenue", "DRE", "3.01"), ("operating_income", "DRE", "3.05"), ("net_income", "DRE", "3.11.01"),
+             ("total_assets", "BPA", "1"), ("cash", "BPA", "1.01.01"), ("operating_cash_flow", "DFC", "6.01")]
+CVM = [
+    ("009512", "Petrobras", "FY2025", "2025-01-01", "2025-12-31", _BR_LINES, ["br", "cvm"]),
+    ("009512", "Petrobras", "FY2024", "2024-01-01", "2024-12-31", [("revenue", "DRE", "3.01"), ("net_income", "DRE", "3.11.01")], ["br", "cvm", "comparative"]),
+    ("004170", "Vale", "FY2025", "2025-01-01", "2025-12-31", _BR_LINES, ["br", "cvm"]),
+    ("005410", "WEG", "FY2025", "2025-01-01", "2025-12-31", _BR_LINES, ["br", "cvm"]),
+    ("023264", "Ambev", "FY2025", "2025-01-01", "2025-12-31", _BR_LINES, ["br", "cvm"]),
+    ("020087", "Embraer", "FY2025", "2025-01-01", "2025-12-31", _BR_LINES, ["br", "cvm"]),
+    ("020087", "Embraer", "FY2024", "2024-01-01", "2024-12-31", [("revenue", "DRE", "3.01"), ("total_assets", "BPA", "1")], ["br", "cvm", "comparative"]),
+]
+
+
+def cvm_answer(cd: str, statement: str, code: str, start: str, end: str, instant: bool) -> dict:
+    data = json.loads(CVM_ANSWERS.read_text())
+    rows = [a for a in data["answers"] if (a["cd_cvm"], a["statement"], a["code"], a["start"], a["end"]) ==
+            (cd, statement, code, None if instant else start, end)]
+    if len(rows) != 1:
+        raise SystemExit(f"CVM {cd} {statement} {code} {start}..{end} not in {CVM_ANSWERS.name}: run python3 evals/cvm_reader.py")
+    a = rows[0]
+    return {"value": a["value"], "unit": None, "source": {"type": "cvm-dfp", "filing": a["filing"], "account": f"{statement} {code}",
+            "label": a["label"], "start": a["start"], "end": end, "parser": data["parser"], "url": a["url"]}}
+
+
 def treasury_answer(date: str, col: str) -> dict:
     year = date[:4]
     with open(FIX / "rates" / f"treasury_{year}.csv") as f:
@@ -304,6 +332,18 @@ def build() -> dict:
                 "tags": list(tags),
                 "call": {"tool": "financial_statements", "args": {"ticker": lei, "years": 5}},
                 "read": {"kind": "fs", "period": label, "group": GROUP[metric], "key": metric, "end": end},
+                "expected": a["value"], "unit": a["unit"], "source": a["source"],
+            })
+    for cd, name, label, start, end, items, tags in CVM:
+        for metric, statement, code in items:
+            a = cvm_answer(cd, statement, code, start, end, metric in INSTANT)
+            qs.append({
+                "id": f"{name.lower()}-{label.lower()}-{metric.replace('_', '-')}",
+                "question": f"What was {name}'s {LABEL[metric]} for {label} (period ending {end})?",
+                "tags": list(tags),
+                "call": {"tool": "financial_statements", "args": {"ticker": f"CVM{int(cd)}", "years": 5}},
+                "read": {"kind": "fs", "period": label, "group": GROUP[metric], "key": metric, "end": end,
+                         "accession": a["source"]["filing"]},
                 "expected": a["value"], "unit": a["unit"], "source": a["source"],
             })
     for date in ("2026-10-30", "2025-12-31"):

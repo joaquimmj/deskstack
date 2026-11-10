@@ -22,7 +22,7 @@ def test_dry_run_mirrors_the_nightly_deploy_in_order():
     before = (ROOT / "server" / "wrangler.jsonc").read_text()
     out = _dry()
     steps = ["npm ci", "wrangler d1 create", "d1 execute deskstack-usage --remote", "build-snapshot.ts --tickers",
-             "build-damodaran.ts", "build-esef.ts", "wrangler deploy", "wrangler secret put SEC_USER_AGENT"]
+             "build-damodaran.ts", "build-esef.ts", "build-cvm.ts", "wrangler deploy", "wrangler secret put SEC_USER_AGENT"]
     pos = [out.index(s) for s in steps]
     assert pos == sorted(pos), out
     assert "/mcp" in out

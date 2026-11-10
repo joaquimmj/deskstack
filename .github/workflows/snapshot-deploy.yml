@@ -123,6 +123,44 @@ jobs:
             echo "::warning::ESEF build failed and no cached EU snapshot exists; EU issuers unavailable."
             echo "ESEF build failed and no cached copy exists: EU issuers are unavailable until the next good build." >> "$GITHUB_STEP_SUMMARY"
           fi
+      # Brazilian listed companies from CVM's open data (ODbL; docs/DATA_SOURCES.md §13). Past years' ZIPs are cached;
+      # the current and previous year are re-downloaded (CVM updates them weekly). A failure keeps the last good copy.
+      - if: steps.cfg.outputs.ok == 'true'
+        name: Restore CVM cache and last good BR snapshot
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            server/.cvm-cache
+            server/.cvm-last
+          key: cvm-${{ github.run_id }}
+          restore-keys: cvm-
+      - if: steps.cfg.outputs.ok == 'true'
+        id: cvm
+        name: Build Brazilian companies (CVM open data, about 15 ZIPs of 13 MB)
+        continue-on-error: true
+        timeout-minutes: 20
+        run: |
+          npx tsx scripts/build-cvm.ts
+          rm -rf .cvm-last && cp -R snapshot/v1/br .cvm-last
+      - if: steps.cfg.outputs.ok == 'true' && always()
+        name: Save CVM cache
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            server/.cvm-cache
+            server/.cvm-last
+          key: cvm-${{ github.run_id }}
+      - if: steps.cfg.outputs.ok == 'true' && steps.cvm.outcome != 'success'
+        name: Fall back to the last good BR snapshot
+        run: |
+          if [ -d .cvm-last ]; then
+            rm -rf snapshot/v1/br && cp -R .cvm-last snapshot/v1/br
+            echo "::warning::CVM build failed; deploying the last good BR snapshot."
+            echo "CVM build failed tonight; Brazilian companies serve the last good snapshot." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::warning::CVM build failed and no cached BR snapshot exists; Brazilian companies unavailable."
+            echo "CVM build failed and no cached copy exists: Brazilian companies are unavailable until the next good build." >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Deploy to workers.dev
         if: ${{ steps.cfg.outputs.ok == 'true' && env.HAS_CF == 'true' }}
         env:

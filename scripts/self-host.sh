@@ -5,6 +5,7 @@
 #   scripts/self-host.sh --bulk               # every SEC company (downloads 2-3 GB)
 #   scripts/self-host.sh --tickers AAPL,MSFT  # these companies only
 #   scripts/self-host.sh --no-eu              # skip the European issuers (their build takes 10-20 minutes)
+#   (Brazilian companies from CVM's open data are always built: about 200 MB of downloads, a few minutes.)
 #   scripts/self-host.sh --dry-run            # print the steps, run nothing
 #
 # Needs Node.js 24+ and a free Cloudflare account. Costs nothing: Workers Free, D1 Free.
@@ -96,6 +97,9 @@ if [ "$EU" = 1 ]; then
   echo "European issuers: about 10-20 minutes the first time (one report every 2 seconds, as filings.xbrl.org asks)."
   run npx tsx scripts/build-esef.ts || echo "The European build failed: European issuers will be missing. The rest works."
 fi
+
+echo "Brazilian companies: CVM open data, about 15 ZIPs of 13 MB (ODbL: keep the attribution)."
+run npx tsx scripts/build-cvm.ts || echo "The Brazilian build failed: Brazilian companies will be missing. The rest works."
 
 say "6/7  Deploying"
 LOG="$(mktemp)"

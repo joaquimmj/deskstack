@@ -2,9 +2,10 @@
 // they name the data (not a vendor) and use the vocabulary of finance workflows
 // (10-K, LTM, EBITDA, WACC inputs) so /comps and /dcf style skills pick them up.
 
+import { BR_ID_RE, CVM_NOTICE } from "./cvm/record";
 import { McpServer } from "@modelcontextprotocol/server";
 import * as z from "zod/v4";
-import { DISCLAIMER, DUAL_FILERS, PREDECESSORS, PRODUCT_NAME, SELF_HOST_URL, SNAPSHOT_YEARS, VERSION } from "./config";
+import { BR_DATASET_URL, DISCLAIMER, DUAL_FILERS, PREDECESSORS, PRODUCT_NAME, SELF_HOST_URL, SNAPSHOT_YEARS, VERSION } from "./config";
 import { ConfigError, ToolError, UpstreamError } from "./errors";
 import { countryPremium, DAMODARAN_PAGE, industryInputs, industryNames } from "./damodaran";
 import type { Fx } from "./fx";
@@ -22,7 +23,7 @@ import {
   sourcesFor,
 } from "./present";
 import type { Rates } from "./rates";
-import { LEI_RE, type CompanyRow, type EuRow, type Repo } from "./repo";
+import { LEI_RE, type BrRow, type CompanyRow, type EuRow, type Repo } from "./repo";
 import { isFinancial } from "./sec/filings";
 
 export interface Deps {
@@ -34,7 +35,8 @@ export interface Deps {
 export const INSTRUCTIONS = `\
 ${PRODUCT_NAME}: free financial data with citations, from official sources.
 Today: US companies from SEC EDGAR XBRL filings (10-K, 10-Q, 20-F), large European issuers from their \
-ESEF annual reports (IFRS; pass the LEI from company_lookup), computed ratios, risk-free rates (US \
+ESEF annual reports (IFRS; pass the LEI from company_lookup), large Brazilian listed companies from CVM's \
+open data (pass the CVM id or a B3 ticker; ODbL, keep the attribution line), computed ratios, risk-free rates (US \
 Treasury, ECB euro area), ECB exchange rates, and Damodaran's valuation inputs (ERP by country, industry \
 betas and costs of capital).
 - Start with company_lookup to resolve a name to a ticker/CIK, then call financial_statements or key_metrics.
@@ -109,7 +111,7 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
         const q = query.trim().toUpperCase();
         if (!q) throw new ToolError("query is empty");
         const n = limit ?? 10;
-        const [rows, eu] = await Promise.all([repo.companies(), repo.euCompanies()]);
+        const [rows, eu, br] = await Promise.all([repo.companies(), repo.euCompanies(), repo.brCompanies()]);
         const cikMatch = /^(?:CIK)?0*(\d{1,10})$/.exec(q);
         const byCik = cikMatch ? rows.filter((c) => c.cik === Number(cikMatch[1])) : [];
         const exact = rows.filter((c) => (c.ticker ?? "").toUpperCase() === q.replaceAll(".", "-"));
@@ -138,12 +140,26 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
           source: "ESEF annual reports (filings.xbrl.org)",
         });
         const euHits = LEI_RE.test(q) ? eu.filter((c) => c.lei === q) : eu.filter((c) => c.name.toUpperCase().includes(q));
+        const brOut = (c: BrRow) => ({
+          name: c.name,
+          ticker: c.tickers[0] ?? null,
+          id: c.id,
+          tickers: c.tickers,
+          country: "BR",
+          region: "BR",
+          reporting_standard: "IFRS (CVM DFP)",
+          currency: c.currency,
+          fiscal_year_end: c.fiscal_year_end,
+          source: "CVM open data (DFP), ODbL",
+        });
+        const brHits = br.filter((c) => c.id === q || c.tickers.includes(q) || c.name.toUpperCase().includes(q));
         const results: Array<Record<string, unknown>> = [
           ...[...byCik, ...exact].map(us),
           ...euHits.map(euOut),
+          ...brHits.map(brOut),
           ...byName.map(us),
         ].slice(0, n);
-        if (results.length < n && !cikMatch && !LEI_RE.test(q)) {
+        if (results.length < n && !cikMatch && !LEI_RE.test(q) && !BR_ID_RE.test(q) && !brHits.length) {
           // EDGAR's company index also has registrants with no current ticker
           // (a predecessor company, a financing subsidiary). Best effort.
           const have = new Set(results.map((r) => r.cik));
@@ -167,14 +183,15 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
         if (!results.length) {
           throw new ToolError(
             `No company matches ${JSON.stringify(query)}. Try a shorter name, the ticker, or the LEI. European ` +
-              `coverage is ${eu.length} large issuers so far (no German issuers: their reports are not in the public ESEF repository).`,
+              `coverage is ${eu.length} large issuers so far (no German issuers: their reports are not in the public ESEF repository); ` +
+              `Brazilian coverage is ${br.length} large listed companies.`,
           );
         }
         return ok({
           results,
           note:
             "Pass `ticker` (or `CIK##########` when ticker is null) to financial_statements; for EU issuers pass " +
-            "the `lei` as `ticker`. A company listed in both regions (e.g. a 20-F filer) can differ: US filings may " +
+            "the `lei` as `ticker`; for Brazilian companies pass the `id` (CVM####) or a B3 ticker. A company listed in both regions (e.g. a 20-F filer) can differ: US filings may " +
             "use US GAAP or a different presentation than its EU IFRS report.",
         });
       }),
@@ -186,6 +203,19 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
     | { kind: "sec"; rec: Awaited<ReturnType<typeof repo.record>>; predecessor_note?: string; basis_note?: undefined }
   > {
     const t = ticker.trim().toUpperCase();
+    // Brazil: deskstack's CVM id, or a B3 ticker (PETR4) found in the Brazilian index.
+    const brId = BR_ID_RE.test(t)
+      ? t
+      : /^[A-Z]{4}\d{1,2}$/.test(t)
+        ? (await repo.brCompanies()).find((c) => c.tickers.includes(t))?.id
+        : undefined;
+    if (brId) {
+      const rec = await repo.brRecord(brId);
+      if (!rec.financials) {
+        throw new ToolError(`${rec.name} (${rec.lei}) has ${rec.financials_error}; do not substitute figures from memory.`);
+      }
+      return { kind: "eu" as const, rec };
+    }
     if (LEI_RE.test(t)) {
       const rec = await repo.euRecord(t);
       if (!rec.financials) {
@@ -229,11 +259,12 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
   server.registerTool(
     "financial_statements",
     {
-      title: "Financial statements (SEC XBRL, EU ESEF)",
+      title: "Financial statements (SEC XBRL, EU ESEF, Brazil CVM)",
       description:
         "Standardized income statement, cash flow and balance sheet from official filings: SEC EDGAR XBRL " +
         "(10-K / 10-Q, or 20-F for IFRS foreign filers) for US-listed companies, and ESEF annual reports (IFRS) " +
-        "for European issuers (pass their LEI). Annual fiscal years plus, for SEC filers, an LTM (last twelve " +
+        "for European issuers (pass their LEI), and CVM DFP statements for large Brazilian listed companies (pass " +
+        "the CVM id or a B3 ticker; capex, D&A and EPS are null there). Annual fiscal years plus, for SEC filers, an LTM (last twelve " +
         "months) column built as FY + YTD - prior YTD. Includes revenue, gross profit, operating income (EBIT), " +
         "pretax and net income, interest expense, D&A, operating cash flow, capex, diluted shares and EPS, " +
         "cash, short-term investments, total assets, equity and debt components, plus computed EBITDA, " +
@@ -244,7 +275,7 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
           .string()
           .min(1)
           .max(24)
-          .describe("Ticker (e.g. 'AAPL', 'BRK.B'), CIK (e.g. 'CIK0000034088'), or LEI for EU issuers (from company_lookup)"),
+          .describe("Ticker (e.g. 'AAPL', 'BRK.B'), CIK (e.g. 'CIK0000034088'), LEI for EU issuers, or CVM id / B3 ticker for Brazil (from company_lookup)"),
         years: z
           .number()
           .int()
@@ -282,7 +313,7 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
         "LTM where available. Ratios are decimals (0.25 = 25%). Null when an input is not reported. Banks and " +
         "insurers get no EBITDA-based ratios or ROIC.",
       inputSchema: z.object({
-        ticker: z.string().min(1).max(24).describe("Ticker (e.g. 'AAPL'), CIK, or LEI for EU issuers"),
+        ticker: z.string().min(1).max(24).describe("Ticker (e.g. 'AAPL'), CIK, LEI for EU issuers, or CVM id / B3 ticker for Brazil"),
         years: z.number().int().min(1).max(SNAPSHOT_YEARS - 1).optional().describe("Number of fiscal years (default 5)"),
         include_ltm: z.boolean().optional().describe("Add LTM ratios when available (default true)"),
       }),
@@ -304,7 +335,7 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
         if (financial) {
           warnings.push("financial_company: EBITDA-based ratios and ROIC are not meaningful for banks and insurers (null).");
         }
-        const id = r.kind === "eu" ? `LEI ${r.rec.lei}` : (company.ticker ?? `CIK ${r.rec.cik}`);
+        const id = r.kind === "eu" ? (r.rec.kind === "cvm" ? r.rec.lei : `LEI ${r.rec.lei}`) : (company.ticker ?? `CIK ${r.rec.cik}`);
         return ok({
           summary:
             `${company.name} (${id}): ${periods.length} period(s) of ratios computed by ` +
@@ -327,14 +358,14 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
     {
       title: "Tie out numbers to the filings",
       description:
-        "Check numbers from a model, memo or deck against the filed figures (SEC XBRL or EU ESEF). Pass the company " +
+        "Check numbers from a model, memo or deck against the filed figures (SEC XBRL, EU ESEF or Brazil CVM). Pass the company " +
         "and up to 50 items, each with a line item (e.g. 'revenue', 'net income', 'EBIT', 'capex', 'total debt'), a " +
         "period ('FY2024', 'LTM', 'latest' or an end date), the value and its scale (units, thousands, millions, " +
         "billions). Each item comes back as match / mismatch / not_found / ambiguous with the filed value, the " +
         "difference, the source, and hints for common errors: wrong scale, flipped sign, wrong currency, a figure " +
         "from another period, or a different line item. Use it to tie out every hardcoded input before sharing work.",
       inputSchema: z.object({
-        company: z.string().min(1).max(24).describe("Ticker, CIK, or LEI (EU issuers), as for financial_statements"),
+        company: z.string().min(1).max(24).describe("Ticker, CIK, LEI (EU issuers) or CVM id / B3 ticker (Brazil), as for financial_statements"),
         items: z
           .array(
             z.object({
@@ -516,7 +547,7 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
     },
     async () =>
       guarded(async () => {
-        const [m, eu] = await Promise.all([repo.manifest(), repo.euCompanies()]);
+        const [m, eu, br] = await Promise.all([repo.manifest(), repo.euCompanies(), repo.brCompanies()]);
         const byCountry: Record<string, number> = {};
         for (const e of eu) byCountry[e.country] = (byCountry[e.country] ?? 0) + 1;
         const countries = Object.entries(byCountry).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
@@ -531,6 +562,11 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
               "No German filings and none lodged in Ireland: they are not in the public repository. Irish issuers listed " +
               "in London (Kerry) file UKSEF and are served.",
             europe_by_country: Object.fromEntries(countries),
+            brazil_cvm: br.length
+              ? `${br.length} large non-financial Brazilian listed companies, from their annual DFP statements in CVM's ` +
+                "open data (consolidated, annual only; capex, D&A and EPS are not fixed lines and are null). " + CVM_NOTICE +
+                " The whole Brazilian dataset deskstack derives is free to download (ODbL): " + BR_DATASET_URL
+              : "not deployed",
             ratios: "key_metrics: computed from the SEC statements, each with its formula",
             risk_free_rates: "US Treasury par yield curve; ECB euro area par yields (AAA or all issuers)",
             fx: "fx_rate: ECB euro reference rates, any pair crossed through EUR",

@@ -22,6 +22,15 @@ export interface EuRow {
   fiscal_year_end: string | null;
 }
 
+/** A Brazilian listed company in the CVM index (src/cvm/record.ts). */
+export interface BrRow {
+  id: string;
+  name: string;
+  tickers: string[];
+  currency: string | null;
+  fiscal_year_end: string | null;
+}
+
 /** LEI (ISO 17442): 18 alphanumerics + 2 check digits. */
 export const LEI_RE = /^[A-Z0-9]{18}[0-9]{2}$/;
 
@@ -142,6 +151,36 @@ export class Repo {
       );
     }
     if (!rec.built_at) rec.built_at = (await this.memoAsset<{ built_at: string }>("/eu/manifest.json"))?.built_at ?? "";
+    return rec;
+  }
+
+  /** Brazilian listed companies built from CVM's open data (empty when the BR snapshot isn't deployed). */
+  async brCompanies(): Promise<BrRow[]> {
+    const file = await this.memoAsset<CompanyIndexFile>("/br/companies.json");
+    if (!file) return [];
+    const f = file.fields;
+    return file.data.map((r) => {
+      const get = (k: string) => r[f.indexOf(k)];
+      return {
+        id: String(get("id")),
+        name: String(get("name")),
+        tickers: Array.isArray(get("tickers")) ? (get("tickers") as string[]) : [],
+        currency: (get("currency") as string | null) ?? null,
+        fiscal_year_end: (get("fiscal_year_end") as string | null) ?? null,
+      };
+    });
+  }
+
+  /** A Brazilian company's record by deskstack id (CVM9512); a ToolError explains coverage when it isn't built. */
+  async brRecord(id: string): Promise<EuRecord> {
+    const rec = /^CVM\d{1,6}$/.test(id) ? await this.asset<EuRecord>(`/br/co/${id}.json`) : null;
+    if (!rec) {
+      throw new ToolError(
+        `${id} is not in the Brazilian coverage yet. Covered companies are listed by company_lookup (region BR): ` +
+          "large non-financial listed companies, from CVM's open data.",
+      );
+    }
+    if (!rec.built_at) rec.built_at = (await this.memoAsset<{ built_at: string }>("/br/manifest.json"))?.built_at ?? "";
     return rec;
   }
 

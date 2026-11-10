@@ -165,7 +165,8 @@ export const IFRS_INSTANT_CONCEPTS: Record<string, string[]> = {
 };
 
 // "ESEF" / "ESEF-HY": European annual and half-year reports (src/esef/extract.ts).
-export const ANNUAL_FORMS = new Set(["10-K", "10-K/A", "10-KT", "20-F", "20-F/A", "40-F", "40-F/A", "ESEF"]);
+// "DFP": Brazilian annual statements from CVM's open data (src/cvm/extract.ts).
+export const ANNUAL_FORMS = new Set(["10-K", "10-K/A", "10-KT", "20-F", "20-F/A", "40-F", "40-F/A", "ESEF", "DFP"]);
 export const QUARTERLY_FORMS = new Set(["10-Q", "10-Q/A", "ESEF-HY"]); // 6-K interims carry no XBRL financials
 
 /** The filer has no usable annual facts in either taxonomy (new registrant, fund...). */
@@ -656,7 +657,8 @@ function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | nu
     if (tx === IFRS && inst.short_term_investments == null && ocfa) {
       out.net_debt.note =
         `does not deduct other current financial assets (${Math.round(ocfa / 1e6).toLocaleString("en-US")} million), ` +
-        "which the filer tags only together with derivatives and receivables; check its net debt definition";
+        "a line that can mix investments, derivatives and receivables, so the cash-like part isn't known; check " +
+        "the company's own net debt definition";
     }
   } else {
     out.net_debt = null;
@@ -842,7 +844,7 @@ function filingIndex(ns: Namespace): Map<string, { form: string | null; filed: s
 
 export interface StandardizeOptions {
   /** Where the facts come from: SEC companyfacts (default) or ESEF reports. Changes notes and citation URLs. */
-  source?: "sec" | "esef";
+  source?: "sec" | "esef" | "cvm";
   /** Citation URL for an accession / filing id (default: the SEC EDGAR filing index). */
   filingUrl?: (accession: string) => string;
 }
@@ -902,6 +904,14 @@ export function standardize(cf: CompanyFacts, years = 5, includeLtm = true, opts
     if (!columns.some((c) => c.type === "ltm")) {
       notes.push("No LTM column: the issuer's half-year report is not available in ESEF format.");
     }
+  } else if (opts.source === "cvm") {
+    notes.push(
+      "CVM DFP (Brazil, IFRS as issued through the CPC), consolidated statements, read by CVM's fixed chart of " +
+        "accounts (e.g. 3.01 revenue, 3.05 profit before financial result and taxes as operating income). Capex, D&A " +
+        "and EPS are not fixed lines in that chart, so they are null. Total equity is consolidated, including " +
+        "non-controlling interests. Annual only. Contains information from the CVM Open Data Portal " +
+        "(https://dados.cvm.gov.br/), made available under the Open Database License (ODbL).",
+    );
   } else if (ctx.tx === IFRS) {
     notes.push(
       "IFRS filer (20-F/40-F): figures follow IFRS, not US GAAP. Interim results are furnished " +

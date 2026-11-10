@@ -15,7 +15,8 @@ The script:
 1. asks for your SEC contact;
 2. signs you in to Cloudflare;
 3. creates your daily-cap database and writes its id into your `server/wrangler.jsonc`;
-4. builds the data for 10 large US companies, Damodaran's valuation inputs and the European issuers;
+4. builds the data for 10 large US companies, Damodaran's valuation inputs, the European issuers and the Brazilian
+   companies;
 5. deploys and prints your connector URL.
 
 The European build takes 10-20 minutes the first time. Options:
@@ -43,6 +44,8 @@ npx wrangler login
      `valuation_inputs` is unavailable.
    - **European issuers** (ESEF and UKSEF reports, 10-20 minutes): `npx tsx scripts/build-esef.ts`. Without it,
      European companies are missing.
+   - **Brazilian companies** (CVM open data, a few minutes): `npx tsx scripts/build-cvm.ts`. The data is under the
+     ODbL: keep the attribution, and keep `v1/br/dataset.json` downloadable.
 3. **Deploy:** `npm run deploy`. Wrangler prints your URL, `https://deskstack.<you>.workers.dev`.
 4. **Connect it in Claude:** Settings → Connectors → Add custom connector. Paste `https://deskstack.<you>.workers.dev/mcp`, with no sign-in.
 
