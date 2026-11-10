@@ -158,6 +158,10 @@ export const IFRS_INSTANT_CONCEPTS: Record<string, string[]> = {
   total_equity: ["EquityAttributableToOwnersOfParent", "Equity"],
   // An input only: derive() notes it when total equity falls back to Equity, which includes minorities (Orkla).
   equity_nci: ["NoncontrollingInterests"],
+  // Inputs only: derive() says how much lease liability net debt leaves out (IFRS 16 puts all leases on the balance sheet).
+  lease_liabilities: ["LeaseLiabilities"],
+  lease_liabilities_noncurrent: ["NoncurrentLeaseLiabilities"],
+  lease_liabilities_current: ["CurrentLeaseLiabilities"],
   // IFRS Borrowings is current + non-current; the pieces are the fallback.
   borrowings: ["Borrowings"],
   borrowings_noncurrent: ["LongtermBorrowings", "NoncurrentPortionOfNoncurrentLoansReceived"],
@@ -696,10 +700,23 @@ function derive(row: Record<string, Cell | null>, inst: Record<string, Cell | nu
         "a line that can mix investments, derivatives and receivables, so the cash-like part isn't known; check " +
         "the company's own net debt definition";
     }
+    const leaseParts = [v(inst, "lease_liabilities_noncurrent"), v(inst, "lease_liabilities_current")];
+    const leases = v(inst, "lease_liabilities") ??
+      (leaseParts.some((x) => x !== null) ? leaseParts.reduce<number>((t, x) => t + (x ?? 0), 0) : null);
+    if (tx === IFRS && leases) {
+      const lease =
+        `excludes ${Math.round(leases / 1e6).toLocaleString("en-US")} million of lease liabilities (IFRS 16); many ` +
+        "issuers include them in their own net debt";
+      out.net_debt.note = out.net_debt.note ? `${out.net_debt.note}; ${lease}` : lease;
+    }
   } else {
     out.net_debt = null;
   }
-  delete inst.other_current_financial_assets; // an input to the note above, not a balance-sheet line
+  // Inputs to the notes above, not balance-sheet lines of their own.
+  delete inst.other_current_financial_assets;
+  delete inst.lease_liabilities;
+  delete inst.lease_liabilities_noncurrent;
+  delete inst.lease_liabilities_current;
   const nciEq = inst.equity_nci;
   if (inst.total_equity?.concept === "ifrs-full:Equity" && nciEq && nciEq.value !== 0) {
     inst.total_equity = withNote(
