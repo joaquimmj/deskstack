@@ -167,7 +167,8 @@ export const IFRS_INSTANT_CONCEPTS: Record<string, string[]> = {
 // "ESEF" / "ESEF-HY": European annual and half-year reports (src/esef/extract.ts).
 // "DFP": Brazilian annual statements from CVM's open data (src/cvm/extract.ts).
 export const ANNUAL_FORMS = new Set(["10-K", "10-K/A", "10-KT", "20-F", "20-F/A", "40-F", "40-F/A", "ESEF", "DFP"]);
-export const QUARTERLY_FORMS = new Set(["10-Q", "10-Q/A", "ESEF-HY"]); // 6-K interims carry no XBRL financials
+// "ITR": Brazilian quarterly statements from CVM's open data.
+export const QUARTERLY_FORMS = new Set(["10-Q", "10-Q/A", "ESEF-HY", "ITR"]); // 6-K interims carry no XBRL financials
 
 /** The filer has no usable annual facts in either taxonomy (new registrant, fund...). */
 export class NoAnnualFacts extends Error {
@@ -909,7 +910,8 @@ export function standardize(cf: CompanyFacts, years = 5, includeLtm = true, opts
       "CVM DFP (Brazil, IFRS as issued through the CPC), consolidated statements, read by CVM's fixed chart of " +
         "accounts (e.g. 3.01 revenue, 3.05 profit before financial result and taxes as operating income). Capex, D&A " +
         "and EPS are not fixed lines in that chart, so they are null. Total equity is consolidated, including " +
-        "non-controlling interests. Annual only. Contains information from the CVM Open Data Portal " +
+        "non-controlling interests. Annual fiscal years from the DFP, plus LTM from the latest ITR (quarterly) when one " +
+        "follows the last DFP. Contains information from the CVM Open Data Portal " +
         "(https://dados.cvm.gov.br/), made available under the Open Database License (ODbL).",
     );
   } else if (ctx.tx === IFRS) {

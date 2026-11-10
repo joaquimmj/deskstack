@@ -264,7 +264,7 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
         "Standardized income statement, cash flow and balance sheet from official filings: SEC EDGAR XBRL " +
         "(10-K / 10-Q, or 20-F for IFRS foreign filers) for US-listed companies, and ESEF annual reports (IFRS) " +
         "for European issuers (pass their LEI), and CVM DFP statements for large Brazilian listed companies (pass " +
-        "the CVM id or a B3 ticker; capex, D&A and EPS are null there). Annual fiscal years plus, for SEC filers, an LTM (last twelve " +
+        "the CVM id or a B3 ticker; capex, D&A and EPS are null there). Annual fiscal years plus, for SEC filers and Brazil, an LTM (last twelve " +
         "months) column built as FY + YTD - prior YTD. Includes revenue, gross profit, operating income (EBIT), " +
         "pretax and net income, interest expense, D&A, operating cash flow, capex, diluted shares and EPS, " +
         "cash, short-term investments, total assets, equity and debt components, plus computed EBITDA, " +
@@ -563,8 +563,8 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
               "in London (Kerry) file UKSEF and are served.",
             europe_by_country: Object.fromEntries(countries),
             brazil_cvm: br.length
-              ? `${br.length} large non-financial Brazilian listed companies, from their annual DFP statements in CVM's ` +
-                "open data (consolidated, annual only; capex, D&A and EPS are not fixed lines and are null). " + CVM_NOTICE +
+              ? `${br.length} large non-financial Brazilian listed companies, from their annual DFP and quarterly ITR statements in ` +
+                "CVM's open data (consolidated; annual years plus LTM; capex, D&A and EPS are not fixed lines and are null). " + CVM_NOTICE +
                 " The whole Brazilian dataset deskstack derives is free to download (ODbL): " + BR_DATASET_URL
               : "not deployed",
             ratios: "key_metrics: computed from the SEC statements, each with its formula",

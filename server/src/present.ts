@@ -189,10 +189,10 @@ export function euSourcesFor(rec: EuRecord, cited: Set<string>): Source[] {
     return [...cited].sort().map((a) => {
       const f = rec.filings[a];
       return {
-        name: `${rec.name}, DFP annual financial statements (CVM Open Data Portal)`,
+        name: `${rec.name}, ${f?.kind === "half-year" ? "ITR quarterly" : "DFP annual"} financial statements (CVM Open Data Portal)`,
         url: std.filings[a]?.url ?? "",
         accession_or_id: a,
-        form: "DFP",
+        form: f?.kind === "half-year" ? "ITR" : "DFP",
         period: f?.report_end ?? null,
         as_of: (f?.published ?? f?.processed ?? "").slice(0, 10) || null,
         license_note: CVM_LICENSE,
