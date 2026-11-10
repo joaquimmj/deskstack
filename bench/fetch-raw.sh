@@ -11,7 +11,8 @@ NAME="deskstack-bench-raw-2026-11-09.tar.gz"
 URL="${DS_RAW_URL:-https://github.com/joaquimmj/deskstack/releases/download/bench-raw-2026-11-09/$NAME}"
 SHA256="${DS_RAW_SHA256:-4efd0c0e44d2af040cebee6a3dea6c80ad2cbb9adb2bea2b8f61826edb321fc5}"
 
-cd "$(dirname "$0")/.."
+# Where to unpack: the repository root (tests point DS_RAW_DEST at a temporary folder).
+cd "${DS_RAW_DEST:-$(dirname "$0")/..}"
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
 echo "Downloading $URL (about 20 MB)"
@@ -21,9 +22,12 @@ if [ "$got" != "$SHA256" ]; then
   echo "Checksum mismatch: expected $SHA256, got $got. Nothing was unpacked." >&2
   exit 1
 fi
-# Only paths under bench/results/, and only runs/ or work/ folders.
-if tar -tzf "$tmp/$NAME" | grep -vqE '^bench/results/([^/]+/)+(runs|work)(/|$)'; then
-  echo "The archive holds files outside bench/results/*/runs|work. Nothing was unpacked." >&2
+# Only paths under bench/results/, only runs/ or work/ folders, no ".." anywhere, and only files and folders
+# (no links, devices or fifos).
+if tar -tzf "$tmp/$NAME" | grep -vqE '^bench/results/([^/]+/)+(runs|work)(/|$)' \
+  || tar -tzf "$tmp/$NAME" | grep -qE '(^|/)\.\.(/|$)' \
+  || tar -tvzf "$tmp/$NAME" | grep -qvE '^[-d]'; then
+  echo "The archive holds something other than files and folders under bench/results/*/runs|work. Nothing was unpacked." >&2
   exit 1
 fi
 tar -xzf "$tmp/$NAME"

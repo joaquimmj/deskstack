@@ -282,3 +282,25 @@ def test_ds021_says_what_the_cell_shows(tmp_path):
     m_rate_percent_format(m)
     f = next(f for f in run(m, tmp_path)["findings"] if f["rule"] == "DS021")
     assert f["ref"] == "Inputs!B5" and f["severity"] == "major" and "2000%" in f["message"]
+
+
+def test_ds021_no_false_positives_found_in_review(tmp_path):
+    """Review 2026-11-10: a literal % in the format, growth above 100%, a beta or a spread on a rate row."""
+    m = clean_dcf()
+    ws = m.sheet("Inputs")
+    ws["B4"].value, ws["B4"].number_format = 1.5, "0%"  # 150% revenue growth: unusual, not a units error
+    m.text("Inputs", "A20", "Cost of equity")
+    m.text("Inputs", "B20", "Beta")
+    m.inp("Inputs", "C20", 1.2)
+    m.text("Inputs", "A21", "Cost of debt")
+    m.text("Inputs", "B21", "spread (bps)")
+    m.inp("Inputs", "C21", 75.0)
+    assert "DS021" not in rules(run(m, tmp_path))
+
+
+def test_ds021_a_literal_percent_sign_is_not_a_percent_cell(tmp_path):
+    m = clean_dcf()
+    c = m.sheet("Inputs")["B5"]
+    c.value, c.number_format = 20.0, '0.0"%"'  # shows "20.0%" without multiplying by 100
+    f = next(f for f in run(m, tmp_path)["findings"] if f["rule"] == "DS021")
+    assert "percent cell" not in f["message"] and "other" in f["message"]  # still out of line with the decimal rates

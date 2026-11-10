@@ -5,7 +5,7 @@
   deskstack-check model.xlsx --markdown | --json  other formats
 
 Options:
-  --verify             call verify_value on the deskstack connector (sends the typed figures, nothing else)
+  --verify             call verify_value on the deskstack connector (sends the typed figures, with their line, period and cell)
   --company ID         ticker, CIK or LEI, when the workbook doesn't name its company as "Name (TICKER)"
   --connector URL      another deskstack server, e.g. your self-hosted copy (default: the public one)
   --ignore DS001,DS010 leave out rules a team accepts on purpose (the report says which)
@@ -62,7 +62,8 @@ def _post(url: str, payload: dict, timeout: float = 60) -> dict:
     except ValueError:
         raise ConnectorError(f"{url} did not answer with MCP JSON") from None
     if "error" in msg:
-        raise ConnectorError(f"{url}: {msg['error'].get('message', msg['error'])}")
+        err = msg["error"]
+        raise ConnectorError(f"{url}: {err.get('message', err) if isinstance(err, dict) else err}")
     return msg.get("result", {})
 
 
@@ -89,7 +90,7 @@ def verify(path: str, url: str, company: str | None = None) -> dict:
     if not batches:
         return {"report": "tieout", "file": path, "counts": {}, "rows": [], "note": "No typed figure that a filing reports was found."}
     for b in batches:
-        if company:
+        if company and not b.get("company"):  # only where the workbook names no company
             b["company"] = company
         if not b.get("company"):
             raise ConnectorError("the workbook doesn't name its company as 'Name (TICKER)': pass --company TICKER (or a CIK or LEI)")
@@ -231,6 +232,10 @@ def main(argv: list[str] | None = None) -> int:
             continue
         except (FileNotFoundError, IsADirectoryError, ValueError, OSError) as e:
             print(f"Error: {path}: {e}", file=sys.stderr)
+            worst = max(worst, 2)
+            continue
+        except Exception as e:  # noqa: BLE001 - a file openpyxl can't read (e.g. a ZIP that isn't a workbook): exit 2, not 1
+            print(f"Error: {path}: not a readable .xlsx workbook ({type(e).__name__}: {e})", file=sys.stderr)
             worst = max(worst, 2)
             continue
         bad = fails(rep, tie, level)

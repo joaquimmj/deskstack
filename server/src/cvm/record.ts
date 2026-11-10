@@ -19,6 +19,13 @@ export function brId(cdCvm: string): string {
   return `CVM${Number(cdCvm)}`;
 }
 
+/** The index row for a company: id, name, tickers, currency, and the fiscal year end of its last annual column
+ * (the LTM column comes after the annual ones, and ends on a quarter). */
+export function brIndexRow(rec: EuRecord): [string, string, string[], string | null, string | null] {
+  const lastAnnual = rec.financials?.periods.filter((p) => p.type === "annual").at(-1);
+  return [rec.lei, rec.name, rec.cvm?.tickers ?? [], rec.financials?.currency ?? null, lastAnnual?.end.slice(5).replace("-", "") ?? null];
+}
+
 export interface BrIssuer {
   cd_cvm: string;
   name: string;

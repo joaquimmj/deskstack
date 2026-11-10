@@ -137,3 +137,47 @@ def test_ignore_drops_rules_from_the_report_and_the_exit_code(tmp_path, capsys):
     r = json.loads(capsys.readouterr().out)
     assert r["ignored"] == ["DS001"] and {f["rule"] for f in r["model_check"]["findings"]} == {"DS002"}
     assert main([model, "--ignore", "nope"]) == 2
+
+
+def test_company_fills_only_the_batches_that_name_none(server, capsys, monkeypatch):
+    """--company is for workbooks that don't name their company; a comps row naming MSFT stays MSFT (review 2026-11-10)."""
+    import deskstack_check.cli as cli
+
+    sent = []
+    monkeypatch.setattr(cli, "call_tool", lambda url, name, args: sent.append(args["company"]) or {"results": []})
+    monkeypatch.setattr("deskstack_check.tieout.extract", lambda p: {"verify_batches": [{"company": "MSFT", "items": [{"ref": "A!B1"}]},
+                                                                               {"company": None, "items": [{"ref": "A!B2"}]}]})
+    monkeypatch.setattr("deskstack_check.tieout.report", lambda p, r: {"counts": {}, "rows": []})
+    cli.verify("x.xlsx", server, company="AAPL")
+    assert sent == ["MSFT", "AAPL"]
+
+
+def test_a_broken_workbook_exits_2_with_a_message_not_a_traceback(tmp_path, capsys):
+    import zipfile
+
+    bad = tmp_path / "broken.xlsx"
+    with zipfile.ZipFile(bad, "w") as z:
+        z.writestr("hello.txt", "not a workbook")
+    assert main([str(bad)]) == 2
+    err = capsys.readouterr().err
+    assert "Error:" in err and "Traceback" not in err
+
+
+def test_a_connector_error_that_is_not_an_object_is_still_reported(capsys, monkeypatch):
+    import deskstack_check.cli as cli
+
+    class R:
+        headers = {"Content-Type": "application/json"}
+
+        def read(self):
+            return b'{"jsonrpc":"2.0","id":1,"error":"boom"}'
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+    monkeypatch.setattr(cli.urllib.request, "urlopen", lambda req, timeout=60: R())
+    with pytest.raises(cli.ConnectorError, match="boom"):
+        cli._post("http://x/mcp", {})

@@ -345,7 +345,7 @@
       [
         "filings.xbrl.org",
         "Financial statements, Europe and UK",
-        "ESEF and UKSEF annual reports of 180 large issuers in 14 countries: 55 UK listed companies, and issuers from France and the Netherlands to Spain, Italy and the Nordics."
+        "ESEF and UKSEF annual reports of 197 large issuers in 14 countries: 72 UK listed companies, and issuers from France and the Netherlands to Spain, Italy and the Nordics."
       ],
       [
         "CVM open data",
@@ -489,7 +489,7 @@
     "tag_cli": "Without Claude",
     "k_t1": "Check any AI-built model",
     "k_t2": "in one command.",
-    "k_p": "<code>deskstack-check</code> checks any .xlsx model, whether Claude, ChatGPT, Copilot, another tool or a person built it. Offline, it runs the 21 model checks. With <code>--verify</code>, it also ties every typed figure to the filing; only those figures are sent.",
+    "k_p": "<code>deskstack-check</code> checks any .xlsx model, whether Claude, ChatGPT, Copilot, another tool or a person built it. Offline, it runs the 21 model checks. With <code>--verify</code>, it also ties every typed figure to the filing; only those figures are sent, each with its line item, period and cell reference.",
     "k_cmd": "pipx run deskstack-check model.xlsx --verify",
     "k_soon": "Soon on PyPI. Today, from a clone: <code>pipx run --spec ./checker deskstack-check model.xlsx</code>.",
     "k_out": "$ deskstack-check model.xlsx --verify\nmodel.xlsx  (deskstack_check 0.2.0, sha256 ced59305c2dd)\nModel checks: 0 blocker, 0 major, 0 minor, 0 info\nTie-out to the filings (AAPL): 13 of 14 match, 1 do not\n  MISMATCH  Inputs!C5  Revenue FY2025  416,116  filed 416,161\n           Typo: two adjacent digits look swapped (filed 416,161, written 416,116).\nFAIL (fails on blocker)",
@@ -874,7 +874,7 @@
       [
         "filings.xbrl.org",
         "États financiers, Europe et Royaume-Uni",
-        "Rapports annuels ESEF et UKSEF de 180 grands émetteurs dans 14 pays : 55 sociétés cotées au Royaume-Uni, et des émetteurs de la France et des Pays-Bas à l'Espagne, l'Italie et les pays nordiques."
+        "Rapports annuels ESEF et UKSEF de 197 grands émetteurs dans 14 pays : 72 sociétés cotées au Royaume-Uni, et des émetteurs de la France et des Pays-Bas à l'Espagne, l'Italie et les pays nordiques."
       ],
       [
         "Données ouvertes CVM",
@@ -1018,7 +1018,7 @@
     "tag_cli": "Sans Claude",
     "k_t1": "Vérifiez n'importe quel modèle fait par une IA",
     "k_t2": "en une commande.",
-    "k_p": "<code>deskstack-check</code> vérifie n'importe quel modèle .xlsx, qu'il vienne de Claude, de ChatGPT, de Copilot, d'un autre outil ou d'une personne. Hors ligne, il lance les 21 contrôles du modèle. Avec <code>--verify</code>, il rapproche aussi chaque chiffre saisi du dépôt ; seuls ces chiffres sont envoyés.",
+    "k_p": "<code>deskstack-check</code> vérifie n'importe quel modèle .xlsx, qu'il vienne de Claude, de ChatGPT, de Copilot, d'un autre outil ou d'une personne. Hors ligne, il lance les 21 contrôles du modèle. Avec <code>--verify</code>, il rapproche aussi chaque chiffre saisi du dépôt ; seuls ces chiffres sont envoyés, chacun avec sa ligne, sa période et sa cellule.",
     "k_cmd": "pipx run deskstack-check model.xlsx --verify",
     "k_soon": "Bientôt sur PyPI. Aujourd'hui, depuis un clone : <code>pipx run --spec ./checker deskstack-check model.xlsx</code>.",
     "k_out": "$ deskstack-check model.xlsx --verify\nmodel.xlsx  (deskstack_check 0.2.0, sha256 ced59305c2dd)\nModel checks: 0 blocker, 0 major, 0 minor, 0 info\nTie-out to the filings (AAPL): 13 of 14 match, 1 do not\n  MISMATCH  Inputs!C5  Revenue FY2025  416,116  filed 416,161\n           Typo: two adjacent digits look swapped (filed 416,161, written 416,116).\nFAIL (fails on blocker)",

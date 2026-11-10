@@ -535,18 +535,44 @@ RATE_RE = re.compile(
 )
 
 
+# Rates that can legitimately exceed 100% (fast growth, a start-up's margin): flagged only from 2 (200%) up.
+WIDE_RATE_RE = re.compile(r"\b(growth|cagr|margin)\b", re.I)
+# Not rates, though they sit on rate rows: a beta, a spread in basis points, a multiple.
+NOT_A_RATE_RE = re.compile(r"\b(beta|bps|basis points?|multiple|times)\b|\bx\b", re.I)
+
+
+def _percent_format(fmt: str | None) -> bool:
+    """A format that multiplies by 100: a % outside quotes and escapes (0.0"%" and 0\\% show the number as typed)."""
+    if not fmt:
+        return False
+    bare = re.sub(r'"[^"]*"|\\.', "", fmt)
+    return "%" in bare
+
+
+def _row_text(wb: Workbook, c) -> str:
+    """Every text cell to the left on the row (a row can read 'Cost of equity | Beta | 1.2')."""
+    return " ".join(
+        str(o.constant) for o in wb.cells[c.sheet].values() if o.row == c.row and o.col < c.col and isinstance(o.constant, str)
+    )
+
+
 def r_percent_units(wb: Workbook) -> list[Finding]:
     """DS021: a rate typed as a whole number (5 for 5%): shown as 500% in a % cell, or out of line with the model's
     other rates, which are decimals. A model that types every rate as a whole percent is left alone."""
-    rates = [c for c in wb.all() if c.is_number_constant and _looks_like_model_number(wb, c) and RATE_RE.search(label_of(wb, c))]
+    rates = [
+        c for c in wb.all()
+        if c.is_number_constant and _looks_like_model_number(wb, c) and RATE_RE.search(label_of(wb, c))
+        and not NOT_A_RATE_RE.search(_row_text(wb, c))
+    ]
     decimals = sum(1 for c in rates if 0 < abs(c.constant) < 1)
     out = []
     for c in rates:
         v = c.constant
-        if abs(v) <= 1:
-            continue
         label = label_of(wb, c)
-        if c.number_format and "%" in c.number_format:
+        floor = 2 if WIDE_RATE_RE.search(label) else 1
+        if abs(v) < floor or abs(v) <= 1:
+            continue
+        if _percent_format(c.number_format):
             out.append(Finding("DS021", "major", c.ref, f"{label!r} is typed as {v:g} in a percent cell, so it shows as {v * 100:.0f}%: a rate typed as a whole number?"))
         elif abs(v) <= 100 and decimals >= 2:
             out.append(Finding("DS021", "major", c.ref, f"{label!r} is typed as {v:g} while the model's other {decimals} rates are decimals (e.g. 0.05 for 5%): it reads as {v * 100:.0f}%."))

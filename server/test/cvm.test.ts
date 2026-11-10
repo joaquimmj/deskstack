@@ -148,3 +148,33 @@ describe("CVM through the tools", () => {
     expect(r.json.coverage.brazil_cvm).toMatch(/dataset\.json/);
   });
 });
+
+describe("CVM review fixes (2026-11-10)", () => {
+  it("the index row takes the fiscal year end from the last annual column, not the LTM", async () => {
+    const { brIndexRow } = await import("../src/cvm/record");
+    const petr = brRecords().find((r) => r.cvm!.code === "009512")!;
+    expect(petr.financials!.periods.at(-1)!.type).toBe("ltm"); // the trap: the last column is the LTM to June
+    expect(brIndexRow(petr)).toEqual(["CVM9512", "PETROLEO BRASILEIRO S.A. PETROBRAS", ["PETR3", "PETR4"], "BRL", "1231"]);
+  });
+
+  it("an empty amount stays absent, never a cited 0", () => {
+    const files = new Map([
+      [`dfp_cia_aberta_2025.csv`, `${HEAD_INDEX}\n1;2025-12-31;1;X SA;000001;DFP;100;2026-03-01;http://x/100`],
+      [`dfp_cia_aberta_DRE_con_2025.csv`, `${HEAD_ST}\n1;2025-12-31;1;X SA;000001;DF;REAL;MIL;ÚLTIMO;2025-01-01;2025-12-31;3.01;Receita de Venda de Bens e/ou Serviços;;S`],
+    ]);
+    expect(extractDfpYear(files, new Set(["000001"]), 2025).facts).toEqual([]);
+  });
+
+  it("tickers merge two years of FCA forms: this year's when a company has filed it, else last year's", async () => {
+    const { mergeTickers } = await import("../src/cvm/extract");
+    const merged = mergeTickers(new Map([["A", ["AAAA3"]]]), new Map([["A", ["OLDA3"]], ["B", ["BBBB3"]]]));
+    expect(merged.get("A")).toEqual(["AAAA3"]);
+    expect(merged.get("B")).toEqual(["BBBB3"]);
+  });
+
+  it("a zero-padded CVM id, as CVM writes it, resolves", async () => {
+    const r = await call(env(), "financial_statements", { ticker: "CVM009512", years: 1 });
+    expect(r.isError).toBe(false);
+    expect(r.json.company.id).toBe("CVM9512");
+  });
+});

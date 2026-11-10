@@ -51,3 +51,44 @@ def test_issue_and_pr_templates():
 def test_starter_issues_are_ten():
     s = (ROOT / "docs" / "STARTER_ISSUES.md").read_text()
     assert len(re.findall(r"^## \d+\. ", s, re.M)) == 10
+
+
+def _crafted(tmp_path, members):
+    import hashlib
+    import io
+    import tarfile
+
+    path = tmp_path / "raw.tar.gz"
+    with tarfile.open(path, "w:gz") as t:
+        for name, kind in members:
+            info = tarfile.TarInfo(name)
+            if kind == "link":
+                info.type, info.linkname = tarfile.SYMTYPE, "/etc/passwd"
+                t.addfile(info)
+            else:
+                data = b"{}"
+                info.size = len(data)
+                t.addfile(info, io.BytesIO(data))
+    return path, hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _fetch(tmp_path, path, sha):
+    import os
+
+    env = {**os.environ, "DS_RAW_URL": f"file://{path}", "DS_RAW_SHA256": sha, "DS_RAW_DEST": str(tmp_path)}
+    return subprocess.run(["bash", str(ROOT / "bench" / "fetch-raw.sh")], capture_output=True, text=True, env=env, cwd=tmp_path)
+
+
+def test_fetch_raw_refuses_dot_dot_paths_and_links(tmp_path):
+    """Review 2026-11-10: the path check accepted bench/results/../.. and symlinks (the checksum still guarded them)."""
+    for members in ([("bench/results/x/runs/../../../../evil.json", "file")], [("bench/results/x/runs/link", "link")]):
+        path, sha = _crafted(tmp_path, members)
+        p = _fetch(tmp_path, path, sha)
+        assert p.returncode == 1 and "Nothing was unpacked" in p.stderr, p.stdout + p.stderr
+
+
+def test_fetch_raw_unpacks_a_clean_archive_where_it_is_told(tmp_path):
+    path, sha = _crafted(tmp_path, [("bench/results/x/runs/a.json", "file")])
+    p = _fetch(tmp_path, path, sha)
+    assert p.returncode == 0, p.stderr
+    assert (tmp_path / "bench" / "results" / "x" / "runs" / "a.json").exists()
