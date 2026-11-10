@@ -234,6 +234,20 @@ describe("real filings", () => {
     expect(total.periods[0]!.values.revenue!.value).toBe(1_779e6);
   });
 
+  it("US D&A and capex say when they are narrower or broader than their name (review 2026-11-10)", () => {
+    const d = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
+    const vals = (g: Record<string, RawFact[]>) => standardize(companyfacts({ Revenues: d(60_000e6), ...g }), 5, false).periods[0]!.values;
+    const dep = vals({ Depreciation: d(3_045e6) }); // Merck FY2025: no D&A total, no amortization line
+    expect(dep.d_and_a!.note).toMatch(/^depreciation only: the filer tags no amortization/);
+    const added = vals({ Depreciation: d(3_045e6), AmortizationOfIntangibleAssets: d(2_000e6) });
+    expect(added.d_and_a!.value).toBe(5_045e6);
+    expect(added.d_and_a!.note).toBeUndefined();
+    expect(vals({ DepreciationAmortizationAndAccretionNet: d(14_203e6) }).d_and_a!.note).toMatch(/^includes accretion/);
+    const capex = vals({ PaymentsToAcquireProductiveAssets: d(131_819e6) }).capex!; // Amazon FY2025
+    expect(capex.note).toMatch(/^purchases of productive assets: can include intangible and other long-lived assets/);
+    expect(vals({ PaymentsToAcquirePropertyPlantAndEquipment: d(26_642e6) }).capex!.note).toBeUndefined();
+  });
+
   it("US total debt says when its long-term debt line includes finance leases (review 2026-11-10)", () => {
     const d = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
     const i = (v: number) => [fact(v, null, "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];

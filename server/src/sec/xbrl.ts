@@ -605,6 +605,20 @@ function adjustRow(row: Record<string, Cell | null>, ctx: Ctx, ltm = false, labe
       note: why,
     };
   }
+  // US fallbacks whose content differs from the metric's name.
+  const daConcept = row.d_and_a?.concept;
+  if (daConcept === "us-gaap:Depreciation") {
+    row.d_and_a = withNote(row.d_and_a!, "depreciation only: the filer tags no amortization of intangible assets or D&A total, so EBITDA leaves amortization out");
+  } else if (daConcept === "us-gaap:DepreciationAmortizationAndAccretionNet") {
+    row.d_and_a = withNote(row.d_and_a!, "includes accretion (of asset retirement obligations or discounts): the filer tags no D&A line without it");
+  }
+  if (row.capex?.concept === "us-gaap:PaymentsToAcquireProductiveAssets") {
+    row.capex = withNote(
+      row.capex,
+      "purchases of productive assets: can include intangible and other long-lived assets besides property, plant and " +
+        "equipment; the filer tags no line for property, plant and equipment alone",
+    );
+  }
   if (IMPAIRMENT_DA.test(row.d_and_a?.concept ?? "")) {
     row.d_and_a = withNote(row.d_and_a!, "includes impairment: the filer tags no D&A line without it, so EBITDA includes impairment too");
   }
