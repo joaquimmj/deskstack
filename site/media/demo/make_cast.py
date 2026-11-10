@@ -34,6 +34,7 @@ def _j(case: str, f: str):
 
 def script() -> list[tuple[float, str]]:
     """(pause before, text) pairs. Text ends lines with \\r\\n like a terminal."""
+    from deskstack_check.rules import RULE_INFO
     from deskstack_check.sensitivity import sensitivity
 
     st = _j("apple-dcf-typo", "calls/statements.json")["response"]
@@ -77,7 +78,7 @@ def script() -> list[tuple[float, str]]:
         (0.3, f"  {bad['ref']}  {bad['label']} {bad['period']}  {bad['value']:,.0f}   filed {bad['filed_value']:,.0f}\r\n"),
         (0.3, f"  {RED}{hint}{RESET}\r\n"),
         (1.6, step(3, "Model review", "vp-review")),
-        (0.5, f"  20 rules: {sev['blocker']} blocker, {sev['major']} major, {sev['minor']} minor\r\n"),
+        (0.5, f"  {len([r for r in RULE_INFO if r != 'DS000'])} rules: {sev['blocker']} blocker, {sev['major']} major, {sev['minor']} minor\r\n"),
         (0.9, step(4, "Fixes", "analyst")),
         (0.5, f"  Fix {bad['ref']} to {bad['filed_value']:,.0f}? "),
         (0.9, f"{BLUE}yes{RESET}\r\n"),

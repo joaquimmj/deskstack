@@ -64,7 +64,7 @@ A **mismatch** says why when it can tell:
 
 In the same review conversation:
 
-- **`/vp-review`** runs 20 deterministic checks:
+- **`/vp-review`** runs 21 deterministic checks:
   - numbers typed inside formulas, and rows whose formula breaks the pattern;
   - an unbalanced balance sheet;
   - terminal value above 75% of EV, WACC too close to terminal growth.

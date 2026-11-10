@@ -17,7 +17,7 @@ Each folder holds:
 |---|---|---|
 | `model.xlsx` | `/analyst`'s builder | The workbook: blue inputs, a Sources sheet citing every typed number, a Cover with the disclaimer |
 | `associate.md` | `/associate` | Every typed number tied to the filing with `verify_value` |
-| `vp-review.md` | `/vp-review` | The checker's 20 rules on the workbook |
+| `vp-review.md` | `/vp-review` | The checker's 21 rules on the workbook |
 | `compliance.md` | `/compliance` | Disclaimer, citations, hygiene |
 | `sign-off.md` | `/sign-off` | The one-page summary you approve, or not |
 | `spec.json`, `batches.json`, `*.json` | | The build spec, the tie-out batches and each report as JSON |

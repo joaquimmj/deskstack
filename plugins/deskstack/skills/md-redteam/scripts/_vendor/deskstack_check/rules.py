@@ -58,6 +58,7 @@ RULE_INFO = {
     "DS018": ("Balancing plug", "Remove the plug and find the line that is off: compare each period's movements."),
     "DS019": ("Interest and debt", "Compute interest from the debt and cash balances, and give debt a repayment schedule."),
     "DS020": ("Share count", "Roll the share count forward: buybacks and dilution change it every period."),
+    "DS021": ("Percent units", "Type the rate as a decimal (0.05 for 5%), like the model's other rates, or divide it by 100 where it is used."),
 }
 
 # Numbers that are fine inside formulas: 0/1/-1, percentages base, periods per year, days.
@@ -526,6 +527,32 @@ def r_flat_share_count(wb: Workbook) -> list[Finding]:
             out.append(Finding("DS020", "minor", cells[0].ref, f"{label!r} stays at {vals[0]:g} for {len(vals)} periods while the model has buybacks."))
     return out
 
+# Rows that hold a rate. Their typed values should share one convention: decimals (0.05) or whole percents (5).
+RATE_RE = re.compile(
+    r"\b(growth|margin|tax rate|wacc|discount rate|cost of (equity|debt|capital)|equity risk premium|erp|risk[- ]free|"
+    r"inflation|payout|cagr|yield)\b|%",
+    re.I,
+)
+
+
+def r_percent_units(wb: Workbook) -> list[Finding]:
+    """DS021: a rate typed as a whole number (5 for 5%): shown as 500% in a % cell, or out of line with the model's
+    other rates, which are decimals. A model that types every rate as a whole percent is left alone."""
+    rates = [c for c in wb.all() if c.is_number_constant and _looks_like_model_number(wb, c) and RATE_RE.search(label_of(wb, c))]
+    decimals = sum(1 for c in rates if 0 < abs(c.constant) < 1)
+    out = []
+    for c in rates:
+        v = c.constant
+        if abs(v) <= 1:
+            continue
+        label = label_of(wb, c)
+        if c.number_format and "%" in c.number_format:
+            out.append(Finding("DS021", "major", c.ref, f"{label!r} is typed as {v:g} in a percent cell, so it shows as {v * 100:.0f}%: a rate typed as a whole number?"))
+        elif abs(v) <= 100 and decimals >= 2:
+            out.append(Finding("DS021", "major", c.ref, f"{label!r} is typed as {v:g} while the model's other {decimals} rates are decimals (e.g. 0.05 for 5%): it reads as {v * 100:.0f}%."))
+    return out
+
+
 STRUCTURAL = [
     r_hardcode_in_formula,
     r_inconsistent_row,
@@ -538,6 +565,7 @@ STRUCTURAL = [
     r_placeholders,
     r_synthetic_series,
     r_interest_and_debt,
+    r_percent_units,
 ]
 # These read results; for formula cells they need the values Excel cached on save.
 VALUE_BASED = [r_balance_sheet, r_cash_tie, r_dcf_sanity, r_sign_flips, r_discount_timing, r_balancing_plug, r_flat_share_count]

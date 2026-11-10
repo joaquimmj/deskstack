@@ -192,6 +192,15 @@ def m_placeholder_label(m):
     set_source(m, "Inputs!B11", "TBD: estimate, to replace")
 
 
+def m_rate_whole_number(m):
+    m.sheet("Inputs")["B4"].value = 5.0  # revenue growth "5" among decimal rates (0.2, 0.25, 0.09...)
+
+
+def m_rate_percent_format(m):
+    c = m.sheet("Inputs")["B5"]
+    c.value, c.number_format = 20.0, "0.0%"  # EBIT margin shows as 2000.0%
+
+
 def m_synthetic_history(m):
     m.text("Hist", "A1", "History (USD in millions)")
     m.text("Hist", "A3", "Revenue")
@@ -230,6 +239,8 @@ def m_shares_flat_with_buybacks(m):
 
 
 LOT2 = [
+    ("DS021", m_rate_whole_number),
+    ("DS021", m_rate_percent_format),
     ("DS016", m_placeholder_zero),
     ("DS016", m_placeholder_label),
     ("DS017", m_synthetic_history),
@@ -253,3 +264,21 @@ def test_lot2_rules_are_documented():
     readme = (Path(__file__).parent.parent / "README.md").read_text()
     for rule in ("DS016", "DS017", "DS018", "DS019", "DS020"):
         assert rule in RULE_INFO and f"| {rule} |" in readme, rule
+
+
+def test_ds021_leaves_a_model_that_types_every_rate_as_a_whole_number_alone(tmp_path):
+    """A consistent convention (9 for 9%, divided by 100 in the formulas) is not an error; DS011 reads it too."""
+    m = clean_dcf()
+    ws = m.sheet("Inputs")
+    for r in range(3, 13):
+        label, c = ws[f"A{r}"].value or "", ws[f"B{r}"]
+        if any(k in label.lower() for k in ("growth", "margin", "tax rate", "%", "wacc")) and isinstance(c.value, float) and c.value < 1:
+            c.value = round(c.value * 100, 4)
+    assert "DS021" not in rules(run(m, tmp_path))
+
+
+def test_ds021_says_what_the_cell_shows(tmp_path):
+    m = clean_dcf()
+    m_rate_percent_format(m)
+    f = next(f for f in run(m, tmp_path)["findings"] if f["rule"] == "DS021")
+    assert f["ref"] == "Inputs!B5" and f["severity"] == "major" and "2000%" in f["message"]

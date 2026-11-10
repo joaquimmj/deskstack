@@ -66,7 +66,7 @@ Un **mismatch** dit pourquoi quand il le peut :
 
 Dans la même conversation de relecture :
 
-- **`/vp-review`** lance 20 contrôles automatiques :
+- **`/vp-review`** lance 21 contrôles automatiques :
   - chiffres tapés dans les formules, et lignes dont la formule sort du motif ;
   - bilan déséquilibré ;
   - valeur terminale au-dessus de 75 % de la valeur d'entreprise, WACC trop proche de la croissance terminale.

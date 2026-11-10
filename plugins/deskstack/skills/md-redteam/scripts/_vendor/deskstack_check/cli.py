@@ -8,6 +8,7 @@ Options:
   --verify             call verify_value on the deskstack connector (sends the typed figures, nothing else)
   --company ID         ticker, CIK or LEI, when the workbook doesn't name its company as "Name (TICKER)"
   --connector URL      another deskstack server, e.g. your self-hosted copy (default: the public one)
+  --ignore DS001,DS010 leave out rules a team accepts on purpose (the report says which)
   --fail-on LEVEL      blocker (default), major, minor or never: the exit code is 1 at or above it.
                        A figure that doesn't tie to the filing counts as a blocker.
 
@@ -138,7 +139,9 @@ def to_text(rep: dict, tie: dict | None, offline_hint: int, color: bool) -> str:
                     out.append(s("2", f"           {h}"))
         if tie.get("note"):
             out.append(f"  {tie['note']}")
-    elif offline_hint:
+    if rep.get("ignored"):
+        out.append(s("2", f"Ignored: {', '.join(rep['ignored'])}"))
+    if tie is None and offline_hint:
         out.append(s("2", f"Tie-out: {offline_hint} typed figure(s) could be checked against the filings. Add --verify."))
     return "\n".join(out)
 
@@ -174,7 +177,7 @@ def main(argv: list[str] | None = None) -> int:
     i = 0
     while i < len(argv):
         a = argv[i]
-        if a in ("--company", "--connector", "--fail-on"):
+        if a in ("--company", "--connector", "--fail-on", "--ignore"):
             if i + 1 >= len(argv):
                 print(f"Error: {a} needs a value.", file=sys.stderr)
                 return 2
@@ -189,6 +192,11 @@ def main(argv: list[str] | None = None) -> int:
         else:
             files.append(a)
         i += 1
+    ignored = sorted({x.strip().upper() for x in opts.get("--ignore", "").split(",") if x.strip()})
+    unknown = [x for x in ignored if x not in RULE_INFO or x == "DS000"]
+    if unknown:
+        print(f"Error: --ignore: no rule {', '.join(unknown)} (the rules are listed in checker/README.md).", file=sys.stderr)
+        return 2
     level = opts.get("--fail-on", "blocker")
     if level not in LEVELS:
         print(f"Error: --fail-on must be one of {', '.join(LEVELS)}.", file=sys.stderr)
@@ -203,6 +211,10 @@ def main(argv: list[str] | None = None) -> int:
     for n, path in enumerate(files):
         try:
             rep = check(path)
+            if ignored:
+                rep["findings"] = [f for f in rep["findings"] if f["rule"] not in ignored]
+                rep["counts"] = {sv: sum(1 for f in rep["findings"] if f["severity"] == sv) for sv in SEVERITY_ORDER}
+                rep["ignored"] = ignored
             tie, hint = None, 0
             if "--verify" in flags:
                 tie = verify(path, url, opts.get("--company"))
@@ -224,7 +236,7 @@ def main(argv: list[str] | None = None) -> int:
         bad = fails(rep, tie, level)
         worst = max(worst, 1 if bad else 0)
         if "--json" in flags:
-            results.append({"model_check": rep, "tieout": tie, "fail_on": level, "passed": not bad})
+            results.append({"model_check": rep, "tieout": tie, "fail_on": level, "ignored": ignored, "passed": not bad})
             continue
         if n:
             print()
@@ -232,6 +244,8 @@ def main(argv: list[str] | None = None) -> int:
             from .tieout import to_markdown as tie_md
 
             print(to_markdown(rep))
+            if ignored:
+                print(f"\nIgnored: {', '.join(ignored)}.")
             if tie is not None:
                 print()
                 print(tie_md(tie))

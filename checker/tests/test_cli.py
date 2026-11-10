@@ -122,3 +122,18 @@ def test_other_tools_and_bad_input(tmp_path, capsys):
     assert main([str(tmp_path / "missing.xlsx")]) == 2
     assert main(["model.xlsx", "--fail-on", "sometimes"]) == 2
     assert main(["model.xlsx", "--frobnicate"]) == 2
+
+
+def test_ignore_drops_rules_from_the_report_and_the_exit_code(tmp_path, capsys):
+    """A team accepts a finding on purpose: --ignore DS001,DS010 (starter issue 2)."""
+    model = str(build_demo("hardcode-in-formula", tmp_path))  # DS001 and DS002, both major, on DCF!E4
+    assert main([model, "--fail-on", "major"]) == 1
+    assert main([model, "--fail-on", "major", "--ignore", "DS001"]) == 1  # DS002 still counts
+    capsys.readouterr()
+    assert main([model, "--fail-on", "major", "--ignore", "DS001,DS002"]) == 0
+    out = capsys.readouterr().out
+    assert "DS001" not in out.split("Ignored")[0] and "Ignored: DS001, DS002" in out
+    assert main([model, "--json", "--ignore", "ds001"]) == 0
+    r = json.loads(capsys.readouterr().out)
+    assert r["ignored"] == ["DS001"] and {f["rule"] for f in r["model_check"]["findings"]} == {"DS002"}
+    assert main([model, "--ignore", "nope"]) == 2
