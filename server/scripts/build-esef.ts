@@ -24,6 +24,9 @@ const PACE_MS = 2_000;
 const MAX_ANNUAL = 6;
 
 let last = 0;
+// Reports reused from the cache vs downloaded: a cold cache makes the nightly build several times slower
+// (2026-11-11: 36 minutes, most issuers re-downloaded), so the log says which it was.
+const reports = { cached: 0, downloaded: 0 };
 async function paced<T>(run: () => Promise<T>): Promise<T> {
   const wait = last + PACE_MS - Date.now();
   if (wait > 0) await new Promise((r) => setTimeout(r, wait));
@@ -76,7 +79,11 @@ async function extracted(f: ApiFiling): Promise<ExtractedFiling> {
     throw new Error(`unexpected filing id ${JSON.stringify(f.attributes.fxo_id).slice(0, 80)}`);
   }
   const path = join(CACHE, `${f.attributes.fxo_id}.v4.json`);
-  if (existsSync(path)) return JSON.parse(readFileSync(path, "utf8")) as ExtractedFiling;
+  if (existsSync(path)) {
+    reports.cached++;
+    return JSON.parse(readFileSync(path, "utf8")) as ExtractedFiling;
+  }
+  reports.downloaded++;
   if (!/^\/(?!\/)/.test(f.attributes.json_url ?? "")) throw new Error(`${f.attributes.fxo_id}: unexpected json_url`);
   const res = await get(`${FILINGS_XBRL_ORG}${f.attributes.json_url}`, "application/json");
   if (!res.ok) throw new Error(`${f.attributes.fxo_id}: HTTP ${res.status}`);
@@ -143,5 +150,6 @@ writeFileSync(join(OUT, "v1", "eu", "coverage.json"), JSON.stringify({ built_at:
 console.log(report.table);
 for (const [c, r] of Object.entries(report.by_country)) for (const x of r.rejected) console.log(`rejected ${c} ${x.lei} ${x.name}: ${x.reason}`);
 console.log(`EU: ${ok}/${issuers.length} issuers with financials`);
+console.log(`ESEF reports: ${reports.cached} from the cache, ${reports.downloaded} downloaded`);
 // Fail the step (the workflow then keeps the last good copy) if most issuers broke.
 if (!ONLY && ok < issuers.length * 0.8) process.exit(1);
