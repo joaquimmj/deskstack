@@ -74,16 +74,25 @@ export function same(expected: GoldenQuestion["expected"], got: unknown, unit: s
   return Math.abs(got - expected) <= tol;
 }
 
-/** One retry: a transient network error must not fail every question that shares the call. */
+/** The shared server's per-minute limit (src/guard.ts rateMessage): the call is fine, it just came too fast. */
+const RATE_LIMITED = /requests in a minute from your network/;
+
+/** Retries: once after 1 s for a transient network error; up to three times after 61 s when the shared server's
+ * per-minute limit answered (a full live run makes a few hundred calls; review 2026-11-11). */
 async function withRetry(fn: () => ReturnType<Caller>): ReturnType<Caller> {
-  try {
-    const r = await fn();
-    if (!r.isError) return r;
-  } catch {
-    /* retried below */
+  let limited = 0;
+  for (let attempt = 0; ; attempt++) {
+    let r: Awaited<ReturnType<Caller>> | null = null;
+    try {
+      r = await fn();
+      if (!r.isError) return r;
+    } catch {
+      /* retried below */
+    }
+    const rate = !!r && RATE_LIMITED.test(r.text);
+    if (rate ? ++limited > 3 : attempt >= 1) return r ?? fn();
+    await new Promise((res) => setTimeout(res, rate ? 61_000 : 1_000));
   }
-  await new Promise((res) => setTimeout(res, 1000));
-  return fn();
 }
 
 export async function runGolden(questions: GoldenQuestion[], call: Caller, opts: { live?: boolean } = {}): Promise<GoldenResult[]> {

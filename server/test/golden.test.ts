@@ -101,3 +101,24 @@ describe("golden set (recorded fixtures)", () => {
     expect(() => read(rev, { periods: [{ label: "FY2025", end: "2025-09-28", income_statement: { revenue: cell } }] })).toThrow(/ends/);
   });
 });
+
+describe("golden runner and the shared server's rate limit (review 2026-11-11)", () => {
+  it("waits out a per-minute limit and retries, so a live run doesn't score the limit as a wrong answer", async () => {
+    const { rateMessage } = await import("../src/guard");
+    vi.useFakeTimers();
+    let calls = 0;
+    const caller = async () => {
+      calls++;
+      return calls <= 2
+        ? { isError: true, text: rateMessage(60), json: null }
+        : { isError: false, text: "{}", json: { company: { currency: "EUR" } } };
+    };
+    const q: GoldenQuestion = { id: "x", question: "", tags: [], call: { tool: "financial_statements", args: {} },
+      read: { kind: "path", path: "company.currency" }, expected: "EUR", unit: null, source: {} };
+    const run = runGolden([q], caller, { live: true });
+    await vi.advanceTimersByTimeAsync(130_000);
+    const [r] = await run;
+    expect(r!.pass).toBe(true);
+    expect(calls).toBe(3);
+  });
+});
