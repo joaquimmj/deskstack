@@ -34,11 +34,37 @@ async function paced<T>(run: () => Promise<T>): Promise<T> {
   return run();
 }
 
+// A dropped connection mid-download can make Node's fetch (undici) throw an internal assertion outside the request's
+// promise, which would end the whole build (deploy run 2026-11-09, after Michelin). Only that error is absorbed: the
+// request it belonged to then times out below and is retried. Anything else still stops the build.
+process.on("uncaughtException", (e: Error & { code?: string }) => {
+  if (e.code === "ERR_ASSERTION" && /undici/.test(e.stack ?? "")) {
+    console.warn("network: a connection dropped mid-download (undici assertion); that request is retried");
+    return;
+  }
+  throw e;
+});
+
+const TIMEOUT_MS = 120_000;
+const NETWORK_TRIES = 4;
+
+/** GET with pacing, 429 back-off, a timeout, and retries on network errors. The body is read here, so a connection
+ *  that drops mid-body is retried too; callers get a complete Response. */
 async function get(url: string, accept = "application/vnd.api+json"): Promise<Response> {
-  for (let attempt = 0; attempt < 8; attempt++) {
-    const res = await paced(() => fetch(url, { headers: { Accept: accept, "User-Agent": UA } }));
-    if (res.status !== 429) return res;
-    await new Promise((r) => setTimeout(r, 30_000));
+  let failures = 0;
+  for (let attempt = 0; attempt < 8 + NETWORK_TRIES; attempt++) {
+    try {
+      const res = await paced(() => fetch(url, { headers: { Accept: accept, "User-Agent": UA }, signal: AbortSignal.timeout(TIMEOUT_MS) }));
+      if (res.status === 429) {
+        await new Promise((r) => setTimeout(r, 30_000));
+        continue;
+      }
+      const body = await res.arrayBuffer();
+      return new Response(body, { status: res.status, statusText: res.statusText, headers: res.headers });
+    } catch (e) {
+      if (++failures >= NETWORK_TRIES) throw new Error(`${url}: ${(e as Error).message} after ${failures} tries`);
+      await new Promise((r) => setTimeout(r, 5_000 * failures));
+    }
   }
   throw new Error(`${url}: still rate-limited`);
 }
