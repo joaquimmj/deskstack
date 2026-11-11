@@ -49,7 +49,8 @@ ASSUMPTION = re.compile(
 PERIOD = re.compile(r"\b(FY ?\d{2,4}[AE]?|\d{4}[AE]|LTM|TTM|NTM|latest|\d{4}-\d{2}-\d{2})\b", re.I)
 YEAR = re.compile(r"^(19[9]\d|20\d\d)$")
 # "Apple Inc. (AAPL)": a name, then a ticker in brackets. Codes that are not tickers are excluded.
-NAME_TICKER = re.compile(r"[A-Za-z][\w&.,'\- ]*?\s\(([A-Z][A-Z0-9.\-]{0,9})\)")
+# A ticker, or a 20-character LEI for EU issuers (which have no ticker in deskstack).
+NAME_TICKER = re.compile(r"[A-Za-z][\w&.,'\- ]*?\s\(([0-9A-Z]{18}[0-9]{2}|[A-Z][A-Z0-9.\-]{0,9})\)")
 NOT_TICKERS = {
     "LTM", "TTM", "NTM", "GAAP", "IFRS", "ESEF", "SEC", "XBRL", "EBIT", "EBITDA", "EPS", "FCF", "DCF", "WACC", "LBO",
     "USD", "EUR", "GBP", "CHF", "JPY", "SEK", "NOK", "DKK", "CAD", "AUD", "CNY", "HKD", "INR", "BRL", "PLN", "MM", "BN",

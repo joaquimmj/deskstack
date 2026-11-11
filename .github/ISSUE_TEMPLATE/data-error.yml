@@ -1,0 +1,50 @@
+name: Data error
+description: A figure deskstack returns that doesn't match the filing.
+labels: [bug, data]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks: a wrong figure is the most useful report. Give enough to find it in the filing. Never paste API keys, tokens or anything confidential.
+  - type: input
+    id: company
+    attributes:
+      label: Company
+      description: Name and ticker, CIK, LEI or CVM id, as you passed it.
+      placeholder: Apple (AAPL)
+    validations:
+      required: true
+  - type: input
+    id: figure
+    attributes:
+      label: Figure and period
+      description: The line item and the period, as deskstack labels them.
+      placeholder: revenue, FY2025
+    validations:
+      required: true
+  - type: input
+    id: returned
+    attributes:
+      label: What deskstack returned
+      description: The value, and the concept and accession it cited.
+    validations:
+      required: true
+  - type: input
+    id: expected
+    attributes:
+      label: Expected value
+      description: The value in the filing, with its unit (millions, thousands…).
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Filing link
+      description: The filing (SEC, filings.xbrl.org or CVM), ideally the page or table where the figure is.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else
+      description: Which tool you called (financial_statements, key_metrics, verify_value) and from where (claude.ai, Cowork, Claude Code).

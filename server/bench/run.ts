@@ -10,7 +10,8 @@
 // --budget is a hard cap on everything spent through --ledger (default bench/results/ledger.json), across re-runs:
 // the spend is written after every request, so a crash and a re-run continue from what was already spent.
 // The API key comes from the environment (ANTHROPIC_API_KEY or `ant auth login`); it is never read from a file here
-// or printed. Raw transcripts, submissions, scores and the summary go to bench/results/<run>/ (commit them).
+// or printed. Raw transcripts, submissions, scores and the summary go to bench/results/<run>/; commit plan and summaries, and
+// archive runs/ and work/ on a release (bench/fetch-raw.sh, bench/README.md).
 
 import Anthropic from "@anthropic-ai/sdk";
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";

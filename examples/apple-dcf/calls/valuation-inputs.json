@@ -1,0 +1,76 @@
+{
+ "tool": "valuation_inputs",
+ "args": {
+  "country": "United States",
+  "industry": "Computers/Peripherals"
+ },
+ "connector": "https://deskstack.deskstack-server.workers.dev/mcp",
+ "recorded_at": "2026-11-10",
+ "response": {
+  "summary": "Country risk data for \"United States\". US industry data for \"Computers/Peripherals\". Damodaran datasets updated 2026-01-05, 2026-02-16.",
+  "country": [
+   {
+    "country": "United States",
+    "region": "North America",
+    "moodys_rating": "Aa1",
+    "default_spread": 0.002333679169992019,
+    "equity_risk_premium": 0.0446,
+    "country_risk_premium": 0.002333679169992019,
+    "basis": "Moody's sovereign rating",
+    "match": "exact",
+    "mature_market_erp": 0.0423,
+    "source": {
+     "name": "Aswath Damodaran, Country Default Spreads and Risk Premiums",
+     "url": "https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctryprem.xlsx",
+     "accession_or_id": "ctryprem/United States",
+     "period": "2026-02-16",
+     "as_of": "2026-02-16",
+     "license_note": "Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source."
+    }
+   }
+  ],
+  "industry": [
+   {
+    "region": "US",
+    "industry": "Computers/Peripherals",
+    "firms": 36,
+    "beta": 1.3503292085851684,
+    "de_ratio": 0.04624738158842277,
+    "effective_tax_rate": 0.05911353077642165,
+    "unlevered_beta": 1.3050624188250832,
+    "cash_to_firm_value": 0.01474015694541099,
+    "unlevered_beta_cash_corrected": 1.3245870396777912,
+    "cost_of_equity": 0.09972468270289851,
+    "equity_weight": 0.9557968962195064,
+    "cost_of_debt_pretax": 0.052913,
+    "after_tax_cost_of_debt": 0.039684750000000005,
+    "debt_weight": 0.044203103780493636,
+    "cost_of_capital": 0.09707073132665844,
+    "match": "exact",
+    "sources": [
+     {
+      "name": "Aswath Damodaran, Betas by Sector (US)",
+      "url": "https://pages.stern.nyu.edu/~adamodar/pc/datasets/betas.xls",
+      "accession_or_id": "betas/US/Computers/Peripherals",
+      "period": "2026-01-05",
+      "as_of": "2026-01-05",
+      "license_note": "Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source."
+     },
+     {
+      "name": "Aswath Damodaran, Cost of Capital by Industry (US)",
+      "url": "https://pages.stern.nyu.edu/~adamodar/pc/datasets/wacc.xls",
+      "accession_or_id": "wacc/US/Computers/Peripherals",
+      "period": "2026-01-05",
+      "as_of": "2026-01-05",
+      "license_note": "Aswath Damodaran, NYU Stern, public datasets (pages.stern.nyu.edu/~adamodar), shared freely; acknowledge the source."
+     }
+    ],
+    "note": "cost_of_equity and cost_of_capital are Damodaran's US$ estimates using his own risk-free rate (0.0395) and ERP (0.0446) at the update date. For a current WACC, prefer unlevered_beta_cash_corrected, relevered at the company's D/E, with today's risk_free_rate."
+   }
+  ],
+  "units": "Decimals (0.05 = 5%). Betas and D/E are plain numbers.",
+  "warnings": [],
+  "attribution": "Data: Aswath Damodaran, NYU Stern (pages.stern.nyu.edu/~adamodar). Cite him when you use these inputs.",
+  "disclaimer": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice."
+ }
+}

@@ -37,3 +37,23 @@ jobs:
       - run: pip install openpyxl==3.1.5 et_xmlfile==2.0.0 pytest==8.3.3
       # Includes: golden.json is current, vendored plugin copies are current, the e2e grader and the differential logic.
       - run: python -m pytest -q checker/tests
+
+  # The deskstack-check GitHub Action (action.yml), run from this checkout on the committed examples.
+  action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
+        with:
+          files: examples/*/model.xlsx
+          fail-on: blocker
+      - id: strict
+        uses: ./
+        continue-on-error: true
+        with:
+          files: examples/errors-caught/model.xlsx
+          fail-on: major
+      - name: The planted placeholder fails at "major"
+        env:
+          PASSED: ${{ steps.strict.outputs.passed }}
+        run: test "$PASSED" = "false"

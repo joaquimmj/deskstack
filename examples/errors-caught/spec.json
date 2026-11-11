@@ -1,0 +1,120 @@
+{
+ "kind": "dcf",
+ "company": "MICROSOFT CORP",
+ "ticker": "MSFT",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2025",
+   "FY2026",
+   "LTM"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     281724.0,
+     331839.0,
+     331839.0
+    ],
+    "sources": [
+     "10-K for 2026-06-30, 0001193125-26-323660, https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/0001193125-26-323660-index.htm, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax (deskstack financial_statements, recorded 2026-11-10)",
+     "10-K for 2026-06-30, 0001193125-26-323660, https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/0001193125-26-323660-index.htm, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax (deskstack financial_statements, recorded 2026-11-10)",
+     "TTM from an aggregator site (as a model wrote it)"
+    ]
+   },
+   "operating_income": {
+    "values": [
+     128528.0,
+     153237.0,
+     155237.0
+    ],
+    "sources": [
+     "10-K for 2026-06-30, 0001193125-26-323660, https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/0001193125-26-323660-index.htm, us-gaap:OperatingIncomeLoss (deskstack financial_statements, recorded 2026-11-10)",
+     "10-K for 2026-06-30, 0001193125-26-323660, https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/0001193125-26-323660-index.htm, us-gaap:OperatingIncomeLoss (deskstack financial_statements, recorded 2026-11-10)",
+     "TTM from an aggregator site (as a model wrote it)"
+    ]
+   },
+   "d_and_a": {
+    "values": [
+     0,
+     41000.0,
+     42500.0
+    ],
+    "sources": [
+     "NOT FOUND - placeholder 0",
+     "Computed by deskstack: depreciation + amortization of intangible assets (tagged separately), 10-K for 2026-06-30, 0001193125-26-323660, https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/0001193125-26-323660-index.htm (financial_statements, recorded 2026-11-10)",
+     "Computed by deskstack: depreciation + amortization of intangible assets (tagged separately), 10-Q for 2026-09-30, 0001193125-26-436133, https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm (financial_statements, recorded 2026-11-10)"
+    ]
+   },
+   "capex": {
+    "values": [
+     64551.0,
+     115948.0,
+     135921.0
+    ],
+    "sources": [
+     "10-K for 2026-06-30, 0001193125-26-323660, https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/0001193125-26-323660-index.htm, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment (deskstack financial_statements, recorded 2026-11-10)",
+     "10-K for 2026-06-30, 0001193125-26-323660, https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/0001193125-26-323660-index.htm, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment (deskstack financial_statements, recorded 2026-11-10)",
+     "Computed by deskstack: FY + YTD - prior YTD, 10-Q for 2026-09-30, 0001193125-26-436133, https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm (financial_statements, recorded 2026-11-10)"
+    ]
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2027E",
+   "FY2028E",
+   "FY2029E",
+   "FY2030E",
+   "FY2031E"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.1292,
+    0.1083,
+    0.0875,
+    0.0667,
+    0.0458
+   ],
+   "source": "Analyst assumption (example rule): FY2026 growth of 17.8%, capped at 15%, fading in a straight line toward terminal growth of 2.5%"
+  },
+  "ebit_margin": {
+   "value": 0.4568,
+   "source": "Analyst assumption (example rule): average operating margin FY2024-FY2026"
+  },
+  "tax_rate": {
+   "value": 0.194,
+   "source": "Analyst assumption (example rule): 1 - net income / pretax income, FY2026"
+  },
+  "da_pct_revenue": {
+   "value": 0.1175,
+   "source": "Analyst assumption (example rule): FY2026 D&A / revenue"
+  },
+  "capex_pct_revenue": {
+   "value": 0.3494,
+   "source": "Analyst assumption (example rule): FY2026 capex / revenue"
+  },
+  "wacc": {
+   "value": 0.1022,
+   "source": "Analyst assumption (example rule): Damodaran Software (System & Application) (US) weights, 94.7% x cost of equity [risk-free 4.88% (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates, 2026-11-09) + beta 1.28 x ERP 4.46% (United States)] + 5.3% x after-tax cost of debt 3.97% (deskstack valuation_inputs)"
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "source": "Analyst assumption (example rule): below long-run nominal GDP"
+  },
+  "mid_year": false
+ },
+ "bridge": {
+  "net_debt": {
+   "value": -36549.0,
+   "period": "FY2026",
+   "source": "Computed by deskstack: total_debt - cash - short_term_investments, 10-K for 2026-06-30, 0001193125-26-323660, https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/0001193125-26-323660-index.htm (financial_statements, recorded 2026-11-10)"
+  },
+  "diluted_shares": {
+   "value": 7946.017,
+   "period": "FY2026",
+   "source": "Derived: LTM net income / FY2026 diluted EPS (as a model wrote it)"
+  }
+ }
+}

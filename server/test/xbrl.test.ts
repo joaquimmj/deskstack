@@ -197,6 +197,184 @@ describe("real filings", () => {
     expect(facts({ AdjustedWeightedAverageShares: { units: { shares: y(3_050e6) } } }).diluted_shares!.value).toBe(3_050e6);
   });
 
+  it("IFRS net income says when it is consolidated profit including minorities (OMV; stars brief lot 2 bis)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "o-25", "2026-03-20", "ESEF", 2025)];
+    const run = (extra: Record<string, { units: Record<string, RawFact[]> }>) => standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+      Revenue: { units: { EUR: y(24_000e6) } },
+      ProfitLoss: { units: { EUR: y(1_520e6) } },
+      ...extra,
+    } } } as never, 5, false).periods[0]!.values;
+    const omv = run({ ProfitLossAttributableToNoncontrollingInterests: { units: { EUR: y(443e6) } } });
+    expect(omv.net_income!.value).toBe(1_520e6); // the tagged figure, never an estimate of the owners' share
+    expect(omv.net_income!.note).toMatch(/443 million attributable to non-controlling interests/);
+    expect(omv).not.toHaveProperty("net_income_nci");
+    // No minorities tagged (Novo Nordisk), or owners' profit tagged: nothing to say.
+    expect(run({}).net_income!.note).toBeUndefined();
+    expect(run({ ProfitLossAttributableToNoncontrollingInterests: { units: { EUR: y(0) } } }).net_income!.note).toBeUndefined();
+    const owners = run({ ProfitLossAttributableToOwnersOfParent: { units: { EUR: y(1_077e6) } },
+      ProfitLossAttributableToNoncontrollingInterests: { units: { EUR: y(443e6) } } }).net_income!;
+    expect(owners.value).toBe(1_077e6);
+    expect(owners.note).toBeUndefined();
+  });
+
+  it("IFRS revenue is never one component of it: sale of goods alone, next to services, is not total revenue (NOS, REN; review 2026-11-10)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "n-25", "2026-03-20", "ESEF", 2025)];
+    const std = (f: Record<string, { units: Record<string, RawFact[]> }>) => standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+      ProfitLoss: { units: { EUR: y(246e6) } }, ...f } } } as never, 5, false);
+    // NOS: goods 170 and services 1,609, no total tagged.
+    const nos = std({ RevenueFromSaleOfGoods: { units: { EUR: y(170.416e6) } }, RevenueFromRenderingOfServices: { units: { EUR: y(1_609.226e6) } } });
+    expect(nos.periods[0]!.values.revenue).toBeNull();
+    expect(nos.notes.join(" ")).toMatch(/FY2025.*revenue is null.*sale of goods 170 million.*rendering of services 1,609 million/);
+    // A company that only sells goods (Moncler-like): sale of goods is its revenue.
+    const goods = std({ RevenueFromSaleOfGoods: { units: { EUR: y(3_100e6) } } });
+    expect(goods.periods[0]!.values.revenue!.value).toBe(3_100e6);
+    // A tagged total always wins.
+    const total = std({ Revenue: { units: { EUR: y(1_779e6) } }, RevenueFromSaleOfGoods: { units: { EUR: y(170e6) } },
+      RevenueFromRenderingOfServices: { units: { EUR: y(1_609e6) } } });
+    expect(total.periods[0]!.values.revenue!.value).toBe(1_779e6);
+  });
+
+  it("US lease liabilities: a cited line, left out of net debt with a note (Microsoft FY2026, Coca-Cola FY2025; review 2026-11-10)", () => {
+    const d = (v: number, y = 2025) => [fact(v, `${y}-01-01`, `${y}-12-31`, "u", `${y + 1}-02-20`, "10-K", y)];
+    const i = (v: number, y = 2025) => [fact(v, null, `${y}-12-31`, "u", `${y + 1}-02-20`, "10-K", y)];
+    const col = (g: Record<string, RawFact[]>) =>
+      standardize(companyfacts({ Revenues: d(300_000e6), CashAndCashEquivalentsAtCarryingValue: i(30_000e6), ...g }), 5, false).periods[0]!;
+    const msft = col({ LongTermDebtNoncurrent: i(40_000e6), OperatingLeaseLiability: i(21_925e6), FinanceLeaseLiability: i(66_594e6) });
+    expect(msft.balance_sheet.lease_liabilities).toMatchObject({ value: 88_519e6, formula: "operating + finance lease liabilities" });
+    expect(msft.derived.net_debt!.value).toBe(10_000e6); // unchanged
+    expect(msft.derived.net_debt!.note).toMatch(/^excludes 88,519 million of lease liabilities \(operating and finance\)/);
+    const ko = col({ LongTermDebtAndCapitalLeaseObligations: i(42_119e6), OperatingLeaseLiability: i(1_722e6), FinanceLeaseLiability: i(100e6) });
+    expect(ko.balance_sheet.lease_liabilities).toMatchObject({ value: 1_722e6 }); // finance leases are already in its debt
+    expect(ko.derived.net_debt!.note).toMatch(/excludes 1,722 million of operating lease liabilities/);
+    expect(ko.derived.net_debt!.note).toMatch(/includes finance lease obligations/);
+    const parts = col({ LongTermDebtNoncurrent: i(1e9), OperatingLeaseLiabilityNoncurrent: i(749e6), OperatingLeaseLiabilityCurrent: i(135e6) });
+    expect(parts.balance_sheet.lease_liabilities!.value).toBe(884e6);
+  });
+
+  it("US D&A and capex say when they are narrower or broader than their name (review 2026-11-10)", () => {
+    const d = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
+    const vals = (g: Record<string, RawFact[]>) => standardize(companyfacts({ Revenues: d(60_000e6), ...g }), 5, false).periods[0]!.values;
+    const dep = vals({ Depreciation: d(3_045e6) }); // Merck FY2025: no D&A total, no amortization line
+    expect(dep.d_and_a!.note).toMatch(/^depreciation only: the filer tags no amortization/);
+    const added = vals({ Depreciation: d(3_045e6), AmortizationOfIntangibleAssets: d(2_000e6) });
+    expect(added.d_and_a!.value).toBe(5_045e6);
+    expect(added.d_and_a!.note).toBeUndefined();
+    expect(vals({ DepreciationAmortizationAndAccretionNet: d(14_203e6) }).d_and_a!.note).toMatch(/^includes accretion/);
+    const capex = vals({ PaymentsToAcquireProductiveAssets: d(131_819e6) }).capex!; // Amazon FY2025
+    expect(capex.note).toMatch(/^purchases of productive assets: can include intangible and other long-lived assets/);
+    expect(vals({ PaymentsToAcquirePropertyPlantAndEquipment: d(26_642e6) }).capex!.note).toBeUndefined();
+  });
+
+  it("US total debt says when its long-term debt line includes finance leases (review 2026-11-10)", () => {
+    const d = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
+    const i = (v: number) => [fact(v, null, "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
+    const der = (g: Record<string, RawFact[]>) =>
+      standardize(companyfacts({ Revenues: d(50_000e6), CashAndCashEquivalentsAtCarryingValue: i(2_000e6), ...g }), 5, false).periods[0]!.derived;
+    const lease = der({ LongTermDebtAndCapitalLeaseObligations: i(12_000e6), LongTermDebtAndCapitalLeaseObligationsCurrent: i(1_000e6) });
+    expect(lease.total_debt!.value).toBe(13_000e6);
+    expect(lease.total_debt!.note).toMatch(/^includes finance lease obligations/);
+    expect(lease.net_debt!.note).toMatch(/includes finance lease obligations/);
+    const plain = der({ LongTermDebtNoncurrent: i(12_000e6), LongTermDebtCurrent: i(1_000e6) });
+    expect(plain.total_debt!.note).toBeUndefined();
+    expect(plain.net_debt!.note).toBeUndefined();
+  });
+
+  it("US GAAP fallbacks say when equity or net income includes minorities, or cash includes restricted cash (review 2026-11-10)", () => {
+    const d = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
+    const i = (v: number) => [fact(v, null, "2025-12-31", "u-25", "2026-02-20", "10-K", 2025)];
+    const p = (g: Record<string, RawFact[]>) => standardize(companyfacts({ Revenues: d(400_000e6), ...g }), 5, false).periods[0]!;
+    const unh = p({
+      StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest: i(98_268e6), MinorityInterest: i(5_610e6), // UnitedHealth FY2024, accession 0000731766-26-000062 (no untagged-dimension StockholdersEquity since 2014)
+      ProfitLoss: d(15_000e6), NetIncomeLossAttributableToNoncontrollingInterest: d(600e6),
+      CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents: i(25_000e6),
+    });
+    expect(unh.balance_sheet.total_equity!.value).toBe(98_268e6);
+    expect(unh.balance_sheet.total_equity!.note).toMatch(/includes 5,610 million of non-controlling interests/);
+    expect(unh.values.net_income!.note).toMatch(/^consolidated profit: includes 600 million attributable to non-controlling interests/);
+    expect(unh.balance_sheet.cash!.note).toMatch(/^includes restricted cash/);
+    const clean = p({
+      StockholdersEquity: i(92_658e6), StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest: i(98_268e6),
+      MinorityInterest: i(5_610e6), NetIncomeLoss: d(14_400e6), CashAndCashEquivalentsAtCarryingValue: i(24_000e6),
+    });
+    expect(clean.balance_sheet.total_equity).toMatchObject({ value: 92_658e6 });
+    expect(clean.balance_sheet.total_equity!.note).toBeUndefined();
+    expect(clean.values.net_income!.note).toBeUndefined();
+    expect(clean.balance_sheet.cash!.note).toBeUndefined();
+  });
+
+  it("IFRS net debt says how much lease liability it leaves out (IFRS 16; review 2026-11-10)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
+    const at = (v: number) => [fact(v, null, "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
+    const nd = (f: object) => standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+      Revenue: { units: { EUR: y(10_000e6) } }, Borrowings: { units: { EUR: at(3_000e6) } },
+      CashAndCashEquivalents: { units: { EUR: at(1_000e6) } }, ...f } } } as never, 5, false).periods[0]!.derived.net_debt!;
+    const parts = nd({ NoncurrentLeaseLiabilities: { units: { EUR: at(4_812e6) } }, CurrentLeaseLiabilities: { units: { EUR: at(1_330e6) } } });
+    expect(parts.value).toBe(2_000e6); // unchanged: leases stay out of total debt
+    expect(parts.note).toMatch(/^excludes 6,142 million of lease liabilities \(IFRS 16\)/);
+    const total = nd({ LeaseLiabilities: { units: { EUR: at(900e6) } }, NoncurrentLeaseLiabilities: { units: { EUR: at(700e6) } } });
+    expect(total.note).toMatch(/^excludes 900 million of lease liabilities/);
+    expect(nd({}).note).toBeUndefined();
+  });
+
+  it("IFRS capex says when it is the broad line with intangibles and investment property (review 2026-11-10)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
+    const BROAD = "PurchaseOfPropertyPlantAndEquipmentIntangibleAssetsOtherThanGoodwillInvestmentPropertyAndOtherNoncurrentAssets";
+    const capex = (f: object) => standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+      Revenue: { units: { EUR: y(10_000e6) } }, ...f } } } as never, 5, false).periods[0]!.values.capex!;
+    const broad = capex({ [BROAD]: { units: { EUR: y(-950e6) } } });
+    expect(broad.concept).toBe(`ifrs-full:${BROAD}`);
+    expect(broad.note).toMatch(/^includes purchases of intangible assets, investment property and other non-current assets/);
+    const ppe = capex({ PurchaseOfPropertyPlantAndEquipment: { units: { EUR: y(-700e6) } }, [BROAD]: { units: { EUR: y(-950e6) } } });
+    expect(ppe.concept).toBe("ifrs-full:PurchaseOfPropertyPlantAndEquipment");
+    expect(ppe.note).toBeUndefined();
+  });
+
+  it("IFRS interest expense says when it is the broader finance costs line (IAS 1; review 2026-11-10)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
+    const ie = (f: object) => standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+      Revenue: { units: { EUR: y(10_000e6) } }, ...f } } } as never, 5, false).periods[0]!.values.interest_expense!;
+    const fc = ie({ FinanceCosts: { units: { EUR: y(412e6) } } });
+    expect(fc.value).toBe(412e6);
+    expect(fc.note).toMatch(/^finance costs: the filer tags no interest expense line/);
+    const both = ie({ InterestExpense: { units: { EUR: y(300e6) } }, FinanceCosts: { units: { EUR: y(412e6) } } });
+    expect(both.value).toBe(300e6);
+    expect(both.note).toBeUndefined();
+  });
+
+  it("IFRS total equity says when it includes minorities, the owners' share being untagged (Orkla, Corticeira; review 2026-11-10)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
+    const at = (v: number) => [fact(v, null, "2025-12-31", "q-25", "2026-03-20", "ESEF", 2025)];
+    const eq = (f: Record<string, { units: Record<string, RawFact[]> }>) => standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+      Revenue: { units: { NOK: y(71_044e6) } }, ...f } } } as never, 5, false).periods[0]!.balance_sheet.total_equity!;
+    const orkla = eq({ Equity: { units: { NOK: at(52_147e6) } }, NoncontrollingInterests: { units: { NOK: at(3_483e6) } } });
+    expect(orkla.value).toBe(52_147e6); // the tagged total, never an estimate of the owners' share
+    expect(orkla.note).toMatch(/includes 3,483 million of non-controlling interests/);
+    expect(eq({ Equity: { units: { NOK: at(52_147e6) } } }).note).toBeUndefined();
+    const owners = eq({ Equity: { units: { NOK: at(52_147e6) } }, EquityAttributableToOwnersOfParent: { units: { NOK: at(48_664e6) } },
+      NoncontrollingInterests: { units: { NOK: at(3_483e6) } } });
+    expect(owners.value).toBe(48_664e6);
+    expect(owners.note).toBeUndefined();
+  });
+
+  it("IFRS net debt says when current financial assets are tagged only mixed with derivatives (TotalEnergies; stars brief lot 1)", () => {
+    const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "t-25", "2026-03-20", "ESEF", 2025)];
+    const at = (v: number) => [fact(v, null, "2025-12-31", "t-25", "2026-03-20", "ESEF", 2025)];
+    const run = (extra: Record<string, { units: Record<string, RawFact[]> }>) => standardize({ cik: 0, entityName: "X", facts: { "ifrs-full": {
+      Revenue: { units: { USD: y(180_000e6) } },
+      CashAndCashEquivalents: { units: { USD: at(26_202e6) } },
+      Borrowings: { units: { USD: at(50_000e6) } },
+      ...extra,
+    } } } as never, 5, false).periods[0]!;
+    const tte = run({ OtherCurrentFinancialAssets: { units: { USD: at(3_332e6) } } });
+    expect(tte.derived.net_debt!.value).toBe(50_000e6 - 26_202e6); // not deducted: it mixes derivatives and receivables
+    expect(tte.derived.net_debt!.note).toMatch(/3,332/);
+    expect(tte.balance_sheet).not.toHaveProperty("other_current_financial_assets");
+    // Clean short-term deposits are deducted, and then there is nothing to warn about (Inditex).
+    const itx = run({ ShorttermDepositsNotClassifiedAsCashEquivalents: { units: { USD: at(5_684e6) } }, OtherCurrentFinancialAssets: { units: { USD: at(100e6) } } });
+    expect(itx.derived.net_debt!.value).toBe(50_000e6 - 26_202e6 - 5_684e6);
+    expect(itx.derived.net_debt!.note).toBeUndefined();
+  });
+
   it("an IFRS filer that tags D&A only with impairment gets that figure, with a note (TotalEnergies, Ahold)", () => {
     const y = (v: number) => [fact(v, "2025-01-01", "2025-12-31", "t-25", "2026-03-20", "ESEF", 2025)];
     const base = { Revenue: { units: { USD: y(180_000e6) } }, ProfitLossFromOperatingActivities: { units: { USD: y(20_000e6) } } };

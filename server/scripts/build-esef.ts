@@ -10,6 +10,7 @@ import { join, resolve } from "node:path";
 import { PRODUCT_NAME, REPO_URL, SNAPSHOT_SCHEMA } from "../src/config";
 import { extractFiling, type EsefFilingMeta, type ExtractedFiling } from "../src/esef/extract";
 import { buildEuRecord, FILINGS_XBRL_ORG, type EuIssuer } from "../src/esef/record";
+import { coverageReport, type CoverageEntry } from "../src/esef/coverage";
 
 const arg = (n: string) => {
   const i = process.argv.indexOf(`--${n}`);
@@ -23,6 +24,9 @@ const PACE_MS = 2_000;
 const MAX_ANNUAL = 6;
 
 let last = 0;
+// Reports reused from the cache vs downloaded: a cold cache makes the nightly build several times slower
+// (2026-11-11: 36 minutes, most issuers re-downloaded), so the log says which it was.
+const reports = { cached: 0, downloaded: 0 };
 async function paced<T>(run: () => Promise<T>): Promise<T> {
   const wait = last + PACE_MS - Date.now();
   if (wait > 0) await new Promise((r) => setTimeout(r, wait));
@@ -101,7 +105,11 @@ async function extracted(f: ApiFiling): Promise<ExtractedFiling> {
     throw new Error(`unexpected filing id ${JSON.stringify(f.attributes.fxo_id).slice(0, 80)}`);
   }
   const path = join(CACHE, `${f.attributes.fxo_id}.v4.json`);
-  if (existsSync(path)) return JSON.parse(readFileSync(path, "utf8")) as ExtractedFiling;
+  if (existsSync(path)) {
+    reports.cached++;
+    return JSON.parse(readFileSync(path, "utf8")) as ExtractedFiling;
+  }
+  reports.downloaded++;
   if (!/^\/(?!\/)/.test(f.attributes.json_url ?? "")) throw new Error(`${f.attributes.fxo_id}: unexpected json_url`);
   const res = await get(`${FILINGS_XBRL_ORG}${f.attributes.json_url}`, "application/json");
   if (!res.ok) throw new Error(`${f.attributes.fxo_id}: HTTP ${res.status}`);
@@ -117,6 +125,7 @@ mkdirSync(CACHE, { recursive: true });
 mkdirSync(join(OUT, "v1", "eu", "co"), { recursive: true });
 
 const index: unknown[][] = [];
+const coverage: CoverageEntry[] = [];
 let ok = 0;
 for (const issuer of issuers) {
   try {
@@ -149,9 +158,11 @@ for (const issuer of issuers) {
     const last = rec.financials?.periods.filter((p) => p.type === "annual").at(-1);
     index.push([issuer.lei, issuer.name, issuer.country, rec.financials?.currency ?? null, last?.end.slice(5).replace("-", "") ?? null]);
     if (rec.financials) ok++;
+    coverage.push({ lei: issuer.lei, name: issuer.name, country: issuer.country, served: !!rec.financials, ...(rec.financials ? {} : { reason: String(rec.financials_error ?? "no financial statements extracted") }) });
     console.log(`${issuer.lei} ${issuer.name}: ${done.length} report(s), ${rec.financials ? `${rec.financials.periods.length} period(s) ${rec.financials.currency}` : rec.financials_error}`);
   } catch (e) {
     console.warn(`${issuer.lei} ${issuer.name}: FAILED ${(e as Error).message}`);
+    coverage.push({ lei: issuer.lei, name: issuer.name, country: issuer.country, served: false, reason: (e as Error).message.slice(0, 200) });
   }
 }
 
@@ -160,6 +171,11 @@ writeFileSync(
   join(OUT, "v1", "eu", "manifest.json"),
   JSON.stringify({ schema: SNAPSHOT_SCHEMA, built_at: new Date().toISOString(), issuers: index.length, with_financials: ok, source: "filings.xbrl.org (XBRL International) ESEF reports" }),
 );
+const report = coverageReport(coverage);
+writeFileSync(join(OUT, "v1", "eu", "coverage.json"), JSON.stringify({ built_at: new Date().toISOString(), ...report }));
+console.log(report.table);
+for (const [c, r] of Object.entries(report.by_country)) for (const x of r.rejected) console.log(`rejected ${c} ${x.lei} ${x.name}: ${x.reason}`);
 console.log(`EU: ${ok}/${issuers.length} issuers with financials`);
+console.log(`ESEF reports: ${reports.cached} from the cache, ${reports.downloaded} downloaded`);
 // Fail the step (the workflow then keeps the last good copy) if most issuers broke.
 if (!ONLY && ok < issuers.length * 0.8) process.exit(1);

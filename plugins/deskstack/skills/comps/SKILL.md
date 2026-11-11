@@ -16,7 +16,9 @@ argument-hint: "<company> [peer tickers]"
    - EU issuers have annual figures only.
    - Record each figure's own period in the spec (`"period": "FY2025"`), so the tie-out checks the right year.
 4. **Prices:** ask the user for each share price and its date, or the market caps. Market cap = price × diluted
-   shares. Cite the price as "User-provided, <date>" and the shares to the filing.
+   shares. Cite the price as "User-provided, <date>" and the shares to the filing. If the user gives no price, write
+   `"market_cap": {"value": null, "source": "Not given"}`: the row keeps its financials, and EV and the multiples show
+   "n.a.". Never estimate a price.
 5. **Build:** follow the `analyst` skill's comps spec (`references/specs.md`) and run its build script. Keep each
    company in its own reporting currency; multiples are currency-neutral.
 6. **Hand off:** run the self-check, then offer `/associate` (ties out every peer's figures) and `/vp-review`.

@@ -1,0 +1,366 @@
+{
+ "tool": "financial_statements",
+ "args": {
+  "ticker": "AMZN",
+  "years": 1,
+  "include_ltm": true
+ },
+ "connector": "https://deskstack.deskstack-server.workers.dev/mcp",
+ "recorded_at": "2026-11-10",
+ "response": {
+  "summary": "AMAZON.COM, INC. (AMZN), US-GAAP, USD. FY2025 (ended 2025-12-31): revenue 716.9B USD, net income 77.7B USD. 2 period(s), 2 cited filing(s). Every value cites its XBRL concept and accession; cite the matching `sources` entry when you use a number.",
+  "company": {
+   "name": "AMAZON.COM, INC.",
+   "ticker": "AMZN",
+   "cik": 1018724,
+   "exchange": "Nasdaq",
+   "region": "US",
+   "reporting_standard": "US-GAAP",
+   "currency": "USD",
+   "fiscal_year_end": "1231",
+   "sic": "5961",
+   "sic_description": "Retail-Catalog & Mail-Order Houses",
+   "financial_company": false,
+   "foreign_private_issuer": false
+  },
+  "units": "Monetary values in USD, absolute (not thousands or millions). diluted_shares in shares; diluted_eps in USD per share.",
+  "periods": [
+   {
+    "label": "FY2025",
+    "type": "annual",
+    "start": "2025-01-01",
+    "end": "2025-12-31",
+    "income_statement": {
+     "revenue": {
+      "value": 716924000000,
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "accession": "0001018724-26-000004"
+     },
+     "gross_profit": null,
+     "operating_income": {
+      "value": 79975000000,
+      "concept": "us-gaap:OperatingIncomeLoss",
+      "accession": "0001018724-26-000004"
+     },
+     "interest_expense": {
+      "value": 2274000000,
+      "concept": "us-gaap:InterestExpenseNonoperating",
+      "accession": "0001018724-26-000004"
+     },
+     "pretax_income": {
+      "value": 97311000000,
+      "concept": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+      "accession": "0001018724-26-000004"
+     },
+     "net_income": {
+      "value": 77670000000,
+      "concept": "us-gaap:NetIncomeLoss",
+      "accession": "0001018724-26-000004"
+     },
+     "diluted_shares": {
+      "value": 10827000000,
+      "concept": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+      "accession": "0001018724-26-000004"
+     },
+     "diluted_eps": {
+      "value": 7.17,
+      "concept": "us-gaap:EarningsPerShareDiluted",
+      "accession": "0001018724-26-000004"
+     }
+    },
+    "cash_flow": {
+     "operating_cash_flow": {
+      "value": 139514000000,
+      "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+      "accession": "0001018724-26-000004"
+     },
+     "capex": {
+      "value": 131819000000,
+      "concept": "us-gaap:PaymentsToAcquireProductiveAssets",
+      "accession": "0001018724-26-000004"
+     },
+     "d_and_a": {
+      "value": 65756000000,
+      "concept": "us-gaap:DepreciationDepletionAndAmortization",
+      "accession": "0001018724-26-000004"
+     },
+     "amortization_intangibles": {
+      "value": 817000000,
+      "concept": "us-gaap:AmortizationOfIntangibleAssets",
+      "accession": "0001018724-26-000004"
+     }
+    },
+    "balance_sheet": {
+     "cash": {
+      "value": 86810000000,
+      "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+      "accession": "0001018724-26-000004"
+     },
+     "short_term_investments": {
+      "value": 36219000000,
+      "concept": "us-gaap:MarketableSecuritiesCurrent",
+      "accession": "0001018724-26-000004"
+     },
+     "total_assets": {
+      "value": 818042000000,
+      "concept": "us-gaap:Assets",
+      "accession": "0001018724-26-000004"
+     },
+     "total_equity": {
+      "value": 411065000000,
+      "concept": "us-gaap:StockholdersEquity",
+      "accession": "0001018724-26-000004"
+     },
+     "ltd_noncurrent": {
+      "value": 65648000000,
+      "concept": "us-gaap:LongTermDebtNoncurrent",
+      "accession": "0001018724-26-000004"
+     },
+     "ltd_total": {
+      "value": 68836000000,
+      "concept": "us-gaap:LongTermDebt",
+      "accession": "0001018724-26-000004"
+     },
+     "debt_current": null,
+     "ltd_current": {
+      "value": 2748000000,
+      "concept": "us-gaap:LongTermDebtCurrent",
+      "accession": "0001018724-26-000004"
+     },
+     "commercial_paper": null,
+     "short_term_borrowings": {
+      "value": 455000000,
+      "concept": "us-gaap:ShortTermBorrowings",
+      "accession": "0001018724-26-000004"
+     },
+     "ltd_due_12m": {
+      "value": 2752000000,
+      "concept": "us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths",
+      "accession": "0001018724-26-000004"
+     }
+    },
+    "derived": {
+     "ebitda": {
+      "value": 145731000000,
+      "formula": "operating_income + d_and_a"
+     },
+     "free_cash_flow": {
+      "value": 7695000000,
+      "formula": "operating_cash_flow - capex"
+     },
+     "total_debt": {
+      "value": 68851000000,
+      "formula": "ltd_noncurrent + ltd_current + short_term_borrowings"
+     },
+     "net_debt": {
+      "value": -54178000000,
+      "formula": "total_debt - cash - short_term_investments"
+     }
+    }
+   },
+   {
+    "label": "LTM to 2026-09-30",
+    "type": "ltm",
+    "start": null,
+    "end": "2026-09-30",
+    "ytd": {
+     "start": "2026-01-01",
+     "end": "2026-09-30",
+     "days": 273
+    },
+    "income_statement": {
+     "revenue": {
+      "value": 797455000000,
+      "concept": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "formula": "FY + YTD - prior YTD",
+      "accessions": [
+       "0001018724-26-000004",
+       "0001018724-26-000040"
+      ]
+     },
+     "gross_profit": null,
+     "operating_income": {
+      "value": 104366000000,
+      "concept": "us-gaap:OperatingIncomeLoss",
+      "formula": "FY + YTD - prior YTD",
+      "accessions": [
+       "0001018724-26-000004",
+       "0001018724-26-000040"
+      ]
+     },
+     "interest_expense": {
+      "value": 4484000000,
+      "concept": "us-gaap:InterestExpenseNonoperating",
+      "formula": "FY + YTD - prior YTD",
+      "accessions": [
+       "0001018724-26-000004",
+       "0001018724-26-000040"
+      ]
+     },
+     "pretax_income": {
+      "value": 174165000000,
+      "concept": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+      "formula": "FY + YTD - prior YTD",
+      "accessions": [
+       "0001018724-26-000004",
+       "0001018724-26-000040"
+      ]
+     },
+     "net_income": {
+      "value": 134779000000,
+      "concept": "us-gaap:NetIncomeLoss",
+      "formula": "FY + YTD - prior YTD",
+      "accessions": [
+       "0001018724-26-000004",
+       "0001018724-26-000040"
+      ]
+     },
+     "diluted_shares": {
+      "value": 10903000000,
+      "concept": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+      "accession": "0001018724-26-000040",
+      "note": "weighted average for the year-to-date period, not trailing twelve months"
+     },
+     "diluted_eps": {
+      "value": 12.370000000000001,
+      "concept": "us-gaap:EarningsPerShareDiluted",
+      "formula": "FY + YTD - prior YTD",
+      "accessions": [
+       "0001018724-26-000004",
+       "0001018724-26-000040"
+      ],
+      "note": "sum of the last four quarters' EPS; per-share amounts are approximately additive"
+     }
+    },
+    "cash_flow": {
+     "operating_cash_flow": {
+      "value": 168300000000,
+      "concept": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+      "formula": "FY + YTD - prior YTD",
+      "accessions": [
+       "0001018724-26-000004",
+       "0001018724-26-000040"
+      ]
+     },
+     "capex": {
+      "value": 215192000000,
+      "concept": "us-gaap:PaymentsToAcquireProductiveAssets",
+      "formula": "FY + YTD - prior YTD",
+      "accessions": [
+       "0001018724-26-000004",
+       "0001018724-26-000040"
+      ]
+     },
+     "d_and_a": {
+      "value": 79353000000,
+      "concept": "us-gaap:DepreciationDepletionAndAmortization",
+      "formula": "FY + YTD - prior YTD",
+      "accessions": [
+       "0001018724-26-000004",
+       "0001018724-26-000040"
+      ]
+     }
+    },
+    "balance_sheet": {
+     "cash": {
+      "value": 55783000000,
+      "concept": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+      "accession": "0001018724-26-000040"
+     },
+     "short_term_investments": {
+      "value": 58443000000,
+      "concept": "us-gaap:MarketableSecuritiesCurrent",
+      "accession": "0001018724-26-000040"
+     },
+     "total_assets": {
+      "value": 1243390000000,
+      "concept": "us-gaap:Assets",
+      "accession": "0001018724-26-000040"
+     },
+     "total_equity": {
+      "value": 613601000000,
+      "concept": "us-gaap:StockholdersEquity",
+      "accession": "0001018724-26-000040"
+     },
+     "ltd_noncurrent": {
+      "value": 173125000000,
+      "concept": "us-gaap:LongTermDebtNoncurrent",
+      "accession": "0001018724-26-000040"
+     },
+     "ltd_total": {
+      "value": 180887000000,
+      "concept": "us-gaap:LongTermDebt",
+      "accession": "0001018724-26-000040"
+     },
+     "debt_current": null,
+     "ltd_current": {
+      "value": 6827000000,
+      "concept": "us-gaap:LongTermDebtCurrent",
+      "accession": "0001018724-26-000040"
+     },
+     "commercial_paper": null,
+     "short_term_borrowings": {
+      "value": 380000000,
+      "concept": "us-gaap:ShortTermBorrowings",
+      "accession": "0001018724-26-000040"
+     },
+     "ltd_due_12m": null
+    },
+    "derived": {
+     "ebitda": {
+      "value": 183719000000,
+      "formula": "operating_income + d_and_a"
+     },
+     "free_cash_flow": {
+      "value": -46892000000,
+      "formula": "operating_cash_flow - capex"
+     },
+     "total_debt": {
+      "value": 180332000000,
+      "formula": "ltd_noncurrent + ltd_current + short_term_borrowings"
+     },
+     "net_debt": {
+      "value": 66106000000,
+      "formula": "total_debt - cash - short_term_investments"
+     }
+    }
+   }
+  ],
+  "warnings": [],
+  "notes": [
+   "Values are as most recently reported (restatements included); each cites its filing.",
+   "Balance-sheet items are period-end instants. Share counts are weighted diluted; where none is tagged (some IFRS filers) the count is computed from net income and EPS, with its formula and precision.",
+   "Derived metrics show their formula. EBITDA is null when operating income is not reported (common for banks and insurers, where EBITDA is not meaningful)."
+  ],
+  "sources": [
+   {
+    "name": "SEC EDGAR",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/0001018724-26-000004-index.htm",
+    "accession_or_id": "0001018724-26-000004",
+    "form": "10-K",
+    "period": "2025-12-31",
+    "as_of": "2026-02-06",
+    "license_note": "SEC EDGAR filing data: U.S. government work, public domain. Cite the filing."
+   },
+   {
+    "name": "SEC EDGAR",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
+    "accession_or_id": "0001018724-26-000040",
+    "form": "10-Q",
+    "period": "2026-09-30",
+    "as_of": "2026-10-30",
+    "license_note": "SEC EDGAR filing data: U.S. government work, public domain. Cite the filing."
+   }
+  ],
+  "data_as_of": "2026-11-09T22:45:45.314Z",
+  "disclaimer": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice.",
+  "shares_outstanding": {
+   "value": 10813138306,
+   "as_of": "2026-10-21",
+   "classes_summed": 1,
+   "concept": "dei:EntityCommonStockSharesOutstanding",
+   "accession": "0001018724-26-000040",
+   "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm"
+  }
+ }
+}

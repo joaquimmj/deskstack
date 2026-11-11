@@ -11,7 +11,7 @@ the user's language, briefly, with one concrete example from their own model whe
 
 ## Setup (no terminal needed)
 
-1. **Connector (data).** In Claude: **Settings → Connectors → Add custom connector**. Paste `https://deskstack.deskstack-server.workers.dev/mcp`,
+1. **Connector (data).** In Claude: **Customize → Connectors → Add custom connector**. Paste `https://deskstack.deskstack-server.workers.dev/mcp`,
    with no sign-in. Free accounts can add one custom connector.
 2. **Plugin (roles).** **Customize → Plugins → Add marketplace**, then paste the GitHub repository URL. Install
    **deskstack**.
@@ -46,5 +46,5 @@ Each finding has a rule ID (DS001…) and a suggested fix.
 ## Limits to state honestly
 
 - No share prices and no consensus estimates.
-- European coverage is about 100 large issuers in 13 countries, annual figures only.
+- European and UK coverage is 232 large issuers in 14 countries, annual figures only (`data_status` has the list).
 - A `match` checks the data, not the judgement. Reviews reduce errors but don't replace a human reviewer.

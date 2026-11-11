@@ -1,0 +1,494 @@
+{
+ "tool": "verify_value",
+ "connector": "https://deskstack.deskstack-server.workers.dev/mcp",
+ "recorded_at": "2026-11-10",
+ "batches": [
+  {
+   "request": {
+    "company": "724500K5PTPSST86UQ23",
+    "items": [
+     {
+      "metric": "revenue",
+      "period": "FY2023",
+      "value": 36375,
+      "scale": "millions",
+      "ref": "Inputs!B5",
+      "currency": "EUR"
+     },
+     {
+      "metric": "revenue",
+      "period": "FY2024",
+      "value": 35955,
+      "scale": "millions",
+      "ref": "Inputs!C5",
+      "currency": "EUR"
+     },
+     {
+      "metric": "revenue",
+      "period": "FY2025",
+      "value": 34257,
+      "scale": "millions",
+      "ref": "Inputs!D5",
+      "currency": "EUR"
+     },
+     {
+      "metric": "operating_income",
+      "period": "FY2023",
+      "value": 3229,
+      "scale": "millions",
+      "ref": "Inputs!B6",
+      "currency": "EUR"
+     },
+     {
+      "metric": "operating_income",
+      "period": "FY2024",
+      "value": 3517,
+      "scale": "millions",
+      "ref": "Inputs!C6",
+      "currency": "EUR"
+     },
+     {
+      "metric": "operating_income",
+      "period": "FY2025",
+      "value": 3406,
+      "scale": "millions",
+      "ref": "Inputs!D6",
+      "currency": "EUR"
+     },
+     {
+      "metric": "d_and_a",
+      "period": "FY2023",
+      "value": 3096,
+      "scale": "millions",
+      "ref": "Inputs!B7",
+      "currency": "EUR"
+     },
+     {
+      "metric": "d_and_a",
+      "period": "FY2024",
+      "value": 2605,
+      "scale": "millions",
+      "ref": "Inputs!C7",
+      "currency": "EUR"
+     },
+     {
+      "metric": "d_and_a",
+      "period": "FY2025",
+      "value": 2609,
+      "scale": "millions",
+      "ref": "Inputs!D7",
+      "currency": "EUR"
+     },
+     {
+      "metric": "capex",
+      "period": "FY2023",
+      "value": 2434,
+      "scale": "millions",
+      "ref": "Inputs!B8",
+      "currency": "EUR"
+     },
+     {
+      "metric": "capex",
+      "period": "FY2024",
+      "value": 2184,
+      "scale": "millions",
+      "ref": "Inputs!C8",
+      "currency": "EUR"
+     },
+     {
+      "metric": "capex",
+      "period": "FY2025",
+      "value": 2133,
+      "scale": "millions",
+      "ref": "Inputs!D8",
+      "currency": "EUR"
+     },
+     {
+      "metric": "net_debt",
+      "period": "FY2025",
+      "value": 14506,
+      "scale": "millions",
+      "ref": "Inputs!B22",
+      "currency": "EUR"
+     },
+     {
+      "metric": "diluted_shares",
+      "period": "FY2025",
+      "value": 557.025,
+      "scale": "millions",
+      "ref": "Inputs!B23",
+      "currency": "EUR"
+     }
+    ]
+   },
+   "response": {
+    "summary": "Heineken N.V.: 14 of 14 value(s) match the filings. Read each item's hints before changing a number.",
+    "company": {
+     "name": "Heineken N.V.",
+     "ticker": null,
+     "lei": "724500K5PTPSST86UQ23",
+     "country": "NL",
+     "region": "EU",
+     "reporting_standard": "IFRS",
+     "currency": "EUR",
+     "fiscal_year_end": "1231",
+     "financial_company": false
+    },
+    "currency": "EUR",
+    "counts": {
+     "total": 14,
+     "match": 14,
+     "mismatch": 0,
+     "not_found": 0,
+     "ambiguous": 0
+    },
+    "results": [
+     {
+      "ref": "Inputs!B5",
+      "metric": "revenue",
+      "resolved_metric": "revenue",
+      "period": "FY2023",
+      "resolved_period": "FY2023 (ended 2023-12-31)",
+      "status": "match",
+      "claimed": 36375,
+      "claimed_units": 36375000000,
+      "filed": 36375000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "ifrs-full:Revenue",
+      "computed": false,
+      "accessions": [
+       "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!C5",
+      "metric": "revenue",
+      "resolved_metric": "revenue",
+      "period": "FY2024",
+      "resolved_period": "FY2024 (ended 2024-12-31)",
+      "status": "match",
+      "claimed": 35955,
+      "claimed_units": 35955000000,
+      "filed": 35955000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "ifrs-full:Revenue",
+      "computed": false,
+      "accessions": [
+       "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!D5",
+      "metric": "revenue",
+      "resolved_metric": "revenue",
+      "period": "FY2025",
+      "resolved_period": "FY2025 (ended 2025-12-31)",
+      "status": "match",
+      "claimed": 34257,
+      "claimed_units": 34257000000,
+      "filed": 34257000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "ifrs-full:Revenue",
+      "computed": false,
+      "accessions": [
+       "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!B6",
+      "metric": "operating_income",
+      "resolved_metric": "operating_income",
+      "period": "FY2023",
+      "resolved_period": "FY2023 (ended 2023-12-31)",
+      "status": "match",
+      "claimed": 3229,
+      "claimed_units": 3229000000,
+      "filed": 3229000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "ifrs-full:ProfitLossFromOperatingActivities",
+      "computed": false,
+      "accessions": [
+       "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!C6",
+      "metric": "operating_income",
+      "resolved_metric": "operating_income",
+      "period": "FY2024",
+      "resolved_period": "FY2024 (ended 2024-12-31)",
+      "status": "match",
+      "claimed": 3517,
+      "claimed_units": 3517000000,
+      "filed": 3517000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "ifrs-full:ProfitLossFromOperatingActivities",
+      "computed": false,
+      "accessions": [
+       "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!D6",
+      "metric": "operating_income",
+      "resolved_metric": "operating_income",
+      "period": "FY2025",
+      "resolved_period": "FY2025 (ended 2025-12-31)",
+      "status": "match",
+      "claimed": 3406,
+      "claimed_units": 3406000000,
+      "filed": 3406000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "ifrs-full:ProfitLossFromOperatingActivities",
+      "computed": false,
+      "accessions": [
+       "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!B7",
+      "metric": "d_and_a",
+      "resolved_metric": "d_and_a",
+      "period": "FY2023",
+      "resolved_period": "FY2023 (ended 2023-12-31)",
+      "status": "match",
+      "claimed": 3096,
+      "claimed_units": 3096000000,
+      "filed": 3096000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "ifrs-full:AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss",
+      "computed": false,
+      "accessions": [
+       "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!C7",
+      "metric": "d_and_a",
+      "resolved_metric": "d_and_a",
+      "period": "FY2024",
+      "resolved_period": "FY2024 (ended 2024-12-31)",
+      "status": "match",
+      "claimed": 2605,
+      "claimed_units": 2605000000,
+      "filed": 2605000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "ifrs-full:AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss",
+      "computed": false,
+      "accessions": [
+       "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!D7",
+      "metric": "d_and_a",
+      "resolved_metric": "d_and_a",
+      "period": "FY2025",
+      "resolved_period": "FY2025 (ended 2025-12-31)",
+      "status": "match",
+      "claimed": 2609,
+      "claimed_units": 2609000000,
+      "filed": 2609000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "ifrs-full:AdjustmentsForDepreciationAndAmortisationExpenseAndImpairmentLossReversalOfImpairmentLossRecognisedInProfitOrLoss",
+      "computed": false,
+      "accessions": [
+       "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!B8",
+      "metric": "capex",
+      "resolved_metric": "capex",
+      "period": "FY2023",
+      "resolved_period": "FY2023 (ended 2023-12-31)",
+      "status": "match",
+      "claimed": 2434,
+      "claimed_units": 2434000000,
+      "filed": 2434000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
+      "computed": false,
+      "accessions": [
+       "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!C8",
+      "metric": "capex",
+      "resolved_metric": "capex",
+      "period": "FY2024",
+      "resolved_period": "FY2024 (ended 2024-12-31)",
+      "status": "match",
+      "claimed": 2184,
+      "claimed_units": 2184000000,
+      "filed": 2184000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
+      "computed": false,
+      "accessions": [
+       "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!D8",
+      "metric": "capex",
+      "resolved_metric": "capex",
+      "period": "FY2025",
+      "resolved_period": "FY2025 (ended 2025-12-31)",
+      "status": "match",
+      "claimed": 2133,
+      "claimed_units": 2133000000,
+      "filed": 2133000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities",
+      "computed": false,
+      "accessions": [
+       "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+      ],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": []
+     },
+     {
+      "ref": "Inputs!B22",
+      "metric": "net_debt",
+      "resolved_metric": "net_debt",
+      "period": "FY2025",
+      "resolved_period": "FY2025 (ended 2025-12-31)",
+      "status": "match",
+      "claimed": 14506,
+      "claimed_units": 14506000000,
+      "filed": 14506000000,
+      "difference": 0,
+      "relative_difference": 0,
+      "concept": null,
+      "computed": true,
+      "accessions": [],
+      "allowance": {
+       "units": 500000,
+       "basis": "rounding of the value as written (±500000)"
+      },
+      "hints": [
+       "Computed value: total_debt - cash - short_term_investments."
+      ]
+     },
+     {
+      "ref": "Inputs!B23",
+      "metric": "diluted_shares",
+      "resolved_metric": "diluted_shares",
+      "period": "FY2025",
+      "resolved_period": "FY2025 (ended 2025-12-31)",
+      "status": "match",
+      "claimed": 557.025,
+      "claimed_units": 557025000,
+      "filed": 557024742,
+      "difference": 258,
+      "relative_difference": 4.63175116914286e-7,
+      "concept": "ifrs-full:AdjustedWeightedAverageShares",
+      "computed": false,
+      "accessions": [
+       "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0"
+      ],
+      "allowance": {
+       "units": 557.024742,
+       "basis": "rounding of the value as written (±557.0247)"
+      },
+      "hints": []
+     }
+    ],
+    "sources": [
+     {
+      "name": "Heineken N.V., ESEF annual financial report (filings.xbrl.org)",
+      "url": "https://filings.xbrl.org/724500K5PTPSST86UQ23/2024-12-31/ESEF/NL/0/heia-2024-12-31-en/reports/ixbrlviewer.html",
+      "accession_or_id": "724500K5PTPSST86UQ23-2024-12-31-ESEF-NL-0",
+      "form": "ESEF annual report",
+      "period": "2024-12-31",
+      "as_of": "2025-02-20",
+      "license_note": "ESEF report filed under the EU Transparency Directive, via filings.xbrl.org (XBRL International); the repository states no restrictions on use. Cite the report."
+     },
+     {
+      "name": "Heineken N.V., ESEF annual financial report (filings.xbrl.org)",
+      "url": "https://filings.xbrl.org/724500K5PTPSST86UQ23/2025-12-31/ESEF/NL/0/heia-2025-12-31-en/reports/ixbrlviewer.html",
+      "accession_or_id": "724500K5PTPSST86UQ23-2025-12-31-ESEF-NL-0",
+      "form": "ESEF annual report",
+      "period": "2025-12-31",
+      "as_of": "2026-02-11",
+      "license_note": "ESEF report filed under the EU Transparency Directive, via filings.xbrl.org (XBRL International); the repository states no restrictions on use. Cite the report."
+     }
+    ],
+    "note": "Computed lines (EBITDA, free cash flow, total debt, net debt) are checked against deskstack's own formula from the filed inputs, shown in the hints. A match means the number agrees with the filing; it does not validate assumptions or forecasts.",
+    "disclaimer": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice."
+   }
+  }
+ ]
+}

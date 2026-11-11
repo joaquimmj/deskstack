@@ -7,6 +7,18 @@ Thanks for helping. Every change keeps four promises:
 - reviewers report rather than edit;
 - checks use only public, widely known practice.
 
+**A first contribution?** [docs/STARTER_ISSUES.md](docs/STARTER_ISSUES.md) lists ten small issues, each with where
+to work and when it's done.
+
+Good first issues, in short:
+
+- **Golden questions:** add known answers from a filing to `evals/build_golden.py` (for example a fiscal year ending
+  in May).
+- **An EU issuer:** add a large listed company to `server/data/eu-issuers.json`, with its golden questions checked by
+  Arelle.
+- **A checker rule:** add a check for a common, publicly known modelling error to `checker/deskstack_check/rules.py`,
+  with a test.
+
 ## Ground rules
 
 - **Data:** official or openly licensed sources only. Record their terms in `docs/DATA_SOURCES.md` before

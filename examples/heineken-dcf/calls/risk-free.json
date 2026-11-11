@@ -1,0 +1,40 @@
+{
+ "tool": "risk_free_rate",
+ "args": {
+  "region": "EUR",
+  "tenor": "10Y"
+ },
+ "connector": "https://deskstack.deskstack-server.workers.dev/mcp",
+ "recorded_at": "2026-11-10",
+ "response": {
+  "summary": "EUR 10Y government yield: 3.257% (decimal 0.03257) on 2026-11-06 (European Central Bank, Data Portal, euro area yield curves).",
+  "region": "EUR",
+  "tenor": "10Y",
+  "rate_pct": 3.2574472223,
+  "rate_decimal": 0.032574472223,
+  "date": "2026-11-06",
+  "basis": "ECB euro area par yield, 10Y, AAA-rated euro area central government bonds (ECB series title: Svensson model, continuous compounding)",
+  "series": "YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y",
+  "warnings": [],
+  "source": {
+   "name": "European Central Bank, Data Portal, euro area yield curves",
+   "url": "https://data.ecb.europa.eu/data/datasets/YC/YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y",
+   "accession_or_id": "YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y/2026-11-06",
+   "period": "2026-11-06",
+   "as_of": "2026-11-06",
+   "license_note": "Source: ECB statistics. Reuse allowed with attribution; figures unmodified."
+  },
+  "sources": [
+   {
+    "name": "European Central Bank, Data Portal, euro area yield curves",
+    "url": "https://data.ecb.europa.eu/data/datasets/YC/YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y",
+    "accession_or_id": "YC.B.U2.EUR.4F.G_N_A.SV_C_YM.PY_10Y/2026-11-06",
+    "period": "2026-11-06",
+    "as_of": "2026-11-06",
+    "license_note": "Source: ECB statistics. Reuse allowed with attribution; figures unmodified."
+   }
+  ],
+  "note": "Percent per year. In a WACC, use the yield in the currency of the cash flows, with a tenor matching the forecast horizon. Cite the source and date.",
+  "disclaimer": "Independent open-source project. Not affiliated with or endorsed by Anthropic. Data may be incomplete or delayed; verify against the cited filing before use. Not investment advice."
+ }
+}

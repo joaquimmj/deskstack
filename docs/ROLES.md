@@ -7,11 +7,23 @@ Roles never fix each other's work silently:
 - the analyst applies fixes only when you agree;
 - nothing is exported before you sign off.
 
+```mermaid
+flowchart LR
+  A["/analyst<br>builds the workbook<br>from cited data"] --> B["/associate<br>ties every number<br>to the filing"]
+  B --> C["/vp-review<br>21 model checks"]
+  C -- "findings you accept" --> F["/analyst<br>fixes, rebuilds"]
+  F -- "reviews run again" --> B
+  C --> D["/md-redteam<br>sensitivities,<br>objections"]
+  D --> E["/compliance<br>disclaimer, citations"]
+  E --> G["/sign-off<br>one page of every check"]
+  G -- "your approval,<br>in your own words" --> H[("signed copy")]
+```
+
 | Command | Role | Output |
 |---|---|---|
 | `/analyst <company> <quick-dcf\|comps>` | Builds the deliverable from deskstack data. It agrees the assumptions with you first, cites every typed number, and asks rather than invents | An Excel workbook: blue inputs, black formulas, green links, a Sources sheet, a Cover with the disclaimer |
 | `/associate` | Extracts every typed number and ties it to the filing with `verify_value` | A tie-out report: each number, its status, the filed value, the note and the source; problems first |
-| `/vp-review` | Runs the checker's 15 rules, then compares the assumptions with filed history | A review report, ranked blocker / major / minor, with cell references, in the `audit-xls` table format |
+| `/vp-review` | Runs the checker's 21 rules, then compares the assumptions with filed history | A review report, ranked blocker / major / minor, with cell references, in the `audit-xls` table format |
 | `/md-redteam` | Argues against the valuation | A memo: the top five objections with their value-per-share impact, the bear case, what the market price implies, the questions for the analyst |
 | `/compliance` | Runs hygiene checks | A pass/fail list: disclaimer, citations, dated user inputs, no sign of non-public information, no buy/sell or promise language, no external links, no hidden sheets |
 | `/sign-off` | The human gate | One page of every check and every open item, with an approval token. A signed copy is written only after you approve in your own words (see below) |
@@ -23,7 +35,7 @@ Roles never fix each other's work silently:
 - A refusal, a question or a condition ("not yet", "approve once fixed") is never taken as approval.
 - If the file changed after the reviews, the export is refused.
 
-**One-shot skills:** `/quick-dcf`, `/comps`, `/company-snapshot`, `/wacc`, `/eu-company`, `/guide`. A `conventions`
+**One-shot skills:** `/quick-dcf`, `/comps`, `/company-snapshot`, `/wacc`, `/eu-company`, `/guide`, and `/deskstack-doctor` to check the setup. A `conventions`
 skill holds the house rules every role follows.
 
 ## Independence
