@@ -3,8 +3,8 @@
 // before this code runs, so they cost no Worker CPU.
 
 import { createMcpHandler, originValidationResponse } from "@modelcontextprotocol/server";
-import { DISCLAIMER, PRODUCT_NAME, REPO_URL, VERSION, type Env } from "./config";
-import { allowDaily, allowIp, CAPACITY_MESSAGE, RATE_MESSAGE } from "./guard";
+import { DEFAULT_PER_IP_PER_MINUTE, DISCLAIMER, PRODUCT_NAME, REPO_URL, VERSION, type Env } from "./config";
+import { allowDaily, allowIp, capacityMessage, rateMessage } from "./guard";
 export { IpCounter } from "./limiter"; // the Durable Object class bound as IP_COUNTER
 import { Fx } from "./fx";
 import { cachedFetchText, Rates } from "./rates";
@@ -31,10 +31,17 @@ function cacheOrNull(): Cache | undefined {
  * message as a tool error (rate limit, daily cap): the SDK still speaks the
  * protocol correctly for old and new clients, and Claude shows the message.
  */
-export function handlerFor(env: Env, refuse = ""): Handler {
-  let byMsg = handlers.get(env);
-  if (!byMsg) handlers.set(env, (byMsg = new Map()));
-  let h = byMsg.get(refuse);
+export type Refusal = "" | "rate" | "capacity";
+
+/**
+ * The MCP handler for this env. With a refusal, every tool call returns its message as a tool error (rate limit,
+ * daily cap): the SDK still speaks the protocol correctly for old and new clients, and Claude shows the message.
+ * Handlers are cached per kind of refusal; the message itself is written at call time (it counts down to the reset).
+ */
+export function handlerFor(env: Env, refusal: Refusal = ""): Handler {
+  let byKind = handlers.get(env);
+  if (!byKind) handlers.set(env, (byKind = new Map()));
+  let h = byKind.get(refusal);
   if (!h) {
     const cache = cacheOrNull();
     const sec = new SecClient({ userAgent: env.SEC_USER_AGENT, cache });
@@ -42,8 +49,10 @@ export function handlerFor(env: Env, refuse = ""): Handler {
     const text = cachedFetchText((i, init) => fetch(i, init), cache);
     const rates = new Rates(text);
     const fx = new Fx(text);
-    h = createMcpHandler(() => buildServer({ repo, rates, fx }, refuse || undefined), { legacy: "stateless" });
-    byMsg.set(refuse, h);
+    const perMinute = Number(env.PER_IP_PER_MINUTE) || DEFAULT_PER_IP_PER_MINUTE;
+    const refuse = refusal === "rate" ? () => rateMessage(perMinute) : refusal === "capacity" ? () => capacityMessage() : undefined;
+    h = createMcpHandler(() => buildServer({ repo, rates, fx }, refuse), { legacy: "stateless" });
+    byKind.set(refusal, h);
   }
   return h;
 }
@@ -72,8 +81,8 @@ export default {
     if (request.method !== "POST") return handlerFor(env).fetch(request); // SDK answers GET/DELETE with 405
 
     const ip = request.headers.get("CF-Connecting-IP") ?? "unknown";
-    if (!(await allowIp(env, ip))) return handlerFor(env, RATE_MESSAGE).fetch(request);
-    if (!(await allowDaily(env, (p) => ctx.waitUntil(p)))) return handlerFor(env, CAPACITY_MESSAGE).fetch(request);
+    if (!(await allowIp(env, ip))) return handlerFor(env, "rate").fetch(request);
+    if (!(await allowDaily(env, (p) => ctx.waitUntil(p)))) return handlerFor(env, "capacity").fetch(request);
 
     return handlerFor(env).fetch(request);
   },

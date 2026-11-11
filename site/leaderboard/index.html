@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>deskstack leaderboard</title>
+<meta name="description" content="How many reported figures AI-built financial models get wrong, by model, with web search alone and with deskstack. Every wrong figure read by hand against the filings.">
+<link rel="canonical" href="https://joaquimmj.github.io/deskstack/leaderboard/">
+<link rel="stylesheet" href="../style.css">
+<style>
+main.board { max-width: 1100px; margin: 0 auto; padding: 48px 20px 80px; }
+main.board h1 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.02em; margin: 0 0 12px; }
+main.board > p, main.board li { color: var(--ink-2); font-size: 16px; line-height: 1.6; max-width: 75ch; }
+main.board section.bcard { margin: 28px 0; }
+main.board .bcard-h h2 { font-size: 18px; margin: 0; }
+main.board td, main.board th { font-size: 14.5px; }
+main.board h2.h { font-size: 20px; margin: 40px 0 8px; }
+</style>
+</head>
+<body>
+<main class="board">
+<p><a href="../">deskstack</a></p>
+<h1>Leaderboard</h1>
+<p>How many reported figures an AI-built model gets wrong: the same 50 companies (35 US, 15 European), one DCF and one comps table each, built by each model with web search alone, with deskstack's data, and with deskstack plus its reviewers. Every figure the scorer called wrong was then read by hand against the filing. Models so far: 1. More models soon: each run is a paid run, approved before it starts.</p>
+<section class="bcard"><div class="bcard-h"><h2>DCF, 50 companies</h2></div><div class="scroll"><table>
+<thead><tr><th scope="col">Model</th><th scope="col">Setup</th><th scope="col" class="r">Models finished</th><th scope="col" class="r">Wrong reported figures</th><th scope="col" class="r">Cost per model</th><th scope="col" class="r">Time per model</th><th scope="col">Source</th></tr></thead>
+<tbody>
+<tr><th scope="row">Claude Sonnet 5.5</th><td>A: web search only</td><td class="r">50 of 50</td><td class="r"><b>20</b> of 573 (3.5%)</td><td class="r">$0.23</td><td class="r">58 s</td><td><a href="https://github.com/joaquimmj/deskstack/blob/main/bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md">analysis</a></td></tr>
+<tr><th scope="row">Claude Sonnet 5.5</th><td>B: deskstack data</td><td class="r">49 of 50</td><td class="r"><b>0</b> of 593 (0.0%)</td><td class="r">$0.07</td><td class="r">18 s</td><td><a href="https://github.com/joaquimmj/deskstack/blob/main/bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md">analysis</a></td></tr>
+<tr><th scope="row">Claude Sonnet 5.5</th><td>C: deskstack + associate + VP review + fix</td><td class="r">50 of 50</td><td class="r"><b>0</b> of 606 (0.0%)</td><td class="r">$0.10</td><td class="r">32 s</td><td><a href="https://github.com/joaquimmj/deskstack/blob/main/bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md">analysis</a></td></tr>
+</tbody></table></div></section>
+<section class="bcard"><div class="bcard-h"><h2>Comps table, 50 companies</h2></div><div class="scroll"><table>
+<thead><tr><th scope="col">Model</th><th scope="col">Setup</th><th scope="col" class="r">Models finished</th><th scope="col" class="r">Wrong reported figures</th><th scope="col" class="r">Cost per model</th><th scope="col" class="r">Time per model</th><th scope="col">Source</th></tr></thead>
+<tbody>
+<tr><th scope="row">Claude Sonnet 5.5</th><td>A: web search only</td><td class="r">45 of 50</td><td class="r"><b>16</b> of 445 (3.6%)</td><td class="r">$0.56</td><td class="r">171 s</td><td><a href="https://github.com/joaquimmj/deskstack/blob/main/bench/results/2026-11-09T13-04-05-468Z/ANALYSIS.md">analysis</a></td></tr>
+<tr><th scope="row">Claude Sonnet 5.5</th><td>B: deskstack data</td><td class="r">50 of 50</td><td class="r"><b>0</b> of 1,021 (0.0%)</td><td class="r">$0.17</td><td class="r">36 s</td><td><a href="https://github.com/joaquimmj/deskstack/blob/main/bench/results/2026-11-09T13-04-05-468Z/ANALYSIS.md">analysis</a></td></tr>
+<tr><th scope="row">Claude Sonnet 5.5</th><td>C: deskstack + associate + VP review + fix</td><td class="r">50 of 50</td><td class="r"><b>0</b> of 1,010 (0.0%)</td><td class="r">$0.22</td><td class="r">51 s</td><td><a href="https://github.com/joaquimmj/deskstack/blob/main/bench/results/2026-11-09T13-04-05-468Z/ANALYSIS.md">analysis</a></td></tr>
+</tbody></table></div></section>
+<h2 class="h">How the figures are checked</h2>
+<ul>
+<li>Each submitted figure is scored against the filing it should come from, then every one the scorer calls wrong is read by hand and classified. The analysis of each run lists every case.</li>
+<li>The setups with deskstack read the data they are scored against, so their 0 is partly by construction. deskstack's data is checked separately: a golden set of questions with known answers on every push, and a nightly re-read of each answer from the filing itself with independent parsers, edgartools for SEC filings and Arelle for European reports.</li>
+<li>Generated from <a href="https://github.com/joaquimmj/deskstack/tree/main/bench/results">bench/results</a> by <code>server/bench/leaderboard.ts</code>. The runner, the frozen company set and the method are in <a href="https://github.com/joaquimmj/deskstack/blob/main/bench/README.md">bench/</a>.</li>
+</ul>
+<p>Independent open-source project. Not affiliated with or endorsed by Anthropic. Not investment advice.</p>
+</main>
+</body>
+</html>

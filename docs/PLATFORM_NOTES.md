@@ -75,6 +75,17 @@ Note: Anthropic's developer docs for connectors and plugins now live under `clau
 - Account limits: up to 25 user-added marketplaces, and 5,000 files / 200 MB per plugin. (https://claude.com/docs/plugins/platform-support.md, read 2026-11-08)
 - Org-synced marketplaces have stricter rules: the repo must be private or internal. (https://code.claude.com/docs/en/plugins/host-marketplace.md, read 2026-11-08)
 - In Claude Code: `/plugin marketplace add owner/repo`, or `claude plugin marketplace add ...`. It accepts any git URL, a hosted `marketplace.json` URL, or a local path. (same, read 2026-11-08)
+- One step, without adding the marketplace first: `/plugin install deskstack --marketplace joaquimmj/deskstack` in a
+  session (Claude Code v2.1.275+; it asks to confirm the new marketplace), or
+  `claude plugin install deskstack --marketplace joaquimmj/deskstack` in a shell (v2.1.292+). Two steps:
+  `/plugin marketplace add joaquimmj/deskstack`, then `/plugin install deskstack@deskstack`, where the part after `@`
+  is the `name` in `.claude-plugin/marketplace.json`, not the repo name. `claude plugin validate .` checks a
+  marketplace. (https://code.claude.com/docs/en/discover-plugins, /plugin-marketplaces, /plugins/cli-reference, read 2026-11-10)
+- MCP Registry: `server.json` at the repo root, schema
+  `https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json`, name `io.github.joaquimmj/*` with
+  GitHub login, description at most 100 characters, a `streamable-http` remote. `mcp-publisher login github`, then
+  `mcp-publisher publish`. Publishing is public at once, and the registry doesn't check who controls the URL.
+  (github.com/modelcontextprotocol/registry docs: quickstart.mdx, remote-servers.mdx, server.schema.json, read 2026-11-10)
 - Private repos in Claude Code use the user's own git credentials (SSH key, or a credential helper via `gh auth setup-git`). A `GITHUB_TOKEN` env var alone isn't enough. Auto-update is off by default for third-party marketplaces. (same, read 2026-11-08)
 - Sync between surfaces:
   - A plugin installed on the claude.ai account syncs to Claude Code at the next signed-in session.

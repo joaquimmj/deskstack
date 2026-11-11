@@ -157,6 +157,13 @@ Review and QC skills in the repo (data, not docs) [S22]:
    - Ship it under `skills/<reviewer>/scripts/` (or a shared skill folder that every reviewer references by relative path).
    - Never use a top-level `bin/`, which blocks claude.ai and Cowork install [S9].
    - Reference it as `python3 ${CLAUDE_SKILL_DIR}/scripts/check.py` **and** keep it working from a path relative to `SKILL.md`, because chat copies the folder but doesn't substitute the variable [S2].
+   - **One shared copy instead of six?** Checked 2026-11-10 (stars brief lot 8). Claude Code documents
+     `${CLAUDE_PLUGIN_ROOT}` for "resources shared between the plugin's skills", substituted in the SKILL.md body
+     (https://code.claude.com/docs/en/skills, /plugins-reference). For chat and Cowork it is not documented what part
+     of the plugin reaches the sandbox, and a skill uploaded as its own ZIP (the Free-plan path) "can't explicitly
+     reference other skills" (https://support.claude.com/en/articles/12512198-creating-custom-skills). So each
+     script-running skill keeps its own copy, kept identical by `plugins/sync_vendor.py` and its test (about 1.5 MB
+     each, 9 MB for the plugin, far under the 200 MB limit).
 2. **Vendor pure-Python dependencies.** Package lists and egress vary: Team and Enterprise can be off or package-managers-only, and claude.ai doesn't publish its package list [S5].
    - Try `import openpyxl`. On ImportError, fall back to `pip install --user openpyxl`, then to a vendored copy in `scripts/_vendor/`. openpyxl and its dependency et_xmlfile are pure Python and MIT-licensed, which fits `THIRD_PARTY_NOTICES.md`.
    - In Claude Code, install into `${CLAUDE_PLUGIN_DATA}` rather than globally [S1][S7].

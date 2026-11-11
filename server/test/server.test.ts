@@ -295,6 +295,15 @@ describe("snapshot path", () => {
     expect(calls.some((u) => u.includes("companyfacts"))).toBe(true);
   });
 
+  it("data_status counts the European issuers it serves, by country (stars brief lot 2 bis)", async () => {
+    const r = await call(baseEnv({ ASSETS: fixtureAssets(["AAPL"]) }), "data_status");
+    const eu = r.json.coverage.europe_by_country as Record<string, number>;
+    const total = Object.values(eu).reduce((a, b) => a + b, 0);
+    expect(total).toBeGreaterThan(0);
+    expect(r.json.coverage.europe_esef).toMatch(new RegExp(`^${total} large European and UK listed issuers`));
+    expect(r.json.coverage.europe_esef).not.toMatch(/\(FR, NL, ES, FI, IT, BE\)/);
+  });
+
   it("data_status reports the snapshot", async () => {
     const r = await call(baseEnv({ ASSETS: fixtureAssets(["AAPL"]) }), "data_status");
     expect(r.json.snapshot.built_at).toBe("2026-11-08T03:00:00Z");
@@ -310,7 +319,7 @@ describe("guardrails", () => {
     for (let i = 0; i < 5; i++) last = await client.callTool({ name: "data_status", arguments: {} });
     await client.close();
     expect(last!.isError).toBe(true);
-    expect((last!.content as Array<{ text: string }>)[0]!.text).toMatch(/Too many requests/);
+    expect((last!.content as Array<{ text: string }>)[0]!.text).toMatch(/more than 3 requests in a minute.*Retry in a minute.*SELF_HOSTING/s);
   });
 
   it("per-IP limit also holds in each isolate when the Cloudflare limiter lets a burst through (security audit, 2026-11-09)", async () => {
@@ -322,7 +331,7 @@ describe("guardrails", () => {
     for (let i = 0; i < 5; i++) last = await client.callTool({ name: "data_status", arguments: {} });
     await client.close();
     expect(last!.isError).toBe(true);
-    expect((last!.content as Array<{ text: string }>)[0]!.text).toMatch(/Too many requests/);
+    expect((last!.content as Array<{ text: string }>)[0]!.text).toMatch(/more than 3 requests in a minute/);
   });
 
   it("daily cap answers with the self-host message", async () => {
@@ -349,7 +358,7 @@ describe("guardrails", () => {
     const r = await client.callTool({ name: "data_status", arguments: {} });
     await client.close();
     expect(r.isError).toBe(true);
-    expect((r.content as Array<{ text: string }>)[0]!.text).toMatch(/free daily capacity/);
+    expect((r.content as Array<{ text: string }>)[0]!.text).toMatch(/free daily capacity is used up.*resets at 00:00 UTC, in (\d+ h \d+ min|less than a minute).*SELF_HOSTING/s);
   });
 
   it("rejects a foreign browser Origin", async () => {
@@ -379,5 +388,14 @@ describe("guardrails", () => {
     const res = await worker.fetch(new Request("https://ft.test/"), baseEnv(), ctx);
     const j = (await res.json()) as { mcp_endpoint: string };
     expect(j.mcp_endpoint).toBe("https://ft.test/mcp");
+  });
+});
+
+describe("server instructions (review 2026-11-10)", () => {
+  it("say how to bridge to equity value with the lines the balance sheet now has", async () => {
+    const { INSTRUCTIONS } = await import("../src/tools");
+    expect(INSTRUCTIONS).toMatch(/noncontrolling_interests/);
+    expect(INSTRUCTIONS).toMatch(/lease_liabilities/);
+    expect(INSTRUCTIONS).toMatch(/note/);
   });
 });

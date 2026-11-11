@@ -19,6 +19,21 @@ def test_golden_json_is_current():
     assert r.returncode == 0, r.stdout + r.stderr
 
 
+def test_cvm_answers_are_current_and_brazil_has_ten_questions(tmp_path):
+    """The Brazilian answers come from evals/cvm_reader.py on the recorded CSVs (stars brief lot 2 bis)."""
+    import importlib.util
+    import json as _json
+
+    spec = importlib.util.spec_from_file_location("cvm_reader", ROOT / "evals" / "cvm_reader.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    data = _json.loads((ROOT / "evals" / "fixtures" / "cvm-answers.json").read_text())
+    assert data["answers"] == mod.read() and data["ltm"] == mod.read_ltm(), "run python3 evals/cvm_reader.py"
+    br = [q for q in GOLDEN["questions"] if "br" in q["tags"]]
+    assert len(br) >= 10 and all(q["source"]["type"] in ("cvm-dfp", "cvm-ltm") for q in br)
+    assert sum("ltm" in q["tags"] for q in br) >= 5
+
+
 def test_golden_set_covers_the_edge_cases_the_brief_asks_for():
     tags = {t for q in GOLDEN["questions"] for t in q["tags"]}
     assert GOLDEN["count"] >= 60

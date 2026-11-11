@@ -53,6 +53,12 @@ RULE_INFO = {
     "DS013": ("Units", "Convert between thousands and millions explicitly, or use one unit everywhere."),
     "DS014": ("Sign convention", "Use one sign for capex and D&A across all periods."),
     "DS015": ("Discount timing", "Make the discount periods match the stated mid-year or end-of-year convention."),
+    "DS016": ("Placeholder", "Find the filed figure (verify_value), or leave the cell empty and say it is missing; never a 0 or a guess."),
+    "DS017": ("Synthetic series", "Check each typed figure against the filing; filed history rarely grows at one exact rate."),
+    "DS018": ("Balancing plug", "Remove the plug and find the line that is off: compare each period's movements."),
+    "DS019": ("Interest and debt", "Compute interest from the debt and cash balances, and give debt a repayment schedule."),
+    "DS020": ("Share count", "Roll the share count forward: buybacks and dilution change it every period."),
+    "DS021": ("Percent units", "Type the rate as a decimal (0.05 for 5%), like the model's other rates, or divide it by 100 where it is used."),
 }
 
 # Numbers that are fine inside formulas: 0/1/-1, percentages base, periods per year, days.
@@ -384,6 +390,195 @@ def _letter(col: int) -> str:
     return get_column_letter(col)
 
 
+
+# ---- Rules for the errors AI-built models make (stars brief lot 2: Wall Street Prep 2026, deskstack's benchmarks) ----
+
+PLACEHOLDER_STRONG = re.compile(
+    r"\b(not found|placeholder|tbd|to be (confirmed|determined)|dummy|fictional|made[- ]up|lorem|xxx+|to replace|"
+    r"missing|unavailable|no data)\b",
+    re.I,
+)
+PLACEHOLDER_SOFT = re.compile(r"\b(estimated?|estimates|approx(imately|\.)?|roughly|ballpark|guess(ed)?|assumed)\b", re.I)
+FILING_CITED = re.compile(r"\b(10-?K|10-?Q|20-?F|40-?F|annual report|ESEF|accession|0\d{9}-\d{2}-\d{6})\b", re.I)
+
+
+def _source_texts(wb: Workbook) -> dict[str, str]:
+    """Sources-sheet text per cited cell ("Inputs!B7" -> the rest of its row)."""
+    src = next((s for s in wb.sheet_order if s.lower().startswith("source")), None)
+    if src is None:
+        return {}
+    by_row: dict[int, list] = defaultdict(list)
+    for sc in wb.cells[src].values():
+        by_row[sc.row].append(sc)
+    out = {}
+    for cells in by_row.values():
+        texts = [str(c.constant) for c in sorted(cells, key=lambda c: c.col) if isinstance(c.constant, str)]
+        joined = " ".join(texts)
+        for m in re.findall(r"(?:'[^']+'|[A-Za-z_][A-Za-z0-9_.]*)!\$?[A-Z]{1,3}\$?\d+", joined):
+            out[m.replace("$", "").replace("'", "")] = joined
+    return out
+
+
+def r_placeholders(wb: Workbook) -> list[Finding]:
+    """DS016: a typed number whose source or label says it wasn't found (a placeholder 0, "TBD", "NOT FOUND")."""
+    sources = _source_texts(wb)
+    out = []
+    for c in wb.all():
+        if not (c.is_number_constant and _looks_like_model_number(wb, c)):
+            continue
+        text = f"{label_of(wb, c)} {sources.get(c.ref, '')}"
+        v = wb.value(c)
+        if PLACEHOLDER_STRONG.search(text):
+            what = "a placeholder 0" if v == 0 else "a placeholder"
+            out.append(Finding("DS016", "major", c.ref, f"Looks like {what}: its label or source says {PLACEHOLDER_STRONG.search(text).group(0)!r}."))
+        elif PLACEHOLDER_SOFT.search(text) and not FILING_CITED.search(text):
+            out.append(Finding("DS016", "minor", c.ref, f"An estimated figure ({PLACEHOLDER_SOFT.search(text).group(0)!r}) with no filing cited: confirm it is an assumption, not a missing filed number."))
+    return out
+
+
+# Rows that hold one financial line over time (not a comps row, where each column is another metric).
+LINE_ITEM_RE = re.compile(r"\b(revenue|sales|ebitda?|operating income|net income|gross profit|capex|capital expenditure|d&a|depreciation|free cash flow)\b", re.I)
+
+
+def r_synthetic_series(wb: Workbook) -> list[Finding]:
+    """DS017: four or more typed figures on a row that grow at one exact rate, or are all round thousands."""
+    out = []
+    rows = defaultdict(list)
+    for c in wb.all():
+        if c.is_number_constant and _looks_like_model_number(wb, c):
+            rows[(c.sheet, c.row)].append(c)
+    for (_sheet, _row), cells in rows.items():
+        cells.sort(key=lambda c: c.col)
+        vals = [float(wb.value(c)) for c in cells]
+        if len(vals) < 4 or any(v == 0 for v in vals):
+            continue
+        ratios = [b / a for a, b in zip(vals, vals[1:])]
+        if all(abs(r - ratios[0]) < 1e-9 * max(1.0, abs(ratios[0])) for r in ratios) and abs(ratios[0] - 1) > 1e-9:
+            out.append(Finding("DS017", "minor", cells[0].ref, f"{len(vals)} typed figures grow by exactly {ratios[0] - 1:.2%} every period: filed history rarely does."))
+        elif LINE_ITEM_RE.search(label_of(wb, cells[0])) and all(abs(v) >= 1000 and v % 1000 == 0 for v in vals):
+            out.append(Finding("DS017", "minor", cells[0].ref, f"{len(vals)} typed figures are all round thousands: check them against the filing."))
+    return out
+
+
+PLUG_RE = re.compile(r"\b(plug|balancing (item|figure|line|plug)|squeeze|check figure|cash (adjustment|plug)|adjusted cash)\b", re.I)
+
+
+def r_balancing_plug(wb: Workbook) -> list[Finding]:
+    """DS018: a line labeled as a plug or balancing item, with a value: the model balances only through it."""
+    out = []
+    for sheet, row, label in rows_labeled(wb, PLUG_RE):
+        nums = [c for c in row_numbers(wb, sheet, row) if isinstance(wb.value(c), (int, float)) and wb.value(c) != 0]
+        if nums:
+            out.append(Finding("DS018", "major", nums[0].ref, f"{label!r} is a balancing plug: the model balances only through it."))
+    return out
+
+
+INTEREST_RE = re.compile(r"\binterest (expense|paid|cost|charge)s?\b|\bnet interest\b|\bfinance costs?\b", re.I)
+DEBT_RE = re.compile(r"\b(debt|borrowings?|loans?|notes|bonds?|revolver|cash|interest rate|cost of debt)\b", re.I)
+SCHEDULE_RE = re.compile(r"\b(repay(ment)?s?|issu(ance|ed)|maturit(y|ies)|amortization of debt|drawdowns?|refinanc)", re.I)
+
+
+def r_interest_and_debt(wb: Workbook) -> list[Finding]:
+    """DS019: interest typed or not computed from debt and cash; debt held flat with no schedule."""
+    sources = _source_texts(wb)
+    out = []
+    for sheet, row, label in rows_labeled(wb, INTEREST_RE):
+        nums = row_numbers(wb, sheet, row)
+        if len(nums) < 2:
+            continue
+        typed = [c for c in nums if c.formula is None and not FILING_CITED.search(sources.get(c.ref, ""))]
+        if typed:
+            out.append(Finding("DS019", "major", typed[0].ref, f"{label!r} is typed in {len(typed)} period(s) instead of computed from debt and cash."))
+            continue
+        linked = False
+        for c in nums:
+            for ref_sheet, ref in references(c.formula or "", sheet):
+                other = wb.get(ref_sheet, ref)
+                if other is not None and DEBT_RE.search(label_of(wb, other)):
+                    linked = True
+        if not linked:
+            out.append(Finding("DS019", "major", nums[0].ref, f"{label!r} formulas don't reference any debt or cash balance."))
+    has_schedule = bool(rows_labeled(wb, SCHEDULE_RE))
+    for sheet, row, label in rows_labeled(wb, re.compile(r"^(total )?(debt|borrowings|gross debt)$", re.I)):
+        vals = [wb.value(c) for c in row_numbers(wb, sheet, row)]
+        vals = [v for v in vals if isinstance(v, (int, float))]
+        if len(vals) >= 3 and len(set(vals)) == 1 and not has_schedule:
+            out.append(Finding("DS019", "minor", row_numbers(wb, sheet, row)[0].ref, f"{label!r} is flat across {len(vals)} periods with no repayment or issuance schedule."))
+    return out
+
+
+SHARES_RE = re.compile(r"\b(diluted shares|shares outstanding|share count|weighted average shares)\b", re.I)
+BUYBACK_RE = re.compile(r"\b(buy ?backs?|share repurchases?|repurchases?)\b", re.I)
+
+
+def r_flat_share_count(wb: Workbook) -> list[Finding]:
+    """DS020: a share count that stays flat across periods while the model has buybacks."""
+    buybacks = any(
+        any(isinstance(wb.value(c), (int, float)) and wb.value(c) != 0 for c in row_numbers(wb, s, r))
+        for s, r, _ in rows_labeled(wb, BUYBACK_RE)
+    )
+    if not buybacks:
+        return []
+    out = []
+    for sheet, row, label in rows_labeled(wb, SHARES_RE):
+        cells = row_numbers(wb, sheet, row)
+        vals = [wb.value(c) for c in cells if isinstance(wb.value(c), (int, float))]
+        if len(vals) >= 3 and len(set(vals)) == 1:
+            out.append(Finding("DS020", "minor", cells[0].ref, f"{label!r} stays at {vals[0]:g} for {len(vals)} periods while the model has buybacks."))
+    return out
+
+# Rows that hold a rate. Their typed values should share one convention: decimals (0.05) or whole percents (5).
+RATE_RE = re.compile(
+    r"\b(growth|margin|tax rate|wacc|discount rate|cost of (equity|debt|capital)|equity risk premium|erp|risk[- ]free|"
+    r"inflation|payout|cagr|yield)\b|%",
+    re.I,
+)
+
+
+# Rates that can legitimately exceed 100% (fast growth, a start-up's margin): flagged only from 2 (200%) up.
+WIDE_RATE_RE = re.compile(r"\b(growth|cagr|margin)\b", re.I)
+# Not rates, though they sit on rate rows: a beta, a spread in basis points, a multiple.
+NOT_A_RATE_RE = re.compile(r"\b(beta|bps|basis points?|multiple|times)\b|\bx\b", re.I)
+
+
+def _percent_format(fmt: str | None) -> bool:
+    """A format that multiplies by 100: a % outside quotes and escapes (0.0"%" and 0\\% show the number as typed)."""
+    if not fmt:
+        return False
+    bare = re.sub(r'"[^"]*"|\\.', "", fmt)
+    return "%" in bare
+
+
+def _row_text(wb: Workbook, c) -> str:
+    """Every text cell to the left on the row (a row can read 'Cost of equity | Beta | 1.2')."""
+    return " ".join(
+        str(o.constant) for o in wb.cells[c.sheet].values() if o.row == c.row and o.col < c.col and isinstance(o.constant, str)
+    )
+
+
+def r_percent_units(wb: Workbook) -> list[Finding]:
+    """DS021: a rate typed as a whole number (5 for 5%): shown as 500% in a % cell, or out of line with the model's
+    other rates, which are decimals. A model that types every rate as a whole percent is left alone."""
+    rates = [
+        c for c in wb.all()
+        if c.is_number_constant and _looks_like_model_number(wb, c) and RATE_RE.search(label_of(wb, c))
+        and not NOT_A_RATE_RE.search(_row_text(wb, c))
+    ]
+    decimals = sum(1 for c in rates if 0 < abs(c.constant) < 1)
+    out = []
+    for c in rates:
+        v = c.constant
+        label = label_of(wb, c)
+        floor = 2 if WIDE_RATE_RE.search(label) else 1
+        if abs(v) < floor or abs(v) <= 1:
+            continue
+        if _percent_format(c.number_format):
+            out.append(Finding("DS021", "major", c.ref, f"{label!r} is typed as {v:g} in a percent cell, so it shows as {v * 100:.0f}%: a rate typed as a whole number?"))
+        elif abs(v) <= 100 and decimals >= 2:
+            out.append(Finding("DS021", "major", c.ref, f"{label!r} is typed as {v:g} while the model's other {decimals} rates are decimals (e.g. 0.05 for 5%): it reads as {v * 100:.0f}%."))
+    return out
+
+
 STRUCTURAL = [
     r_hardcode_in_formula,
     r_inconsistent_row,
@@ -393,6 +588,10 @@ STRUCTURAL = [
     r_error_values,
     r_circular,
     r_units_mix,
+    r_placeholders,
+    r_synthetic_series,
+    r_interest_and_debt,
+    r_percent_units,
 ]
 # These read results; for formula cells they need the values Excel cached on save.
-VALUE_BASED = [r_balance_sheet, r_cash_tie, r_dcf_sanity, r_sign_flips, r_discount_timing]
+VALUE_BASED = [r_balance_sheet, r_cash_tie, r_dcf_sanity, r_sign_flips, r_discount_timing, r_balancing_plug, r_flat_share_count]

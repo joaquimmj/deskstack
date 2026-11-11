@@ -1,0 +1,120 @@
+{
+ "kind": "dcf",
+ "company": "Apple Inc.",
+ "ticker": "AAPL",
+ "currency": "USD",
+ "scale": "millions",
+ "history": {
+  "periods": [
+   "FY2024",
+   "FY2025",
+   "FY2026"
+  ],
+  "lines": {
+   "revenue": {
+    "values": [
+     391035.0,
+     416116.0,
+     478834.0
+    ],
+    "sources": [
+     "10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax (deskstack financial_statements, recorded 2026-11-10)",
+     "10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax (deskstack financial_statements, recorded 2026-11-10)",
+     "10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax (deskstack financial_statements, recorded 2026-11-10)"
+    ]
+   },
+   "operating_income": {
+    "values": [
+     123216.0,
+     133050.0,
+     158063.0
+    ],
+    "sources": [
+     "10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:OperatingIncomeLoss (deskstack financial_statements, recorded 2026-11-10)",
+     "10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:OperatingIncomeLoss (deskstack financial_statements, recorded 2026-11-10)",
+     "10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:OperatingIncomeLoss (deskstack financial_statements, recorded 2026-11-10)"
+    ]
+   },
+   "d_and_a": {
+    "values": [
+     11445.0,
+     11698.0,
+     13423.0
+    ],
+    "sources": [
+     "10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:DepreciationDepletionAndAmortization (deskstack financial_statements, recorded 2026-11-10)",
+     "10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:DepreciationDepletionAndAmortization (deskstack financial_statements, recorded 2026-11-10)",
+     "10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:DepreciationDepletionAndAmortization (deskstack financial_statements, recorded 2026-11-10)"
+    ]
+   },
+   "capex": {
+    "values": [
+     9447.0,
+     12715.0,
+     9041.0
+    ],
+    "sources": [
+     "10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment (deskstack financial_statements, recorded 2026-11-10)",
+     "10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment (deskstack financial_statements, recorded 2026-11-10)",
+     "10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:PaymentsToAcquirePropertyPlantAndEquipment (deskstack financial_statements, recorded 2026-11-10)"
+    ]
+   }
+  }
+ },
+ "assumptions": {
+  "projection_labels": [
+   "FY2027E",
+   "FY2028E",
+   "FY2029E",
+   "FY2030E",
+   "FY2031E"
+  ],
+  "revenue_growth": {
+   "values": [
+    0.1292,
+    0.1083,
+    0.0875,
+    0.0667,
+    0.0458
+   ],
+   "source": "Analyst assumption (example rule): FY2026 growth of 15.1%, capped at 15%, fading in a straight line toward terminal growth of 2.5%"
+  },
+  "ebit_margin": {
+   "value": 0.3216,
+   "source": "Analyst assumption (example rule): average operating margin FY2024-FY2026"
+  },
+  "tax_rate": {
+   "value": 0.1699,
+   "source": "Analyst assumption (example rule): 1 - net income / pretax income, FY2026"
+  },
+  "da_pct_revenue": {
+   "value": 0.028,
+   "source": "Analyst assumption (example rule): FY2026 D&A / revenue"
+  },
+  "capex_pct_revenue": {
+   "value": 0.0189,
+   "source": "Analyst assumption (example rule): FY2026 capex / revenue"
+  },
+  "wacc": {
+   "value": 0.106,
+   "source": "Analyst assumption (example rule): Damodaran Computers/Peripherals (US) weights, 95.6% x cost of equity [risk-free 4.88% (U.S. Department of the Treasury, Daily Treasury Par Yield Curve Rates, 2026-11-09) + beta 1.35 x ERP 4.46% (United States)] + 4.4% x after-tax cost of debt 3.97% (deskstack valuation_inputs)"
+  },
+  "terminal_growth": {
+   "value": 0.025,
+   "source": "Analyst assumption (example rule): below long-run nominal GDP"
+  },
+  "mid_year": false
+ },
+ "bridge": {
+  "net_debt": {
+   "value": 23389.0,
+   "period": "FY2026",
+   "source": "Computed by deskstack: total_debt - cash - short_term_investments, 10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm (financial_statements, recorded 2026-11-10)"
+  },
+  "diluted_shares": {
+   "value": 14720.306,
+   "period": "FY2026",
+   "source": "10-K for 2026-09-26, 0000320193-26-000026, https://www.sec.gov/Archives/edgar/data/320193/000032019326000026/0000320193-26-000026-index.htm, us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding (deskstack financial_statements, recorded 2026-11-10)"
+  }
+ }
+}

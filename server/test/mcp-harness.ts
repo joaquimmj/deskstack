@@ -7,6 +7,7 @@ import worker from "../src/index";
 import { pad } from "../src/sec/edgar";
 import { buildCompanyRecord } from "../src/sec/record";
 import { syntheticDamodaran } from "./damodaran-fixture";
+import { brAssets } from "./cvm-fixture";
 import { TTE, tteRecord } from "./esef-fixture";
 import { facts, load, submissions, tickerToCik } from "./helpers";
 
@@ -58,6 +59,7 @@ export function fixtureAssets(tickers: string[], eu: EuFixture[] = [{ lei: TTE.l
   files.set("/v1/eu/manifest.json", { built_at: "2026-11-08T04:00:00Z" });
   for (const e of eu) files.set(`/v1/eu/co/${e.lei}.json`, e.record);
   files.set("/v1/manifest.json", { schema: 1, built_at: "2026-11-08T03:00:00Z", companies: t.data.length, records: tickers.length, source: "fixtures" });
+  for (const [k, v] of brAssets()) files.set(k, v);
   for (const tk of tickers) {
     const cik = t2c.get(tk)!;
     files.set(`/v1/co/${pad(cik)}.json`, buildCompanyRecord(facts(tk), submissions(tk), cik, "2026-11-08T03:00:00Z", "snapshot"));

@@ -6,13 +6,27 @@
 
 import { DEFAULT_DAILY_CAP, DEFAULT_PER_IP_PER_MINUTE, PRODUCT_NAME, SELF_HOST_URL, type Env } from "./config";
 
-export const CAPACITY_MESSAGE =
-  `${PRODUCT_NAME}'s free daily capacity is used up (it resets at 00:00 UTC). ` +
-  `Anyone can deploy their own free copy in a few minutes: ${SELF_HOST_URL}`;
+/** The daily cap: what happened, when it comes back (00:00 UTC, with the time left), how to self-host. */
+export function capacityMessage(now = Date.now()): string {
+  const next = new Date(now);
+  next.setUTCHours(24, 0, 0, 0);
+  const ms = next.getTime() - now;
+  const mins = Math.ceil(ms / 60_000); // rounded up: never promise the reset sooner than it comes
+  const left = ms < 60_000 ? "less than a minute" : `${Math.floor(mins / 60)} h ${mins % 60} min`;
+  return (
+    `${PRODUCT_NAME}'s free daily capacity is used up: the shared server has answered as many requests today as its free ` +
+    `hosting allows. It resets at 00:00 UTC, in ${left}. To keep working now, deploy your own free copy in a few ` +
+    `minutes: ${SELF_HOST_URL}`
+  );
+}
 
-export const RATE_MESSAGE =
-  `Too many requests from your network to ${PRODUCT_NAME} in the last minute. Wait a minute and retry, ` +
-  `or deploy your own copy for heavy use: ${SELF_HOST_URL}`;
+/** The per-IP limit: what the limit is, when to retry, how to self-host. */
+export function rateMessage(perMinute: number): string {
+  return (
+    `${PRODUCT_NAME} received more than ${perMinute} requests in a minute from your network, the limit per address on ` +
+    `the shared server. Retry in a minute. For heavy use, deploy your own free copy: ${SELF_HOST_URL}`
+  );
+}
 
 // ---- per-IP window (fallback when no Rate Limiting binding) --------------------
 

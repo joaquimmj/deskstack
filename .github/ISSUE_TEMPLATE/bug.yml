@@ -1,0 +1,38 @@
+name: Bug
+description: A wrong figure, a crash, a check that misfires, or an install that fails.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks. A wrong figure is the most useful bug you can report: give the company, the period, the line and what the filing says.
+        Never paste API keys, tokens or anything confidential.
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where
+      options:
+        - A data tool (connector)
+        - A role (/analyst, /associate, /vp-review, /md-redteam, /compliance, /sign-off, /deal-team)
+        - deskstack-check (command line or GitHub Action)
+        - Install or setup
+        - Site or docs
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what you expected
+      description: For a wrong figure, the company, period and line, what deskstack returned, and what the filing says (with a link).
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: How to reproduce
+      description: The tool call or command, and the surface (claude.ai, Cowork, Claude Code, terminal).
+  - type: textarea
+    id: doctor
+    attributes:
+      label: /deskstack-doctor output (for install problems)
+      render: text

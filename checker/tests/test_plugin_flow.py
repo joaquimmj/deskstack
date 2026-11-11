@@ -321,3 +321,31 @@ def test_cli_fails_loudly_on_an_unreadable_audit_file(tmp_path):
     r = subprocess.run([sys.executable, "-m", "deskstack_check", "check", str(m), "--audit", str(a)],
                        capture_output=True, text=True, cwd=HERE.parent)
     assert r.returncode == 2 and "Could not read any finding" in r.stderr
+
+
+def test_comps_without_a_price_leave_market_cap_empty_and_multiples_not_available(tmp_path):
+    """deskstack has no share prices. A market cap nobody gave stays null: no EV, no EV or P/E multiple (stars brief lot 5)."""
+    from openpyxl import load_workbook
+
+    spec = json.loads(json.dumps(COMPS))
+    spec["peers"][1]["market_cap"] = {"value": None, "source": "No price given"}
+    p = build_comps(spec, tmp_path / "c.xlsx")
+    ws = load_workbook(p, data_only=True)["Comps"]
+    row = next(r for r in range(4, 12) if ws[f"B{r}"].value == "PONE")
+    assert ws[f"G{row}"].value is None
+    assert [ws[f"{c}{row}"].value for c in "IJKL"] == ["n.a."] * 4
+    # EV / EBITDA of the rated peers still gets its median, without PONE.
+    assert ws["K9"].value == pytest.approx(statistics.median([160000 / 20000, 2005000 / 90000]))
+    r = check(str(p))
+    assert r["findings"] == [], r["findings"]
+    ex = extract(str(p))
+    assert not any(i.get("ref") == f"Comps!G{row}" for b in ex["verify_batches"] for i in b["items"])
+
+
+def test_extract_names_a_european_issuer_by_its_lei(tmp_path):
+    """EU issuers have no ticker: the DCF is titled 'Heineken N.V. (724500K5PTPSST86UQ23)'. The batch must carry the LEI,
+    or verify_value can't be called (found building the examples; stars brief lot 5)."""
+    spec = json.loads(json.dumps(SPEC))
+    spec["company"], spec["ticker"], spec["currency"] = "Heineken N.V.", "724500K5PTPSST86UQ23", "EUR"
+    ex = extract(str(build_dcf(spec, tmp_path / "h.xlsx")))
+    assert {b["company"] for b in ex["verify_batches"]} == {"724500K5PTPSST86UQ23"}
