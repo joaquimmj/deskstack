@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I checked 1,000 AI-built financial figures against SEC filings</title>
+<meta name="description" content="Claude with web search got 3.5% of reported figures wrong in DCFs and comps for 50 public companies. What went wrong, and what fixed it.">
+<meta property="og:title" content="I checked 1,000 AI-built financial figures against SEC filings">
+<meta property="og:description" content="3.5% of reported figures were wrong, and none of them looked wrong. What went wrong, and what fixed it.">
+<meta property="og:type" content="article">
+<meta name="theme-color" content="#f6f7f8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><rect x='2.5' y='2.5' width='19' height='19' rx='2' fill='none' stroke='%23111418' stroke-width='2'/><path d='M7 12.5l3.2 3.2L17 9' fill='none' stroke='%23107c41' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<style>
+:root{--sheet:#f6f7f8;--paper:#fff;--grid:#e3e6ea;--ink:#111418;--ink-2:#3a4250;--ink-3:#5b6470;--go:#107c41;--bad:#c42b1c;--line:rgba(17,20,24,.1);--sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"Geist Mono",ui-monospace,Menlo,Consolas,monospace;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--sheet);color:var(--ink-2);font:400 18px/1.65 var(--sans);font-feature-settings:"tnum" 1;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-underline-offset:3px}
+header{border-bottom:1px solid var(--line);background:var(--paper)}
+.bar{max-width:720px;margin:0 auto;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;font-size:15px}
+.brand{display:flex;gap:8px;align-items:center;font-weight:600;color:var(--ink);text-decoration:none}
+.brand svg{width:20px;height:20px}
+main{max-width:720px;margin:0 auto;padding:48px 16px 80px}
+h1{color:var(--ink);font-size:clamp(30px,5vw,42px);line-height:1.12;letter-spacing:-.02em;margin:0 0 12px;font-weight:600}
+.meta{color:var(--ink-3);font-size:15px;margin:0 0 36px}
+h2{color:var(--ink);font-size:24px;letter-spacing:-.01em;margin:44px 0 12px;font-weight:600}
+p{margin:0 0 18px}
+ul{padding-left:22px;margin:0 0 18px}li{margin:0 0 10px}
+strong{color:var(--ink);font-weight:600}
+.big{font-size:22px;color:var(--ink);font-weight:500;border-left:3px solid var(--bad);padding:4px 0 4px 16px;margin:28px 0}
+.tbl{overflow-x:auto;margin:20px 0 18px;border:1px solid var(--line);border-radius:10px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:560px}
+th,td{padding:10px 14px;text-align:right;border-bottom:1px solid var(--grid);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--ink-3);font-weight:500;font-size:13px}
+tr:last-child td{border-bottom:0}
+td.bad{color:var(--bad);font-family:var(--mono)}td.ok{color:var(--go);font-family:var(--mono);font-weight:500}
+.cta{margin-top:40px;padding:24px;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+.cta a.btn{display:inline-block;margin-top:6px;background:var(--ink);color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:500;font-size:16px}
+</style>
+</head>
+<body>
+<header><div class="bar"><a class="brand" href="../"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#107c41" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>deskstack</a><a href="https://github.com/joaquimmj/deskstack">GitHub</a></div></header>
+<main>
+<article>
+<h1>I checked 1,000 AI-built financial figures against SEC filings</h1>
+<p class="meta">November 2026 · Benchmark on 50 public companies</p>
+
+<p>I asked Claude to build a DCF and a comps table for 50 public companies, using web search, the way most people use it for finance today. Then I checked every reported figure it wrote against the companies' own filings.</p>
+<p class="big">1,018 figures. 36 were wrong for the period asked, or 3.5%. None of them looked wrong.</p>
+<p>The setup: 50 companies (35 US, 15 EU), Claude Sonnet 5.5, one DCF and one comps table each. Every figure was scored automatically against SEC XBRL and EU ESEF filings, then every mismatch was read by hand, because a scorer gets things wrong too (ours did, three times).</p>
+
+<h2>What went wrong</h2>
+<p>Almost no error was a wild hallucination. They were the kind a tired analyst makes:</p>
+<ul>
+<li><strong>Twelve months, a quarter late.</strong> In the comps tables, 15 of 16 errors came from one cause: "TTM" figures from an aggregator site that still showed the twelve months to June, when the September 10-Qs were already filed.</li>
+<li><strong>Numbers it couldn't find, filled in anyway.</strong> In the DCFs: a share count derived from net income ÷ EPS, a Q1 share count used for the full year, capex estimated as operating cash flow minus free cash flow.</li>
+<li><strong>The wrong line.</strong> Adjusted (non-GAAP) revenue instead of reported, a segment's D&amp;A used for the whole group, a quarter's net income written as the year's.</li>
+<li><strong>Placeholders.</strong> 7 figures it never found were left in the table as 0, labelled, and a ratio computed from a 0 is wrong.</li>
+</ul>
+<p>Claude flagged about half of its own DCF errors in its source notes ("reviewer should replace"). The numbers went into the model anyway. 12 of the 50 DCFs had at least one wrong input.</p>
+
+<h2>The fix: filings in, every number checked</h2>
+<p>The problem isn't the model's reasoning, it's the inputs. So I built deskstack, a free, open-source add-on for the Claude app:</p>
+<ul>
+<li>a connector that serves figures straight from SEC XBRL filings (10,419 US companies) and EU ESEF reports, each with its filing and period;</li>
+<li>a second agent, an "associate", that ties every hardcoded number in the model back to the filing, then a "VP" review with 15 rules on the workbook.</li>
+</ul>
+<p>Same 50 companies, same prompts:</p>
+<div class="tbl"><table>
+<thead><tr><th>Setup</th><th>Figures checked</th><th>Wrong</th><th>Cost / model</th><th>Time</th></tr></thead>
+<tbody>
+<tr><td>DCF, web search only</td><td>573</td><td class="bad">20 (3.5%)</td><td>$0.23</td><td>58 s</td></tr>
+<tr><td>DCF, deskstack + review</td><td>606</td><td class="ok">0</td><td>$0.10</td><td>32 s</td></tr>
+<tr><td>Comps, web search only</td><td>445</td><td class="bad">16 (3.6%) + 7 zeros</td><td>$0.56</td><td>171 s</td></tr>
+<tr><td>Comps, deskstack + review</td><td>1,010</td><td class="ok">0</td><td>$0.22</td><td>51 s</td></tr>
+</tbody></table></div>
+<p>In total, 0 wrong figures out of 3,230 across 199 models with deskstack, at about a third of the cost and 2–5× faster.</p>
+
+<h2>Caveats</h2>
+<ul>
+<li><strong>The 0 is partly by construction.</strong> deskstack reads the same filings the scorer checks against. Its data is checked separately: 99 of 99 golden questions pass, and a nightly diff runs against two other XBRL parsers.</li>
+<li><strong>Web search did better than I expected.</strong> 96.5% right is good. The issue is that the 3.5% is invisible, and in a model one wrong share count moves every per-share value.</li>
+<li><strong>Limits.</strong> No share prices or analyst estimates, EU coverage is partial and annual only, and the review roles need a paid Claude plan.</li>
+</ul>
+<p>The full method, raw transcripts and every hand-read error are in the repo's <a href="https://github.com/joaquimmj/deskstack/tree/main/bench">bench folder</a>.</p>
+
+<div class="cta">
+<h2 style="margin-top:0">Try it</h2>
+<p>It runs inside the Claude app, no code. If it saves you a tie-out, a star helps other people find it.</p>
+<a class="btn" href="https://github.com/joaquimmj/deskstack">github.com/joaquimmj/deskstack</a>
+</div>
+</article>
+</main>
+</body>
+</html>
