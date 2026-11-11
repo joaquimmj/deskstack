@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.1.0 (unreleased): first public release
+## v0.1.0 (2026-11-11): first public release
 
 The first release of the repository as a whole. The parts keep their own version numbers: data server 0.5.0,
 plugin 0.2.0, `deskstack-check` 0.2.0.
