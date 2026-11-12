@@ -59,7 +59,8 @@ treat leases the same way on both sides and say which you chose.
 - Banks and insurers are flagged \`financial_company\`: EBITDA/EV multiples and a standard FCF DCF \
 don't apply.
 - This server has no share prices. For market cap, use shares outstanding from financial_statements \
-with a price the user gives or one you find and cite.
+with a price the user gives or one you find and cite. Compare the result with \`public_float\` (the company's \
+own cover-page market value of non-affiliate shares, with its date): far off means a wrong price or share count.
 ${DISCLAIMER}`;
 
 const READ_ONLY = { readOnlyHint: true, idempotentHint: true, openWorldHint: true } as const;
@@ -302,6 +303,7 @@ function registerTools({ repo, rates, fx }: Deps, guarded: (run: () => Promise<T
           ...(r.predecessor_note ? { predecessor_note: r.predecessor_note } : {}),
           ...out,
           shares_outstanding: r.rec.shares_outstanding,
+          public_float: r.rec.public_float ?? null,
         });
       }),
   );

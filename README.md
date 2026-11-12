@@ -91,6 +91,23 @@ Both images are rendered from the files in [examples/apple-dcf](examples/apple-d
 [docs/media/make_media.py](docs/media/make_media.py). Open the workbook and every report there, or the
 [four other examples](examples/README.md), including a model with errors typed in on purpose.
 
+## Free plan: tie out without the plugin
+
+The roles need a paid plan, but the connector's `verify_value` works on a free account. Paste this, with your
+own figures:
+
+```text
+Using deskstack, check these figures against the filings with verify_value, then list each as match or
+mismatch with the filed value, the filing, and the hint if there is one. Do not correct anything yourself.
+Company: Apple (AAPL), figures in USD millions.
+- Revenue FY2025: 416,116
+- Operating income FY2025: 133,050
+- Net income FY2024: 93,736
+```
+
+The first line is the typo from the demo: `verify_value` answers that the 10-K reports 416,161 and that two digits
+look swapped.
+
 ## What it catches
 
 Real errors from the [benchmark](#benchmark), each read by hand against the filing.

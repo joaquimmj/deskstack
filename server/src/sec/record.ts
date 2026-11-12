@@ -10,7 +10,7 @@ import {
   type RecentFiling,
   type Submissions,
 } from "./filings";
-import { NoAnnualFacts, sharesOutstanding, standardize, type CompanyFacts, type SharesOutstanding, type Standardized } from "./xbrl";
+import { NoAnnualFacts, publicFloat, sharesOutstanding, standardize, type CompanyFacts, type SharesOutstanding, type Standardized } from "./xbrl";
 
 export interface CompanyRecord {
   schema: number;
@@ -30,6 +30,8 @@ export interface CompanyRecord {
   /** Why financials is null (no annual XBRL history, ...). */
   financials_error: string | null;
   shares_outstanding: SharesOutstanding | null;
+  /** Absent in records built before 2026-11-12. */
+  public_float?: ReturnType<typeof publicFloat>;
   /**
    * When this record was built, ISO-8601 UTC. Empty in snapshot files (so a
    * file only changes when the company files something, keeping nightly
@@ -85,6 +87,7 @@ export function buildCompanyRecord(
     financials,
     financials_error: error,
     shares_outstanding: facts ? sharesOutstanding(facts) : null,
+    public_float: facts ? publicFloat(facts) : null,
     built_at: builtAt,
     origin,
   };
