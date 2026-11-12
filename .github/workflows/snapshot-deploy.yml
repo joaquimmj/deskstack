@@ -55,7 +55,7 @@ jobs:
       # SEC deploy: keep the last good damodaran.json in the Actions cache and fall back to it.
       - if: steps.cfg.outputs.ok == 'true'
         name: Restore last good Damodaran inputs
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: server/.damodaran-last
           key: damodaran-${{ github.run_id }}
@@ -69,7 +69,7 @@ jobs:
           mkdir -p .damodaran-last && cp snapshot/v1/damodaran.json .damodaran-last/damodaran.json
       - if: steps.cfg.outputs.ok == 'true' && steps.damodaran.outcome == 'success'
         name: Save Damodaran inputs as the last good copy
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         with:
           path: server/.damodaran-last
           key: damodaran-${{ github.run_id }}
@@ -88,7 +88,7 @@ jobs:
       # so a night only downloads new reports. Like Damodaran, a failure falls back to the last good copy.
       - if: steps.cfg.outputs.ok == 'true'
         name: Restore ESEF extraction cache and last good EU snapshot
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: |
             server/.esef-cache
@@ -106,7 +106,7 @@ jobs:
           rm -rf .esef-last && cp -R snapshot/v1/eu .esef-last
       - if: steps.cfg.outputs.ok == 'true' && always()
         name: Save ESEF cache
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         with:
           path: |
             server/.esef-cache
@@ -127,7 +127,7 @@ jobs:
       # the current and previous year are re-downloaded (CVM updates them weekly). A failure keeps the last good copy.
       - if: steps.cfg.outputs.ok == 'true'
         name: Restore CVM cache and last good BR snapshot
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: |
             server/.cvm-cache
@@ -144,7 +144,7 @@ jobs:
           rm -rf .cvm-last && cp -R snapshot/v1/br .cvm-last
       - if: steps.cfg.outputs.ok == 'true' && always()
         name: Save CVM cache
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         with:
           path: |
             server/.cvm-cache
