@@ -694,3 +694,18 @@ describe("rules on synthetic facts", () => {
     expect(ifrsTotalDebt(cells)).toEqual([value, formula]);
   });
 });
+
+describe("public float (audit 2026-11-12, item 11)", () => {
+  it("is the latest cover-page dei:EntityPublicFloat of an annual filing, with its date and filing", async () => {
+    const { publicFloat } = await import("../src/sec/xbrl");
+    const row = (val: number, end: string, accn: string, filed: string, form = "10-K") => ({ val, end, accn, filed, form, fy: 2025, fp: "FY" });
+    const cf = companyfacts({}, { EntityPublicFloat: { units: { USD: [
+      row(2_600e9, "2024-03-29", "a-24", "2024-11-01"), row(3_100e9, "2025-03-28", "a-25", "2025-10-31"),
+      row(9e9, "2025-06-30", "q-25", "2025-08-01", "10-Q"),
+    ] } } });
+    const f = publicFloat(cf)!;
+    expect(f).toMatchObject({ value: 3_100e9, as_of: "2025-03-28", concept: "dei:EntityPublicFloat", accession: "a-25" });
+    expect(f.note).toMatch(/market value of shares held by non-affiliates.*not a current market cap/);
+    expect(publicFloat(companyfacts({}))).toBeNull();
+  });
+});
