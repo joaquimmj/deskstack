@@ -14,8 +14,9 @@ Uses the openpyxl and et_xmlfile installed next to the checker (checker/.venv), 
 
 from __future__ import annotations
 
-import filecmp
+import hashlib
 import importlib.util
+import json
 import shutil
 import sys
 from pathlib import Path
@@ -25,6 +26,9 @@ CHECKER = ROOT / "checker" / "deskstack_check"
 PLUGIN = ROOT / "plugins" / "deskstack"
 SKILLS = ["analyst", "associate", "vp-review", "md-redteam", "compliance", "sign-off"]
 PINS = {"openpyxl": "3.1.5", "et_xmlfile": "2.0.0"}
+# SHA-256 of every third-party file, written by sync(): --check compares the copies with it, so it needs no
+# installed openpyxl and gives the same answer on every machine.
+MANIFEST = ROOT / "plugins" / "vendor.sha256.json"
 LAUNCHER = '''#!/usr/bin/env python3
 """deskstack scripts (vendored copy of checker/deskstack_check, openpyxl and et_xmlfile; see _vendor/NOTICE.md).
 
@@ -94,8 +98,21 @@ def _expected() -> dict[str, Path]:
     return files
 
 
+def _sha(p: Path) -> str:
+    return hashlib.sha256(p.read_bytes()).hexdigest()
+
+
+def _checker_files() -> dict[str, Path]:
+    return {f"deskstack_check/{f.relative_to(CHECKER)}": f for f in CHECKER.rglob("*.py") if "__pycache__" not in f.parts}
+
+
+def _manifest() -> dict[str, str]:
+    return json.loads(MANIFEST.read_text())
+
+
 def sync() -> None:
     files = _expected()
+    MANIFEST.write_text(json.dumps({r: _sha(f) for r, f in sorted(files.items()) if not r.startswith("deskstack_check/")}, indent=1) + "\n")
     for skill in SKILLS:
         scripts = PLUGIN / "skills" / skill / "scripts"
         vendor = scripts / "_vendor"
@@ -111,16 +128,16 @@ def sync() -> None:
 
 
 def check() -> int:
-    files = _expected()
+    want_sha = {**{r: _sha(f) for r, f in _checker_files().items()}, **_manifest()}
     stale = []
     for skill in SKILLS:
         scripts = PLUGIN / "skills" / skill / "scripts"
         vendor = scripts / "_vendor"
         have = {str(p.relative_to(vendor)) for p in vendor.rglob("*") if p.is_file() and "__pycache__" not in p.parts} if vendor.exists() else set()
-        want = set(files) | {"NOTICE.md"}
+        want = set(want_sha) | {"NOTICE.md"}
         stale += [f"{skill}: missing {r}" for r in sorted(want - have)]
         stale += [f"{skill}: extra {r}" for r in sorted(have - want)]
-        stale += [f"{skill}: differs {r}" for r, src in files.items() if r in have and not filecmp.cmp(src, vendor / r, shallow=False)]
+        stale += [f"{skill}: differs {r}" for r, sha in want_sha.items() if r in have and _sha(vendor / r) != sha]
         if not (scripts / "deskstack.py").exists() or (scripts / "deskstack.py").read_text() != LAUNCHER:
             stale.append(f"{skill}: launcher out of date")
     if stale:
