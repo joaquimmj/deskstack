@@ -1079,6 +1079,25 @@ export interface SharesOutstanding {
 }
 
 /**
+ * The 10-K cover page's dei:EntityPublicFloat: the market value of shares held by non-affiliates, which the
+ * company computes itself at the end of its second fiscal quarter. No share price is served, so this is the one
+ * filed figure a typed market cap can be compared with.
+ */
+export function publicFloat(cf: CompanyFacts): (Omit<SharesOutstanding, "classes_summed"> & { note: string }) | null {
+  const rows = (cf.facts?.dei?.EntityPublicFloat?.units?.USD ?? []).filter((r) => r.form !== undefined && ANNUAL_FORMS.has(r.form));
+  if (!rows.length) return null;
+  const latest = rows.reduce((a, r) => ((r.filed ?? "") > (a.filed ?? "") || ((r.filed ?? "") === (a.filed ?? "") && r.end > a.end) ? r : a));
+  return {
+    value: Number(latest.val),
+    as_of: latest.end,
+    concept: "dei:EntityPublicFloat",
+    accession: latest.accn,
+    url: filingUrl(Math.trunc(Number(cf.cik)), latest.accn),
+    note: "market value of shares held by non-affiliates on this date, as the company states on its 10-K cover page: an order of magnitude, not a current market cap",
+  };
+}
+
+/**
  * Latest share count for market cap. Prefers the cover-page
  * dei:EntityCommonStockSharesOutstanding, summed across share classes when a
  * filing reports several. Companies that tag the cover page only per class
