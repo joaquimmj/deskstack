@@ -115,3 +115,23 @@ def test_doctor_says_what_is_broken_and_how_to_fix_it(tmp_path):
     assert rc == 1
     bad = next(c for c in r["checks"] if c["check"] == "/vp-review scripts")
     assert bad["status"] == "fail" and "reinstall" in bad["fix"].lower()
+
+
+def test_vendored_check_needs_no_installed_openpyxl(monkeypatch):
+    """--check compares third-party files with the SHA-256 manifest in the repo, not with whatever openpyxl the
+    machine has (audit 2026-11-12: the test failed on a clone without checker/.venv)."""
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("sync_vendor", ROOT / "plugins" / "sync_vendor.py")
+    sv = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(sv)
+
+    def no_site(pkg):
+        raise AssertionError("check() must not look for an installed package")
+
+    monkeypatch.setattr(sv, "_site", no_site)
+    assert sv.check() == 0
+    manifest = sv._manifest()
+    key = next(k for k in manifest if k.startswith("openpyxl/"))
+    monkeypatch.setattr(sv, "_manifest", lambda: {**manifest, key: "0" * 64})
+    assert sv.check() == 1

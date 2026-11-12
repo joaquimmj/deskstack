@@ -266,6 +266,14 @@ def test_lot2_rules_are_documented():
         assert rule in RULE_INFO and f"| {rule} |" in readme, rule
 
 
+def test_the_action_states_the_real_rule_count():
+    from deskstack_check.rules import RULE_INFO
+
+    action = (Path(__file__).parents[2] / "action.yml").read_text()
+    rules = [r for r in RULE_INFO if r != "DS000"]  # DS000 is the coverage notice, not a model check
+    assert f"{len(rules)} model checks" in action
+
+
 def test_ds021_leaves_a_model_that_types_every_rate_as_a_whole_number_alone(tmp_path):
     """A consistent convention (9 for 9%, divided by 100 in the formulas) is not an error; DS011 reads it too."""
     m = clean_dcf()
