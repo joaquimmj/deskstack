@@ -148,10 +148,10 @@ Options:
 
 The exit code is 0 for a pass, 1 for a fail, and 2 when the file can't be read or the connector fails.
 
-**In a repository,** the GitHub Action checks every workbook on each push and writes the report in the job summary:
+**In a repository,** the GitHub Action checks every workbook on each push and writes the report in the job summary. `@v0` follows the latest 0.x release; pin `@v0.1.0` for an exact version:
 
 ```yaml
-- uses: joaquimmj/deskstack@main
+- uses: joaquimmj/deskstack@v0
   with:
     files: "models/**/*.xlsx"
     verify: "true"        # optional: tie figures to the filings
