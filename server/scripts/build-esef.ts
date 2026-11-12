@@ -10,6 +10,7 @@ import { join, resolve } from "node:path";
 import { PRODUCT_NAME, REPO_URL, SNAPSHOT_SCHEMA } from "../src/config";
 import { extractFiling, type EsefFilingMeta, type ExtractedFiling } from "../src/esef/extract";
 import { buildEuRecord, FILINGS_XBRL_ORG, type EuIssuer } from "../src/esef/record";
+import { lastGood } from "./esef-last";
 import { coverageReport, type CoverageEntry } from "../src/esef/coverage";
 
 const arg = (n: string) => {
@@ -19,6 +20,7 @@ const arg = (n: string) => {
 const OUT = resolve(arg("out") ?? "snapshot");
 const CACHE = resolve(arg("cache") ?? ".esef-cache");
 const ONLY = arg("only")?.split(",");
+const LAST = resolve(arg("last") ?? ".esef-last");
 const UA = `${PRODUCT_NAME} snapshot build (+${REPO_URL})`;
 const PACE_MS = 2_000;
 const MAX_ANNUAL = 6;
@@ -162,6 +164,16 @@ for (const issuer of issuers) {
     console.log(`${issuer.lei} ${issuer.name}: ${done.length} report(s), ${rec.financials ? `${rec.financials.periods.length} period(s) ${rec.financials.currency}` : rec.financials_error}`);
   } catch (e) {
     console.warn(`${issuer.lei} ${issuer.name}: FAILED ${(e as Error).message}`);
+    // One night's network failure must not take an issuer off the connector: keep its last good record.
+    const kept = lastGood(LAST, issuer.lei);
+    if (kept) {
+      writeFileSync(join(OUT, "v1", "eu", "co", `${issuer.lei}.json`), kept.record);
+      index.push(kept.row);
+      if (kept.hasFinancials) ok++;
+      coverage.push({ lei: issuer.lei, name: issuer.name, country: issuer.country, served: kept.hasFinancials, ...(kept.hasFinancials ? {} : { reason: "no financial statements extracted" }) });
+      console.warn(`${issuer.lei} ${issuer.name}: kept from the last good snapshot`);
+      continue;
+    }
     coverage.push({ lei: issuer.lei, name: issuer.name, country: issuer.country, served: false, reason: (e as Error).message.slice(0, 200) });
   }
 }
