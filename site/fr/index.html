@@ -178,7 +178,7 @@ Tie-out to the filings (AAPL): 13 of 14 match, 1 do not
   MISMATCH  Inputs!C5  Revenue FY2025  416,116  filed 416,161
            Typo: two adjacent digits look swapped (filed 416,161, written 416,116).
 FAIL (fails on blocker)</pre><p class="hint">Bientôt sur PyPI. Aujourd'hui, depuis un clone : <code>pipx run --spec ./checker deskstack-check model.xlsx</code>.</p></div></div>
-      <article class="card"><h3>Dans un dépôt</h3><p>L'action GitHub vérifie chaque classeur à chaque push et écrit le rapport dans le résumé du job.</p><pre class="term small">- uses: joaquimmj/deskstack@main
+      <article class="card"><h3>Dans un dépôt</h3><p>L'action GitHub vérifie chaque classeur à chaque push et écrit le rapport dans le résumé du job.</p><pre class="term small">- uses: joaquimmj/deskstack@v0
   with:
     files: &quot;models/**/*.xlsx&quot;
     verify: &quot;true&quot;
