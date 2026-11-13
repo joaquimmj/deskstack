@@ -1,0 +1,255 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage[numbers,sort&compress]{natbib}
+\captionsetup{font=small,labelfont=bf}
+\setlist{itemsep=1pt,topsep=3pt}
+\graphicspath{{../analysis/output/}}
+
+\title{\textbf{Filling the Gaps: How Often Do LLM Agents Misreport\\ Figures When They Build Financial Models?}}
+\author{Joaquim Manji-Jung\\[2pt]
+\small Paris 1 Panth\'eon-Sorbonne University\\
+\small \href{https://github.com/joaquimmj/deskstack}{github.com/joaquimmj/deskstack}}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent When an LLM agent builds a financial model, every historical figure in it should come from the company's
+filings. We measure how often it does not. In a benchmark of 300 runs, Claude Sonnet 5.5 built a discounted cash
+flow (DCF) model and a trading-comparables table for each of 50 listed companies (35 US, 15 European) under three
+conditions: with web search only (A), with tools that return figures read from SEC and ESEF filings (B), and with
+the same tools plus an automated review round (C). Every figure the scorer flagged was then checked by hand against
+the filing. With web search only, 3.5\% of filed figures were wrong (36 of 1{,}018; 95\% CI 2.6--4.9\%), and 24\%
+of DCF models contained at least one wrong figure. With sourced data, none of 3{,}230 figures was wrong (exact
+95\% upper bound 0.11\%), at about a third of the cost. Most web-search errors were not misreadings but
+\emph{substitutions}: when the agent could not find a figure, it wrote an estimate, a non-GAAP or aggregator number,
+or the right figure for the wrong period, often while noting the doubt in its own source notes. A pre-registered
+robustness check found that the errors persist with 2.5$\times$ the search budget and higher reasoning effort. We
+release all prompts, transcripts, scores, hand readings and the analysis code.
+\end{abstract}
+
+\section{Introduction}
+
+Language models increasingly do analytical work end to end: an agent is asked for a valuation, searches for inputs,
+and returns a finished spreadsheet. The failure that matters most in that setting is not an obviously broken model
+but a plausible one with a few wrong inputs. A share count off by a quarter, or revenue a quarter stale, does not
+break any formula; it silently moves the answer, and a reviewer has no signal that it happened unless they tie every
+figure back to the filing.
+
+This is a specific, measurable instance of a general problem: a model that cannot find a fact tends to produce a
+plausible one rather than abstain \citep{ji2023,kalai2025}. Financial filings make it unusually easy to measure,
+because the ground truth is public, structured (XBRL in the US, ESEF in Europe) and unambiguous for most reported
+lines. Existing financial benchmarks test question answering over documents the model is given
+\citep{chen2021finqa,islam2023financebench}; we instead test an agent that must \emph{find} its inputs, as it would
+in practice, and we score every figure it reports. Grounding generation in retrieved sources is a standard remedy \citep{lewis2020}; we measure how much it buys when the source is the filing itself.
+
+We ask three questions:
+\begin{enumerate}
+  \item How often does an agent with web search write a historical figure that differs from the filing?
+  \item Does giving it tools that return sourced figures remove those errors, and at what cost?
+  \item Do the errors go away if the agent is simply given more search budget and reasoning effort?
+\end{enumerate}
+
+\section{Method}
+
+\paragraph{Company set.} 50 non-financial companies (35 US, 15 EU) across sectors, frozen before any run. Banks and
+insurers are excluded because an unlevered DCF does not apply to them. A 5-company pilot was run first; it led to
+two new scoring categories and five data fixes, and is not part of the results.
+
+\paragraph{Tasks.} Each company gets two tasks, built from scratch: (i) a quick DCF, whose filed inputs are the
+historical income-statement and cash-flow lines, net debt and diluted shares; and (ii) a comps table of the company
+and 4--6 listed peers the agent picks, with revenue, EBITDA, net income, net debt and market capitalisation.
+
+\paragraph{Arms.} All arms use \texttt{claude-sonnet-5-5} at medium effort with the same frozen prompts (v2), which
+fix conventions (sign of capex, EBITDA and net-debt definitions) so that only the tools differ.
+\begin{itemize}
+  \item \textbf{A, web search only:} up to 12 searches per request.
+  \item \textbf{B, sourced data:} tools that return figures read from SEC \texttt{companyfacts} and ESEF reports, each
+        with its source.
+  \item \textbf{C, sourced data + review:} B, then one review round and a fix. The review is a tie-out of every filed
+        figure against the filing and the findings of a deterministic model checker.
+\end{itemize}
+Every arm submits the same structured model through one tool, whose validator rejects missing sources, rates typed
+as percents and WACC $\le g$, and returns the errors to the agent to fix.
+
+\paragraph{Scoring.} Scoring is automatic and against the filings, with no human grading of quality. A reported
+figure is \emph{wrong} if it differs from the filed value for the period asked and matches no other line of the same
+filing. Figures equal to another line (e.g.\ revenue excluding excise taxes) are reported as \emph{other line};
+EBITDA and net debt, which depend on a definition, as \emph{other definition}; lines the filing does not report for
+that period, or peers that cannot be resolved by name, as \emph{not verifiable}. None of these count as wrong.
+
+\paragraph{Hand reading.} Every figure the scorer still called wrong was read by hand against the filing. This
+matters: the scorer's precision on arm A was 40\% for DCFs (20 of 50 flags were real errors) and 57\% for comps
+(16 of 28). The rest were the scorer's or the data's limitations (\S\ref{sec:validity}). All numbers below are after
+the hand reading.
+
+\paragraph{Statistics.} Proportions are reported with Wilson 95\% intervals, zero counts with exact Clopper--Pearson
+intervals, and differences with Newcombe's hybrid score interval \citep{wilson1927,clopper1934,newcombe1998}. Arm
+comparisons use Fisher's exact test, the two tasks are pooled with a Cochran--Mantel--Haenszel test, and DCF arms are
+compared at the company level with an exact McNemar test. Because errors cluster within companies, we also bootstrap
+the arm-A DCF rate over companies (20{,}000 resamples). The analysis is in \texttt{bench/analysis/analyze.py}.
+
+\section{Results}
+
+\begin{table}[htb]
+\centering
+\small
+\begin{tabular}{llrrrrr}
+\toprule
+Task & Arm & Wrong / checked & Rate & 95\% CI & Cost & Time \\
+\midrule
+DCF   & A: web search      & 20 / 573   & 3.49\% & 2.27--5.33\% & \$0.23 & 58 s \\
+      & B: sourced data    & 0 / 593    & 0      & 0--0.62\%    & \$0.07 & 18 s \\
+      & C: sourced + review& 0 / 606    & 0      & 0--0.61\%    & \$0.10 & 32 s \\
+\midrule
+Comps & A: web search      & 16 / 445   & 3.60\% & 2.23--5.76\% & \$0.55 & 167 s \\
+      & B: sourced data    & 0 / 1{,}021& 0      & 0--0.36\%    & \$0.17 & 36 s \\
+      & C: sourced + review& 0 / 1{,}010& 0      & 0--0.36\%    & \$0.22 & 51 s \\
+\bottomrule
+\end{tabular}
+\caption{Wrong filed figures, read by hand, with average cost and time per model. Intervals: Wilson for non-zero
+counts, exact for zeros. Comps are counted over the 49 companies where every arm finished.}
+\label{tab:main}
+\end{table}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\linewidth]{fig_error_rates.pdf}
+\caption{Share of filed figures that are wrong, by arm, with 95\% intervals.}
+\label{fig:rates}
+\end{figure}
+
+\paragraph{Web search alone gets about one figure in 28 wrong.} Table~\ref{tab:main} and Figure~\ref{fig:rates}
+give the main result. Pooled over both tasks, arm A wrote 36 wrong figures out of 1{,}018 checked (3.54\%; 95\% CI
+2.57--4.86\%). The rate is almost identical across the two tasks (3.49\% and 3.60\%), although the causes differ.
+
+\paragraph{The errors are concentrated, but common at the model level.} In the DCF task, 12 of 50 models (24\%;
+95\% CI 14--37\%) contained at least one wrong figure. Errors cluster: the three worst companies hold half of them
+(Cisco 4, GE 3, Stellantis 3). Bootstrapping over companies widens the interval on the arm-A rate to 1.6--5.8\%
+(design effect 2.0). Because the committed summaries do not give figures per company, the bootstrap spreads checked
+figures evenly; letting them vary at random moves the bounds by less than half a percentage point.
+
+\paragraph{Sourced data removes them, at a third of the cost.} Neither arm B nor arm C wrote a wrong figure in
+3{,}230 checked (exact 95\% upper bound 0.11\%). Against arm A the difference is 3.5 percentage points in each task
+(Newcombe 95\% CI 2.1--5.3 for DCF, 2.2--5.8 for comps; Fisher $p<10^{-6}$ in every comparison). Pooled across tasks,
+the CMH test gives $\chi^2 = 102.5$, $p \approx 4\times10^{-24}$. At the company level, the exact McNemar test gives
+$p = 9.8\times10^{-4}$ for A against B, computed conservatively as if B's one unfinished run were among A's twelve
+error companies, and $p = 4.9\times10^{-4}$ for A against C. Arm B was also cheaper (0.30--0.31$\times$ arm A's cost)
+and 3--5$\times$ faster, because the agent no longer reads web pages into its context.
+
+\paragraph{Review added little to accuracy here.} Arm C matched arm B, since B already had no wrong figures to
+correct. The review's measurable effect was on model quality: checker majors per DCF fell from 0.63 to 0.36. This
+benchmark cannot separate the value of review from the value of sourced data, because the latter already reaches the
+floor.
+
+\section{What the errors are}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.95\linewidth]{fig_error_causes.pdf}
+\caption{Causes of arm A's 36 wrong figures, each read by hand against the filing.}
+\label{fig:causes}
+\end{figure}
+
+Figure~\ref{fig:causes} classifies the 36 wrong figures. Almost none is a misreading of a source the agent had
+found. They are substitutions: the agent needed a number, did not find the filed one, and wrote something else.
+\begin{itemize}
+  \item \textbf{Stale periods (15 of 16 comps errors).} The agent took ``trailing twelve months'' figures from an
+        aggregator that still showed the twelve months to June 2026, when the September 10-Qs were filed. Each figure
+        was right for an earlier period.
+  \item \textbf{Proxies and non-statutory figures (DCF).} Adjusted (non-GAAP) revenue, a segment's D\&A for the
+        group's, a ``gross investment'' figure for capex.
+  \item \textbf{Aggregators and Wikipedia (DCF).} Operating income from data sites or a rounded encyclopedia figure.
+  \item \textbf{Derived or estimated numbers (DCF).} A share count computed as net income over EPS, a six-month or
+        first-quarter count used for the year, capex estimated as operating cash flow minus free cash flow.
+\end{itemize}
+In about half of the DCF cases the agent said so in its own source notes (``reviewer should replace''), but the
+number still went into the model and into the valuation. The model knew the figure was uncertain, and the output
+did not show it. We think that gap matters for oversight: an agent's caveats are only useful if they change what it
+outputs, or if a reviewer reads them.
+
+\section{Robustness: is it just the search budget?}
+
+The obvious objection is that arm A was starved of searches. We pre-registered a check before running it: on 10
+companies (the 5 where arm A had erred in comps, plus 5 fixed controls), the comps task was re-run at 12 searches and
+medium effort (A12, a fresh run of the main setting) and at 30 searches and high effort (A30). The stated reading
+rule was that if A30 had no wrong figures and no placeholders, we would say the errors depend on the search budget;
+otherwise that they persist.
+
+A30 still wrote a figure that was not the filing's: Chevron's net income as the model's own estimate (nine months
+from the 10-Q plus ``about'' the fourth quarter). Wrong figures were 1 of 86 (A12) and 1 of 117 (A30), with no
+detectable difference (Fisher $p = 1.0$). More budget did remove the placeholders (7 to 0), at 2.3$\times$ the cost
+per table (\$1.59 against \$0.68). By the pre-registered rule, the errors persist. The sample is small: this answers
+\emph{whether} the errors go away with more search (no), not \emph{how often} they occur.
+
+One amendment was made, and recorded, before any re-run: 7 of the 10 A30 runs hit the runner's \$3 per-run cost
+cap, a property of our harness rather than of web search, and were re-run with a \$6 cap.
+
+\section{Threats to validity}
+\label{sec:validity}
+
+\begin{itemize}
+  \item \textbf{The oracle shares data with arms B and C.} The scorer checks figures with the same filing reader that
+        B and C use, so their zero is partly by construction. That reader is checked independently: a hand-built
+        golden set (99/99) and a nightly differential against two other XBRL parsers. The comparison that matters is
+        A against B and C, and the scoring of A does not depend on deskstack being right, because every A error was
+        read by hand.
+  \item \textbf{Scorer precision.} Before the hand reading, 60\% of the scorer's DCF flags on arm A were not errors:
+        other accounting bases (ASML's US GAAP 20-F against its IFRS report), deskstack's narrower D\&A line, a
+        company's own segment tag, rounding, and one filing whose XBRL tag is off by a factor of a million. The
+        reading also found and fixed two scorer bugs in peer matching. Automated scoring alone would have overstated
+        arm A's error rate by 2.5$\times$.
+  \item \textbf{Not everything is scored.} EBITDA and net debt (definition-dependent), market caps and lines the
+        filing does not report were not counted as wrong. Arm A had more such figures, so if anything its true error
+        rate is understated.
+  \item \textbf{One model, one prompt version.} Results are for Claude Sonnet 5.5 at medium effort. Other models,
+        stronger search tools or prompts that require abstention may behave differently.
+  \item \textbf{Clustering.} Figures are not independent; the company-level tests and the bootstrap address this for
+        the DCF task. For comps, peers are shared across tables, so the figure-level intervals are too narrow.
+\end{itemize}
+
+\section{Conclusion}
+
+An LLM agent with web search builds financial models that are mostly right and occasionally, silently, wrong: about
+3.5\% of filed figures and a quarter of DCF models. The errors are substitutions for figures it could not find, they
+survive more search and more effort, and the agent often flags them in notes that do not reach the output. Giving the
+agent sourced data removes them in this benchmark and costs less. The broader lesson is about where to put
+verification: checking an agent's outputs after the fact is expensive and, as our own scorer showed, error-prone;
+constraining its inputs to sources that can be checked is cheaper and more reliable. As agents take on longer tasks, that kind of design choice is one practical lever for keeping their work overseeable \citep{bowman2022}.
+
+\paragraph{Reproducibility.} The company set, prompts, runner, scorer, summaries, hand readings
+(\texttt{bench/results/*/ANALYSIS.md}) and this analysis are in the repository. API spend for the runs reported here was \$86.89
+(DCF \$20.03, comps \$47.09, robustness \$19.77), plus \$6.68 for the pilot.
+
+\small
+\begin{thebibliography}{10}\setlength{\itemsep}{1pt}
+\bibitem[Bowman et al.(2022)]{bowman2022} S.~R. Bowman et al. Measuring progress on scalable oversight for large
+language models. \emph{arXiv:2211.03540}, 2022.
+\bibitem[Chen et al.(2021)]{chen2021finqa} Z.~Chen et al. FinQA: A dataset of numerical reasoning over financial
+data. In \emph{EMNLP}, 2021.
+\bibitem[Clopper and Pearson(1934)]{clopper1934} C.~J. Clopper and E.~S. Pearson. The use of confidence or fiducial
+limits illustrated in the case of the binomial. \emph{Biometrika}, 26(4):404--413, 1934.
+\bibitem[Islam et al.(2023)]{islam2023financebench} P.~Islam et al. FinanceBench: A new benchmark for financial
+question answering. \emph{arXiv:2311.11944}, 2023.
+\bibitem[Ji et al.(2023)]{ji2023} Z.~Ji et al. Survey of hallucination in natural language generation. \emph{ACM
+Computing Surveys}, 55(12), 2023.
+\bibitem[Kalai et al.(2025)]{kalai2025} A.~T. Kalai, O.~Nachum, S.~S. Vempala and E.~Zhang. Why language models
+hallucinate. \emph{arXiv:2509.04664}, 2025.
+\bibitem[Lewis et al.(2020)]{lewis2020} P.~Lewis et al. Retrieval-augmented generation for knowledge-intensive NLP
+tasks. In \emph{NeurIPS}, 2020.
+\bibitem[Newcombe(1998)]{newcombe1998} R.~G. Newcombe. Interval estimation for the difference between independent
+proportions: comparison of eleven methods. \emph{Statistics in Medicine}, 17(8):873--890, 1998.
+\bibitem[Wilson(1927)]{wilson1927} E.~B. Wilson. Probable inference, the law of succession, and statistical
+inference. \emph{Journal of the American Statistical Association}, 22(158):209--212, 1927.
+\end{thebibliography}
+
+\end{document}

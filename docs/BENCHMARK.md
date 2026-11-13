@@ -5,6 +5,8 @@ deskstack.
 
 - **Design:** the method, the frozen company set, the arms and how to run it are in [bench/README.md](../bench/README.md).
 - **Cost:** the cost model is in [bench/COST_ESTIMATE.md](../bench/COST_ESTIMATE.md).
+- **Paper and statistics:** the write-up is [bench/paper/deskstack-bench.pdf](../bench/paper/deskstack-bench.pdf); its numbers
+  (confidence intervals, exact tests, a bootstrap over companies) come from [bench/analysis/analyze.py](../bench/analysis/analyze.py).
 
 **Main run, 2026-11-09:** 50 companies (35 US, 15 EU) × DCF × 3 arms, Claude Sonnet 5.5, 150 runs, $20.03.
 Every transcript, submission and score is in [`bench/results/2026-11-09T09-25-07-305Z/`](../bench/results/2026-11-09T09-25-07-305Z/), with a hand-checked
