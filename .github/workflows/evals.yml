@@ -68,7 +68,7 @@ jobs:
     runs-on: ubuntu-24.04 # Python 3.9 (the pinned environment) isn't built for newer runners
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.9" # the version the pinned environment was verified with
       - run: pip install -r evals/differential/requirements.txt
