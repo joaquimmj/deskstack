@@ -1,0 +1,357 @@
+{
+  "seed": 20261109,
+  "n_boot": 20000,
+  "dcf": {
+    "arms": {
+      "A": {
+        "label": "A: web search only",
+        "k": 20,
+        "n": 573,
+        "rate": 0.034904013961605584,
+        "wilson95": [
+          0.022706787904031175,
+          0.05329582624635333
+        ],
+        "exact95": [
+          0.02144815658677729,
+          0.0533932534343551
+        ],
+        "runs": 50,
+        "valid": 50,
+        "avg_cost_usd": 0.22903818200000006,
+        "avg_seconds": 58.4406,
+        "avg_tokens": 152097.36,
+        "unsourced_pct": 0.07107438016528926
+      },
+      "B": {
+        "label": "B: sourced data",
+        "k": 0,
+        "n": 593,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.006436313637267269
+        ],
+        "exact95": [
+          0.0,
+          0.006201398800940673
+        ],
+        "runs": 50,
+        "valid": 49,
+        "avg_cost_usd": 0.06879606600000002,
+        "avg_seconds": 18.093639999999997,
+        "avg_tokens": 38293.94,
+        "unsourced_pct": 0.04411764705882353
+      },
+      "C": {
+        "label": "C: sourced data + reviewers",
+        "k": 0,
+        "n": 606,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.006299110637906947
+        ],
+        "exact95": [
+          0.0,
+          0.006068769995669799
+        ],
+        "runs": 50,
+        "valid": 50,
+        "avg_cost_usd": 0.10288015199999999,
+        "avg_seconds": 32.357060000000004,
+        "avg_tokens": 68555.04,
+        "unsourced_pct": 0.04692832764505119
+      }
+    },
+    "comparisons": {
+      "A_vs_B": {
+        "risk_difference": 0.034904013961605584,
+        "newcombe95": [
+          0.02111276830587003,
+          0.05329582624635333
+        ],
+        "fisher_p": 5.683538738835243e-07,
+        "cost_ratio": 0.30036942050125076,
+        "time_ratio": 0.30960736200518124
+      },
+      "A_vs_C": {
+        "risk_difference": 0.034904013961605584,
+        "newcombe95": [
+          0.021176264024774544,
+          0.05329582624635333
+        ],
+        "fisher_p": 4.544903397655936e-07,
+        "cost_ratio": 0.44918341169857856,
+        "time_ratio": 0.553674329147887
+      }
+    },
+    "company_level": {
+      "companies_with_wrong_A": {
+        "label": "companies with a wrong figure, arm A",
+        "k": 12,
+        "n": 50,
+        "rate": 0.24,
+        "wilson95": [
+          0.1429739139699173,
+          0.3741268375794292
+        ],
+        "exact95": [
+          0.13060991619745735,
+          0.3816907481040382
+        ]
+      },
+      "companies_with_wrong_B": {
+        "label": "companies with a wrong figure, arm B",
+        "k": 0,
+        "n": 49,
+        "rate": 0.0,
+        "wilson95": [
+          6.938893903907228e-18,
+          0.07269781922049637
+        ],
+        "exact95": [
+          0.0,
+          0.07251926366427738
+        ]
+      },
+      "companies_with_wrong_C": {
+        "label": "companies with a wrong figure, arm C",
+        "k": 0,
+        "n": 50,
+        "rate": 0.0,
+        "wilson95": [
+          6.938893903907228e-18,
+          0.07134759913335872
+        ],
+        "exact95": [
+          0.0,
+          0.07112173646419764
+        ]
+      },
+      "mcnemar_A_vs_B_p": 0.0009765625,
+      "mcnemar_A_vs_C_p": 0.00048828125,
+      "cluster_bootstrap_A": {
+        "rate": 0.03490401396160558,
+        "ci95": [
+          0.01570680628272251,
+          0.057591623036649206
+        ],
+        "design_effect": 1.9740422554581614
+      },
+      "cluster_bootstrap_A_sensitivity_ci95_range": {
+        "lower": [
+          0.015201978699356683,
+          0.016431169362410916
+        ],
+        "upper": [
+          0.05618271475643597,
+          0.06067585923470619
+        ]
+      },
+      "max_errors_in_one_company": 4,
+      "share_of_errors_in_top3_companies": 0.5
+    },
+    "scorer_precision_A": {
+      "scorer_mismatches_after_rescore": 50,
+      "confirmed_wrong_by_hand": 20,
+      "precision": 0.4
+    }
+  },
+  "comps": {
+    "arms": {
+      "A": {
+        "label": "A: web search only",
+        "k": 16,
+        "n": 445,
+        "rate": 0.035955056179775284,
+        "wilson95": [
+          0.022250820211364583,
+          0.05760245117507454
+        ],
+        "exact95": [
+          0.020688510752337894,
+          0.05773317620642992
+        ],
+        "runs": 49,
+        "valid": 45,
+        "avg_cost_usd": 0.5478190265306122,
+        "avg_seconds": 166.99785714285713,
+        "avg_tokens": 601117.5102040817,
+        "unsourced_pct": 0.11885714285714286,
+        "placeholders": 7
+      },
+      "B": {
+        "label": "B: sourced data",
+        "k": 0,
+        "n": 1021,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.003748344475753908
+        ],
+        "exact95": [
+          0.0,
+          0.0036064872675170183
+        ],
+        "runs": 49,
+        "valid": 49,
+        "avg_cost_usd": 0.16830253265306117,
+        "avg_seconds": 36.30230612244898,
+        "avg_tokens": 125977.40816326531,
+        "unsourced_pct": 0.1711111111111111,
+        "placeholders": 0
+      },
+      "C": {
+        "label": "C: sourced data + reviewers",
+        "k": 0,
+        "n": 1010,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.0037890133484603503
+        ],
+        "exact95": [
+          0.0,
+          0.0036456941561849457
+        ],
+        "runs": 49,
+        "valid": 49,
+        "avg_cost_usd": 0.21684723877551013,
+        "avg_seconds": 51.34216326530613,
+        "avg_tokens": 202361.67346938775,
+        "unsourced_pct": 0.16756756756756758,
+        "placeholders": 0
+      }
+    },
+    "comparisons": {
+      "A_vs_B": {
+        "risk_difference": 0.035955056179775284,
+        "newcombe95": [
+          0.021747446606493914,
+          0.05760245117507454
+        ],
+        "fisher_p": 4.293336486180773e-09,
+        "cost_ratio": 0.3072228683237536,
+        "time_ratio": 0.21738186790860695
+      },
+      "A_vs_C": {
+        "risk_difference": 0.035955056179775284,
+        "newcombe95": [
+          0.021736662964200876,
+          0.05760245117507454
+        ],
+        "fisher_p": 4.846198888761211e-09,
+        "cost_ratio": 0.3958373628401033,
+        "time_ratio": 0.30744204832152927
+      }
+    },
+    "scorer_precision_A": {
+      "scorer_mismatches_after_rescore": 28,
+      "confirmed_wrong_by_hand": 16,
+      "precision": 0.5714285714285714
+    }
+  },
+  "pooled": {
+    "A": {
+      "label": "A, both tasks",
+      "k": 36,
+      "n": 1018,
+      "rate": 0.03536345776031434,
+      "wilson95": [
+        0.025651859500433003,
+        0.0485685180013985
+      ],
+      "exact95": [
+        0.0248886811564572,
+        0.04862383012545938
+      ]
+    },
+    "B_and_C": {
+      "label": "B and C, both tasks",
+      "k": 0,
+      "n": 3230,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.0011878933675663291
+      ],
+      "exact95": [
+        0.0,
+        0.0011414160310568675
+      ]
+    },
+    "risk_difference": 0.03536345776031434,
+    "newcombe95": [
+      0.02557947945831273,
+      0.0485685180013985
+    ],
+    "fisher_p": 2.863640200983417e-23,
+    "cmh": {
+      "chi2": 102.52367445886257,
+      "p": 4.262432755318511e-24,
+      "mh_risk_difference": 0.035413693694062935
+    },
+    "rule_of_three_upper_BC": 0.0009287925696594427
+  },
+  "robustness": {
+    "A12": {
+      "label": "A12 wrong",
+      "k": 1,
+      "n": 86,
+      "rate": 0.011627906976744186,
+      "wilson95": [
+        0.0020555686652495644,
+        0.06296406589291725
+      ],
+      "exact95": [
+        0.00029434978669505487,
+        0.06309051627850096
+      ]
+    },
+    "A30": {
+      "label": "A30 wrong",
+      "k": 1,
+      "n": 117,
+      "rate": 0.008547008547008548,
+      "wilson95": [
+        0.0015103535737964364,
+        0.046829503274189374
+      ],
+      "exact95": [
+        0.0002163681102766906,
+        0.04670085245379529
+      ]
+    },
+    "wrong_fisher_p": 1.0,
+    "A12_placeholders": 7,
+    "A30_placeholders": 0,
+    "cost_per_table": {
+      "A12": 0.67875,
+      "A30": 1.5933333333333333
+    },
+    "pre_registered_claim_holds": true,
+    "p_zero_errors_at_main_rate": 0.013784210633319825
+  },
+  "taxonomy": {
+    "dcf_wrong": {
+      "Non-GAAP, segment or non-statutory figure": 6,
+      "Aggregator or Wikipedia figure": 5,
+      "Derived or partial-period share count": 3,
+      "Estimated or approximated figure": 2,
+      "Near miss under 1% (share count, operating income)": 4
+    },
+    "dcf_not_wrong": {
+      "Other accounting basis (ASML US GAAP vs IFRS)": 6,
+      "deskstack D&A narrower than the model's": 9,
+      "Disney segment tag (model right)": 3,
+      "Another line of the company's statements": 10,
+      "Rounding": 1,
+      "McDonald's XBRL scale error (all arms)": 1
+    },
+    "comps_wrong": {
+      "Trailing twelve months a quarter late (aggregator TTM)": 15,
+      "A quarter written as the full year": 1
+    }
+  }
+}

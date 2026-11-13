@@ -1,0 +1,48 @@
+{
+  "_note": "Counts read by hand from the filings, transcribed from the committed analyses. The scorer's summaries (rescored/summary.json) give the denominators; these give the numerators after the hand reading. Each block names the file it comes from.",
+  "dcf": {
+    "source": "bench/results/2026-11-09T09-25-07-305Z/ANALYSIS.md",
+    "results_dir": "bench/results/2026-11-09T09-25-07-305Z/rescored",
+    "wrong": {"A": 20, "B": 0, "C": 0},
+    "companies_with_wrong": {"A": 12, "B": 0, "C": 0},
+    "errors_by_company_A": {
+      "GE Aerospace": 3, "Cisco": 4, "Stellantis": 3, "UPS": 2, "Iberdrola": 1, "Verizon": 1,
+      "Boeing": 1, "Pfizer": 1, "Netflix": 1, "Schneider Electric": 1, "Chevron": 1, "Thermo Fisher": 1
+    },
+    "causes_A": {
+      "Non-GAAP, segment or non-statutory figure": 6,
+      "Aggregator or Wikipedia figure": 5,
+      "Derived or partial-period share count": 3,
+      "Estimated or approximated figure": 2,
+      "Near miss under 1% (share count, operating income)": 4
+    },
+    "not_wrong_A": {
+      "Other accounting basis (ASML US GAAP vs IFRS)": 6,
+      "deskstack D&A narrower than the model's": 9,
+      "Disney segment tag (model right)": 3,
+      "Another line of the company's statements": 10,
+      "Rounding": 1,
+      "McDonald's XBRL scale error (all arms)": 1
+    }
+  },
+  "comps": {
+    "source": "bench/results/2026-11-09T13-04-05-468Z/ANALYSIS.md",
+    "results_dir": "bench/results/2026-11-09T13-04-05-468Z/rescored",
+    "wrong": {"A": 16, "B": 0, "C": 0},
+    "placeholders": {"A": 7, "B": 0, "C": 0},
+    "causes_A": {
+      "Trailing twelve months a quarter late (aggregator TTM)": 15,
+      "A quarter written as the full year": 1
+    }
+  },
+  "robustness": {
+    "source": "bench/ROBUSTNESS.md",
+    "pre_registered": "2026-11-09",
+    "settings": {
+      "A12": {"searches": 12, "effort": "medium", "tables": 8, "of": 10, "checked": 86, "wrong": 1, "placeholders": 7, "spend": 5.43,
+              "dirs": ["bench/results/exploratory/2026-11-09T19-12-17-173Z"]},
+      "A30": {"searches": 30, "effort": "high", "tables": 9, "of": 10, "checked": 117, "wrong": 1, "placeholders": 0, "spend": 14.34,
+              "dirs": ["bench/results/exploratory/2026-11-09T19-39-56-942Z", "bench/results/exploratory/2026-11-09T20-18-34-250Z"]}
+    }
+  }
+}
